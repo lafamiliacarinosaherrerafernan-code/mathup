@@ -735,9 +735,9 @@ function currentStudentKey() {
   if (!state.student) return "";
   return [
     state.academicYear || state.student.academicYear || DEFAULT_ACADEMIC_YEAR,
-    state.student.courseId,
-    state.student.group,
-    state.student.name
+    state.student.courseId || state.courseId || "sin-curso",
+    state.student.group || state.student.groupLabel || "sin-grupo",
+    state.student.name || state.student.displayName || "sin-nombre"
   ].join("__");
 }
 
@@ -1501,37 +1501,29 @@ function renderAbsParabolaAreaGraph() {
   const plotX = (x) => 360 + 190 * x;
   const plotY = (y) => 300 - 130 * y;
   const parabolaPoints = [];
-  const lowerBoundaryPoints = [];
   for (let index = 0; index <= 58; index += 1) {
     const x = -1.45 + (2.9 * index) / 58;
     parabolaPoints.push(`${plotX(x).toFixed(1)},${plotY(x * x).toFixed(1)}`);
   }
-  for (let index = 0; index <= 40; index += 1) {
-    const x = 1 - (2 * index) / 40;
-    lowerBoundaryPoints.push(`${plotX(x).toFixed(1)},${plotY(x * x).toFixed(1)}`);
+  const fullAreaPath = [];
+  for (let index = 0; index <= 60; index += 1) {
+    const x = -1 + (2 * index) / 60;
+    fullAreaPath.push(`${index ? "L" : "M"} ${plotX(x).toFixed(1)} ${plotY(Math.abs(x)).toFixed(1)}`);
   }
-  const areaPath = [
-    `M ${plotX(-1)} ${plotY(1)}`,
-    `L ${plotX(0)} ${plotY(0)}`,
-    `L ${plotX(1)} ${plotY(1)}`,
-    ...lowerBoundaryPoints.map((point) => `L ${point}`),
-    "Z"
-  ].join(" ");
+  for (let index = 60; index >= 0; index -= 1) {
+    const x = -1 + (2 * index) / 60;
+    fullAreaPath.push(`L ${plotX(x).toFixed(1)} ${plotY(x * x).toFixed(1)}`);
+  }
+  fullAreaPath.push("Z");
   return `
     <figure class="defined-area-diagram">
       <svg viewBox="0 0 720 360" role="img" aria-label="Gráfica de y igual a valor absoluto de x y de y igual a x al cuadrado, con el recinto entre x igual a menos uno y x igual a uno coloreado">
-        <defs>
-          <linearGradient id="abs-parabola-area-fill" x1="0" x2="1">
-            <stop offset="0" stop-color="#f59e0b" stop-opacity="0.42"></stop>
-            <stop offset="1" stop-color="#14b8a6" stop-opacity="0.42"></stop>
-          </linearGradient>
-        </defs>
         <rect class="area-graph-background" x="20" y="16" width="680" height="326" rx="18"></rect>
         <line class="area-graph-grid" x1="170" y1="28" x2="170" y2="315"></line>
         <line class="area-graph-grid" x1="550" y1="28" x2="550" y2="315"></line>
         <line class="area-graph-axis" x1="52" y1="300" x2="678" y2="300"></line>
         <line class="area-graph-axis" x1="360" y1="326" x2="360" y2="30"></line>
-        <path class="area-region-fill" d="${areaPath}"></path>
+        <path class="area-region-fill abs-parabola-region" d="${fullAreaPath.join(" ")}"></path>
         <polyline class="area-curve area-curve-parabola" points="${parabolaPoints.join(" ")}"></polyline>
         <polyline class="area-curve area-curve-absolute" points="84.5,26.7 360,300 635.5,26.7"></polyline>
         <g class="area-intersection-points">
@@ -1550,9 +1542,128 @@ function renderAbsParabolaAreaGraph() {
         <text class="area-curve-label area-parabola-label" x="566" y="239">y=x²</text>
         <text class="area-region-label" x="360" y="205">Área</text>
       </svg>
-      <figcaption>Los puntos de corte que delimitan el recinto son x=−1 y x=1; la región coloreada está entre y=|x| e y=x².</figcaption>
+      <figcaption>La región coloreada está exclusivamente entre la función superior y=|x| (roja) y la función inferior y=x² (azul), desde x=−1 hasta x=1.</figcaption>
     </figure>
   `;
+}
+
+function renderDefiniteIntegral(lower, upper, integrand) {
+  return `<span class="math-integral area-integral" aria-label="integral desde ${escapeHtml(lower)} hasta ${escapeHtml(upper)}"><span class="integral-sign">∫</span><span class="integral-bounds"><sup>${escapeHtml(upper)}</sup><sub>${escapeHtml(lower)}</sub></span></span><span class="area-integrand">${integrand}</span><span class="area-differential">dx</span>`;
+}
+
+function renderAbsParabolaSymmetryEquation() {
+  return `
+    <div class="area-symmetry-equation" role="img" aria-label="A igual a la integral desde menos uno hasta uno de valor absoluto de x menos x al cuadrado, igual a dos por la integral desde cero hasta uno de x menos x al cuadrado">
+      <span class="area-equation-symbol">A=</span>
+      ${renderDefiniteIntegral("−1", "1", "(|x|−x<sup>2</sup>)")}
+      <span class="area-equation-equals">=</span>
+      <span>2·</span>${renderDefiniteIntegral("0", "1", "(x−x<sup>2</sup>)")}
+    </div>
+  `;
+}
+
+function renderReciprocalAreaGraph() {
+  const plotX = (x) => 64 + x * 230;
+  const plotY = (y) => 340 - y * 132;
+  const curvePoints = (fn, start, end, steps = 64) => {
+    const points = [];
+    for (let index = 0; index <= steps; index += 1) {
+      const x = start + ((end - start) * index) / steps;
+      points.push(`${plotX(x).toFixed(1)},${plotY(fn(x)).toFixed(1)}`);
+    }
+    return points.join(" ");
+  };
+  const region = [];
+  for (let index = 0; index <= 36; index += 1) {
+    const x = 1 + index / 36;
+    region.push(`${index ? "L" : "M"} ${plotX(x).toFixed(1)} ${plotY(1 / x).toFixed(1)}`);
+  }
+  for (let index = 36; index >= 0; index -= 1) {
+    const x = 1 + index / 36;
+    region.push(`L ${plotX(x).toFixed(1)} ${plotY(1 / (x * x)).toFixed(1)}`);
+  }
+  region.push("Z");
+  const p = { x: plotX(1), y: plotY(1) };
+  const q = { x: plotX(2), y: plotY(0.5) };
+  const r = { x: plotX(2), y: plotY(0.25) };
+  return `
+    <figure class="defined-area-diagram reciprocal-area-diagram">
+      <svg viewBox="0 0 720 390" role="img" aria-label="Región del primer cuadrante limitada por y igual a uno partido por x, y igual a uno partido por x al cuadrado y la recta x igual a dos">
+        <defs><linearGradient id="reciprocal-area-fill" x1="0" x2="1"><stop offset="0" stop-color="#f2b84b" stop-opacity="0.5"></stop><stop offset="1" stop-color="#22b8a7" stop-opacity="0.5"></stop></linearGradient></defs>
+        <rect class="area-graph-background" x="18" y="14" width="684" height="360" rx="18"></rect>
+        <line class="area-graph-axis" x1="45" y1="340" x2="688" y2="340"></line>
+        <line class="area-graph-axis" x1="64" y1="365" x2="64" y2="24"></line>
+        <path class="area-region-fill reciprocal-region" d="${region.join(" ")}"></path>
+        <polyline class="area-curve area-curve-reciprocal" points="${curvePoints((x) => 1 / x, 0.46, 2.65)}"></polyline>
+        <polyline class="area-curve area-curve-reciprocal-square" points="${curvePoints((x) => 1 / (x * x), 0.67, 2.65)}"></polyline>
+        <line class="area-boundary-line" x1="${plotX(2)}" y1="${plotY(0.08)}" x2="${plotX(2)}" y2="${plotY(1.22)}"></line>
+        <g class="area-intersection-points"><circle cx="${p.x}" cy="${p.y}" r="7"></circle><circle cx="${q.x}" cy="${q.y}" r="7"></circle><circle cx="${r.x}" cy="${r.y}" r="7"></circle></g>
+        <g class="area-axis-labels"><text x="${plotX(1) - 14}" y="367">x=1</text><text x="${plotX(2) - 14}" y="367">x=2</text><text x="677" y="332">x</text><text x="75" y="36">y</text></g>
+        <g class="reciprocal-point-labels"><text x="${p.x - 76}" y="${p.y - 13}">P=(1,1)</text><text x="${q.x + 12}" y="${q.y - 7}">Q=(2,½)</text><text x="${r.x + 12}" y="${r.y + 20}">R=(2,¼)</text></g>
+        <text class="area-curve-label area-reciprocal-label" x="490" y="170">y=1/x</text>
+        <text class="area-curve-label area-reciprocal-square-label" x="488" y="276">y=1/x²</text>
+        <text class="area-boundary-label" x="535" y="102">x=2</text>
+        <text class="area-region-label" x="420" y="246">Área</text>
+      </svg>
+      <figcaption>El recinto queda entre x=1 y x=2: la curva superior es f(x)=1/x y la inferior es g(x)=1/x². La recta x=2 une Q=(2,½) con R=(2,¼).</figcaption>
+    </figure>`;
+}
+
+function renderReciprocalAreaIntegral() {
+  return `
+    <div class="area-display-equation reciprocal-integral-equation" role="img" aria-label="A igual a la integral desde uno hasta dos de uno partido por x menos uno partido por x al cuadrado, diferencial de x">
+      <span>A=</span>
+      <span class="display-integral"><span class="display-integral-sign">∫</span><span class="display-integral-upper">2</span><span class="display-integral-lower">1</span></span>
+      <span class="display-integrand">(${formatMathFragment("frac{1}{x}-frac{1}{x²}")})</span><span>dx</span>
+    </div>`;
+}
+
+function renderReciprocalBarrowEquation() {
+  return `
+    <div class="area-display-equation reciprocal-barrow-equation" role="img" aria-label="Aplicación de la regla de Barrow desde uno hasta dos">
+      <span>A=</span>
+      <span class="barrow-evaluation"><span class="barrow-bracket">[</span><span class="barrow-expression">ln x+${formatMathFragment("frac{1}{x}")}</span><span class="barrow-bracket">]</span><span class="barrow-upper">2</span><span class="barrow-lower">1</span></span>
+      <span>=</span><span>(ln 2+${formatMathFragment("frac{1}{2}")})−(ln 1+1)</span><span>=ln 2−${formatMathFragment("frac{1}{2}")}.</span>
+    </div>`;
+}
+
+function renderDisplayIntegralTerm(lower, upper, integrand, className = "") {
+  return `
+    <span class="display-integral-term ${className}">
+      <span class="display-integral"><span class="display-integral-sign">∫</span><span class="display-integral-upper">${upper}</span><span class="display-integral-lower">${lower}</span></span>
+      <span class="display-integrand">${formatMathFragment(integrand)}</span><span class="area-differential">dx</span>
+    </span>`;
+}
+
+function renderParabolaLineAreaIntegral() {
+  return `
+    <div class="area-display-equation parabola-line-integral-equation" role="img" aria-label="Área igual a la integral desde uno hasta tres de x al cuadrado menos uno, más la integral desde tres hasta once de once menos x">
+      <span>A=</span>
+      ${renderDisplayIntegralTerm("1", "3", "(x²−1)", "parabola-integral-term")}
+      <span class="area-equation-plus">+</span>
+      ${renderDisplayIntegralTerm("3", "11", "(11−x)", "line-integral-term")}
+    </div>`;
+}
+
+function renderParabolaBarrowEquation() {
+  return `
+    <div class="area-display-equation parabola-line-barrow-equation" role="img" aria-label="Primera integral evaluada entre uno y tres mediante la regla de Barrow">
+      ${renderDisplayIntegralTerm("1", "3", "(x²−1)", "parabola-integral-term")}
+      <span>=</span>
+      <span class="barrow-evaluation"><span class="barrow-bracket">[</span><span class="barrow-expression">${formatMathFragment("frac{x³}{3}−x")}</span><span class="barrow-bracket">]</span><span class="barrow-upper">3</span><span class="barrow-lower">1</span></span>
+      <span>=</span><span>(9−3)−(${formatMathFragment("frac{1}{3}−1")})</span>
+      <span>=${formatMathFragment("frac{20}{3}")}.</span>
+    </div>`;
+}
+
+function renderLineBarrowEquation() {
+  return `
+    <div class="area-display-equation parabola-line-barrow-equation" role="img" aria-label="Segunda integral evaluada entre tres y once mediante la regla de Barrow">
+      ${renderDisplayIntegralTerm("3", "11", "(11−x)", "line-integral-term")}
+      <span>=</span>
+      <span class="barrow-evaluation"><span class="barrow-bracket">[</span><span class="barrow-expression">${formatMathFragment("11x−frac{x²}{2}")}</span><span class="barrow-bracket">]</span><span class="barrow-upper">11</span><span class="barrow-lower">3</span></span>
+      <span>=${formatMathFragment("frac{121}{2}−frac{57}{2}=32")}.</span>
+    </div>`;
 }
 
 function renderParabolaLineAreaGraph() {
@@ -1560,7 +1671,8 @@ function renderParabolaLineAreaGraph() {
   const plotY = (y) => 338 - y * 31;
   const parabola = [];
   const line = [];
-  const region = [];
+  const parabolaRegion = [];
+  const lineRegion = [];
   for (let index = 0; index <= 48; index += 1) {
     const x = index * (3.15 / 48);
     parabola.push(`${plotX(x).toFixed(1)},${plotY(x * x - 1).toFixed(1)}`);
@@ -1569,32 +1681,68 @@ function renderParabolaLineAreaGraph() {
     const x = index * (11 / 55);
     line.push(`${plotX(x).toFixed(1)},${plotY(11 - x).toFixed(1)}`);
   }
-  region.push(`M ${plotX(1)} ${plotY(0)}`, `L ${plotX(11)} ${plotY(0)}`);
+  parabolaRegion.push(`M ${plotX(1)} ${plotY(0)}`);
   for (let index = 0; index <= 32; index += 1) {
-    const x = 11 - index * (8 / 32);
-    region.push(`L ${plotX(x).toFixed(1)} ${plotY(11 - x).toFixed(1)}`);
+    const x = 1 + index * (2 / 32);
+    parabolaRegion.push(`L ${plotX(x).toFixed(1)} ${plotY(x * x - 1).toFixed(1)}`);
   }
-  for (let index = 0; index <= 24; index += 1) {
-    const x = 3 - index * (2 / 24);
-    region.push(`L ${plotX(x).toFixed(1)} ${plotY(x * x - 1).toFixed(1)}`);
+  parabolaRegion.push(`L ${plotX(3)} ${plotY(0)}`, "Z");
+  lineRegion.push(`M ${plotX(3)} ${plotY(0)}`, `L ${plotX(3)} ${plotY(8)}`);
+  for (let index = 1; index <= 48; index += 1) {
+    const x = 3 + index * (8 / 48);
+    lineRegion.push(`L ${plotX(x).toFixed(1)} ${plotY(11 - x).toFixed(1)}`);
   }
-  region.push("Z");
+  lineRegion.push(`L ${plotX(3)} ${plotY(0)}`, "Z");
   return `
     <figure class="defined-area-diagram">
       <svg viewBox="0 0 720 395" role="img" aria-label="Recinto limitado por la parábola y igual a x al cuadrado menos uno, la recta y igual a once menos x y el eje OX">
-        <defs><linearGradient id="parabola-line-area-fill" x1="0" x2="1"><stop offset="0" stop-color="#f59e0b" stop-opacity="0.46"></stop><stop offset="1" stop-color="#14b8a6" stop-opacity="0.42"></stop></linearGradient></defs>
         <rect class="area-graph-background" x="18" y="14" width="684" height="365" rx="18"></rect>
         <line class="area-graph-axis" x1="38" y1="338" x2="688" y2="338"></line>
         <line class="area-graph-axis" x1="64" y1="365" x2="64" y2="24"></line>
-        <path class="area-region-fill parabola-line-region" d="${region.join(" ")}"></path>
+        <path class="area-region-fill parabola-area-region" d="${parabolaRegion.join(" ")}"></path>
+        <path class="area-region-fill line-area-region" d="${lineRegion.join(" ")}"></path>
         <polyline class="area-curve area-curve-parabola" points="${parabola.join(" ")}"></polyline>
         <polyline class="area-curve area-curve-line" points="${line.join(" ")}"></polyline>
         <g class="area-intersection-points"><circle cx="${plotX(1)}" cy="${plotY(0)}" r="7"></circle><circle cx="${plotX(3)}" cy="${plotY(8)}" r="7"></circle><circle cx="${plotX(11)}" cy="${plotY(0)}" r="7"></circle></g>
         <g class="area-axis-labels"><text x="${plotX(1) - 14}" y="365">x=1</text><text x="${plotX(3) - 15}" y="365">x=3</text><text x="${plotX(11) - 21}" y="365">x=11</text><text x="677" y="331">x</text><text x="75" y="36">y</text></g>
-        <text class="area-curve-label area-parabola-label" x="205" y="72">y=x²−1</text><text class="area-curve-label area-line-label" x="456" y="111">y=11−x</text><text class="area-region-label" x="390" y="285">Área</text>
+        <text class="area-curve-label area-parabola-label" x="205" y="72">y=x²−1</text><text class="area-curve-label area-line-label" x="456" y="111">y=11−x</text>
+        <text class="area-region-label parabola-area-label" x="148" y="305">Área 1</text><text class="area-region-label line-area-region-label" x="425" y="285">Área 2</text>
       </svg>
-      <figcaption>La gráfica muestra por qué el área se divide en x=3: de x=1 a x=3 manda la parábola y de x=3 a x=11 manda la recta.</figcaption>
+      <figcaption>En azul, el área bajo la parábola entre x=1 y x=3. En verde, el área bajo la recta entre x=3 y x=11.</figcaption>
     </figure>`;
+}
+
+function renderDerivativeCycle2008() {
+  const columns = [
+    {
+      title: "Función y derivadas 1.ª–3.ª",
+      entries: [
+        { cycle: 1, expression: "f(x)=7·sen(x)−5·cos(x)" },
+        { cycle: 2, expression: "f′(x)=7·cos(x)+5·sen(x)" },
+        { cycle: 3, expression: "f″(x)=−7·sen(x)+5·cos(x)" },
+        { cycle: 4, expression: "f‴(x)=−7·cos(x)−5·sen(x)" }
+      ]
+    },
+    {
+      title: "Derivadas IV–VII",
+      entries: [
+        { cycle: 1, expression: "f^{IV}(x)=7·sen(x)−5·cos(x)=f(x)" },
+        { cycle: 2, expression: "f^{V}(x)=7·cos(x)+5·sen(x)=f′(x)" },
+        { cycle: 3, expression: "f^{VI}(x)=−7·sen(x)+5·cos(x)=f″(x)" },
+        { cycle: 4, expression: "f^{VII}(x)=−7·cos(x)−5·sen(x)=f‴(x)" }
+      ]
+    }
+  ];
+  return `
+    <div class="derivative-cycle-grid" role="img" aria-label="La función y sus siete primeras derivadas, distribuidas en dos columnas, muestran que las expresiones se repiten cada cuatro órdenes">
+      ${columns.map((column) => `
+        <section class="derivative-cycle-column">
+          <h4>${column.title}</h4>
+          ${column.entries.map((entry) => `<div class="derivative-cycle-row cycle-${entry.cycle}">${formatMathFragment(entry.expression)}</div>`).join("")}
+        </section>
+      `).join("")}
+    </div>
+  `;
 }
 
 function formatSolutionText(value) {
@@ -1605,7 +1753,14 @@ function formatSolutionText(value) {
   const cramerWorks = [];
   const gaussWorks = [];
   const areaGraphs = [];
+  const areaEquations = [];
+  const derivativeCycles = [];
   const source = String(value || "Lee el enunciado, ordena los datos y comprueba la opcion elegida.")
+    .replace(/\[\[derivative-cycle-2008\]\]/gi, () => {
+      const cycleIndex = derivativeCycles.length;
+      derivativeCycles.push(renderDerivativeCycle2008());
+      return `@@DC${cycleIndex}@@`;
+    })
     .replace(/\[\[area-graph-abs-parabola\]\]/gi, () => {
       const graphIndex = areaGraphs.length;
       areaGraphs.push(renderAbsParabolaAreaGraph());
@@ -1615,6 +1770,41 @@ function formatSolutionText(value) {
       const graphIndex = areaGraphs.length;
       areaGraphs.push(renderParabolaLineAreaGraph());
       return `@@AG${graphIndex}@@`;
+    })
+    .replace(/\[\[area-graph-reciprocal\]\]/gi, () => {
+      const graphIndex = areaGraphs.length;
+      areaGraphs.push(renderReciprocalAreaGraph());
+      return `@@AG${graphIndex}@@`;
+    })
+    .replace(/\[\[area-equation-abs-parabola\]\]/gi, () => {
+      const equationIndex = areaEquations.length;
+      areaEquations.push(renderAbsParabolaSymmetryEquation());
+      return `@@AE${equationIndex}@@`;
+    })
+    .replace(/\[\[area-equation-reciprocal\]\]/gi, () => {
+      const equationIndex = areaEquations.length;
+      areaEquations.push(renderReciprocalAreaIntegral());
+      return `@@AE${equationIndex}@@`;
+    })
+    .replace(/\[\[barrow-equation-reciprocal\]\]/gi, () => {
+      const equationIndex = areaEquations.length;
+      areaEquations.push(renderReciprocalBarrowEquation());
+      return `@@AE${equationIndex}@@`;
+    })
+    .replace(/\[\[area-equation-parabola-line\]\]/gi, () => {
+      const equationIndex = areaEquations.length;
+      areaEquations.push(renderParabolaLineAreaIntegral());
+      return `@@AE${equationIndex}@@`;
+    })
+    .replace(/\[\[barrow-equation-parabola\]\]/gi, () => {
+      const equationIndex = areaEquations.length;
+      areaEquations.push(renderParabolaBarrowEquation());
+      return `@@AE${equationIndex}@@`;
+    })
+    .replace(/\[\[barrow-equation-line\]\]/gi, () => {
+      const equationIndex = areaEquations.length;
+      areaEquations.push(renderLineBarrowEquation());
+      return `@@AE${equationIndex}@@`;
     })
     .replace(/\[\[point-plane-distance\s+plane="([^"]+)"\s+p="([^"]+)"\s+q="([^"]+)"\]\]/gi, (_, plane, pointP, pointQ) => {
       const diagramIndex = pointPlaneDiagrams.length;
@@ -1686,6 +1876,12 @@ function formatSolutionText(value) {
   });
   areaGraphs.forEach((graph, index) => {
     rendered = rendered.replace(`@@AG${index}@@`, graph);
+  });
+  areaEquations.forEach((equation, index) => {
+    rendered = rendered.replace(`@@AE${index}@@`, equation);
+  });
+  derivativeCycles.forEach((cycle, index) => {
+    rendered = rendered.replace(`@@DC${index}@@`, cycle);
   });
   return rendered;
 }
@@ -3012,6 +3208,9 @@ function renderAdventureQuestion() {
   const theme = course.themes[adventure.topicIndex];
   const questions = currentAdventureQuestions();
   const question = questions[adventure.questionIndex];
+  // Se considera visto en cuanto aparece en pantalla. Así, si el alumno sale
+  // de la aventura sin responder, al volver recibe otro ejercicio del mazo.
+  markChallengeQuestionAnswered(question);
   const meta = adventureWorlds[course.id];
   const progress = Math.round((adventure.questionIndex / questions.length) * 100);
   const modeTitle = adventure.mode === "boss"
@@ -3071,6 +3270,7 @@ function answerAdventureQuestion(index) {
   const difficultyMultiplier = { easy: 1, medium: 1.2, hard: 1.5 }[adventure.difficulty] || 1;
   const energyLoss = { easy: 12, medium: 18, hard: 24 }[adventure.difficulty] || 18;
   adventure.answered = true;
+  markChallengeQuestionAnswered(question);
   adventure.answers.push({ question: question.text, correct: isCorrect, solution: question.solution || "" });
   adventure.score += isCorrect ? Math.round((120 + adventure.streak * 15) * difficultyMultiplier) : 0;
   adventure.streak = isCorrect ? adventure.streak + 1 : 0;
@@ -3504,6 +3704,52 @@ function repeatTopic() {
   renderStudy();
 }
 
+function officialExerciseSource(question) {
+  const explicitSource = String(question?.source || "").trim();
+  if (explicitSource) return explicitSource;
+  const firstLine = String(question?.text || "").split(/\r?\n/)[0].trim();
+  return /\b(?:19|20)\d{2}\b/.test(firstLine)
+    && /\b(?:junio|julio|septiembre|reserva\s*\d*)\b/i.test(firstLine)
+    ? firstLine
+    : "";
+}
+
+function hasOfficialConvocation(question) {
+  const source = officialExerciseSource(question);
+  return /\b(?:19|20)\d{2}\b/.test(source)
+    && /\b(?:junio|julio|septiembre|reserva\s*\d*)\b/i.test(source);
+}
+
+function officialConvocationLabel(question) {
+  const source = officialExerciseSource(question);
+  if (!source) return "";
+  const year = source.match(/\b((?:19|20)\d{2})\b/)?.[1] || "";
+  const session = source.match(/\b(junio|julio|septiembre|reserva\s*\d*)\b/i)?.[1] || "";
+  if (!year || !session) return source;
+  const sessionLabel = session.charAt(0).toUpperCase() + session.slice(1).toLowerCase();
+  return `${sessionLabel} ${year}`;
+}
+
+function renderOfficialSourceCallout(question, courseId = state.courseId) {
+  if (!BACH_II_COURSE_IDS.includes(courseId)) return "";
+  const label = officialConvocationLabel(question);
+  return label ? `<div class="official-source">Enunciado original · Convocatoria: ${escapeHtml(label)}</div>` : "";
+}
+
+function officialQuestionStatementHtml(question, courseId = state.courseId) {
+  if (!BACH_II_COURSE_IDS.includes(courseId)) {
+    return question.statementHtml || formatMathText(question.text);
+  }
+  if (question.statementHtml) {
+    return String(question.statementHtml).replace(/^\s*<div class="official-source">[\s\S]*?<\/div>\s*/i, "");
+  }
+  const source = officialExerciseSource(question);
+  const text = source && !question.source && String(question.text || "").split(/\r?\n/)[0].trim() === source
+    ? String(question.text || "").split(/\r?\n/).slice(1).join("\n").trim()
+    : question.text;
+  return formatMathText(text);
+}
+
 function renderStudy() {
   const course = courseById(state.courseId);
   const eso = isEsoCourse(course);
@@ -3523,6 +3769,10 @@ function renderStudy() {
     renderBachBlockSelector();
     return;
   }
+  // Una pregunta que el alumno ya ha llegado a ver no debe reaparecer al
+  // abandonar y volver a entrar en el reto. El registro se conserva por
+  // alumno, curso y tema/bloque; al agotarse el banco comienza un ciclo nuevo.
+  markChallengeQuestionAnswered(question);
   const progress = Math.round((state.questionIndex / questions.length) * 100);
   const questionSeconds = questionSecondsFor(course);
   const minutesPerQuestion = Math.round(questionSeconds / 60);
@@ -3536,6 +3786,8 @@ function renderStudy() {
   const isOpenPauQuestion = question.type === "pau-open";
   const isPauWithoutOptions = isOpenPauQuestion && !question.options?.length;
   const isMultipartQuestion = Array.isArray(question.parts) && question.parts.length > 0;
+  const officialSourceHtml = renderOfficialSourceCallout(question, course.id);
+  const displayedStatementHtml = officialQuestionStatementHtml(question, course.id);
   const answersHtml = isMultipartQuestion ? `
     <div class="multipart-exercise-options">
       ${question.parts.map((part, partIndex) => `
@@ -3676,7 +3928,8 @@ function renderStudy() {
               <span>Pregunta ${state.questionIndex + 1} de ${questions.length}</span>
               <span>${escapeHtml(theme)}</span>
             </div>
-            <div class="question-text ${isOpenPauQuestion ? "pau-open-statement" : ""} ${isMultipartQuestion ? "official-exercise-statement" : ""}">${question.statementHtml || formatMathText(question.text)}</div>
+            ${officialSourceHtml}
+            <div class="question-text ${isOpenPauQuestion ? "pau-open-statement" : ""} ${isMultipartQuestion ? "official-exercise-statement" : ""}">${displayedStatementHtml}</div>
             ${answersHtml}
             <div class="solution-help" id="solution-help"></div>
             <div class="feedback" id="feedback"></div>
@@ -4068,7 +4321,7 @@ function questionHasCoherentOptions(question) {
   if (options.some((option) => !option || genericResponse.test(option))) return false;
   if (solutionIsInstructionOnly(question.solution)) return false;
 
-  const sameBasePower = /simplifica/i.test(text)
+  const sameBasePower = !/[√]/.test(text) && /simplifica/i.test(text)
     && (/([A-Za-z0-9]+)\^[-\d()]+\s*[·x×:*÷/]\s*\1\^/i.test(text)
       || /\([^)]*\^[-\d()]+\)\^[-\d()]+/.test(text));
   if (sameBasePower) {
@@ -4099,30 +4352,63 @@ function buildAdventureTrainingQuestions(theme, course, difficulty, roundSeed) {
 
   const lower = normalizeMathNotation(theme).toLowerCase();
   const count = questionsPerChallengeFor(course);
-  const historyKey = `${course.id}:${theme}:${difficulty}`;
-  const previousQuestions = new Set(state.trainingQuestionHistory?.[historyKey] || []);
+  const historyKey = `${course.id}:${theme}:aventura-${difficulty}`;
   const currentQuestions = new Set();
   const questions = [];
 
   for (let index = 0; index < count; index += 1) {
-    let attempt = 0;
-    let question;
-    do {
-      const seed = roundSeed * 53 + state.topicIndex * 17 + index + attempt * 101;
-      question = generatedEsoDifficultyQuestion(lower, course.id, difficulty, seed, index);
-      attempt += 1;
-    } while (
-      attempt < 80
-      && (currentQuestions.has(question.text) || previousQuestions.has(question.text))
-    );
-    currentQuestions.add(question.text);
-    questions.push(question);
-  }
+    // Todo el reto comparte un único mazo. Antes se guardaba un historial por
+    // posición (paso 0, paso 1...), de modo que una pregunta vista en una
+    // posición podía reaparecer más tarde en otra. El historial único hace que
+    // cada alumno recorra el banco completo de este tema, nivel y modalidad.
+    const slotScopeKey = historyKey;
+    state.challengeQuestionHistory = state.challengeQuestionHistory || {};
+    let answeredIdentities = new Set([
+      ...(state.challengeQuestionHistory[slotScopeKey] || []),
+      ...readChallengeAnswerHistory(slotScopeKey)
+    ]);
+    let question = null;
+    let identity = "";
 
-  state.trainingQuestionHistory = {
-    ...(state.trainingQuestionHistory || {}),
-    [historyKey]: [...new Set([...previousQuestions, ...currentQuestions])]
-  };
+    for (let attempt = 0; attempt < 400; attempt += 1) {
+      const seed = roundSeed * 53 + state.topicIndex * 17 + index + attempt * 101;
+      const variantProgressionIndex = (index + attempt) % Math.max(1, count);
+      const candidate = generatedEsoDifficultyQuestion(lower, course.id, difficulty, seed, variantProgressionIndex, variantProgressionIndex);
+      const candidateIdentity = challengeQuestionIdentity(candidate);
+      if (currentQuestions.has(candidateIdentity) || answeredIdentities.has(candidateIdentity)) continue;
+      question = candidate;
+      identity = candidateIdentity;
+      break;
+    }
+
+    if (!question) {
+      const lastIdentity = [...answeredIdentities].at(-1);
+      answeredIdentities = lastIdentity ? new Set([lastIdentity]) : new Set();
+      state.challengeQuestionHistory[slotScopeKey] = [...answeredIdentities];
+      writeChallengeAnswerHistory(slotScopeKey, [...answeredIdentities]);
+      for (let attempt = 0; attempt < 400; attempt += 1) {
+        const seed = roundSeed * 53 + state.topicIndex * 17 + index + attempt * 101;
+        const variantProgressionIndex = (index + attempt) % Math.max(1, count);
+        const candidate = generatedEsoDifficultyQuestion(lower, course.id, difficulty, seed, variantProgressionIndex, variantProgressionIndex);
+        const candidateIdentity = challengeQuestionIdentity(candidate);
+        if (currentQuestions.has(candidateIdentity) || answeredIdentities.has(candidateIdentity)) continue;
+        question = candidate;
+        identity = candidateIdentity;
+        break;
+      }
+    }
+
+    if (!question) {
+      question = generatedEsoDifficultyQuestion(lower, course.id, difficulty, roundSeed * 53 + state.topicIndex * 17 + index, index);
+      identity = challengeQuestionIdentity(question);
+    }
+    currentQuestions.add(identity);
+    questions.push({
+      ...question,
+      _historyScopeKey: slotScopeKey,
+      _historyIdentity: identity
+    });
+  }
 
   return questions.map((question, index) => {
     const amount = (roundSeed + state.topicIndex + index) % question.options.length;
@@ -4149,7 +4435,6 @@ function buildEsoTopicLevelQuestions(theme, course) {
   state.challengeRoundCache = state.challengeRoundCache || {};
   if (state.challengeRoundCache[roundKey]) return state.challengeRoundCache[roundKey];
 
-  const previousIdentities = new Set(state.trainingQuestionHistory?.[scopeKey] || []);
   const currentIdentities = new Set();
   const questions = [];
   const roundSeed = state.practiceRound * 1009 + state.topicIndex * 137 + (level === "master" ? 5003 : 101);
@@ -4159,19 +4444,58 @@ function buildEsoTopicLevelQuestions(theme, course) {
       ? (index < 3 ? "medium" : "hard")
       : (index < 5 ? "easy" : "medium");
     const progressionIndex = level === "master" ? Math.min(9, index + 4) : index;
-    let attempt = 0;
-    let question;
+    // Un único mazo por alumno, curso, tema y nivel. No se separa por la
+    // posición de la pregunta para impedir repeticiones cruzadas entre pasos.
+    const slotScopeKey = scopeKey;
+    state.challengeQuestionHistory = state.challengeQuestionHistory || {};
+    let answeredIdentities = new Set([
+      ...(state.challengeQuestionHistory[slotScopeKey] || []),
+      ...readChallengeAnswerHistory(slotScopeKey)
+    ]);
+    let question = null;
     let identity = "";
 
-    do {
+    // El nivel completo comparte un único historial. Buscamos una variante
+    // progresiva que este alumno todavía no haya visto en este tema y nivel.
+    for (let attempt = 0; attempt < 400; attempt += 1) {
       const seed = roundSeed + index * 97 + attempt * 7919;
-      question = generatedEsoDifficultyQuestion(lower, course.id, difficulty, seed, progressionIndex, index);
+      const variantProgressionIndex = level === "master"
+        ? 4 + ((progressionIndex - 4 + attempt) % 6)
+        : (progressionIndex + attempt) % 10;
+      const candidate = generatedEsoDifficultyQuestion(lower, course.id, difficulty, seed, variantProgressionIndex, variantProgressionIndex);
+      const candidateIdentity = challengeQuestionIdentity(candidate);
+      if (currentIdentities.has(candidateIdentity) || answeredIdentities.has(candidateIdentity)) continue;
+      question = candidate;
+      identity = candidateIdentity;
+      break;
+    }
+
+    // Si el generador no encuentra una variante inédita tras recorrer un lote
+    // amplio de semillas, comienza un ciclo nuevo conservando la última para
+    // impedir una repetición inmediata.
+    if (!question) {
+      const lastIdentity = [...answeredIdentities].at(-1);
+      answeredIdentities = lastIdentity ? new Set([lastIdentity]) : new Set();
+      state.challengeQuestionHistory[slotScopeKey] = [...answeredIdentities];
+      writeChallengeAnswerHistory(slotScopeKey, [...answeredIdentities]);
+      for (let attempt = 0; attempt < 400; attempt += 1) {
+        const seed = roundSeed + index * 97 + attempt * 7919;
+        const variantProgressionIndex = level === "master"
+          ? 4 + ((progressionIndex - 4 + attempt) % 6)
+          : (progressionIndex + attempt) % 10;
+        const candidate = generatedEsoDifficultyQuestion(lower, course.id, difficulty, seed, variantProgressionIndex, variantProgressionIndex);
+        const candidateIdentity = challengeQuestionIdentity(candidate);
+        if (currentIdentities.has(candidateIdentity) || answeredIdentities.has(candidateIdentity)) continue;
+        question = candidate;
+        identity = candidateIdentity;
+        break;
+      }
+    }
+
+    if (!question) {
+      question = generatedEsoDifficultyQuestion(lower, course.id, difficulty, roundSeed + index * 97, progressionIndex, index);
       identity = challengeQuestionIdentity(question);
-      attempt += 1;
-    } while (
-      attempt < 140
-      && (currentIdentities.has(identity) || previousIdentities.has(identity))
-    );
+    }
 
     const optionCount = question.options?.length || 0;
     const rotation = optionCount ? (roundSeed + index * 3) % optionCount : 0;
@@ -4179,18 +4503,22 @@ function buildEsoTopicLevelQuestions(theme, course) {
       ...question,
       difficulty,
       challengeLevel: level,
+      _historyScopeKey: slotScopeKey,
+      _historyIdentity: identity,
       options: rotate(question.options, rotation),
       correct: (question.correct - rotation + optionCount) % optionCount
-    } : { ...question, difficulty, challengeLevel: level };
+    } : {
+      ...question,
+      difficulty,
+      challengeLevel: level,
+      _historyScopeKey: slotScopeKey,
+      _historyIdentity: identity
+    };
 
     currentIdentities.add(identity);
     questions.push(prepared);
   }
 
-  state.trainingQuestionHistory = {
-    ...(state.trainingQuestionHistory || {}),
-    [scopeKey]: [...new Set([...previousIdentities, ...currentIdentities])]
-  };
   state.challengeRoundCache[roundKey] = questions;
   return questions;
 }
@@ -4252,12 +4580,19 @@ function generatedEsoDifficultyQuestion(lower, courseId, difficulty, seed, progr
   if (lower.includes("cuerpo") || lower.includes("figura") || lower.includes("medida") || lower.includes("angulo") || lower.includes("recta") || lower.includes("circunferencia") || lower.includes("semejanza") || lower.includes("pitagoras") || lower.includes("area")) {
     return generatedGeometryLevelQuestion(lower, difficulty, seed, sequenceIndex, courseId);
   }
-  if (difficulty === "medium") return generatedEsoMediumQuestion(lower, courseId, seed);
-  if (lower.includes("derivada")) return generatedDerivativeLevelQuestion(difficulty, seed);
-  if (lower.includes("limite")) return generatedLimitLevelQuestion(lower, difficulty, seed);
+  // Estos temas necesitan conservar su propia variedad también en dificultad
+  // media; si pasan por el generador genérico se repiten demasiados modelos.
   if (lower.includes("combinatoria")) return generatedCombinatoricsLevelQuestion(difficulty, seed);
   if (lower.includes("estadistica")) return generatedStatisticsLevelQuestion(difficulty, seed);
   if (lower.includes("probabilidad")) return generatedProbabilityLevelQuestion(difficulty, seed);
+  if (lower.includes("raiz") || lower.includes("radical") || lower.includes("logaritmo")) {
+    return generatedPowerLevelQuestion(lower, difficulty, seed, progressionIndex);
+  }
+  // Los generadores especializados se usan también en dificultad media. De
+  // este modo el mazo conserva todas sus estructuras y no queda reducido a
+  // unas pocas plantillas genéricas al repetir un reto.
+  if (lower.includes("derivada")) return generatedDerivativeLevelQuestion(difficulty, seed);
+  if (lower.includes("limite")) return generatedLimitLevelQuestion(lower, difficulty, seed);
   if (lower.includes("sucesion")) return generatedSequenceLevelQuestion(difficulty, seed);
   if (lower.includes("trigonometr")) return generatedTrigonometryLevelQuestion(difficulty, seed);
   if (lower.includes("geometria analitica")) return generatedAnalyticGeometryLevelQuestion(difficulty, seed);
@@ -4265,6 +4600,7 @@ function generatedEsoDifficultyQuestion(lower, courseId, difficulty, seed, progr
   if (lower.includes("ecuacion") || lower.includes("sistema") || lower.includes("inecuacion")) return generatedEquationLevelQuestion(lower, difficulty, seed);
   if (lower.includes("expresion") || lower.includes("algebra")) return generatedAlgebraLevelQuestion(difficulty, seed);
   if (lower.includes("proporcional")) return generatedProportionLevelQuestion(difficulty, seed);
+  if (difficulty === "medium") return generatedEsoMediumQuestion(lower, courseId, seed);
   if (lower.includes("fraccion")) return generatedFractionLevelQuestion(courseId, difficulty, seed, progressionIndex);
   if (lower.includes("potencia") || lower.includes("raiz") || lower.includes("radical") || lower.includes("logaritmo")) {
     return generatedPowerLevelQuestion(lower, difficulty, seed, progressionIndex);
@@ -4276,7 +4612,7 @@ function generatedEsoMediumQuestion(lower, courseId, seed) {
   const a = 2 + (seed % 7);
   const b = 3 + ((seed * 3) % 8);
   const c = 2 + ((seed * 5) % 6);
-  const operation = seed % 3;
+  const operation = seed % 4;
 
   if (lower.includes("derivada")) {
     return generatedQuestion(
@@ -4332,6 +4668,15 @@ function generatedEsoMediumQuestion(lower, courseId, seed) {
         10,
         [a + 10, 7, 13],
         `Resolución:\n1. El rango es máximo menos mínimo.\n2. (${a + 10})-${a}=10.\nResultado final: 10.`
+      );
+    }
+    if (operation === 3) {
+      const repeated = a + 2;
+      return generatedQuestion(
+        `Calcula la moda de los datos: ${a}, ${repeated}, ${repeated}, ${a + 5}, ${a + 7}.`,
+        repeated,
+        [a, a + 5, a + 7],
+        `Resolución:\n1. Contamos cuántas veces aparece cada dato.\n2. ${repeated} aparece dos veces y los demás una sola vez.\nResultado final: la moda es ${repeated}.`
       );
     }
     const values = [a, a + 2, a + 4, a + 6, a + 8];
@@ -4801,12 +5146,13 @@ function generatedNumberLevelQuestion(lower, courseId, difficulty, seed, progres
 
 function generatedPowerLevelQuestion(lower, difficulty, seed, progressionIndex = seed) {
   const levelExtra = difficulty === "hard" ? 2 : difficulty === "medium" ? 1 : 0;
-  const a = 2 + (seed % 6);
-  const m = 2 + levelExtra + (Math.floor(seed / 3) % 4);
-  const n = 2 + levelExtra + (Math.floor(seed / 7) % 4);
-  const p = 1 + (Math.floor(seed / 11) % 3);
-  const outer = 2 + (Math.floor(seed / 13) % 2);
-  const radicand = [2, 3, 5, 7][seed % 4];
+  const positiveSeed = Math.abs(seed);
+  const a = 2 + ((positiveSeed + Math.floor(positiveSeed / 17)) % 19);
+  const m = 2 + levelExtra + (Math.floor(positiveSeed / 19) % 7);
+  const n = 2 + levelExtra + (Math.floor(positiveSeed / 131) % 7);
+  const p = 1 + (Math.floor(positiveSeed / 29) % 5);
+  const outer = 2 + (Math.floor(positiveSeed / 43) % 3);
+  const radicand = [2, 3, 5, 7, 11, 13][positiveSeed % 6];
   const rawProgressionStage = ((progressionIndex % 10) + 10) % 10;
   const easyProgression = [10, 10, 0, 0, 1, 1, 2, 3, 7, 8];
   const progressionStage = difficulty === "easy"
@@ -4842,12 +5188,37 @@ function generatedPowerLevelQuestion(lower, difficulty, seed, progressionIndex =
   };
 
   if (!lower.includes("potencia")) {
-    if (lower.includes("logaritmo") && seed % 2 === 0) {
+    if (lower.includes("logaritmo")) {
+      const logarithmVariant = seed % 4;
+      if (logarithmVariant === 0) {
+        return generatedQuestion(
+          `Calcula: log(10^${m}) - log(10)`,
+          m - 1,
+          [m, m + 1, 10 ** (m - 1)],
+          `Resolución:\n1. Aplicamos log(10^k)=k: log(10^${m})=${m}.\n2. Como log(10)=1, restamos: ${m}-1=${m - 1}.\nResultado final: ${m - 1}.`
+        );
+      }
+      if (logarithmVariant === 1) {
+        return generatedQuestion(
+          `Resuelve: log_${a}(x)=${m}.`,
+          `x=${a ** m}`,
+          [`x=${a * m}`, `x=${m ** a}`, `x=${m}`],
+          `Resolución:\n1. Pasamos de forma logarítmica a exponencial: x=${a}^${m}.\n2. Calculamos la potencia.\nResultado final: x=${a ** m}.`
+        );
+      }
+      if (logarithmVariant === 2) {
+        return generatedQuestion(
+          `Calcula: log(10^${m}·10^${n}).`,
+          m + n,
+          [m * n, Math.abs(m - n), 10 ** Math.min(5, m + n)],
+          `Resolución:\n1. Multiplicamos potencias de base 10: 10^${m}·10^${n}=10^${m + n}.\n2. log(10^${m + n})=${m + n}.\nResultado final: ${m + n}.`
+        );
+      }
       return generatedQuestion(
-        `Calcula: log(10^${m}) - log(10)`,
-        m - 1,
-        [m, m + 1, 10 ** (m - 1)],
-        `Resolución:\n1. Aplicamos log(10^k)=k: log(10^${m})=${m}.\n2. Como log(10)=1, restamos: ${m}-1=${m - 1}.\nResultado final: ${m - 1}.`
+        `Calcula: log_${a}paren{frac{${a ** (m + 1)}}{${a}}}.`,
+        m,
+        [m + 1, m - 1, a * m],
+        `Resolución:\n1. Dividimos potencias de igual base: frac{${a}^${m + 1}}{${a}}=${a}^${m}.\n2. log_${a}(${a}^${m})=${m}.\nResultado final: ${m}.`
       );
     }
     if (difficulty === "easy") {
@@ -4857,6 +5228,32 @@ function generatedPowerLevelQuestion(lower, difficulty, seed, progressionIndex =
         root,
         [root * root, root + 2, Math.max(1, root - 2)],
         `Resolución:\n1. Buscamos el número positivo cuyo cuadrado es ${root * root}.\n2. ${root}²=${root * root}.\nResultado final: √${root * root}=${root}.`
+      );
+    }
+    const radicalVariant = seed % 4;
+    if (radicalVariant === 1) {
+      return generatedQuestion(
+        `Racionaliza: frac{${a}}{√${radicand}}.`,
+        `frac{${a}√${radicand}}{${radicand}}`,
+        [`frac{√${radicand}}{${a}}`, `${a}√${radicand}`, `frac{${radicand}}{${a}√${radicand}}`],
+        `Resolución:\n1. Multiplicamos numerador y denominador por √${radicand}.\n2. El denominador queda ${radicand}.\nResultado final: frac{${a}√${radicand}}{${radicand}}.`
+      );
+    }
+    if (radicalVariant === 2) {
+      const other = 2 + (Math.floor(seed / 5) % 6);
+      return generatedQuestion(
+        `Reduce: √${a * a * radicand}+√${other * other * radicand}.`,
+        `${a + other}√${radicand}`,
+        [`${a * other}√${radicand}`, `${a + other}√${2 * radicand}`, `${a + other + radicand}`],
+        `Resolución:\n1. Extraemos cuadrados perfectos: √${a * a * radicand}=${a}√${radicand} y √${other * other * radicand}=${other}√${radicand}.\n2. Sumamos radicales semejantes.\nResultado final: ${a + other}√${radicand}.`
+      );
+    }
+    if (radicalVariant === 3) {
+      return generatedQuestion(
+        `Calcula y simplifica: √${radicand}·√${a * a * radicand}.`,
+        a * radicand,
+        [a * a * radicand, a * Math.sqrt(radicand), a + radicand],
+        `Resolución:\n1. Unimos los radicales: √${radicand}·√${a * a * radicand}=√${a * a * radicand * radicand}.\n2. El radicando es (${a}·${radicand})².\nResultado final: ${a * radicand}.`
       );
     }
     return generatedQuestion(
@@ -5176,7 +5573,7 @@ function generatedProportionLevelQuestion(difficulty, seed) {
   const units = 2 + (seed % 7);
   const price = 3 + ((seed * 2) % 8);
   const requested = units + 3 + (seed % 4);
-  const operation = seed % 3;
+  const operation = seed % 4;
 
   if (difficulty === "easy") {
     if (operation === 1) {
@@ -5199,6 +5596,17 @@ function generatedProportionLevelQuestion(difficulty, seed) {
         result,
         [total - result, total * percentage, result + percentage],
         `Resolución:\n1. Escribimos ${percentage}% como ${percentage}/100.\n2. Multiplicamos: ${total}·${percentage}/100=${result}.\nResultado final: ${result}.`
+      );
+    }
+    if (operation === 3) {
+      const mapDistance = 2 + (seed % 7);
+      const scale = 50000;
+      const realKm = mapDistance * scale / 100000;
+      return generatedQuestion(
+        `En un mapa a escala 1:${scale}, dos lugares están separados ${mapDistance} cm. ¿Qué distancia real hay entre ellos?`,
+        `${decimalAnswer(realKm)} km`,
+        [`${mapDistance * scale} km`, `${mapDistance / 2} km`, `${mapDistance * 5} km`],
+        `Resolución:\n1. La distancia real en centímetros es ${mapDistance}·${scale}=${mapDistance * scale} cm.\n2. Pasamos de centímetros a kilómetros dividiendo entre 100000.\nResultado final: ${decimalAnswer(realKm)} km.`
       );
     }
     const result = requested * price;
@@ -5234,6 +5642,19 @@ function generatedProportionLevelQuestion(difficulty, seed) {
       `${distance} km`,
       [`${speed + hours} km`, `${distance / hours} km`, `${distance + speed} km`],
       `Resolución:\n1. Usamos distancia=velocidad·tiempo.\n2. d=${speed}·${hours}=${distance}.\nResultado final: ${distance} km.`
+      );
+  }
+  if (operation === 3) {
+    const kilograms = 2 + (seed % 6);
+    const unitPrice = 3 + (seed % 8);
+    const paid = kilograms * unitPrice;
+    const requestedKg = kilograms + 3;
+    const result = requestedKg * unitPrice;
+    return generatedQuestion(
+      `${kilograms} kg de fruta cuestan ${paid} €. Al mismo precio por kilogramo, ¿cuánto cuestan ${requestedKg} kg?`,
+      `${result} €`,
+      [`${paid + requestedKg} €`, `${unitPrice * kilograms * requestedKg} €`, `${result - unitPrice} €`],
+      `Resolución:\n1. Calculamos el precio de 1 kg: ${paid}/${kilograms}=${unitPrice} €.\n2. Multiplicamos por ${requestedKg}: ${unitPrice}·${requestedKg}=${result}.\nResultado final: ${result} €.`
     );
   }
   const afterDiscount = original * (1 - discount / 100);
@@ -5250,7 +5671,7 @@ function generatedAlgebraLevelQuestion(difficulty, seed) {
   const a = 2 + (seed % 7);
   const b = 3 + ((seed * 2) % 8);
   const value = 1 + (seed % 5);
-  const operation = seed % 3;
+  const operation = seed % 4;
 
   if (difficulty === "easy") {
     if (operation === 1) {
@@ -5267,6 +5688,14 @@ function generatedAlgebraLevelQuestion(difficulty, seed) {
         `${a}x + ${a * value}`,
         [`${a}x + ${value}`, `${a + value}x`, `${a}x + ${a + value}`],
         `Resolución:\n1. Multiplicamos ${a} por cada término del paréntesis.\n2. ${a}·x=${a}x y ${a}·${value}=${a * value}.\nResultado final: ${a}x+${a * value}.`
+      );
+    }
+    if (operation === 3) {
+      return generatedQuestion(
+        `Multiplica los monomios: (${a}x^2)·(${value}x^3).`,
+        `${a * value}x^5`,
+        [`${a * value}x^6`, `${a + value}x^5`, `${a * value}x`],
+        `Resolución:\n1. Multiplicamos los coeficientes: ${a}·${value}=${a * value}.\n2. Sumamos los exponentes de la misma base: x²·x³=x⁵.\nResultado final: ${a * value}x⁵.`
       );
     }
     const result = a * value + b;
@@ -5292,6 +5721,14 @@ function generatedAlgebraLevelQuestion(difficulty, seed) {
       `${a}x^2 + ${a * b + value}x + ${value * b}`,
       [`${a}x^2 + ${a + b + value}x + ${value * b}`, `${a}x^2 + ${a * b - value}x + ${value * b}`, `${a}x^2 + ${a * b + value}x - ${value * b}`],
       `Resolución:\n1. Multiplicamos cada término del primer paréntesis por cada término del segundo.\n2. Obtenemos ${a}x²+${a * b}x+${value}x+${value * b}.\n3. Sumamos términos semejantes: ${a * b}x+${value}x=${a * b + value}x.\nResultado final: ${a}x²+${a * b + value}x+${value * b}.`
+      );
+  }
+  if (operation === 3) {
+    return generatedQuestion(
+      `Desarrolla la identidad notable: (${a}x+${value})^2.`,
+      `${a * a}x^2 + ${2 * a * value}x + ${value * value}`,
+      [`${a * a}x^2 + ${value * value}`, `${a * a}x^2 - ${2 * a * value}x + ${value * value}`, `${a}x^2 + ${2 * value}x + ${value * value}`],
+      `Resolución:\n1. Usamos (u+v)²=u²+2uv+v².\n2. Tomamos u=${a}x y v=${value}.\n3. Sustituimos: (${a}x)²+2·${a}x·${value}+${value}².\nResultado final: ${a * a}x²+${2 * a * value}x+${value * value}.`
     );
   }
   return generatedQuestion(
@@ -5973,7 +6410,59 @@ function generatedEquationLevelQuestion(lower, difficulty, seed) {
   const a = 2 + (seed % 7);
   const solution = 3 + ((seed * 2) % 9);
   const b = 4 + (seed % 8);
-  const operation = seed % 3;
+  const operation = seed % 4;
+
+  if (lower.includes("sistema")) {
+    const x = solution;
+    const y = 1 + (seed % 6);
+    const systems = [
+      { text: `{ 2x + y = ${2 * x + y} ; x - y = ${x - y} }`, step: "Sumamos las ecuaciones después de multiplicar la segunda cuando sea necesario." },
+      { text: `{ x + y = ${x + y} ; x - 2y = ${x - 2 * y} }`, step: "Restamos la segunda ecuación de la primera para eliminar x." },
+      { text: `{ 3x - y = ${3 * x - y} ; 2x + y = ${2 * x + y} }`, step: "Sumamos las dos ecuaciones para eliminar y." },
+      { text: `{ x + 2y = ${x + 2 * y} ; 3x - y = ${3 * x - y} }`, step: "Multiplicamos la segunda ecuación por 2 y la sumamos con la primera para eliminar y." }
+    ];
+    const selected = systems[operation];
+    return generatedQuestion(
+      `Resuelve el sistema: ${selected.text}`,
+      `x = ${x}, y = ${y}`,
+      [`x = ${y}, y = ${x}`, `x = ${x + 1}, y = ${y - 1}`, `x = ${x - 1}, y = ${y + 1}`],
+      `Resolución:\n1. Escribimos juntas las dos ecuaciones del sistema.\n2. ${selected.step}\n3. Obtenemos una ecuación con una sola incógnita y hallamos x=${x}.\n4. Sustituimos ese valor en una de las ecuaciones y obtenemos y=${y}.\n5. Comprobamos ambos valores en las dos ecuaciones.\nResultado final: x=${x}, y=${y}.`
+    );
+  }
+
+  if (lower.includes("inecuacion")) {
+    if (operation === 1) {
+      return generatedQuestion(
+        `Resuelve la inecuación: ${a}x + ${b} < ${a * solution + b}`,
+        `x < ${solution}`,
+        [`x > ${solution}`, `x < ${a * solution + b}`, `x ≤ ${solution - 1}`],
+        `Resolución:\n1. Restamos ${b} en los dos miembros.\n2. Dividimos entre ${a}, que es positivo, y el signo no cambia.\nResultado final: x<${solution}.`
+      );
+    }
+    if (operation === 2) {
+      return generatedQuestion(
+        `Resuelve la inecuación: -${a}x + ${b} ≤ ${-a * solution + b}`,
+        `x ≥ ${solution}`,
+        [`x ≤ ${solution}`, `x ≥ ${-a * solution + b}`, `x > ${solution + 1}`],
+        `Resolución:\n1. Restamos ${b}: -${a}x≤${-a * solution}.\n2. Dividimos entre -${a}. Como es negativo, invertimos el signo de la desigualdad.\nResultado final: x≥${solution}.`
+      );
+    }
+    if (operation === 3) {
+      return generatedQuestion(
+        `Resuelve la inecuación: ${a}(x+1) > ${a * (solution + 1)}`,
+        `x > ${solution}`,
+        [`x < ${solution}`, `x > ${solution + 1}`, `x ≥ ${a * solution}`],
+        `Resolución:\n1. Dividimos entre ${a}, que es positivo: x+1>${solution + 1}.\n2. Restamos 1.\nResultado final: x>${solution}.`
+      );
+    }
+    const right = a * solution - b;
+    return generatedQuestion(
+      `Resuelve la inecuación: ${a}x - ${b} ≥ ${right}`,
+      `x ≥ ${solution}`,
+      [`x ≤ ${solution}`, `x ≥ ${right}`, `x > ${solution + 1}`],
+      `Resolución:\n1. Sumamos ${b}: ${a}x≥${right + b}.\n2. Dividimos entre ${a}, que es positivo, por lo que no cambia el signo.\nResultado final: x≥${solution}.`
+    );
+  }
 
   if (difficulty === "easy") {
     if (operation === 1) {
@@ -5992,6 +6481,14 @@ function generatedEquationLevelQuestion(lower, difficulty, seed) {
         `Resolución:\n1. Sumamos ${a} en los dos miembros.\n2. x=${solution - a}+${a}.\nResultado final: x=${solution}.`
       );
     }
+    if (operation === 3) {
+      return generatedQuestion(
+        `Resuelve: 2x + ${a} = ${2 * solution + a}`,
+        `x = ${solution}`,
+        [`x = ${2 * solution}`, `x = ${solution + a}`, `x = ${solution - a}`],
+        `Resolución:\n1. Restamos ${a}: 2x=${2 * solution}.\n2. Dividimos entre 2.\nResultado final: x=${solution}.`
+      );
+    }
     return generatedQuestion(
       `Resuelve: x + ${a} = ${solution + a}`,
       `x = ${solution}`,
@@ -6000,17 +6497,7 @@ function generatedEquationLevelQuestion(lower, difficulty, seed) {
     );
   }
 
-  if (lower.includes("inecuacion") && !lower.includes("sistema")) {
-    const right = a * solution - b;
-    return generatedQuestion(
-      `Resuelve la inecuación: ${a}x - ${b} ≥ ${right}`,
-      `x ≥ ${solution}`,
-      [`x ≤ ${solution}`, `x ≥ ${right}`, `x > ${solution + 1}`],
-      `Resolución:\n1. Sumamos ${b}: ${a}x≥${right + b}.\n2. Dividimos entre ${a}, que es positivo, por lo que no cambia el signo.\n3. x≥${solution}.\nResultado final: x≥${solution}.`
-    );
-  }
-
-  if (!lower.includes("sistema") && operation === 1) {
+  if (operation === 1) {
     const right = a * (solution + 1) + b;
     return generatedQuestion(
       `Resuelve: ${a}(x+1)+${b}=${right}`,
@@ -6019,16 +6506,28 @@ function generatedEquationLevelQuestion(lower, difficulty, seed) {
       `Resolución:\n1. Restamos ${b}: ${a}(x+1)=${right - b}.\n2. Dividimos entre ${a}: x+1=${solution + 1}.\n3. Restamos 1.\nResultado final: x=${solution}.`
     );
   }
-
-  const x = solution;
-  const y = 1 + (seed % 6);
-  const first = 2 * x + y;
-  const second = x - y;
+  if (operation === 2) {
+    const right = a * solution - b * (solution - 1);
+    return generatedQuestion(
+      `Resuelve: ${a}x-${b}(x-1)=${right}`,
+      `x = ${solution}`,
+      [`x = ${solution - 1}`, `x = ${right}`, `x = ${solution + b}`],
+      `Resolución:\n1. Quitamos el paréntesis: ${a}x-${b}x+${b}=${right}.\n2. Reducimos términos semejantes y dejamos los términos con x en un miembro.\n3. Dividimos entre su coeficiente.\nResultado final: x=${solution}.`
+    );
+  }
+  if (operation === 3) {
+    return generatedQuestion(
+      `Resuelve la ecuación con fracciones: frac{x}{${a}}+1=frac{${solution}}{${a}}+1`,
+      `x = ${solution}`,
+      [`x = ${solution + a}`, `x = ${solution * a}`, `x = ${solution - a}`],
+      `Resolución:\n1. Restamos 1 en los dos miembros: frac{x}{${a}}=frac{${solution}}{${a}}.\n2. Multiplicamos toda la igualdad por ${a}.\nResultado final: x=${solution}.`
+    );
+  }
   return generatedQuestion(
-    `Resuelve el sistema: { 2x + y = ${first} ; x - y = ${second} }`,
-    `x = ${x}, y = ${y}`,
-    [`x = ${y}, y = ${x}`, `x = ${x + 1}, y = ${y - 1}`, `x = ${x - 1}, y = ${y + 1}`],
-    `Resolución:\n1. Sumamos las ecuaciones: 3x=${first + second}.\n2. Dividimos entre 3: x=${x}.\n3. Sustituimos en x-y=${second}: ${x}-y=${second}.\n4. Despejamos y=${y}.\nResultado final: x=${x}, y=${y}.`
+    `Resuelve: ${a}x-${b}=${a * solution - b}`,
+    `x = ${solution}`,
+    [`x = ${solution + 1}`, `x = ${a * solution - b}`, `x = ${solution - 1}`],
+    `Resolución:\n1. Sumamos ${b} en los dos miembros.\n2. Dividimos toda la igualdad entre ${a}.\nResultado final: x=${solution}.`
   );
 }
 
@@ -6202,7 +6701,7 @@ function generatedPlaneGeometryQuestion(difficulty, seed, variant) {
 
 function generatedPythagorasGeometryQuestion(difficulty, seed, variant) {
   const extra = difficulty === "hard" ? 2 : difficulty === "medium" ? 1 : 0;
-  const scale = 1 + extra + (seed % 3);
+  const scale = 1 + extra + (seed % 11);
   const legA = 3 * scale;
   const legB = 4 * scale;
   const hypotenuse = 5 * scale;
@@ -6280,7 +6779,7 @@ function generatedTrigonometryLevelQuestion(difficulty, seed) {
   const opposite = 3 * scale;
   const adjacent = 4 * scale;
   const hypotenuse = 5 * scale;
-  const operation = seed % 3;
+  const operation = seed % 4;
 
   if (difficulty === "easy") {
     if (operation === 1) {
@@ -6299,6 +6798,14 @@ function generatedTrigonometryLevelQuestion(difficulty, seed) {
         `Resolución:\n1. tg(α)=cateto opuesto/cateto adyacente.\n2. Sustituimos las medidas.\nResultado final: tg(α)=${opposite}/${adjacent}.`
       );
     }
+    if (operation === 3) {
+      return generatedQuestion(
+        `Un triángulo rectángulo tiene catetos ${opposite} y ${adjacent}. Calcula la hipotenusa.`,
+        hypotenuse,
+        [opposite + adjacent, hypotenuse + scale, adjacent],
+        `Resolución:\n1. Aplicamos Pitágoras: h²=${opposite}²+${adjacent}².\n2. h=√(${opposite ** 2}+${adjacent ** 2})=√${hypotenuse ** 2}.\nResultado final: h=${hypotenuse}.`
+      );
+    }
     return generatedQuestion(
       `En un triángulo rectángulo, respecto del ángulo α, el cateto opuesto mide ${opposite} y la hipotenusa ${hypotenuse}. Calcula sen(α).`,
       `${opposite}/${hypotenuse}`,
@@ -6315,6 +6822,25 @@ function generatedTrigonometryLevelQuestion(difficulty, seed) {
       `${height} m`,
       [`${height * 2} m`, `${decimalAnswer(height * Math.sqrt(3))} m`, `${decimalAnswer(height / 2)} m`],
       `Resolución:\n1. La escalera es la hipotenusa y la altura es el cateto opuesto.\n2. sen(30°)=altura/${height * 2}.\n3. Como sen(30°)=1/2, altura=${height * 2}·1/2=${height}.\nResultado final: ${height} m.`
+      );
+  }
+  if (operation === 2) {
+    const shadow = 5 + (seed % 23);
+    return generatedQuestion(
+      `Un poste proyecta una sombra de ${shadow} m cuando el ángulo de elevación del Sol es 45°. ¿Cuánto mide el poste?`,
+      `${shadow} m`,
+      [`${shadow * 2} m`, `${decimalAnswer(shadow / 2)} m`, `${decimalAnswer(shadow * Math.sqrt(2))} m`],
+      `Resolución:\n1. tg(45°)=altura/sombra.\n2. Como tg(45°)=1, h/${shadow}=1.\nResultado final: h=${shadow} m.`
+    );
+  }
+  if (operation === 3) {
+    const cable = 2 * (6 + seed % 18);
+    const height = cable / 2;
+    return generatedQuestion(
+      `Un cable de ${cable} m forma 30° con el suelo. ¿Qué altura alcanza su extremo?`,
+      `${height} m`,
+      [`${cable} m`, `${decimalAnswer(cable * Math.sqrt(3) / 2)} m`, `${decimalAnswer(height / 2)} m`],
+      `Resolución:\n1. El cable es la hipotenusa.\n2. sen(30°)=h/${cable}=1/2.\n3. h=${cable}·1/2=${height}.\nResultado final: ${height} m.`
     );
   }
   return generatedQuestion(
@@ -6330,8 +6856,33 @@ function generatedAnalyticGeometryLevelQuestion(difficulty, seed) {
   const y1 = 2 + ((seed * 2) % 7);
   const x2 = x1 + 2;
   const y2 = y1 + 4;
+  const operation = seed % 4;
 
   if (difficulty === "easy") {
+    if (operation === 1) {
+      return generatedQuestion(
+        `Halla el vector AB si A(${x1},${y1}) y B(${x2},${y2}).`,
+        `(2, 4)`,
+        [`(${x1 + x2}, ${y1 + y2})`, `(-2, -4)`, `(4, 2)`],
+        `Resolución:\n1. Restamos las coordenadas del origen a las del extremo.\n2. AB=(${x2}-${x1},${y2}-${y1})=(2,4).\nResultado final: AB=(2,4).`
+      );
+    }
+    if (operation === 2) {
+      return generatedQuestion(
+        `Calcula la pendiente de la recta que pasa por A(${x1},${y1}) y B(${x2},${y2}).`,
+        2,
+        [1, 4, -2],
+        `Resolución:\n1. Usamos m=(y₂-y₁)/(x₂-x₁).\n2. m=(${y2}-${y1})/(${x2}-${x1})=4/2.\nResultado final: m=2.`
+      );
+    }
+    if (operation === 3) {
+      return generatedQuestion(
+        `Calcula la distancia entre A(${x1},${y1}) y B(${x2},${y2}).`,
+        `2sqrt(5)`,
+        [`sqrt(6)`, `6`, `4sqrt(2)`],
+        `Resolución:\n1. d(A,B)=√((x₂-x₁)²+(y₂-y₁)²).\n2. d=√(2²+4²)=√20.\n3. Simplificamos √20=2√5.\nResultado final: 2√5.`
+      );
+    }
     return generatedQuestion(
       `Calcula el punto medio de A(${x1},${y1}) y B(${x2},${y2}).`,
       `(${x1 + 1}, ${y1 + 2})`,
@@ -6341,6 +6892,31 @@ function generatedAnalyticGeometryLevelQuestion(difficulty, seed) {
   }
 
   const intercept = y1 - 2 * x1;
+  if (operation === 1) {
+    return generatedQuestion(
+      `Halla la recta paralela a y=2x+1 que pasa por P(${x1},${y1}).`,
+      `y = 2x ${intercept >= 0 ? "+" : "-"} ${Math.abs(intercept)}`,
+      [`y = -2x + ${y1}`, `y = ${x1}x + 1`, `y = 2x + ${y1}`],
+      `Resolución:\n1. Las rectas paralelas tienen la misma pendiente, m=2.\n2. Usamos y-y₁=m(x-x₁).\n3. y-${y1}=2(x-${x1}) y despejamos.\nResultado final: y=2x${intercept >= 0 ? "+" : ""}${intercept}.`
+    );
+  }
+  if (operation === 2) {
+    const perpendicularSlope = "-1/2";
+    return generatedQuestion(
+      `Halla la pendiente de una recta perpendicular a y=2x+1.`,
+      perpendicularSlope,
+      [`2`, `1/2`, `-2`],
+      `Resolución:\n1. Las pendientes de dos rectas perpendiculares cumplen m·m'=-1.\n2. 2·m'=-1.\n3. Despejamos m'=-1/2.\nResultado final: -1/2.`
+    );
+  }
+  if (operation === 3) {
+    return generatedQuestion(
+      `¿Cuál es la ecuación de la recta vertical que pasa por P(${x1},${y1})?`,
+      `x = ${x1}`,
+      [`y = ${y1}`, `y = ${x1}`, `x = ${y1}`],
+      `Resolución:\n1. En una recta vertical todos los puntos tienen la misma abscisa.\n2. La abscisa de P es ${x1}.\nResultado final: x=${x1}.`
+    );
+  }
   return generatedQuestion(
     `Halla la ecuación de la recta de pendiente 2 que pasa por P(${x1},${y1}).`,
     `y = 2x ${intercept >= 0 ? "+" : "-"} ${Math.abs(intercept)}`,
@@ -6353,8 +6929,34 @@ function generatedFunctionLevelQuestion(difficulty, seed) {
   const a = 2 + (seed % 5);
   const b = 1 + ((seed * 3) % 8);
   const value = 1 + (seed % 6);
+  const operation = seed % 4;
 
   if (difficulty === "easy") {
+    if (operation === 1) {
+      const zero = 1 + (seed % 6);
+      return generatedQuestion(
+        `Halla el cero de la función f(x)=${a}x-${a * zero}.`,
+        `x = ${zero}`,
+        [`x = ${a * zero}`, `x = -${zero}`, `x = ${a}`],
+        `Resolución:\n1. Igualamos la función a cero: ${a}x-${a * zero}=0.\n2. Despejamos ${a}x=${a * zero}.\nResultado final: x=${zero}.`
+      );
+    }
+    if (operation === 2) {
+      return generatedQuestion(
+        `¿Cuál es la ordenada en el origen de f(x)=${a}x+${b}?`,
+        b,
+        [a, a + b, 0],
+        `Resolución:\n1. La ordenada en el origen es f(0).\n2. f(0)=${a}·0+${b}=${b}.\nResultado final: ${b}.`
+      );
+    }
+    if (operation === 3) {
+      return generatedQuestion(
+        `Indica la pendiente de la función afín f(x)=${a}x+${b}.`,
+        a,
+        [b, -a, a + b],
+        `Resolución:\n1. Una función afín tiene la forma f(x)=mx+n.\n2. La pendiente es el coeficiente de x.\nResultado final: m=${a}.`
+      );
+    }
     const result = a * value + b;
     return generatedQuestion(
       `Sea f(x)=${a}x+${b}. Calcula f(${value}).`,
@@ -6366,6 +6968,31 @@ function generatedFunctionLevelQuestion(difficulty, seed) {
 
   const h = 1 + (seed % 5);
   const k = -1 - (seed % 6);
+  if (operation === 1) {
+    return generatedQuestion(
+      `Sea f(x)=${a}x+${b}. Halla f^(-1)(x).`,
+      `frac{x-${b}}{${a}}`,
+      [`frac{x+${b}}{${a}}`, `${a}x-${b}`, `frac{${a}}{x-${b}}`],
+      `Resolución:\n1. Escribimos y=${a}x+${b}.\n2. Intercambiamos x e y: x=${a}y+${b}.\n3. Despejamos y=(x-${b})/${a}.\nResultado final: f⁻¹(x)=frac{x-${b}}{${a}}.`
+    );
+  }
+  if (operation === 2) {
+    const composed = a * (value + 1) + b;
+    return generatedQuestion(
+      `Sean f(x)=${a}x+${b} y g(x)=x+1. Calcula (f∘g)(${value}).`,
+      composed,
+      [a * value + b, value + 1 + b, composed + a],
+      `Resolución:\n1. Calculamos primero g(${value})=${value + 1}.\n2. Sustituimos en f: f(${value + 1})=${a}·${value + 1}+${b}.\nResultado final: ${composed}.`
+    );
+  }
+  if (operation === 3) {
+    return generatedQuestion(
+      `Determina el dominio de f(x)=sqrt(x-${h}).`,
+      `x ≥ ${h}`,
+      [`x ≤ ${h}`, `x > ${-h}`, `Todos los números reales`],
+      `Resolución:\n1. El radicando de una raíz cuadrada debe ser no negativo.\n2. x-${h}≥0.\nResultado final: Dom(f)=[${h},∞).`
+    );
+  }
   return generatedQuestion(
     `Determina el vértice de f(x)=(x-${h})^2 ${k < 0 ? "-" : "+"} ${Math.abs(k)}.`,
     `(${h}, ${k})`,
@@ -6377,8 +7004,35 @@ function generatedFunctionLevelQuestion(difficulty, seed) {
 function generatedSequenceLevelQuestion(difficulty, seed) {
   const first = 2 + (seed % 8);
   const difference = 2 + ((seed * 2) % 6);
+  const operation = seed % 4;
 
   if (difficulty === "easy") {
+    if (operation === 1) {
+      const ratio = 2 + (seed % 3);
+      return generatedQuestion(
+        `Completa la sucesión geométrica: ${first}, ${first * ratio}, ${first * ratio ** 2}, ${first * ratio ** 3}, ...`,
+        first * ratio ** 4,
+        [first * ratio ** 3 + ratio, first * ratio ** 5, first + 4 * ratio],
+        `Resolución:\n1. Cada término se obtiene multiplicando por ${ratio}.\n2. Multiplicamos el último término por ${ratio}.\nResultado final: ${first * ratio ** 4}.`
+      );
+    }
+    if (operation === 2) {
+      return generatedQuestion(
+        `Halla la diferencia de la progresión: ${first}, ${first + difference}, ${first + 2 * difference}, ...`,
+        difference,
+        [first, first + difference, 2 * difference],
+        `Resolución:\n1. Restamos dos términos consecutivos.\n2. (${first + difference})-${first}=${difference}.\nResultado final: d=${difference}.`
+      );
+    }
+    if (operation === 3) {
+      const fifth = first + 4 * difference;
+      return generatedQuestion(
+        `Si a_n=${first}+(n-1)·${difference}, calcula a_5.`,
+        fifth,
+        [first + 5 * difference, 5 * difference, fifth - difference],
+        `Resolución:\n1. Sustituimos n=5.\n2. a₅=${first}+(5-1)·${difference}=${first}+${4 * difference}.\nResultado final: ${fifth}.`
+      );
+    }
     return generatedQuestion(
       `Completa la sucesión: ${first}, ${first + difference}, ${first + 2 * difference}, ${first + 3 * difference}, ...`,
       first + 4 * difference,
@@ -6389,6 +7043,36 @@ function generatedSequenceLevelQuestion(difficulty, seed) {
 
   const position = 8 + (seed % 8);
   const result = first + (position - 1) * difference;
+  if (operation === 1) {
+    const ratio = 2 + (seed % 3);
+    const geometricResult = first * ratio ** (position - 1);
+    return generatedQuestion(
+      `En la progresión geométrica a₁=${first} y r=${ratio}, calcula a_${position}.`,
+      geometricResult,
+      [first * ratio ** position, first + (position - 1) * ratio, geometricResult / ratio],
+      `Resolución:\n1. Usamos aₙ=a₁·r^(n-1).\n2. a_${position}=${first}·${ratio}^${position - 1}.\nResultado final: ${geometricResult}.`
+    );
+  }
+  if (operation === 2) {
+    const terms = 6 + (seed % 5);
+    const last = first + (terms - 1) * difference;
+    const sum = terms * (first + last) / 2;
+    return generatedQuestion(
+      `Calcula la suma de los ${terms} primeros términos de una progresión aritmética con a₁=${first} y d=${difference}.`,
+      sum,
+      [terms * first, first + last, sum + difference],
+      `Resolución:\n1. Hallamos a_${terms}=${first}+(${terms}-1)·${difference}=${last}.\n2. Aplicamos Sₙ=n(a₁+aₙ)/2.\n3. S_${terms}=${terms}(${first}+${last})/2=${sum}.\nResultado final: ${sum}.`
+    );
+  }
+  if (operation === 3) {
+    const ratio = 2 + (seed % 4);
+    return generatedQuestion(
+      `Determina la razón de la progresión geométrica ${first}, ${first * ratio}, ${first * ratio ** 2}, ${first * ratio ** 3}, ...`,
+      ratio,
+      [difference, first, ratio + 1],
+      `Resolución:\n1. Dividimos un término entre el anterior.\n2. ${first * ratio}/${first}=${ratio}.\nResultado final: r=${ratio}.`
+    );
+  }
   return generatedQuestion(
     `En la progresión aritmética a₁=${first} y d=${difference}, calcula a_${position}.`,
     result,
@@ -6428,10 +7112,38 @@ function generatedStatisticsLevelQuestion(difficulty, seed) {
     );
   }
 
-  const value1 = 4 + (seed % 5);
-  const value2 = value1 + 3;
-  const frequency1 = 2 + (seed % 3);
-  const frequency2 = frequency1 + 2;
+  const advancedOperation = seed % 4;
+  const value1 = 4 + (seed % 17);
+  const value2 = value1 + 2 + (Math.floor(seed / 17) % 5);
+  const frequency1 = 2 + (Math.floor(seed / 7) % 5);
+  const frequency2 = 3 + (Math.floor(seed / 11) % 6);
+  if (advancedOperation === 1) {
+    const total = frequency1 + frequency2;
+    return generatedQuestion(
+      `En una tabla, el valor ${value1} tiene frecuencia ${frequency1} y el valor ${value2} frecuencia ${frequency2}. ¿Cuántos datos hay en total?`,
+      total,
+      [frequency1 * frequency2, value1 + value2, total + 1],
+      `Resolución:\n1. El número total de datos es la suma de las frecuencias.\n2. N=${frequency1}+${frequency2}=${total}.\nResultado final: ${total}.`
+    );
+  }
+  if (advancedOperation === 2) {
+    const mode = frequency1 > frequency2 ? value1 : value2;
+    return generatedQuestion(
+      `El valor ${value1} aparece ${frequency1} veces y el valor ${value2} aparece ${frequency2} veces. Determina la moda.`,
+      mode,
+      [mode === value1 ? value2 : value1, frequency1, frequency2],
+      `Resolución:\n1. La moda es el valor con mayor frecuencia.\n2. Comparamos ${frequency1} y ${frequency2}; la frecuencia mayor corresponde a ${mode}.\nResultado final: ${mode}.`
+    );
+  }
+  if (advancedOperation === 3) {
+    const range = value2 - value1;
+    return generatedQuestion(
+      `Una distribución solo toma los valores ${value1} y ${value2}. Calcula su recorrido o rango.`,
+      range,
+      [value2, value1, value1 + value2],
+      `Resolución:\n1. El rango es máximo menos mínimo.\n2. R=${value2}-${value1}=${range}.\nResultado final: ${range}.`
+    );
+  }
   const mean = (value1 * frequency1 + value2 * frequency2) / (frequency1 + frequency2);
   return generatedQuestion(
     `El valor ${value1} aparece ${frequency1} veces y el valor ${value2} aparece ${frequency2} veces. Calcula la media.`,
@@ -6442,10 +7154,10 @@ function generatedStatisticsLevelQuestion(difficulty, seed) {
 }
 
 function generatedProbabilityLevelQuestion(difficulty, seed) {
-  const red = 2 + (seed % 5);
-  const blue = 3 + ((seed * 2) % 6);
+  const red = 2 + (seed % 11);
+  const blue = 3 + (Math.floor(seed / 11) % 13);
   const total = red + blue;
-  const operation = seed % 3;
+  const operation = seed % 4;
 
   if (difficulty === "easy") {
     if (operation === 1) {
@@ -6484,6 +7196,24 @@ function generatedProbabilityLevelQuestion(difficulty, seed) {
       `Resolución:\n1. Al devolver la primera bola, las dos extracciones tienen la misma probabilidad: ${red}/${total}.\n2. Multiplicamos: ${red}/${total}·${red}/${total}.\n3. Simplificamos.\nResultado final: ${result}.`
     );
   }
+  if (operation === 2) {
+    const result = reducedFraction(2 * red * blue, total * total);
+    return generatedQuestion(
+      `Una bolsa contiene ${red} bolas rojas y ${blue} azules. Se extraen dos bolas con reemplazamiento. ¿Cuál es la probabilidad de obtener una de cada color?`,
+      result,
+      [reducedFraction(red * blue, total * total), reducedFraction(red + blue, total * total), reducedFraction(2 * red, total)],
+      `Resolución:\n1. Puede salir roja-azul o azul-roja.\n2. P=frac{${red}}{${total}}·frac{${blue}}{${total}}+frac{${blue}}{${total}}·frac{${red}}{${total}}.\n3. Sumamos y simplificamos.\nResultado final: ${result}.`
+    );
+  }
+  if (operation === 3) {
+    const result = reducedFraction(blue, total);
+    return generatedQuestion(
+      `En una bolsa hay ${red} bolas rojas y ${blue} azules. Si A es «sacar roja», calcula P(A^c).`,
+      result,
+      [reducedFraction(red, total), reducedFraction(blue, red), reducedFraction(total, blue)],
+      `Resolución:\n1. El complementario de sacar roja es sacar azul.\n2. P(A^c)=1-P(A)=1-frac{${red}}{${total}}=frac{${blue}}{${total}}.\nResultado final: ${result}.`
+    );
+  }
   const result = reducedFraction(red * (red - 1), total * (total - 1));
   return generatedQuestion(
     `Una bolsa contiene ${red} bolas rojas y ${blue} azules. Se extraen dos sin reemplazamiento. ¿Cuál es la probabilidad de que ambas sean rojas?`,
@@ -6494,8 +7224,8 @@ function generatedProbabilityLevelQuestion(difficulty, seed) {
 }
 
 function generatedCombinatoricsLevelQuestion(difficulty, seed) {
-  const n = 4 + (seed % 9);
-  const operation = seed % 3;
+  const n = 4 + (seed % 23);
+  const operation = seed % 4;
   if (difficulty === "easy") {
     if (operation === 1) {
       const result = n * (n - 1);
@@ -6504,6 +7234,24 @@ function generatedCombinatoricsLevelQuestion(difficulty, seed) {
         result,
         [n * n, n + (n - 1), result / 2],
         `Resolución:\n1. Para la primera posición hay ${n} opciones.\n2. Para la segunda quedan ${n - 1}.\n3. Multiplicamos: ${n}·${n - 1}=${result}.\nResultado final: ${result}.`
+      );
+    }
+    if (operation === 2) {
+      const result = n * (n - 1) / 2;
+      return generatedQuestion(
+        `De ${n} personas se elige una pareja sin distinguir el orden. ¿Cuántas parejas distintas hay?`,
+        result,
+        [n * (n - 1), n * 2, result + n],
+        `Resolución:\n1. No importa el orden, así que usamos combinaciones.\n2. C(${n},2)=${n}·${n - 1}/2=${result}.\nResultado final: ${result}.`
+      );
+    }
+    if (operation === 3) {
+      const result = n ** 2;
+      return generatedQuestion(
+        `Con ${n} símbolos se forman códigos de dos posiciones permitiendo repetición. ¿Cuántos códigos hay?`,
+        result,
+        [n * (n - 1), 2 * n, result / 2],
+        `Resolución:\n1. En cada una de las dos posiciones hay ${n} posibilidades.\n2. Por el principio multiplicativo: ${n}·${n}=${result}.\nResultado final: ${result}.`
       );
     }
     let factorial = 1;
@@ -6516,7 +7264,7 @@ function generatedCombinatoricsLevelQuestion(difficulty, seed) {
     );
   }
 
-  const people = 6 + (seed % 13);
+  const people = 6 + (seed % 31);
   if (operation === 1) {
     const result = people * (people - 1);
     return generatedQuestion(
@@ -6524,6 +7272,24 @@ function generatedCombinatoricsLevelQuestion(difficulty, seed) {
       result,
       [result / 2, people * people, people + (people - 1)],
       `Resolución:\n1. Los cargos son distintos, por lo que importa el orden.\n2. Hay ${people} opciones para delegado y ${people - 1} para subdelegado.\n3. ${people}·${people - 1}=${result}.\nResultado final: ${result}.`
+    );
+  }
+  if (operation === 2) {
+    const result = people * (people - 1) * (people - 2);
+    return generatedQuestion(
+      `Con ${people} personas se asignan tres cargos distintos. ¿De cuántas formas puede hacerse?`,
+      result,
+      [result / 6, people ** 3, people * (people - 1)],
+      `Resolución:\n1. Los cargos son distintos y no se repite persona.\n2. Hay ${people}, ${people - 1} y ${people - 2} opciones sucesivas.\n3. Multiplicamos: ${people}·${people - 1}·${people - 2}=${result}.\nResultado final: ${result}.`
+    );
+  }
+  if (operation === 3) {
+    const result = people * (people - 1) * (people - 2) / 6;
+    return generatedQuestion(
+      `De ${people} estudiantes se forma un equipo de 3 sin asignar cargos. ¿Cuántos equipos distintos hay?`,
+      result,
+      [result * 6, people * 3, people * (people - 1)],
+      `Resolución:\n1. No importa el orden, por lo que usamos C(${people},3).\n2. C(${people},3)=frac{${people}·${people - 1}·${people - 2}}{3·2·1}.\n3. Calculamos y obtenemos ${result}.\nResultado final: ${result}.`
     );
   }
   const combinations = people * (people - 1) / 2;
@@ -6536,15 +7302,64 @@ function generatedCombinatoricsLevelQuestion(difficulty, seed) {
 }
 
 function generatedLimitLevelQuestion(lower, difficulty, seed) {
-  const a = 2 + (seed % 8);
-  const b = 3 + ((seed * 2) % 7);
+  const a = 2 + (seed % 31);
+  const b = 3 + (Math.floor(seed / 7) % 19);
+  const operation = seed % 4;
   if (lower.includes("sucesion")) {
     if (difficulty === "easy") {
+      if (operation === 1) {
+        return generatedQuestion(
+          `Calcula: lim n→∞ (${a}n+1)/n`,
+          a,
+          [0, 1, "∞"],
+          `Resolución:\n1. Dividimos todos los términos entre n.\n2. Obtenemos ${a}+1/n.\n3. Como 1/n→0, el límite vale ${a}.\nResultado final: ${a}.`
+        );
+      }
+      if (operation === 2) {
+        return generatedQuestion(
+          `Calcula: lim n→∞ 1/n^${a}`,
+          0,
+          [1, a, "∞"],
+          `Resolución:\n1. n^${a} crece sin límite.\n2. Su inverso se aproxima a cero.\nResultado final: 0.`
+        );
+      }
+      if (operation === 3) {
+        return generatedQuestion(
+          `Calcula: lim n→∞ (${a}n+${b})/(${a}n)`,
+          1,
+          [0, a, `${a}/${b}`],
+          `Resolución:\n1. Dividimos numerador y denominador entre n.\n2. (${a}+${b}/n)/${a}.\n3. Como ${b}/n→0, queda ${a}/${a}=1.\nResultado final: 1.`
+        );
+      }
       return generatedQuestion(
         `Calcula: lim n→∞ ${a}/n`,
         0,
         [a, 1, "∞"],
         `Resolución:\n1. El numerador es constante.\n2. El denominador crece sin límite.\nResultado final: 0.`
+      );
+    }
+    if (operation === 1) {
+      return generatedQuestion(
+        `Calcula: lim n→∞ (${a}n^3+${b}n)/(2n^3-1)`,
+        `${a}/2`,
+        [`2/${a}`, 0, "∞"],
+        `Resolución:\n1. Numerador y denominador tienen grado 3.\n2. El límite es el cociente de los coeficientes principales.\nResultado final: ${a}/2.`
+      );
+    }
+    if (operation === 2) {
+      return generatedQuestion(
+        `Calcula: lim n→∞ (${a}n+1)/(n^2+${b})`,
+        0,
+        [a, 1, "∞"],
+        `Resolución:\n1. El grado del denominador es mayor.\n2. Dividimos entre n² y todos los términos del numerador tienden a 0.\nResultado final: 0.`
+      );
+    }
+    if (operation === 3) {
+      return generatedQuestion(
+        `Calcula: lim n→∞ (n^2+${a})/(${b}n+1)`,
+        "∞",
+        [0, `${a}/${b}`, 1],
+        `Resolución:\n1. El grado del numerador es mayor que el del denominador.\n2. El cociente se comporta como n/${b}, que crece sin límite.\nResultado final: +∞.`
       );
     }
     return generatedQuestion(
@@ -6555,11 +7370,59 @@ function generatedLimitLevelQuestion(lower, difficulty, seed) {
     );
   }
   if (difficulty === "easy") {
+    if (operation === 1) {
+      return generatedQuestion(
+        `Calcula: lim x→${a} (x^2+${b})`,
+        a * a + b,
+        [a + b, a * a, b],
+        `Resolución:\n1. El polinomio es continuo.\n2. Sustituimos x=${a}: ${a}²+${b}.\nResultado final: ${a * a + b}.`
+      );
+    }
+    if (operation === 2) {
+      return generatedQuestion(
+        `Calcula: lim x→${a} frac{x+${b}}{2}.`,
+        reducedFraction(a + b, 2),
+        [a + b, reducedFraction(a, 2), b],
+        `Resolución:\n1. La función es continua en x=${a}.\n2. Sustituimos: frac{${a}+${b}}{2}.\nResultado final: ${reducedFraction(a + b, 2)}.`
+      );
+    }
+    if (operation === 3) {
+      return generatedQuestion(
+        `Calcula: lim x→${a} (${b}-x).`,
+        b - a,
+        [a - b, b, a],
+        `Resolución:\n1. La función es continua.\n2. Sustituimos x=${a}: ${b}-${a}.\nResultado final: ${b - a}.`
+      );
+    }
     return generatedQuestion(
       `Calcula: lim x→${a} (2x+${b})`,
       2 * a + b,
       [a + b, 2 * a, b],
       `Resolución:\n1. La función es continua.\n2. Sustituimos x=${a}: 2·${a}+${b}.\nResultado final: ${2 * a + b}.`
+    );
+  }
+  if (operation === 1) {
+    return generatedQuestion(
+      `Calcula: lim x→0 frac{sen(${a}x)}{x}.`,
+      a,
+      [0, 1, `${a}x`],
+      `Resolución:\n1. Multiplicamos y dividimos por ${a}.\n2. frac{sen(${a}x)}{x}=${a}·frac{sen(${a}x)}{${a}x}.\n3. El límite notable vale 1.\nResultado final: ${a}.`
+    );
+  }
+  if (operation === 2) {
+    return generatedQuestion(
+      `Calcula: lim x→∞ (${a}x^2+${b})/(x^2+1).`,
+      a,
+      [0, 1, "∞"],
+      `Resolución:\n1. Es una indeterminación ∞/∞.\n2. Dividimos numerador y denominador entre x².\n3. Los términos con 1/x² tienden a 0.\nResultado final: ${a}.`
+    );
+  }
+  if (operation === 3) {
+    return generatedQuestion(
+      `Calcula: lim x→0 frac{e^(${a}x)-1}{x}.`,
+      a,
+      [0, 1, Math.E],
+      `Resolución:\n1. La sustitución produce 0/0.\n2. Aplicamos L'Hôpital: la derivada del numerador es ${a}e^(${a}x) y la del denominador es 1.\n3. Sustituimos x=0.\nResultado final: ${a}.`
     );
   }
   return generatedQuestion(
@@ -6573,7 +7436,32 @@ function generatedLimitLevelQuestion(lower, difficulty, seed) {
 function generatedDerivativeLevelQuestion(difficulty, seed) {
   const coefficient = 2 + (seed % 7);
   const exponent = 2 + ((seed * 2) % 4);
+  const operation = seed % 4;
   if (difficulty === "easy") {
+    if (operation === 1) {
+      return generatedQuestion(
+        `Deriva: f(x)=${coefficient}x^2+${exponent}x-${coefficient}.`,
+        `${2 * coefficient}x+${exponent}`,
+        [`${coefficient}x+${exponent}`, `${2 * coefficient}x-${exponent}`, `${2 * coefficient}x^2+${exponent}`],
+        `Resolución:\n1. Derivamos término a término.\n2. (${coefficient}x²)'=${2 * coefficient}x, (${exponent}x)'=${exponent} y la constante deriva 0.\nResultado final: ${2 * coefficient}x+${exponent}.`
+      );
+    }
+    if (operation === 2) {
+      return generatedQuestion(
+        `Deriva: f(x)=frac{1}{x^${exponent}}.`,
+        `-${exponent}x^-${exponent + 1}`,
+        [`${exponent}x^${exponent - 1}`, `-x^-${exponent}`, `${exponent}x^-${exponent + 1}`],
+        `Resolución:\n1. Escribimos f(x)=x^(-${exponent}).\n2. Aplicamos la regla de la potencia.\nResultado final: f'(x)=-${exponent}x^(-${exponent + 1}).`
+      );
+    }
+    if (operation === 3) {
+      return generatedQuestion(
+        `Deriva: f(x)=sen x+${coefficient}cos x.`,
+        `cos x-${coefficient}sen x`,
+        [`sen x+${coefficient}cos x`, `cos x+${coefficient}sen x`, `-sen x-${coefficient}cos x`],
+        `Resolución:\n1. (sen x)'=cos x.\n2. (${coefficient}cos x)'=-${coefficient}sen x.\nResultado final: cos x-${coefficient}sen x.`
+      );
+    }
     return generatedQuestion(
       `Deriva: f(x)=${coefficient}x^${exponent}`,
       `${coefficient * exponent}x^${exponent - 1}`,
@@ -6584,6 +7472,30 @@ function generatedDerivativeLevelQuestion(difficulty, seed) {
   const point = 1 + (seed % 5);
   const linear = 1 + ((seed * 3) % 6);
   const slope = 2 * coefficient * point + linear;
+  if (operation === 1) {
+    return generatedQuestion(
+      `Deriva el producto f(x)=(x^2+${coefficient})(x+${linear}).`,
+      `2x(x+${linear})+(x^2+${coefficient})`,
+      [`2x(x+${linear})`, `(x^2+${coefficient})`, `2x+1`],
+      `Resolución:\n1. Aplicamos (uv)'=u'v+uv'.\n2. u=x²+${coefficient}, u'=2x; v=x+${linear}, v'=1.\nResultado final: f'(x)=2x(x+${linear})+(x²+${coefficient}).`
+    );
+  }
+  if (operation === 2) {
+    return generatedQuestion(
+      `Deriva el cociente f(x)=frac{x^2+${coefficient}}{x+1}.`,
+      `frac{2x(x+1)-(x^2+${coefficient})}{(x+1)^2}`,
+      [`frac{2x}{1}`, `frac{2x(x+1)+(x^2+${coefficient})}{(x+1)^2}`, `frac{x^2+${coefficient}}{(x+1)^2}`],
+      `Resolución:\n1. Aplicamos la regla del cociente: (u/v)'=frac{u'v-uv'}{v²}.\n2. u=x²+${coefficient}, u'=2x; v=x+1, v'=1.\nResultado final: frac{2x(x+1)-(x²+${coefficient})}{(x+1)²}.`
+    );
+  }
+  if (operation === 3) {
+    return generatedQuestion(
+      `Deriva la función compuesta f(x)=(${coefficient}x+1)^${exponent}.`,
+      `${coefficient * exponent}(${coefficient}x+1)^${exponent - 1}`,
+      [`${exponent}(${coefficient}x+1)^${exponent - 1}`, `${coefficient}(${coefficient}x+1)^${exponent}`, `${coefficient * exponent}(${coefficient}x+1)^${exponent}`],
+      `Resolución:\n1. Aplicamos la regla de la cadena.\n2. La derivada exterior aporta ${exponent}(${coefficient}x+1)^${exponent - 1}.\n3. Multiplicamos por la derivada interior, ${coefficient}.\nResultado final: ${coefficient * exponent}(${coefficient}x+1)^${exponent - 1}.`
+    );
+  }
   return generatedQuestion(
     `Calcula la pendiente de la tangente a f(x)=${coefficient}x^2+${linear}x-1 en x=${point}.`,
     slope,
@@ -6771,7 +7683,8 @@ function buildQuestions(theme, course = courseById(state.courseId)) {
       ...selectedBank,
       ...(course.id === "1bach-mates"
         ? [...matesIRepeatBank(lower), ...matesIExtensionBank(lower)]
-        : ccssIExtensionBank(lower))
+        : ccssIExtensionBank(lower)),
+      ...(window.MargaritaFirstBachVariety?.build?.(course.id, theme) || [])
     ]
     : null;
   const isOfficialPauBank = (course.id === "2bach-mates" || course.id === "2bach-ccss")
@@ -6779,9 +7692,13 @@ function buildQuestions(theme, course = courseById(state.courseId)) {
   const officialPauPool = isOfficialPauBank
     ? selectedBank
       .map((question) => question.options?.length ? question : withPauTestOptions(question))
+      .filter(hasOfficialConvocation)
       .filter(questionHasCoherentOptions)
     : null;
-  const candidatePool = officialPauPool || modelPool || [...selectedBank, ...supplements, ...generated];
+  const unfilteredCandidatePool = officialPauPool || modelPool || [...selectedBank, ...supplements, ...generated];
+  const candidatePool = BACH_II_COURSE_IDS.includes(course.id)
+    ? unfilteredCandidatePool.filter(hasOfficialConvocation)
+    : unfilteredCandidatePool;
   const coherentPool = candidatePool.filter(questionHasCoherentOptions);
   const base = ensureQuestionCount(coherentPool, questionCount);
   const orderedRound = selectNoRepeatQuestionRound(
@@ -6794,11 +7711,14 @@ function buildQuestions(theme, course = courseById(state.courseId)) {
     const preparedQuestion = question.type === "pau-open" && !question.options?.length ? withPauTestOptions(question) : question;
     if (!preparedQuestion.options?.length) return { ...preparedQuestion };
     const amount = (state.topicIndex + state.practiceRound + index) % preparedQuestion.options.length;
-    return {
+    const rotatedQuestion = {
       ...preparedQuestion,
       options: rotate(preparedQuestion.options, amount),
       correct: (preparedQuestion.correct - amount + preparedQuestion.options.length) % preparedQuestion.options.length
     };
+    return BACH_II_COURSE_IDS.includes(course.id)
+      ? expandCompositeQuestionParts(rotatedQuestion)
+      : rotatedQuestion;
   });
 }
 
@@ -6848,44 +7768,92 @@ function officialQuestionDedupKey(question) {
     || searchable.match(/\bejercicio\s+(\d+)[^a-z0-9]+apartado\s+([a-d])\b/);
   const exercise = exerciseMatch?.slice(1).join("-");
   if (year && session && exercise) return `oficial:${year}:${session}:${exercise}`;
+  if (year && session) {
+    const statementIdentity = normalizeDisplayText(question?.text || question?.statementHtml || "")
+      .replace(/<[^>]+>/g, " ")
+      .replace(/\b(?:enunciado\s+original|convocatoria|pregunta|ejercicio|apartado)\b/gi, " ")
+      .replace(/\b20\d{2}\b/g, " ")
+      .replace(/\b(?:junio|julio|septiembre|reserva\s*\d*)\b/gi, " ")
+      .replace(/\s+/g, " ")
+      .trim()
+      .toLowerCase();
+    if (statementIdentity) return `oficial:${year}:${session}:enunciado:${statementIdentity}`;
+  }
   return challengeQuestionIdentity(question);
 }
 
-const BACH_II_CHALLENGE_HISTORY_KEY = "margarita-bach-ii-challenge-history-v1";
+function challengeHistoryIdentity(question) {
+  // En 2.º de Bachillerato una misma pregunta oficial puede llegar desde el
+  // catálogo corregido, el banco del bloque o el banco del tema con ids
+  // distintos. Para el historial usamos la identidad oficial común y no el id
+  // interno de cada copia.
+  return BACH_II_COURSE_IDS.includes(state.courseId)
+    ? officialQuestionDedupKey(question)
+    : challengeQuestionIdentity(question);
+}
 
-function bachIIChallengeStudentKey(scopeKey) {
+const CHALLENGE_ANSWER_HISTORY_KEY = "margarita-challenge-answer-history-v2";
+const LEGACY_BACH_II_CHALLENGE_HISTORY_KEY = "margarita-bach-ii-challenge-history-v1";
+
+function challengeStudentScopeKey(scopeKey) {
   const studentKey = currentStudentKey() || [state.academicYear, state.courseId, "sin-alumno"].join("__");
   return `${studentKey}|${scopeKey}`;
 }
 
-function readBachIIChallengeHistory(scopeKey) {
-  if (!BACH_II_COURSE_IDS.includes(state.courseId)) return [];
+function readChallengeAnswerHistory(scopeKey) {
   try {
-    const history = JSON.parse(localStorage.getItem(BACH_II_CHALLENGE_HISTORY_KEY) || "{}") || {};
-    const stored = history[bachIIChallengeStudentKey(scopeKey)];
-    return Array.isArray(stored) ? stored : [];
+    const history = JSON.parse(localStorage.getItem(CHALLENGE_ANSWER_HISTORY_KEY) || "{}") || {};
+    const storageKey = challengeStudentScopeKey(scopeKey);
+    const stored = Array.isArray(history[storageKey]) ? history[storageKey] : [];
+    if (Object.prototype.hasOwnProperty.call(history, storageKey) || !BACH_II_COURSE_IDS.includes(state.courseId)) return stored;
+    const legacy = JSON.parse(localStorage.getItem(LEGACY_BACH_II_CHALLENGE_HISTORY_KEY) || "{}") || {};
+    const legacyStored = Array.isArray(legacy[storageKey]) ? legacy[storageKey] : [];
+    return [...new Set(legacyStored)];
   } catch (_) {
     return [];
   }
 }
 
-function writeBachIIChallengeHistory(scopeKey, identities) {
-  if (!BACH_II_COURSE_IDS.includes(state.courseId)) return;
+function writeChallengeAnswerHistory(scopeKey, identities) {
   try {
-    const history = JSON.parse(localStorage.getItem(BACH_II_CHALLENGE_HISTORY_KEY) || "{}") || {};
-    history[bachIIChallengeStudentKey(scopeKey)] = [...new Set(identities)];
-    localStorage.setItem(BACH_II_CHALLENGE_HISTORY_KEY, JSON.stringify(history));
+    const history = JSON.parse(localStorage.getItem(CHALLENGE_ANSWER_HISTORY_KEY) || "{}") || {};
+    history[challengeStudentScopeKey(scopeKey)] = [...new Set(identities)];
+    localStorage.setItem(CHALLENGE_ANSWER_HISTORY_KEY, JSON.stringify(history));
   } catch (_) {
     // Si el almacenamiento no está disponible, se mantiene el historial de la sesión.
   }
 }
 
+function markChallengeQuestionAnswered(question) {
+  if (!question) return;
+  const scopeKey = question._historyScopeKey;
+  const identity = question._historyIdentity || challengeHistoryIdentity(question);
+  if (!scopeKey || !identity) return;
+
+  state.challengeQuestionHistory = state.challengeQuestionHistory || {};
+  const previous = question._historyResetBefore
+    ? []
+    : [
+      ...(state.challengeQuestionHistory[scopeKey] || []),
+      ...readChallengeAnswerHistory(scopeKey)
+    ];
+  // Volvemos a colocar la identidad al final para conservar cuál fue el
+  // último ejercicio visto y evitar repetirlo al abrir un ciclo nuevo.
+  const answered = [...new Set(previous)].filter((item) => item !== identity);
+  answered.push(identity);
+  state.challengeQuestionHistory[scopeKey] = answered;
+  writeChallengeAnswerHistory(scopeKey, answered);
+}
+
 function selectNoRepeatQuestionRound(questions, target, scopeKey) {
   const unique = [];
   const identities = new Set();
+  const identityAliases = new Map();
   (questions || []).forEach((question) => {
-    const identity = challengeQuestionIdentity(question);
-    if (!identity || identities.has(identity)) return;
+    const identity = challengeHistoryIdentity(question);
+    if (!identity) return;
+    identityAliases.set(challengeQuestionIdentity(question), identity);
+    if (identities.has(identity)) return;
     identities.add(identity);
     unique.push(question);
   });
@@ -6896,39 +7864,47 @@ function selectNoRepeatQuestionRound(questions, target, scopeKey) {
   const roundKey = `${scopeKey}|ronda-${state.practiceRound}`;
   if (state.challengeRoundCache[roundKey]) return state.challengeRoundCache[roundKey];
 
-  const availableIdentities = new Set(unique.map(challengeQuestionIdentity));
-  const sessionHistory = state.challengeQuestionHistory[scopeKey] || [];
-  const persistentHistory = readBachIIChallengeHistory(scopeKey);
+  const availableIdentities = new Set(unique.map(challengeHistoryIdentity));
+  const canonicalizeHistory = (items) => (items || []).map((identity) => identityAliases.get(identity) || identity);
+  const sessionHistory = canonicalizeHistory(state.challengeQuestionHistory[scopeKey] || []);
+  const persistentHistory = canonicalizeHistory(readChallengeAnswerHistory(scopeKey));
   let used = new Set([...sessionHistory, ...persistentHistory].filter((identity) => availableIdentities.has(identity)));
-  let available = unique.filter((question) => !used.has(challengeQuestionIdentity(question)));
+  let available = unique.filter((question) => !used.has(challengeHistoryIdentity(question)));
 
-  // Solo se reinicia el mazo cuando todos los ejercicios de este banco ya han aparecido.
+  // Solo se reinicia el mazo cuando todos los ejercicios de este banco ya han sido vistos.
   if (!available.length) {
     const lastIdentity = [...used].at(-1);
     used = lastIdentity && unique.length > 1 ? new Set([lastIdentity]) : new Set();
-    available = unique.filter((question) => !used.has(challengeQuestionIdentity(question)));
+    state.challengeQuestionHistory[scopeKey] = [...used];
+    writeChallengeAnswerHistory(scopeKey, [...used]);
+    available = unique.filter((question) => !used.has(challengeHistoryIdentity(question)));
   }
 
   const seed = `${scopeKey}|${state.blockChallengeSeed || 0}|${state.practiceRound}`;
   const ordered = seededShuffle(available, seed);
   const selected = ordered.slice(0, Math.min(target, ordered.length));
+  let resetBeforeIdentity = "";
 
   // Si el reto cruza el final del banco, primero se muestran todos los ejercicios
   // inéditos. Después comienza un ciclo nuevo, sin repetir ninguno dentro de esta
   // misma ronda, para conservar las 5 preguntas de Matemáticas II o las 4 de CCSS II.
   if (selected.length < target && unique.length >= target) {
-    const selectedIdentities = new Set(selected.map(challengeQuestionIdentity));
+    const selectedIdentities = new Set(selected.map(challengeHistoryIdentity));
     used = new Set(selectedIdentities);
-    const refillPool = unique.filter((question) => !selectedIdentities.has(challengeQuestionIdentity(question)));
+    const refillPool = unique.filter((question) => !selectedIdentities.has(challengeHistoryIdentity(question)));
     const refill = seededShuffle(refillPool, `${seed}|nuevo-ciclo`).slice(0, target - selected.length);
+    resetBeforeIdentity = refill.length ? challengeHistoryIdentity(refill[0]) : "";
     selected.push(...refill);
   }
 
-  selected.forEach((question) => used.add(challengeQuestionIdentity(question)));
-  state.challengeQuestionHistory[scopeKey] = [...used];
-  writeBachIIChallengeHistory(scopeKey, [...used]);
-  state.challengeRoundCache[roundKey] = selected;
-  return selected;
+  const preparedSelection = selected.map((question) => ({
+    ...question,
+    _historyScopeKey: scopeKey,
+    _historyIdentity: challengeHistoryIdentity(question),
+    _historyResetBefore: Boolean(resetBeforeIdentity && challengeHistoryIdentity(question) === resetBeforeIdentity)
+  }));
+  state.challengeRoundCache[roundKey] = preparedSelection;
+  return preparedSelection;
 }
 
 function joinExerciseParagraphs(paragraphs, html = false) {
@@ -7012,20 +7988,45 @@ function splitCompositeSegments(value) {
   }));
 }
 
+function splitOrderedCompositeOption(value, partCount) {
+  if (partCount < 2) return null;
+  const semicolonParts = String(value || "").split(/\s*;\s*/).map((part) => part.trim()).filter(Boolean);
+  if (semicolonParts.length >= partCount) {
+    return [
+      ...semicolonParts.slice(0, partCount - 1),
+      semicolonParts.slice(partCount - 1).join("; ")
+    ];
+  }
+  if (partCount === 3 && semicolonParts.length === 2) {
+    const finalPair = semicolonParts[1].split(/,\s*(?=(?:crece|decrece|aumenta|disminuye)\b)/i);
+    if (finalPair.length >= 2) {
+      return [semicolonParts[0], finalPair[0].trim(), finalPair.slice(1).join(", ").trim()];
+    }
+  }
+  return null;
+}
+
 function expandCompositeQuestionParts(question) {
   const statementParts = splitCompositeSegments(question.text);
-  const optionParts = question.options?.map(splitCompositeSegments);
-  if (!statementParts || !optionParts?.every((parts) => parts?.length === statementParts.length)) return question;
+  if (!statementParts) return question;
+  const labelledOptionParts = question.options?.map(splitCompositeSegments);
+  const orderedOptionParts = question.options?.map((option) => splitOrderedCompositeOption(option, statementParts.length));
+  const optionParts = labelledOptionParts?.every((parts) => parts?.length === statementParts.length)
+    ? labelledOptionParts.map((parts) => parts.map((part) => part.text))
+    : orderedOptionParts?.every((parts) => parts?.length === statementParts.length)
+      ? orderedOptionParts
+      : null;
+  if (!optionParts) return question;
   const statementStart = question.text.search(/(?:^|\n)\s*[a-d](?:\.\d+)?\)\s*/i);
   return {
     ...question,
     text: statementStart > 0 ? question.text.slice(0, statementStart).trim() : "",
     parts: statementParts.map((part, partIndex) => ({
       label: part.label,
-      text: `${part.label} ${part.text}`,
-      options: optionParts.map((parts) => parts[partIndex].text),
+      text: part.text,
+      options: optionParts.map((parts) => parts[partIndex]),
       correct: question.correct,
-      solution: question.solution
+      solution: question.partSolutions?.[partIndex] || question.solution
     }))
   };
 }
@@ -7043,6 +8044,7 @@ function buildMatesIIBlockQuestions(course, blockId) {
     const theme = course.themes[topicIndex] || "";
     return pickExerciseBank(theme.toLowerCase(), course.id)
       .map((question) => question.options?.length ? question : withPauTestOptions(question))
+      .filter(hasOfficialConvocation)
       .filter(questionHasCoherentOptions)
       .filter((question) => !/\bccss\b|ciencias\s+sociales/i.test(normalizeDisplayText(question.text || "")));
   }).filter((question) => {
@@ -7054,13 +8056,13 @@ function buildMatesIIBlockQuestions(course, blockId) {
 
   const combinedPool = [];
   const combinedIdentities = new Set();
-  [...correctedPool, ...extraOfficialPool, ...pool].forEach((question) => {
+  [...correctedPool, ...extraOfficialPool, ...pool].filter(hasOfficialConvocation).forEach((question) => {
     const identity = officialQuestionDedupKey(question);
     if (!identity || combinedIdentities.has(identity)) return;
     combinedIdentities.add(identity);
     combinedPool.push(question);
   });
-  const usablePool = combinedPool.length ? combinedPool : exerciseBanks.general.filter(questionHasCoherentOptions);
+  const usablePool = combinedPool;
   return selectNoRepeatQuestionRound(
     usablePool,
     questionCount,
@@ -7664,13 +8666,21 @@ function matesIModelBank(lower) {
 }
 
 function matesIExtensionBank(lower) {
+  const suppliedLimits = Array.isArray(window.MATES_I_LIMITS_BANK) ? window.MATES_I_LIMITS_BANK : [];
+  const suppliedDerivatives = Array.isArray(window.MATES_I_DERIVATIVES_BANK) ? window.MATES_I_DERIVATIVES_BANK : [];
+  const suppliedDerivativeApplications = Array.isArray(window.MATES_I_DERIVATIVE_APPLICATIONS_BANK)
+    ? window.MATES_I_DERIVATIVE_APPLICATIONS_BANK
+    : [];
   if (lower.includes("complejo")) return exerciseBanks.complejos;
   if (lower.includes("numero") || lower.includes("real")) return exerciseBanks.realesBach;
   if (lower.includes("trigonometr")) return exerciseBanks.trigonometriaBach;
   if (lower.includes("geometria analitica")) return exerciseBanks.geometriaAnalitica;
   if (lower.includes("conica")) return exerciseBanks.conicas;
-  if (lower.includes("limite")) return exerciseBanks.limites;
-  if (lower.includes("aplicacion de derivada") || lower.includes("derivada")) return exerciseBanks.derivadas;
+  if (lower.includes("limite")) return [...exerciseBanks.limites, ...suppliedLimits];
+  if (lower.includes("aplicacion de derivada")) {
+    return [...exerciseBanks.derivadas, ...suppliedDerivativeApplications];
+  }
+  if (lower.includes("derivada")) return [...exerciseBanks.derivadas, ...suppliedDerivatives];
   if (lower.includes("funcion")) return exerciseBanks.funciones;
   if (lower.includes("probabilidad")) return exerciseBanks.probabilidadBach;
   if (lower.includes("ecuacion") || lower.includes("sistema") || lower.includes("inecuacion")) return exerciseBanks.ecuacionesBach;
@@ -8836,7 +9846,7 @@ const exerciseBanks = {
       text: "2008 - reserva 1 - Primer bloque B\nDetermina los valores a,b ∈ R para que la función f(x)=a·sen(x)+b·cos(x) pase por el punto (π/4, √2) y además cumpla que la pendiente de la recta tangente en el punto de abscisa x=π/2 sea 5. Calcula la derivada de orden 2008 de dicha función.",
       options: ["a=7, b=-5 y f^(2008)(x)=7·sen(x)-5·cos(x)", "a=-5, b=7 y f^(2008)(x)=-5·sen(x)+7·cos(x)", "a=7, b=-5 y f^(2008)(x)=-7·sen(x)+5·cos(x)", "a=2, b=0 y f^(2008)(x)=2·sen(x)"],
       correct: 0,
-      solution: "Resolución:\n1. Como la gráfica pasa por (π/4,√2), se cumple f(π/4)=√2.\n2. sen(π/4)=cos(π/4)=√2/2, así que a·√2/2+b·√2/2=√2. Dividimos por √2/2 y obtenemos a+b=2.\n3. Derivamos: f'(x)=a·cos(x)-b·sen(x).\n4. La pendiente en x=π/2 es 5:\nf'(π/2)=a·0-b·1=-b=5, luego b=-5.\n5. Sustituimos en a+b=2: a-5=2, de donde a=7.\n6. Las derivadas de seno y coseno se repiten cada cuatro órdenes. Como 2008 es múltiplo de 4, f^(2008)(x)=f(x).\nResultado final: a=7, b=-5 y f^(2008)(x)=7·sen(x)-5·cos(x)."
+      solution: "Resolución:\n1. Como la gráfica pasa por (π/4,√2), se cumple f(π/4)=√2.\n2. sen(π/4)=cos(π/4)=√2/2, así que a·√2/2+b·√2/2=√2. Dividimos por √2/2 y obtenemos a+b=2.\n3. Derivamos: f'(x)=a·cos(x)-b·sen(x).\n4. La pendiente en x=π/2 es 5:\nf'(π/2)=a·0-b·1=-b=5, luego b=-5.\n5. Sustituimos en a+b=2: a-5=2, de donde a=7. La función es f(x)=7·sen(x)-5·cos(x).\n6. Escribimos la función y sus siete primeras derivadas para observar la repetición:\n[[derivative-cycle-2008]]\nEl ciclo se repite cada cuatro derivadas. Por eso dividimos el orden solicitado entre la longitud del ciclo:\n2008:4=502, resto 0.\nEs decir, 2008=4·502+0. Como el resto es 0, corresponde la posición de f(x) en el ciclo:\nf^(2008)(x)=f(x)=7·sen(x)-5·cos(x).\nResultado final: a=7, b=-5 y f^(2008)(x)=7·sen(x)-5·cos(x)."
     },
     {
       type: "pau-open",
@@ -8848,9 +9858,13 @@ const exerciseBanks = {
     {
       type: "pau-open",
       text: "2021 - convocatoria de julio - Ejercicio 6\nSea la función f(x)=(2x^2+2x-2)/(3x^2+3).\na) Halla razonadamente las coordenadas de los extremos relativos de la función f(x) y clasifícalos.\nb) Calcula la ecuación de la recta tangente y la ecuación de la recta normal a la gráfica de la función f(x) en el punto de abscisa x=1.",
-      options: ["Mínimo (2-√5,-√5/3), máximo (2+√5,√5/3); tangente y=2x/3-1/3; normal y=-3x/2+11/6", "Máximo (2-√5,-√5/3), mínimo (2+√5,√5/3); tangente y=2x/3+1/3; normal y=3x/2-11/6", "Mínimo (-2-√5,-√5/3), máximo (-2+√5,√5/3); tangente y=x/3; normal y=-3x", "No tiene extremos; tangente y=2x/3-1/3; normal y=-3x/2+11/6"],
+      options: ["Mínimo (2-√5,-√5/3), máximo (2+√5,√5/3); tangente y=2x/3-1/3; normal y=-3x/2+11/6", "Máximo (2-√5,-√5/3), mínimo (2+√5,√5/3); tangente y=2x/3+1/3; normal y=3x/2-11/6", "Mínimo (-2-√5,-√5/3), máximo (-2+√5,√5/3); tangente y=x/3; normal y=-3x", "No tiene extremos; tangente y=x/3+1/3; normal y=-3x"],
       correct: 0,
-      solution: "Resolución:\n1. Derivamos con la regla del cociente:\nf'(x)=[(4x+2)(3x²+3)-(2x²+2x-2)(6x)]/(3x²+3)²\n=(-6x²+24x+6)/(3x²+3)²\n=-6(x²-4x-1)/(3x²+3)².\n2. El denominador es siempre positivo. Los puntos críticos verifican x²-4x-1=0, luego x=2-√5 o x=2+√5.\n3. El signo de f' es negativo antes de 2-√5, positivo entre las dos raíces y negativo después de 2+√5. Por tanto hay un mínimo en x=2-√5 y un máximo en x=2+√5.\n4. Usando x²=4x+1 en ambos puntos críticos, f(x)=5x/[3(2x+1)]. Así obtenemos f(2-√5)=-√5/3 y f(2+√5)=√5/3.\n5. En x=1: f(1)=1/3 y f'(1)=2/3. La tangente es y-1/3=(2/3)(x-1), es decir, y=2x/3-1/3.\n6. La pendiente de la normal es la opuesta de la inversa: -3/2. Entonces y-1/3=(-3/2)(x-1), es decir, y=-3x/2+11/6.\nResultado final: mínimo (2-√5,-√5/3), máximo (2+√5,√5/3), tangente y=2x/3-1/3 y normal y=-3x/2+11/6."
+      partSolutions: [
+        "Resolución del apartado a):\n1. Derivamos con la regla del cociente y escribimos toda la derivada como una fracción:\nf'(x)=frac{(4x+2)(3x²+3)−(2x²+2x−2)·6x}{(3x²+3)²}=frac{−6x²+24x+6}{(3x²+3)²}=frac{−6(x²−4x−1)}{(3x²+3)²}.\n2. El denominador (3x²+3)² es siempre positivo. Por tanto, los puntos críticos se obtienen anulando el numerador:\nx²−4x−1=0, de donde x=2−√5 o x=2+√5.\n3. Probamos un valor de cada intervalo en f'(x):\n• En (−∞,2−√5), tomamos x=−1: f'(−1)=frac{−24}{36}<0.\n• En (2−√5,2+√5), tomamos x=0: f'(0)=frac{6}{9}=frac{2}{3}>0.\n• En (2+√5,+∞), tomamos x=5: f'(5)=frac{−24}{6084}<0.\n[[signchart points=\"−∞|2−√5|2+√5|+∞\" signs=\"−|+|−\" arrows=\"↓|↑|↓\"]]\n4. En x=2−√5 el signo cambia de − a +, luego hay un mínimo relativo. En x=2+√5 cambia de + a −, luego hay un máximo relativo.\n5. Como en ambos puntos críticos x²=4x+1, se obtiene f(x)=frac{5x}{3(2x+1)}. Por tanto, f(2−√5)=frac{−√5}{3} y f(2+√5)=frac{√5}{3}.\nResultado final: mínimo relativo en (2−√5,frac{−√5}{3}) y máximo relativo en (2+√5,frac{√5}{3}).",
+        "Resolución del apartado b):\n1. Calculamos el punto de tangencia: f(1)=frac{2+2−2}{3+3}=frac{1}{3}.\n2. Sustituimos x=1 en la derivada: f'(1)=frac{−6+24+6}{(3+3)²}=frac{24}{36}=frac{2}{3}.\n3. La recta tangente tiene pendiente m=frac{2}{3}:\ny−frac{1}{3}=frac{2}{3}(x−1), por tanto y=frac{2x}{3}−frac{1}{3}.\n4. La recta normal es perpendicular a la tangente. Por tanto, sus pendientes cumplen:\nm·m_n=−1.\nSustituimos m=frac{2}{3}:\nfrac{2}{3}·m_n=−1.\nDespejamos la pendiente de la normal:\nm_n=frac{−1}{frac{2}{3}}=−1·frac{3}{2}=frac{−3}{2}.\n5. Usamos la ecuación punto-pendiente de la normal:\ny−frac{1}{3}=frac{−3}{2}(x−1), por tanto y=frac{−3x}{2}+frac{11}{6}.\nResultado final: tangente y=frac{2x}{3}−frac{1}{3} y normal y=frac{−3x}{2}+frac{11}{6}."
+      ],
+      solution: "Resolución:\n1. Derivamos con la regla del cociente:\nf'(x)=[(4x+2)(3x²+3)-(2x²+2x-2)(6x)]/(3x²+3)²\n=(-6x²+24x+6)/(3x²+3)²\n=-6(x²-4x-1)/(3x²+3)².\n2. El denominador es siempre positivo. Los puntos críticos verifican x²-4x-1=0, luego x=2-√5 o x=2+√5.\n3. El signo de f' es negativo antes de 2-√5, positivo entre las dos raíces y negativo después de 2+√5. Por tanto hay un mínimo en x=2-√5 y un máximo en x=2+√5.\n4. Usando x²=4x+1 en ambos puntos críticos, f(x)=5x/[3(2x+1)]. Así obtenemos f(2-√5)=-√5/3 y f(2+√5)=√5/3.\n5. En x=1: f(1)=1/3 y f'(1)=2/3. La tangente es y-1/3=(2/3)(x-1), es decir, y=2x/3-1/3.\n6. Para hallar la pendiente de la normal usamos que las pendientes de dos rectas perpendiculares cumplen m·m_n=-1. Sustituimos m=2/3:\n(2/3)·m_n=-1, luego m_n=-1:(2/3)=-3/2.\n7. La normal es y-1/3=(-3/2)(x-1), es decir, y=-3x/2+11/6.\nResultado final: mínimo (2-√5,-√5/3), máximo (2+√5,√5/3), tangente y=2x/3-1/3 y normal y=-3x/2+11/6."
     },
     {
       type: "pau-open",
@@ -8960,7 +9974,7 @@ I=-frac{1}{6}·ln|x|-frac{2}{15}·ln|x+3|+frac{3}{10}·ln|x-2|+C.`
         "A = 32"
       ],
       correct: 0,
-      solution: "Resolución:\n1. Buscamos los puntos que delimitan el recinto. La parábola corta al eje OX cuando x²-1=0, es decir, en x=-1 y x=1. La recta corta al eje OX cuando 11-x=0, es decir, en x=11.\n2. Calculamos el corte entre la parábola y la recta:\nx²-1=11-x ⇒ x²+x-12=0 ⇒ (x+4)(x-3)=0.\nLos cortes son x=-4 y x=3. Para el recinto cerrado con el eje OX se utiliza x=3.\n[[area-graph-parabola-line]]\n3. Como se ve en la gráfica, el recinto queda bajo la parábola desde x=1 hasta x=3 y bajo la recta desde x=3 hasta x=11. Por eso dividimos el cálculo en dos integrales:\nA=∫_{1}^{3} (x²-1) dx + ∫_{3}^{11} (11-x) dx.\n4. Calculamos la primera integral:\n∫_{1}^{3} (x²-1) dx = [frac{x³}{3}-x]_{1}^{3}\n=(9-3)-paren{frac{1}{3}-1}=6+frac{2}{3}=frac{20}{3}.\n5. Calculamos la segunda integral:\n∫_{3}^{11} (11-x) dx = [11x-frac{x²}{2}]_{3}^{11}\n=frac{121}{2}-frac{57}{2}=frac{64}{2}=32.\n6. Sumamos las dos áreas:\nA=frac{20}{3}+32=frac{20}{3}+frac{96}{3}=frac{116}{3}.\nResultado final:\nA=frac{116}{3} unidades cuadradas."
+      solution: "Resolución:\n1. Buscamos los puntos que delimitan el recinto. La parábola corta al eje OX cuando x²−1=0, es decir, en x=−1 y x=1. La recta corta al eje OX cuando 11−x=0, es decir, en x=11. Para este recinto utilizamos el corte x=1 de la parábola con el eje OX.\n2. Calculamos el corte entre la parábola y la recta:\nx²−1=11−x ⇒ x²+x−12=0 ⇒ (x+4)(x−3)=0.\nLos cortes son x=−4 y x=3. El que delimita este recinto es x=3 y su ordenada es y=8.\n[[area-graph-parabola-line]]\n3. Como se ve en la gráfica, el área azul queda bajo la parábola desde x=1 hasta x=3 y el área verde queda bajo la recta desde x=3 hasta x=11. Por eso dividimos el cálculo en dos integrales:\n[[area-equation-parabola-line]]\n4. Calculamos la primera integral y aplicamos la regla de Barrow:\n[[barrow-equation-parabola]]\n5. Calculamos la segunda integral y aplicamos la regla de Barrow:\n[[barrow-equation-line]]\n6. Sumamos las dos áreas:\nA=frac{20}{3}+32=frac{20}{3}+frac{96}{3}=frac{116}{3}.\nResultado final:\nA=frac{116}{3} unidades cuadradas."
     },
     {
       type: "pau-open",
@@ -9226,6 +10240,7 @@ function answerMultipartPart(partIndex, optionIndex) {
   if (state.multipartResponses.filter((response) => response !== undefined).length !== question.parts.length) return;
   clearQuestionTimer();
   state.answered = true;
+  markChallengeQuestionAnswered(question);
   const correctParts = state.multipartResponses.filter((response) => response.correct).length;
   state.score += correctParts * 100;
   state.streak = correctParts === question.parts.length ? state.streak + 1 : 0;
@@ -9258,6 +10273,7 @@ function answerQuestion(index) {
   const isCorrect = index === question.correct;
 
   state.answered = true;
+  markChallengeQuestionAnswered(question);
   state.score += isCorrect ? 100 + state.streak * 20 : 0;
   state.streak = isCorrect ? state.streak + 1 : 0;
   state.sessionAnswers.push({ question: question.text, correct: isCorrect, solution: question.solution || "" });
@@ -9288,6 +10304,7 @@ function completeOpenPauQuestion() {
   const questions = buildQuestions(theme, course);
   const question = questions[state.questionIndex];
   state.answered = true;
+  markChallengeQuestionAnswered(question);
   state.score += 100;
   state.streak += 1;
   state.sessionAnswers.push({ question: question.text, correct: true, solution: question.solution || "" });

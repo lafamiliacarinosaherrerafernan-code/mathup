@@ -84,14 +84,21 @@ Resultado final: la cantidad mínima es frac{386}{9} litros y se obtiene a las 3
       ],
       correct: 0,
       solution: `Resolución:
-1. Las curvas se cortan cuando frac{1}{x}=frac{1}{x²}. En el primer cuadrante, x>0, así que multiplicamos por x² y obtenemos x=1.
-2. La recta x=2 cierra el recinto. En [1,2] se cumple frac{1}{x}>frac{1}{x²}.
-3. El área es la integral de la función superior menos la inferior:
-A=∫_{1}^{2} paren{frac{1}{x}-frac{1}{x²}} dx.
-4. Una primitiva es:
-ln x+frac{1}{x}.
-5. Aplicamos la regla de Barrow:
-A=[ln x+frac{1}{x}]_{1}^{2}=paren{ln 2+frac{1}{2}}-paren{ln 1+1}=ln 2-frac{1}{2}.
+1. Calculamos el punto de corte de las dos curvas:
+frac{1}{x}=frac{1}{x²}, con x>0.
+Multiplicamos por x² y obtenemos x=1. Entonces y=1, por lo que las curvas se cortan en P=(1,1).
+2. Calculamos los puntos en los que la recta x=2 corta a cada curva:
+f(2)=frac{1}{2} ⇒ Q=paren{2,frac{1}{2}},
+g(2)=frac{1}{2²}=frac{1}{4} ⇒ R=paren{2,frac{1}{4}}.
+Las dos funciones tienen como asíntotas los ejes x=0 e y=0; no los cortan. Con P, Q, R y la recta x=2 ya podemos representar el recinto.
+3. En el intervalo [1,2] se cumple frac{1}{x}>frac{1}{x²}; por tanto, f(x)=frac{1}{x} es la función superior y g(x)=frac{1}{x²} la inferior.
+[[area-graph-reciprocal]]
+4. El área es la integral de la función superior menos la inferior:
+[[area-equation-reciprocal]]
+5. Calculamos una primitiva:
+∫paren{frac{1}{x}-frac{1}{x²}}dx=ln x+frac{1}{x}.
+6. Aplicamos la regla de Barrow, evaluando primero en el extremo superior y después en el inferior:
+[[barrow-equation-reciprocal]]
 Resultado final: A=ln 2-frac{1}{2} unidades cuadradas.`
     }
   };

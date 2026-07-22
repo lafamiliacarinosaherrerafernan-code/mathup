@@ -196,12 +196,17 @@ Al sustituir x=0 vuelve a aparecer la indeterminación 0/0.
 Así obtenemos:
 lim x→0 frac{sen x}{2·tg x·(1+tg^2 x)+sen x}.
 Al sustituir x=0 aparece de nuevo 0/0.
-4. Antes de aplicar L'Hôpital otra vez, simplificamos usando tg x=frac{sen x}{cos x}:
-2·tg x·(1+tg^2 x)+sen x=sen x·(frac{2·(1+tg^2 x)}{cos x}+1).
-Para x≠0 suficientemente próximo a 0 podemos simplificar el factor sen x:
-lim x→0 frac{sen x}{sen x·(frac{2·(1+tg^2 x)}{cos x}+1)}=lim x→0 frac{1}{frac{2·(1+tg^2 x)}{cos x}+1}.
-5. Sustituimos x=0:
-frac{1}{frac{2·(1+tg^2 0)}{cos 0}+1}=frac{1}{2+1}=frac{1}{3}.
+4. Para evitar fracciones innecesarias, desarrollamos el producto del denominador antes de volver a derivar:
+2·tg x·(1+tg^2 x)+sen x=2·tg x+2·tg^3 x+sen x.
+5. Como todavía tenemos 0/0, aplicamos L'Hôpital por tercera vez. Derivamos cada término del denominador:
+(2·tg x)'=2·(1+tg^2 x),
+(2·tg^3 x)'=6·tg^2 x·(1+tg^2 x),
+(sen x)'=cos x.
+Por tanto:
+lim x→0 frac{cos x}{2·(1+tg^2 x)+6·tg^2 x·(1+tg^2 x)+cos x}
+=lim x→0 frac{cos x}{2+8·tg^2 x+6·tg^4 x+cos x}.
+6. Sustituimos x=0:
+frac{cos 0}{2+8·tg^2 0+6·tg^4 0+cos 0}=frac{1}{2+0+0+1}=frac{1}{3}.
 Resultado final: el límite vale frac{1}{3}.`
       }
     },
@@ -259,9 +264,9 @@ I=-frac{1}{6}·ln|x|-frac{2}{15}·ln|x+3|+frac{3}{10}·ln|x-2|+C.`
 Para x≥0: x^2=x ⇒ x=0 o x=1.
 Para x<0: x^2=-x ⇒ x=-1.
 2. El recinto está entre x=-1 y x=1. En ese intervalo |x| queda por encima de x^2.
-3. Por simetría respecto del eje OY:
+3. Planteamos el área como función superior menos función inferior. Como y=|x| e y=x^2 son funciones pares, el recinto es simétrico respecto del eje OY:
 [[area-graph-abs-parabola]]
-Área=2·∫_{0}^{1} (x-x^2) dx.
+[[area-equation-abs-parabola]]
 4. Calculamos una primitiva:
 ∫ (x-x^2) dx=frac{x^2}{2}-frac{x^3}{3}.
 5. Aplicamos la regla de Barrow:

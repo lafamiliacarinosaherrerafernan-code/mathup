@@ -65,6 +65,14 @@
     }
   }
 
+  function writeExamHistory(history) {
+    try {
+      localStorage.setItem(EXAM_HISTORY_KEY, JSON.stringify(history));
+    } catch (_) {
+      // El examen sigue funcionando aunque el almacenamiento local no esté disponible.
+    }
+  }
+
   function chooseWithoutRepeating(courseId, slot, seed) {
     const pool = catalog(courseId).filter((entry) => entry.slot === slot && exerciseIsComplete(courseId, entry));
     if (!pool.length) return null;
@@ -76,11 +84,20 @@
       const lastId = used.at(-1);
       used = lastId && pool.length > 1 ? [lastId] : [];
       available = pool.filter((entry) => !used.includes(entry.id));
+      history[key] = used;
+      writeExamHistory(history);
     }
-    const selected = seededShuffle(available, `${seed}|${slot}|${used.length}`)[0];
-    history[key] = [...used, selected.id];
-    localStorage.setItem(EXAM_HISTORY_KEY, JSON.stringify(history));
-    return selected;
+    return seededShuffle(available, `${seed}|${slot}|${used.length}`)[0];
+  }
+
+  function markExamExerciseAnswered(courseId, question) {
+    if (!courseId || !question?.id || !question?.slot) return;
+    const history = readExamHistory();
+    const key = `${studentExamKey(courseId)}|slot-${question.slot}`;
+    const answered = new Set(Array.isArray(history[key]) ? history[key] : []);
+    answered.add(question.id);
+    history[key] = [...answered];
+    writeExamHistory(history);
   }
 
   function prepareExercise(courseId, entry, rotationSeed = 0) {
@@ -287,6 +304,10 @@
       return;
     }
     const question = exam.questions[exam.index];
+    // Registramos el ejercicio al mostrarse. Así, si el alumno sale del examen
+    // después de haberlo visto, la próxima entrada continúa con otro ejercicio
+    // oficial del mismo grupo y no exige terminar las cinco preguntas.
+    markExamExerciseAnswered(exam.courseId, question);
     const labels = slotLabels[course.id] || [];
     const answeredCount = exam.questions.reduce((total, item) => total + (item.graded ? item.results.length : 0), 0);
     const partsHtml = question.parts.map((part, partIndex) => {
@@ -312,7 +333,7 @@
               <span class="topic-kicker">Examen de ${escapeHtml(courseDisplayName(course))}</span>
               <h1>Ejercicio ${exam.index + 1} de 5 · ${escapeHtml(labels[question.slot - 1] || "Ejercicio")}</h1>
               <div class="badge-row">
-                <span class="badge">${escapeHtml(question.source)}</span>
+                <span class="badge">Convocatoria: ${escapeHtml(officialConvocationLabel(question))}</span>
                 <span class="badge">Aciertos: ${exam.score}/${answeredCount || 0}</span>
               </div>
             </div>
@@ -323,8 +344,8 @@
           </div>
           <div class="progress exam-progress"><span style="width:${progress}%"></span></div>
           <article class="exam-question-card">
-            <div class="official-source">Enunciado original · ${escapeHtml(question.source)}</div>
-            <div class="question-text official-exercise-statement">${question.statementHtml}</div>
+            ${renderOfficialSourceCallout(question, course.id)}
+            <div class="question-text official-exercise-statement">${officialQuestionStatementHtml(question, course.id)}</div>
             <div class="exam-parts">${partsHtml}</div>
             <div class="exam-actions">
               ${!question.graded ? `<button class="primary" ${allSelected ? "" : "disabled"} onclick="gradeBachExamExercise()">Corregir ejercicio</button>` : `
@@ -351,6 +372,7 @@
     if (!question || question.graded || !question.selections.every(Number.isInteger)) return;
     question.results = question.parts.map((part, partIndex) => question.selections[partIndex] === part.correct);
     question.graded = true;
+    markExamExerciseAnswered(exam.courseId, question);
     exam.score += question.results.filter(Boolean).length;
     renderBachExam();
   }
