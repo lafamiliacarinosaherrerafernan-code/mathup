@@ -6,6 +6,7 @@ const EU_LOGO_SRC = "assets/logo-eu-fse.png?v=20260719-logos-1";
 const SCHOOL_URL = "https://www.iesmargaritasalas.edu.es/";
 const STUDENT_PASSWORD = window.APP_CONFIG?.STUDENT_PASSWORD || "";
 const ADMIN_PASSWORD = window.APP_CONFIG?.ADMIN_PASSWORD || "";
+const DEVELOPER_MODE = window.APP_CONFIG?.DEVELOPER_MODE === true;
 const REPORT_KEY = "margaritaSalasReports";
 const GAME_PROGRESS_KEY = "margaritaSalasGameProgress";
 const DEFAULT_QUESTION_SECONDS = 120;
@@ -1878,6 +1879,9 @@ function renderLogin() {
           <input id="password" type="password" placeholder="Contraseña" />
         </div>
         <button class="primary" onclick="login()">Entrar</button>
+        <button class="ghost public-auth-preview-entry" onclick="showPublicRegistrationPreview()">Vista previa del nuevo registro</button>
+        ${DEVELOPER_MODE ? `<button class="developer-entry-button" onclick="renderDeveloperLogin()">Acceso de desarrollo</button>` : ""}
+        <p class="public-auth-preview-note">No sustituye el acceso actual ni crea todavía una cuenta.</p>
         <p class="error" id="login-error"></p>
       </div>
     </section>
@@ -9736,7 +9740,7 @@ function playTopicPodcast(level) {
   player.innerHTML = `
     <div class="topic-podcast-now-playing">
       <span class="topic-podcast-cover" aria-hidden="true">${level === "master" ? "★" : "⚡"}</span>
-      <div><small>Reproduciendo · ${level === "master" ? "Master" : "Express"}</small><strong>${escapeHtml(podcast.title)}</strong></div>
+      <div><small>Preparado · ${level === "master" ? "Master" : "Express"}</small><strong>${escapeHtml(podcast.title)}</strong></div>
     </div>
     <audio id="topic-podcast-audio" controls preload="metadata" src="${escapeHtml(src)}">
       Tu navegador no puede reproducir este archivo de audio.
@@ -9746,9 +9750,17 @@ function playTopicPodcast(level) {
       <button class="primary" onclick="closeTopicPodcast()">Volver al reto</button>
     </div>`;
   topicPodcastAudio = document.getElementById("topic-podcast-audio");
-  topicPodcastAudio?.play()?.catch(() => {
-    // Si el navegador bloquea el inicio automático, el alumno puede pulsar Reproducir.
-  });
+}
+
+function stopAllAppMedia() {
+  if (topicPodcastAudio) {
+    topicPodcastAudio.pause();
+    topicPodcastAudio.removeAttribute("src");
+    topicPodcastAudio.load?.();
+  }
+  topicPodcastAudio = null;
+  document.querySelectorAll("audio, video").forEach((media) => media.pause?.());
+  if ("speechSynthesis" in window) window.speechSynthesis.cancel();
 }
 
 function showTopicPodcastOptions() {
@@ -10498,6 +10510,9 @@ document.addEventListener("click", (event) => {
   if (!event.target.closest?.(".avatar-visual-select")) closeAvatarDropdowns();
 });
 
+window.addEventListener("pagehide", stopAllAppMedia);
+window.addEventListener("beforeunload", stopAllAppMedia);
+stopAllAppMedia();
 renderLogin();
 
 

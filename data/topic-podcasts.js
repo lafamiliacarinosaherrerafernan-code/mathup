@@ -33,5 +33,21 @@ window.TOPIC_PODCASTS = {
     { title: "Funciones", express: "documentos/3º ESO/Audios Temas 3º ESO/8-Funciones Pódcast.m4a" },
     { title: "Estadística", express: "documentos/3º ESO/Audios Temas 3º ESO/9-Estadística Pódcast.m4a" },
     { title: "Probabilidad", express: "documentos/3º ESO/Audios Temas 3º ESO/10-Probabilidad Pódcast.m4a" }
+  ],
+  "4eso-b": [
+    { title: "Números reales", express: "documentos/4º ESO B/Audios 4º ESO B Express/1-Nº Reales Rev1 Pódcast.m4a" },
+    { title: "Radicales y logaritmos", express: "documentos/4º ESO B/Audios 4º ESO B Express/2-Radicales y Logaritmos Pódcast.m4a" },
+    { title: "Expresiones algebraicas", express: "documentos/4º ESO B/Audios 4º ESO B Express/3-Expresiones algebraicas Pódcast.m4a" },
+    { title: "Ecuaciones y sistemas de ecuaciones", express: "documentos/4º ESO B/Audios 4º ESO B Express/4-Ecuaciones y sistemas de ecuaciones Pódcast.m4a" },
+    { title: "Inecuaciones y sistemas de inecuaciones", express: "documentos/4º ESO B/Audios 4º ESO B Express/5-Inecuaciones y sistemas de inecuaciones Pódcast.m4a" },
+    { title: "Proporcionalidad", express: "documentos/4º ESO B/Audios 4º ESO B Express/6-Proporcionalidad Pódcast.m4a" },
+    { title: "Semejanza", express: "documentos/4º ESO B/Audios 4º ESO B Express/7-Semejanza Pódcast.m4a" },
+    { title: "Trigonometría", express: "documentos/4º ESO B/Audios 4º ESO B Express/8-Trigonometría Pódcast.m4a" },
+    { title: "Geometría analítica", express: "documentos/4º ESO B/Audios 4º ESO B Express/9-Geometría analítica Pódcast.m4a" },
+    { title: "Funciones", express: "documentos/4º ESO B/Audios 4º ESO B Express/10-Funciones Pódcast.m4a" },
+    { title: "Límite de funciones", express: "documentos/4º ESO B/Audios 4º ESO B Express/11-Límite de Funciones Pódcast.m4a" },
+    { title: "Derivadas", express: "documentos/4º ESO B/Audios 4º ESO B Express/12-Derivadas Pódcast.m4a" },
+    { title: "Límite de sucesiones", express: "documentos/4º ESO B/Audios 4º ESO B Express/13-Límite de Sucesiones Pódcast.m4a" },
+    { title: "Combinatoria", express: "documentos/4º ESO B/Audios 4º ESO B Express/14-Combinatoria Pódcast.m4a" }
   ]
 };
