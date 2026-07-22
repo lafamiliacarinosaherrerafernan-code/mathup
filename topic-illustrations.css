@@ -1,0 +1,153 @@
+/* Every topic card reserves a centered, unobstructed area for its visual. */
+.topic-card {
+  min-height: 250px;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.topic-card::after {
+  display: none;
+}
+
+.topic-card > div:first-child,
+.topic-card .topic-actions {
+  position: relative;
+  z-index: 2;
+}
+
+.topic-card .topic-actions {
+  margin-top: auto;
+}
+
+.topic-illustration {
+  position: absolute !important;
+  left: 50%;
+  top: 53%;
+  width: 154px;
+  height: 112px;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 0 !important;
+}
+
+.topic-symbol {
+  position: absolute;
+  inset: 0;
+  display: block;
+  color: var(--topic-accent);
+  opacity: 0.19;
+}
+
+.topic-symbol::after {
+  position: absolute;
+  left: 6px;
+  top: 4px;
+  right: auto;
+  bottom: auto;
+  width: 142px;
+  height: 104px;
+  box-sizing: border-box;
+  color: inherit;
+}
+
+.topic-symbol.topic-visual-matrix::after,
+.topic-symbol.topic-visual-function::after,
+.topic-symbol.topic-visual-linear-function::after,
+.topic-symbol.topic-visual-linear-programming::after,
+.topic-symbol.topic-visual-probability::after,
+.topic-symbol.topic-visual-distribution::after,
+.topic-symbol.topic-visual-statistics::after,
+.topic-symbol.topic-visual-pythagoras::after,
+.topic-symbol.topic-visual-polygon::after,
+.topic-symbol.topic-visual-solids::after,
+.topic-symbol.topic-visual-conics::after {
+  content: "";
+}
+
+.topic-symbol.topic-visual-matrix::after,
+.topic-symbol.topic-visual-function::after,
+.topic-symbol.topic-visual-linear-function::after,
+.topic-symbol.topic-visual-linear-programming::after,
+.topic-symbol.topic-visual-probability::after,
+.topic-symbol.topic-visual-distribution::after,
+.topic-symbol.topic-visual-statistics::after {
+  background-repeat: no-repeat;
+}
+
+.topic-symbol.topic-visual-derivative::after {
+  content: "f′(x)\A↗";
+  white-space: pre;
+  padding: 18px;
+  background: none;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 2rem;
+  font-weight: 900;
+  line-height: 1;
+}
+
+.topic-symbol.topic-visual-optimization::after {
+  content: "máx.\Af′(x)=0";
+  white-space: pre;
+  padding: 18px;
+  background: none;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.55rem;
+  font-weight: 900;
+  line-height: 1.08;
+}
+
+.topic-card:hover .topic-symbol {
+  opacity: 0.25;
+}
+
+.topic-card:hover .topic-illustration {
+  transform: translate(-50%, calc(-50% - 2px));
+}
+
+/* Ensure generic geometry topics still have an explicit visible construction. */
+.topic-symbol.topic-visual-geometry::after,
+.topic-symbol.topic-visual-similarity::after,
+.topic-symbol.topic-visual-area-volume::after,
+.topic-symbol.topic-visual-angles::after {
+  content: "";
+  background:
+    linear-gradient(currentColor 0 0) 18px 82px / 108px 3px no-repeat,
+    linear-gradient(currentColor 0 0) 34px 18px / 3px 76px no-repeat,
+    linear-gradient(140deg, transparent 43%, currentColor 44% 48%, transparent 49%);
+}
+
+.topic-symbol.topic-visual-area-volume::after {
+  border: 5px solid currentColor;
+  transform: skew(-7deg) rotate(-4deg) scale(0.78);
+  background: linear-gradient(135deg, transparent 48%, currentColor 49% 52%, transparent 53%);
+}
+
+.topic-symbol.topic-visual-similarity::after {
+  background:
+    linear-gradient(60deg, transparent 47%, currentColor 48% 52%, transparent 53%) 4px 18px / 70px 72px no-repeat,
+    linear-gradient(120deg, transparent 47%, currentColor 48% 52%, transparent 53%) 4px 18px / 70px 72px no-repeat,
+    linear-gradient(currentColor 0 0) 12px 80px / 62px 4px no-repeat,
+    linear-gradient(60deg, transparent 47%, currentColor 48% 52%, transparent 53%) 72px 35px / 50px 52px no-repeat,
+    linear-gradient(120deg, transparent 47%, currentColor 48% 52%, transparent 53%) 72px 35px / 50px 52px no-repeat,
+    linear-gradient(currentColor 0 0) 78px 80px / 44px 4px no-repeat;
+}
+
+.topic-symbol.topic-visual-angles::after {
+  background:
+    linear-gradient(30deg, transparent 47%, currentColor 48% 52%, transparent 53%),
+    linear-gradient(150deg, transparent 47%, currentColor 48% 52%, transparent 53%),
+    radial-gradient(circle at 50% 79%, transparent 0 23px, currentColor 24px 27px, transparent 28px);
+}
+
+@media (max-width: 680px) {
+  .topic-card { min-height: 238px; }
+  .topic-illustration { top: 52%; transform: translate(-50%, -50%) scale(0.88); }
+  .topic-card:hover .topic-illustration { transform: translate(-50%, -50%) scale(0.88); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .topic-card,
+  .topic-illustration,
+  .topic-symbol { transition: none !important; }
+}

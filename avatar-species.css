@@ -1,0 +1,2372 @@
+/* Distinct species, outfits and readable game scenes for the avatar editor. */
+.avatar-figure {
+  --species: #c9752c;
+  --species-light: #f2b56f;
+  --species-dark: #773b20;
+  --eye-color: #b66a16;
+  --metal: #9fb3c8;
+  --metal-light: #e5eef6;
+  --metal-dark: #45617b;
+  --robot-light: #38d9e6;
+}
+
+.avatar-scene {
+  overflow: hidden;
+  background: linear-gradient(180deg, #dbeeff 0 64%, #c6e8d5 65% 100%);
+  box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.82), 0 5px 8px rgba(20, 43, 88, 0.12);
+}
+
+.avatar-scene::before,
+.avatar-scene::after {
+  content: none !important;
+}
+
+.avatar-scene .scene-object {
+  position: absolute;
+  display: block;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Forest: trunks, leafy crowns and undergrowth. */
+.avatar-bg-forest .avatar-scene {
+  background: linear-gradient(180deg, #bfe7ff 0 54%, #6fc28d 55% 78%, #3f8d5b 79% 100%);
+}
+
+.avatar-bg-forest .scene-object-a,
+.avatar-bg-forest .scene-object-b {
+  bottom: 14%;
+  width: 7%;
+  height: 38%;
+  border-radius: 5px;
+  background: #704324;
+  box-shadow: inset 2px 0 rgba(255, 255, 255, 0.16);
+}
+
+.avatar-bg-forest .scene-object-a { left: 11%; }
+.avatar-bg-forest .scene-object-b { right: 12%; height: 31%; }
+
+.avatar-bg-forest .scene-object-a::before,
+.avatar-bg-forest .scene-object-b::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: -46%;
+  width: 390%;
+  height: 64%;
+  transform: translateX(-50%);
+  border-radius: 50% 50% 42% 42%;
+  background: #197a4d;
+  box-shadow: -10px 8px #2a985d, 10px 10px #126841;
+}
+
+.avatar-bg-forest .scene-object-c {
+  left: 2%;
+  right: 2%;
+  bottom: 5%;
+  height: 13%;
+  border-radius: 50% 50% 0 0;
+  background: radial-gradient(circle at 12% 100%, #2c8d54 0 16%, transparent 17%), radial-gradient(circle at 86% 100%, #216f47 0 18%, transparent 19%);
+}
+
+/* Laboratory: workbench, Erlenmeyer flask and test tubes. */
+.avatar-bg-lab .avatar-scene {
+  background: linear-gradient(180deg, #e6f5ff 0 61%, #c9dae9 62% 77%, #8198ad 78% 100%);
+}
+
+.avatar-bg-lab .scene-object-a {
+  left: 4%;
+  right: 4%;
+  bottom: 18%;
+  height: 6%;
+  border-radius: 3px;
+  background: #315b7d;
+  box-shadow: 0 8px 0 #647d91;
+}
+
+.avatar-bg-lab .scene-object-b {
+  left: 10%;
+  bottom: 27%;
+  width: 19%;
+  height: 27%;
+  clip-path: polygon(38% 0, 62% 0, 62% 35%, 94% 91%, 86% 100%, 14% 100%, 6% 91%, 38% 35%);
+  background: linear-gradient(180deg, rgba(255,255,255,0.82) 0 58%, #31c7b1 59% 100%);
+  border-bottom: 3px solid #157b81;
+}
+
+.avatar-bg-lab .scene-object-c {
+  right: 9%;
+  bottom: 27%;
+  width: 7%;
+  height: 27%;
+  border-radius: 2px 2px 10px 10px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.82) 0 48%, #f0a23a 49% 100%);
+  box-shadow: -12px 4px 0 -1px #58b8e8, 12px 6px 0 -1px #e76573;
+}
+
+/* Power tower: one unmistakable tall fortified tower. */
+.avatar-bg-tower .avatar-scene {
+  background: linear-gradient(180deg, #c9dcff 0 58%, #8ea4c7 59% 100%);
+}
+
+.avatar-bg-tower .scene-object-a {
+  left: 8%;
+  bottom: 14%;
+  width: 32%;
+  height: 55%;
+  background: #7186aa;
+  border: 2px solid #445b81;
+  box-shadow: inset 0 0 0 5px rgba(255,255,255,0.12);
+}
+
+.avatar-bg-tower .scene-object-a::before {
+  content: "";
+  position: absolute;
+  left: -3px;
+  right: -3px;
+  top: -15%;
+  height: 19%;
+  background: #536b94;
+  clip-path: polygon(0 0, 20% 0, 20% 54%, 40% 54%, 40% 0, 60% 0, 60% 54%, 80% 54%, 80% 0, 100% 0, 100% 100%, 0 100%);
+}
+
+.avatar-bg-tower .scene-object-a::after {
+  content: "x²";
+  position: absolute;
+  left: 50%;
+  top: 28%;
+  transform: translateX(-50%);
+  color: #f8cf56;
+  font: 800 12px/1 Arial, sans-serif;
+}
+
+.avatar-bg-tower .scene-object-b {
+  left: 18%;
+  bottom: 14%;
+  width: 11%;
+  height: 18%;
+  border-radius: 8px 8px 0 0;
+  background: #243b62;
+}
+
+.avatar-bg-tower .scene-object-c {
+  left: 24%;
+  top: 12%;
+  width: 2px;
+  height: 22%;
+  background: #263b5e;
+}
+
+.avatar-bg-tower .scene-object-c::after {
+  content: "";
+  position: absolute;
+  left: 2px;
+  top: 0;
+  width: 17px;
+  height: 10px;
+  clip-path: polygon(0 0, 100% 50%, 0 100%);
+  background: #f0b63d;
+}
+
+/* Observatory: dome, slit and telescope. */
+.avatar-bg-observatory .avatar-scene {
+  background: radial-gradient(circle at 18% 18%, #fff 0 2px, transparent 3px), radial-gradient(circle at 76% 13%, #fff 0 2px, transparent 3px), radial-gradient(circle at 64% 34%, #fff 0 1px, transparent 2px), linear-gradient(180deg, #172c5a 0 65%, #516d98 66% 100%);
+}
+
+.avatar-bg-observatory .scene-object-a {
+  left: 6%;
+  bottom: 16%;
+  width: 42%;
+  height: 34%;
+  border-radius: 50% 50% 6px 6px;
+  background: #dbe7f5;
+  border: 2px solid #7890ad;
+}
+
+.avatar-bg-observatory .scene-object-a::after {
+  content: "";
+  position: absolute;
+  left: 42%;
+  top: 0;
+  width: 13%;
+  height: 65%;
+  background: #334d73;
+  transform: rotate(10deg);
+}
+
+.avatar-bg-observatory .scene-object-b {
+  right: 8%;
+  bottom: 29%;
+  width: 38%;
+  height: 9%;
+  border-radius: 999px;
+  background: #dce8f7;
+  border: 2px solid #344d72;
+  transform: rotate(-26deg);
+}
+
+.avatar-bg-observatory .scene-object-c {
+  right: 25%;
+  bottom: 17%;
+  width: 4%;
+  height: 21%;
+  background: #30496e;
+  transform: rotate(12deg);
+}
+
+/* Castle: central keep, two towers, battlements and flags. */
+.avatar-bg-castle .avatar-scene {
+  background: linear-gradient(180deg, #cadcff 0 58%, #93a8c5 59% 100%);
+}
+
+.avatar-bg-castle .scene-object-a {
+  left: 26%;
+  bottom: 13%;
+  width: 48%;
+  height: 43%;
+  background: #71819d;
+  border: 2px solid #4d5e7a;
+}
+
+.avatar-bg-castle .scene-object-a::before {
+  content: "";
+  position: absolute;
+  left: -2px;
+  right: -2px;
+  top: -17%;
+  height: 19%;
+  background: #576985;
+  clip-path: polygon(0 0, 18% 0, 18% 58%, 38% 58%, 38% 0, 62% 0, 62% 58%, 82% 58%, 82% 0, 100% 0, 100% 100%, 0 100%);
+}
+
+.avatar-bg-castle .scene-object-a::after {
+  content: "";
+  position: absolute;
+  left: 39%;
+  bottom: 0;
+  width: 24%;
+  height: 35%;
+  border-radius: 12px 12px 0 0;
+  background: #2d405f;
+}
+
+.avatar-bg-castle .scene-object-b,
+.avatar-bg-castle .scene-object-c {
+  bottom: 13%;
+  width: 22%;
+  height: 55%;
+  background: #8494ae;
+  border: 2px solid #4d5e7a;
+}
+
+.avatar-bg-castle .scene-object-b { left: 5%; }
+.avatar-bg-castle .scene-object-c { right: 5%; }
+
+.avatar-bg-castle .scene-object-b::before,
+.avatar-bg-castle .scene-object-c::before {
+  content: "";
+  position: absolute;
+  left: -3px;
+  right: -3px;
+  top: -14%;
+  height: 16%;
+  background: #596b88;
+  clip-path: polygon(0 0, 28% 0, 28% 56%, 72% 56%, 72% 0, 100% 0, 100% 100%, 0 100%);
+}
+
+.avatar-tail,
+.avatar-species-detail {
+  display: none;
+  position: absolute;
+  pointer-events: none;
+}
+
+/* Explorer clothing has genuinely different silhouettes. */
+.avatar-explorer.avatar-gear-pants .avatar-body {
+  bottom: 28px;
+  width: 72px;
+  height: 54px;
+  border-radius: 20px 20px 8px 8px;
+  background: linear-gradient(180deg, color-mix(in srgb, var(--avatar-main) 88%, white), var(--avatar-main));
+}
+
+.avatar-explorer.avatar-gear-pants .avatar-legs {
+  bottom: 0;
+  width: 58px;
+  height: 35px;
+  z-index: 2;
+}
+
+.avatar-explorer.avatar-gear-pants .avatar-legs::before,
+.avatar-explorer.avatar-gear-pants .avatar-legs::after {
+  width: 25px;
+  height: 35px;
+  border-radius: 4px 4px 9px 9px;
+  background: linear-gradient(180deg, #234b79 0 77%, #172c4b 78% 100%);
+}
+
+.avatar-explorer.avatar-gear-dress .avatar-body {
+  bottom: 4px;
+  width: 96px;
+  height: 82px;
+  border-radius: 18px 18px 8px 8px;
+  clip-path: polygon(27% 0, 73% 0, 100% 100%, 0 100%);
+  background: linear-gradient(180deg, color-mix(in srgb, var(--avatar-main) 82%, white), var(--avatar-main) 42%, var(--avatar-dark));
+}
+
+.avatar-explorer.avatar-gear-dress .avatar-body::after {
+  content: "";
+  position: absolute;
+  left: 12%;
+  right: 12%;
+  top: 35%;
+  height: 5px;
+  border-radius: 999px;
+  background: #f2bf48;
+}
+
+.avatar-explorer.avatar-gear-dress .avatar-legs::before,
+.avatar-explorer.avatar-gear-dress .avatar-legs::after {
+  height: 13px;
+  background: #243b62;
+}
+
+.avatar-explorer.avatar-gear-tunic .avatar-body {
+  bottom: 12px;
+  width: 86px;
+  height: 72px;
+  clip-path: polygon(14% 0, 86% 0, 96% 100%, 4% 100%);
+  background: linear-gradient(130deg, transparent 0 43%, #f0b63d 44% 51%, transparent 52%), linear-gradient(180deg, var(--avatar-main), var(--avatar-dark));
+}
+
+.avatar-large.avatar-explorer.avatar-gear-pants .avatar-body { bottom: 42px; width: 104px; height: 78px; }
+.avatar-large.avatar-explorer.avatar-gear-pants .avatar-legs { width: 82px; height: 51px; }
+.avatar-large.avatar-explorer.avatar-gear-pants .avatar-legs::before,
+.avatar-large.avatar-explorer.avatar-gear-pants .avatar-legs::after { width: 35px; height: 51px; }
+.avatar-large.avatar-explorer.avatar-gear-dress .avatar-body { width: 138px; height: 118px; }
+.avatar-large.avatar-explorer.avatar-gear-tunic .avatar-body { bottom: 18px; width: 124px; height: 103px; }
+
+/* Cat anatomy and fur customization. */
+.avatar-color-ginger { --species: #c56d2d; --species-light: #f2b46c; --species-dark: #71371c; }
+.avatar-color-gray { --species: #798493; --species-light: #b8c0c9; --species-dark: #3d4652; }
+.avatar-color-cream { --species: #d7ba83; --species-light: #f4dfb2; --species-dark: #806744; }
+.avatar-color-black { --species: #343945; --species-light: #69717f; --species-dark: #171b22; }
+.avatar-detail-amber-eyes { --eye-color: #c87816; }
+.avatar-detail-green-eyes { --eye-color: #28a76b; }
+.avatar-detail-blue-eyes { --eye-color: #2e8dca; }
+
+.avatar-cat .avatar-face {
+  top: 16px;
+  width: 76px;
+  height: 68px;
+  border-radius: 48% 48% 45% 45%;
+  border-color: color-mix(in srgb, var(--species-dark) 74%, transparent);
+  background: linear-gradient(150deg, var(--species-light), var(--species));
+}
+
+.avatar-large.avatar-cat .avatar-face { top: 20px; width: 108px; height: 96px; }
+
+.avatar-cat .avatar-ear {
+  top: 3px;
+  width: 31px;
+  height: 39px;
+  opacity: 1;
+  border: 2px solid var(--species-dark);
+  border-radius: 7px;
+  clip-path: polygon(50% 0, 100% 100%, 0 100%);
+  background: linear-gradient(135deg, var(--species-light) 0 55%, var(--species) 56% 100%);
+  z-index: 5;
+}
+
+.avatar-cat .avatar-ear-left { left: 18px; transform: rotate(-18deg); }
+.avatar-cat .avatar-ear-right { right: 18px; transform: rotate(18deg); }
+.avatar-large.avatar-cat .avatar-ear { width: 44px; height: 55px; }
+.avatar-large.avatar-cat .avatar-ear-left { left: 27px; }
+.avatar-large.avatar-cat .avatar-ear-right { right: 27px; }
+
+.avatar-cat .avatar-hair,
+.avatar-cat .avatar-neck,
+.avatar-cat .avatar-brow { display: none; }
+
+.avatar-cat .avatar-face i {
+  top: 25px;
+  width: 12px;
+  height: 16px;
+  border-radius: 50% 50% 45% 45%;
+  background: var(--eye-color);
+  box-shadow: inset 0 0 0 3px #172033, inset 3px 3px 0 2px rgba(255,255,255,0.78);
+  z-index: 3;
+}
+
+.avatar-cat .avatar-face i:first-of-type { left: 17px; }
+.avatar-cat .avatar-face i:nth-of-type(2) { right: 17px; }
+.avatar-large.avatar-cat .avatar-face i { top: 36px; width: 17px; height: 22px; }
+.avatar-large.avatar-cat .avatar-face i:first-of-type { left: 25px; }
+.avatar-large.avatar-cat .avatar-face i:nth-of-type(2) { right: 25px; }
+
+.avatar-cat .avatar-nose {
+  top: 41px;
+  width: 11px;
+  height: 8px;
+  border: 0;
+  border-radius: 45% 45% 65% 65%;
+  background: #71404a;
+  z-index: 4;
+}
+
+.avatar-large.avatar-cat .avatar-nose { top: 58px; width: 15px; height: 11px; }
+
+.avatar-cat .avatar-species-detail {
+  display: block;
+  left: 50%;
+  top: 54px;
+  width: 35px;
+  height: 20px;
+  transform: translateX(-50%);
+  border-radius: 50%;
+  background: color-mix(in srgb, var(--species-light) 78%, white);
+  z-index: 6;
+}
+
+.avatar-cat .avatar-species-detail::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 7px;
+  width: 64px;
+  height: 1px;
+  transform: translateX(-50%);
+  background: linear-gradient(90deg, #394353 0 38%, transparent 39% 61%, #394353 62% 100%);
+  box-shadow: 0 6px rgba(57,67,83,0.78), 0 -6px rgba(57,67,83,0.78);
+}
+
+.avatar-large.avatar-cat .avatar-species-detail { top: 75px; width: 50px; height: 28px; }
+.avatar-large.avatar-cat .avatar-species-detail::after { top: 10px; width: 88px; }
+
+.avatar-cat .avatar-tail {
+  display: block;
+  right: 5px;
+  bottom: 12px;
+  width: 32px;
+  height: 64px;
+  border: 8px solid var(--species);
+  border-left: 0;
+  border-bottom-color: transparent;
+  border-radius: 0 48px 0 0;
+  transform: rotate(12deg);
+  z-index: 1;
+}
+
+.avatar-large.avatar-cat .avatar-tail { right: 7px; bottom: 18px; width: 46px; height: 90px; border-width: 11px; }
+
+.avatar-cat .avatar-arm,
+.avatar-cat .avatar-forearm { background: linear-gradient(180deg, var(--species), var(--species-light)); }
+.avatar-cat .avatar-hand { background: var(--species-light); border-color: var(--species-dark); }
+.avatar-cat .avatar-legs::before,
+.avatar-cat .avatar-legs::after { background: var(--species-dark); }
+
+.avatar-cat.avatar-variant-stripes .avatar-face {
+  background: linear-gradient(72deg, transparent 0 25%, var(--species-dark) 26% 31%, transparent 32% 43%, var(--species-dark) 44% 49%, transparent 50% 100%), linear-gradient(150deg, var(--species-light), var(--species));
+}
+
+.avatar-cat.avatar-variant-spots .avatar-face {
+  background: radial-gradient(circle at 25% 25%, var(--species-dark) 0 7%, transparent 8%), radial-gradient(circle at 76% 31%, var(--species-dark) 0 8%, transparent 9%), linear-gradient(150deg, var(--species-light), var(--species));
+}
+
+.avatar-cat.avatar-variant-tuxedo .avatar-face {
+  background: linear-gradient(105deg, var(--species) 0 31%, #f5f2ea 32% 50%, var(--species) 51% 100%);
+}
+
+.avatar-cat.avatar-gear-scarf .avatar-body { background: linear-gradient(180deg, var(--species), var(--species-dark)); }
+.avatar-cat.avatar-gear-vest .avatar-body { background: linear-gradient(90deg, var(--species) 0 17%, #1f73b8 18% 82%, var(--species) 83% 100%); }
+.avatar-cat.avatar-gear-cape .avatar-body { background: linear-gradient(180deg, var(--species), var(--species-dark)); }
+.avatar-cat.avatar-gear-cape .avatar-shoulders { width: 108px; height: 54px; bottom: 39px; background: linear-gradient(180deg, #6f4ac6, #3b287a); }
+.avatar-large.avatar-cat.avatar-gear-cape .avatar-shoulders { width: 154px; height: 77px; bottom: 57px; }
+
+/* Owl anatomy: facial discs, large eyes, beak, wings and talons. */
+.avatar-color-tawny { --species: #9a6d43; --species-light: #d2aa76; --species-dark: #533b2a; }
+.avatar-color-snow { --species: #d9e1e7; --species-light: #fff; --species-dark: #7d8b99; }
+.avatar-color-night { --species: #40577c; --species-light: #8095b6; --species-dark: #21314e; }
+.avatar-color-copper { --species: #a85434; --species-light: #dd8d5d; --species-dark: #5f2d22; }
+.avatar-detail-gold-eyes { --eye-color: #f3bd32; }
+
+.avatar-owl .avatar-face {
+  top: 10px;
+  width: 84px;
+  height: 78px;
+  border-radius: 50% 50% 44% 44%;
+  border-color: var(--species-dark);
+  background: linear-gradient(145deg, var(--species-light), var(--species));
+}
+
+.avatar-large.avatar-owl .avatar-face { top: 13px; width: 120px; height: 112px; }
+.avatar-owl .avatar-hair,
+.avatar-owl .avatar-neck,
+.avatar-owl .avatar-shoulders,
+.avatar-owl .avatar-brow { display: none; }
+
+.avatar-owl .avatar-ear {
+  top: 0;
+  width: 29px;
+  height: 45px;
+  opacity: 1;
+  border: 0;
+  border-radius: 0;
+  clip-path: polygon(50% 0, 100% 100%, 0 76%);
+  background: var(--species-dark);
+  z-index: 5;
+}
+
+.avatar-owl .avatar-ear-left { left: 17px; transform: rotate(-14deg); }
+.avatar-owl .avatar-ear-right { right: 17px; transform: scaleX(-1) rotate(-14deg); }
+.avatar-owl.avatar-variant-round .avatar-ear { opacity: 0; }
+.avatar-owl.avatar-variant-horned .avatar-ear { top: -7px; height: 56px; }
+.avatar-large.avatar-owl .avatar-ear { width: 42px; height: 64px; }
+.avatar-large.avatar-owl .avatar-ear-left { left: 25px; }
+.avatar-large.avatar-owl .avatar-ear-right { right: 25px; }
+.avatar-large.avatar-owl.avatar-variant-horned .avatar-ear { top: -10px; height: 80px; }
+
+.avatar-owl .avatar-species-detail {
+  display: block;
+  left: 50%;
+  top: 23px;
+  width: 79px;
+  height: 49px;
+  transform: translateX(-50%);
+  border-radius: 45%;
+  background: radial-gradient(circle at 29% 50%, color-mix(in srgb, var(--species-light) 55%, white) 0 31%, transparent 32%), radial-gradient(circle at 71% 50%, color-mix(in srgb, var(--species-light) 55%, white) 0 31%, transparent 32%);
+  z-index: 6;
+}
+
+.avatar-large.avatar-owl .avatar-species-detail { top: 32px; width: 112px; height: 70px; }
+
+.avatar-owl .avatar-species-detail::before,
+.avatar-owl .avatar-species-detail::after {
+  content: "";
+  position: absolute;
+  top: 11px;
+  width: 24px;
+  height: 27px;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 42% 35%, #fff 0 7%, transparent 8%),
+    radial-gradient(circle, #111a2b 0 27%, var(--eye-color, #f3bd32) 29% 58%, #f8f2dc 60% 76%, var(--species-dark) 78% 100%);
+  box-shadow: 0 2px 4px rgba(16, 35, 65, 0.28);
+  z-index: 2;
+}
+
+.avatar-owl .avatar-species-detail::before { left: 10px; }
+.avatar-owl .avatar-species-detail::after { right: 10px; }
+
+.avatar-large.avatar-owl .avatar-species-detail::before,
+.avatar-large.avatar-owl .avatar-species-detail::after {
+  top: 15px;
+  width: 34px;
+  height: 38px;
+}
+
+.avatar-large.avatar-owl .avatar-species-detail::before { left: 14px; }
+.avatar-large.avatar-owl .avatar-species-detail::after { right: 14px; }
+
+.avatar-owl .avatar-face i {
+  top: 27px;
+  width: 24px;
+  height: 27px;
+  border-radius: 50%;
+  background: var(--eye-color);
+  box-shadow: inset 0 0 0 7px #172033, inset 4px 4px 0 7px rgba(255,255,255,0.75);
+  z-index: 7;
+}
+
+.avatar-owl .avatar-face i:first-of-type { left: 13px; }
+.avatar-owl .avatar-face i:nth-of-type(2) { right: 13px; }
+.avatar-large.avatar-owl .avatar-face i { top: 39px; width: 34px; height: 38px; box-shadow: inset 0 0 0 10px #172033, inset 5px 5px 0 10px rgba(255,255,255,0.75); }
+.avatar-large.avatar-owl .avatar-face i:first-of-type { left: 19px; }
+.avatar-large.avatar-owl .avatar-face i:nth-of-type(2) { right: 19px; }
+
+.avatar-owl .avatar-nose {
+  top: 51px;
+  width: 17px;
+  height: 20px;
+  border: 0;
+  border-radius: 0;
+  clip-path: polygon(50% 100%, 0 0, 100% 0);
+  background: #e5a72d;
+  z-index: 8;
+}
+
+.avatar-large.avatar-owl .avatar-nose { top: 73px; width: 24px; height: 28px; }
+.avatar-owl .avatar-face b { bottom: 8px; border-color: var(--species-dark); z-index: 8; }
+
+.avatar-owl .avatar-body {
+  bottom: 4px;
+  width: 76px;
+  height: 84px;
+  border-radius: 48% 48% 38% 38%;
+  background: radial-gradient(ellipse at 50% 58%, var(--species-light) 0 32%, transparent 33%), linear-gradient(180deg, var(--species), var(--species-dark));
+}
+
+.avatar-large.avatar-owl .avatar-body { bottom: 6px; width: 108px; height: 120px; }
+
+.avatar-owl .avatar-arm {
+  top: 86px;
+  width: 34px;
+  height: 67px;
+  border-radius: 80% 25% 70% 35%;
+  background: linear-gradient(180deg, var(--species), var(--species-dark));
+  border: 2px solid color-mix(in srgb, var(--species-dark) 70%, transparent);
+  z-index: 4;
+}
+
+.avatar-owl .avatar-arm::before,
+.avatar-owl .avatar-forearm,
+.avatar-owl .avatar-hand { display: none; }
+.avatar-owl .avatar-arm-left { left: 13px; transform: rotate(13deg); }
+.avatar-owl .avatar-arm-right { right: 13px; transform: scaleX(-1) rotate(13deg); }
+.avatar-large.avatar-owl .avatar-arm { top: 124px; width: 48px; height: 95px; }
+.avatar-large.avatar-owl .avatar-arm-left { left: 18px; }
+.avatar-large.avatar-owl .avatar-arm-right { right: 18px; }
+
+.avatar-owl .avatar-legs::before,
+.avatar-owl .avatar-legs::after {
+  width: 20px;
+  height: 13px;
+  border-radius: 50% 50% 4px 4px;
+  background: #d89b28;
+}
+
+.avatar-owl.avatar-gear-scholar .avatar-body::after,
+.avatar-owl.avatar-gear-vest .avatar-body::after,
+.avatar-owl.avatar-gear-cape .avatar-body::after {
+  content: "";
+  position: absolute;
+  left: 18%;
+  right: 18%;
+  top: 20%;
+  bottom: 8%;
+  border-radius: 42%;
+}
+
+.avatar-owl.avatar-gear-scholar .avatar-body::after { background: rgba(246, 190, 56, 0.58); }
+.avatar-owl.avatar-gear-vest .avatar-body::after { background: rgba(36, 113, 181, 0.72); }
+.avatar-owl.avatar-gear-cape .avatar-body::after { left: 6%; right: 6%; background: rgba(86, 57, 157, 0.7); }
+
+/* Robot anatomy: metal head, antenna or visor, joints and light panel. */
+.avatar-color-steel { --metal: #9fb1c1; --metal-light: #e8f0f6; --metal-dark: #50657a; --avatar-main: #6c8296; --avatar-dark: #3e5266; }
+.avatar-robot.avatar-color-blue { --metal: #4187c8; --metal-light: #bfe1fb; --metal-dark: #1e4f7d; }
+.avatar-robot.avatar-color-red { --metal: #c74f59; --metal-light: #f3a2a8; --metal-dark: #792d36; }
+.avatar-robot.avatar-color-gold { --metal: #d6a83f; --metal-light: #f5da8d; --metal-dark: #7c5b1c; }
+.avatar-detail-cyan-light { --robot-light: #34d5e3; }
+.avatar-detail-green-light { --robot-light: #55df8a; }
+.avatar-detail-amber-light { --robot-light: #ffc34d; }
+
+.avatar-robot .avatar-face {
+  top: 17px;
+  width: 76px;
+  height: 66px;
+  border: 3px solid var(--metal-dark);
+  border-radius: 14px 14px 20px 20px;
+  background: linear-gradient(145deg, var(--metal-light), var(--metal));
+  box-shadow: inset 0 -8px rgba(41, 61, 81, 0.12), 0 5px 8px rgba(20,43,88,0.16);
+}
+
+.avatar-large.avatar-robot .avatar-face { top: 23px; width: 108px; height: 94px; border-width: 4px; border-radius: 20px 20px 27px 27px; }
+.avatar-robot .avatar-brow,
+.avatar-robot .avatar-nose { display: none; }
+
+.avatar-robot .avatar-ear {
+  top: 37px;
+  width: 14px;
+  height: 22px;
+  opacity: 1;
+  border: 3px solid var(--metal-dark);
+  border-radius: 5px;
+  background: var(--metal);
+  z-index: 5;
+}
+
+.avatar-robot .avatar-ear-left { left: 13px; transform: none; }
+.avatar-robot .avatar-ear-right { right: 13px; transform: none; }
+.avatar-large.avatar-robot .avatar-ear { top: 51px; width: 20px; height: 31px; }
+.avatar-large.avatar-robot .avatar-ear-left { left: 19px; }
+.avatar-large.avatar-robot .avatar-ear-right { right: 19px; }
+
+.avatar-robot .avatar-face i {
+  top: 24px;
+  width: 17px;
+  height: 10px;
+  border-radius: 4px;
+  background: var(--robot-light);
+  box-shadow: 0 0 7px color-mix(in srgb, var(--robot-light) 70%, transparent), inset 3px 2px rgba(255,255,255,0.72);
+}
+
+.avatar-robot .avatar-face i:first-of-type { left: 14px; }
+.avatar-robot .avatar-face i:nth-of-type(2) { right: 14px; }
+.avatar-large.avatar-robot .avatar-face i { top: 34px; width: 24px; height: 14px; }
+.avatar-large.avatar-robot .avatar-face i:first-of-type { left: 20px; }
+.avatar-large.avatar-robot .avatar-face i:nth-of-type(2) { right: 20px; }
+
+.avatar-robot .avatar-face b {
+  bottom: 11px;
+  width: 29px;
+  height: 9px;
+  border: 2px solid var(--metal-dark);
+  border-radius: 4px;
+  background: #1d2b3d;
+  box-shadow: inset 0 0 0 2px var(--robot-light);
+}
+
+.avatar-robot .avatar-hair {
+  display: block;
+  top: 2px;
+  width: 8px;
+  height: 20px;
+  border-radius: 999px;
+  background: var(--metal-dark);
+  opacity: 1;
+  box-shadow: none;
+  z-index: 7;
+}
+
+.avatar-robot .avatar-hair::before,
+.avatar-robot .avatar-hair::after { content: ""; position: absolute; }
+.avatar-robot .avatar-hair::before { left: 50%; top: -7px; width: 13px; height: 13px; transform: translateX(-50%); border-radius: 50%; background: var(--robot-light); box-shadow: 0 0 7px var(--robot-light); }
+.avatar-robot .avatar-hair::after { display: none; }
+.avatar-robot.avatar-variant-dome .avatar-hair { top: 5px; width: 53px; height: 24px; border-radius: 50% 50% 8px 8px; background: var(--metal); border: 3px solid var(--metal-dark); }
+.avatar-robot.avatar-variant-dome .avatar-hair::before { display: none; }
+.avatar-robot.avatar-variant-visor .avatar-hair { top: 31px; width: 68px; height: 19px; border-radius: 7px; background: #203148; box-shadow: inset 0 0 0 4px var(--robot-light), 0 0 6px var(--robot-light); }
+.avatar-robot.avatar-variant-visor .avatar-hair::before { display: none; }
+.avatar-large.avatar-robot .avatar-hair { top: 3px; width: 11px; height: 28px; }
+.avatar-large.avatar-robot.avatar-variant-dome .avatar-hair { top: 7px; width: 76px; height: 34px; }
+.avatar-large.avatar-robot.avatar-variant-visor .avatar-hair { top: 44px; width: 97px; height: 27px; }
+
+.avatar-robot .avatar-neck {
+  top: 77px;
+  width: 28px;
+  height: 25px;
+  border-radius: 4px;
+  background: linear-gradient(90deg, var(--metal-dark) 0 20%, var(--robot-light) 21% 34%, var(--metal) 35% 65%, var(--robot-light) 66% 79%, var(--metal-dark) 80% 100%);
+}
+
+.avatar-large.avatar-robot .avatar-neck { top: 110px; width: 40px; height: 36px; }
+.avatar-robot .avatar-shoulders { background: linear-gradient(180deg, var(--metal-light), var(--metal)); border: 2px solid var(--metal-dark); }
+.avatar-robot .avatar-body {
+  bottom: 6px;
+  width: 76px;
+  height: 76px;
+  border: 3px solid var(--metal-dark);
+  border-radius: 13px 13px 8px 8px;
+  background: linear-gradient(145deg, var(--metal-light), var(--metal));
+}
+.avatar-large.avatar-robot .avatar-body { bottom: 9px; width: 108px; height: 108px; border-width: 4px; }
+
+.avatar-robot .avatar-species-detail {
+  display: block;
+  left: 50%;
+  top: 105px;
+  width: 33px;
+  height: 24px;
+  transform: translateX(-50%);
+  border: 2px solid var(--metal-dark);
+  border-radius: 5px;
+  background: radial-gradient(circle at 30% 50%, var(--robot-light) 0 3px, transparent 4px), radial-gradient(circle at 70% 50%, var(--robot-light) 0 3px, transparent 4px), #26364b;
+  z-index: 4;
+}
+.avatar-large.avatar-robot .avatar-species-detail { top: 151px; width: 47px; height: 34px; }
+
+.avatar-robot .avatar-arm,
+.avatar-robot .avatar-forearm {
+  border: 2px solid var(--metal-dark);
+  border-radius: 7px;
+  background: linear-gradient(90deg, var(--metal-dark), var(--metal-light) 30% 70%, var(--metal-dark));
+}
+.avatar-robot .avatar-arm::before { border: 2px solid var(--metal-dark); background: var(--metal); }
+.avatar-robot .avatar-hand { border: 3px solid var(--metal-dark); border-top: 0; border-radius: 2px 2px 9px 9px; background: var(--metal-light); }
+.avatar-robot .avatar-legs::before,
+.avatar-robot .avatar-legs::after { border: 2px solid var(--metal-dark); border-radius: 4px 4px 8px 8px; background: linear-gradient(180deg, var(--metal), var(--metal-dark)); }
+
+.avatar-robot.avatar-gear-utility .avatar-body { background: linear-gradient(125deg, transparent 0 45%, #efb93f 46% 53%, transparent 54%), linear-gradient(145deg, var(--metal-light), var(--metal)); }
+.avatar-robot.avatar-gear-armored .avatar-body { width: 88px; clip-path: polygon(12% 0, 88% 0, 100% 20%, 91% 100%, 9% 100%, 0 20%); background: linear-gradient(145deg, var(--metal-light), var(--metal-dark)); }
+.avatar-robot.avatar-gear-classic .avatar-body { border-radius: 4px; }
+.avatar-large.avatar-robot.avatar-gear-armored .avatar-body { width: 126px; }
+
+/* Shared outfits: the same three choices work for every species. */
+.avatar-outfit-piece {
+  display: none;
+  position: absolute;
+  left: 50%;
+  pointer-events: none;
+}
+
+.avatar-gear-hat .avatar-outfit-piece {
+  display: block;
+  top: 2px;
+  width: 78px;
+  height: 24px;
+  border: 3px solid #17335f;
+  border-radius: 52% 52% 20% 20%;
+  background: linear-gradient(145deg, #24a99d, #1767b8);
+  transform: translateX(-50%) rotate(-2deg);
+  z-index: 12;
+}
+
+.avatar-gear-hat .avatar-outfit-piece::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -6px;
+  width: calc(100% + 12px);
+  height: 7px;
+  border: 3px solid #17335f;
+  border-radius: 999px;
+  background: #1767b8;
+  transform: translateX(-50%);
+}
+
+.avatar-large.avatar-gear-hat .avatar-outfit-piece {
+  top: 4px;
+  width: 112px;
+  height: 34px;
+  border-width: 4px;
+}
+
+.avatar-large.avatar-gear-hat .avatar-outfit-piece::after {
+  bottom: -8px;
+  width: calc(100% + 16px);
+  height: 9px;
+  border-width: 4px;
+}
+
+.avatar-gear-scarf .avatar-outfit-piece {
+  display: block;
+  top: 87px;
+  width: 42px;
+  height: 12px;
+  border: 2px solid #8f243e;
+  border-radius: 50% 50% 42% 42% / 70% 70% 44% 44%;
+  background: linear-gradient(180deg, #a92949 0 18%, #ff7b83 20% 56%, #d63355 58% 100%);
+  box-shadow: inset 0 -3px 0 rgba(113, 24, 53, 0.18), 0 3px 5px rgba(43, 30, 60, 0.16);
+  transform: translateX(-50%);
+  z-index: 10;
+}
+
+.scarf-knot,
+.scarf-tail {
+  display: none;
+}
+
+.avatar-gear-scarf .avatar-outfit-piece::before,
+.avatar-gear-scarf .avatar-outfit-piece::after {
+  content: none;
+}
+
+.avatar-gear-scarf .scarf-knot {
+  display: block;
+  position: absolute;
+  left: 50%;
+  bottom: -8px;
+  width: 14px;
+  height: 11px;
+  border: 2px solid #8f243e;
+  border-radius: 7px 7px 5px 5px;
+  background: linear-gradient(145deg, #ff7b83, #d63355);
+  box-shadow: inset -2px -2px 0 rgba(113, 24, 53, 0.16);
+  transform: translateX(-50%);
+  z-index: 3;
+}
+
+.avatar-gear-scarf .scarf-tail {
+  display: block;
+  position: absolute;
+  top: 17px;
+  width: 12px;
+  height: 29px;
+  border-radius: 2px 2px 6px 6px;
+  clip-path: polygon(0 0, 100% 0, 92% 100%, 50% 82%, 8% 100%);
+  background: linear-gradient(180deg, #ed526b, #c92d4d);
+  filter: drop-shadow(0 2px 1px rgba(89, 24, 46, 0.2));
+  z-index: 1;
+}
+
+.avatar-gear-scarf .scarf-tail-left {
+  left: calc(50% - 11px);
+  transform: rotate(6deg);
+}
+
+.avatar-gear-scarf .scarf-tail-right {
+  left: calc(50% + 1px);
+  height: 25px;
+  background: linear-gradient(180deg, #df3f5d, #b92544);
+  transform: rotate(-7deg);
+}
+
+.avatar-large.avatar-gear-scarf .avatar-outfit-piece {
+  top: 124px;
+  width: 58px;
+  height: 17px;
+  border-width: 3px;
+}
+
+.avatar-large.avatar-gear-scarf .scarf-knot {
+  bottom: -12px;
+  width: 19px;
+  height: 15px;
+  border-width: 3px;
+  border-radius: 9px 9px 6px 6px;
+}
+
+.avatar-large.avatar-gear-scarf .scarf-tail {
+  top: 23px;
+  width: 16px;
+  height: 40px;
+}
+
+.avatar-large.avatar-gear-scarf .scarf-tail-left {
+  left: calc(50% - 15px);
+}
+
+.avatar-large.avatar-gear-scarf .scarf-tail-right {
+  left: calc(50% + 2px);
+  height: 35px;
+}
+
+.avatar-gear-cape .avatar-outfit-piece {
+  display: block;
+  bottom: 2px;
+  width: 118px;
+  height: 102px;
+  border: 3px solid #3e2c7b;
+  border-radius: 45% 45% 14px 14px;
+  clip-path: polygon(18% 0, 82% 0, 100% 100%, 0 100%);
+  background: linear-gradient(160deg, #7956c8, #3f2b82 72%);
+  transform: translateX(-50%);
+  z-index: 1;
+}
+
+.avatar-large.avatar-gear-cape .avatar-outfit-piece {
+  width: 168px;
+  height: 146px;
+  border-width: 4px;
+}
+
+/* Explorer hair: layered silhouettes with a visible hairline and neck. */
+.avatar-explorer .avatar-hair {
+  background:
+    radial-gradient(ellipse at 28% 42%, rgba(255,255,255,0.18) 0 8%, transparent 9%),
+    linear-gradient(155deg, color-mix(in srgb, var(--hair) 78%, white), var(--hair) 42%, color-mix(in srgb, var(--hair) 76%, black));
+  clip-path: polygon(4% 45%, 10% 20%, 27% 6%, 50% 0, 73% 7%, 91% 22%, 97% 48%, 86% 39%, 76% 49%, 63% 38%, 50% 49%, 37% 38%, 23% 49%, 12% 39%);
+  filter: drop-shadow(0 4px 2px rgba(31, 42, 61, 0.18));
+}
+
+.avatar-explorer.avatar-hair-long .avatar-hair,
+.avatar-explorer.avatar-hair-braids .avatar-hair {
+  clip-path: none;
+  border-radius: 52% 52% 28% 28%;
+}
+
+.avatar-explorer.avatar-hair-mane .avatar-hair {
+  top: 8px;
+  width: 74px;
+  height: 36px;
+  clip-path: none;
+  border-radius: 52% 52% 22% 22% / 68% 68% 26% 26%;
+}
+
+.avatar-explorer.avatar-hair-mane .avatar-hair::before,
+.avatar-explorer.avatar-hair-mane .avatar-hair::after {
+  content: "";
+  position: absolute;
+  top: 22px;
+  width: 14px;
+  height: 78px;
+  border-radius: 60% 35% 48% 42% / 18% 18% 82% 82%;
+  background: linear-gradient(180deg, var(--hair), color-mix(in srgb, var(--hair) 76%, black));
+  box-shadow: inset -3px -7px 0 rgba(0, 0, 0, 0.1);
+  z-index: -1;
+}
+
+.avatar-explorer.avatar-hair-mane .avatar-hair::before {
+  left: -3px;
+  transform: rotate(4deg);
+}
+
+.avatar-explorer.avatar-hair-mane .avatar-hair::after {
+  right: -3px;
+  transform: rotate(-4deg);
+}
+
+.avatar-large.avatar-explorer.avatar-hair-mane .avatar-hair {
+  top: 10px;
+  width: 104px;
+  height: 49px;
+}
+
+.avatar-large.avatar-explorer.avatar-hair-mane .avatar-hair::before,
+.avatar-large.avatar-explorer.avatar-hair-mane .avatar-hair::after {
+  top: 31px;
+  width: 19px;
+  height: 112px;
+}
+
+.avatar-large.avatar-explorer.avatar-hair-mane .avatar-hair::before { left: -5px; }
+.avatar-large.avatar-explorer.avatar-hair-mane .avatar-hair::after { right: -5px; }
+
+/* Clear eyes and expressions for cat, owl and robot. */
+.avatar-owl .avatar-face i {
+  display: block;
+  background: radial-gradient(circle at 56% 58%, #111a2b 0 24%, var(--eye-color) 26% 55%, #f7f2d8 57% 72%, var(--species-dark) 74% 100%);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--species-dark) 72%, transparent), 0 2px 4px rgba(16, 35, 65, 0.24);
+  z-index: 10;
+}
+
+.avatar-large.avatar-owl .avatar-face i {
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--species-dark) 72%, transparent), 0 3px 6px rgba(16, 35, 65, 0.24);
+}
+
+.avatar-cat .avatar-face b,
+.avatar-owl .avatar-face b,
+.avatar-robot .avatar-face b {
+  display: block;
+  left: 50%;
+  width: 24px;
+  height: 10px;
+  bottom: 5px;
+  border: 0;
+  border-bottom: 3px solid #172033;
+  border-radius: 0 0 999px 999px;
+  background: transparent;
+  box-shadow: none;
+  transform: translateX(-50%);
+  z-index: 11;
+}
+
+.avatar-cat.avatar-mouth-sad .avatar-face b,
+.avatar-owl.avatar-mouth-sad .avatar-face b,
+.avatar-robot.avatar-mouth-sad .avatar-face b {
+  border-bottom: 0;
+  border-top: 3px solid #172033;
+  border-radius: 999px 999px 0 0;
+}
+
+.avatar-cat.avatar-mouth-angry .avatar-face b,
+.avatar-owl.avatar-mouth-angry .avatar-face b,
+.avatar-robot.avatar-mouth-angry .avatar-face b {
+  height: 3px;
+  border: 0;
+  border-radius: 999px;
+  background: #172033;
+  transform: translateX(-50%) rotate(-9deg);
+}
+
+.avatar-cat.avatar-mouth-surprised .avatar-face b,
+.avatar-owl.avatar-mouth-surprised .avatar-face b,
+.avatar-robot.avatar-mouth-surprised .avatar-face b {
+  width: 13px;
+  height: 15px;
+  border: 3px solid #172033;
+  border-radius: 50%;
+  background: #fff;
+}
+
+.avatar-large.avatar-cat .avatar-face b,
+.avatar-large.avatar-owl .avatar-face b,
+.avatar-large.avatar-robot .avatar-face b {
+  bottom: 8px;
+  width: 34px;
+  height: 14px;
+  border-width: 4px;
+}
+
+/* Inclusive explorer options. */
+.avatar-skin-fair { --skin: #f3d2bd; --skin-light: #ffe8d8; }
+.avatar-skin-medium { --skin: #dca77f; --skin-light: #f3c8a7; }
+.avatar-skin-tan { --skin: #bd7f56; --skin-light: #dca47d; }
+.avatar-skin-dark { --skin: #875234; --skin-light: #ad7451; }
+.avatar-skin-deep { --skin: #563321; --skin-light: #795039; }
+.avatar-hair-color-dark-brown { --hair: #2b180f; }
+.avatar-hair-color-black-hair { --hair: #16171b; }
+
+.avatar-explorer.avatar-hair-wavy .avatar-hair {
+  border-radius: 55% 55% 30% 30%;
+  clip-path: polygon(3% 58%, 8% 25%, 25% 5%, 50% 0, 76% 7%, 94% 28%, 97% 62%, 85% 48%, 73% 62%, 61% 47%, 49% 62%, 36% 47%, 24% 62%, 12% 48%);
+}
+
+.avatar-explorer.avatar-hair-curly .avatar-hair,
+.avatar-explorer.avatar-hair-afro .avatar-hair {
+  top: 4px;
+  width: 78px;
+  height: 48px;
+  border-radius: 50%;
+  clip-path: none;
+  background:
+    radial-gradient(circle at 12% 58%, var(--hair) 0 12px, transparent 13px),
+    radial-gradient(circle at 28% 28%, var(--hair) 0 15px, transparent 16px),
+    radial-gradient(circle at 50% 20%, var(--hair) 0 17px, transparent 18px),
+    radial-gradient(circle at 72% 28%, var(--hair) 0 15px, transparent 16px),
+    radial-gradient(circle at 88% 58%, var(--hair) 0 12px, transparent 13px),
+    var(--hair);
+}
+
+.avatar-explorer.avatar-hair-afro .avatar-hair {
+  top: -2px;
+  width: 90px;
+  height: 42px;
+  border-radius: 55% 55% 28% 28%;
+  background:
+    radial-gradient(circle at 7% 65%, var(--hair) 0 11px, transparent 12px),
+    radial-gradient(circle at 22% 30%, var(--hair) 0 14px, transparent 15px),
+    radial-gradient(circle at 42% 18%, var(--hair) 0 16px, transparent 17px),
+    radial-gradient(circle at 62% 18%, var(--hair) 0 16px, transparent 17px),
+    radial-gradient(circle at 81% 31%, var(--hair) 0 14px, transparent 15px),
+    radial-gradient(circle at 94% 66%, var(--hair) 0 11px, transparent 12px),
+    linear-gradient(180deg, var(--hair), color-mix(in srgb, var(--hair) 82%, black));
+  box-shadow: 0 3px 0 color-mix(in srgb, var(--hair) 82%, black);
+}
+
+.avatar-large.avatar-explorer.avatar-hair-curly .avatar-hair { top: 5px; width: 112px; height: 68px; }
+.avatar-large.avatar-explorer.avatar-hair-afro .avatar-hair { top: -3px; width: 128px; height: 58px; }
+.avatar-explorer.avatar-hair-afro .avatar-hair::before,
+.avatar-explorer.avatar-hair-afro .avatar-hair::after {
+  content: "";
+  position: absolute;
+  top: 24px;
+  width: 18px;
+  height: 29px;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 50% 20%, var(--hair) 0 8px, transparent 9px),
+    radial-gradient(circle at 50% 55%, var(--hair) 0 9px, transparent 10px),
+    radial-gradient(circle at 50% 88%, var(--hair) 0 8px, transparent 9px);
+}
+.avatar-explorer.avatar-hair-afro .avatar-hair::before { left: -2px; }
+.avatar-explorer.avatar-hair-afro .avatar-hair::after { right: -2px; }
+.avatar-large.avatar-explorer.avatar-hair-afro .avatar-hair::before,
+.avatar-large.avatar-explorer.avatar-hair-afro .avatar-hair::after { top: 34px; width: 25px; height: 40px; }
+
+/* Balanced pupil proportions: compact torso, narrower shoulders and shorter arms. */
+.avatar-explorer .avatar-shoulders {
+  bottom: 49px;
+  width: 78px;
+  height: 34px;
+  border-radius: 34px 34px 12px 12px;
+}
+.avatar-explorer .avatar-arm {
+  top: 88px;
+  width: 13px;
+  height: 29px;
+}
+.avatar-explorer .avatar-arm::before {
+  top: -6px;
+  width: 20px;
+  height: 20px;
+}
+.avatar-explorer .avatar-arm-left { left: 23px; transform: rotate(5deg); }
+.avatar-explorer .avatar-arm-right { right: 23px; transform: rotate(-5deg); }
+.avatar-explorer .avatar-forearm {
+  left: 1px;
+  top: 22px;
+  width: 12px;
+  height: 24px;
+}
+.avatar-explorer .avatar-hand {
+  left: -1px;
+  bottom: -7px;
+  width: 14px;
+  height: 14px;
+}
+.avatar-explorer.avatar-gear-pants .avatar-body { width: 66px; }
+.avatar-explorer.avatar-gear-pants .avatar-legs { width: 54px; }
+.avatar-explorer.avatar-gear-pants .avatar-legs::before,
+.avatar-explorer.avatar-gear-pants .avatar-legs::after { width: 23px; }
+
+.avatar-large.avatar-explorer .avatar-face { top: 12px; width: 96px; height: 106px; }
+.avatar-large.avatar-explorer .avatar-neck { top: 108px; width: 28px; height: 28px; }
+.avatar-large.avatar-explorer .avatar-shoulders {
+  bottom: 72px;
+  width: 112px;
+  height: 46px;
+  border-radius: 46px 46px 15px 15px;
+}
+.avatar-large.avatar-explorer .avatar-arm {
+  top: 126px;
+  width: 18px;
+  height: 39px;
+}
+.avatar-large.avatar-explorer .avatar-arm::before {
+  top: -8px;
+  width: 28px;
+  height: 28px;
+}
+.avatar-large.avatar-explorer .avatar-arm-left { left: 35px; transform: rotate(5deg); }
+.avatar-large.avatar-explorer .avatar-arm-right { right: 35px; transform: rotate(-5deg); }
+.avatar-large.avatar-explorer .avatar-forearm {
+  left: 2px;
+  top: 30px;
+  width: 16px;
+  height: 32px;
+}
+.avatar-large.avatar-explorer .avatar-hand {
+  left: -1px;
+  bottom: -8px;
+  width: 18px;
+  height: 18px;
+}
+.avatar-large.avatar-explorer.avatar-gear-pants .avatar-body { width: 92px; }
+.avatar-large.avatar-explorer.avatar-gear-pants .avatar-legs { width: 74px; }
+.avatar-large.avatar-explorer.avatar-gear-pants .avatar-legs::before,
+.avatar-large.avatar-explorer.avatar-gear-pants .avatar-legs::after { width: 31px; }
+
+/* Compact cat proportions: larger head, short torso and small rounded paws. */
+.avatar-cat .avatar-face { top: 10px; width: 82px; height: 74px; }
+.avatar-cat .avatar-ear { top: 0; width: 29px; height: 36px; }
+.avatar-cat .avatar-ear-left { left: 20px; }
+.avatar-cat .avatar-ear-right { right: 20px; }
+.avatar-cat .avatar-species-detail { top: 56px; }
+.avatar-cat .avatar-shoulders {
+  bottom: 47px;
+  width: 82px;
+  height: 34px;
+  border-radius: 36px 36px 13px 13px;
+  background: linear-gradient(180deg, var(--species-light), var(--species));
+}
+.avatar-cat .avatar-body {
+  bottom: 13px;
+  width: 70px;
+  height: 64px;
+  border-radius: 24px 24px 18px 18px;
+}
+.avatar-cat .avatar-arm {
+  top: 88px;
+  width: 14px;
+  height: 27px;
+  border-radius: 9px;
+}
+.avatar-cat .avatar-arm::before {
+  top: -5px;
+  width: 21px;
+  height: 21px;
+  background: linear-gradient(180deg, var(--species-light), var(--species));
+}
+.avatar-cat .avatar-arm-left { left: 25px; transform: rotate(5deg); }
+.avatar-cat .avatar-arm-right { right: 25px; transform: rotate(-5deg); }
+.avatar-cat .avatar-forearm { left: 1px; top: 20px; width: 13px; height: 22px; }
+.avatar-cat .avatar-hand { left: -1px; bottom: -7px; width: 15px; height: 14px; border-radius: 50% 50% 58% 58%; }
+.avatar-cat .avatar-legs { bottom: 0; width: 54px; height: 23px; }
+.avatar-cat .avatar-legs::before,
+.avatar-cat .avatar-legs::after { width: 22px; height: 19px; border-radius: 9px 9px 12px 12px; }
+.avatar-cat .avatar-tail { right: 9px; bottom: 15px; width: 28px; height: 52px; border-width: 7px; }
+.avatar-cat.avatar-gear-cape .avatar-shoulders { width: 90px; height: 39px; bottom: 46px; }
+
+.avatar-large.avatar-cat .avatar-face { top: 13px; width: 118px; height: 104px; }
+.avatar-large.avatar-cat .avatar-ear { top: 0; width: 40px; height: 49px; }
+.avatar-large.avatar-cat .avatar-ear-left { left: 31px; }
+.avatar-large.avatar-cat .avatar-ear-right { right: 31px; }
+.avatar-large.avatar-cat .avatar-face i { top: 39px; }
+.avatar-large.avatar-cat .avatar-nose { top: 62px; }
+.avatar-large.avatar-cat .avatar-species-detail { top: 78px; }
+.avatar-large.avatar-cat .avatar-shoulders {
+  bottom: 69px;
+  width: 116px;
+  height: 47px;
+  border-radius: 48px 48px 16px 16px;
+}
+.avatar-large.avatar-cat .avatar-body {
+  bottom: 18px;
+  width: 100px;
+  height: 91px;
+  border-radius: 32px 32px 23px 23px;
+}
+.avatar-large.avatar-cat .avatar-arm { top: 127px; width: 18px; height: 37px; }
+.avatar-large.avatar-cat .avatar-arm::before { top: -7px; width: 28px; height: 28px; }
+.avatar-large.avatar-cat .avatar-arm-left { left: 38px; transform: rotate(5deg); }
+.avatar-large.avatar-cat .avatar-arm-right { right: 38px; transform: rotate(-5deg); }
+.avatar-large.avatar-cat .avatar-forearm { left: 2px; top: 28px; width: 17px; height: 29px; }
+.avatar-large.avatar-cat .avatar-hand { left: -1px; bottom: -8px; width: 19px; height: 18px; }
+.avatar-large.avatar-cat .avatar-legs { bottom: 1px; width: 74px; height: 31px; }
+.avatar-large.avatar-cat .avatar-legs::before,
+.avatar-large.avatar-cat .avatar-legs::after { width: 30px; height: 26px; border-radius: 12px 12px 16px 16px; }
+.avatar-large.avatar-cat .avatar-tail { right: 13px; bottom: 22px; width: 39px; height: 72px; border-width: 9px; }
+.avatar-large.avatar-cat.avatar-gear-cape .avatar-shoulders { width: 126px; height: 54px; bottom: 67px; }
+
+/* Cat expressions remain readable above the muzzle and whiskers. */
+.avatar-cat .avatar-brow {
+  display: block;
+  top: 20px;
+  width: 15px;
+  height: 3px;
+  background: color-mix(in srgb, var(--species-dark) 86%, #172033);
+  z-index: 12;
+}
+.avatar-cat .avatar-brow-left { left: 16px; transform: rotate(-3deg); }
+.avatar-cat .avatar-brow-right { right: 16px; transform: rotate(3deg); }
+.avatar-cat .avatar-face b {
+  bottom: 7px;
+  width: 27px;
+  height: 12px;
+  border-bottom: 4px solid #342032;
+  z-index: 15;
+}
+.avatar-cat.avatar-mouth-sad .avatar-brow-left { transform: rotate(12deg); }
+.avatar-cat.avatar-mouth-sad .avatar-brow-right { transform: rotate(-12deg); }
+.avatar-cat.avatar-mouth-sad .avatar-face b { border-top: 4px solid #342032; border-bottom: 0; }
+.avatar-cat.avatar-mouth-angry .avatar-brow-left { transform: rotate(18deg); }
+.avatar-cat.avatar-mouth-angry .avatar-brow-right { transform: rotate(-18deg); }
+.avatar-cat.avatar-mouth-angry .avatar-face b {
+  width: 25px;
+  height: 4px;
+  border: 0;
+  background: #342032;
+  transform: translateX(-50%) rotate(-8deg);
+}
+.avatar-cat.avatar-mouth-surprised .avatar-face i { transform: scale(1.12); }
+.avatar-cat.avatar-mouth-surprised .avatar-face b {
+  bottom: 5px;
+  width: 15px;
+  height: 18px;
+  border: 4px solid #342032;
+  border-radius: 50%;
+  background: #fff4ef;
+}
+.avatar-large.avatar-cat .avatar-brow { top: 29px; width: 21px; height: 4px; }
+.avatar-large.avatar-cat .avatar-brow-left { left: 24px; }
+.avatar-large.avatar-cat .avatar-brow-right { right: 24px; }
+.avatar-large.avatar-cat .avatar-face b { bottom: 10px; width: 37px; height: 16px; border-width: 5px; }
+.avatar-large.avatar-cat.avatar-mouth-angry .avatar-face b { width: 34px; height: 5px; }
+.avatar-large.avatar-cat.avatar-mouth-surprised .avatar-face b { bottom: 8px; width: 20px; height: 24px; border-width: 5px; }
+
+/* The scarf hugs the base of the cat's head instead of hanging on the chest. */
+.avatar-cat.avatar-gear-scarf .avatar-outfit-piece {
+  top: 80px;
+  width: 62px;
+  height: 12px;
+  border-radius: 50%;
+  z-index: 13;
+}
+.avatar-cat.avatar-gear-scarf .scarf-knot { bottom: -7px; width: 12px; height: 10px; }
+.avatar-cat.avatar-gear-scarf .scarf-tail { top: 15px; width: 10px; height: 21px; }
+.avatar-cat.avatar-gear-scarf .scarf-tail-left { left: calc(50% - 9px); }
+.avatar-cat.avatar-gear-scarf .scarf-tail-right { left: calc(50% + 1px); height: 18px; }
+.avatar-large.avatar-cat.avatar-gear-scarf .avatar-outfit-piece { top: 113px; width: 88px; height: 16px; }
+.avatar-large.avatar-cat.avatar-gear-scarf .scarf-knot { bottom: -10px; width: 17px; height: 13px; }
+.avatar-large.avatar-cat.avatar-gear-scarf .scarf-tail { top: 21px; width: 14px; height: 29px; }
+.avatar-large.avatar-cat.avatar-gear-scarf .scarf-tail-left { left: calc(50% - 13px); }
+.avatar-large.avatar-cat.avatar-gear-scarf .scarf-tail-right { left: calc(50% + 1px); height: 25px; }
+
+/* The cape begins exactly at the cat's shoulders and remains behind the body. */
+.avatar-cat.avatar-gear-cape .avatar-outfit-piece {
+  bottom: 12px;
+  width: 92px;
+  height: 72px;
+  border-width: 2px;
+  border-radius: 34px 34px 14px 14px;
+  clip-path: polygon(8% 0, 92% 0, 100% 100%, 0 100%);
+}
+.avatar-cat.avatar-gear-cape .avatar-outfit-piece::before {
+  content: "";
+  position: absolute;
+  left: 8px;
+  top: 3px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #f2c350;
+  box-shadow: 66px 0 #f2c350;
+}
+.avatar-large.avatar-cat.avatar-gear-cape .avatar-outfit-piece {
+  bottom: 17px;
+  width: 130px;
+  height: 104px;
+  border-width: 3px;
+  border-radius: 47px 47px 18px 18px;
+}
+.avatar-large.avatar-cat.avatar-gear-cape .avatar-outfit-piece::before { left: 11px; top: 4px; width: 11px; height: 11px; box-shadow: 94px 0 #f2c350; }
+
+/* Camouflage explorer suit with fabric patches and useful pockets. */
+.avatar-explorer.avatar-gear-tunic .avatar-shoulders,
+.avatar-explorer.avatar-gear-tunic .avatar-body,
+.avatar-explorer.avatar-gear-tunic .avatar-arm::before {
+  background:
+    radial-gradient(ellipse at 18% 24%, #354f2d 0 12%, transparent 13%),
+    radial-gradient(ellipse at 72% 20%, #b7a465 0 13%, transparent 14%),
+    radial-gradient(ellipse at 48% 64%, #263d28 0 15%, transparent 16%),
+    radial-gradient(ellipse at 86% 78%, #7a8248 0 12%, transparent 13%),
+    linear-gradient(145deg, #7f8950, #52633d);
+}
+.avatar-explorer.avatar-gear-tunic .avatar-body {
+  border: 2px solid #31442e;
+  clip-path: polygon(10% 0, 90% 0, 96% 100%, 4% 100%);
+}
+.avatar-explorer.avatar-gear-tunic .avatar-body::after {
+  content: "";
+  position: absolute;
+  left: 15%;
+  right: 15%;
+  bottom: 13%;
+  height: 22%;
+  border-top: 3px solid rgba(239,224,164,0.62);
+  border-radius: 3px;
+  background: linear-gradient(90deg, rgba(31,53,35,0.72) 0 42%, transparent 43% 57%, rgba(31,53,35,0.72) 58% 100%);
+}
+.avatar-explorer.avatar-gear-tunic .avatar-legs::before,
+.avatar-explorer.avatar-gear-tunic .avatar-legs::after {
+  background: linear-gradient(180deg, #596943 0 76%, #2d382c 77% 100%);
+}
+
+.avatar-robot.avatar-gear-utility .avatar-shoulders,
+.avatar-robot.avatar-gear-utility .avatar-body,
+.avatar-robot.avatar-gear-utility .avatar-arm::before {
+  background:
+    radial-gradient(ellipse at 18% 25%, #334b35 0 13%, transparent 14%),
+    radial-gradient(ellipse at 72% 22%, #b0a166 0 14%, transparent 15%),
+    radial-gradient(ellipse at 50% 68%, #26392c 0 16%, transparent 17%),
+    radial-gradient(ellipse at 88% 80%, #6d7b49 0 12%, transparent 13%),
+    linear-gradient(145deg, #82905d, #4e6042);
+}
+.avatar-robot.avatar-gear-utility .avatar-body {
+  border-color: #263b31;
+  box-shadow: inset 0 -8px 0 rgba(27,48,34,0.22);
+}
+.avatar-robot.avatar-gear-utility .avatar-body::after {
+  content: "";
+  position: absolute;
+  left: 11%;
+  right: 11%;
+  bottom: 12%;
+  height: 20%;
+  border: 2px solid #d1c486;
+  border-radius: 3px;
+  background: linear-gradient(90deg, #394d37 0 43%, #b8a968 44% 56%, #394d37 57% 100%);
+}
+
+/* Open-face explorer hairstyles: eyes and eyebrows always remain visible. */
+.avatar-explorer.avatar-hair-long .avatar-hair {
+  top: 1px;
+  width: 84px;
+  height: 38px;
+  border-radius: 54% 54% 28% 28%;
+  background:
+    radial-gradient(ellipse at 33% 30%, rgba(255,255,255,0.2) 0 8%, transparent 9%),
+    linear-gradient(155deg, color-mix(in srgb, var(--hair) 80%, white), var(--hair) 48%, color-mix(in srgb, var(--hair) 78%, black));
+}
+.avatar-explorer.avatar-hair-long .avatar-hair::before,
+.avatar-explorer.avatar-hair-long .avatar-hair::after {
+  top: 25px;
+  width: 17px;
+  height: 70px;
+  border-radius: 55% 45% 48% 52% / 18% 18% 82% 82%;
+  background: linear-gradient(180deg, var(--hair), color-mix(in srgb, var(--hair) 78%, black));
+  box-shadow: inset -3px -7px 0 rgba(0,0,0,0.1);
+  z-index: -1;
+}
+.avatar-explorer.avatar-hair-long .avatar-hair::before { left: -3px; transform: rotate(3deg); }
+.avatar-explorer.avatar-hair-long .avatar-hair::after { right: -3px; transform: rotate(-3deg); }
+.avatar-large.avatar-explorer.avatar-hair-long .avatar-hair { top: 2px; width: 118px; height: 51px; }
+.avatar-large.avatar-explorer.avatar-hair-long .avatar-hair::before,
+.avatar-large.avatar-explorer.avatar-hair-long .avatar-hair::after { top: 35px; width: 23px; height: 98px; }
+.avatar-large.avatar-explorer.avatar-hair-long .avatar-hair::before { left: -4px; }
+.avatar-large.avatar-explorer.avatar-hair-long .avatar-hair::after { right: -4px; }
+
+.avatar-explorer.avatar-hair-curly .avatar-hair {
+  top: 0;
+  width: 84px;
+  height: 36px;
+  border-radius: 55% 55% 28% 28%;
+  background:
+    radial-gradient(circle at 8% 70%, color-mix(in srgb, var(--hair) 74%, white) 0 4px, var(--hair) 5px 10px, transparent 11px),
+    radial-gradient(circle at 23% 35%, color-mix(in srgb, var(--hair) 74%, white) 0 4px, var(--hair) 5px 11px, transparent 12px),
+    radial-gradient(circle at 42% 24%, color-mix(in srgb, var(--hair) 72%, white) 0 4px, var(--hair) 5px 12px, transparent 13px),
+    radial-gradient(circle at 61% 24%, color-mix(in srgb, var(--hair) 72%, white) 0 4px, var(--hair) 5px 12px, transparent 13px),
+    radial-gradient(circle at 79% 36%, color-mix(in srgb, var(--hair) 74%, white) 0 4px, var(--hair) 5px 11px, transparent 12px),
+    radial-gradient(circle at 93% 70%, color-mix(in srgb, var(--hair) 74%, white) 0 4px, var(--hair) 5px 10px, transparent 11px),
+    linear-gradient(180deg, var(--hair), color-mix(in srgb, var(--hair) 82%, black));
+  box-shadow: 0 3px 0 color-mix(in srgb, var(--hair) 84%, black);
+}
+.avatar-explorer.avatar-hair-curly .avatar-hair::before,
+.avatar-explorer.avatar-hair-curly .avatar-hair::after {
+  content: "";
+  position: absolute;
+  top: 23px;
+  width: 16px;
+  height: 55px;
+  background:
+    radial-gradient(circle at 50% 14%, color-mix(in srgb, var(--hair) 72%, white) 0 3px, var(--hair) 4px 8px, transparent 9px),
+    radial-gradient(circle at 50% 43%, color-mix(in srgb, var(--hair) 72%, white) 0 3px, var(--hair) 4px 8px, transparent 9px),
+    radial-gradient(circle at 50% 72%, color-mix(in srgb, var(--hair) 72%, white) 0 3px, var(--hair) 4px 8px, transparent 9px),
+    radial-gradient(circle at 50% 96%, color-mix(in srgb, var(--hair) 72%, white) 0 3px, var(--hair) 4px 8px, transparent 9px);
+  z-index: -1;
+}
+.avatar-explorer.avatar-hair-curly .avatar-hair::before { left: -2px; }
+.avatar-explorer.avatar-hair-curly .avatar-hair::after { right: -2px; }
+.avatar-large.avatar-explorer.avatar-hair-curly .avatar-hair { top: 1px; width: 120px; height: 49px; }
+.avatar-large.avatar-explorer.avatar-hair-curly .avatar-hair::before,
+.avatar-large.avatar-explorer.avatar-hair-curly .avatar-hair::after { top: 32px; width: 23px; height: 77px; }
+
+.avatar-explorer.avatar-hair-afro .avatar-hair {
+  top: -4px;
+  width: 94px;
+  height: 43px;
+  background:
+    radial-gradient(circle at 5% 72%, color-mix(in srgb, var(--hair) 68%, white) 0 4px, var(--hair) 5px 11px, transparent 12px),
+    radial-gradient(circle at 16% 40%, color-mix(in srgb, var(--hair) 68%, white) 0 4px, var(--hair) 5px 12px, transparent 13px),
+    radial-gradient(circle at 29% 20%, color-mix(in srgb, var(--hair) 68%, white) 0 5px, var(--hair) 6px 13px, transparent 14px),
+    radial-gradient(circle at 44% 13%, color-mix(in srgb, var(--hair) 66%, white) 0 5px, var(--hair) 6px 14px, transparent 15px),
+    radial-gradient(circle at 59% 13%, color-mix(in srgb, var(--hair) 66%, white) 0 5px, var(--hair) 6px 14px, transparent 15px),
+    radial-gradient(circle at 74% 21%, color-mix(in srgb, var(--hair) 68%, white) 0 5px, var(--hair) 6px 13px, transparent 14px),
+    radial-gradient(circle at 87% 42%, color-mix(in srgb, var(--hair) 68%, white) 0 4px, var(--hair) 5px 12px, transparent 13px),
+    radial-gradient(circle at 97% 73%, color-mix(in srgb, var(--hair) 68%, white) 0 4px, var(--hair) 5px 11px, transparent 12px),
+    linear-gradient(180deg, var(--hair), color-mix(in srgb, var(--hair) 80%, black));
+}
+.avatar-explorer.avatar-hair-afro .avatar-hair::before,
+.avatar-explorer.avatar-hair-afro .avatar-hair::after {
+  top: 25px;
+  width: 19px;
+  height: 35px;
+  background:
+    radial-gradient(circle at 50% 16%, color-mix(in srgb, var(--hair) 68%, white) 0 3px, var(--hair) 4px 9px, transparent 10px),
+    radial-gradient(circle at 50% 50%, color-mix(in srgb, var(--hair) 68%, white) 0 3px, var(--hair) 4px 9px, transparent 10px),
+    radial-gradient(circle at 50% 84%, color-mix(in srgb, var(--hair) 68%, white) 0 3px, var(--hair) 4px 9px, transparent 10px);
+}
+.avatar-large.avatar-explorer.avatar-hair-afro .avatar-hair { top: -5px; width: 134px; height: 60px; }
+.avatar-large.avatar-explorer.avatar-hair-afro .avatar-hair::before,
+.avatar-large.avatar-explorer.avatar-hair-afro .avatar-hair::after { top: 35px; width: 27px; height: 49px; }
+
+/* Final hair lengths and open facial area. */
+.avatar-explorer.avatar-hair-mane .avatar-hair {
+  top: 1px;
+  width: 84px;
+  height: 34px;
+}
+.avatar-explorer.avatar-hair-mane .avatar-hair::before,
+.avatar-explorer.avatar-hair-mane .avatar-hair::after {
+  top: 23px;
+  width: 16px;
+  height: 39px;
+  border-radius: 58% 42% 48% 52% / 20% 20% 80% 80%;
+}
+.avatar-explorer.avatar-hair-mane .avatar-hair::before { left: -2px; }
+.avatar-explorer.avatar-hair-mane .avatar-hair::after { right: -2px; }
+.avatar-large.avatar-explorer.avatar-hair-mane .avatar-hair { top: 1px; width: 118px; height: 44px; }
+.avatar-large.avatar-explorer.avatar-hair-mane .avatar-hair::before,
+.avatar-large.avatar-explorer.avatar-hair-mane .avatar-hair::after { top: 31px; width: 22px; height: 54px; }
+
+.avatar-explorer.avatar-hair-long .avatar-hair { top: 1px; width: 86px; height: 34px; }
+.avatar-explorer.avatar-hair-long .avatar-hair::before,
+.avatar-explorer.avatar-hair-long .avatar-hair::after { top: 24px; width: 18px; height: 91px; }
+.avatar-large.avatar-explorer.avatar-hair-long .avatar-hair { top: 1px; width: 120px; height: 43px; }
+.avatar-large.avatar-explorer.avatar-hair-long .avatar-hair::before,
+.avatar-large.avatar-explorer.avatar-hair-long .avatar-hair::after { top: 31px; width: 25px; height: 128px; }
+
+.avatar-explorer.avatar-hair-braids .avatar-hair {
+  top: 0;
+  width: 84px;
+  height: 34px;
+  border-radius: 54% 54% 28% 28%;
+  background:
+    radial-gradient(ellipse at 32% 28%, rgba(255,255,255,0.19) 0 8%, transparent 9%),
+    linear-gradient(155deg, color-mix(in srgb, var(--hair) 80%, white), var(--hair) 48%, color-mix(in srgb, var(--hair) 78%, black));
+}
+.avatar-explorer.avatar-hair-braids .avatar-hair::before,
+.avatar-explorer.avatar-hair-braids .avatar-hair::after {
+  content: "";
+  position: absolute;
+  top: 24px;
+  width: 14px;
+  height: 76px;
+  border-radius: 0;
+  background:
+    radial-gradient(circle at 50% 8%, color-mix(in srgb, var(--hair) 75%, white) 0 3px, var(--hair) 4px 7px, transparent 8px),
+    radial-gradient(circle at 50% 27%, color-mix(in srgb, var(--hair) 75%, white) 0 3px, var(--hair) 4px 7px, transparent 8px),
+    radial-gradient(circle at 50% 46%, color-mix(in srgb, var(--hair) 75%, white) 0 3px, var(--hair) 4px 7px, transparent 8px),
+    radial-gradient(circle at 50% 65%, color-mix(in srgb, var(--hair) 75%, white) 0 3px, var(--hair) 4px 7px, transparent 8px),
+    radial-gradient(circle at 50% 84%, color-mix(in srgb, var(--hair) 75%, white) 0 3px, var(--hair) 4px 7px, transparent 8px),
+    radial-gradient(circle at 50% 99%, color-mix(in srgb, var(--hair) 75%, white) 0 3px, var(--hair) 4px 7px, transparent 8px);
+  box-shadow: none;
+  z-index: -1;
+}
+.avatar-explorer.avatar-hair-braids .avatar-hair::before { left: -1px; transform: rotate(2deg); }
+.avatar-explorer.avatar-hair-braids .avatar-hair::after { right: -1px; transform: rotate(-2deg); }
+.avatar-large.avatar-explorer.avatar-hair-braids .avatar-hair { top: 1px; width: 118px; height: 44px; }
+.avatar-large.avatar-explorer.avatar-hair-braids .avatar-hair::before,
+.avatar-large.avatar-explorer.avatar-hair-braids .avatar-hair::after { top: 31px; width: 19px; height: 106px; }
+
+.avatar-large.avatar-explorer.avatar-hair-curly .avatar-hair { top: 0; width: 120px; height: 43px; }
+.avatar-explorer.avatar-hair-afro .avatar-hair { top: -4px; width: 94px; height: 39px; }
+.avatar-large.avatar-explorer.avatar-hair-afro .avatar-hair { top: -4px; width: 134px; height: 48px; }
+
+/* Large, softly curved cat markings without hiding the expression. */
+.avatar-cat.avatar-variant-spots .avatar-face {
+  background:
+    radial-gradient(ellipse 28% 22% at 17% 27%, color-mix(in srgb, var(--species-dark) 88%, transparent) 0 78%, transparent 82%),
+    radial-gradient(ellipse 19% 17% at 32% 20%, color-mix(in srgb, var(--species-dark) 88%, transparent) 0 78%, transparent 82%),
+    radial-gradient(ellipse 25% 20% at 79% 31%, color-mix(in srgb, var(--species-dark) 88%, transparent) 0 78%, transparent 82%),
+    radial-gradient(ellipse 18% 15% at 68% 43%, color-mix(in srgb, var(--species-dark) 88%, transparent) 0 78%, transparent 82%),
+    radial-gradient(ellipse 23% 17% at 28% 73%, color-mix(in srgb, var(--species-dark) 82%, transparent) 0 76%, transparent 81%),
+    linear-gradient(150deg, var(--species-light), var(--species));
+}
+
+/* Working glasses instead of a disabled selector. */
+.avatar-glasses {
+  display: none;
+  position: absolute;
+  left: 50%;
+  top: 28px;
+  width: 52px;
+  height: 23px;
+  transform: translateX(-50%);
+  z-index: 18;
+}
+
+.avatar-explorer.avatar-glasses-round .avatar-glasses,
+.avatar-explorer.avatar-glasses-square .avatar-glasses { display: block; }
+.avatar-glasses em {
+  position: absolute;
+  top: 0;
+  width: 20px;
+  height: 18px;
+  border: 3px solid #263653;
+  background: rgba(209, 238, 255, 0.22);
+}
+.avatar-glasses em:first-child { left: 1px; }
+.avatar-glasses em:last-child { right: 1px; }
+.avatar-glasses::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 7px;
+  width: 8px;
+  height: 3px;
+  transform: translateX(-50%);
+  background: #263653;
+}
+.avatar-glasses-round em { border-radius: 50%; }
+.avatar-glasses-square em { border-radius: 5px; }
+.avatar-large .avatar-glasses { top: 40px; width: 72px; height: 31px; }
+.avatar-large .avatar-glasses em { width: 28px; height: 25px; border-width: 4px; }
+.avatar-large .avatar-glasses::after { top: 10px; width: 11px; height: 4px; }
+
+/* Compact portrait used on the path map. */
+.avatar-portrait .avatar-scene,
+.avatar-portrait .avatar-tail,
+.avatar-portrait .avatar-neck,
+.avatar-portrait .avatar-outfit-piece,
+.avatar-portrait .avatar-shoulders,
+.avatar-portrait .avatar-body,
+.avatar-portrait .avatar-arm,
+.avatar-portrait .avatar-legs,
+.avatar-portrait .avatar-species-detail { display: none !important; }
+.avatar-portrait .avatar-face { top: 8px !important; }
+.avatar-portrait.avatar-owl .avatar-face { top: 4px !important; }
+.avatar-portrait.avatar-robot .avatar-face { top: 8px !important; }
+
+/* Cat and owl facial layers: the muzzle and facial discs stay behind the expression. */
+.avatar-cat .avatar-species-detail,
+.avatar-owl .avatar-species-detail {
+  display: none;
+}
+
+.avatar-cat .avatar-face::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 46px;
+  width: 35px;
+  height: 20px;
+  transform: translateX(-50%);
+  border-radius: 50%;
+  background: color-mix(in srgb, var(--species-light) 78%, white);
+  z-index: 7;
+  pointer-events: none;
+}
+
+.avatar-cat .avatar-face::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 53px;
+  width: 64px;
+  height: 1px;
+  transform: translateX(-50%);
+  background: linear-gradient(90deg, #394353 0 38%, transparent 39% 61%, #394353 62% 100%);
+  box-shadow: 0 6px rgba(57,67,83,0.78), 0 -6px rgba(57,67,83,0.78);
+  z-index: 13;
+  pointer-events: none;
+}
+
+.avatar-large.avatar-cat .avatar-face::before {
+  top: 65px;
+  width: 50px;
+  height: 28px;
+}
+
+.avatar-large.avatar-cat .avatar-face::after {
+  top: 75px;
+  width: 88px;
+}
+
+.avatar-cat .avatar-nose {
+  z-index: 14;
+}
+
+.avatar-cat .avatar-face b {
+  z-index: 15;
+}
+
+.avatar-large.avatar-cat.avatar-mouth-surprised .avatar-face b {
+  bottom: 4px;
+}
+
+.avatar-owl .avatar-face::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 13px;
+  width: 79px;
+  height: 49px;
+  transform: translateX(-50%);
+  border-radius: 45%;
+  background:
+    radial-gradient(circle at 29% 50%, color-mix(in srgb, var(--species-light) 55%, white) 0 31%, transparent 32%),
+    radial-gradient(circle at 71% 50%, color-mix(in srgb, var(--species-light) 55%, white) 0 31%, transparent 32%);
+  z-index: 7;
+  pointer-events: none;
+}
+
+.avatar-large.avatar-owl .avatar-face::before {
+  top: 19px;
+  width: 112px;
+  height: 70px;
+}
+
+.avatar-owl .avatar-nose {
+  top: 49px;
+  width: 16px;
+  height: 15px;
+  z-index: 12;
+}
+
+.avatar-large.avatar-owl .avatar-nose {
+  top: 69px;
+  width: 22px;
+  height: 21px;
+}
+
+.avatar-owl .avatar-face b {
+  bottom: 1px;
+  width: 22px;
+  height: 8px;
+  z-index: 15;
+}
+
+.avatar-owl.avatar-mouth-sad .avatar-face b {
+  bottom: 1px;
+  height: 8px;
+  border-top-width: 3px;
+}
+
+.avatar-owl.avatar-mouth-angry .avatar-face b {
+  bottom: 3px;
+  width: 21px;
+  height: 3px;
+}
+
+.avatar-owl.avatar-mouth-surprised .avatar-face b {
+  bottom: 0;
+  width: 11px;
+  height: 11px;
+  border-width: 3px;
+}
+
+.avatar-large.avatar-owl .avatar-face b {
+  bottom: 3px;
+  width: 30px;
+  height: 11px;
+  border-width: 4px;
+}
+
+.avatar-large.avatar-owl.avatar-mouth-angry .avatar-face b {
+  bottom: 6px;
+  width: 29px;
+  height: 4px;
+}
+
+.avatar-large.avatar-owl.avatar-mouth-surprised .avatar-face b {
+  bottom: 1px;
+  width: 16px;
+  height: 17px;
+  border-width: 4px;
+}
+
+/* Feather-shaped owl brows make surprise and anger readable without looking human. */
+.avatar-owl.avatar-mouth-surprised .avatar-brow,
+.avatar-owl.avatar-mouth-angry .avatar-brow {
+  display: block;
+  top: 18px;
+  width: 23px;
+  height: 8px;
+  border-radius: 60% 20% 55% 25%;
+  background: linear-gradient(90deg, color-mix(in srgb, var(--species-dark) 72%, transparent), var(--species-dark));
+  clip-path: polygon(0 48%, 100% 0, 90% 100%, 10% 84%);
+  z-index: 14;
+}
+
+.avatar-owl.avatar-mouth-surprised .avatar-brow-left {
+  left: 8px;
+  transform: rotate(-8deg);
+}
+
+.avatar-owl.avatar-mouth-surprised .avatar-brow-right {
+  right: 8px;
+  transform: scaleX(-1) rotate(-8deg);
+}
+
+.avatar-owl.avatar-mouth-angry .avatar-brow-left {
+  left: 8px;
+  transform: rotate(18deg);
+}
+
+.avatar-owl.avatar-mouth-angry .avatar-brow-right {
+  right: 8px;
+  transform: scaleX(-1) rotate(18deg);
+}
+
+.avatar-large.avatar-owl.avatar-mouth-surprised .avatar-brow,
+.avatar-large.avatar-owl.avatar-mouth-angry .avatar-brow {
+  top: 26px;
+  width: 32px;
+  height: 11px;
+}
+
+.avatar-large.avatar-owl.avatar-mouth-surprised .avatar-brow-left,
+.avatar-large.avatar-owl.avatar-mouth-angry .avatar-brow-left {
+  left: 12px;
+}
+
+.avatar-large.avatar-owl.avatar-mouth-surprised .avatar-brow-right,
+.avatar-large.avatar-owl.avatar-mouth-angry .avatar-brow-right {
+  right: 12px;
+}
+
+/* Visual controls: every item is available, visible and touch friendly. */
+.avatar-choice-select {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0 0 0 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+.avatar-choice-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.avatar-choice-card {
+  min-width: 66px;
+  min-height: 48px;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 8px;
+  border: 2px solid #d6e5f7;
+  border-radius: 12px;
+  color: #233553;
+  background: #f8fbff;
+  box-shadow: none;
+  font-size: 0.74rem;
+  font-weight: 850;
+  text-align: left;
+}
+
+.avatar-choice-card:hover { transform: translateY(-1px); border-color: #78a9e5; }
+.avatar-choice-card.is-selected {
+  color: #0b3474;
+  border-color: #155fbd;
+  background: #e9f3ff;
+  box-shadow: inset 0 0 0 1px #155fbd, 0 4px 10px rgba(21,95,189,0.12);
+}
+
+.avatar-choice-glyph {
+  min-width: 25px;
+  font-size: 1.25rem;
+  line-height: 1;
+  text-align: center;
+}
+
+.avatar-choice-swatch {
+  width: 27px;
+  height: 27px;
+  border: 2px solid rgba(22,45,82,0.22);
+  border-radius: 50%;
+  background: #9fb3cc;
+}
+.avatar-swatch-blue, .avatar-swatch-blue-eyes { background: #2c72cf; }
+.avatar-swatch-green, .avatar-swatch-green-eyes { background: #15956f; }
+.avatar-swatch-red, .avatar-swatch-redhead { background: #c94345; }
+.avatar-swatch-gold, .avatar-swatch-gold-eyes, .avatar-swatch-amber-eyes, .avatar-swatch-amber-light { background: #e0ab32; }
+.avatar-swatch-violet { background: #7052c8; }
+.avatar-swatch-blonde { background: #dba936; }
+.avatar-swatch-brown, .avatar-swatch-dark-brown { background: #3b2416; }
+.avatar-swatch-black-hair, .avatar-swatch-black, .avatar-swatch-night { background: #1a2439; }
+.avatar-swatch-fair { background: #f3d2bd; }
+.avatar-swatch-medium { background: #dca77f; }
+.avatar-swatch-tan { background: #bd7f56; }
+.avatar-swatch-dark { background: #875234; }
+.avatar-swatch-deep { background: #563321; }
+.avatar-swatch-ginger, .avatar-swatch-copper { background: #ca7435; }
+.avatar-swatch-gray, .avatar-swatch-steel { background: #8e9cab; }
+.avatar-swatch-cream, .avatar-swatch-snow { background: #f3ead1; }
+.avatar-swatch-cyan-light { background: #21d6df; }
+.avatar-swatch-green-light { background: #3dde79; }
+
+.avatar-field-wide { grid-column: 1 / -1; }
+.avatar-explorer-only { display: none; }
+.avatar-form.avatar-is-explorer .avatar-explorer-only { display: grid; }
+.avatar-access-note { margin: 0; color: #47617f; font-size: 0.8rem; font-weight: 800; }
+.avatar-save-button { justify-self: start; }
+
+.avatar-choice-type { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.avatar-choice-type .avatar-choice-card { min-height: 67px; grid-template-columns: 48px 1fr; }
+.avatar-type-thumbnail {
+  position: relative;
+  display: block;
+  width: 45px;
+  height: 52px;
+  overflow: hidden;
+}
+.avatar-type-thumbnail .avatar-figure {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  transform: translateX(-50%) scale(0.34);
+  transform-origin: top center;
+}
+.avatar-choice .avatar-scene { display: none; }
+
+.avatar-options-grid { overflow: visible; padding-right: 0; align-content: start; }
+.avatar-form { min-width: 0; }
+.shell-student-fit .avatar-form { grid-template-rows: auto minmax(0, 1fr) auto auto; }
+.avatar-editor { width: min(1180px, 100%); }
+.avatar-editor-grid { grid-template-columns: minmax(300px, 0.7fr) minmax(580px, 1.3fr); }
+.avatar-preview-card {
+  min-height: 0;
+  align-content: start;
+  padding-top: 6px;
+}
+.avatar-preview-card #avatar-live-preview {
+  height: 238px;
+  display: grid;
+  place-items: start center;
+  transform: scale(1.03);
+  transform-origin: top center;
+}
+.avatar-options-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px 8px; }
+.avatar-choice-field { gap: 3px; }
+.avatar-choice-field > label { font-size: 0.76rem; }
+.avatar-choice-cards { gap: 4px; }
+.avatar-choice-card {
+  min-width: 52px;
+  min-height: 34px;
+  gap: 4px;
+  padding: 4px 6px;
+  border-radius: 9px;
+  font-size: 0.66rem;
+}
+.avatar-choice-swatch { width: 22px; height: 22px; }
+.avatar-choice-glyph { min-width: 20px; font-size: 1rem; }
+.avatar-choice-type .avatar-choice-card { min-height: 55px; grid-template-columns: 40px 1fr; }
+.avatar-type-thumbnail { width: 38px; height: 43px; }
+.avatar-type-thumbnail .avatar-figure { transform: translateX(-50%) scale(0.28); }
+.avatar-form .avatar-access-note { font-size: 0.72rem; }
+.avatar-form .avatar-save-button { min-height: 36px; padding: 7px 15px; }
+
+.avatar-visual-select {
+  position: relative;
+  min-width: 0;
+}
+.avatar-visual-select.is-open { z-index: 80; }
+.avatar-visual-select-trigger {
+  width: 100%;
+  min-height: 48px;
+  display: grid;
+  grid-template-columns: 38px minmax(0, 1fr) 18px;
+  align-items: center;
+  gap: 7px;
+  padding: 5px 8px;
+  border: 2px solid #d5e4f5;
+  border-radius: 11px;
+  color: #233553;
+  background: #fbfdff;
+  box-shadow: 0 3px 0 rgba(21,95,189,0.08);
+  text-align: left;
+}
+.avatar-visual-select-trigger:hover,
+.avatar-visual-select-trigger:focus-visible,
+.avatar-visual-select.is-open .avatar-visual-select-trigger {
+  border-color: #4c8bd4;
+  background: #f1f7ff;
+}
+.avatar-visual-select-trigger:focus-visible { outline: 3px solid rgba(21,95,189,0.2); outline-offset: 2px; }
+.avatar-visual-select-trigger strong { overflow: hidden; color: #0b3474; font-size: 0.78rem; text-overflow: ellipsis; white-space: nowrap; }
+.avatar-dropdown-arrow { color: #155fbd; font-size: 1.2rem; font-weight: 950; text-align: center; transition: transform 160ms ease; }
+.avatar-visual-select.is-open .avatar-dropdown-arrow { transform: rotate(180deg); }
+.avatar-selected-visual {
+  width: 35px;
+  height: 35px;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+}
+.avatar-selected-visual .avatar-choice-swatch { width: 27px; height: 27px; }
+.avatar-selected-visual .avatar-choice-glyph { font-size: 1.18rem; }
+.avatar-selected-visual .avatar-type-thumbnail { width: 35px; height: 39px; }
+.avatar-selected-visual .avatar-type-thumbnail .avatar-figure { transform: translateX(-50%) scale(0.255); }
+
+.avatar-visual-select-menu {
+  display: none;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: calc(100% + 5px);
+  z-index: 100;
+  max-height: 228px;
+  overflow: auto;
+  padding: 7px;
+  border: 2px solid #bcd5f1;
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: 0 16px 30px rgba(20,43,88,0.24);
+}
+.avatar-visual-select.is-open .avatar-visual-select-menu { display: block; animation: avatarDropdownOpen 140ms ease-out; }
+.avatar-visual-select-menu .avatar-choice-cards,
+.avatar-visual-select-menu .avatar-choice-type {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 5px;
+}
+.avatar-visual-select-menu .avatar-choice-card {
+  min-width: 0;
+  min-height: 42px;
+  padding: 5px 7px;
+  font-size: 0.7rem;
+}
+.avatar-visual-select-menu .avatar-choice-type .avatar-choice-card { min-height: 58px; grid-template-columns: 40px minmax(0, 1fr); }
+.avatar-visual-select-menu .avatar-choice-card span:last-child { overflow-wrap: anywhere; }
+@keyframes avatarDropdownOpen { from { opacity: 0; transform: translateY(-5px); } }
+
+.map-node .current-avatar-marker {
+  width: 56px;
+  height: 64px;
+  overflow: visible;
+  border-radius: 50%;
+}
+.map-node .current-avatar-marker .avatar-figure.avatar-portrait {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: auto;
+  transform: translateX(-50%) scale(0.7);
+  transform-origin: top center;
+}
+
+.adventure-avatar-reaction {
+  float: right;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 150px;
+  min-height: 66px;
+  margin: 0 0 10px 14px;
+  padding: 5px 10px 5px 4px;
+  border: 2px solid #cfe0f5;
+  border-radius: 18px;
+  color: #0b3474;
+  background: #f3f8ff;
+  font-size: 0.82rem;
+  font-weight: 900;
+}
+.adventure-avatar-reaction .avatar-figure { transform: scale(0.38); transform-origin: center; margin: -45px -34px; }
+.adventure-avatar-reaction.is-happy { border-color: #53b99e; background: #e9fbf5; }
+.adventure-avatar-reaction.is-sad { border-color: #efb64c; background: #fff7df; }
+.result-avatar-reaction {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  min-height: 76px;
+  margin: 0 auto 8px;
+  color: #0b3474;
+  font-weight: 950;
+}
+.result-avatar-reaction .avatar-figure { transform: scale(0.44); transform-origin: center; margin: -42px -30px; }
+
+/* 1.º ESO pilot: a living, friendly kingdom with visible progress. */
+.first-eso-map-intro {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(180px, 0.32fr);
+  align-items: center;
+  gap: 18px;
+  margin: -2px 0 10px;
+  padding: 11px 14px;
+  border: 1px solid rgba(21, 95, 189, 0.16);
+  border-radius: 14px;
+  background:
+    radial-gradient(circle at 92% 12%, rgba(246,183,60,0.24), transparent 25%),
+    linear-gradient(115deg, #f7fcff, #eef9ee);
+}
+.first-eso-map-copy { display: grid; gap: 2px; }
+.first-eso-map-copy .first-eso-chapter {
+  color: #087a5c;
+  font-size: 0.7rem;
+  font-weight: 950;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.first-eso-map-copy strong { color: #0b3474; font-size: 1.06rem; }
+.first-eso-map-copy small { color: #4d6078; font-size: 0.76rem; font-weight: 720; }
+.first-eso-map-progress { display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 9px; }
+.first-eso-map-progress > span {
+  height: 11px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: #d7e6f5;
+  box-shadow: inset 0 2px 3px rgba(20,43,88,0.12);
+}
+.first-eso-map-progress b {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, #0f9f7a, #f6b73c);
+  transition: width 500ms ease;
+}
+.first-eso-map-progress strong { color: #0b3474; font-size: 0.82rem; }
+
+.adventure-map-board.first-eso-live-map {
+  background:
+    radial-gradient(circle at 56% 13%, rgba(255,248,188,0.9), transparent 13%),
+    linear-gradient(180deg, #bfeaff 0 47%, #b8e59e 48% 72%, #79c778 100%);
+  border: 3px solid #ffffff;
+  box-shadow: inset 0 0 0 2px rgba(21,95,189,0.1), 0 12px 26px rgba(20,43,88,0.14);
+}
+.first-eso-live-map .map-land-horizon { fill: rgba(67, 163, 85, 0.3); }
+.first-eso-live-map .map-river-live {
+  stroke: url(#first-eso-river);
+  stroke-width: 8;
+  stroke-dasharray: 4 2;
+  animation: firstEsoRiver 5s linear infinite;
+}
+.first-eso-live-map .first-eso-mountains { stroke: rgba(42,104,139,0.42); stroke-width: 1.8; fill: rgba(232,244,248,0.5); }
+.first-eso-live-map .first-eso-sun { fill: #ffd45e; filter: drop-shadow(0 0 6px rgba(255,206,71,0.7)); transform-box: fill-box; transform-origin: center; animation: firstEsoSun 3.6s ease-in-out infinite; }
+.map-node.is-complete .map-node-label::after { content: "✓"; }
+.first-eso-cloud { fill: rgba(255,255,255,0.84); filter: drop-shadow(0 2px 2px rgba(64,117,155,0.14)); }
+.first-eso-cloud.cloud-one { animation: firstEsoCloud 12s ease-in-out infinite alternate; }
+.first-eso-cloud.cloud-two { animation: firstEsoCloud 15s ease-in-out -4s infinite alternate-reverse; }
+.first-eso-village { fill: #fff1c4; stroke: #7c5a37; stroke-width: 0.8; }
+.first-eso-village .village-roofs { fill: none; stroke: #c76446; stroke-width: 1.4; }
+.first-eso-windmill .windmill-tower { fill: #f7e4b0; stroke: #805a39; stroke-width: 0.7; }
+.first-eso-windmill .windmill-blades { fill: #f4bf42; stroke: #805a39; stroke-width: 0.75; transform-box: fill-box; transform-origin: center; animation: firstEsoWindmill 6s linear infinite; }
+.first-eso-trees path { stroke: #765331; stroke-width: 1.1; }
+.first-eso-trees circle { fill: #249a68; stroke: #147353; stroke-width: 0.6; }
+.first-eso-castle { fill: #d8e4f3; stroke: #526e9e; stroke-width: 0.8; }
+.first-eso-sparkles { fill: #fff7b8; animation: firstEsoSparkle 2.2s ease-in-out infinite alternate; }
+
+.first-eso-atmosphere { position: absolute; inset: 0; z-index: 1; pointer-events: none; overflow: hidden; }
+.first-eso-atmosphere i {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #fff6a5;
+  box-shadow: 0 0 8px #ffec69;
+  animation: firstEsoFirefly 4.8s ease-in-out infinite;
+}
+.first-eso-atmosphere i:nth-child(1) { left: 18%; top: 44%; }
+.first-eso-atmosphere i:nth-child(2) { left: 46%; top: 57%; animation-delay: -1.2s; }
+.first-eso-atmosphere i:nth-child(3) { left: 72%; top: 35%; animation-delay: -2.7s; }
+.first-eso-atmosphere i:nth-child(4) { left: 84%; top: 73%; animation-delay: -3.4s; }
+.first-eso-atmosphere i:nth-child(5) { left: 31%; top: 81%; animation-delay: -0.7s; }
+
+.first-eso-live-map .map-route-svg > polyline:first-child {
+  stroke: rgba(255,255,255,0.88);
+  stroke-width: 7;
+  stroke-dasharray: 1 8;
+}
+.first-eso-live-map .map-route-svg .map-route-progress {
+  stroke: #f4b72f;
+  stroke-width: 5;
+  stroke-dasharray: 3 4;
+  filter: drop-shadow(0 2px 1px rgba(126,79,14,0.25));
+  animation: firstEsoRoute 9s linear infinite;
+}
+.first-eso-live-map .map-route-beacon {
+  fill: #fff8c7;
+  stroke: #e49b16;
+  stroke-width: 0.55;
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: firstEsoBeacon 1.8s ease-out infinite;
+}
+.first-eso-live-map .map-node.is-unlocked .map-node-label { border: 2px solid rgba(255,255,255,0.9); }
+.first-eso-live-map .map-node.is-current .zone-visual { animation: currentLandmark 1.8s ease-in-out infinite, firstEsoGlow 2.2s ease-in-out infinite; }
+.first-eso-live-map .map-node.is-complete .zone-visual { filter: drop-shadow(0 7px 5px rgba(20,43,88,0.12)) saturate(1.2); }
+.first-eso-live-map .map-node.is-complete .map-node-label::after { display: none; }
+.first-eso-live-map .map-node.is-locked { opacity: 0.56; filter: grayscale(0.6) blur(0.15px); }
+.first-eso-zone-star {
+  position: absolute;
+  right: 7px;
+  top: 3px;
+  z-index: 6;
+  display: grid;
+  place-items: center;
+  width: 27px;
+  height: 27px;
+  border-radius: 50%;
+  color: #fff;
+  background: #0f9f7a;
+  box-shadow: 0 3px 0 #087357, 0 0 0 3px rgba(255,255,255,0.78);
+  animation: firstEsoStar 2.6s ease-in-out infinite;
+}
+
+.world-numbers .zone-entry-scene {
+  background:
+    radial-gradient(circle at 68% 15%, rgba(255,243,156,0.86), transparent 17%),
+    linear-gradient(180deg, #c8edff 0 52%, #9edc8a 53% 100%);
+  box-shadow: inset 0 0 0 3px rgba(255,255,255,0.72), 0 12px 24px rgba(20,43,88,0.12);
+}
+.first-eso-guide-bubble {
+  position: absolute;
+  right: 18px;
+  top: 18px;
+  z-index: 6;
+  width: min(270px, 47%);
+  display: grid;
+  gap: 3px;
+  padding: 11px 13px;
+  border: 2px solid rgba(21,95,189,0.2);
+  border-radius: 16px 16px 4px 16px;
+  background: rgba(255,255,255,0.94);
+  box-shadow: 0 7px 0 rgba(20,87,184,0.11);
+}
+.first-eso-guide-bubble::after {
+  content: "";
+  position: absolute;
+  right: 14px;
+  bottom: -12px;
+  border: 7px solid transparent;
+  border-top-color: #fff;
+}
+.first-eso-guide-bubble strong { color: #087a5c; font-size: 0.78rem; }
+.first-eso-guide-bubble span { color: #324963; font-size: 0.78rem; font-weight: 760; line-height: 1.3; }
+
+.zone-mode-button.first-eso-mission {
+  grid-template-columns: 48px minmax(0, 1fr);
+  align-items: center;
+  min-height: 82px;
+  padding: 10px 12px;
+  background: linear-gradient(120deg, #fff, #f4fbff);
+}
+.zone-mode-button.first-eso-mission .zone-mode-icon {
+  width: 43px;
+  height: 43px;
+  display: grid;
+  place-items: center;
+  border-radius: 13px;
+  color: inherit;
+  background: #e5f2ff;
+  font-size: 1.42rem;
+  box-shadow: inset 0 0 0 2px rgba(21,95,189,0.09);
+}
+.zone-mode-button.first-eso-mission.mode-train .zone-mode-icon { background: #e8faf3; }
+.zone-mode-button.first-eso-mission.mode-boss .zone-mode-icon { background: #fff0c9; }
+.zone-mode-button .zone-mode-copy-block { display: grid; gap: 2px; color: inherit; font-size: inherit; }
+.zone-mode-button .zone-mode-copy-block strong { color: #0b3474; font-size: 1rem; }
+.zone-mode-button .zone-mode-copy-block small { color: #4d5f77; font-size: 0.75rem; }
+.zone-mode-button .zone-mode-copy-block em { color: #087a5c; font-size: 0.68rem; font-style: normal; font-weight: 900; }
+
+.first-eso-phase-banner {
+  display: grid;
+  grid-template-columns: auto auto 1fr;
+  align-items: center;
+  gap: 8px;
+  margin: -2px 0 10px;
+  padding: 8px 12px;
+  border-radius: 12px;
+  color: #334c68;
+  background: linear-gradient(100deg, #eaf8ff, #f1fae8);
+}
+.first-eso-phase-banner span { color: #087a5c; font-size: 0.68rem; font-weight: 950; text-transform: uppercase; }
+.first-eso-phase-banner strong { color: #0b3474; font-size: 0.85rem; }
+.first-eso-phase-banner small { font-size: 0.72rem; }
+
+.first-eso-boss-stage {
+  position: relative;
+  min-height: 190px;
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+  margin: -8px -8px 2px;
+  border-radius: 18px;
+  background:
+    radial-gradient(circle at 50% 45%, rgba(246,183,60,0.28), transparent 24%),
+    linear-gradient(180deg, #142548, #261b43);
+}
+.number-guardian {
+  position: relative;
+  width: 118px;
+  height: 126px;
+  border: 4px solid #e8b94c;
+  border-radius: 46% 46% 28% 28%;
+  background: linear-gradient(145deg, #466da7, #172d58);
+  box-shadow: 0 0 0 8px rgba(246,183,60,0.12), 0 15px 24px rgba(0,0,0,0.32);
+  animation: guardianFloat 2.8s ease-in-out infinite;
+}
+.guardian-crown { position: absolute; left: 50%; top: -24px; transform: translateX(-50%); color: #ffd66c; font-size: 0.9rem; font-weight: 950; letter-spacing: 4px; }
+.guardian-eye { position: absolute; top: 35px; width: 17px; height: 11px; border-radius: 50%; background: #fff3a2; box-shadow: 0 0 10px #ffe55c; animation: guardianBlink 4s infinite; }
+.guardian-eye-left { left: 24px; }
+.guardian-eye-right { right: 24px; }
+.guardian-shield { position: absolute; left: 50%; bottom: 13px; transform: translateX(-50%); width: 54px; height: 54px; display: grid; place-items: center; border-radius: 50%; color: #17315e; background: #f2bf49; font-size: 1.9rem; font-weight: 950; }
+.boss-number-rune { position: absolute; color: rgba(255,237,155,0.72); font-size: 1.4rem; font-weight: 950; animation: runeOrbit 5s ease-in-out infinite; }
+.rune-one { left: 19%; top: 28%; }
+.rune-two { right: 17%; bottom: 24%; animation-delay: -2.4s; }
+
+@keyframes firstEsoRiver { to { stroke-dashoffset: -30; } }
+@keyframes firstEsoCloud { to { transform: translateX(7px); } }
+@keyframes firstEsoSun { 50% { transform: scale(1.08); opacity: 0.88; } }
+@keyframes firstEsoWindmill { to { transform: rotate(360deg); } }
+@keyframes firstEsoSparkle { to { opacity: 0.25; } }
+@keyframes firstEsoFirefly { 50% { transform: translate(8px,-10px) scale(1.4); opacity: 0.35; } }
+@keyframes firstEsoRoute { to { stroke-dashoffset: -70; } }
+@keyframes firstEsoBeacon { 70%,100% { transform: scale(2.5); opacity: 0; } }
+@keyframes firstEsoGlow { 50% { filter: drop-shadow(0 0 10px rgba(246,183,60,0.9)); } }
+@keyframes firstEsoStar { 50% { transform: translateY(-2px) rotate(8deg); } }
+@keyframes guardianFloat { 50% { transform: translateY(-7px); } }
+@keyframes guardianBlink { 47%,53% { transform: scaleY(0.15); } }
+@keyframes runeOrbit { 50% { transform: translateY(-12px) rotate(8deg); opacity: 0.4; } }
+
+@media (max-width: 920px) {
+  .avatar-editor-grid { grid-template-columns: 1fr; }
+  .avatar-choice-type { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .avatar-options-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); overflow: auto; }
+}
+
+@media (max-width: 720px) {
+  .avatar-editor-grid { grid-template-columns: 1fr; }
+  .avatar-preview-card { min-height: 330px; }
+  .avatar-options-grid { grid-template-columns: 1fr; }
+  .avatar-field-wide { grid-column: auto; }
+  .first-eso-map-intro { grid-template-columns: 1fr; }
+  .first-eso-guide-bubble { width: 58%; }
+  .first-eso-phase-banner { grid-template-columns: auto 1fr; }
+  .first-eso-phase-banner small { grid-column: 1 / -1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .avatar-figure * { transition: none !important; }
+  .first-eso-live-map *,
+  .first-eso-boss-stage * { animation: none !important; }
+}

@@ -1,0 +1,29 @@
+# Credenciales y configuracion local
+config.local.js
+.env
+.env.*
+!.env.example
+
+# Biblioteca pesada y duplicados locales
+documentos/
+book-resources/full-books/
+*.zip
+
+# Archivos generados o temporales
+_codex_temporal/
+_extracted/
+_preview/
+__pycache__/
+*.py[cod]
+*.log
+_bach_pdf_jobs.json
+~$*
+
+# Configuracion de herramientas locales
+.agents/
+.impeccable/
+
+# Sistema operativo
+.DS_Store
+Thumbs.db
+Desktop.ini
