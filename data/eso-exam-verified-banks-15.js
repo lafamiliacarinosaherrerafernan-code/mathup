@@ -1,0 +1,39 @@
+(function () {
+  "use strict";
+  const q = (rawBaseId, source, text, options, solution) => ({ rawBaseId, source, sourceKind: "exam", difficulty: "hard", text, options, correct: 0, solution });
+  const frac = "documentos/2º ESO/Exámenes tipo/2020-2021/Unidad 3 y 4/Examen unida 3 4.pdf";
+  const fracSim = "documentos/2º ESO/Exámenes tipo/2020-2021/Unidad 3 y 4/Simulacro und 3-4.pdf";
+  const fun = "documentos/2º ESO/Exámenes tipo/2020-2021/Unidad 8 Funciones/Examen und  8 funiones-Peter.pdf";
+  const geo = "documentos/2º ESO/Exámenes tipo/2020-2021/Unidad 9 Medidas Teorema de Pitágoras/Examen und  9 Medida Pitagoras-2ESO A.pdf";
+  const banks = {
+    "2eso::potencias y raices cuadradas": [
+      q("2eso-fracciones-752ff1645ba5", frac, "1. Ejercicio (1 punto): Resuelve: −2²", ["−4", "4", "−2", "2"], "Resolución:\n1. La potencia se realiza antes que el signo exterior.\n2. −2²=−(2²)=−4.\nComprobación: no hay paréntesis alrededor de −2.\nResultado final: −4."),
+      q("2eso-fracciones-74f3e6027581", fracSim, "2. Ejercicio (1 punto): Expresa con exponente positivo y resuelve: 4⁻³:4⁻⁵", ["4²=16", "4⁻⁸", "4⁻²=1/16", "4⁸=65536"], "Resolución:\n1. Al dividir potencias de la misma base restamos exponentes.\n2. 4⁻³:4⁻⁵=4^(−3−(−5))=4².\n3. 4²=16.\nComprobación: (1/64):(1/1024)=16.\nResultado final: 4²=16."),
+      q("2eso-fracciones-a8bc17d98e16", fracSim, "2. Ejercicio (1 punto): Expresa con exponente positivo: x⁻⁷·x⁵", ["1/x²", "x²", "1/x¹²", "x¹²"], "Resolución:\n1. Sumamos exponentes: x⁻⁷·x⁵=x^(−7+5)=x⁻².\n2. Con exponente positivo, x⁻²=1/x², para x≠0.\nComprobación: x⁵/x⁷=1/x².\nResultado final: 1/x²."),
+      q("2eso-fracciones-b47c8d75f008", fracSim, "2. Ejercicio (1 punto): Expresa con exponente positivo: (b²)⁻³:b³", ["1/b⁹", "b⁹", "1/b³", "b⁻¹"], "Resolución:\n1. (b²)⁻³=b⁻⁶.\n2. b⁻⁶:b³=b^(−6−3)=b⁻⁹.\n3. Con exponente positivo es 1/b⁹, b≠0.\nComprobación: 1/b⁶ dividido entre b³ es 1/b⁹.\nResultado final: 1/b⁹."),
+      q("2eso-fracciones-ff00b74299ff", fracSim, "2. Ejercicio (1 punto): Expresa como una sola potencia y resuelve: a³:a³", ["a⁰=1", "a⁶", "a", "a⁻³"], "Resolución:\n1. Restamos exponentes: a³:a³=a^(3−3)=a⁰.\n2. Para a≠0, a⁰=1.\nComprobación: todo número no nulo dividido por sí mismo vale 1.\nResultado final: a⁰=1."),
+      q("2eso-fracciones-3d3a3b42ebd1", fracSim, "2. Ejercicio (1 punto): Expresa como una sola potencia: (x²·x)³:x²", ["x⁷", "x⁵", "x⁹", "x¹²"], "Resolución:\n1. x²·x=x³.\n2. (x³)³=x⁹.\n3. x⁹:x²=x⁷.\nComprobación: los exponentes se combinan como (2+1)·3−2=7.\nResultado final: x⁷."),
+      q("2eso-fracciones-9afb06d18fa6", fracSim, "2. Ejercicio (1 punto): Expresa con exponente positivo y resuelve: 5⁵:5⁷", ["1/25", "25", "1/5", "5¹²"], "Resolución:\n1. 5⁵:5⁷=5^(5−7)=5⁻².\n2. Con exponente positivo: 1/5².\n3. 1/5²=1/25.\nComprobación: 3125/78125=1/25.\nResultado final: 1/25."),
+      q("2eso-fracciones-68633d815f5e", fracSim, "3. Ejercicio (1 punto): Escribe 132.000 en notación científica.", ["1,32·10⁵", "13,2·10⁴", "1,32·10⁶", "0,132·10⁵"], "Resolución:\n1. Colocamos la coma tras la primera cifra no nula: 1,32.\n2. La coma se ha desplazado cinco lugares a la izquierda.\n3. Multiplicamos por 10⁵.\nComprobación: 1,32·100000=132000.\nResultado final: 1,32·10⁵.")
+    ],
+    "2eso::fracciones": [
+      q("2eso-fracciones-002f19da33c3", fracSim, "1. Ejercicio (1 punto): Resuelve: 4³:4⁵", ["1/16", "16", "1/8", "4⁸"], "Resolución:\n1. 4³:4⁵=4^(3−5)=4⁻².\n2. 4⁻²=1/4²=1/16.\nComprobación: 64/1024=1/16.\nResultado final: 1/16."),
+      q("2eso-fracciones-068b92e2233e", fracSim, "4. Ejercicio (1,5 puntos): Calcula: (−3)²−(√196−(−2)³)·√9", ["−57", "57", "−9", "75"], "Resolución:\n1. (−3)²=9, √196=14, (−2)³=−8 y √9=3.\n2. (14−(−8))·3=22·3=66.\n3. 9−66=−57.\nComprobación: el paréntesis vale 22.\nResultado final: −57."),
+      q("2eso-fracciones-7e5ca613770b", fracSim, "4. Ejercicio (1,5 puntos): Calcula: (−3)²·√16−(5²−11):√49+(10−8)²", ["38", "42", "34", "−38"], "Resolución:\n1. (−3)²·√16=9·4=36.\n2. (5²−11):√49=(25−11):7=14:7=2.\n3. (10−8)²=4; por tanto 36−2+4=38.\nComprobación: se han resuelto potencias y raíces antes que suma y resta.\nResultado final: 38."),
+    ],
+    "2eso::funciones": [
+      q("2eso-funciones-e8dee67cbb9b", fun, "2. Ejercicio: Clasifica y representa y=−x+1, indicando pendiente y ordenada en el origen.", ["Recta afín; pendiente −1; ordenada 1", "Recta lineal; pendiente 1; ordenada 0", "Recta horizontal; pendiente 0; ordenada 1", "Recta afín; pendiente 1; ordenada −1"], "Resolución:\n1. Tiene forma y=mx+n con m=−1 y n=1.\n2. Como n≠0, es una función afín.\n3. Pasa por (0,1) y (1,0), puntos suficientes para representarla.\nComprobación: al aumentar x una unidad, y disminuye una.\nResultado final: afín, m=−1, n=1."),
+      q("2eso-funciones-e8dee67cbb9b-b", fun, "2. Ejercicio: Clasifica y representa y=−3x+5, indicando pendiente y ordenada en el origen.", ["Recta afín; pendiente −3; ordenada 5", "Recta lineal; pendiente −3; ordenada 0", "Recta horizontal; pendiente 0; ordenada 5", "Recta afín; pendiente 3; ordenada −5"], "Resolución:\n1. En y=mx+n se identifica m=−3 y n=5.\n2. Es afín porque n≠0.\n3. Para representarla usamos (0,5) y (1,2).\nComprobación: la variación es −3 por cada unidad de x.\nResultado final: afín, m=−3, n=5."),
+      q("2eso-funciones-e8dee67cbb9b-c", fun, "2. Ejercicio: Clasifica y representa y=4, indicando pendiente y ordenada en el origen.", ["Recta horizontal; pendiente 0; ordenada 4", "Recta lineal; pendiente 4; ordenada 0", "Recta vertical x=4", "Recta afín; pendiente 1; ordenada 4"], "Resolución:\n1. y=4 puede escribirse y=0x+4.\n2. Su pendiente es 0 y la ordenada en el origen es 4.\n3. Es la recta horizontal que pasa por (0,4).\nComprobación: y permanece constante para cualquier x.\nResultado final: horizontal, m=0, n=4.")
+    ],
+    "2eso::figuras planas": [
+      q("2eso-figuras-planas-a4420a9570f3", geo, "2. Ejercicio (1 punto): Calcula 33°23′54″+34°43′6″.", ["68°7′0″", "67°66′60″", "68°6′0″", "67°7′0″"], "Resolución:\n1. Segundos: 54″+6″=60″=1′.\n2. Minutos: 23′+43′+1′=67′=1°7′.\n3. Grados: 33°+34°+1°=68°.\nComprobación: el resultado normalizado tiene minutos y segundos menores que 60.\nResultado final: 68°7′0″."),
+      q("2eso-figuras-planas-fd3830afbde8", geo, "2. Ejercicio (1 punto): Calcula 343°23′4″−12°43′9″.", ["330°39′55″", "331°20′5″", "330°40′55″", "331°39′55″"], "Resolución:\n1. Pedimos un minuto: 4″ pasa a 64″ y quedan 22′.\n2. Pedimos un grado: 22′ pasa a 82′ y quedan 342°.\n3. Restamos: 342−12=330°, 82−43=39′, 64−9=55″.\nComprobación: 330°39′55″+12°43′9″=343°23′4″.\nResultado final: 330°39′55″."),
+      q("2eso-figuras-planas-f4a7f6ea59b0", geo, "2. Ejercicio (1 punto): Calcula 33°23′54″×9.", ["300°35′6″", "297°207′486″", "300°27′6″", "299°35′6″"], "Resolución:\n1. 54″×9=486″=8′6″.\n2. 23′×9+8′=215′=3°35′.\n3. 33°×9+3°=300°.\nComprobación: convertido a segundos, el producto coincide.\nResultado final: 300°35′6″."),
+      q("2eso-figuras-planas-63a038aa7728", geo, "2. Ejercicio (1 punto): Calcula 245°87′39″:8.", ["30°48′27,375″", "30°10′57″", "31°48′27″", "30°58′27,375″"], "Resolución:\n1. Normalizamos: 245°87′39″=246°27′39″.\n2. En segundos son 887259″; dividimos entre 8 y obtenemos 110907,375″.\n3. Volvemos a grados: 30°48′27,375″.\nComprobación: el resultado multiplicado por 8 devuelve el dato inicial.\nResultado final: 30°48′27,375″.")
+    ]
+  };
+  const previous = window.MargaritaEsoExamVerified;
+  const normalize = (value) => String(value || "").normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().trim();
+  window.MargaritaEsoExamVerified = { build(courseId, theme) { return [...(previous?.build?.(courseId, theme) || []), ...(banks[`${courseId}::${normalize(theme)}`] || []).map((item) => ({ ...item }))]; }, count: (previous?.count || 0) + Object.values(banks).reduce((sum, items) => sum + items.length, 0) };
+})();

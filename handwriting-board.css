@@ -1,0 +1,399 @@
+.handwriting-host {
+  display: grid;
+  justify-items: start;
+  gap: 12px;
+  margin: -4px 0 18px;
+}
+
+.handwriting-launcher {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+}
+
+.handwriting-launcher > span:first-child {
+  font-size: 1.2rem;
+}
+
+.handwriting-panel {
+  position: fixed;
+  z-index: 10000;
+  inset: 0;
+  width: 100vw;
+  height: 100dvh;
+  padding: clamp(10px, 1.2vw, 18px);
+  background: linear-gradient(145deg, #eaf4ff, #f8fbff 55%, #e9f8f7);
+}
+
+.handwriting-panel[hidden] {
+  display: none;
+}
+
+.handwriting-workspace {
+  display: grid;
+  grid-template-columns: minmax(245px, 310px) minmax(0, 1fr);
+  gap: clamp(10px, 1.2vw, 18px);
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+}
+
+.handwriting-context {
+  min-width: 0;
+  overflow: auto;
+}
+
+.handwriting-context-card,
+.handwriting-context .screen-panel {
+  display: grid;
+  align-content: start;
+  gap: 14px;
+  width: 100%;
+  min-width: 0 !important;
+  max-width: 100%;
+  min-height: 100%;
+  padding: clamp(14px, 2vw, 22px);
+  border: 1px solid #c5d9ee;
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.96);
+  box-shadow: 0 14px 32px rgba(20, 68, 126, 0.12);
+}
+
+.handwriting-context-card > .ghost:first-child,
+.handwriting-context-card .sidebar-actions,
+.handwriting-context-card .resource-note {
+  display: none;
+}
+
+.handwriting-work-area {
+  display: grid;
+  grid-template-rows: auto auto minmax(240px, 1fr) auto;
+  min-width: 0;
+  min-height: 0;
+  overflow: hidden;
+  border: 2px solid #9fc5ef;
+  border-radius: 22px;
+  background: #f7fbff;
+  box-shadow: 0 16px 34px rgba(20, 68, 126, 0.16);
+}
+
+.handwriting-panel-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 16px 8px;
+}
+
+.handwriting-panel-head > div {
+  display: grid;
+  gap: 2px;
+}
+
+.handwriting-panel-head strong {
+  color: #0b3474;
+  font-size: 1.15rem;
+}
+
+.handwriting-panel-head small,
+.handwriting-status {
+  color: #52637e;
+}
+
+.handwriting-sticky-head {
+  position: relative;
+  z-index: 5;
+  display: grid;
+  gap: 8px;
+  min-width: 0;
+  padding: 0 14px 10px;
+  background: #f7fbff;
+}
+
+.handwriting-statement {
+  max-height: 34dvh;
+  overflow: auto;
+  padding: 12px 15px;
+  border: 1px solid #bdd4eb;
+  border-radius: 14px;
+  background: #ffffff;
+  box-shadow: 0 4px 12px rgba(20, 68, 126, 0.08);
+}
+
+.handwriting-statement-label {
+  display: block;
+  margin-bottom: 5px;
+  color: #155fbd;
+  font-size: 0.78rem;
+  font-weight: 900;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.handwriting-statement-content {
+  display: grid;
+  gap: 7px;
+  min-width: 0;
+  color: #15233b;
+}
+
+.handwriting-statement-content .question-meta {
+  margin: 0;
+}
+
+.handwriting-statement-content .question-text {
+  position: static !important;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.handwriting-statement-content img,
+.handwriting-statement-content svg,
+.handwriting-statement-content table,
+.handwriting-statement-content canvas {
+  max-width: 100%;
+}
+
+.handwriting-toolbar {
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 7px;
+  min-width: 0;
+  overflow-x: auto;
+  padding: 8px;
+  border: 1px solid #c7dcf3;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.96);
+  scrollbar-width: thin;
+}
+
+.handwriting-tool,
+.handwriting-toolbar .ghost,
+.handwriting-thickness select {
+  flex: 0 0 auto;
+  min-height: 38px;
+  padding: 7px 10px;
+  border: 1px solid #b9cce3;
+  border-radius: 10px;
+  color: #17375e;
+  background: #ffffff;
+  font: inherit;
+  font-size: clamp(0.78rem, 0.88vw, 0.9rem);
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.handwriting-tool.is-active {
+  border-color: #155fbd;
+  color: #ffffff;
+  background: #155fbd;
+  box-shadow: 0 3px 0 #0b438c;
+}
+
+.handwriting-toolbar button:disabled {
+  cursor: not-allowed;
+  opacity: 0.45;
+}
+
+.handwriting-thickness {
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  gap: 5px;
+  color: #334e70;
+  font-size: 0.82rem;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.handwriting-expand {
+  margin-left: auto;
+  border-color: #73a7dd !important;
+  color: #0b4f9a !important;
+  background: #eaf4ff !important;
+}
+
+.handwriting-scroll-area {
+  min-width: 0;
+  min-height: 0;
+  margin: 0 14px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  border: 2px solid #b8cce3;
+  border-radius: 14px;
+  background: #dceafa;
+  box-shadow: inset 0 2px 8px rgba(20, 43, 88, 0.08);
+  overscroll-behavior: contain;
+  scrollbar-gutter: stable;
+}
+
+.handwriting-canvas-wrap {
+  position: relative;
+  width: 100%;
+  min-width: 0;
+  min-height: 1050px;
+  background-color: #ffffff;
+  background-image:
+    linear-gradient(#dceafa 1px, transparent 1px),
+    linear-gradient(90deg, #dceafa 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+.handwriting-canvas {
+  position: absolute;
+  z-index: 2;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  cursor: crosshair;
+  touch-action: none;
+}
+
+.handwriting-empty-hint {
+  position: absolute;
+  z-index: 1;
+  top: 18px;
+  left: 18px;
+  max-width: calc(100% - 36px);
+  margin: 0;
+  color: #7890aa;
+  font-size: 0.92rem;
+  pointer-events: none;
+}
+
+.handwriting-host.has-handwriting .handwriting-empty-hint {
+  display: none;
+}
+
+.handwriting-status {
+  min-height: 1.35em;
+  margin: 0;
+  padding: 7px 16px 10px;
+  font-size: 0.86rem;
+  font-weight: 700;
+}
+
+body.handwriting-mode-open {
+  height: 100dvh !important;
+  overflow: hidden !important;
+}
+
+.handwriting-panel.is-expanded {
+  padding: 0;
+  background: #f7fbff;
+}
+
+.handwriting-panel.is-expanded .handwriting-workspace {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.handwriting-panel.is-expanded .handwriting-context {
+  display: none;
+}
+
+.handwriting-panel.is-expanded .handwriting-work-area {
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.handwriting-panel.is-expanded .handwriting-statement {
+  max-height: 27dvh;
+}
+
+@media (max-width: 900px) {
+  .handwriting-workspace {
+    grid-template-columns: minmax(205px, 245px) minmax(0, 1fr);
+  }
+
+  .handwriting-context-card,
+  .handwriting-context .screen-panel {
+    padding: 12px;
+  }
+
+  .handwriting-toolbar {
+    padding-bottom: 10px;
+  }
+}
+
+@media (max-width: 720px) {
+  .handwriting-panel {
+    padding: 0;
+  }
+
+  .handwriting-workspace {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .handwriting-context {
+    display: none;
+  }
+
+  .handwriting-work-area {
+    border: 0;
+    border-radius: 0;
+  }
+
+  .handwriting-panel-head {
+    align-items: stretch;
+    padding: 9px 10px 6px;
+  }
+
+  .handwriting-panel-head small {
+    display: none;
+  }
+
+  .handwriting-sticky-head {
+    padding: 0 9px 8px;
+  }
+
+  .handwriting-statement {
+    max-height: 30dvh;
+    padding: 9px 11px;
+  }
+
+  .handwriting-scroll-area {
+    margin: 0 9px;
+  }
+
+  .handwriting-status {
+    padding-inline: 11px;
+  }
+}
+
+@media (max-width: 480px) {
+  .handwriting-panel-head {
+    display: grid;
+    grid-template-columns: 1fr auto;
+  }
+
+  .handwriting-panel-head strong {
+    font-size: 1rem;
+  }
+
+  .handwriting-close {
+    padding-inline: 8px;
+    font-size: 0.78rem;
+  }
+
+  .handwriting-tool,
+  .handwriting-toolbar .ghost,
+  .handwriting-thickness select {
+    min-height: 36px;
+    padding: 6px 8px;
+    font-size: 0.78rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .handwriting-scroll-area,
+  .handwriting-statement {
+    scroll-behavior: auto;
+  }
+}

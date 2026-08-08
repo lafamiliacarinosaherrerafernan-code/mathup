@@ -9,13 +9,13 @@ window.MARGARITA_COACH_DATA = {
     mastery: { initialMax: 0.49, basicMax: 0.69, consolidatingMax: 0.84, masteredMin: 0.85, minimumSessions: 2 }
   },
   coursePriorities: {
-    "1eso": ["primes", "divisibility", "factors", "mcd-mcm", "hierarchy", "integers", "powers-roots", "fractions", "mixed-operations", "algebra", "proportionality", "geometry", "statistics"],
+    "1eso": ["primes", "divisibility", "factors", "mcd-mcm", "hierarchy", "integers", "powers-roots", "fractions", "mixed-operations", "algebra", "proportionality", "geometry"],
     "2eso": ["mixed-operations", "powers-roots", "fractions", "integers", "proportionality", "percentages", "algebra", "equations", "geometry"],
     "3eso": ["powers-roots", "fractions", "mixed-operations", "algebra", "equations", "systems", "proportionality", "areas-volumes", "functions", "statistics-probability"],
-    "4eso-a": ["powers-roots", "mixed-operations", "algebra", "equations", "systems", "functions", "geometry", "trigonometry", "statistics-probability"],
-    "4eso-b": ["powers-roots", "radicals", "mixed-operations", "algebra", "equations", "systems", "functions", "geometry", "trigonometry", "statistics-probability"],
-    "1bach-mates": ["real-numbers", "algebra", "equations", "systems", "trigonometry", "complex-numbers", "analytic-geometry", "functions", "limits", "continuity", "derivatives", "statistics-probability"],
-    "1bach-ccss": ["real-numbers", "algebra", "equations", "systems", "functions", "limits", "continuity", "derivatives", "statistics-probability"]
+    "4eso-a": ["powers-roots", "mixed-operations", "algebra", "equations", "systems", "functions", "geometry", "trigonometry"],
+    "4eso-b": ["powers-roots", "radicals", "mixed-operations", "algebra", "equations", "systems", "functions", "geometry", "trigonometry", "combinatorics"],
+    "1bach-mates": ["real-numbers", "algebra", "equations", "systems", "trigonometry", "complex-numbers", "analytic-geometry", "conics", "functions", "limits", "continuity", "derivatives", "statistics-probability"],
+    "1bach-ccss": ["real-numbers", "algebra", "equations", "systems", "functions", "combinatorics", "statistics-probability"]
   },
   topics: {
     "primes": { label: "Números primos", prerequisites: [], minimumMasteryRequired: 0, priority: 1 },
@@ -44,7 +44,9 @@ window.MARGARITA_COACH_DATA = {
     "analytic-geometry": { label: "Geometría analítica", prerequisites: ["algebra", "geometry"], minimumMasteryRequired: 0.70, priority: 24 },
     "limits": { label: "Límites", prerequisites: ["functions", "algebra"], minimumMasteryRequired: 0.75, priority: 25 },
     "continuity": { label: "Continuidad", prerequisites: ["limits", "functions"], minimumMasteryRequired: 0.70, priority: 26 },
-    "derivatives": { label: "Derivadas", prerequisites: ["functions", "limits"], minimumMasteryRequired: 0.75, priority: 27 }
+    "derivatives": { label: "Derivadas", prerequisites: ["functions", "limits"], minimumMasteryRequired: 0.75, priority: 27 },
+    "conics": { label: "Cónicas", prerequisites: ["analytic-geometry", "algebra"], minimumMasteryRequired: 0.70, priority: 28 },
+    "combinatorics": { label: "Combinatoria", prerequisites: ["mixed-operations", "algebra"], minimumMasteryRequired: 0.70, priority: 29 }
   },
   firstEsoDiagnostic: [
     { id: "d1-prime", topic: "primes", subtopic: "Reconocimiento", difficulty: 1, text: "¿Cuál de estos números es primo?", options: ["29", "21", "27", "1"], correct: 0, errorType: "No reconoce números primos" },
@@ -55,13 +57,13 @@ window.MARGARITA_COACH_DATA = {
     { id: "d1-mcm", topic: "mcd-mcm", subtopic: "MCM", difficulty: 2, text: "Calcula MCM(6,8).", options: ["24", "48", "2", "14"], correct: 0, errorType: "Error en el cálculo del MCM" },
     { id: "d1-order", topic: "hierarchy", subtopic: "Prioridad", difficulty: 2, text: "Calcula 8+3·4.", options: ["20", "44", "32", "23"], correct: 0, errorType: "Ignora la jerarquía de operaciones" },
     { id: "d1-natural", topic: "hierarchy", subtopic: "Operaciones naturales", difficulty: 2, text: "Calcula 30:5+2·3.", options: ["12", "9", "36", "8"], correct: 0, errorType: "No resuelve multiplicaciones y divisiones antes que sumas" },
-    { id: "d1-intsum", topic: "integers", subtopic: "Suma de enteros", difficulty: 2, text: "Calcula (-7)+3.", options: ["-4", "-10", "4", "10"], correct: 0, errorType: "Error al sumar enteros de distinto signo" },
-    { id: "d1-intsub", topic: "integers", subtopic: "Resta de enteros", difficulty: 2, text: "Calcula 5-(-3).", options: ["8", "2", "-8", "-2"], correct: 0, errorType: "Error al transformar una resta en suma del opuesto" },
-    { id: "d1-sign", topic: "integers", subtopic: "Regla de signos", difficulty: 2, text: "Calcula (-4)·(-3).", options: ["12", "-12", "7", "-7"], correct: 0, errorType: "Error en la regla de signos de una multiplicación" },
-    { id: "d1-power", topic: "powers-roots", subtopic: "Base negativa", difficulty: 2, text: "Calcula (-3)^2.", options: ["9", "-9", "6", "-6"], correct: 0, errorType: "No distingue si el signo pertenece a la base" },
-    { id: "d1-root", topic: "powers-roots", subtopic: "Raíz exacta", difficulty: 1, text: "Calcula √81.", options: ["9", "8", "40,5", "27"], correct: 0, errorType: "No reconoce cuadrados perfectos" },
-    { id: "d1-equivalent", topic: "fractions", subtopic: "Equivalencia", difficulty: 2, text: "¿Qué fracción es equivalente a 2/3?", options: ["8/12", "4/9", "3/2", "6/8"], correct: 0, errorType: "No reconoce fracciones equivalentes" },
-    { id: "d1-frac", topic: "fractions", subtopic: "Suma con distinto denominador", difficulty: 3, text: "Calcula 1/2+1/3.", options: ["5/6", "2/5", "1/5", "2/6"], correct: 0, errorType: "Suma numeradores y denominadores o no usa denominador común" }
+    { id: "d1-intsum", topic: "integers", subtopic: "Suma de enteros", difficulty: 2, text: "Calcula (-7)+3.", options: ["-4", "-10", "4", "10"], correct: 0, errorType: "Error al sumar enteros de distinto signo", solution: "Resolución:\n1. Los números tienen distinto signo: restamos sus valores absolutos, 7-3=4.\n2. Conservamos el signo del número con mayor valor absoluto, que es -7.\nResultado final: (-7)+3=-4." },
+    { id: "d1-intsub", topic: "integers", subtopic: "Resta de enteros", difficulty: 2, text: "Calcula 5-(-3).", options: ["8", "2", "-8", "-2"], correct: 0, errorType: "Error al transformar una resta en suma del opuesto", solution: "Resolución:\n1. Restar un número negativo equivale a sumar su opuesto: 5-(-3)=5+3.\n2. Sumamos: 5+3=8.\nResultado final: 8." },
+    { id: "d1-sign", topic: "integers", subtopic: "Regla de signos", difficulty: 2, text: "Calcula (-4)·(-3).", options: ["12", "-12", "7", "-7"], correct: 0, errorType: "Error en la regla de signos de una multiplicación", solution: "Resolución:\n1. En una multiplicación, negativo por negativo da positivo.\n2. Multiplicamos los valores absolutos: 4·3=12.\nResultado final: (-4)·(-3)=12." },
+    { id: "d1-power", topic: "powers-roots", subtopic: "Base negativa", difficulty: 2, text: "Calcula (-3)^2.", options: ["9", "-9", "6", "-6"], correct: 0, errorType: "No distingue si el signo pertenece a la base", solution: "Resolución:\n1. El paréntesis indica que la base completa es -3.\n2. Elevamos al cuadrado: (-3)²=(-3)·(-3)=9.\nResultado final: 9." },
+    { id: "d1-root", topic: "powers-roots", subtopic: "Raíz exacta", difficulty: 1, text: "Calcula √81.", options: ["9", "8", "40,5", "27"], correct: 0, errorType: "No reconoce cuadrados perfectos", solution: "Resolución:\n1. Buscamos el número positivo cuyo cuadrado es 81.\n2. Como 9²=81, entonces √81=9.\nResultado final: 9." },
+    { id: "d1-equivalent", topic: "fractions", subtopic: "Equivalencia", difficulty: 2, text: "¿Qué fracción es equivalente a 2/3?", options: ["8/12", "4/9", "3/2", "6/8"], correct: 0, errorType: "No reconoce fracciones equivalentes", solution: "Resolución:\n1. Multiplicamos numerador y denominador de 2/3 por el mismo número, en este caso 4.\n2. Obtenemos (2·4)/(3·4)=8/12.\nResultado final: 8/12 es equivalente a 2/3." },
+    { id: "d1-frac", topic: "fractions", subtopic: "Suma con distinto denominador", difficulty: 3, text: "Calcula 1/2+1/3.", options: ["5/6", "2/5", "1/5", "2/6"], correct: 0, errorType: "Suma numeradores y denominadores o no usa denominador común", solution: "Resolución:\n1. El mínimo común múltiplo de 2 y 3 es 6.\n2. Transformamos las fracciones: 1/2=3/6 y 1/3=2/6.\n3. Sumamos: 3/6+2/6=5/6.\nResultado final: 5/6." }
   ],
   firstEsoPractice: [
     { id: "p1-prime-31", topic: "primes", subtopic: "Reconocimiento", difficulty: 1, text: "¿Cuál de estos números es primo?", options: ["31", "33", "39", "51"], correct: 0, errorType: "No reconoce números primos", solution: "Resolución:\n1. Probamos los primos menores que √31: 2, 3 y 5.\n2. Ninguno divide a 31.\nResultado final: 31 solo tiene como divisores 1 y 31, por lo que es primo." },

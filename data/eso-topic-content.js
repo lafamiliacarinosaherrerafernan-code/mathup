@@ -453,13 +453,13 @@ window.ESO_TOPIC_CONTENT = {
   "4eso-a-8": {
     "courseId": "4eso-a",
     "topicIndex": 8,
-    "title": "Geometria",
-    "pdfPath": "C:/Users/aherr/OneDrive/Escritorio/Libro_Matematicas_4ESO_Mat_A.pdf",
-    "page": 130,
-    "endPage": 159,
-    "theoryPage": 133,
-    "theoryEndPage": 153,
-    "sourcePages": "133-153",
+    "title": "Funciones",
+    "pdfPath": "Infografías 4 ESO A/9-Funciones - Infografía.pdf",
+    "page": 1,
+    "endPage": 4,
+    "theoryPage": 1,
+    "theoryEndPage": 4,
+    "sourcePages": "1-4",
     "summary": "- La suma de los á??ngulos de un triá?ngulo es igual a\n- El perímetro de un triá?ngulo es la suma de las\n- El á?rea o la superficie de un triá?ngulo es la mitad del\n- aplicar el Teorema de Pitágoras y la definición de las\n- razones trigonométricas.\n- Otro método para el cálculo del á?rea es la fórmula\n- La altura es la línea perpendicular a cada\n- es la distancia de cada vértice al lado\n- Se aplica el Teorema de Pitágoras para calcular la altura\n- Un paralelogramo es un cuadrilátero que tiene los\n- interiores de un paralelogramo es igual a 360º.\n- El perímetro de un paralelogramo es la suma de las\n- Un trapecio es un cuadrilátero que tiene dos lados\n- trapecio es igual a 360º."
   },
   "4eso-a-9": {
@@ -594,4 +594,23 @@ window.ESO_TOPIC_CONTENT = {
     "sourcePages": "205-212",
     "summary": "- va a obtener. Son experimentos aleatorios, aquellos\n- experimento aleatorio se llama espacio muestral, y\n- 9 Un suceso es cualquier subconjunto del espacio\n- seguro que es el mismo espacio muestral.\n- • La unión de A y B, AUB, es el suceso formado\n- Ocurre cuando sucede A ó sucede B ó ambos.\n- • La intersección, A∩B, es el suceso formado\n- Se verifica cuando ocurren A y B a la vez.\n- B, es el suceso\n- están en A. Es el que ocurre cuando no sucede A y\n- • El suceso contrario del seguro es el\n- Probabilidad\n- Cuando sale 3\n- vez, pero no son"
   }
+};
+
+// Tema incorporado específicamente para 4.º ESO Opción A.
+// Esta corrección evita que el índice 8 conserve el resumen del tema antiguo.
+window.ESO_TOPIC_CONTENT["4eso-a-8"] = {
+  ...window.ESO_TOPIC_CONTENT["4eso-a-8"],
+  title: "Funciones",
+  pdfPath: "Infografías 4 ESO A/9-Funciones - Infografía.pdf",
+  page: 1,
+  endPage: 4,
+  theoryPage: 1,
+  theoryEndPage: 4,
+  sourcePages: "1-4",
+  summary: [
+    "Una función relaciona dos variables: x es la variable independiente e y la dependiente.",
+    "El dominio reúne los valores de x para los que existe la función y el recorrido reúne sus imágenes.",
+    "Se estudian la simetría, la continuidad, la monotonía y la representación gráfica.",
+    "También se trabajan la tasa de variación, las operaciones con funciones, la composición y la función inversa."
+  ].map((line) => `- ${line}`).join("\n")
 };

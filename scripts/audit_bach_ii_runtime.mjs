@@ -47,17 +47,11 @@ function browserContext() {
 
 function evaluateRuntime() {
   const context = browserContext();
-  [
-    "data/ccss-ii-blocks.js",
-    "data/ccss-ii-block-answers.js",
-    "data/mates-ii-blocks.js",
-    "data/bach-ii-exam-data.js",
-    "data/mates-ii-runtime-fixes.js",
-    "data/mates-i-supplied-banks.js",
-    "data/first-bach-variety-banks.js",
-    "app.js",
-    "bach-exam.js"
-  ].forEach((relativePath) => {
+  const indexHtml = fs.readFileSync(path.join(projectRoot, "index.html"), "utf8");
+  const runtimeScripts = [...indexHtml.matchAll(/<script[^>]+src=["']([^"']+\.js)(?:\?[^"']*)?["']/g)]
+    .map((match) => match[1])
+    .filter((relativePath) => fs.existsSync(path.join(projectRoot, relativePath)));
+  runtimeScripts.forEach((relativePath) => {
     const absolutePath = path.join(projectRoot, relativePath);
     vm.runInContext(fs.readFileSync(absolutePath, "utf8"), context, { filename: relativePath });
   });
@@ -111,9 +105,44 @@ function enumerateActivePool(course, block) {
 }
 
 const rows = [];
+const examSlots = [];
 for (const courseId of ["2bach-mates", "2bach-ccss"]) {
   const course = audit.courseById(courseId);
   const exact = audit.exam.auditExactPoolCounts(course);
+  audit.state.student = { id: `audit-${courseId}`, name: `Audit ${courseId}` };
+  audit.state.academicYear = "2026-2027";
+  [1, 2, 3, 4, 5].forEach((slot) => {
+    const slotInfo = {
+      slot,
+      label: courseId === "2bach-mates"
+        ? ["Álgebra", "Análisis: límites y derivadas", "Análisis: integrales", "Geometría", "Probabilidad y estadística"][slot - 1]
+        : ["Matrices", "Sistemas o programación lineal", "Análisis", "Probabilidad", "Estadística"][slot - 1]
+    };
+    const pool = audit.exam.buildExamSlotPool(courseId, slotInfo.slot, 0);
+    const selected = [];
+    const sequenceLength = Math.min(pool.length, 20);
+    for (let index = 0; index < sequenceLength; index += 1) {
+      const question = audit.exam.chooseFromExamPoolWithoutRepeating(
+        courseId,
+        slotInfo.slot,
+        `audit-${courseId}-${slotInfo.slot}-${index}`,
+        pool
+      );
+      if (!question) break;
+      selected.push(question.rawBaseId || question.id || "");
+      audit.exam.markExamExerciseAnswered(courseId, question);
+    }
+    examSlots.push({
+      courseId,
+      slot: slotInfo.slot,
+      label: slotInfo.label,
+      poolCount: pool.length,
+      selectedInSequence: selected.length,
+      distinctInSequence: new Set(selected).size,
+      repeatsBeforeExhaustion: selected.length - new Set(selected).size,
+      sequenceLength
+    });
+  });
   for (const block of audit.BACH_II_BLOCKS[courseId] || []) {
     const { identities, sampleRound: active } = enumerateActivePool(course, block);
     const exactCount = exact.blocks.find((entry) => entry.block === block.id)?.count || 0;
@@ -144,12 +173,16 @@ const result = {
   generatedAt: new Date().toISOString(),
   criteria: "En 2.º de Bachillerato solo se cuentan ejercicios oficiales entregados por la usuaria, completos, con convocatoria, cuatro opciones y solución revisada.",
   rows,
+  examSlots,
   summary: {
     blocks: rows.length,
     blocksWithEnoughForRound: rows.filter((row) => row.activeRoundCount >= row.requiredPerRound).length,
     blocksWithThirtyReviewed: rows.filter((row) => row.uniqueOfficialPool >= 30).length,
     invalidActiveQuestions: rows.reduce((sum, row) => sum + row.activeRoundCount - row.coherentRoundCount, 0),
-    missingConvocations: rows.reduce((sum, row) => sum + row.activeRoundCount - row.withConvocation, 0)
+    missingConvocations: rows.reduce((sum, row) => sum + row.activeRoundCount - row.withConvocation, 0),
+    examSlots: examSlots.length,
+    examSlotPoolsComplete: examSlots.filter((row) => row.poolCount > 0).length,
+    examRepeatFailures: examSlots.filter((row) => row.repeatsBeforeExhaustion > 0).length
   }
 };
 
@@ -171,7 +204,9 @@ const lines = [
   `- Bloques comprobados: **${result.summary.blocks}**.`,
   `- Bloques que pueden formar una ronda completa: **${result.summary.blocksWithEnoughForRound}/${result.summary.blocks}**.`,
   `- Preguntas activas inválidas: **${result.summary.invalidActiveQuestions}**.`,
-  `- Preguntas activas sin convocatoria: **${result.summary.missingConvocations}**.`
+  `- Preguntas activas sin convocatoria: **${result.summary.missingConvocations}**.`,
+  `- Grupos de examen comprobados: **${result.summary.examSlots}**.`,
+  `- Repeticiones antes de agotar cada grupo de examen: **${result.summary.examRepeatFailures}**.`
 ];
 fs.writeFileSync(path.join(outputRoot, "COBERTURA BACHILLERATO II.md"), `${lines.join("\n")}\n`, "utf8");
 

@@ -342,22 +342,34 @@ Resultado final: (x,y,z)=(0,0,1).`
 2. El número total de helados da x+y+z=157.
 3. La recaudación da x+2y+3z=278.
 4. Los helados de una bola son k veces los de tres bolas: x=kz.
-Resultado final: {x+y+z=157; x+2y+3z=278; x=kz}.`
+5. Reunimos las tres ecuaciones en el sistema:
+x+y+z=157
+x+2y+3z=278
+x−kz=0
+Resultado final: el sistema anterior permite determinar el número de helados vendidos de cada tipo.`
         },
         "b)": {
           options: ["Hay solución única si k≠1; en ningún caso con solución única se venden los mismos de una y tres bolas.", "Hay solución única solo si k=1 y entonces x=z.", "Hay solución única para todo k>0.", "No hay solución única para ningún k."],
           correct: 0,
           solution: `Resolución:
-1. Restamos la primera ecuación de la segunda:
-y+2z=121, luego y=121-2z.
-2. Sustituimos en x+y+z=157:
-x+121-2z+z=157, luego x-z=36.
-3. Como x=kz:
-(k-1)z=36.
-4. Si k≠1, obtenemos un único valor z=frac{36}{k-1}, y después valores únicos de x e y. El sistema tiene solución única.
-5. Si k=1, la igualdad x=z contradice x-z=36; el sistema es incompatible.
-6. Vender el mismo número de helados de una y tres bolas exigiría x=z y, por tanto, k=1, precisamente el caso sin solución.
-Resultado final: solución única si k≠1; nunca se cumple x=z en un caso con solución única.`
+1. Escribimos el sistema y sus matrices:
+x+y+z=157
+x+2y+3z=278
+x−kz=0
+A=[[1,1,1],[1,2,3],[1,0,−k]], A*=[[1,1,1,157],[1,2,3,278],[1,0,−k,0]].
+2. Aplicamos el teorema de Rouché-Frobenius. Como hay n=3 incógnitas, habrá solución única exactamente cuando:
+rg(A)=rg(A*)=3.
+3. Calculamos el determinante de la matriz de coeficientes mediante la regla de Sarrus:
+det [[1,1,1],[1,2,3],[1,0,−k]]=1−k.
+4. Si k≠1, det(A)≠0. Por tanto, rg(A)=3 y, al tener A* tres filas, rg(A*)=3. Según Rouché-Frobenius, el sistema es compatible determinado y tiene solución única.
+5. Estudiamos el valor crítico k=1. En A existe el menor:
+det [[1,1],[1,2]]=1≠0,
+por lo que rg(A)=2.
+6. En la matriz ampliada existe el menor:
+det [[1,1,157],[1,2,278],[1,0,0]]=−36≠0,
+de modo que rg(A*)=3. Como rg(A)≠rg(A*), para k=1 el sistema es incompatible.
+7. Vender el mismo número de helados de una y tres bolas exigiría x=z y, por tanto, k=1, precisamente el caso sin solución.
+Resultado final: con k>0, hay solución única si k≠1; nunca se cumple x=z en un caso con solución única.`
         }
       }
     ),
@@ -400,7 +412,7 @@ Resultado final: rango(A)=2.`
   const geometryBank = window.MATES_II_BLOCK_EXERCISES?.geometria || [];
   const geometry2026 = geometryBank.find((exercise) => /Dados los vectores/i.test(rawText(exercise)));
   const geometryBeam2024 = geometryBank.find((exercise) => /Carla está diseñando el tejado/i.test(rawText(exercise)));
-  const geometryQuestions = [
+  let geometryQuestions = [
     makeSinglePartQuestion("mates2-geometria-extra-coplanarios-2026", "geometria", geometry2026, 0,
       ["a=-2 o a=1.", "a=-1 o a=2.", "Solo a=1.", "No existe ningún valor real."], 0,
       `Resolución:
@@ -428,7 +440,7 @@ Resultado final: a=3 o a=-4.`),
     makeSinglePartQuestion("mates2-geometria-extra-simetrico-2026", "geometria", geometry2026, 2,
       ["P'=(-1,0,4).", "P'=(3,4,8).", "P'=(0,1,5).", "P'=(-2,-1,3)."], 0,
       `Resolución:
-1. El plano es π:x+y+z-6=0 y su vector normal es n=(1,1,1).
+1. El plano es π:x+y+z-6=0 y su vector normal es vector{n}=(1,1,1).
 2. La recta perpendicular al plano que pasa por P=(1,2,6), en forma paramétrica, es:
 r:{x=1+t; y=2+t; z=6+t}.
 3. Sustituimos en el plano:
@@ -459,14 +471,148 @@ vector{AB}=B-A=(-2-2,4-(-1),5-3)=(-4,5,2).
 |vector{AB}|=√{(-4)²+5²+2²}=√{16+25+4}=√45=3√5.
 Resultado final: la longitud de la viga es 3√5 unidades.`)
   ].filter(Boolean);
-  const symmetricQuestion = geometryQuestions.find((question) => question.id === "mates2-geometria-extra-simetrico-2026");
-  const symmetricContext = geometry2026?.parts?.[1]?.paragraphs?.[1];
-  if (symmetricQuestion && symmetricContext) {
-    symmetricQuestion.text = `${symmetricQuestion.text}\n${symmetricContext.plain || ""}`.trim();
-    symmetricQuestion.statementHtml = `${symmetricQuestion.statementHtml || ""}<p>${symmetricContext.html || symmetricContext.plain || ""}</p>`;
-    symmetricQuestion.rawBaseId = `${symmetricQuestion.rawBaseId}|${symmetricContext.plain || ""}`;
-  }
+  const paragraphPayload = (paragraph) => ({
+    text: paragraph?.plain || "",
+    html: paragraph?.html || paragraph?.plain || ""
+  });
+  const cleanPartPayload = (part, fallback) => {
+    const firstParagraph = part?.paragraphs?.[0];
+    const payload = paragraphPayload(firstParagraph);
+    return {
+      ...fallback,
+      label: part?.label || fallback?.label || "Resultado",
+      text: payload.text.replace(/^\s*[a-d]\)\s*/i, ""),
+      html: payload.html.replace(/^\s*[a-d]\)\s*/i, "")
+    };
+  };
+  const groupedOfficialQuestion = (id, exercise, statementParagraph, parts) => {
+    const statement = paragraphPayload(statementParagraph);
+    return {
+      id,
+      rawBaseId: `${id}|${exercise?.source || ""}|${statement.text}`,
+      source: exercise?.source,
+      blockId: "geometria",
+      text: statement.text,
+      statementHtml: statement.html,
+      parts,
+      type: "corrected-official-exercise"
+    };
+  };
+  const byGeometryId = new Map(geometryQuestions.map((question) => [question.id, question]));
+  const geometry41 = groupedOfficialQuestion(
+    "mates2-geometria-extra-pregunta-4-1-2026",
+    geometry2026,
+    geometry2026?.statement?.[1],
+    [
+      cleanPartPayload(geometry2026?.parts?.[0], byGeometryId.get("mates2-geometria-extra-coplanarios-2026")?.parts?.[0]),
+      cleanPartPayload(geometry2026?.parts?.[1], byGeometryId.get("mates2-geometria-extra-volumen-2026")?.parts?.[0])
+    ]
+  );
+  const geometry42 = groupedOfficialQuestion(
+    "mates2-geometria-extra-pregunta-4-2-2026",
+    geometry2026,
+    geometry2026?.parts?.[1]?.paragraphs?.[1],
+    [
+      cleanPartPayload(geometry2026?.parts?.[2], byGeometryId.get("mates2-geometria-extra-simetrico-2026")?.parts?.[0]),
+      cleanPartPayload(geometry2026?.parts?.[3], byGeometryId.get("mates2-geometria-extra-distancia-sensores-2026")?.parts?.[0])
+    ]
+  );
+  geometryQuestions = [
+    geometry41,
+    geometry42,
+    ...geometryQuestions.filter((question) => question.id === "mates2-geometria-extra-longitud-viga-2024")
+  ].filter((question) => question?.parts?.length && question.parts.every((part) => part?.options?.length === 4));
   window.MATES_II_EXTRA_BLOCK_QUESTIONS.geometria = geometryQuestions;
+
+  const analysisBank = window.MATES_II_BLOCK_EXERCISES?.analisis || [];
+  const analysis2026 = analysisBank.find((exercise) => exercise.source === "2026 - Junio"
+    && /Pregunta 5\.[\s\S]*5\.1/i.test(rawText(exercise)));
+  const analysis51Statement = analysis2026?.statement?.[1];
+  const analysis52Statement = analysis2026?.parts?.[1]?.paragraphs?.[1];
+  const analysis51 = analysis2026 ? {
+    id: "mates2-analisis-extra-pregunta-5-1-2026",
+    rawBaseId: `mates2-analisis-extra-pregunta-5-1-2026|${analysis2026.source}|5.1`,
+    source: analysis2026.source,
+    blockId: "analisis",
+    text: analysis51Statement?.plain || "5.1.",
+    statementHtml: analysis51Statement?.html || analysis51Statement?.plain || "5.1.",
+    parts: [
+      {
+        label: "a)",
+        text: (analysis2026.parts?.[0]?.paragraphs?.[0]?.plain || "").replace(/^\s*a\)\s*/i, ""),
+        html: (analysis2026.parts?.[0]?.paragraphs?.[0]?.html || analysis2026.parts?.[0]?.paragraphs?.[0]?.plain || "").replace(/^\s*a\)\s*/i, ""),
+        options: ["e².", "e⁴.", "1.", "+∞."],
+        correct: 0,
+        solution: `Resolución:
+1. Sea L=lim x→∞ paren{frac{2x+1}{2x−3}}^x. La base tiende a 1 y el exponente a infinito, por lo que aparece la indeterminación 1^∞.
+2. Reescribimos la base:
+frac{2x+1}{2x−3}=1+frac{4}{2x−3}.
+3. Tomamos logaritmos:
+ln L=lim x→∞ x·ln paren{1+frac{4}{2x−3}}.
+4. Usamos que ln(1+u) es equivalente a u cuando u→0:
+ln L=lim x→∞ frac{4x}{2x−3}=2.
+5. Deshacemos el logaritmo:
+L=e².
+Resultado final: el límite vale e².`
+      },
+      {
+        label: "b)",
+        text: (analysis2026.parts?.[1]?.paragraphs?.[0]?.plain || "").replace(/^\s*b\)\s*/i, ""),
+        html: (analysis2026.parts?.[1]?.paragraphs?.[0]?.html || analysis2026.parts?.[1]?.paragraphs?.[0]?.plain || "").replace(/^\s*b\)\s*/i, ""),
+        options: [
+          "frac{e^x}{2}·(sen x−cos x)+C.",
+          "frac{e^x}{2}·(sen x+cos x)+C.",
+          "e^x·sen x+C.",
+          "e^x·cos x+C."
+        ],
+        correct: 0,
+        solution: `Resolución:
+1. Sea I=∫e^x·sen x dx. Integramos por partes con u=sen x y dv=e^x dx:
+I=e^x·sen x−∫e^x·cos x dx.
+2. Llamamos J=∫e^x·cos x dx y volvemos a integrar por partes:
+J=e^x·cos x+∫e^x·sen x dx=e^x·cos x+I.
+3. Sustituimos J en la primera igualdad:
+I=e^x·sen x−paren{e^x·cos x+I}.
+4. Agrupamos:
+2I=e^x·paren{sen x−cos x}.
+Resultado final: I=frac{e^x}{2}·paren{sen x−cos x}+C.`
+      }
+    ],
+    type: "corrected-official-exercise"
+  } : null;
+  const analysis52 = analysis2026 && analysis52Statement ? {
+    id: "mates2-analisis-extra-pregunta-5-2-2026",
+    rawBaseId: `mates2-analisis-extra-pregunta-5-2-2026|${analysis2026.source}|${analysis52Statement.plain || ""}`,
+    source: analysis2026.source,
+    blockId: "analisis",
+    text: analysis52Statement.plain || "",
+    statementHtml: analysis52Statement.html || analysis52Statement.plain || "",
+    parts: [{
+      label: "Resultado",
+      text: "Selecciona los valores correctos de a y b.",
+      html: "Selecciona los valores correctos de <em>a</em> y <em>b</em>.",
+      options: ["a=1 y b=1.", "a=2 y b=0.", "a=1 y b=2.", "a=0 y b=2."],
+      correct: 0,
+      solution: `Resolución:
+1. Para x<1 simplificamos:
+frac{x²−1}{x−1}=frac{(x−1)(x+1)}{x−1}=x+1.
+2. La continuidad en x=1 exige que el límite por la izquierda coincida con el valor de la rama derecha:
+lim x→1− (x+1)=2,
+f(1)=a+b.
+Por tanto, a+b=2.
+3. La derivada de la rama izquierda en x=1 es 1. La derivada de la rama derecha es a.
+4. Para que la función sea derivable debe cumplirse a=1.
+5. Sustituimos en la condición de continuidad:
+1+b=2, luego b=1.
+Resultado final: a=1 y b=1.`
+    }],
+    type: "corrected-official-exercise"
+  } : null;
+  window.MATES_II_EXTRA_BLOCK_QUESTIONS.analisis = [
+    ...(window.MATES_II_EXTRA_BLOCK_QUESTIONS.analisis || []),
+    analysis51,
+    analysis52
+  ].filter(Boolean);
 
   const probabilityBank = window.MATES_II_BLOCK_EXERCISES?.["probabilidad-estadistica"] || [];
   const eventsExercise = probabilityBank.find((exercise) => /P\(A∪B\)=0,3/i.test(rawText(exercise)));

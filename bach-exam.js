@@ -27,7 +27,7 @@
   function answerBank(courseId) {
     return courseId === "2bach-mates"
       ? window.MATES_II_EXAM_ANSWERS || {}
-      : window.CCSS_II_BLOCK_ANSWERS || {};
+      : window.CCSS_II_EXAM_ANSWERS || {};
   }
 
   function catalog(courseId) {
@@ -41,8 +41,8 @@
   function exerciseIsComplete(courseId, entry) {
     const raw = findRawExercise(courseId, entry);
     const authored = answerBank(courseId)[entry.id];
-    return Boolean(raw && authored && raw.parts?.length && raw.parts.every((part) => {
-      const answer = authored[part.label];
+    return Boolean(raw && authored && raw.parts?.length && raw.parts.every((part, partIndex) => {
+      const answer = officialPartAnswer(authored, raw.parts, part, partIndex);
       return answer?.options?.length === 4
         && new Set(answer.options.map(String)).size === 4
         && Number.isInteger(answer.correct)
@@ -53,6 +53,12 @@
   }
 
   function studentExamKey(courseId) {
+    const student = state.student || {};
+    const studentIdentity = student.id || student.userId || student.username || student.email || student.name || "alumno";
+    return [state.academicYear, courseId, student.group || student.groupLabel, studentIdentity].filter(Boolean).join("|");
+  }
+
+  function legacyStudentExamKey(courseId) {
     const student = state.student || {};
     return [state.academicYear, courseId, student.group || student.groupLabel, student.name].filter(Boolean).join("|");
   }
@@ -73,17 +79,226 @@
     }
   }
 
+  function examBlockForSlot(courseId, slot) {
+    if (courseId === "2bach-mates") {
+      return slot === 1
+        ? "algebra"
+        : slot === 2 || slot === 3
+          ? "analisis"
+          : slot === 4
+            ? "geometria"
+            : "probabilidad-estadistica";
+    }
+    return slot === 1 || slot === 2
+      ? "algebra"
+      : slot === 3
+        ? "analisis"
+        : slot === 4
+          ? "probabilidad"
+          : "estadistica";
+  }
+
+  function examSearchableText(question) {
+    return normalizeDisplayText([
+      question?.source || "",
+      question?.text || "",
+      question?.statementHtml || "",
+      ...(question?.parts || []).map((part) => part?.text || part?.html || "")
+    ].join(" "))
+      .replace(/<[^>]+>/g, " ")
+      .replace(/\s+/g, " ")
+      .toLowerCase();
+  }
+
+  function questionBelongsToExamSlot(courseId, slot, question) {
+    const blockId = question?.blockId || examBlockForSlot(courseId, slot);
+    if (blockId !== examBlockForSlot(courseId, slot)) return false;
+    const text = examSearchableText(question);
+    if (courseId === "2bach-mates" && blockId === "analisis") {
+      const isIntegral = /\bintegral|primitiv|barrow|área|area|recinto|región limitada|region limitada/.test(text);
+      return slot === 3 ? isIntegral : !isIntegral;
+    }
+    if (courseId === "2bach-ccss" && blockId === "algebra") {
+      const isSystemOrProgramming = /programación lineal|programacion lineal|sistema de ecuaciones|compatibilidad|rouché|rouche|gauss|cramer/.test(text);
+      return slot === 2 ? isSystemOrProgramming : !isSystemOrProgramming;
+    }
+    return true;
+  }
+
+  function questionAvailableForMode(courseId, question, mode) {
+    const availability = window.MargaritaContentAvailability;
+    if (!availability?.isAvailable) return true;
+    const topicIndexes = Array.isArray(question?.topicIndexes) ? question.topicIndexes : [];
+    return topicIndexes.every((topicIndex) => availability.isAvailable(courseId, topicIndex, mode));
+  }
+
+  function rotateExamPart(part, amount) {
+    if (!part?.options || part.options.length !== 4
+      || new Set(part.options.map(String)).size !== 4
+      || !Number.isInteger(part.correct)
+      || !String(part.solution || "").trim()) return null;
+    const rotation = Math.abs(amount) % part.options.length;
+    return {
+      ...part,
+      text: part.text || "Selecciona el resultado correcto.",
+      html: part.html || formatMathText(part.text || "Selecciona el resultado correcto."),
+      options: rotate(part.options, rotation),
+      correct: (part.correct - rotation + part.options.length) % part.options.length
+    };
+  }
+
+  function asPreparedExamQuestion(question, slot, blockId, rotationSeed = 0) {
+    if (!question) return null;
+    const expanded = expandCompositeQuestionParts(question);
+    const sourceParts = expanded.parts?.length
+      ? expanded.parts
+      : questionHasCoherentOptions(expanded)
+        ? [{
+          label: "Resultado",
+          text: "Selecciona el resultado correcto.",
+          html: "Selecciona el resultado correcto.",
+          options: expanded.options,
+          correct: expanded.correct,
+          solution: expanded.solution
+        }]
+        : [];
+    const parts = sourceParts.map((part, index) => rotateExamPart(part, rotationSeed + index));
+    if (!parts.length || parts.some((part) => !part)) return null;
+    const identity = challengeQuestionIdentity(expanded);
+    return {
+      ...expanded,
+      id: expanded.id || `exam-${blockId}-${Math.abs(hashExamText(identity))}`,
+      rawBaseId: expanded.rawBaseId || identity,
+      source: expanded.source || officialExerciseSource(expanded),
+      slot,
+      blockId,
+      text: expanded.text || "",
+      statementHtml: expanded.statementHtml || formatMathText(expanded.text || ""),
+      parts,
+      type: expanded.type || "official-exam-exercise"
+    };
+  }
+
+  function hashExamText(value) {
+    let hash = 2166136261;
+    String(value || "").split("").forEach((character) => {
+      hash ^= character.charCodeAt(0);
+      hash = Math.imul(hash, 16777619);
+    });
+    return hash >>> 0;
+  }
+
+  function completeRawExercise(courseId, raw, blockId, rotationSeed) {
+    const authored = answerBank(courseId)[raw?.id];
+    if (!raw || !authored || !raw.parts?.length) return null;
+    const parts = raw.parts.map((part, partIndex) => {
+      const answer = officialPartAnswer(authored, raw.parts, part, partIndex);
+      return rotateExamPart({
+        label: part.label,
+        text: exercisePartPrompt(part),
+        html: exercisePartPrompt(part, true),
+        options: answer?.options,
+        correct: answer?.correct,
+        solution: answer?.solution
+      }, rotationSeed + partIndex);
+    });
+    if (parts.some((part) => !part)) return null;
+    return {
+      id: raw.id,
+      rawBaseId: `${raw.id}|${raw.source}|${joinExerciseParagraphs(raw.statement)}`,
+      source: raw.source,
+      topicIndexes: Array.isArray(raw.topicIndexes) ? [...raw.topicIndexes] : [],
+      blockId,
+      text: joinExerciseParagraphs(raw.statement),
+      statementHtml: joinExerciseParagraphs(raw.statement, true),
+      parts,
+      type: "corrected-official-exercise"
+    };
+  }
+
+  function officialLegacyBlockPool(course, blockId) {
+    const block = (BACH_II_BLOCKS[course.id] || []).find((item) => item.id === blockId);
+    if (!block) return [];
+    return block.topics.flatMap((topicIndex) => {
+      const theme = course.themes[topicIndex] || "";
+      return pickExerciseBank(theme.toLowerCase(), course.id)
+        .map((question) => question.options?.length ? question : withPauTestOptions(question))
+        .filter(hasOfficialConvocation)
+        .filter(questionHasCoherentOptions);
+    });
+  }
+
+  function buildExamSlotPool(courseId, slot, rotationSeed = 0) {
+    const course = courseById(courseId);
+    const blockId = examBlockForSlot(courseId, slot);
+    if (!course || !blockId) return [];
+    ensurePauTopicMetadata(courseId);
+
+    const curatedEntries = catalog(courseId)
+      .filter((entry) => entry.slot === slot && exerciseIsComplete(courseId, entry))
+      .map((entry, index) => prepareExercise(courseId, entry, rotationSeed + index))
+      .filter(Boolean);
+    const corrected = buildCorrectedBlockQuestions(course, blockId);
+    const completeRaw = (rawBanks(courseId)[blockId] || [])
+      .map((raw, index) => completeRawExercise(courseId, raw, blockId, rotationSeed + index))
+      .filter(Boolean);
+    const suppliedExtras = courseId === "2bach-mates"
+      ? window.MATES_II_EXTRA_BLOCK_QUESTIONS?.[blockId] || []
+      : [];
+    const seen = new Set();
+    // En los exámenes solo utilizamos los bancos oficiales corregidos de la
+    // modalidad elegida. El banco histórico genérico puede contener temas con
+    // nombres coincidentes de Matemáticas II y CCSS II, por lo que no debe
+    // incorporarse aquí: así evitamos mezclar enunciados entre modalidades.
+    return [...curatedEntries, ...corrected, ...completeRaw, ...suppliedExtras]
+      .filter((question) => hasOfficialConvocation(question))
+      .filter((question) => questionAvailableForMode(courseId, question, "exam"))
+      .filter((question) => questionBelongsToExamSlot(courseId, slot, question))
+      .map((question, index) => asPreparedExamQuestion(question, slot, blockId, rotationSeed + index))
+      .filter(Boolean)
+      .filter((question) => {
+        const identity = officialQuestionDedupKey(question);
+        if (!identity || seen.has(identity)) return false;
+        seen.add(identity);
+        return true;
+      });
+  }
+
   function chooseWithoutRepeating(courseId, slot, seed) {
-    const pool = catalog(courseId).filter((entry) => entry.slot === slot && exerciseIsComplete(courseId, entry));
+    const pool = buildExamSlotPool(courseId, slot, hashExamText(`${seed}|${slot}`));
+    return chooseFromExamPoolWithoutRepeating(courseId, slot, seed, pool);
+  }
+
+  function chooseFromExamPoolWithoutRepeating(courseId, slot, seed, pool) {
     if (!pool.length) return null;
     const history = readExamHistory();
     const key = `${studentExamKey(courseId)}|slot-${slot}`;
-    let used = Array.isArray(history[key]) ? history[key].filter((id) => pool.some((entry) => entry.id === id)) : [];
-    let available = pool.filter((entry) => !used.includes(entry.id));
+    const legacyKey = `${legacyStudentExamKey(courseId)}|slot-${slot}`;
+    const identityOf = (question) => officialQuestionDedupKey(question);
+    const aliasesOf = (question) => new Set([
+      identityOf(question),
+      legacyOfficialQuestionDedupKey(question),
+      challengeQuestionIdentity(question),
+      question?.id,
+      question?.rawBaseId,
+      question?.id ? `id:${question.id}` : "",
+      question?.rawBaseId ? `raw:${question.rawBaseId}` : ""
+    ].filter(Boolean));
+    const stored = [
+      ...(Array.isArray(history[key]) ? history[key] : []),
+      ...(legacyKey !== key && Array.isArray(history[legacyKey]) ? history[legacyKey] : [])
+    ];
+    let used = [...new Set(stored.flatMap((storedIdentity) => {
+      const matchingQuestion = pool.find((question) => aliasesOf(question).has(storedIdentity));
+      return matchingQuestion ? [identityOf(matchingQuestion)] : [];
+    }))];
+    history[key] = used;
+    writeExamHistory(history);
+    let available = pool.filter((question) => !used.includes(identityOf(question)));
     if (!available.length) {
-      const lastId = used.at(-1);
-      used = lastId && pool.length > 1 ? [lastId] : [];
-      available = pool.filter((entry) => !used.includes(entry.id));
+      const lastIdentity = used.at(-1);
+      used = lastIdentity && pool.length > 1 ? [lastIdentity] : [];
+      available = pool.filter((question) => !used.includes(identityOf(question)));
       history[key] = used;
       writeExamHistory(history);
     }
@@ -91,11 +306,15 @@
   }
 
   function markExamExerciseAnswered(courseId, question) {
-    if (!courseId || !question?.id || !question?.slot) return;
+    if (!courseId || !question?.slot) return;
     const history = readExamHistory();
     const key = `${studentExamKey(courseId)}|slot-${question.slot}`;
+    const legacyKey = `${legacyStudentExamKey(courseId)}|slot-${question.slot}`;
     const answered = new Set(Array.isArray(history[key]) ? history[key] : []);
-    answered.add(question.id);
+    if (legacyKey !== key && Array.isArray(history[legacyKey])) {
+      history[legacyKey].forEach((identity) => answered.add(identity));
+    }
+    answered.add(officialQuestionDedupKey(question));
     history[key] = [...answered];
     writeExamHistory(history);
   }
@@ -105,7 +324,7 @@
     const authored = answerBank(courseId)[entry.id];
     if (!raw || !authored) return null;
     const parts = raw.parts.map((part, partIndex) => {
-      const answer = authored[part.label];
+      const answer = officialPartAnswer(authored, raw.parts, part, partIndex);
       if (!answer?.options || answer.options.length !== 4) return null;
       const amount = Math.abs(rotationSeed + partIndex) % answer.options.length;
       return {
@@ -122,6 +341,7 @@
       id: raw.id,
       rawBaseId: `${raw.id}|${raw.source}|${joinExerciseParagraphs(raw.statement)}`,
       source: raw.source,
+      topicIndexes: Array.isArray(raw.topicIndexes) ? [...raw.topicIndexes] : [],
       slot: entry.slot,
       blockId: entry.block,
       text: joinExerciseParagraphs(raw.statement),
@@ -147,6 +367,82 @@
       joinExerciseParagraphs(raw.statement),
       ...(raw.parts || []).map((part) => joinExerciseParagraphs(part.paragraphs))
     ].join("\n");
+  }
+
+  function normalizedPauExerciseText(raw) {
+    return normalizeDisplayText(rawExerciseText(raw))
+      .toLowerCase()
+      .normalize("NFD")
+      .replace(/[\u0300-\u036f]/g, "")
+      .replace(/<[^>]+>/g, " ")
+      .replace(/\s+/g, " ");
+  }
+
+  // Clasificación determinista que se convierte en metadatos topicIndex antes
+  // de seleccionar. La selección posterior nunca decide por semejanza textual.
+  function classifiedPauTopicIndexes(courseId, blockId, raw) {
+    const text = normalizedPauExerciseText(raw);
+    const topics = new Set();
+    const add = (...indexes) => indexes.forEach((index) => topics.add(index));
+    if (courseId === "2bach-mates") {
+      if (blockId === "algebra") {
+        if (/determinant|desarrolla.*fila|menor complementario|adjunt/.test(text)) add(1);
+        if (/matri|traspuest|inversa|producto.*matri|ecuacion matricial/.test(text)) add(0);
+        if (/sistema|rouche|rango|compatible|incompatible|cramer|gauss|incognit|parametro/.test(text)) add(2);
+      } else if (blockId === "analisis") {
+        const integral = /integral|primitiv|barrow|area.*recinto|region limitada/.test(text);
+        if (integral) {
+          if (/area|recinto|region limitada|barrow|integral definida|limites de integracion/.test(text)) add(11);
+          if (/primitiv|integral indefinida|calcula.*integral|integrales siguientes/.test(text) || !topics.size) add(10);
+        } else {
+          if (/\blim\b|limite|sucesion|infinito|indeterminacion/.test(text)) add(6);
+          if (/continua|continuidad|discontin/.test(text)) add(7);
+          if (/deriv/.test(text)) add(8);
+          if (/tangente|normal|maxim|minim|extremo|crec|decrec|monot|optim|concav|convex|inflexion|representa|esbozo/.test(text)) add(9);
+        }
+      } else if (blockId === "geometria") {
+        if (/vector|producto escalar|producto vectorial|base ortogonal|dependencia lineal/.test(text)) add(3);
+        if (/recta|plano|posicion relativa|ecuacion.*parametr/.test(text)) add(4);
+        if (/distancia|angulo|perpendicular|simetric|proyeccion|area|volumen|punto mas proximo/.test(text)) add(5);
+      } else if (blockId === "probabilidad-estadistica") {
+        if (/binomial|normal|tipific|media y desviacion|variable aleatoria/.test(text)) add(13);
+        if (/probabilidad|suceso|bayes|condicionada|urna|diagrama de arbol/.test(text) || !topics.size) add(12);
+      }
+    } else if (blockId === "algebra") {
+      if (/programacion lineal|funcion objetivo|region factible|recinto|restricciones/.test(text)) add(3);
+      if (/sistema|gauss|cramer|compatible|incompatible|incognit|tres ecuaciones/.test(text)) add(2);
+      if (/determinant|adjunt|menor/.test(text)) add(1);
+      if (/matri|inversa|traspuest|ecuacion matricial|producto.*matri/.test(text)) add(0);
+    } else if (blockId === "analisis") {
+      const integral = /integral|primitiv|barrow|area.*recinto|region limitada/.test(text);
+      if (integral) {
+        if (/area|recinto|region limitada|barrow|integral definida|limites de integracion/.test(text)) add(7);
+        if (/primitiv|integral indefinida|calcula.*integral|integrales siguientes/.test(text) || !topics.size) add(6);
+      } else {
+        if (/\blim\b|limite|continua|continuidad|discontin|asintot/.test(text)) add(4);
+        if (/deriv|tangente|normal|maxim|minim|extremo|crec|decrec|optim|inflexion/.test(text)) add(5);
+      }
+    } else if (blockId === "probabilidad") {
+      add(8);
+    } else if (blockId === "estadistica") {
+      if (/intervalo de confianza|muestra|muestreo|estim|nivel de confianza|tamano de la muestra/.test(text)) add(10);
+      if (/binomial|normal|tipific|variable aleatoria/.test(text)) add(9);
+    }
+    return [...topics];
+  }
+
+  function ensurePauTopicMetadata(courseId) {
+    Object.entries(rawBanks(courseId)).forEach(([blockId, exercises]) => {
+      (exercises || []).forEach((exercise) => {
+        exercise.exerciseId = exercise.exerciseId || exercise.id;
+        exercise.courseId = courseId;
+        exercise.blockId = blockId;
+        exercise.topicIndexes = Array.isArray(exercise.topicIndexes)
+          ? [...new Set(exercise.topicIndexes)]
+          : classifiedPauTopicIndexes(courseId, blockId, exercise);
+        exercise.sourceType = "official-pau";
+      });
+    });
   }
 
   function officialYear(value) {
@@ -209,6 +505,7 @@
       id: `${raw.id}|${normalizeDisplayText(exactText).replace(/\s+/g, " ").slice(0, 120)}`,
       rawBaseId: `${raw.id}|${raw.source}|${joinExerciseParagraphs(raw.statement)}`,
       source: raw.source,
+      topicIndexes: Array.isArray(raw.topicIndexes) ? [...raw.topicIndexes] : [],
       blockId,
       text: joinExerciseParagraphs(raw.statement),
       statementHtml: joinExerciseParagraphs(raw.statement, true),
@@ -248,18 +545,28 @@
     return matches;
   }
 
-  function startBachExam() {
+  function startBachExam(selectedTopicIndexes = null) {
     clearQuestionTimer();
     const course = courseById(state.courseId);
     if (!BACH_II_COURSE_IDS.includes(course?.id)) {
       renderStudentHome();
       return;
     }
+    if (Array.isArray(selectedTopicIndexes)) {
+      const availability = window.MargaritaContentAvailability;
+      const partition = availability?.partition
+        ? availability.partition(course.id, selectedTopicIndexes, "exam")
+        : { valid: selectedTopicIndexes, excluded: [] };
+      if (partition.excluded.length) alert(availability.warning(course.id, partition.excluded, "exam"));
+      if (!partition.valid.length) {
+        renderBachIIHome();
+        return;
+      }
+    }
     const seed = `${Date.now()}|${studentExamKey(course.id)}`;
-    const questions = [1, 2, 3, 4, 5].map((slot) => {
-      const entry = chooseWithoutRepeating(course.id, slot, seed);
-      return entry ? prepareExercise(course.id, entry, slot + Date.now()) : null;
-    }).filter(Boolean);
+    const questions = [1, 2, 3, 4, 5]
+      .map((slot) => chooseWithoutRepeating(course.id, slot, seed))
+      .filter(Boolean);
     if (questions.length !== 5) {
       alert("El examen todavía no dispone de cinco grupos completos de ejercicios revisados.");
       renderBachIIHome();
@@ -304,9 +611,8 @@
       return;
     }
     const question = exam.questions[exam.index];
-    // Registramos el ejercicio al mostrarse. Así, si el alumno sale del examen
-    // después de haberlo visto, la próxima entrada continúa con otro ejercicio
-    // oficial del mismo grupo y no exige terminar las cinco preguntas.
+    // En PAU también cuenta como utilizado al mostrarse, aunque el alumno
+    // abandone antes de corregir el ejercicio.
     markExamExerciseAnswered(exam.courseId, question);
     const labels = slotLabels[course.id] || [];
     const answeredCount = exam.questions.reduce((total, item) => total + (item.graded ? item.results.length : 0), 0);
@@ -429,6 +735,9 @@
 
   function buildCorrectedTopicQuestions(course, topicIndex) {
     if (!BACH_II_COURSE_IDS.includes(course?.id)) return [];
+    if (window.MargaritaContentAvailability?.isAvailable
+      && !window.MargaritaContentAvailability.isAvailable(course.id, topicIndex, "topicPractice")) return [];
+    ensurePauTopicMetadata(course.id);
     const entries = catalog(course.id)
       .filter((entry) => entry.topics.includes(topicIndex) && exerciseIsComplete(course.id, entry));
     const curated = seededShuffle(entries, `${course.id}|topic-${topicIndex}`).map((entry, index) => {
@@ -447,11 +756,29 @@
         ...question,
         statementHtml: `<div class="official-source">Enunciado original · ${escapeHtml(question.source)}</div>${question.statementHtml}`
       }));
-    return [...curated, ...matched];
+    const block = (BACH_II_BLOCKS[course.id] || []).find((item) => item.topics.includes(topicIndex));
+    const classifiedRaw = (rawBanks(course.id)[block?.id] || [])
+      .filter((raw) => raw.topicIndexes.includes(topicIndex))
+      .map((raw, index) => completeRawExercise(course.id, raw, block.id, state.practiceRound + topicIndex + index))
+      .filter(Boolean)
+      .map((question) => ({
+        ...question,
+        statementHtml: `<div class="official-source">Enunciado original · ${escapeHtml(question.source)}</div>${question.statementHtml}`
+      }));
+    const seen = new Set();
+    return [...curated, ...classifiedRaw]
+      .filter((question) => questionAvailableForMode(course.id, question, "topicPractice"))
+      .filter((question) => {
+      const identity = officialQuestionDedupKey(question);
+      if (!identity || seen.has(identity)) return false;
+      seen.add(identity);
+      return true;
+      });
   }
 
   function buildCorrectedBlockQuestions(course, blockId) {
     if (!BACH_II_COURSE_IDS.includes(course?.id)) return [];
+    ensurePauTopicMetadata(course.id);
     const entries = catalog(course.id)
       .filter((entry) => entry.block === blockId && exerciseIsComplete(course.id, entry));
     const curated = entries.map((entry, index) => prepareExercise(course.id, entry, state.practiceRound + index));
@@ -461,13 +788,18 @@
       .map((match, index) => prepareMatchedExercise(match.raw, match.legacyQuestion, blockId, state.practiceRound + index))
       .filter(Boolean)
       .filter((question) => !curatedIds.has(question.rawBaseId));
+    const completeRaw = (rawBanks(course.id)[blockId] || [])
+      .map((raw, index) => completeRawExercise(course.id, raw, blockId, state.practiceRound + index))
+      .filter(Boolean);
     const seen = new Set();
-    return [...curated, ...matched].filter((question) => {
-      const identity = challengeQuestionIdentity(question);
+    return [...curated, ...matched, ...completeRaw]
+      .filter((question) => questionAvailableForMode(course.id, question, "examByBlocks"))
+      .filter((question) => {
+      const identity = officialQuestionDedupKey(question);
       if (seen.has(identity)) return false;
       seen.add(identity);
       return true;
-    });
+      });
   }
 
   function auditExactPoolCounts(course) {
@@ -484,6 +816,14 @@
     };
   }
 
+  function auditExamSlotCounts(course) {
+    return [1, 2, 3, 4, 5].map((slot) => ({
+      slot,
+      label: slotLabels[course.id]?.[slot - 1] || `Grupo ${slot}`,
+      count: buildExamSlotPool(course.id, slot, 0).length
+    }));
+  }
+
   window.startBachExam = startBachExam;
   window.renderBachExam = renderBachExam;
   window.selectBachExamAnswer = selectBachExamAnswer;
@@ -494,6 +834,13 @@
   window.MargaritaBachExam = {
     buildTopicQuestions: buildCorrectedTopicQuestions,
     buildBlockQuestions: buildCorrectedBlockQuestions,
-    auditExactPoolCounts
+    buildExamSlotPool,
+    chooseWithoutRepeating,
+    chooseFromExamPoolWithoutRepeating,
+    markExamExerciseAnswered,
+    auditExactPoolCounts,
+    auditExamSlotCounts,
+    classifiedPauTopicIndexes,
+    ensurePauTopicMetadata
   };
 })();

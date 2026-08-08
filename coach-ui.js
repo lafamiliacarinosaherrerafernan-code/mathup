@@ -45,7 +45,7 @@
       </div>`;
   }
 
-  function gatewayShell(title, cards) {
+  function gatewayShell(title, cards, gridClass = "") {
     clearQuestionTimer();
     renderShell(`
       <section class="student-dashboard coach-gateway">
@@ -54,7 +54,7 @@
             <div><h1>${escapeHtml(title)}</h1>${studentBadges()}</div>
             <div class="dashboard-exit"><button class="ghost" onclick="renderLogin()">Salir</button></div>
           </div>
-          <div class="path-choice-grid">${cards}</div>
+          <div class="path-choice-grid ${escapeHtml(gridClass)}">${cards}</div>
         </section>
       </section>
     `);
@@ -68,19 +68,25 @@
       return;
     }
     gatewayShell(`${courseDisplayName(course)}: elige cómo aprender`, `
-      <article class="path-choice path-choice-study gateway-card">
+      <article class="path-choice path-choice-study gateway-card eso-home-study">
         <span class="path-icon">Aprender</span>
         <h2>Aprende y juega</h2>
         <p>Entra en el espacio habitual para estudiar por temas, realizar retos y continuar la aventura matemática.</p>
         <button class="primary" onclick="renderStudentHome()">Entrar</button>
       </article>
-      <article class="path-choice path-choice-adventure gateway-card coach-entry-card">
+      <article class="path-choice path-choice-adventure gateway-card coach-entry-card eso-home-coach">
         <span class="path-icon">Entrenador</span>
         <h2>Entrenador personal con IA</h2>
         <p>Descubre qué necesitas reforzar y realiza sesiones breves adaptadas a tu progreso.</p>
         <button class="secondary" onclick="renderCoachHome()">Abrir mi entrenador</button>
       </article>
-    `);
+      <article class="path-choice path-choice-exam gateway-card eso-home-exam">
+        <span class="path-icon">Examen</span>
+        <h2>Hacer examen</h2>
+        <p>Elige los temas y prepara un examen de 4 a 8 preguntas diferentes.</p>
+        <button class="secondary" onclick="renderEsoExamSetup()">Preparar examen</button>
+      </article>
+    `, "eso-home-grid");
   };
 
   window.renderFirstBachGateway = function renderFirstBachGateway() {
@@ -91,19 +97,25 @@
       return;
     }
     gatewayShell(`${courseDisplayName(course)}: elige cómo estudiar`, `
-      <article class="path-choice path-choice-study gateway-card">
+      <article class="path-choice path-choice-study gateway-card first-bach-home-topics">
         <span class="path-icon">Temas</span>
         <h2>Estudiar temas y retos</h2>
         <p>Accede al estudio habitual del curso y practica con sus retos organizados por temas.</p>
         <button class="primary" onclick="renderDashboard()">Entrar a estudiar</button>
       </article>
-      <article class="path-choice path-choice-adventure gateway-card coach-entry-card">
+      <article class="path-choice path-choice-adventure gateway-card coach-entry-card first-bach-home-coach">
         <span class="path-icon">Entrenador</span>
         <h2>Entrenador personal con IA</h2>
         <p>Realiza un diagnóstico y recibe sesiones breves ajustadas a tus errores y conocimientos previos.</p>
         <button class="secondary" onclick="renderCoachHome()">Abrir mi entrenador</button>
       </article>
-    `);
+      <article class="path-choice path-choice-exam gateway-card first-bach-home-exam">
+        <span class="path-icon">Examen</span>
+        <h2>Hacer examen</h2>
+        <p>Elige los temas y practica con 5 o 6 ejercicios diferentes de los bancos del curso.</p>
+        <button class="secondary" onclick="renderFirstBachExamSetup()">Preparar examen</button>
+      </article>
+    `, "first-bach-home-grid");
   };
 
   function listOrEmpty(items, emptyText) {
@@ -215,6 +227,7 @@
       return;
     }
     const diagnostic = ui.mode === "diagnostic";
+    if (!diagnostic) window.MargaritaExerciseSelector?.markShown?.(question);
     const progress = Math.round(((ui.index + (ui.answered ? 1 : 0)) / ui.questions.length) * 100);
     const phase = diagnostic ? "Diagnóstico inicial" : question.phase;
     const correction = ui.answered ? `

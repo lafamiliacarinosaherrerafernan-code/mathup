@@ -10,15 +10,25 @@ const documentsRoot = path.join(projectRoot, "documentos");
 const outputRoot = path.join(documentsRoot, "Inventario variedad retos");
 const extractedRoot = path.join(outputRoot, "texto extraido");
 const tempRoot = path.join(outputRoot, "_temporales-conversion");
+const ocrRoot = path.join(outputRoot, "OCR");
 const antiword = "C:\\Program Files\\Git\\clangarm64\\bin\\antiword.exe";
 const pdftotext = "C:\\Program Files\\Git\\clangarm64\\bin\\pdftotext.exe";
 const unzip = "C:\\Program Files\\Git\\usr\\bin\\unzip.exe";
+
+function reviewedOcrSidecarFor(file) {
+  const base = path.basename(file).toLowerCase();
+  if (base === "ejercicios de derivadas2.pdf") return "1bach-mates-derivadas2.txt";
+  if (base.includes("simulacro resuelto n") && base.includes("enteros.pdf")) return "1eso-enteros-simulacro.txt";
+  if (base === "potencias_raices.pdf") return "1eso-potencias-raices.txt";
+  if (base.includes("simulacro tema 6 inecuaciones resuelto.pdf")) return "4eso-b-inecuaciones-simulacro.txt";
+  return null;
+}
 
 const courseDefinitions = [
   {
     id: "1eso",
     label: "1.º ESO",
-    roots: ["1º ESO/Temas mios", "1º ESO/Ejercicios", "1º ESO/Fuentes de ejercicios"],
+    roots: ["1º ESO/Temas mios", "1º ESO/Ejercicios", "1º ESO/Fuentes de ejercicios", "1º ESO/Exámenes tipo"],
     themes: [
       "Números naturales", "Números enteros", "Potencias y raíces cuadradas", "Fracciones",
       "Expresiones algebraicas", "Proporcionalidad", "Medida, ángulos, rectas y circunferencias",
@@ -28,7 +38,7 @@ const courseDefinitions = [
   {
     id: "2eso",
     label: "2.º ESO",
-    roots: ["2º ESO/Temas mios"],
+    roots: ["2º ESO/Temas mios", "2º ESO/Exámenes tipo"],
     themes: [
       "Números enteros", "Potencias y raíces cuadradas", "Fracciones", "Proporcionalidad",
       "Expresiones algebraicas", "Sistemas de ecuaciones", "Figuras planas", "Cuerpos geométricos", "Funciones"
@@ -37,7 +47,7 @@ const courseDefinitions = [
   {
     id: "3eso",
     label: "3.º ESO",
-    roots: ["3º ESO/Temas mios", "3º ESO/Fuentes de ejercicios"],
+    roots: ["3º ESO/Temas mios", "3º ESO/Fuentes de ejercicios", "3º ESO/Exámenes tipo"],
     themes: [
       "Números reales", "Potencias y raíces", "Expresiones algebraicas", "Ecuaciones y sistemas de ecuaciones",
       "Proporcionalidad", "Sucesiones", "Cuerpos geométricos", "Funciones", "Estadística", "Probabilidad"
@@ -46,16 +56,16 @@ const courseDefinitions = [
   {
     id: "4eso-a",
     label: "4.º ESO A",
-    roots: ["4 ESO A/Temas mios", "4º ESO/Fuentes compartidas"],
+    roots: ["4 ESO A/Temas mios", "4 ESO A/Exámenes tipo", "4º ESO/Fuentes compartidas"],
     themes: [
       "Números reales", "Radicales", "Proporcionalidad", "Expresiones algebraicas", "Ecuaciones e inecuaciones",
-      "Sistemas de ecuaciones e inecuaciones", "Semejanza y trigonometría", "Áreas y cuerpos geométricos"
+      "Sistemas de ecuaciones e inecuaciones", "Semejanza y trigonometría", "Áreas y cuerpos geométricos", "Funciones"
     ]
   },
   {
     id: "4eso-b",
     label: "4.º ESO B",
-    roots: ["4º ESO B/Temas mios", "4º ESO/Fuentes compartidas"],
+    roots: ["4º ESO B/Temas mios", "4º ESO B/Exámenes tipo", "4º ESO/Fuentes compartidas"],
     themes: [
       "Números reales", "Radicales y logaritmos", "Expresiones algebraicas", "Ecuaciones y sistemas de ecuaciones",
       "Inecuaciones y sistemas de inecuaciones", "Proporcionalidad", "Semejanza", "Trigonometría",
@@ -118,12 +128,70 @@ function isExerciseSource(file, definition, rootRelative) {
   if (/teoria|infografia|libro|separado por tema/.test(name)) return false;
   if (/ejerc|problema/.test(name)) return true;
   const normalizedRoot = fold(rootRelative);
-  if (normalizedRoot.includes("/ejercicios") || normalizedRoot.includes("fuentes de ejercicios") || normalizedRoot.includes("fuentes compartidas")) return true;
+  if (normalizedRoot.includes("/ejercicios")
+    || normalizedRoot.includes("fuentes de ejercicios")
+    || normalizedRoot.includes("fuentes compartidas")
+    || normalizedRoot.includes("examenes tipo")) return true;
   return false;
 }
 
 function themeIndexFor(file, definition) {
-  const name = fold(path.basename(file, path.extname(file)));
+  const name = fold(file);
+  const baseName = fold(path.basename(file));
+  if (definition.id === "1eso") {
+    if (/unidad 1(?:\\|\/)|unid 1\b/.test(name)) return 0;
+    if (/divisibilidad|unidad 2(?:\\|\/)|unid 2\b/.test(name)) return 0;
+    if (/entero|unidad 3(?:\\|\/)|unid 3\b/.test(name)) return 1;
+    if (/fraccion|unidad 4(?:\\|\/)|unid 4\b/.test(name)) return 3;
+    if (/decimal|unidad 5(?:\\|\/)|unid 5\b/.test(name)) return 0;
+    if (/ecuacion|unidad 6(?:\\|\/)|unid 6\b/.test(name)) return 4;
+    if (/proporcional|unidad 7(?:\\|\/)|unid 7\b/.test(name)) return 5;
+    if (/rectas?.*angul|poligono|unidad 8 y 9/.test(name)) return 6;
+    if (/circunferencia|areas?.*perimetro|unidad 10 y 11/.test(name)) return 7;
+  }
+  if (definition.id === "2eso") {
+    if (/unidad 1 y 2/.test(name)) return 0;
+    if (/unidad 3 y 4/.test(name)) return 2;
+    if (/expresiones algebraicas|unidad 5/.test(name)) return 4;
+    if (/ecuaciones|unidad 6/.test(name)) return 5;
+    if (/sistemas|unidad 7/.test(name)) return 5;
+    if (/funciones|unidad 8/.test(name)) return 8;
+    if (/pitagoras|unidad 9/.test(name)) return 6;
+    if (/semejanza|unidad 10/.test(name)) return 6;
+    if (/cuerpos geometricos|unidad 11/.test(name)) return 7;
+  }
+  if (definition.id === "3eso") {
+    if (/tema 1 y 2/.test(name)) return 0;
+    if (/tema 3(?:\\|\/)|und 3\b/.test(name)) return 2;
+    if (/ecuaciones|tema 4/.test(name)) return 3;
+    if (/sistemas|tema 5/.test(name)) return 3;
+    if (/sucesiones|tema 6/.test(name)) return 5;
+    if (/relaciones geometricas|tema 7/.test(name)) return 6;
+    if (/areas y volumenes|tema 8 y 9/.test(name)) return 6;
+    if (/funciones y graficas|funciones elementales|tema 10|tema 11/.test(name)) return 7;
+  }
+  if (definition.id === "4eso-a") {
+    if (/unidad 1-2/.test(name)) return 0;
+    if (/unidad 3-4/.test(name)) return 3;
+    if (/unidad 5-6/.test(name)) return 4;
+    if (/unidad 7-8/.test(name)) return 6;
+    if (/unidad 9-10/.test(name)) return 7;
+  }
+  if (definition.id === "4eso-b") {
+    if (/unidad 1(?:\\|\/)|unid 1\b/.test(name)) return 0;
+    if (/unidad 2(?:\\|\/)|unid 2\b/.test(name)) return 1;
+    if (/polinomios|unidad 3/.test(name)) return 2;
+    // Las expresiones «inecuaciones y sistemas de inecuaciones» y
+    // «límite de funciones» contienen palabras de temas más generales.
+    // Deben resolverse antes para que no acaben en sistemas o funciones.
+    if (/inecuaciones|unidad 6/.test(name)) return 4;
+    if (/limite de funciones/.test(name)) return 10;
+    if (/ecuaciones|unidad 4/.test(name)) return 3;
+    if (/sistemas|unidad 5/.test(name)) return 3;
+    if (/trigonometria|unidad 7 y 8/.test(name)) return 7;
+    if (/geometria analitica|unidad 9/.test(name)) return 8;
+    if (/funciones|unidad 10/.test(name)) return 9;
+  }
   if (definition.id === "3eso" && /^3[._-]?(?:5|6)[._-]?3.*problemas/.test(name)) return 3;
   if (definition.id === "4eso-a" && /proporcional/.test(name)) return 2;
   if (definition.id === "4eso-b" && /proporcional/.test(name)) return 5;
@@ -131,7 +199,7 @@ function themeIndexFor(file, definition) {
   if (definition.id === "1bach-mates" && /limite|llimite|llïmite/.test(name)) return 7;
   if (definition.id === "1bach-mates" && /aplicacion/.test(name)) return 9;
   if (definition.id === "1bach-mates" && /derivada/.test(name)) return 8;
-  if (definition.id === "4eso-b" && /combinatoria/.test(name)) return 13;
+  if (definition.id === "4eso-b" && /combinatoria|formas?.*contar|numeros?.*contar/.test(name)) return 13;
   if (definition.id === "1eso") {
     if (/natural/.test(name)) return 0;
     if (/entero/.test(name)) return 1;
@@ -144,7 +212,11 @@ function themeIndexFor(file, definition) {
     if (/cuerpo|geometric/.test(name)) return 8;
     if (/funcion/.test(name)) return 9;
   }
-  const match = name.match(/^\s*(\d{1,2})\s*[-_.]/);
+  // Los documentos de los temas se nombran habitualmente como
+  // «1-Nº Reales Ejercicios.doc», «9-Funciones Ejercicios.doc», etc.
+  // El prefijo debe buscarse en el nombre del archivo, no en la ruta
+  // absoluta (que siempre empieza por la letra de la unidad de Windows).
+  const match = baseName.match(/^\s*(\d{1,2})\s*[-_.]/);
   if (match) {
     const index = Number(match[1]) - 1;
     if (index >= 0 && index < definition.themes.length) return index;
@@ -241,6 +313,10 @@ function isNoiseBlock(value) {
   const plain = fold(value).replace(/[^a-z0-9]+/g, " ").trim();
   if (!plain || plain.length < 5) return true;
   if (/^(soluciones?|respuestas?|tema|unidad|actividades?|ejercicios?)\s*\d*$/.test(plain)) return true;
+  if (/^(?:combinatoria|trigonometria|probabilidad|funciones?|derivadas?|inecuaciones?|numeros? (?:reales|enteros|naturales))$/.test(plain)) return true;
+  if (/^(?:i e s|ies|colegio|instituto)\b/.test(plain) && /\b(?:unidad|curso|eso|bachillerato)\b/.test(plain)) return true;
+  if (/^(?:nombre y apellidos|alumno|fecha|calificacion|instrucciones)\b/.test(plain)) return true;
+  if (/^\d+\s+los ejercicios (?:deben|son)\b/.test(plain)) return true;
   if (/^(pagina|páginas?)\s*\d+$/.test(plain)) return true;
   if ((fold(value).match(/solucion/g) || []).length >= 2) return true;
   const letters = String(value).match(/[A-Za-zÁÉÍÓÚÜÑáéíóúüñ]/g) || [];
@@ -248,6 +324,12 @@ function isNoiseBlock(value) {
   const hasExerciseVerb = /calcula|resuelve|halla|determina|simplifica|representa|estudia|demuestra|factoriza|opera|efectua|expresa|razona|indica|completa|ordena|reduce/i.test(value);
   if (value.length < 100 && letters.length >= 5 && upper.length / letters.length > 0.72 && !hasExerciseVerb) return true;
   return false;
+}
+
+function isSectionHeading(value) {
+  const line = cleanText(value);
+  return /^(?:combinatoria|ejercicios?|actividades?|problemas?)\s+(?:de\s+)?[A-Za-zÁÉÍÓÚÜÑáéíóúüñ ]+\s*:?\s*$/i.test(line)
+    && !/[?¿=]/.test(line);
 }
 
 function splitCandidates(rawText) {
@@ -262,6 +344,11 @@ function splitCandidates(rawText) {
   const blocks = [];
   let current = [];
   for (const line of lines) {
+    if (isSectionHeading(line)) {
+      if (current.length) blocks.push(cleanText(current.join("\n")));
+      current = [];
+      continue;
+    }
     if (candidateStart(line) && current.length) {
       blocks.push(cleanText(current.join("\n")));
       current = [line];
@@ -279,18 +366,85 @@ function splitCandidates(rawText) {
     .filter(block => block.length >= 12 && !isNoiseBlock(block));
 }
 
+function splitCandidateApartments(candidateText, parentCandidate) {
+  const text = cleanText(candidateText)
+    .replace(/\s+(?=[a-h][.)]\s+)/gi, "\n");
+  const lines = text.split("\n");
+  const markers = [];
+  lines.forEach((line, index) => {
+    const match = line.match(/^\s*([a-h])[.)]\s+(.+)$/i);
+    if (match) markers.push({ index, label: match[1].toLowerCase() });
+  });
+
+  // Solo separamos series reales de apartados. Un único "a)" puede ser una
+  // referencia aislada y no aporta suficiente contexto para dividir.
+  if (markers.length < 2) {
+    return [{ text, parentCandidate, part: null }];
+  }
+
+  const prefix = cleanText(lines.slice(0, markers[0].index).join("\n"));
+  if (prefix.length < 12) {
+    return [{ text, parentCandidate, part: null }];
+  }
+
+  return markers.map((marker, markerIndex) => {
+    const end = markerIndex + 1 < markers.length
+      ? markers[markerIndex + 1].index
+      : lines.length;
+    const partBody = cleanText(lines.slice(marker.index, end).join("\n"));
+    return {
+      text: cleanText(`${prefix}\n${partBody}`),
+      parentCandidate,
+      part: marker.label
+    };
+  }).filter(item => item.text.length >= 12);
+}
+
+function expandOcrExerciseBoundaries(rawText) {
+  return String(rawText || "")
+    .replace(/(={3,}\s*P[ÁAÃ][^\n=]*={3,})\s*/giu, "$1\n")
+    .replace(
+      /\s+(?=(?:[1-9]|[1-9]\d)\s*(?:[-.)]|[ºª])\s+(?:[A-ZÁÉÍÓÚÜÑ¿Â]))/gu,
+      "\n"
+    );
+}
+
+function sourceContainsInterleavedSolutions(file) {
+  const name = fold(path.basename(file));
+  return /soluc|solucionario/.test(name) && /formas?.*contar|numeros?.*contar/.test(name);
+}
+
 function contentReviewReasons(text) {
   const value = cleanText(text);
   const folded = fold(value);
   const reasons = [];
   const standaloneCue = /[?¿]/.test(value)
-    || /\b(?:calcula|resuelve|halla|determina|simplifica|representa|estudia|demuestra|factoriza|opera|efectua|expresa|razona|indica|completa|ordena|reduce|cuantos|cuantas|cual|que valor|se pide)\b/.test(folded);
+    || /\b(?:calcula|resuelve|halla|determina|simplifica|representa|estudia|demuestra|factoriza|opera|efectua|expresa|escribe|dibuja|contesta|averigua|lee|construye|razona|indica|completa|ordena|reduce|cuantos|cuantas|cual|que valor|se pide)\b/.test(folded);
   if (!standaloneCue) reasons.push("sin-consigna-autonoma");
   if (/^[a-z]\)\s+/i.test(value)) reasons.push("apartado-sin-enunciado-principal");
   if (/\b(?:por lo que|por tanto|luego|de igual forma|consideramos|obtenemos|la solucion es|el resultado es)\b/.test(folded)
       && !/[?¿]/.test(value)) reasons.push("parece-fragmento-de-solucion");
   if (/(?:\bpara que|\bsi|\by|\bo|[,;:]|\.{3})\s*$/i.test(value)) reasons.push("enunciado-posiblemente-truncado");
   if (/[�]/.test(value)) reasons.push("simbolos-matematicos-corruptos");
+  return [...new Set(reasons)];
+}
+
+function contentReviewReasonsV2(text) {
+  const value = cleanText(text);
+  const folded = fold(value);
+  const reasons = [];
+  const standaloneCue = /[?]/.test(value)
+    || /\b(?:calcul\w*|resuel\w*|hall\w*|determin\w*|simplific\w*|represent\w*|estudi\w*|demuestr\w*|factoriz\w*|oper\w*|efectu\w*|expres\w*|razon\w*|indic\w*|complet\w*|orden\w*|reduc\w*|desarroll\w*|realiz\w*|decid\w*|encuentr\w*|obten\w*|averigu\w*|escrib\w*|dibuj\w*|constru\w*|clasific\w*|contesta\w*|cuantos|cuantas|cual|que valor|que lugar ocupa|se pide|la probabilidad de)\b/.test(folded);
+  const implicitCountingPrompt = /^\d{1,3}\s*[.)-]\s+(?:los|las|el numero|la cantidad)\b/i.test(folded)
+    && /\b(?:numeros?|formas?|ordenaciones?|comites?|grupos?|palabras?|codigos?|posibilidades?)\b/.test(folded);
+  if (!standaloneCue && !implicitCountingPrompt) reasons.push("sin-consigna-autonoma");
+  if (/^[a-z][.)]\s+/i.test(value) && !standaloneCue) reasons.push("apartado-sin-enunciado-principal");
+  if (/\b(?:por lo que|por tanto|luego|de igual forma|obtenemos|la solucion es|el resultado es)\b/.test(folded)
+      && !/[?]/.test(value)) reasons.push("parece-fragmento-de-solucion");
+  if (/(?:\bpara que|\bsi|\by|\bo|[,;:]|\.{3})\s*$/i.test(value)) reasons.push("enunciado-posiblemente-truncado");
+  if (contentReviewReasons(text).includes("simbolos-matematicos-corruptos")) {
+    reasons.push("simbolos-matematicos-corruptos");
+  }
   return [...new Set(reasons)];
 }
 
@@ -426,6 +580,62 @@ function appendActiveAppBanks(sources, candidates) {
       });
     });
   }
+
+  const combinatoricsBankFile = path.join(projectRoot, "data", "combinatorics-supplied-banks.js");
+  if (!fs.existsSync(combinatoricsBankFile)) return;
+  const combinatoricsText = fs.readFileSync(combinatoricsBankFile, "utf8");
+  const combinatoricsContext = { window: {} };
+  vm.createContext(combinatoricsContext);
+  vm.runInContext(combinatoricsText, combinatoricsContext, {
+    filename: combinatoricsBankFile,
+    timeout: 10_000
+  });
+  const combinatoricsQuestions = Array.isArray(combinatoricsContext.window.COMBINATORICS_SOURCE_BANK)
+    ? combinatoricsContext.window.COMBINATORICS_SOURCE_BANK
+    : [];
+  const relativeCombinatoricsSource = path.relative(projectRoot, combinatoricsBankFile).replace(/\\/g, "/");
+  for (const [courseId, course, theme] of [
+    ["4eso-b", "4.º ESO B", "Combinatoria"],
+    ["1bach-ccss", "1.º Bachillerato CCSS I", "Combinatoria"],
+    ["1bach-mates", "1.º Bachillerato Matemáticas I", "Probabilidad"]
+  ]) {
+    sources.push({
+      courseId,
+      course,
+      theme,
+      subtopic: courseId === "1bach-mates" ? "Combinatoria" : null,
+      source: relativeCombinatoricsSource,
+      extension: ".js",
+      size: fs.statSync(combinatoricsBankFile).size,
+      sha256: hashFile(combinatoricsBankFile),
+      extractionStatus: "active-app-bank",
+      extractedCharacters: combinatoricsQuestions.reduce((sum, question) => sum + String(question.text || "").length, 0),
+      candidateCount: combinatoricsQuestions.length,
+      visualElements: 0,
+      pageCount: null,
+      error: null
+    });
+    combinatoricsQuestions.forEach((question, index) => {
+      const text = cleanText(question.text || "");
+      if (!text) return;
+      candidates.push({
+        id: `${courseId}-${safeName(theme)}-supplied-${index + 1}`,
+        courseId,
+        course,
+        theme,
+        subtopic: courseId === "1bach-mates" ? "Combinatoria" : null,
+        source: relativeCombinatoricsSource,
+        sourceCandidate: index + 1,
+        text,
+        exactKey: exactKey(text),
+        structureKey: structureKey(text),
+        complexityScore: complexityScore(text),
+        needsVisualReview: false,
+        sourceHasVisualElements: false,
+        activeInApp: true
+      });
+    });
+  }
 }
 
 function appendSharedCourseSources(sources, candidates) {
@@ -438,6 +648,44 @@ function appendSharedCourseSources(sources, candidates) {
       toCourse: "2.º ESO",
       toTheme: "Números enteros",
       reason: "Operaciones combinadas de enteros válidas para la progresión de 2.º ESO"
+    },
+    {
+      source: "documentos/4º ESO B/Temas mios/ejercicios-combinatoria.pdf",
+      fromCourseId: "4eso-b",
+      fromTheme: "Combinatoria",
+      toCourseId: "1bach-ccss",
+      toCourse: "1.º Bachillerato CCSS I",
+      toTheme: "Combinatoria",
+      reason: "Banco compartido de combinatoria válido para 4.º ESO y 1.º de Bachillerato"
+    },
+    {
+      source: "documentos/4º ESO B/Temas mios/ejercicios-combinatoria.pdf",
+      fromCourseId: "4eso-b",
+      fromTheme: "Combinatoria",
+      toCourseId: "1bach-mates",
+      toCourse: "1.º Bachillerato Matemáticas I",
+      toTheme: "Probabilidad",
+      subtopic: "Combinatoria",
+      reason: "Banco compartido de combinatoria para el tema de probabilidad de Matemáticas I"
+    },
+    {
+      source: "documentos/4º ESO/Fuentes compartidas/formas-de-contar-combinatoria-solucionario-2022.pdf",
+      fromCourseId: "4eso-b",
+      fromTheme: "Combinatoria",
+      toCourseId: "1bach-ccss",
+      toCourse: "1.º Bachillerato CCSS I",
+      toTheme: "Combinatoria",
+      reason: "Enunciados compartidos de formas de contar; se excluyen las soluciones editoriales"
+    },
+    {
+      source: "documentos/4º ESO/Fuentes compartidas/formas-de-contar-combinatoria-solucionario-2022.pdf",
+      fromCourseId: "4eso-b",
+      fromTheme: "Combinatoria",
+      toCourseId: "1bach-mates",
+      toCourse: "1.º Bachillerato Matemáticas I",
+      toTheme: "Probabilidad",
+      subtopic: "Combinatoria",
+      reason: "Enunciados compartidos de combinatoria para Matemáticas I; se excluyen las soluciones editoriales"
     }
   ];
   for (const mapping of sharedMappings) {
@@ -449,6 +697,7 @@ function appendSharedCourseSources(sources, candidates) {
       courseId: mapping.toCourseId,
       course: mapping.toCourse,
       theme: mapping.toTheme,
+      subtopic: mapping.subtopic || originalSource.subtopic || null,
       sharedFromCourseId: mapping.fromCourseId,
       sharedReason: mapping.reason
     });
@@ -461,6 +710,7 @@ function appendSharedCourseSources(sources, candidates) {
         courseId: mapping.toCourseId,
         course: mapping.toCourse,
         theme: mapping.toTheme,
+        subtopic: mapping.subtopic || candidate.subtopic || null,
         sharedFromCourseId: mapping.fromCourseId,
         sharedReason: mapping.reason
       });
@@ -557,11 +807,31 @@ for (const definition of courseDefinitions) {
       };
       try {
         const extracted = extractSource(file);
-        const cleaned = cleanText(extracted.text);
-        const candidateTexts = splitCandidates(cleaned);
+        let cleaned = cleanText(extracted.text);
+        let usedOcrSidecar = false;
+        const ocrSidecarName = reviewedOcrSidecarFor(file);
+        const ocrSidecarPath = ocrSidecarName ? path.join(ocrRoot, ocrSidecarName) : null;
+        const extractedIsSparse = sourceRecord.extension === ".pdf"
+          && (!cleaned.length || (extracted.pageCount && cleaned.length / extracted.pageCount < 120));
+        if (extractedIsSparse && ocrSidecarPath && fs.existsSync(ocrSidecarPath)) {
+          cleaned = cleanText(fs.readFileSync(ocrSidecarPath, "utf8"));
+          usedOcrSidecar = cleaned.length > 0;
+          if (usedOcrSidecar) {
+            sourceRecord.ocrText = path.relative(projectRoot, ocrSidecarPath).replace(/\\/g, "/");
+          }
+        }
+        const excludesEditorialSolutions = sourceContainsInterleavedSolutions(file);
+        const groupedCandidateTexts = excludesEditorialSolutions
+          ? []
+          : splitCandidates(usedOcrSidecar ? expandOcrExerciseBoundaries(cleaned) : cleaned);
+        const candidateTexts = groupedCandidateTexts.flatMap((text, index) =>
+          splitCandidateApartments(text, index + 1)
+        );
         const sparseScannedPdf = sourceRecord.extension === ".pdf"
           && (candidateTexts.length === 0 || (extracted.pageCount && cleaned.length / extracted.pageCount < 120));
-        sourceRecord.extractionStatus = cleaned.length && !sparseScannedPdf ? "extracted" : "needs-ocr";
+        sourceRecord.extractionStatus = excludesEditorialSolutions
+          ? "reference-only-solutions-excluded"
+          : cleaned.length && !sparseScannedPdf ? (usedOcrSidecar ? "extracted-ocr" : "extracted") : "needs-ocr";
         sourceRecord.extractedCharacters = cleaned.length;
         sourceRecord.candidateCount = candidateTexts.length;
         sourceRecord.visualElements = extracted.visualCount || 0;
@@ -571,9 +841,10 @@ for (const definition of courseDefinitions) {
         const textFile = path.join(targetDir, `${safeName(path.basename(file, path.extname(file)))}.txt`);
         fs.writeFileSync(textFile, cleaned, "utf8");
         sourceRecord.extractedText = path.relative(projectRoot, textFile).replace(/\\/g, "/");
-        candidateTexts.forEach((text, index) => {
+        candidateTexts.forEach((candidatePart, index) => {
+          const text = candidatePart.text;
           const refinedTheme = definition.id === "1bach-mates" ? refineMatesTheme(text, theme) : theme;
-          const reviewReasons = contentReviewReasons(text);
+          const reviewReasons = contentReviewReasonsV2(text);
           allCandidates.push({
             id: `${definition.id}-${safeName(refinedTheme)}-${crypto.createHash("sha1").update(`${relativeSource}\n${index}\n${text}`).digest("hex").slice(0, 12)}`,
             courseId: definition.id,
@@ -582,11 +853,16 @@ for (const definition of courseDefinitions) {
             subtopic,
             source: relativeSource,
             sourceCandidate: index + 1,
+            sourceParentCandidate: candidatePart.parentCandidate,
+            sourcePart: candidatePart.part,
             text,
             exactKey: exactKey(text),
             structureKey: structureKey(text),
             complexityScore: complexityScore(text),
-            needsVisualReview: needsVisualReview(text) || (extracted.visualCount || 0) > 0 || reviewReasons.length > 0,
+            // Que el documento contenga alguna imagen no implica que todos sus
+            // ejercicios dependan de ella. Solo retenemos el candidato cuando su
+            // propio enunciado alude a una figura/tabla o presenta otra anomalía.
+            needsVisualReview: needsVisualReview(text) || reviewReasons.length > 0,
             reviewReasons,
             sourceHasVisualElements: (extracted.visualCount || 0) > 0
           });
