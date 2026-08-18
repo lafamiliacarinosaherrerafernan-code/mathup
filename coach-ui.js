@@ -248,9 +248,20 @@
           <div class="coach-progress" aria-label="Progreso"><span style="width:${progress}%"></span></div>
           ${phaseHelp}
           <article class="coach-question-card">
-            <div class="coach-question-meta"><span>${escapeHtml(coach().topicLabel(question.topic))}</span><span>Dificultad ${question.difficulty || 1}</span></div>
-            <h2>${formatMathText(question.text)}</h2>
-            <div class="coach-options">${questionOptions(question)}</div>
+             <div class="coach-question-meta"><span>${escapeHtml(coach().topicLabel(question.topic))}</span><span>Dificultad ${question.difficulty || 1}</span></div>
+             <h2>${formatMathText(question.text)}</h2>
+             ${handwritingAnswerHtml(question, {
+               topicId: question.topic,
+               topicLabel: coach().topicLabel(question.topic),
+               questionIndex: ui.index,
+               difficulty: question.difficulty || 1,
+               mode: diagnostic ? "coachDiagnostic" : "coachSession",
+               resultChannel: "coach",
+               statementHtml: `<div class="coach-question-meta"><span>${escapeHtml(coach().topicLabel(question.topic))}</span><span>Dificultad ${question.difficulty || 1}</span></div><h2>${formatMathText(question.text)}</h2>`,
+               scoreState: { answered: ui.answers.length, progressIndex: ui.index, total: ui.questions.length },
+               attemptContext: { phase, hintsUsed: ui.hintsUsed }
+             })}
+             <div class="coach-options">${questionOptions(question)}</div>
             ${!diagnostic && !ui.answered ? `<button class="ghost coach-hint-button" onclick="showCoachHint()">Necesito una pista</button><p id="coach-hint" class="coach-hint" hidden></p>` : ""}
           </article>
           ${correction}

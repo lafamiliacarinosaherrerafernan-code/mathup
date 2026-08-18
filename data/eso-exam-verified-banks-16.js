@@ -49,6 +49,15 @@
       q("3eso-cuerpos-geometricos-fed5dbda8be8", eso3Geo, "6. Ejercicio (3 puntos): Indica el tipo de sucesión y el término general de la sucesión, y la suma de los 10 primeros términos: a) 3, 0, −3, −6, ...", ["Aritmética, aₙ=6−3n; S₁₀=−105", "Geométrica, aₙ=3·(−1)ⁿ⁻¹; S₁₀=0", "Aritmética, aₙ=3−3n; S₁₀=−135", "Aritmética, aₙ=3n; S₁₀=165"], "Resolución:\n1. La diferencia es d=−3; por tanto aₙ=3+(n−1)(−3)=6−3n.\n2. a₁₀=6−30=−24.\n3. S₁₀=10(3+(−24))/2=5·(−21)=−105.\nComprobación: los términos son 3,0,−3,…,−24 y su promedio es −10,5; por 10 da −105.\nResultado final: aₙ=6−3n; S₁₀=−105.")
     ]
   };
+  Object.entries(banks).forEach(([key, items]) => {
+    if (!key.startsWith("3eso::")) return;
+    const slug = key.split("::")[1].normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+    items.forEach((item, index) => {
+      item.originalRawBaseId = item.rawBaseId;
+      const stableSuffix = item.originalRawBaseId.match(/([a-f0-9]{12}(?:-[a-z0-9]+)?)$/)?.[1] || String(index + 1).padStart(3, "0");
+      item.rawBaseId = `3eso-${slug}-${stableSuffix}`;
+    });
+  });
   const previous = window.MargaritaEsoExamVerified;
   const normalize = (value) => String(value || "").normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().trim();
   window.MargaritaEsoExamVerified = { build(courseId, theme) { return [...(previous?.build?.(courseId, theme) || []), ...(banks[`${courseId}::${normalize(theme)}`] || []).map((item) => ({ ...item }))]; }, count: (previous?.count || 0) + Object.values(banks).reduce((sum, items) => sum + items.length, 0) };

@@ -76,11 +76,50 @@
     }));
   }
 
-  function build(bankKey) {
-    if (bankKey === "ccss-ii-integrales-indefinidas-inmediatas") return indefinite.map((item) => ({ ...item }));
-    if (bankKey === "ccss-ii-integrales-definidas") return [...definite.map((item) => ({ ...item })), ...compatibleMatesIIDefinedQuestions()];
-    return [];
+  const registry = new Map();
+
+  function register(bankKey, resolver) {
+    const key = String(bankKey || "").trim();
+    if (!key || typeof resolver !== "function") {
+      throw new TypeError("Cada banco especial necesita una clave y una función de resolución.");
+    }
+    registry.set(key, resolver);
   }
 
-  window.MargaritaTopicPracticeBanks = { build, indefinite, definite };
+  function build(bankKey) {
+    const key = String(bankKey || "").trim();
+    const resolver = registry.get(key);
+    if (!resolver) {
+      console.error(`[Margarita] Banco configurado no registrado: ${key || "(clave vacía)"}`);
+      return [];
+    }
+    const questions = resolver();
+    if (!Array.isArray(questions)) {
+      console.error(`[Margarita] El banco configurado no devolvió una colección: ${key}`);
+      return [];
+    }
+    return questions.map((item) => ({ ...item }));
+  }
+
+  register("ccss-ii-integrales-indefinidas-inmediatas", () => indefinite);
+  register("ccss-ii-integrales-definidas", () => [
+    ...definite,
+    ...compatibleMatesIIDefinedQuestions()
+  ]);
+  register("ccss-ii-distribucion-binomial-normal", () => (
+    window.MargaritaCcssIITopicClassification?.originalTopic10PracticeBank?.() || []
+  ));
+
+  window.MargaritaTopicPracticeBanks = {
+    build,
+    register,
+    has(bankKey) {
+      return registry.has(String(bankKey || "").trim());
+    },
+    registeredKeys() {
+      return [...registry.keys()];
+    },
+    indefinite,
+    definite
+  };
 })();

@@ -175,20 +175,26 @@
     const previousTopicIndex = state.topicIndex;
     const previousBlockKey = state.blockKey;
     const previousRoundCache = state.challengeRoundCache;
+    const previousSelectionContext = state.exerciseSelectionContext;
     const pools = new Map();
 
     state.blockKey = "";
+    state.exerciseSelectionContext = "exam";
     state.challengeRoundCache = {};
-    selected.forEach((topicIndex) => {
-      state.topicIndex = topicIndex;
-      const pool = buildQuestions(course.themes[topicIndex], course, exam.count)
-        .flatMap((question) => standaloneQuestions(question, topicIndex))
-        .filter((question) => window.MargaritaExerciseSelector.exerciseMatchesTopic(question, course.id, topicIndex));
-      pools.set(topicIndex, pool);
-    });
-    state.topicIndex = previousTopicIndex;
-    state.blockKey = previousBlockKey;
-    state.challengeRoundCache = previousRoundCache;
+    try {
+      selected.forEach((topicIndex) => {
+        state.topicIndex = topicIndex;
+        const pool = buildQuestions(course.themes[topicIndex], course, exam.count)
+          .flatMap((question) => standaloneQuestions(question, topicIndex))
+          .filter((question) => window.MargaritaExerciseSelector.exerciseMatchesTopic(question, course.id, topicIndex));
+        pools.set(topicIndex, pool);
+      });
+    } finally {
+      state.topicIndex = previousTopicIndex;
+      state.blockKey = previousBlockKey;
+      state.exerciseSelectionContext = previousSelectionContext;
+      state.challengeRoundCache = previousRoundCache;
+    }
 
     return window.MargaritaExerciseSelector.distributeBalancedTopicQuestions(pools, selected, exam.count);
   }
@@ -248,6 +254,16 @@
           </div>
           <div class="progress-track"><div style="width:${((exam.index + 1) / exam.questions.length) * 100}%"></div></div>
           <article class="first-bach-exam-statement">${question.statementHtml || formatMathText(question.text || "")}</article>
+          ${handwritingAnswerHtml(question, {
+            topicIndex: question.topicIndex,
+            topicLabel: topicName(question),
+            questionIndex: exam.index,
+            mode: "esoExam",
+            resultChannel: "esoExam",
+            statementHtml: `<article class="first-bach-exam-statement">${question.statementHtml || formatMathText(question.text || "")}</article>`,
+            scoreState: { answered: exam.answers.length, progressIndex: exam.index, total: exam.questions.length },
+            attemptContext: { selectedTopics: exam.selectedTopics || [] }
+          })}
           <p class="first-bach-exam-instruction">Selecciona el resultado correcto.</p>
           <div class="answers">${optionButtons}</div>
           ${exam.answered ? `

@@ -360,7 +360,7 @@ for (const course of audit.courses.filter((item) =>
   ["1eso", "2eso", "3eso", "4eso-a", "4eso-b", "1bach-mates", "1bach-ccss"].includes(item.id)
 )) {
   course.themes.forEach((theme) => {
-    const topicId = audit.coach.__audit.inferTopicId(theme);
+    const topicId = audit.coach.__audit.inferTopicId(theme, course.id);
     const pool = audit.coach.__audit.questionsForTopic(course, topicId);
     const coherent = pool.filter(audit.questionHasCoherentOptions);
     coachPoolRows.push({

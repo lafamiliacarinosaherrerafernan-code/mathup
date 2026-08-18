@@ -1,0 +1,2137 @@
+{
+  "generatedAt": "2026-08-09T09:17:25.473Z",
+  "scriptsLoaded": 119,
+  "modelAudit": {
+    "currentYears": [
+      2025,
+      2026
+    ],
+    "currentOfficialExercises": 30,
+    "currentExerciseNumbers": [
+      "1",
+      "2",
+      "3",
+      "4"
+    ],
+    "historicalOfficialExercises": 399,
+    "implementationSlots": 4,
+    "structuralFinding": "El examen completo de CCSS II se organiza en cuatro ejercicios: dos de Álgebra, uno de Análisis y uno alternante de Probabilidad o Estadística."
+  },
+  "scoring": {
+    "exercisesWithAnyPointText": 44,
+    "totalOfficialExercises": 429,
+    "reliablePerPartWeights": false,
+    "activePolicy": "Puntuación interna igual por apartado",
+    "pending": "Mapear ponderaciones oficiales cuando estén completas e inequívocas"
+  },
+  "curatedCatalog": {
+    "entries": 19,
+    "role": "Semilla curada de ejercicios con respuestas/opciones revisadas; no es una whitelist del banco PAU completo",
+    "preserved": true,
+    "staleEntriesExcludedFromPools": [
+      "ccss2-algebra-ed4a21357666",
+      "ccss2-analisis-767a8fb58506"
+    ]
+  },
+  "officialCountsByTopic": {
+    "0": 46,
+    "1": 1,
+    "2": 44,
+    "3": 46,
+    "4": 64,
+    "5": 56,
+    "6": 0,
+    "7": 0,
+    "8": 84,
+    "9": 0,
+    "10": 80
+  },
+  "blockRuns": [
+    {
+      "name": "Álgebra solo Matrices",
+      "blockId": "algebra",
+      "topics": [
+        0
+      ],
+      "total": 4,
+      "distribution": {
+        "0": 4
+      },
+      "sources": [
+        "2024 - Junio - Sección 2, bloque 2, ejercicio 4",
+        "2026 - Junio - Ejercicio 3, apartado b",
+        "2012 - Reserva 2 - Propuesta B",
+        "2022 - Junio - Sección 2, bloque 2, ejercicio 4"
+      ]
+    },
+    {
+      "name": "Álgebra solo Determinantes",
+      "blockId": "algebra",
+      "topics": [
+        1
+      ],
+      "total": 1,
+      "distribution": {
+        "1": 1
+      },
+      "sources": [
+        "2020 - Septiembre - Sección 3, bloque 1, ejercicio 6"
+      ]
+    },
+    {
+      "name": "Álgebra Matrices + Sistemas",
+      "blockId": "algebra",
+      "topics": [
+        0,
+        2
+      ],
+      "total": 4,
+      "distribution": {
+        "0": 2,
+        "2": 2
+      },
+      "sources": [
+        "2018 - Julio - 2",
+        "2021 - Junio - Sección 3, bloque 2, ejercicio 6",
+        "2017 - Junio - 1",
+        "2016 - Septiembre - 2"
+      ]
+    },
+    {
+      "name": "Álgebra cuatro temas",
+      "blockId": "algebra",
+      "topics": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "total": 4,
+      "distribution": {
+        "0": 1,
+        "1": 1,
+        "2": 1,
+        "3": 1
+      },
+      "sources": [
+        "2025 - Julio - Ejercicio 2",
+        "2020 - Julio - Sección 1, bloque 2, ejercicio 2",
+        "2020 - Septiembre - Sección 3, bloque 1, ejercicio 6",
+        "2021 - Julio - Sección 3, bloque 1, ejercicio 5"
+      ]
+    },
+    {
+      "name": "Análisis solo Límites",
+      "blockId": "analisis",
+      "topics": [
+        4
+      ],
+      "total": 4,
+      "distribution": {
+        "4": 4
+      },
+      "sources": [
+        "2026 - Julio - Ejercicio 3, apartado a",
+        "2023 - Junio - Sección 1, bloque 2, ejercicio 1",
+        "2017 - Septiembre",
+        "2016 - Septiembre - 3"
+      ]
+    },
+    {
+      "name": "Análisis solo Derivadas",
+      "blockId": "analisis",
+      "topics": [
+        5
+      ],
+      "total": 4,
+      "distribution": {
+        "5": 4
+      },
+      "sources": [
+        "2025 - Junio - Ejercicio 4, apartado b",
+        "2022 - Junio - Sección 3, bloque 2, ejercicio 6",
+        "2012 - Septiembre - Propuesta A",
+        "2026 - Julio - Ejercicio 3, apartado b"
+      ]
+    },
+    {
+      "name": "Análisis Límites + Derivadas",
+      "blockId": "analisis",
+      "topics": [
+        4,
+        5
+      ],
+      "total": 4,
+      "distribution": {
+        "4": 2,
+        "5": 2
+      },
+      "sources": [
+        "2018 - Julio - 4",
+        "2019 - Julio - 3",
+        "2021 - Junio - Sección 1, bloque 2, ejercicio 1",
+        "2020 - Septiembre - Sección 1, bloque 2, ejercicio 2"
+      ]
+    },
+    {
+      "name": "Análisis integrales excluidas",
+      "blockId": "analisis",
+      "topics": [
+        6,
+        7
+      ],
+      "total": 0,
+      "distribution": {
+        "6": 0,
+        "7": 0
+      },
+      "sources": []
+    },
+    {
+      "name": "Estadística solo Binomial/Normal",
+      "blockId": "estadistica",
+      "topics": [
+        9
+      ],
+      "total": 0,
+      "distribution": {
+        "9": 0
+      },
+      "sources": []
+    },
+    {
+      "name": "Estadística solo Inferencia",
+      "blockId": "estadistica",
+      "topics": [
+        10
+      ],
+      "total": 4,
+      "distribution": {
+        "10": 4
+      },
+      "sources": [
+        "2020 - Julio - Sección 3, bloque 2, ejercicio 6",
+        "2013 - Junio - Propuesta B",
+        "2025 - Julio - Ejercicio 1, apartado a",
+        "2012 - Reserva 1 - Propuesta B"
+      ]
+    },
+    {
+      "name": "Estadística ambos temas",
+      "blockId": "estadistica",
+      "topics": [
+        9,
+        10
+      ],
+      "total": 2,
+      "distribution": {
+        "9": 0,
+        "10": 2
+      },
+      "sources": [
+        "2010 - Reserva 2 - Propuesta B",
+        "2018 - Julio - 6"
+      ]
+    }
+  ],
+  "slotPools": [
+    {
+      "slot": 1,
+      "total": 46,
+      "current": 4,
+      "historical": 42
+    },
+    {
+      "slot": 2,
+      "total": 90,
+      "current": 8,
+      "historical": 82
+    },
+    {
+      "slot": 3,
+      "total": 119,
+      "current": 7,
+      "historical": 112
+    },
+    {
+      "slot": 4,
+      "total": 164,
+      "current": 8,
+      "historical": 156
+    }
+  ],
+  "slotFamilyPools": {
+    "2": {
+      "sistemas": 44,
+      "programacion-lineal": 46
+    },
+    "4": {
+      "probabilidad": 84,
+      "estadistica": 80
+    }
+  },
+  "slot2Sequence": [
+    "sistemas",
+    "programacion-lineal",
+    "sistemas",
+    "programacion-lineal",
+    "sistemas",
+    "programacion-lineal",
+    "sistemas",
+    "programacion-lineal",
+    "sistemas",
+    "programacion-lineal",
+    "sistemas",
+    "programacion-lineal",
+    "sistemas",
+    "programacion-lineal",
+    "sistemas",
+    "programacion-lineal",
+    "sistemas",
+    "programacion-lineal",
+    "sistemas",
+    "programacion-lineal",
+    "sistemas",
+    "programacion-lineal",
+    "sistemas",
+    "programacion-lineal",
+    "sistemas",
+    "programacion-lineal",
+    "sistemas",
+    "programacion-lineal",
+    "sistemas",
+    "programacion-lineal",
+    "sistemas",
+    "programacion-lineal",
+    "sistemas",
+    "programacion-lineal",
+    "sistemas",
+    "programacion-lineal",
+    "sistemas",
+    "programacion-lineal",
+    "sistemas",
+    "programacion-lineal",
+    "sistemas",
+    "programacion-lineal",
+    "sistemas",
+    "programacion-lineal",
+    "sistemas",
+    "programacion-lineal",
+    "sistemas",
+    "programacion-lineal",
+    "sistemas",
+    "programacion-lineal"
+  ],
+  "slot4Sequence": [
+    "probabilidad",
+    "estadistica",
+    "probabilidad",
+    "estadistica",
+    "probabilidad",
+    "estadistica",
+    "probabilidad",
+    "estadistica",
+    "probabilidad",
+    "estadistica",
+    "probabilidad",
+    "estadistica",
+    "probabilidad",
+    "estadistica",
+    "probabilidad",
+    "estadistica",
+    "probabilidad",
+    "estadistica",
+    "probabilidad",
+    "estadistica",
+    "probabilidad",
+    "estadistica",
+    "probabilidad",
+    "estadistica",
+    "probabilidad",
+    "estadistica",
+    "probabilidad",
+    "estadistica",
+    "probabilidad",
+    "estadistica",
+    "probabilidad",
+    "estadistica",
+    "probabilidad",
+    "estadistica",
+    "probabilidad",
+    "estadistica",
+    "probabilidad",
+    "estadistica",
+    "probabilidad",
+    "estadistica",
+    "probabilidad",
+    "estadistica",
+    "probabilidad",
+    "estadistica",
+    "probabilidad",
+    "estadistica",
+    "probabilidad",
+    "estadistica",
+    "probabilidad",
+    "estadistica"
+  ],
+  "cases": [
+    {
+      "name": "Álgebra solo Matrices",
+      "passed": true
+    },
+    {
+      "name": "Álgebra solo Matrices",
+      "passed": true
+    },
+    {
+      "name": "Álgebra solo Matrices: reparto del Tema 1",
+      "passed": true
+    },
+    {
+      "name": "Álgebra solo Matrices",
+      "passed": true
+    },
+    {
+      "name": "Álgebra solo Determinantes",
+      "passed": true
+    },
+    {
+      "name": "Álgebra solo Determinantes",
+      "passed": true
+    },
+    {
+      "name": "Álgebra solo Determinantes: reparto del Tema 2",
+      "passed": true
+    },
+    {
+      "name": "Álgebra solo Determinantes",
+      "passed": true
+    },
+    {
+      "name": "Álgebra Matrices + Sistemas",
+      "passed": true
+    },
+    {
+      "name": "Álgebra Matrices + Sistemas",
+      "passed": true
+    },
+    {
+      "name": "Álgebra Matrices + Sistemas: reparto del Tema 1",
+      "passed": true
+    },
+    {
+      "name": "Álgebra Matrices + Sistemas: reparto del Tema 3",
+      "passed": true
+    },
+    {
+      "name": "Álgebra Matrices + Sistemas",
+      "passed": true
+    },
+    {
+      "name": "Álgebra cuatro temas",
+      "passed": true
+    },
+    {
+      "name": "Álgebra cuatro temas",
+      "passed": true
+    },
+    {
+      "name": "Álgebra cuatro temas: reparto del Tema 1",
+      "passed": true
+    },
+    {
+      "name": "Álgebra cuatro temas: reparto del Tema 2",
+      "passed": true
+    },
+    {
+      "name": "Álgebra cuatro temas: reparto del Tema 3",
+      "passed": true
+    },
+    {
+      "name": "Álgebra cuatro temas: reparto del Tema 4",
+      "passed": true
+    },
+    {
+      "name": "Álgebra cuatro temas",
+      "passed": true
+    },
+    {
+      "name": "Análisis solo Límites",
+      "passed": true
+    },
+    {
+      "name": "Análisis solo Límites",
+      "passed": true
+    },
+    {
+      "name": "Análisis solo Límites: reparto del Tema 5",
+      "passed": true
+    },
+    {
+      "name": "Análisis solo Límites",
+      "passed": true
+    },
+    {
+      "name": "Análisis solo Derivadas",
+      "passed": true
+    },
+    {
+      "name": "Análisis solo Derivadas",
+      "passed": true
+    },
+    {
+      "name": "Análisis solo Derivadas: reparto del Tema 6",
+      "passed": true
+    },
+    {
+      "name": "Análisis solo Derivadas",
+      "passed": true
+    },
+    {
+      "name": "Análisis Límites + Derivadas",
+      "passed": true
+    },
+    {
+      "name": "Análisis Límites + Derivadas",
+      "passed": true
+    },
+    {
+      "name": "Análisis Límites + Derivadas: reparto del Tema 5",
+      "passed": true
+    },
+    {
+      "name": "Análisis Límites + Derivadas: reparto del Tema 6",
+      "passed": true
+    },
+    {
+      "name": "Análisis Límites + Derivadas",
+      "passed": true
+    },
+    {
+      "name": "Análisis integrales excluidas",
+      "passed": true
+    },
+    {
+      "name": "Análisis integrales excluidas",
+      "passed": true
+    },
+    {
+      "name": "Análisis integrales excluidas: reparto del Tema 7",
+      "passed": true
+    },
+    {
+      "name": "Análisis integrales excluidas: reparto del Tema 8",
+      "passed": true
+    },
+    {
+      "name": "Análisis integrales excluidas",
+      "passed": true
+    },
+    {
+      "name": "Estadística solo Binomial/Normal",
+      "passed": true
+    },
+    {
+      "name": "Estadística solo Binomial/Normal",
+      "passed": true
+    },
+    {
+      "name": "Estadística solo Binomial/Normal: reparto del Tema 10",
+      "passed": true
+    },
+    {
+      "name": "Estadística solo Binomial/Normal",
+      "passed": true
+    },
+    {
+      "name": "Estadística solo Inferencia",
+      "passed": true
+    },
+    {
+      "name": "Estadística solo Inferencia",
+      "passed": true
+    },
+    {
+      "name": "Estadística solo Inferencia: reparto del Tema 11",
+      "passed": true
+    },
+    {
+      "name": "Estadística solo Inferencia",
+      "passed": true
+    },
+    {
+      "name": "Estadística ambos temas",
+      "passed": true
+    },
+    {
+      "name": "Estadística ambos temas",
+      "passed": true
+    },
+    {
+      "name": "Estadística ambos temas: reparto del Tema 10",
+      "passed": true
+    },
+    {
+      "name": "Estadística ambos temas: reparto del Tema 11",
+      "passed": true
+    },
+    {
+      "name": "Estadística ambos temas",
+      "passed": true
+    },
+    {
+      "name": "Examen completo: el slot 1 tiene banco",
+      "passed": true
+    },
+    {
+      "name": "Examen completo: metadatos official/pauEra en slot 1",
+      "passed": true
+    },
+    {
+      "name": "Examen completo: temas correctos en slot 1",
+      "passed": true
+    },
+    {
+      "name": "Examen completo: sin integrales en slot 1",
+      "passed": true
+    },
+    {
+      "name": "Examen completo: sin bancos prohibidos en slot 1",
+      "passed": true
+    },
+    {
+      "name": "Examen completo: el slot 2 tiene banco",
+      "passed": true
+    },
+    {
+      "name": "Examen completo: metadatos official/pauEra en slot 2",
+      "passed": true
+    },
+    {
+      "name": "Examen completo: temas correctos en slot 2",
+      "passed": true
+    },
+    {
+      "name": "Examen completo: sin integrales en slot 2",
+      "passed": true
+    },
+    {
+      "name": "Examen completo: sin bancos prohibidos en slot 2",
+      "passed": true
+    },
+    {
+      "name": "Examen completo: el slot 3 tiene banco",
+      "passed": true
+    },
+    {
+      "name": "Examen completo: metadatos official/pauEra en slot 3",
+      "passed": true
+    },
+    {
+      "name": "Examen completo: temas correctos en slot 3",
+      "passed": true
+    },
+    {
+      "name": "Examen completo: sin integrales en slot 3",
+      "passed": true
+    },
+    {
+      "name": "Examen completo: sin bancos prohibidos en slot 3",
+      "passed": true
+    },
+    {
+      "name": "Examen completo: el slot 4 tiene banco",
+      "passed": true
+    },
+    {
+      "name": "Examen completo: metadatos official/pauEra en slot 4",
+      "passed": true
+    },
+    {
+      "name": "Examen completo: temas correctos en slot 4",
+      "passed": true
+    },
+    {
+      "name": "Examen completo: sin integrales en slot 4",
+      "passed": true
+    },
+    {
+      "name": "Examen completo: sin bancos prohibidos en slot 4",
+      "passed": true
+    },
+    {
+      "name": "Examen completo: Slot 1 contiene siempre Matrices",
+      "passed": true
+    },
+    {
+      "name": "Examen completo: Slot 4 conserva separados Probabilidad y Estadística",
+      "passed": true
+    },
+    {
+      "name": "Regresión: Matemáticas II conserva sus cinco slots",
+      "passed": true
+    },
+    {
+      "name": "Selección temática: existe pool compatible en slot 1",
+      "passed": true
+    },
+    {
+      "name": "Selección temática: el slot 1 respeta la selección",
+      "passed": true
+    },
+    {
+      "name": "Selección temática: existe pool compatible en slot 2",
+      "passed": true
+    },
+    {
+      "name": "Selección temática: el slot 2 respeta la selección",
+      "passed": true
+    },
+    {
+      "name": "Selección temática: existe pool compatible en slot 3",
+      "passed": true
+    },
+    {
+      "name": "Selección temática: el slot 3 respeta la selección",
+      "passed": true
+    },
+    {
+      "name": "Selección temática: existe pool compatible en slot 4",
+      "passed": true
+    },
+    {
+      "name": "Selección temática: el slot 4 respeta la selección",
+      "passed": true
+    },
+    {
+      "name": "Selección incompatible: no se rellena el slot de Sistemas/Programación con otro tema",
+      "passed": true
+    },
+    {
+      "name": "Selección incompatible: el examen completo muestra un aviso claro",
+      "passed": true
+    },
+    {
+      "name": "Selección compatible: genera los cuatro ejercicios del examen",
+      "passed": true
+    },
+    {
+      "name": "Selección compatible: los cuatro ejercicios respetan los temas elegidos",
+      "passed": true
+    },
+    {
+      "name": "Examen por bloques: no repite Matrices mientras quedan alternativas",
+      "passed": true
+    },
+    {
+      "name": "Simulación 1: cuatro slots completos",
+      "passed": true
+    },
+    {
+      "name": "Simulación 1: sin duplicados exactos",
+      "passed": true
+    },
+    {
+      "name": "Simulación 1: prioriza PAU actual",
+      "passed": true
+    },
+    {
+      "name": "Simulación 1: E1 es Matrices",
+      "passed": true
+    },
+    {
+      "name": "Simulación 1: E2 es Sistemas o Programación lineal",
+      "passed": true
+    },
+    {
+      "name": "Simulación 1: E3 es Análisis",
+      "passed": true
+    },
+    {
+      "name": "Simulación 1: E4 es Probabilidad o Estadística",
+      "passed": true
+    },
+    {
+      "name": "Simulación 2: cuatro slots completos",
+      "passed": true
+    },
+    {
+      "name": "Simulación 2: sin duplicados exactos",
+      "passed": true
+    },
+    {
+      "name": "Simulación 2: prioriza PAU actual",
+      "passed": true
+    },
+    {
+      "name": "Simulación 2: E1 es Matrices",
+      "passed": true
+    },
+    {
+      "name": "Simulación 2: E2 es Sistemas o Programación lineal",
+      "passed": true
+    },
+    {
+      "name": "Simulación 2: E3 es Análisis",
+      "passed": true
+    },
+    {
+      "name": "Simulación 2: E4 es Probabilidad o Estadística",
+      "passed": true
+    },
+    {
+      "name": "Simulación 3: cuatro slots completos",
+      "passed": true
+    },
+    {
+      "name": "Simulación 3: sin duplicados exactos",
+      "passed": true
+    },
+    {
+      "name": "Simulación 3: prioriza PAU actual",
+      "passed": true
+    },
+    {
+      "name": "Simulación 3: E1 es Matrices",
+      "passed": true
+    },
+    {
+      "name": "Simulación 3: E2 es Sistemas o Programación lineal",
+      "passed": true
+    },
+    {
+      "name": "Simulación 3: E3 es Análisis",
+      "passed": true
+    },
+    {
+      "name": "Simulación 3: E4 es Probabilidad o Estadística",
+      "passed": true
+    },
+    {
+      "name": "Simulación 4: cuatro slots completos",
+      "passed": true
+    },
+    {
+      "name": "Simulación 4: sin duplicados exactos",
+      "passed": true
+    },
+    {
+      "name": "Simulación 4: prioriza PAU actual",
+      "passed": true
+    },
+    {
+      "name": "Simulación 4: E1 es Matrices",
+      "passed": true
+    },
+    {
+      "name": "Simulación 4: E2 es Sistemas o Programación lineal",
+      "passed": true
+    },
+    {
+      "name": "Simulación 4: E3 es Análisis",
+      "passed": true
+    },
+    {
+      "name": "Simulación 4: E4 es Probabilidad o Estadística",
+      "passed": true
+    },
+    {
+      "name": "Simulación 5: cuatro slots completos",
+      "passed": true
+    },
+    {
+      "name": "Simulación 5: sin duplicados exactos",
+      "passed": true
+    },
+    {
+      "name": "Simulación 5: prioriza PAU actual",
+      "passed": true
+    },
+    {
+      "name": "Simulación 5: E1 es Matrices",
+      "passed": true
+    },
+    {
+      "name": "Simulación 5: E2 es Sistemas o Programación lineal",
+      "passed": true
+    },
+    {
+      "name": "Simulación 5: E3 es Análisis",
+      "passed": true
+    },
+    {
+      "name": "Simulación 5: E4 es Probabilidad o Estadística",
+      "passed": true
+    },
+    {
+      "name": "Simulación 6: cuatro slots completos",
+      "passed": true
+    },
+    {
+      "name": "Simulación 6: sin duplicados exactos",
+      "passed": true
+    },
+    {
+      "name": "Simulación 6: prioriza PAU actual",
+      "passed": true
+    },
+    {
+      "name": "Simulación 6: E1 es Matrices",
+      "passed": true
+    },
+    {
+      "name": "Simulación 6: E2 es Sistemas o Programación lineal",
+      "passed": true
+    },
+    {
+      "name": "Simulación 6: E3 es Análisis",
+      "passed": true
+    },
+    {
+      "name": "Simulación 6: E4 es Probabilidad o Estadística",
+      "passed": true
+    },
+    {
+      "name": "Simulación 7: cuatro slots completos",
+      "passed": true
+    },
+    {
+      "name": "Simulación 7: sin duplicados exactos",
+      "passed": true
+    },
+    {
+      "name": "Simulación 7: prioriza PAU actual",
+      "passed": true
+    },
+    {
+      "name": "Simulación 7: E1 es Matrices",
+      "passed": true
+    },
+    {
+      "name": "Simulación 7: E2 es Sistemas o Programación lineal",
+      "passed": true
+    },
+    {
+      "name": "Simulación 7: E3 es Análisis",
+      "passed": true
+    },
+    {
+      "name": "Simulación 7: E4 es Probabilidad o Estadística",
+      "passed": true
+    },
+    {
+      "name": "Simulación 8: cuatro slots completos",
+      "passed": true
+    },
+    {
+      "name": "Simulación 8: sin duplicados exactos",
+      "passed": true
+    },
+    {
+      "name": "Simulación 8: prioriza PAU actual",
+      "passed": true
+    },
+    {
+      "name": "Simulación 8: E1 es Matrices",
+      "passed": true
+    },
+    {
+      "name": "Simulación 8: E2 es Sistemas o Programación lineal",
+      "passed": true
+    },
+    {
+      "name": "Simulación 8: E3 es Análisis",
+      "passed": true
+    },
+    {
+      "name": "Simulación 8: E4 es Probabilidad o Estadística",
+      "passed": true
+    },
+    {
+      "name": "Simulación 9: cuatro slots completos",
+      "passed": true
+    },
+    {
+      "name": "Simulación 9: sin duplicados exactos",
+      "passed": true
+    },
+    {
+      "name": "Simulación 9: prioriza PAU actual",
+      "passed": true
+    },
+    {
+      "name": "Simulación 9: E1 es Matrices",
+      "passed": true
+    },
+    {
+      "name": "Simulación 9: E2 es Sistemas o Programación lineal",
+      "passed": true
+    },
+    {
+      "name": "Simulación 9: E3 es Análisis",
+      "passed": true
+    },
+    {
+      "name": "Simulación 9: E4 es Probabilidad o Estadística",
+      "passed": true
+    },
+    {
+      "name": "Simulación 10: cuatro slots completos",
+      "passed": true
+    },
+    {
+      "name": "Simulación 10: sin duplicados exactos",
+      "passed": true
+    },
+    {
+      "name": "Simulación 10: prioriza PAU actual",
+      "passed": true
+    },
+    {
+      "name": "Simulación 10: E1 es Matrices",
+      "passed": true
+    },
+    {
+      "name": "Simulación 10: E2 es Sistemas o Programación lineal",
+      "passed": true
+    },
+    {
+      "name": "Simulación 10: E3 es Análisis",
+      "passed": true
+    },
+    {
+      "name": "Simulación 10: E4 es Probabilidad o Estadística",
+      "passed": true
+    },
+    {
+      "name": "Simulación 11: cuatro slots completos",
+      "passed": true
+    },
+    {
+      "name": "Simulación 11: sin duplicados exactos",
+      "passed": true
+    },
+    {
+      "name": "Simulación 11: prioriza PAU actual",
+      "passed": true
+    },
+    {
+      "name": "Simulación 11: E1 es Matrices",
+      "passed": true
+    },
+    {
+      "name": "Simulación 11: E2 es Sistemas o Programación lineal",
+      "passed": true
+    },
+    {
+      "name": "Simulación 11: E3 es Análisis",
+      "passed": true
+    },
+    {
+      "name": "Simulación 11: E4 es Probabilidad o Estadística",
+      "passed": true
+    },
+    {
+      "name": "Simulación 12: cuatro slots completos",
+      "passed": true
+    },
+    {
+      "name": "Simulación 12: sin duplicados exactos",
+      "passed": true
+    },
+    {
+      "name": "Simulación 12: prioriza PAU actual",
+      "passed": true
+    },
+    {
+      "name": "Simulación 12: E1 es Matrices",
+      "passed": true
+    },
+    {
+      "name": "Simulación 12: E2 es Sistemas o Programación lineal",
+      "passed": true
+    },
+    {
+      "name": "Simulación 12: E3 es Análisis",
+      "passed": true
+    },
+    {
+      "name": "Simulación 12: E4 es Probabilidad o Estadística",
+      "passed": true
+    },
+    {
+      "name": "Simulación 13: cuatro slots completos",
+      "passed": true
+    },
+    {
+      "name": "Simulación 13: sin duplicados exactos",
+      "passed": true
+    },
+    {
+      "name": "Simulación 13: prioriza PAU actual",
+      "passed": true
+    },
+    {
+      "name": "Simulación 13: E1 es Matrices",
+      "passed": true
+    },
+    {
+      "name": "Simulación 13: E2 es Sistemas o Programación lineal",
+      "passed": true
+    },
+    {
+      "name": "Simulación 13: E3 es Análisis",
+      "passed": true
+    },
+    {
+      "name": "Simulación 13: E4 es Probabilidad o Estadística",
+      "passed": true
+    },
+    {
+      "name": "Simulación 14: cuatro slots completos",
+      "passed": true
+    },
+    {
+      "name": "Simulación 14: sin duplicados exactos",
+      "passed": true
+    },
+    {
+      "name": "Simulación 14: prioriza PAU actual",
+      "passed": true
+    },
+    {
+      "name": "Simulación 14: E1 es Matrices",
+      "passed": true
+    },
+    {
+      "name": "Simulación 14: E2 es Sistemas o Programación lineal",
+      "passed": true
+    },
+    {
+      "name": "Simulación 14: E3 es Análisis",
+      "passed": true
+    },
+    {
+      "name": "Simulación 14: E4 es Probabilidad o Estadística",
+      "passed": true
+    },
+    {
+      "name": "Simulación 15: cuatro slots completos",
+      "passed": true
+    },
+    {
+      "name": "Simulación 15: sin duplicados exactos",
+      "passed": true
+    },
+    {
+      "name": "Simulación 15: prioriza PAU actual",
+      "passed": true
+    },
+    {
+      "name": "Simulación 15: E1 es Matrices",
+      "passed": true
+    },
+    {
+      "name": "Simulación 15: E2 es Sistemas o Programación lineal",
+      "passed": true
+    },
+    {
+      "name": "Simulación 15: E3 es Análisis",
+      "passed": true
+    },
+    {
+      "name": "Simulación 15: E4 es Probabilidad o Estadística",
+      "passed": true
+    },
+    {
+      "name": "Simulación 16: cuatro slots completos",
+      "passed": true
+    },
+    {
+      "name": "Simulación 16: sin duplicados exactos",
+      "passed": true
+    },
+    {
+      "name": "Simulación 16: prioriza PAU actual",
+      "passed": true
+    },
+    {
+      "name": "Simulación 16: E1 es Matrices",
+      "passed": true
+    },
+    {
+      "name": "Simulación 16: E2 es Sistemas o Programación lineal",
+      "passed": true
+    },
+    {
+      "name": "Simulación 16: E3 es Análisis",
+      "passed": true
+    },
+    {
+      "name": "Simulación 16: E4 es Probabilidad o Estadística",
+      "passed": true
+    },
+    {
+      "name": "Simulación 17: cuatro slots completos",
+      "passed": true
+    },
+    {
+      "name": "Simulación 17: sin duplicados exactos",
+      "passed": true
+    },
+    {
+      "name": "Simulación 17: prioriza PAU actual",
+      "passed": true
+    },
+    {
+      "name": "Simulación 17: E1 es Matrices",
+      "passed": true
+    },
+    {
+      "name": "Simulación 17: E2 es Sistemas o Programación lineal",
+      "passed": true
+    },
+    {
+      "name": "Simulación 17: E3 es Análisis",
+      "passed": true
+    },
+    {
+      "name": "Simulación 17: E4 es Probabilidad o Estadística",
+      "passed": true
+    },
+    {
+      "name": "Simulación 18: cuatro slots completos",
+      "passed": true
+    },
+    {
+      "name": "Simulación 18: sin duplicados exactos",
+      "passed": true
+    },
+    {
+      "name": "Simulación 18: prioriza PAU actual",
+      "passed": true
+    },
+    {
+      "name": "Simulación 18: E1 es Matrices",
+      "passed": true
+    },
+    {
+      "name": "Simulación 18: E2 es Sistemas o Programación lineal",
+      "passed": true
+    },
+    {
+      "name": "Simulación 18: E3 es Análisis",
+      "passed": true
+    },
+    {
+      "name": "Simulación 18: E4 es Probabilidad o Estadística",
+      "passed": true
+    },
+    {
+      "name": "Simulación 19: cuatro slots completos",
+      "passed": true
+    },
+    {
+      "name": "Simulación 19: sin duplicados exactos",
+      "passed": true
+    },
+    {
+      "name": "Simulación 19: prioriza PAU actual",
+      "passed": true
+    },
+    {
+      "name": "Simulación 19: E1 es Matrices",
+      "passed": true
+    },
+    {
+      "name": "Simulación 19: E2 es Sistemas o Programación lineal",
+      "passed": true
+    },
+    {
+      "name": "Simulación 19: E3 es Análisis",
+      "passed": true
+    },
+    {
+      "name": "Simulación 19: E4 es Probabilidad o Estadística",
+      "passed": true
+    },
+    {
+      "name": "Simulación 20: cuatro slots completos",
+      "passed": true
+    },
+    {
+      "name": "Simulación 20: sin duplicados exactos",
+      "passed": true
+    },
+    {
+      "name": "Simulación 20: prioriza PAU actual",
+      "passed": true
+    },
+    {
+      "name": "Simulación 20: E1 es Matrices",
+      "passed": true
+    },
+    {
+      "name": "Simulación 20: E2 es Sistemas o Programación lineal",
+      "passed": true
+    },
+    {
+      "name": "Simulación 20: E3 es Análisis",
+      "passed": true
+    },
+    {
+      "name": "Simulación 20: E4 es Probabilidad o Estadística",
+      "passed": true
+    },
+    {
+      "name": "Simulación 21: cuatro slots completos",
+      "passed": true
+    },
+    {
+      "name": "Simulación 21: sin duplicados exactos",
+      "passed": true
+    },
+    {
+      "name": "Simulación 21: prioriza PAU actual",
+      "passed": true
+    },
+    {
+      "name": "Simulación 21: E1 es Matrices",
+      "passed": true
+    },
+    {
+      "name": "Simulación 21: E2 es Sistemas o Programación lineal",
+      "passed": true
+    },
+    {
+      "name": "Simulación 21: E3 es Análisis",
+      "passed": true
+    },
+    {
+      "name": "Simulación 21: E4 es Probabilidad o Estadística",
+      "passed": true
+    },
+    {
+      "name": "Simulación 22: cuatro slots completos",
+      "passed": true
+    },
+    {
+      "name": "Simulación 22: sin duplicados exactos",
+      "passed": true
+    },
+    {
+      "name": "Simulación 22: prioriza PAU actual",
+      "passed": true
+    },
+    {
+      "name": "Simulación 22: E1 es Matrices",
+      "passed": true
+    },
+    {
+      "name": "Simulación 22: E2 es Sistemas o Programación lineal",
+      "passed": true
+    },
+    {
+      "name": "Simulación 22: E3 es Análisis",
+      "passed": true
+    },
+    {
+      "name": "Simulación 22: E4 es Probabilidad o Estadística",
+      "passed": true
+    },
+    {
+      "name": "Simulación 23: cuatro slots completos",
+      "passed": true
+    },
+    {
+      "name": "Simulación 23: sin duplicados exactos",
+      "passed": true
+    },
+    {
+      "name": "Simulación 23: prioriza PAU actual",
+      "passed": true
+    },
+    {
+      "name": "Simulación 23: E1 es Matrices",
+      "passed": true
+    },
+    {
+      "name": "Simulación 23: E2 es Sistemas o Programación lineal",
+      "passed": true
+    },
+    {
+      "name": "Simulación 23: E3 es Análisis",
+      "passed": true
+    },
+    {
+      "name": "Simulación 23: E4 es Probabilidad o Estadística",
+      "passed": true
+    },
+    {
+      "name": "Simulación 24: cuatro slots completos",
+      "passed": true
+    },
+    {
+      "name": "Simulación 24: sin duplicados exactos",
+      "passed": true
+    },
+    {
+      "name": "Simulación 24: prioriza PAU actual",
+      "passed": true
+    },
+    {
+      "name": "Simulación 24: E1 es Matrices",
+      "passed": true
+    },
+    {
+      "name": "Simulación 24: E2 es Sistemas o Programación lineal",
+      "passed": true
+    },
+    {
+      "name": "Simulación 24: E3 es Análisis",
+      "passed": true
+    },
+    {
+      "name": "Simulación 24: E4 es Probabilidad o Estadística",
+      "passed": true
+    },
+    {
+      "name": "Simulación 25: cuatro slots completos",
+      "passed": true
+    },
+    {
+      "name": "Simulación 25: sin duplicados exactos",
+      "passed": true
+    },
+    {
+      "name": "Simulación 25: prioriza PAU actual",
+      "passed": true
+    },
+    {
+      "name": "Simulación 25: E1 es Matrices",
+      "passed": true
+    },
+    {
+      "name": "Simulación 25: E2 es Sistemas o Programación lineal",
+      "passed": true
+    },
+    {
+      "name": "Simulación 25: E3 es Análisis",
+      "passed": true
+    },
+    {
+      "name": "Simulación 25: E4 es Probabilidad o Estadística",
+      "passed": true
+    },
+    {
+      "name": "Simulación 26: cuatro slots completos",
+      "passed": true
+    },
+    {
+      "name": "Simulación 26: sin duplicados exactos",
+      "passed": true
+    },
+    {
+      "name": "Simulación 26: prioriza PAU actual",
+      "passed": true
+    },
+    {
+      "name": "Simulación 26: E1 es Matrices",
+      "passed": true
+    },
+    {
+      "name": "Simulación 26: E2 es Sistemas o Programación lineal",
+      "passed": true
+    },
+    {
+      "name": "Simulación 26: E3 es Análisis",
+      "passed": true
+    },
+    {
+      "name": "Simulación 26: E4 es Probabilidad o Estadística",
+      "passed": true
+    },
+    {
+      "name": "Simulación 27: cuatro slots completos",
+      "passed": true
+    },
+    {
+      "name": "Simulación 27: sin duplicados exactos",
+      "passed": true
+    },
+    {
+      "name": "Simulación 27: prioriza PAU actual",
+      "passed": true
+    },
+    {
+      "name": "Simulación 27: E1 es Matrices",
+      "passed": true
+    },
+    {
+      "name": "Simulación 27: E2 es Sistemas o Programación lineal",
+      "passed": true
+    },
+    {
+      "name": "Simulación 27: E3 es Análisis",
+      "passed": true
+    },
+    {
+      "name": "Simulación 27: E4 es Probabilidad o Estadística",
+      "passed": true
+    },
+    {
+      "name": "Simulación 28: cuatro slots completos",
+      "passed": true
+    },
+    {
+      "name": "Simulación 28: sin duplicados exactos",
+      "passed": true
+    },
+    {
+      "name": "Simulación 28: prioriza PAU actual",
+      "passed": true
+    },
+    {
+      "name": "Simulación 28: E1 es Matrices",
+      "passed": true
+    },
+    {
+      "name": "Simulación 28: E2 es Sistemas o Programación lineal",
+      "passed": true
+    },
+    {
+      "name": "Simulación 28: E3 es Análisis",
+      "passed": true
+    },
+    {
+      "name": "Simulación 28: E4 es Probabilidad o Estadística",
+      "passed": true
+    },
+    {
+      "name": "Simulación 29: cuatro slots completos",
+      "passed": true
+    },
+    {
+      "name": "Simulación 29: sin duplicados exactos",
+      "passed": true
+    },
+    {
+      "name": "Simulación 29: prioriza PAU actual",
+      "passed": true
+    },
+    {
+      "name": "Simulación 29: E1 es Matrices",
+      "passed": true
+    },
+    {
+      "name": "Simulación 29: E2 es Sistemas o Programación lineal",
+      "passed": true
+    },
+    {
+      "name": "Simulación 29: E3 es Análisis",
+      "passed": true
+    },
+    {
+      "name": "Simulación 29: E4 es Probabilidad o Estadística",
+      "passed": true
+    },
+    {
+      "name": "Simulación 30: cuatro slots completos",
+      "passed": true
+    },
+    {
+      "name": "Simulación 30: sin duplicados exactos",
+      "passed": true
+    },
+    {
+      "name": "Simulación 30: prioriza PAU actual",
+      "passed": true
+    },
+    {
+      "name": "Simulación 30: E1 es Matrices",
+      "passed": true
+    },
+    {
+      "name": "Simulación 30: E2 es Sistemas o Programación lineal",
+      "passed": true
+    },
+    {
+      "name": "Simulación 30: E3 es Análisis",
+      "passed": true
+    },
+    {
+      "name": "Simulación 30: E4 es Probabilidad o Estadística",
+      "passed": true
+    },
+    {
+      "name": "Simulación 31: cuatro slots completos",
+      "passed": true
+    },
+    {
+      "name": "Simulación 31: sin duplicados exactos",
+      "passed": true
+    },
+    {
+      "name": "Simulación 31: prioriza PAU actual",
+      "passed": true
+    },
+    {
+      "name": "Simulación 31: E1 es Matrices",
+      "passed": true
+    },
+    {
+      "name": "Simulación 31: E2 es Sistemas o Programación lineal",
+      "passed": true
+    },
+    {
+      "name": "Simulación 31: E3 es Análisis",
+      "passed": true
+    },
+    {
+      "name": "Simulación 31: E4 es Probabilidad o Estadística",
+      "passed": true
+    },
+    {
+      "name": "Simulación 32: cuatro slots completos",
+      "passed": true
+    },
+    {
+      "name": "Simulación 32: sin duplicados exactos",
+      "passed": true
+    },
+    {
+      "name": "Simulación 32: prioriza PAU actual",
+      "passed": true
+    },
+    {
+      "name": "Simulación 32: E1 es Matrices",
+      "passed": true
+    },
+    {
+      "name": "Simulación 32: E2 es Sistemas o Programación lineal",
+      "passed": true
+    },
+    {
+      "name": "Simulación 32: E3 es Análisis",
+      "passed": true
+    },
+    {
+      "name": "Simulación 32: E4 es Probabilidad o Estadística",
+      "passed": true
+    },
+    {
+      "name": "Simulación 33: cuatro slots completos",
+      "passed": true
+    },
+    {
+      "name": "Simulación 33: sin duplicados exactos",
+      "passed": true
+    },
+    {
+      "name": "Simulación 33: prioriza PAU actual",
+      "passed": true
+    },
+    {
+      "name": "Simulación 33: E1 es Matrices",
+      "passed": true
+    },
+    {
+      "name": "Simulación 33: E2 es Sistemas o Programación lineal",
+      "passed": true
+    },
+    {
+      "name": "Simulación 33: E3 es Análisis",
+      "passed": true
+    },
+    {
+      "name": "Simulación 33: E4 es Probabilidad o Estadística",
+      "passed": true
+    },
+    {
+      "name": "Simulación 34: cuatro slots completos",
+      "passed": true
+    },
+    {
+      "name": "Simulación 34: sin duplicados exactos",
+      "passed": true
+    },
+    {
+      "name": "Simulación 34: prioriza PAU actual",
+      "passed": true
+    },
+    {
+      "name": "Simulación 34: E1 es Matrices",
+      "passed": true
+    },
+    {
+      "name": "Simulación 34: E2 es Sistemas o Programación lineal",
+      "passed": true
+    },
+    {
+      "name": "Simulación 34: E3 es Análisis",
+      "passed": true
+    },
+    {
+      "name": "Simulación 34: E4 es Probabilidad o Estadística",
+      "passed": true
+    },
+    {
+      "name": "Simulación 35: cuatro slots completos",
+      "passed": true
+    },
+    {
+      "name": "Simulación 35: sin duplicados exactos",
+      "passed": true
+    },
+    {
+      "name": "Simulación 35: prioriza PAU actual",
+      "passed": true
+    },
+    {
+      "name": "Simulación 35: E1 es Matrices",
+      "passed": true
+    },
+    {
+      "name": "Simulación 35: E2 es Sistemas o Programación lineal",
+      "passed": true
+    },
+    {
+      "name": "Simulación 35: E3 es Análisis",
+      "passed": true
+    },
+    {
+      "name": "Simulación 35: E4 es Probabilidad o Estadística",
+      "passed": true
+    },
+    {
+      "name": "Simulación 36: cuatro slots completos",
+      "passed": true
+    },
+    {
+      "name": "Simulación 36: sin duplicados exactos",
+      "passed": true
+    },
+    {
+      "name": "Simulación 36: prioriza PAU actual",
+      "passed": true
+    },
+    {
+      "name": "Simulación 36: E1 es Matrices",
+      "passed": true
+    },
+    {
+      "name": "Simulación 36: E2 es Sistemas o Programación lineal",
+      "passed": true
+    },
+    {
+      "name": "Simulación 36: E3 es Análisis",
+      "passed": true
+    },
+    {
+      "name": "Simulación 36: E4 es Probabilidad o Estadística",
+      "passed": true
+    },
+    {
+      "name": "Simulación 37: cuatro slots completos",
+      "passed": true
+    },
+    {
+      "name": "Simulación 37: sin duplicados exactos",
+      "passed": true
+    },
+    {
+      "name": "Simulación 37: prioriza PAU actual",
+      "passed": true
+    },
+    {
+      "name": "Simulación 37: E1 es Matrices",
+      "passed": true
+    },
+    {
+      "name": "Simulación 37: E2 es Sistemas o Programación lineal",
+      "passed": true
+    },
+    {
+      "name": "Simulación 37: E3 es Análisis",
+      "passed": true
+    },
+    {
+      "name": "Simulación 37: E4 es Probabilidad o Estadística",
+      "passed": true
+    },
+    {
+      "name": "Simulación 38: cuatro slots completos",
+      "passed": true
+    },
+    {
+      "name": "Simulación 38: sin duplicados exactos",
+      "passed": true
+    },
+    {
+      "name": "Simulación 38: prioriza PAU actual",
+      "passed": true
+    },
+    {
+      "name": "Simulación 38: E1 es Matrices",
+      "passed": true
+    },
+    {
+      "name": "Simulación 38: E2 es Sistemas o Programación lineal",
+      "passed": true
+    },
+    {
+      "name": "Simulación 38: E3 es Análisis",
+      "passed": true
+    },
+    {
+      "name": "Simulación 38: E4 es Probabilidad o Estadística",
+      "passed": true
+    },
+    {
+      "name": "Simulación 39: cuatro slots completos",
+      "passed": true
+    },
+    {
+      "name": "Simulación 39: sin duplicados exactos",
+      "passed": true
+    },
+    {
+      "name": "Simulación 39: prioriza PAU actual",
+      "passed": true
+    },
+    {
+      "name": "Simulación 39: E1 es Matrices",
+      "passed": true
+    },
+    {
+      "name": "Simulación 39: E2 es Sistemas o Programación lineal",
+      "passed": true
+    },
+    {
+      "name": "Simulación 39: E3 es Análisis",
+      "passed": true
+    },
+    {
+      "name": "Simulación 39: E4 es Probabilidad o Estadística",
+      "passed": true
+    },
+    {
+      "name": "Simulación 40: cuatro slots completos",
+      "passed": true
+    },
+    {
+      "name": "Simulación 40: sin duplicados exactos",
+      "passed": true
+    },
+    {
+      "name": "Simulación 40: prioriza PAU actual",
+      "passed": true
+    },
+    {
+      "name": "Simulación 40: E1 es Matrices",
+      "passed": true
+    },
+    {
+      "name": "Simulación 40: E2 es Sistemas o Programación lineal",
+      "passed": true
+    },
+    {
+      "name": "Simulación 40: E3 es Análisis",
+      "passed": true
+    },
+    {
+      "name": "Simulación 40: E4 es Probabilidad o Estadística",
+      "passed": true
+    },
+    {
+      "name": "Simulación 41: cuatro slots completos",
+      "passed": true
+    },
+    {
+      "name": "Simulación 41: sin duplicados exactos",
+      "passed": true
+    },
+    {
+      "name": "Simulación 41: prioriza PAU actual",
+      "passed": true
+    },
+    {
+      "name": "Simulación 41: E1 es Matrices",
+      "passed": true
+    },
+    {
+      "name": "Simulación 41: E2 es Sistemas o Programación lineal",
+      "passed": true
+    },
+    {
+      "name": "Simulación 41: E3 es Análisis",
+      "passed": true
+    },
+    {
+      "name": "Simulación 41: E4 es Probabilidad o Estadística",
+      "passed": true
+    },
+    {
+      "name": "Simulación 42: cuatro slots completos",
+      "passed": true
+    },
+    {
+      "name": "Simulación 42: sin duplicados exactos",
+      "passed": true
+    },
+    {
+      "name": "Simulación 42: prioriza PAU actual",
+      "passed": true
+    },
+    {
+      "name": "Simulación 42: E1 es Matrices",
+      "passed": true
+    },
+    {
+      "name": "Simulación 42: E2 es Sistemas o Programación lineal",
+      "passed": true
+    },
+    {
+      "name": "Simulación 42: E3 es Análisis",
+      "passed": true
+    },
+    {
+      "name": "Simulación 42: E4 es Probabilidad o Estadística",
+      "passed": true
+    },
+    {
+      "name": "Simulación 43: cuatro slots completos",
+      "passed": true
+    },
+    {
+      "name": "Simulación 43: sin duplicados exactos",
+      "passed": true
+    },
+    {
+      "name": "Simulación 43: prioriza PAU actual",
+      "passed": true
+    },
+    {
+      "name": "Simulación 43: E1 es Matrices",
+      "passed": true
+    },
+    {
+      "name": "Simulación 43: E2 es Sistemas o Programación lineal",
+      "passed": true
+    },
+    {
+      "name": "Simulación 43: E3 es Análisis",
+      "passed": true
+    },
+    {
+      "name": "Simulación 43: E4 es Probabilidad o Estadística",
+      "passed": true
+    },
+    {
+      "name": "Simulación 44: cuatro slots completos",
+      "passed": true
+    },
+    {
+      "name": "Simulación 44: sin duplicados exactos",
+      "passed": true
+    },
+    {
+      "name": "Simulación 44: prioriza PAU actual",
+      "passed": true
+    },
+    {
+      "name": "Simulación 44: E1 es Matrices",
+      "passed": true
+    },
+    {
+      "name": "Simulación 44: E2 es Sistemas o Programación lineal",
+      "passed": true
+    },
+    {
+      "name": "Simulación 44: E3 es Análisis",
+      "passed": true
+    },
+    {
+      "name": "Simulación 44: E4 es Probabilidad o Estadística",
+      "passed": true
+    },
+    {
+      "name": "Simulación 45: cuatro slots completos",
+      "passed": true
+    },
+    {
+      "name": "Simulación 45: sin duplicados exactos",
+      "passed": true
+    },
+    {
+      "name": "Simulación 45: prioriza PAU actual",
+      "passed": true
+    },
+    {
+      "name": "Simulación 45: E1 es Matrices",
+      "passed": true
+    },
+    {
+      "name": "Simulación 45: E2 es Sistemas o Programación lineal",
+      "passed": true
+    },
+    {
+      "name": "Simulación 45: E3 es Análisis",
+      "passed": true
+    },
+    {
+      "name": "Simulación 45: E4 es Probabilidad o Estadística",
+      "passed": true
+    },
+    {
+      "name": "Simulación 46: cuatro slots completos",
+      "passed": true
+    },
+    {
+      "name": "Simulación 46: sin duplicados exactos",
+      "passed": true
+    },
+    {
+      "name": "Simulación 46: prioriza PAU actual",
+      "passed": true
+    },
+    {
+      "name": "Simulación 46: E1 es Matrices",
+      "passed": true
+    },
+    {
+      "name": "Simulación 46: E2 es Sistemas o Programación lineal",
+      "passed": true
+    },
+    {
+      "name": "Simulación 46: E3 es Análisis",
+      "passed": true
+    },
+    {
+      "name": "Simulación 46: E4 es Probabilidad o Estadística",
+      "passed": true
+    },
+    {
+      "name": "Simulación 47: cuatro slots completos",
+      "passed": true
+    },
+    {
+      "name": "Simulación 47: sin duplicados exactos",
+      "passed": true
+    },
+    {
+      "name": "Simulación 47: prioriza PAU actual",
+      "passed": true
+    },
+    {
+      "name": "Simulación 47: E1 es Matrices",
+      "passed": true
+    },
+    {
+      "name": "Simulación 47: E2 es Sistemas o Programación lineal",
+      "passed": true
+    },
+    {
+      "name": "Simulación 47: E3 es Análisis",
+      "passed": true
+    },
+    {
+      "name": "Simulación 47: E4 es Probabilidad o Estadística",
+      "passed": true
+    },
+    {
+      "name": "Simulación 48: cuatro slots completos",
+      "passed": true
+    },
+    {
+      "name": "Simulación 48: sin duplicados exactos",
+      "passed": true
+    },
+    {
+      "name": "Simulación 48: prioriza PAU actual",
+      "passed": true
+    },
+    {
+      "name": "Simulación 48: E1 es Matrices",
+      "passed": true
+    },
+    {
+      "name": "Simulación 48: E2 es Sistemas o Programación lineal",
+      "passed": true
+    },
+    {
+      "name": "Simulación 48: E3 es Análisis",
+      "passed": true
+    },
+    {
+      "name": "Simulación 48: E4 es Probabilidad o Estadística",
+      "passed": true
+    },
+    {
+      "name": "Simulación 49: cuatro slots completos",
+      "passed": true
+    },
+    {
+      "name": "Simulación 49: sin duplicados exactos",
+      "passed": true
+    },
+    {
+      "name": "Simulación 49: prioriza PAU actual",
+      "passed": true
+    },
+    {
+      "name": "Simulación 49: E1 es Matrices",
+      "passed": true
+    },
+    {
+      "name": "Simulación 49: E2 es Sistemas o Programación lineal",
+      "passed": true
+    },
+    {
+      "name": "Simulación 49: E3 es Análisis",
+      "passed": true
+    },
+    {
+      "name": "Simulación 49: E4 es Probabilidad o Estadística",
+      "passed": true
+    },
+    {
+      "name": "Simulación 50: cuatro slots completos",
+      "passed": true
+    },
+    {
+      "name": "Simulación 50: sin duplicados exactos",
+      "passed": true
+    },
+    {
+      "name": "Simulación 50: prioriza PAU actual",
+      "passed": true
+    },
+    {
+      "name": "Simulación 50: E1 es Matrices",
+      "passed": true
+    },
+    {
+      "name": "Simulación 50: E2 es Sistemas o Programación lineal",
+      "passed": true
+    },
+    {
+      "name": "Simulación 50: E3 es Análisis",
+      "passed": true
+    },
+    {
+      "name": "Simulación 50: E4 es Probabilidad o Estadística",
+      "passed": true
+    },
+    {
+      "name": "50 simulaciones: Slot 2 alterna Sistemas y Programación lineal",
+      "passed": true
+    },
+    {
+      "name": "50 simulaciones: Slot 4 alterna Probabilidad y Estadística",
+      "passed": true
+    }
+  ],
+  "failures": [],
+  "passed": true
+}

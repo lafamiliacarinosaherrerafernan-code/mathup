@@ -55,6 +55,15 @@
     ]
   };
 
+  Object.entries(banks).forEach(([key, items]) => {
+    if (!key.startsWith("3eso::")) return;
+    const slug = key.split("::")[1].normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+    items.forEach((item, index) => {
+      item.originalRawBaseId = item.rawBaseId;
+      const stableSuffix = item.originalRawBaseId.match(/([a-f0-9]{12}(?:-[a-z0-9]+)?)$/)?.[1] || String(index + 1).padStart(3, "0");
+      item.rawBaseId = `3eso-${slug}-${stableSuffix}`;
+    });
+  });
   const previous = window.MargaritaEsoExamVerified;
   const normalize = (value) => String(value || "").normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().trim();
   window.MargaritaEsoExamVerified = { build(courseId, theme) { return [...(previous?.build?.(courseId, theme) || []), ...(banks[`${courseId}::${normalize(theme)}`] || []).map((item) => ({ ...item }))]; }, count: (previous?.count || 0) + Object.values(banks).reduce((sum, items) => sum + items.length, 0) };

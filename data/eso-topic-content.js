@@ -614,3 +614,102 @@ window.ESO_TOPIC_CONTENT["4eso-a-8"] = {
     "También se trabajan la tasa de variación, las operaciones con funciones, la composición y la función inversa."
   ].map((line) => `- ${line}`).join("\n")
 };
+
+// P0 ESO: catálogo semántico estable.
+//
+// ESO_TOPIC_CONTENT conserva debajo el inventario histórico extraído de los
+// libros. La aplicación no debe volver a consultarlo por posición: los libros
+// tenían otra cantidad y otro orden de unidades. Esta capa reutiliza únicamente
+// resúmenes cuya identidad matemática coincide con el catálogo actual. Cuando
+// no existe una correspondencia inequívoca se deja el resumen pendiente, en
+// lugar de mostrar el capítulo antiguo que ocupaba casualmente el mismo índice.
+(function buildSemanticEsoTopicContent() {
+  const legacy = window.ESO_TOPIC_CONTENT || {};
+  // Fuentes propias del catálogo actual de 3.º ESO. Se añaden por identidad
+  // matemática, no por la antigua posición de los capítulos del libro.
+  legacy["3eso-sucesiones-original"] = {
+    courseId: "3eso",
+    title: "Sucesiones",
+    pdfPath: "documentos/3º ESO/Temas mios/6-Sucesiones Teoria.pdf",
+    sourcePages: "documento completo",
+    summary: "- Concepto y formas de definir una sucesión.\n- Recurrencia y término general.\n- Crecimiento, decrecimiento, acotación y convergencia conceptual.\n- Progresiones aritméticas y geométricas.\n- Término general y suma de términos.\n- Suma infinita geométrica cuando |r|<1."
+  };
+  legacy["3eso-cuerpos-original"] = {
+    courseId: "3eso",
+    title: "Cuerpos geométricos",
+    pdfPath: "documentos/3º ESO/Temas mios/7-Cuerpos geométricos Teoria.pdf",
+    sourcePages: "documento completo",
+    summary: "- Poliedros, elementos y relación de Euler.\n- Prismas y pirámides.\n- Cuerpos redondos.\n- Áreas y volúmenes.\n- Desarrollos planos y problemas geométricos."
+  };
+  legacy["3eso-probabilidad-original"] = {
+    courseId: "3eso",
+    title: "Probabilidad",
+    pdfPath: "documentos/3º ESO/Temas mios/10-Probabilidad Teoria.pdf",
+    sourcePages: "documento completo",
+    summary: "- Experimentos aleatorios y espacio muestral.\n- Sucesos elementales, compuestos, seguros, imposibles y contrarios.\n- Operaciones con sucesos.\n- Técnicas de recuento y diagramas de árbol.\n- Regla de Laplace.\n- Probabilidad compuesta y extracciones con o sin reemplazamiento."
+  };
+  const topicIds = {
+    "1eso": [
+      "numeros-naturales", "numeros-enteros", "potencias-raices-cuadradas",
+      "fracciones-decimales", "expresiones-algebraicas", "proporcionalidad",
+      "medida-angulos-rectas-circunferencias", "semejanza-pitagoras-areas",
+      "cuerpos-geometricos", "funciones"
+    ],
+    "2eso": [
+      "numeros-enteros", "potencias-raices-cuadradas", "fracciones",
+      "proporcionalidad", "expresiones-algebraicas", "sistemas-ecuaciones",
+      "figuras-planas", "cuerpos-geometricos", "funciones"
+    ],
+    "3eso": [
+      "numeros-reales", "potencias-raices", "expresiones-algebraicas",
+      "ecuaciones-sistemas", "proporcionalidad", "sucesiones",
+      "cuerpos-geometricos", "funciones", "estadistica", "probabilidad"
+    ],
+    "4eso-a": [
+      "numeros-reales", "radicales", "proporcionalidad", "expresiones-algebraicas",
+      "ecuaciones-inecuaciones", "sistemas-ecuaciones-inecuaciones",
+      "semejanza-trigonometria", "areas-cuerpos-geometricos", "funciones"
+    ],
+    "4eso-b": [
+      "numeros-reales", "radicales-logaritmos", "expresiones-algebraicas",
+      "ecuaciones-sistemas", "inecuaciones-sistemas", "proporcionalidad",
+      "semejanza", "trigonometria", "geometria-analitica", "funciones",
+      "limite-funciones", "derivadas", "limite-sucesiones", "combinatoria"
+    ]
+  };
+  const titles = {
+    "1eso": ["Números naturales", "Números enteros", "Potencias y raíces cuadradas", "Fracciones y números decimales", "Expresiones algebraicas", "Proporcionalidad", "Medida, ángulos, rectas y circunferencias", "Semejanza, Pitágoras y áreas", "Cuerpos geométricos", "Funciones"],
+    "2eso": ["Números enteros", "Potencias y raíces cuadradas", "Fracciones", "Proporcionalidad", "Expresiones algebraicas", "Sistemas de ecuaciones", "Figuras planas", "Cuerpos geométricos", "Funciones"],
+    "3eso": ["Números reales", "Potencias y raíces", "Expresiones algebraicas", "Ecuaciones y sistemas de ecuaciones", "Proporcionalidad", "Sucesiones", "Cuerpos geométricos", "Funciones", "Estadística", "Probabilidad"],
+    "4eso-a": ["Números reales", "Radicales", "Proporcionalidad", "Expresiones algebraicas", "Ecuaciones e inecuaciones", "Sistemas de ecuaciones e inecuaciones", "Semejanza y trigonometría", "Áreas y cuerpos geométricos", "Funciones"],
+    "4eso-b": ["Números reales", "Radicales y logaritmos", "Expresiones algebraicas", "Ecuaciones y sistemas de ecuaciones", "Inecuaciones y sistemas de inecuaciones", "Proporcionalidad", "Semejanza", "Trigonometría", "Geometría analítica", "Funciones", "Límite de funciones", "Derivadas", "Límite de sucesiones", "Combinatoria"]
+  };
+  const sources = {
+    "1eso": [["1eso-0", "1eso-1"], ["1eso-2"], [], ["1eso-3", "1eso-4"], ["1eso-6"], ["1eso-5"], ["1eso-7", "1eso-8"], [], ["1eso-9"], []],
+    "2eso": [[], ["2eso-0"], ["2eso-1"], ["2eso-2"], ["2eso-3"], ["2eso-4", "2eso-5"], ["2eso-7"], ["2eso-8"], ["2eso-6"]],
+    "3eso": [["3eso-0"], ["3eso-1"], ["3eso-2"], ["3eso-3"], ["3eso-4"], ["3eso-sucesiones-original"], ["3eso-7", "3eso-cuerpos-original"], ["3eso-5", "3eso-6"], ["3eso-9"], ["3eso-probabilidad-original"]],
+    "4eso-a": [["4eso-a-0", "4eso-a-1"], ["4eso-a-1"], ["4eso-a-2"], ["4eso-a-3"], ["4eso-a-4"], [], ["4eso-a-9"], [], ["4eso-a-5"]],
+    "4eso-b": [["4eso-b-0"], ["4eso-b-1"], ["4eso-b-2"], ["4eso-b-3", "4eso-b-4"], ["4eso-b-3"], [], ["4eso-b-6"], ["4eso-b-5"], [], ["4eso-b-7"], [], [], [], []]
+  };
+
+  const semantic = {};
+  Object.entries(topicIds).forEach(([courseId, ids]) => {
+    ids.forEach((topicId, topicIndex) => {
+      const sourceKeys = sources[courseId][topicIndex] || [];
+      const sourceItems = sourceKeys.map((key) => legacy[key]).filter(Boolean);
+      semantic[`${courseId}:${topicId}`] = {
+        courseId,
+        topicId: `${courseId}:${topicId}`,
+        topicIndex,
+        title: titles[courseId][topicIndex],
+        summary: sourceItems.map((item) => item.summary).filter(Boolean).join("\n"),
+        summaryStatus: sourceItems.length ? "verified-semantic-reuse" : "pending-review",
+        contentSourceKeys: sourceKeys,
+        sourcePages: sourceItems.map((item) => item.sourcePages).filter(Boolean).join(", ")
+      };
+    });
+  });
+
+  window.ESO_TOPIC_IDS = topicIds;
+  window.ESO_TOPIC_CONTENT_BY_ID = semantic;
+})();

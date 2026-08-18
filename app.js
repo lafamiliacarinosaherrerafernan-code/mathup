@@ -316,18 +316,20 @@ const courses = [
     id: "1bach-ccss",
     name: "1º Bachillerato CCSS I",
     label: "Matematicas aplicadas CCSS I",
-    folder: "C:/Users/aherr/OneDrive/Escritorio/1º BACHILLERATO CCSSI",
+    folder: "documentos/1º BACHILLERATO CCSSI",
     resources: [
-      "C:/Users/aherr/OneDrive/Escritorio/1º BACHILLERATO CCSSI/1-Estadística Unidimensional y Bidimensional.doc",
-      "C:/Users/aherr/OneDrive/Escritorio/1º BACHILLERATO CCSSI/2-Probabilidad.doc",
-      "C:/Users/aherr/OneDrive/Escritorio/1º BACHILLERATO CCSSI/3-Distribución de probabilidad. Distribución Binomial.doc",
-      "C:/Users/aherr/OneDrive/Escritorio/1º BACHILLERATO CCSSI/4-Distribuciones continuas. Distribuición normal.doc",
-      "C:/Users/aherr/OneDrive/Escritorio/1º BACHILLERATO CCSSI/5-Nº Reales.doc",
-      "C:/Users/aherr/OneDrive/Escritorio/1º BACHILLERATO CCSSI/6-Nº Complejos.doc",
-      "C:/Users/aherr/OneDrive/Escritorio/1º BACHILLERATO CCSSI/7- Ecuaciones y Sistemas.doc",
-      "C:/Users/aherr/OneDrive/Escritorio/1º BACHILLERATO CCSSI/8- Inecuaciones y Sistemas.doc",
-      "C:/Users/aherr/OneDrive/Escritorio/1º BACHILLERATO CCSSI/9- Funciones.doc",
-      "C:/Users/aherr/OneDrive/Escritorio/1º BACHILLERATO CCSSI/Combinatoria.doc"
+      "documentos/1º BACHILLERATO CCSSI/1-Estadística Unidimensional y Bidimensional Teoria.pdf",
+      "documentos/1º BACHILLERATO CCSSI/2-Probabilidad teoria.pdf",
+      "documentos/1º BACHILLERATO CCSSI/3-Distribución de probabilidad. Distribución Binomial teoria.pdf",
+      "documentos/1º BACHILLERATO CCSSI/4-Distribuciones continuas. Distribuición normal teoria.pdf",
+      "documentos/1º BACHILLERATO CCSSI/5-Nº Reales teoria.pdf",
+      "documentos/1º BACHILLERATO CCSSI/6-Nº Complejos teoria.pdf",
+      "documentos/1º BACHILLERATO CCSSI/7- Ecuaciones y Sistemas teoria.pdf",
+      "documentos/1º BACHILLERATO CCSSI/8- Inecuaciones y Sistemas teoria.pdf",
+      "documentos/1º BACHILLERATO CCSSI/9- Funciones teoria.pdf",
+      "documentos/1º BACHILLERATO CCSSI/10-Derivadas.pdf",
+      "documentos/1º BACHILLERATO CCSSI/11-Aplicación de Derivadas.pdf",
+      "documentos/1º BACHILLERATO CCSSI/12-Combinatoria Teoria.pdf"
     ],
     themes: [
       "Estadistica unidimensional y bidimensional",
@@ -339,6 +341,8 @@ const courses = [
       "Ecuaciones y sistemas",
       "Inecuaciones y sistemas",
       "Funciones",
+      "Derivadas",
+      "Aplicacion de derivadas",
       "Combinatoria"
     ]
   },
@@ -378,19 +382,19 @@ const courses = [
     id: "2bach-ccss",
     name: "2º Bachillerato CCSS II",
     label: "Matematicas aplicadas CCSS II",
-    folder: "C:/Users/aherr/OneDrive/Escritorio/2º Bachillerato CCSS II",
+    folder: "documentos/2º Bachillerato CCSS II",
     resources: [
-      "C:/Users/aherr/OneDrive/Escritorio/2º Bachillerato CCSS II/1-Matrices.doc",
-      "C:/Users/aherr/OneDrive/Escritorio/2º Bachillerato CCSS II/2-Determinantes.doc",
-      "C:/Users/aherr/OneDrive/Escritorio/2º Bachillerato CCSS II/3- Resolución de sistemas mediante determinantes.doc",
-      "C:/Users/aherr/OneDrive/Escritorio/2º Bachillerato CCSS II/4-Programación lineal.doc",
-      "C:/Users/aherr/OneDrive/Escritorio/2º Bachillerato CCSS II/5-Límite de Funciones. Continuidad.doc",
-      "C:/Users/aherr/OneDrive/Escritorio/2º Bachillerato CCSS II/6-Derivadas y Aplicación de Derivadas.doc",
-      "C:/Users/aherr/OneDrive/Escritorio/2º Bachillerato CCSS II/7-Integrales indefinidas.doc",
-      "C:/Users/aherr/OneDrive/Escritorio/2º Bachillerato CCSS II/8-Integrales definidas.doc",
-      "C:/Users/aherr/OneDrive/Escritorio/2º Bachillerato CCSS II/9-Probabilidad.doc",
-      "C:/Users/aherr/OneDrive/Escritorio/2º Bachillerato CCSS II/10-Distribución de probabilidad. Distribución Binomial. Continuas.doc",
-      "C:/Users/aherr/OneDrive/Escritorio/2º Bachillerato CCSS II/11- Muestreo e indiferencia estadística.docx"
+      "book-resources/theory-pdfs/2bach-ccss/Tema 1.pdf",
+      "book-resources/theory-pdfs/2bach-ccss/Tema 2.pdf",
+      "book-resources/theory-pdfs/2bach-ccss/Tema 3.pdf",
+      "book-resources/theory-pdfs/2bach-ccss/Tema 4.pdf",
+      "book-resources/theory-pdfs/2bach-ccss/Tema 5.pdf",
+      "book-resources/theory-pdfs/2bach-ccss/Tema 6.pdf",
+      "book-resources/theory-pdfs/2bach-ccss/Tema 7.pdf",
+      "book-resources/theory-pdfs/2bach-ccss/Tema 8.pdf",
+      "book-resources/theory-pdfs/2bach-ccss/Tema 9.pdf",
+      "book-resources/theory-pdfs/2bach-ccss/Tema 10.pdf",
+      "book-resources/theory-pdfs/2bach-ccss/Tema 11.pdf"
     ],
     themes: [
       "Matrices",
@@ -708,12 +712,18 @@ function topicKey(course, topicIndex = state.topicIndex) {
   return `${course.id}-${topicIndex}`;
 }
 
+function semanticTopicId(course, topicIndex = state.topicIndex) {
+  const esoId = window.ESO_TOPIC_IDS?.[course?.id]?.[topicIndex];
+  return esoId ? `${course.id}:${esoId}` : `${course?.id || ""}:topic-${topicIndex}`;
+}
+
 function bookExplanationFor(course, topicIndex = state.topicIndex) {
   return window.TOPIC_BOOK_EXPLANATIONS?.[topicKey(course, topicIndex)] || "";
 }
 
 function esoTopicInfo(course, topicIndex = state.topicIndex) {
-  return window.ESO_TOPIC_CONTENT?.[topicKey(course, topicIndex)] || null;
+  if (!isEsoCourse(course)) return null;
+  return window.ESO_TOPIC_CONTENT_BY_ID?.[semanticTopicId(course, topicIndex)] || null;
 }
 
 function isEsoCourse(course) {
@@ -832,7 +842,9 @@ const bachInfographics = {
     "Infografías 1º Bachillerato CCSSI/7-Ecuaciones y sistemas - Infografía.pdf",
     "Infografías 1º Bachillerato CCSSI/8-Inecuaciones y sistemas - Infografía.pdf",
     "Infografías 1º Bachillerato CCSSI/9-Funciones - Infografía.pdf",
-    "Infografías 1º Bachillerato CCSSI/10-Combinatoria - Infografía.pdf"
+    "Infografías 1º Bachillerato CCSSI/10-Derivadas - Infografía.pdf",
+    "Infografías 1º Bachillerato CCSSI/11-Aplicación de derivadas - Infografía.pdf",
+    "Infografías 1º Bachillerato CCSSI/12-Combinatoria - Infografía.pdf"
   ],
   "2bach-mates": [
     "Infografías 2º Bachillerato Mates II/1-Matrices - Infografía.pdf",
@@ -891,6 +903,9 @@ function infographicViewerUrl(course, topicIndex = state.topicIndex) {
 }
 
 function localPdfFor(course, topicIndex = state.topicIndex) {
+  if (course?.id === "1bach-ccss") {
+    return course.resources?.[topicIndex] || bachInfographicFor(course, topicIndex);
+  }
   if (course?.id?.includes("bach")) {
     return `book-resources/theory-pdfs/${course.id}/Tema ${topicIndex + 1}.pdf`;
   }
@@ -1398,6 +1413,35 @@ function formatMathText(value) {
     rendered.push(formatMathFragment(line));
   }
   return rendered.join("<br>");
+}
+
+const mathNotationRenderer = window.MargaritaMathRenderer;
+if (!mathNotationRenderer) {
+  throw new Error("No se ha cargado el renderizador matemático común de Margarita Salas.");
+}
+
+normalizeMathNotation = function normalizeMathNotationWithCommonRenderer(value, options = {}) {
+  return mathNotationRenderer.normalize(value, options);
+};
+
+formatMathFragment = function formatMathFragmentWithCommonRenderer(value, options = {}) {
+  return mathNotationRenderer.fragment(value, options);
+};
+
+formatMathText = function formatMathTextWithCommonRenderer(value, options = {}) {
+  return mathNotationRenderer.text(value, options);
+};
+
+renderMatrixMarkup = function renderMatrixMarkupWithCommonRenderer(content, determinant = false, options = {}) {
+  return mathNotationRenderer.matrix(content, determinant, options);
+};
+
+renderSystemMarkup = function renderSystemMarkupWithCommonRenderer(equations, options = {}) {
+  return mathNotationRenderer.system(equations, options);
+};
+
+function formatMathHtml(value, options = {}) {
+  return mathNotationRenderer.html(value, options);
 }
 
 function renderPlaneReflectionDiagram({ plane, pointA, pointQ, pointAprime }) {
@@ -1986,9 +2030,13 @@ function fitStudentScreen() {
   if (!shell || !viewport || !stage) return;
 
   stage.style.width = "100%";
+  if (window.innerWidth < 821 || window.innerHeight < 501) {
+    stage.style.transform = "none";
+    viewport.style.overflowY = "visible";
+    return;
+  }
   stage.style.transform = "translateX(-50%) scale(1)";
   viewport.style.overflowY = "hidden";
-  if (window.innerWidth < 821 || window.innerHeight < 501) return;
 
   if (shell.classList.contains("shell-scroll-if-needed")) {
     viewport.style.overflowY = stage.scrollHeight > viewport.clientHeight ? "auto" : "hidden";
@@ -2221,7 +2269,23 @@ function adminLogin() {
 
 function readGameProgressStore() {
   try {
-    return JSON.parse(localStorage.getItem(GAME_PROGRESS_KEY) || "{}");
+    const store = JSON.parse(localStorage.getItem(GAME_PROGRESS_KEY) || "{}");
+    const migration = window.MargaritaCcssIProgressMigration;
+    if (!migration?.migrateStore) return store;
+    const readStoredJson = (key, fallback) => {
+      try {
+        return JSON.parse(localStorage.getItem(key) || JSON.stringify(fallback));
+      } catch (_) {
+        return fallback;
+      }
+    };
+    const result = migration.migrateStore(store, {
+      challengeHistory: readStoredJson("margarita-challenge-answer-history-v2", {}),
+      coachStore: readStoredJson("margaritaSalasCoachV1", {}),
+      reports: readStoredJson(REPORT_KEY, [])
+    });
+    if (result.changed) localStorage.setItem(GAME_PROGRESS_KEY, JSON.stringify(result.store));
+    return result.store;
   } catch {
     return {};
   }
@@ -2233,6 +2297,9 @@ function saveGameProgressStore(store) {
 
 function defaultGameProgress() {
   return {
+    ...(state.courseId === "1bach-ccss"
+      ? { ccssITopicSchemaVersion: window.MargaritaCcssIProgressMigration?.TOPIC_SCHEMA_VERSION || 2 }
+      : {}),
     unlockedTopics: [0],
     completedTopics: [],
     defeatedBosses: [],
@@ -3281,9 +3348,17 @@ function startAdventureChallenge(topicIndex, mode, difficulty = "medium") {
   };
   state.topicIndex = topicIndex;
   state.practiceRound += mode === "boss" ? 2 : difficultyRound;
-  state.adventure.questions = mode === "train"
-    ? buildAdventureTrainingQuestions(theme, course, trainingDifficulty, state.practiceRound)
-    : buildQuestions(theme, course);
+  if (mode === "train") {
+    state.adventure.questions = buildAdventureTrainingQuestions(theme, course, trainingDifficulty, state.practiceRound);
+  } else {
+    const previousSelectionContext = state.exerciseSelectionContext;
+    state.exerciseSelectionContext = "boss";
+    try {
+      state.adventure.questions = buildQuestions(theme, course);
+    } finally {
+      state.exerciseSelectionContext = previousSelectionContext;
+    }
+  }
   renderAdventureQuestion();
 }
 
@@ -3292,7 +3367,13 @@ function currentAdventureQuestions() {
   if (adventure?.questions?.length) return adventure.questions;
   const course = courseById(state.courseId);
   const theme = course.themes[adventure.topicIndex];
-  return buildQuestions(theme, course);
+  const previousSelectionContext = state.exerciseSelectionContext;
+  state.exerciseSelectionContext = adventure.mode === "boss" ? "boss" : "adventure";
+  try {
+    return buildQuestions(theme, course);
+  } finally {
+    state.exerciseSelectionContext = previousSelectionContext;
+  }
 }
 
 function renderAdventureQuestion() {
@@ -3335,6 +3416,23 @@ function renderAdventureQuestion() {
             <span id="adventure-avatar-message">¡Vamos a por ella!</span>
           </div>
           <p class="question-text">${formatMathText(question.text)}</p>
+          ${handwritingAnswerHtml(question, {
+            topicIndex: adventure.topicIndex,
+            topicLabel: theme,
+            questionIndex: adventure.questionIndex,
+            difficulty: adventure.difficulty || "boss",
+            mode: adventure.mode === "boss" ? "adventureBoss" : "adventureTraining",
+            resultChannel: "adventure",
+            statementHtml: `<p class="question-text">${formatMathText(question.text)}</p>`,
+            scoreState: {
+              score: adventure.score,
+              streak: adventure.streak,
+              energy: adventure.energy,
+              bossHp: adventure.bossHp,
+              progressIndex: adventure.questionIndex
+            },
+            attemptContext: { adventureMode: adventure.mode, difficulty: adventure.difficulty }
+          })}
           <div class="answers">
             ${question.options.map((option, index) => `
               <button class="answer-btn" id="answer-${index}" onclick="answerAdventureQuestion(${index})"><span class="answer-letter">${String.fromCharCode(65 + index)}</span><span class="answer-content">${formatMathText(option)}</span></button>
@@ -3435,9 +3533,11 @@ function renderAdventureResult() {
     if (passed) {
       item.xp += adventure.mode === "boss" ? 160 : 90;
       item.coins += adventure.mode === "boss" ? 35 : 18;
-      item.completedTopics.push(adventure.topicIndex);
-      item.unlockedTopics.push(nextTopic);
-      if (adventure.mode === "boss") item.defeatedBosses.push(adventure.topicIndex);
+      if (adventure.mode === "boss") {
+        item.completedTopics.push(adventure.topicIndex);
+        item.unlockedTopics.push(nextTopic);
+        item.defeatedBosses.push(adventure.topicIndex);
+      }
       if (correct === total) item.titles.push(`Maestro de ${theme}`);
     }
   });
@@ -3453,8 +3553,8 @@ function renderAdventureResult() {
         ${renderAvatarFigure({ ...progress.avatar, mouth: passed ? "surprised" : "sad" }, false, "reaction")}
         <span>${passed ? "¡Recompensa conseguida!" : "Volvemos a intentarlo cuando quieras."}</span>
       </div>
-      <h1 class="headline">${passed ? "Victoria de aventura" : "Intento registrado"}</h1>
-      <p class="subhead">${passed ? `Has superado ${theme}.` : `${adventureWorlds[course.id].guide} recomienda volver a estudiar ${theme} antes de repetir.`}</p>
+      <h1 class="headline">${passed ? (adventure.mode === "boss" ? "Victoria de aventura" : "Entrenamiento superado") : "Intento registrado"}</h1>
+      <p class="subhead">${passed ? (adventure.mode === "boss" ? `Has superado ${theme} y desbloqueado la siguiente zona.` : `Has completado el entrenamiento de ${theme}. Para desbloquear la siguiente zona debes derrotar al jefe.`) : `${adventureWorlds[course.id].guide} recomienda volver a estudiar ${theme} antes de repetir.`}</p>
       <div class="badge-row" style="justify-content:center">
         <span class="badge">Aciertos ${correct}/${total}</span>
         <span class="badge">Puntuación ${progress.xp}</span>
@@ -3545,6 +3645,7 @@ function renderBachIIHome() {
   state.blockTopicIndexes = [];
   const course = courseById(state.courseId);
   const questionCount = questionsPerChallengeFor(course);
+  const examQuestionCount = course.id === "2bach-ccss" ? 4 : 5;
   renderShell(`
     <section class="student-dashboard">
       <section class="screen-panel home-panel">
@@ -3577,7 +3678,7 @@ function renderBachIIHome() {
           <article class="path-choice path-choice-exam bach-home-exam">
             <span class="path-icon">Examen</span>
             <h2>Hacer examen</h2>
-            <p>Realiza cinco ejercicios elegidos de los bancos corregidos y consulta después su resolución completa.</p>
+            <p>Realiza ${examQuestionCount} ejercicios elegidos de los bancos corregidos y consulta después su resolución completa.</p>
             <button class="secondary" onclick="startBachExam()">Comenzar examen</button>
           </article>
         </div>
@@ -3660,6 +3761,13 @@ function startBachBlockChallenge(blockId, selectedTopicIndexes = null) {
   state.challengeRoundCache = {};
   state.timeLeft = questionSecondsFor(course);
   state.sessionAnswers = [];
+  if (course.id === "2bach-ccss") {
+    const preview = buildCcssIIBlockQuestions(block.id);
+    const requestedCount = questionsPerChallengeFor(course);
+    if (preview.length < requestedCount) {
+      alert(`Solo existen ${preview.length} ejercicios PAU CCSS II revisados y no repetidos para este filtro. Se mostrarán únicamente esos ejercicios, sin rellenar con otros temas ni con Matemáticas II.`);
+    }
+  }
   renderStudy();
 }
 
@@ -3845,16 +3953,20 @@ function renderOfficialSourceCallout(question, courseId = state.courseId) {
 
 function officialQuestionStatementHtml(question, courseId = state.courseId) {
   if (!BACH_II_COURSE_IDS.includes(courseId)) {
-    return question.statementHtml || formatMathText(question.text);
+    const preserveTrigNotation = Boolean(officialExerciseSource(question));
+    return question.statementHtml
+      ? formatMathHtml(question.statementHtml, { preserveTrigNotation })
+      : formatMathText(question.text, { preserveTrigNotation });
   }
   if (question.statementHtml) {
-    return String(question.statementHtml).replace(/^\s*<div class="official-source">[\s\S]*?<\/div>\s*/i, "");
+    const statement = String(question.statementHtml).replace(/^\s*<div class="official-source">[\s\S]*?<\/div>\s*/i, "");
+    return formatMathHtml(statement, { preserveTrigNotation: true });
   }
   const source = officialExerciseSource(question);
   const text = source && !question.source && String(question.text || "").split(/\r?\n/)[0].trim() === source
     ? String(question.text || "").split(/\r?\n/).slice(1).join("\n").trim()
     : question.text;
-  return formatMathText(text);
+  return formatMathText(text, { preserveTrigNotation: true });
 }
 
 function renderStudy() {
@@ -3908,7 +4020,14 @@ function renderStudy() {
     <div class="multipart-exercise-options">
       ${question.parts.map((part, partIndex) => `
         <section class="exercise-part" id="exercise-part-${partIndex}">
-          <div class="exercise-part-heading"><strong>${escapeHtml(part.label)}</strong><div class="exercise-part-prompt">${part.html || formatMathText(part.text)}</div></div>
+          <div class="exercise-part-heading"><strong>${escapeHtml(part.label)}</strong><div class="exercise-part-prompt">${part.html ? formatMathHtml(part.html, { preserveTrigNotation: Boolean(officialExerciseSource(question)) }) : formatMathText(part.text, { preserveTrigNotation: Boolean(officialExerciseSource(question)) })}</div></div>
+          ${handwritingAnswerHtml(question, {
+            answerSource: part,
+            partId: part.id || part.label || partIndex,
+            mode: activeBlock ? "blockChallenge" : "topicChallenge",
+            resultChannel: "challengePart",
+            statementHtml: `${officialSourceHtml}<div class="question-text official-exercise-statement">${displayedStatementHtml}</div><div class="exercise-part-heading"><strong>${escapeHtml(part.label)}</strong><div class="exercise-part-prompt">${part.html ? formatMathHtml(part.html, { preserveTrigNotation: Boolean(officialExerciseSource(question)) }) : formatMathText(part.text, { preserveTrigNotation: Boolean(officialExerciseSource(question)) })}</div></div>`
+          })}
           <div class="answers compact-part-answers">
             ${part.options.map((option, optionIndex) => `
               <button class="answer-btn" id="part-${partIndex}-answer-${optionIndex}" onclick="answerMultipartPart(${partIndex},${optionIndex})"><span class="answer-letter">${String.fromCharCode(65 + optionIndex)}</span><span class="answer-content">${formatMathText(option)}</span></button>
@@ -4063,8 +4182,10 @@ function renderStudy() {
             </div>
             ${officialSourceHtml}
             <div class="question-text ${isOpenPauQuestion ? "pau-open-statement" : ""} ${isMultipartQuestion ? "official-exercise-statement" : ""}">${displayedStatementHtml}</div>
-            ${!activeBlock && !isOpenPauQuestion && !isMultipartQuestion && window.MargaritaHandwriting ? window.MargaritaHandwriting.render({
-              exerciseKey: `${currentStudentKey()}|${state.courseId}|${challengeQuestionIdentity(question)}`
+            ${!isPauWithoutOptions && !isMultipartQuestion ? handwritingAnswerHtml(question, {
+              mode: activeBlock ? "blockChallenge" : "topicChallenge",
+              resultChannel: "challenge",
+              statementHtml: `${officialSourceHtml}<div class="question-text ${isOpenPauQuestion ? "pau-open-statement" : ""}">${displayedStatementHtml}</div>`
             }) : ""}
             ${answersHtml}
             <div class="solution-help" id="solution-help"></div>
@@ -4517,13 +4638,13 @@ function topicMetadata(course, topicIndex) {
   const safeIndex = Number.isInteger(topicIndex) ? topicIndex : -1;
   return {
     courseId: course?.id || "",
-    topicId: safeIndex >= 0 ? `${course.id}:topic-${safeIndex}` : "",
+    topicId: safeIndex >= 0 ? semanticTopicId(course, safeIndex) : "",
     topicIndex: safeIndex,
     topicName: safeIndex >= 0 ? course?.themes?.[safeIndex] || "" : ""
   };
 }
 
-function decorateExerciseForTopic(question, course, topicIndex, sourceType = "bank") {
+function decorateExerciseForTopic(question, course, topicIndex, sourceType = "bank", historyScopeKey = "") {
   if (!question || !course || !Number.isInteger(topicIndex) || !course.themes?.[topicIndex]) return null;
   const metadata = topicMetadata(course, topicIndex);
   const visibleText = exerciseVisibleText(question);
@@ -4541,43 +4662,125 @@ function decorateExerciseForTopic(question, course, topicIndex, sourceType = "ba
     exerciseId,
     templateId,
     sourceType: question.sourceType || sourceType,
-    _historyScopeKey: question._historyScopeKey || sharedTopicHistoryScope(course, topicIndex),
+    _historyScopeKey: historyScopeKey || question._historyScopeKey || sharedTopicHistoryScope(course, topicIndex),
     _historyIdentity: question._historyIdentity || `exercise:${exerciseId}`
   };
 }
 
 function exerciseMatchesTopic(question, courseId, topicIndex) {
+  const course = courseById(courseId);
   return Boolean(question
     && question.courseId === courseId
-    && question.topicId === `${courseId}:topic-${topicIndex}`
+    && question.topicId === semanticTopicId(course, topicIndex)
     && question.topicIndex === topicIndex);
 }
 
-function sharedTopicHistoryScope(course, topicIndex) {
-  return `${course.id}|topic-${topicIndex}|todos-los-modos`;
+function exerciseContentMatchesTopic(question, courseId, topicIndex) {
+  const course = courseById(courseId);
+  const expectedTopicId = semanticTopicId(course, topicIndex);
+  const declaredCourseId = question?.courseId || question?.course || "";
+  const declaredTopicIndex = Number.isInteger(question?.topicIndex) ? question.topicIndex : null;
+  const declaredTopicId = question?.topicId || question?.declaredTopicId || "";
+  if (declaredCourseId && declaredCourseId !== courseId) return false;
+  if (declaredTopicIndex !== null && declaredTopicIndex !== topicIndex) return false;
+  if (declaredTopicId && ![expectedTopicId, `${courseId}:topic-${topicIndex}`].includes(declaredTopicId)) return false;
+
+  const rawId = String(question?.rawBaseId || question?.exerciseId || question?.id || "");
+  const idCourse = rawId.match(/^(1eso|2eso|3eso|4eso-a|4eso-b)-/)?.[1];
+  if (idCourse && idCourse !== courseId) return false;
+
+  const statement = `${question?.text || ""} ${question?.statementHtml || ""}`
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/<[^>]+>/g, " ")
+    .toLowerCase();
+  if (!statement.trim()) return false;
+
+  if (isEsoCourse(course)) {
+    const topicSlug = expectedTopicId.split(":").slice(1).join(":");
+    const asksStandaloneAlgebra = /\bresuelve\b[^.]{0,100}\b(?:el\s+)?(?:sistema|ecuacion)\b/.test(statement);
+    const hasGeometryContext = /triang|recta|angulo|polig|circunfer|area|perimetr|volumen|prisma|piramide|cono|cilindro|esfera|semejan|pitagor|vector|punto|coordenad/.test(statement);
+    const geometryTopic = /figuras|geometric|semejanza|trigonometria|areas|geometria-analitica/.test(topicSlug);
+    if (geometryTopic && asksStandaloneAlgebra && !hasGeometryContext) return false;
+    if (courseId === "4eso-a" && topicIndex === 4 && /plantea[^.]{0,80}\bsistema\b|\bdos\s+incognitas\b/.test(statement)) return false;
+    if (topicSlug === "estadistica" && /bayes|laplace|espacio muestral|suceso/.test(statement)) return false;
+    if (topicSlug === "probabilidad" && /media aritmetica|mediana|moda|desviacion tipica|tabla de frecuencias/.test(statement)) return false;
+    if (/limite-funciones/.test(topicSlug) && /limite de (?:la )?sucesion|a_n|aₙ/.test(statement)) return false;
+    if (/limite-sucesiones/.test(topicSlug) && /limite de (?:la )?funcion|f\s*\(\s*x\s*\)/.test(statement)) return false;
+    if (courseId === "2eso" && topicIndex === 8) {
+      const exceedsSecondEsoFunctions = /funcion inversa|composicion de funciones|f\s*[o∘]\s*g|g\s*[o∘]\s*f|\bderivad|dominio[^.]{0,100}(?:raiz|sqrt|√)/.test(statement);
+      if (exceedsSecondEsoFunctions) return false;
+    }
+  }
+
+  if (courseId !== "1bach-ccss") return true;
+  if (topicIndex === 0) {
+    return !/\bbinomial\b|x\s*~?\s*b\s*\(|distribucion normal|normal tipica|x\s*~?\s*n\s*\(|tipific|intervalo de confianza|estimacion|error tipico/.test(statement);
+  }
+  if (topicIndex === 2) {
+    return !/distribucion normal|normal tipica|x\s*~?\s*n\s*\(|tipific|intervalo de confianza|estimacion|error tipico/.test(statement);
+  }
+  if (topicIndex === 3) {
+    return !/\bbinomial\b|x\s*~?\s*b\s*\(|intervalo de confianza|estimacion|error tipico/.test(statement);
+  }
+  if (topicIndex === 7) {
+    return /inecuaci|[<>≤≥]/.test(statement);
+  }
+  return true;
 }
 
-function strictTopicSelection({ course, topicIndex, questions, count, sourceType = "bank", scopeKey = "", roundToken = state.practiceRound }) {
+function stableTopicHistoryId(course, topicIndex) {
+  if (isEsoCourse(course)) return semanticTopicId(course, topicIndex).split(":").slice(1).join(":");
+  if (course?.id === "1bach-ccss") {
+    if (topicIndex === 9) return "derivadas";
+    if (topicIndex === 10) return "aplicacion-derivadas";
+    // Combinatoria era el tema 9 (índice 9). Conservamos su clave histórica
+    // aunque visualmente pase a ser el tema 12.
+    if (topicIndex === 11) return "9";
+  }
+  return String(topicIndex);
+}
+
+function sharedTopicHistoryScope(course, topicIndex) {
+  return `${course.id}|topic-${stableTopicHistoryId(course, topicIndex)}|todos-los-modos`;
+}
+
+function topicHistoryScope(course, topicIndex, mode = "topicPractice", detail = "") {
+  const normalizedMode = ["topicPractice", "adventure", "coach", "exam", "boss"].includes(mode) ? mode : "topicPractice";
+  const suffix = detail ? `|${detail}` : "";
+  return `${course.id}|topic-${stableTopicHistoryId(course, topicIndex)}|modo-${normalizedMode}${suffix}`;
+}
+
+function currentExerciseHistoryMode() {
+  return ["adventure", "coach", "exam", "boss"].includes(state.exerciseSelectionContext)
+    ? state.exerciseSelectionContext
+    : "topicPractice";
+}
+
+function strictTopicSelection({ course, topicIndex, questions, count, sourceType = "bank", scopeKey = "", historyMode = "", historyDetail = "", roundToken = state.practiceRound }) {
   if (!course || !Number.isInteger(topicIndex) || !course.themes?.[topicIndex] || count <= 0) return [];
+  const scope = scopeKey || topicHistoryScope(course, topicIndex, historyMode || currentExerciseHistoryMode(), historyDetail);
   const decorated = (questions || [])
-    .map((question) => decorateExerciseForTopic(question, course, topicIndex, sourceType))
+    .filter((question) => exerciseContentMatchesTopic(question, course.id, topicIndex))
+    .map((question) => decorateExerciseForTopic(question, course, topicIndex, sourceType, scope))
     .filter((question) => exerciseMatchesTopic(question, course.id, topicIndex))
     .filter(questionHasCoherentOptions);
   return selectNoRepeatQuestionRound(
     decorated,
     count,
-    scopeKey || sharedTopicHistoryScope(course, topicIndex),
+    scope,
     roundToken
   );
 }
 
-function availableTopicQuestions({ course, topicIndex, questions, sourceType = "bank", scopeKey = "" }) {
+function availableTopicQuestions({ course, topicIndex, questions, sourceType = "bank", scopeKey = "", historyMode = "coach", historyDetail = "" }) {
   if (!course || !Number.isInteger(topicIndex) || !course.themes?.[topicIndex]) return [];
-  const scope = scopeKey || sharedTopicHistoryScope(course, topicIndex);
+  const scope = scopeKey || topicHistoryScope(course, topicIndex, historyMode, historyDetail);
   const unique = [];
   const identities = new Set();
   (questions || [])
-    .map((question) => decorateExerciseForTopic(question, course, topicIndex, sourceType))
+    .filter((question) => exerciseContentMatchesTopic(question, course.id, topicIndex))
+    .map((question) => decorateExerciseForTopic(question, course, topicIndex, sourceType, scope))
     .filter((question) => exerciseMatchesTopic(question, course.id, topicIndex))
     .filter(questionHasCoherentOptions)
     .forEach((question) => {
@@ -4623,10 +4826,13 @@ function distributeBalancedTopicQuestions(poolsByTopic, selectedTopicIndexes, co
 window.MargaritaExerciseSelector = {
   decorateExerciseForTopic,
   exerciseMatchesTopic,
+  exerciseContentMatchesTopic,
   strictTopicSelection,
   availableTopicQuestions,
   distributeBalancedTopicQuestions,
   sharedTopicHistoryScope,
+  topicHistoryScope,
+  semanticTopicId,
   markShown: markChallengeQuestionShown
 };
 
@@ -4640,6 +4846,16 @@ function buildAdventureTrainingQuestions(theme, course, difficulty, roundSeed, r
   const verifiedExamPool = difficulty === "hard"
     ? (window.MargaritaEsoExamVerified?.build?.(course.id, theme) || [])
     : [];
+  const originalPracticePool = window.MargaritaEsoOriginalPractice?.build?.(
+    course.id,
+    theme,
+    difficulty === "hard" ? "master" : "apprentice"
+  )?.filter((question) => question.adventureEligible !== false) || [];
+  const approvedABAdventurePool = window.MargaritaEso3ApprovedABPractice?.buildAdventure?.(
+    course.id,
+    theme,
+    difficulty === "hard" ? "master" : "apprentice"
+  ) || [];
   const generatedPool = Array.from({ length: Math.max(160, count * 20) }, (_, index) => {
     const seed = state.topicIndex * 100003 + parseInt(stableExerciseHash(`${course.id}|${difficulty}`), 36) + index * 101;
     const progression = index % 10;
@@ -4648,9 +4864,12 @@ function buildAdventureTrainingQuestions(theme, course, difficulty, roundSeed, r
   const questions = strictTopicSelection({
     course,
     topicIndex: state.topicIndex,
-    questions: [...verifiedExamPool, ...generatedPool],
+    questions: [...verifiedExamPool, ...originalPracticePool, ...approvedABAdventurePool, ...generatedPool]
+      .filter((question) => !isForbiddenIntroLimitQuestion(question, course.id, lower)),
     count,
     sourceType: verifiedExamPool.length ? "verified-and-generated" : "generated",
+    historyMode: "adventure",
+    historyDetail: difficulty,
     roundToken: `${state.practiceRound}|aventura-${roundSeed}`
   });
   return questions.map((question, index) => {
@@ -4669,25 +4888,49 @@ function topicChallengeLevelLabel(level = state.topicChallengeLevel) {
 }
 
 function buildEsoTopicLevelQuestions(theme, course, requestedCount = questionsPerChallengeFor(course)) {
-  const level = state.topicChallengeLevel === "master" ? "master" : "apprentice";
+  const selectionMode = currentExerciseHistoryMode();
+  const isExam = selectionMode === "exam";
+  const level = isExam ? "exam" : (state.topicChallengeLevel === "master" ? "master" : "apprentice");
   const count = requestedCount;
   const lower = normalizeMathNotation(theme).toLowerCase();
-  const verifiedExamPool = level === "master"
+  const rawVerifiedExamPool = level === "master" || isExam
     ? (window.MargaritaEsoExamVerified?.build?.(course.id, theme) || [])
     : [];
-  const roundSeed = state.topicIndex * 137 + (level === "master" ? 5003 : 101);
+  const approvedABExamPool = isExam
+    ? (window.MargaritaEso3ApprovedABPractice?.buildExam?.(course.id, theme) || [])
+    : [];
+  const isThirdEsoSolidsPractice = !isExam
+    && course.id === "3eso"
+    && (lower.includes("cuerpo") || lower.includes("geometrico"));
+  const verifiedExamPool = isExam
+    ? rawVerifiedExamPool
+    : rawVerifiedExamPool.filter((question) => question.practiceEligible !== false);
+  const originalPracticePool = isExam
+    ? []
+    : (window.MargaritaEsoOriginalPractice?.build?.(course.id, theme, level) || [])
+      .filter((question) => question.practiceEligible !== false);
+  // Banco A+B aprobado en 3.º ESO. En la práctica temática se respeta el
+  // nivel elegido; Aventura y Examen lo consumen mediante rutas separadas.
+  const approvedABPracticePool = isExam
+    ? []
+    : (window.MargaritaEso3ApprovedABPractice?.buildChallenge?.(course.id, theme, level) || []);
+  const roundSeed = state.topicIndex * 137 + (isExam ? 9001 : level === "master" ? 5003 : 101);
   const generatedPool = Array.from({ length: Math.max(240, count * 24) }, (_, index) => {
-    const difficulty = level === "master" ? (index % 3 === 0 ? "medium" : "hard") : (index % 3 === 0 ? "medium" : "easy");
-    const progression = level === "master" ? 4 + (index % 6) : index % 10;
+    const difficulty = isExam
+      ? (index % 3 === 0 ? "medium" : "hard")
+      : level === "master" ? (index % 3 === 0 ? "medium" : "hard") : (index % 3 === 0 ? "medium" : "easy");
+    const progression = isExam || level === "master" ? 4 + (index % 6) : index % 10;
     return generatedEsoDifficultyQuestion(lower, course.id, difficulty, roundSeed + index * 7919, progression, progression);
-  });
+  }).filter((question) => !isThirdEsoSolidsPractice || question.geometryDomain === "solid");
   return strictTopicSelection({
     course,
     topicIndex: state.topicIndex,
-    questions: [...verifiedExamPool, ...generatedPool],
+    questions: [...verifiedExamPool, ...approvedABExamPool, ...originalPracticePool, ...approvedABPracticePool, ...generatedPool]
+      .filter((question) => !isForbiddenIntroLimitQuestion(question, course.id, lower)),
     count,
     sourceType: verifiedExamPool.length ? "verified-and-generated" : "generated",
-    scopeKey: `${sharedTopicHistoryScope(course, state.topicIndex)}|nivel-${level}`
+    historyMode: selectionMode,
+    historyDetail: isExam ? "independiente" : level
   }).map((question) => ({ ...question, challengeLevel: level }));
 }
 
@@ -4705,6 +4948,15 @@ function generatedQuestion(text, correct, distractors, solution) {
     fallback += 1;
   }
   return { text, options: unique.slice(0, 4), correct: 0, solution };
+}
+
+function isForbiddenIntroLimitQuestion(question, courseId, normalizedTheme = "") {
+  if (courseId !== "4eso-b" && courseId !== "1bach-mates") return false;
+  if (!String(normalizedTheme).includes("limite")) return false;
+  const content = normalizeMathNotation(`${question?.text || ""} ${question?.solution || ""}`).toLowerCase();
+  const sineRatio = /sen\s*\(?\s*(?:\d+\s*)?x\s*\)?\s*\/\s*(?:\d+\s*)?x/.test(content);
+  const lhopital = content.includes("l'hopital") || content.includes("lhopital");
+  return sineRatio || lhopital;
 }
 
 function greatestCommonDivisor(a, b) {
@@ -4735,6 +4987,25 @@ function generatedEsoDifficultyQuestion(lower, courseId, difficulty, seed, progr
   }
   if (courseId === "2eso" && lower.includes("ecuacion")) {
     return generatedSecondEsoEquationQuestion(difficulty, seed, progressionIndex);
+  }
+  if (courseId === "2eso" && lower.includes("funcion")) {
+    return generatedSecondEsoFunctionQuestion(difficulty, seed, progressionIndex);
+  }
+  if (courseId === "3eso" && (lower.includes("ecuacion") || lower.includes("sistema"))) {
+    const ownTopic = progressionIndex % 2 === 0 ? "ecuacion" : "sistema";
+    return generatedEquationLevelQuestion(ownTopic, difficulty, seed);
+  }
+  if (courseId === "3eso" && lower.includes("funcion")) {
+    // La rama avanzada del generador común incluye composición, inversa y
+    // dominios radicales. En 3.º ESO se mantienen funciones lineales/afines;
+    // las parábolas y la interpretación cualitativa proceden del banco propio.
+    return generatedFunctionLevelQuestion("easy", seed);
+  }
+  if (courseId === "3eso" && lower.includes("sucesion")) {
+    return generatedThirdEsoSequenceQuestion(difficulty, seed, progressionIndex);
+  }
+  if (courseId === "3eso" && (lower.includes("cuerpo") || lower.includes("geometrico"))) {
+    return generatedThirdEsoGeometryQuestion(difficulty, seed, sequenceIndex);
   }
   if (lower.includes("potencia")) {
     return generatedPowerLevelQuestion(lower, difficulty, seed, progressionIndex);
@@ -6968,6 +7239,12 @@ function generatedGeometryLevelQuestion(lower, difficulty, seed, sequenceIndex =
   return generatedPlaneGeometryQuestion(difficulty, seed, variant);
 }
 
+function generatedThirdEsoGeometryQuestion(difficulty, seed, sequenceIndex = seed) {
+  const classified = (question, geometryDomain) => ({ ...question, geometryDomain });
+  const variant = ((sequenceIndex % 10) + 10) % 10;
+  return classified(generatedSolidGeometryQuestion(difficulty, seed, variant), "solid");
+}
+
 function generatedTrigonometryLevelQuestion(difficulty, seed) {
   const scale = 1 + (seed % 31);
   const opposite = 3 * scale;
@@ -7195,6 +7472,107 @@ function generatedFunctionLevelQuestion(difficulty, seed) {
   );
 }
 
+// 2.º ESO trabaja lectura, representación e interpretación de funciones
+// lineales y afines. Mantiene un generador propio para que la dificultad
+// media no herede composición, inversa, radicales ni vértices de parábolas
+// del generador común de cursos posteriores.
+function generatedSecondEsoFunctionQuestion(difficulty, seed, progressionIndex = seed) {
+  const safeSeed = Math.abs(seed);
+  const operation = ((progressionIndex % 10) + 10) % 10;
+  const slope = 1 + (safeSeed % 6);
+  const intercept = 1 + (Math.floor(safeSeed / 7) % 9);
+  const x = 1 + (Math.floor(safeSeed / 11) % 8);
+  const value = slope * x + intercept;
+
+  if (operation === 0) {
+    return generatedQuestion(
+      `Sea f(x)=${slope}x+${intercept}. Calcula f(${x}).`,
+      value,
+      [slope + x + intercept, slope * x, value + slope],
+      `Resolución:\n1. Sustituimos x por ${x}.\n2. f(${x})=${slope}·${x}+${intercept}=${value}.\nResultado final: ${value}.`
+    );
+  }
+  if (operation === 1) {
+    const root = 1 + (safeSeed % 8);
+    return generatedQuestion(
+      `Halla el corte con el eje X de y=${slope}x-${slope * root}.`,
+      `(${root}, 0)`,
+      [`(0, ${root})`, `(${-root}, 0)`, `(0, ${-slope * root})`],
+      `Resolución:\n1. En el eje X se cumple y=0.\n2. 0=${slope}x-${slope * root}, luego ${slope}x=${slope * root}.\n3. x=${root}.\nResultado final: (${root},0).`
+    );
+  }
+  if (operation === 2) {
+    return generatedQuestion(
+      `Indica la pendiente de la recta y=${slope}x+${intercept}.`,
+      slope,
+      [intercept, -slope, slope + intercept],
+      `Resolución:\n1. Una función afín se escribe y=mx+n.\n2. La pendiente es el coeficiente m de x.\nResultado final: m=${slope}.`
+    );
+  }
+  if (operation === 3) {
+    return generatedQuestion(
+      `Indica la ordenada en el origen de y=${slope}x-${intercept}.`,
+      -intercept,
+      [intercept, slope, -slope],
+      `Resolución:\n1. La ordenada en el origen es el valor de y cuando x=0.\n2. y=${slope}·0-${intercept}=-${intercept}.\nResultado final: n=-${intercept}.`
+    );
+  }
+  if (operation === 4) {
+    const y0 = intercept;
+    const y1 = slope + intercept;
+    const y2 = 2 * slope + intercept;
+    return generatedQuestion(
+      `La tabla contiene los puntos (0,${y0}), (1,${y1}) y (2,${y2}). ¿Qué expresión los relaciona?`,
+      `y=${slope}x+${intercept}`,
+      [`y=${intercept}x+${slope}`, `y=${slope}x-${intercept}`, `y=${slope + intercept}x`],
+      `Resolución:\n1. Al aumentar x una unidad, y aumenta ${slope}; esa es la pendiente.\n2. Cuando x=0, y=${intercept}; esa es la ordenada en el origen.\nResultado final: y=${slope}x+${intercept}.`
+    );
+  }
+  if (operation === 5) {
+    return generatedQuestion(
+      `¿La función y=${slope}x+${intercept} es lineal o afín?`,
+      "Afín, porque su ordenada en el origen no es 0",
+      ["Lineal, porque contiene x", "Constante, porque tiene dos términos", "No es una función"],
+      `Resolución:\n1. Una función lineal tiene la forma y=mx y pasa por el origen.\n2. Aquí aparece el término independiente ${intercept}≠0.\nResultado final: es una función afín.`
+    );
+  }
+  if (operation === 6) {
+    const negativeSlope = -slope;
+    return generatedQuestion(
+      `Sin dibujarla, indica si y=${negativeSlope}x+${intercept} es creciente o decreciente.`,
+      "Decreciente",
+      ["Creciente", "Constante", "No puede saberse"],
+      `Resolución:\n1. Observamos el signo de la pendiente.\n2. Como m=${negativeSlope}<0, y disminuye cuando x aumenta.\nResultado final: decreciente.`
+    );
+  }
+  if (operation === 7) {
+    return generatedQuestion(
+      `Escribe la función afín de pendiente ${slope} y ordenada en el origen ${intercept}.`,
+      `y=${slope}x+${intercept}`,
+      [`y=${intercept}x+${slope}`, `y=${slope + intercept}x`, `y=${slope}x-${intercept}`],
+      `Resolución:\n1. Usamos la forma y=mx+n.\n2. Sustituimos m=${slope} y n=${intercept}.\nResultado final: y=${slope}x+${intercept}.`
+    );
+  }
+  if (operation === 8) {
+    return generatedQuestion(
+      `Comprueba si el punto P(${x},${value}) pertenece a la recta y=${slope}x+${intercept}.`,
+      "Sí pertenece",
+      ["No pertenece", "Solo pertenece si x=0", "Solo pertenece si y=0"],
+      `Resolución:\n1. Sustituimos las coordenadas de P en la ecuación.\n2. ${slope}·${x}+${intercept}=${value}.\n3. Coincide con la ordenada del punto.\nResultado final: P sí pertenece a la recta.`
+    );
+  }
+  const fixedCost = 2 + (safeSeed % 8);
+  const unitCost = 1 + (Math.floor(safeSeed / 13) % 5);
+  const units = 2 + (Math.floor(safeSeed / 17) % 7);
+  const total = fixedCost + unitCost * units;
+  return generatedQuestion(
+    `Un servicio cobra ${fixedCost} € fijos y ${unitCost} € por cada hora. ¿Cuánto cuesta utilizarlo ${units} horas?`,
+    `${total} €`,
+    [`${fixedCost * units + unitCost} €`, `${unitCost * units} €`, `${fixedCost + unitCost + units} €`],
+    `Resolución:\n1. La relación es C(h)=${fixedCost}+${unitCost}h.\n2. C(${units})=${fixedCost}+${unitCost}·${units}=${total}.\nResultado final: ${total} €.`
+  );
+}
+
 // Tema 9 de 4.º ESO A. Las estructuras proceden del documento
 // "9-Funciones Ejercicio.pdf": dominio y recorrido, simetría, continuidad,
 // representación, tasa de variación, operaciones, composición e inversa.
@@ -7391,6 +7769,36 @@ function generatedSequenceLevelQuestion(difficulty, seed) {
     result,
     [first + position * difference, position * difference, result - difference],
     `Resolución:\n1. Usamos aₙ=a₁+(n-1)d.\n2. a_${position}=${first}+(${position}-1)·${difference}.\n3. a_${position}=${first}+${(position - 1) * difference}.\nResultado final: ${result}.`
+  );
+}
+
+function generatedThirdEsoSequenceQuestion(difficulty, seed, progressionIndex = seed) {
+  const stage = ((progressionIndex % 6) + 6) % 6;
+  if (stage < 4) return generatedSequenceLevelQuestion(difficulty, seed);
+
+  if (stage === 4) {
+    const capital = 1200 + (Math.abs(seed) % 5) * 300;
+    const rate = 3 + (Math.abs(seed) % 4);
+    const months = 2 + (Math.abs(seed) % 9);
+    const interest = capital * rate * months / (12 * 100);
+    const finalCapital = capital + interest;
+    return generatedQuestion(
+      `Se depositan ${capital} € a interés simple del ${rate} % anual durante ${months} meses. Calcula el interés producido y el capital final.`,
+      `I=${decimalAnswer(interest)} €; C_F=${decimalAnswer(finalCapital)} €`,
+      [`I=${decimalAnswer(capital * rate * months / 100)} €`, `I=${decimalAnswer(interest)} €; C_F=${decimalAnswer(capital)} €`, `I=${rate * months} €; C_F=${decimalAnswer(capital + rate * months)} €`],
+      `Resolución:\n1. Como T está en meses, n=12.\n2. I=C₀·R·T/(n·100)=${capital}·${rate}·${months}/(12·100)=${decimalAnswer(interest)} €.\n3. C_F=C₀+I=${capital}+${decimalAnswer(interest)}=${decimalAnswer(finalCapital)} €.\nResultado final: I=${decimalAnswer(interest)} € y C_F=${decimalAnswer(finalCapital)} €.`
+    );
+  }
+
+  const capital = 1000 + (Math.abs(seed) % 4) * 500;
+  const rate = 4 + (Math.abs(seed) % 3);
+  const years = 2 + (Math.abs(seed) % 3);
+  const finalCapital = capital * (1 + rate / 100) ** years;
+  return generatedQuestion(
+    `Se invierten ${capital} € al ${rate} % anual con capitalización anual durante ${years} años. Calcula el capital final mediante interés compuesto.`,
+    `${decimalAnswer(finalCapital)} €`,
+    [`${decimalAnswer(capital + capital * rate * years / 100)} €`, `${decimalAnswer(capital * (1 + rate / 100))} €`, `${decimalAnswer(capital + rate * years)} €`],
+    `Resolución:\n1. Usamos C_F=C₀(1+R/(100n))^(nt), con n=1.\n2. C_F=${capital}(1+${rate}/100)^${years}.\n3. C_F=${decimalAnswer(finalCapital)} €.\nResultado final: ${decimalAnswer(finalCapital)} €.`
   );
 }
 
@@ -7945,7 +8353,7 @@ function firstBachBankByTopic(courseId, topicIndex) {
   const keys = courseId === "1bach-mates"
     ? ["matesIReales", "matesIComplejos", "matesIEcuaciones", "matesITrigonometria", "matesIGeometriaAnalitica", "matesIConicas", "matesIFunciones", "matesILimites", "matesIDerivadas", "matesIAplicacionDerivadas", "matesIProbabilidad"]
     : courseId === "1bach-ccss"
-      ? ["ccssIEstadistica", "ccssIProbabilidad", "ccssIBinomial", "ccssINormal", "ccssIReales", "ccssIComplejos", "ccssIEcuaciones", "ccssIInecuaciones", "ccssIFunciones", "ccssICombinatoria"]
+      ? ["ccssIEstadistica", "ccssIProbabilidad", "ccssIBinomial", "ccssINormal", "ccssIReales", "ccssIComplejos", "ccssIEcuaciones", "ccssIInecuaciones", "ccssIFunciones", "matesIDerivadas", "matesIAplicacionDerivadas", "ccssICombinatoria"]
       : [];
   return [...(exerciseBanks[keys[topicIndex]] || [])];
 }
@@ -7959,8 +8367,22 @@ function firstBachExtensionBankByTopic(courseId, topicIndex) {
     return [...(extensions[topicIndex] || [])];
   }
   if (courseId === "1bach-ccss") {
-    const extensions = [exerciseBanks.estadisticaBach, exerciseBanks.probabilidadBach, exerciseBanks.estadisticaBach, exerciseBanks.estadisticaBach, exerciseBanks.realesBach, exerciseBanks.complejos, exerciseBanks.ecuacionesBach, exerciseBanks.ecuacionesBach, exerciseBanks.funciones, exerciseBanks.combinatoria];
-    return [...(extensions[topicIndex] || [])];
+    const suppliedDerivatives = Array.isArray(window.MATES_I_DERIVATIVES_BANK) ? window.MATES_I_DERIVATIVES_BANK : [];
+    const suppliedApplications = Array.isArray(window.MATES_I_DERIVATIVE_APPLICATIONS_BANK) ? window.MATES_I_DERIVATIVE_APPLICATIONS_BANK : [];
+    const originalCombinatorics = Array.isArray(window.CCSS_I_ORIGINAL_COMBINATORICS_BANK) ? window.CCSS_I_ORIGINAL_COMBINATORICS_BANK : [];
+    const originalByTopic = Array.isArray(window.CCSS_I_ORIGINAL_EXERCISE_BANKS?.[topicIndex])
+      ? window.CCSS_I_ORIGINAL_EXERCISE_BANKS[topicIndex]
+      : [];
+    const safeForCcssI = (question) => {
+      const searchable = `${question?.text || ""} ${question?.solution || ""} ${question?.source || ""}`.toLowerCase();
+      return !/l['’]?h[oô]pital/.test(searchable)
+        && !/matem[aá]ticas ii|ccss ii|2[.ºº]\s*bach/.test(searchable);
+    };
+    // CCSS I usa extensiones asociadas explícitamente a cada tema. Los temas
+    // 0, 2, 3 y 7 quedan sin extensión genérica para impedir que una etiqueta
+    // posterior convierta ejercicios de otro contenido en preguntas válidas.
+    const extensions = [[], exerciseBanks.probabilidadBach, [], [], exerciseBanks.realesBach, exerciseBanks.complejos, exerciseBanks.ecuacionesBach, [], exerciseBanks.funciones, suppliedDerivatives.filter(safeForCcssI), suppliedApplications.filter(safeForCcssI), [...exerciseBanks.combinatoria, ...originalCombinatorics]];
+    return [...(extensions[topicIndex] || []), ...originalByTopic];
   }
   return [];
 }
@@ -8028,6 +8450,15 @@ function buildQuestions(theme, course = courseById(state.courseId), requestedCou
   ];
   const sourceVerified = window.MargaritaSourceVerified?.build?.(course.id, theme) || [];
   const esoExamVerified = window.MargaritaEsoExamVerified?.build?.(course.id, theme) || [];
+  const approvedABBlockPool = ESO_COURSE_IDS.includes(course.id) && state.blockKey
+    ? (currentExerciseHistoryMode() === "exam"
+      ? (window.MargaritaEso3ApprovedABPractice?.buildExamByBlocks?.(course.id, theme) || [])
+      : (window.MargaritaEso3ApprovedABPractice?.buildChallenge?.(
+          course.id,
+          theme,
+          state.topicChallengeLevel === "master" ? "master" : "apprentice"
+        ) || []))
+    : [];
   const modelPool = (course.id === "1bach-mates" || course.id === "1bach-ccss") && selectedBank.length
     ? [
       ...selectedBank,
@@ -8045,7 +8476,8 @@ function buildQuestions(theme, course = courseById(state.courseId), requestedCou
       .filter(hasOfficialConvocation)
       .filter(questionHasCoherentOptions)
     : null;
-  const unfilteredCandidatePool = officialPauPool || modelPool || [...selectedBank, ...supplements, ...sourceVerified, ...esoExamVerified, ...generated];
+  const unfilteredCandidatePool = (officialPauPool || modelPool || [...selectedBank, ...supplements, ...sourceVerified, ...esoExamVerified, ...approvedABBlockPool, ...generated])
+    .filter((question) => !isForbiddenIntroLimitQuestion(question, course.id, lower));
   const candidatePool = BACH_II_COURSE_IDS.includes(course.id)
     ? unfilteredCandidatePool.filter(hasOfficialConvocation)
     : unfilteredCandidatePool;
@@ -8096,6 +8528,63 @@ function challengeQuestionIdentity(question) {
     .replace(/\s+/g, " ")
     .trim()
     .toLowerCase();
+}
+
+function handwritingAnswerHtml(question, overrides = {}) {
+  if (!window.MargaritaHandwriting || !question) return "";
+  const course = courseById(overrides.courseId || state.courseId);
+  const answerSource = overrides.answerSource || question;
+  const correctIndex = Number.isInteger(overrides.correctIndex) ? overrides.correctIndex : answerSource.correct;
+  const topicIndex = Number.isInteger(overrides.topicIndex) ? overrides.topicIndex : state.topicIndex;
+  const topicLabel = overrides.topicLabel || course?.themes?.[topicIndex] || "";
+  const mode = overrides.mode || (state.blockKey ? "blockChallenge" : "topicChallenge");
+  const partId = overrides.partId ?? answerSource.partId ?? answerSource.label ?? "";
+  const questionIndex = Number.isInteger(overrides.questionIndex) ? overrides.questionIndex : state.questionIndex;
+  const identity = challengeQuestionIdentity(question);
+  const exerciseKey = [
+    currentStudentKey(),
+    course?.id || state.courseId || "sin-curso",
+    mode,
+    overrides.blockId ?? state.blockKey ?? "",
+    identity,
+    partId
+  ].join("|");
+  const correctAnswer = Array.isArray(answerSource.options) && Number.isInteger(correctIndex)
+    ? answerSource.options[correctIndex]
+    : answerSource.answer ?? question.answer ?? "";
+  const statementHtml = overrides.statementHtml || `
+    ${renderOfficialSourceCallout(question, course?.id || state.courseId)}
+    <div class="question-text official-exercise-statement">${officialQuestionStatementHtml(question, course?.id || state.courseId)}</div>
+  `;
+  return window.MargaritaHandwriting.render({
+    exerciseKey,
+    statementHtml,
+    context: {
+      courseId: course?.id || state.courseId,
+      subject: course?.label || course?.name || "Matemáticas",
+      topicId: overrides.topicId ?? topicIndex,
+      topicLabel,
+      blockId: overrides.blockId ?? state.blockKey ?? "",
+      exerciseId: question.exerciseId || question.rawBaseId || question.id || identity,
+      partId,
+      questionIndex,
+      difficulty: overrides.difficulty ?? question.difficulty ?? state.topicChallengeLevel ?? "",
+      mode,
+      answerMethod: "handwriting",
+      resultChannel: overrides.resultChannel || mode,
+      correctAnswer,
+      correctIndex,
+      solution: overrides.solution ?? answerSource.solution ?? question.solution ?? "",
+      didacticPolicy: overrides.didacticPolicy ?? answerSource.didacticSpec ?? question.didacticSpec ?? null,
+      scoreState: overrides.scoreState || {
+        score: state.score,
+        streak: state.streak,
+        progressIndex: questionIndex
+      },
+      attemptContext: overrides.attemptContext || null
+    },
+    onValidated: overrides.onValidated || null
+  });
 }
 
 function legacyOfficialQuestionDedupKey(question) {
@@ -8376,19 +8865,49 @@ function officialPartAnswer(authored, parts, part, partIndex) {
 function buildCcssIIBlockQuestions(blockId) {
   const course = courseById("2bach-ccss");
   const correctedPool = window.MargaritaBachExam?.buildBlockQuestions?.(course, blockId) || [];
-  const allowedTopics = Array.isArray(state.blockTopicIndexes) && state.blockTopicIndexes.length
-    ? new Set(state.blockTopicIndexes)
-    : null;
-  const combined = correctedPool.filter((question) => {
-    const indexes = Array.isArray(question.topicIndexes) ? question.topicIndexes : [];
-    return !allowedTopics || !indexes.length || indexes.some((topicIndex) => allowedTopics.has(topicIndex));
-  });
-  if (!combined.length) return [];
+  const block = (BACH_II_BLOCKS[course.id] || []).find((item) => item.id === blockId);
+  const selectedTopics = [...new Set(
+    Array.isArray(state.blockTopicIndexes) && state.blockTopicIndexes.length
+      ? state.blockTopicIndexes
+      : block?.topics || []
+  )];
+  if (!correctedPool.length || !selectedTopics.length) return [];
   const questionCount = questionsPerChallengeFor("2bach-ccss");
-  return selectNoRepeatQuestionRound(
-    combined,
-    questionCount,
-    `${state.courseId}|bloque-${blockId}`
+  const baseQuota = Math.floor(questionCount / selectedTopics.length);
+  const remainder = questionCount % selectedTopics.length;
+  const bonusOrder = seededShuffle(
+    selectedTopics,
+    `${state.courseId}|bloque-${blockId}|reparto|${state.blockChallengeSeed || 0}|${state.practiceRound}`
+  );
+  const quotas = new Map(selectedTopics.map((topicIndex) => [topicIndex, baseQuota]));
+  bonusOrder.slice(0, remainder).forEach((topicIndex) => quotas.set(topicIndex, quotas.get(topicIndex) + 1));
+
+  const selected = [];
+  const selectedIdentities = new Set();
+  const poolsByTopic = new Map(selectedTopics.map((topicIndex) => [topicIndex, correctedPool.filter((question) => {
+    const indexes = Array.isArray(question.topicIndexes) ? question.topicIndexes : [];
+    if (Number.isInteger(question.primaryTopicIndex)) return question.primaryTopicIndex === topicIndex;
+    return indexes.includes(topicIndex);
+  })]));
+  // Se asignan primero los temas con menos PAU disponibles. Así un ejercicio
+  // mixto Matrices/Determinantes se reserva para Determinantes cuando sea el
+  // único compatible, sin duplicarlo después como ejercicio de Matrices.
+  const topicOrder = [...selectedTopics].sort((left, right) =>
+    (poolsByTopic.get(left)?.length || 0) - (poolsByTopic.get(right)?.length || 0));
+  topicOrder.forEach((topicIndex) => {
+    const topicPool = (poolsByTopic.get(topicIndex) || [])
+      .filter((question) => !selectedIdentities.has(officialQuestionDedupKey(question)));
+    const topicSelection = selectNoRepeatQuestionRound(
+      topicPool,
+      quotas.get(topicIndex) || 0,
+      `${state.courseId}|bloque-${blockId}|tema-${topicIndex}`
+    ).map((question) => ({ ...question, selectedBlockTopicIndex: topicIndex }));
+    topicSelection.forEach((question) => selectedIdentities.add(officialQuestionDedupKey(question)));
+    selected.push(...topicSelection);
+  });
+  return seededShuffle(
+    selected,
+    `${state.courseId}|bloque-${blockId}|orden|${state.blockChallengeSeed || 0}|${state.practiceRound}`
   );
 }
 
@@ -9090,7 +9609,10 @@ function matesIExtensionBank(lower) {
   if (lower.includes("trigonometr")) return exerciseBanks.trigonometriaBach;
   if (lower.includes("geometria analitica")) return exerciseBanks.geometriaAnalitica;
   if (lower.includes("conica")) return exerciseBanks.conicas;
-  if (lower.includes("limite")) return [...exerciseBanks.limites, ...suppliedLimits];
+  if (lower.includes("limite")) {
+    return [...exerciseBanks.limites, ...suppliedLimits]
+      .filter((question) => !isForbiddenIntroLimitQuestion(question, "1bach-mates", lower));
+  }
   if (lower.includes("aplicacion de derivada")) {
     return [...exerciseBanks.derivadas, ...suppliedDerivativeApplications];
   }
@@ -9126,25 +9648,35 @@ function ccssIModelBank(lower) {
   if (lower.includes("numero") || lower.includes("real")) return exerciseBanks.ccssIReales;
   if (lower.includes("inecuacion")) return exerciseBanks.ccssIInecuaciones;
   if (lower.includes("ecuacion") || lower.includes("sistema")) return exerciseBanks.ccssIEcuaciones;
+  if (lower.includes("aplicacion") && lower.includes("derivada")) return exerciseBanks.matesIAplicacionDerivadas;
+  if (lower.includes("derivada")) return exerciseBanks.matesIDerivadas;
   if (lower.includes("funcion")) return exerciseBanks.ccssIFunciones;
   if (lower.includes("combinatoria")) return exerciseBanks.ccssICombinatoria;
   return null;
 }
 
 function ccssIIModelBank(lower) {
-  if (lower.includes("matrice")) return exerciseBanks.ccssIIPauMatrices;
-  if (lower.includes("determinante") && !lower.includes("sistema")) return exerciseBanks.ccssIIPauMatrices;
-  if (lower.includes("sistema")) return exerciseBanks.ccssIIPauSistemas;
-  if (lower.includes("programacion lineal")) return exerciseBanks.ccssIIPauProgramacionLineal;
-  if (lower.includes("limite") || lower.includes("continuidad")) return exerciseBanks.ccssIIPauFuncionesContinuidad;
-  if (lower.includes("derivada")) return exerciseBanks.ccssIIPauFuncionesContinuidad;
+  const legacy = (bank) => (bank || []).map((question) => ({
+    ...question,
+    sourceType: "legacy-unverified",
+    officialStatus: "legacy-unverified"
+  }));
+  if (lower.includes("matrice")) return legacy(exerciseBanks.ccssIIPauMatrices);
+  if (lower.includes("determinante") && !lower.includes("sistema")) return legacy(exerciseBanks.ccssIIPauMatrices);
+  if (lower.includes("sistema")) return legacy(exerciseBanks.ccssIIPauSistemas);
+  if (lower.includes("programacion lineal")) return legacy(exerciseBanks.ccssIIPauProgramacionLineal);
+  if (lower.includes("limite") || lower.includes("continuidad")) return legacy(exerciseBanks.ccssIIPauFuncionesContinuidad);
+  if (lower.includes("derivada")) return legacy(exerciseBanks.ccssIIPauFuncionesContinuidad);
   // Estos bancos heredados solo sirven para enlazar respuestas antiguas con
   // enunciados oficiales. La práctica visible usa MargaritaTopicPracticeBanks.
-  if (lower.includes("integrales indefinidas")) return exerciseBanks.ccssIIIntegralesIndefinidas;
-  if (lower.includes("integrales definidas")) return exerciseBanks.ccssIIIntegralesDefinidas;
-  if (lower.includes("probabilidad") && !lower.includes("distribucion")) return exerciseBanks.ccssIIPauProbabilidad;
-  if (lower.includes("distribucion") || lower.includes("binomial") || lower.includes("normal")) return exerciseBanks.ccssIIPauMuestreoInferencia;
-  if (lower.includes("muestreo") || lower.includes("inferencia")) return exerciseBanks.ccssIIPauMuestreoInferencia;
+  if (lower.includes("integrales indefinidas")) return legacy(exerciseBanks.ccssIIIntegralesIndefinidas);
+  if (lower.includes("integrales definidas")) return legacy(exerciseBanks.ccssIIIntegralesDefinidas);
+  if (lower.includes("probabilidad") && !lower.includes("distribucion")) return legacy(exerciseBanks.ccssIIPauProbabilidad);
+  // La práctica visible de los temas 10 y 11 usa exclusivamente la
+  // clasificación limpia a nivel de apartado. El banco heredado no se emplea
+  // para evitar que inferencia contamine Distribución binomial y normal.
+  if (lower.includes("distribucion") || lower.includes("binomial") || lower.includes("normal")) return [];
+  if (lower.includes("muestreo") || lower.includes("inferencia")) return legacy(exerciseBanks.ccssIIPauMuestreoInferencia);
   return null;
 }
 
@@ -9175,11 +9707,12 @@ function pauPendingBank(lower, courseId) {
 }
 
 function ccssIExtensionBank(lower) {
-  if (lower.includes("estadistica") || lower.includes("normal") || lower.includes("binomial")) return exerciseBanks.estadisticaBach;
+  if (lower.includes("estadistica") || lower.includes("normal") || lower.includes("binomial")) return [];
   if (lower.includes("probabilidad")) return exerciseBanks.probabilidadBach;
   if (lower.includes("complejo")) return exerciseBanks.complejos;
   if (lower.includes("numero") || lower.includes("real")) return exerciseBanks.realesBach;
-  if (lower.includes("inecuacion") || lower.includes("ecuacion") || lower.includes("sistema")) return exerciseBanks.ecuacionesBach;
+  if (lower.includes("inecuacion")) return [];
+  if (lower.includes("ecuacion") || lower.includes("sistema")) return exerciseBanks.ecuacionesBach;
   if (lower.includes("funcion")) return exerciseBanks.funciones;
   if (lower.includes("combinatoria")) return exerciseBanks.combinatoria;
   return [];
@@ -9194,40 +9727,22 @@ function fourEsoAModelBank(lower) {
   if (lower.includes("ecuacion") || lower.includes("inecuacion")) return exerciseBanks.fourEsoAEcuaciones;
   if (lower.includes("semejanza") || lower.includes("trigonometr")) return exerciseBanks.fourEsoASemejanzaTrigonometria;
   if (lower.includes("area") || lower.includes("cuerpo") || lower.includes("geometrico")) return exerciseBanks.fourEsoAAreasCuerpos;
-  if (lower.includes("funcion")) return exerciseBanks.fourEsoBFunciones;
+  if (lower.includes("funcion")) return window.MargaritaFourEsoAOwnBanks?.model?.("funciones") || [];
   return null;
 }
 
 function fourEsoBModelBank(lower) {
-  if (lower.includes("real")) return exerciseBanks.fourEsoAReales;
-  if (lower.includes("radical") || lower.includes("logaritmo")) return exerciseBanks.fourEsoBRadicalesLogaritmos;
-  if (lower.includes("expresion") || lower.includes("algebra")) return exerciseBanks.fourEsoAExpresiones;
-  if (lower.includes("inecuacion")) return exerciseBanks.fourEsoBInecuaciones;
-  if (lower.includes("ecuacion") && lower.includes("sistema")) return [...exerciseBanks.fourEsoAEcuaciones, ...exerciseBanks.fourEsoASistemas];
-  if (lower.includes("proporcional")) return exerciseBanks.fourEsoAProporcionalidad;
-  if (lower.includes("semejanza")) return exerciseBanks.fourEsoASemejanzaTrigonometria;
-  if (lower.includes("trigonometr")) return exerciseBanks.fourEsoASemejanzaTrigonometria;
-  if (lower.includes("geometria analitica")) return exerciseBanks.fourEsoBGeometriaAnalitica;
-  if (lower.includes("funcion") && !lower.includes("limite")) return exerciseBanks.fourEsoBFunciones;
-  if (lower.includes("limite") && lower.includes("sucesion")) return exerciseBanks.fourEsoBLimiteSucesiones;
-  if (lower.includes("limite")) return exerciseBanks.fourEsoBLimiteFunciones;
-  if (lower.includes("derivada")) return exerciseBanks.fourEsoBDerivadas;
-  if (lower.includes("combinatoria")) return exerciseBanks.fourEsoBCombinatoria;
-  return null;
+  // Matemáticas B debe disponer de una capa propia. La capa combina sus
+  // originales controlados, sus exámenes verificados y el banco específico
+  // de combinatoria, sin heredar bancos ordinarios de Matemáticas A.
+  return window.MargaritaFourEsoBOwnBanks?.model?.(lower) || [];
 }
 
 function threeEsoModelBank(lower) {
-  if (lower.includes("real")) return exerciseBanks.fourEsoAReales;
-  if (lower.includes("potencia") || lower.includes("raices") || lower.includes("radical")) return exerciseBanks.fourEsoBRadicalesLogaritmos;
-  if (lower.includes("expresion") || lower.includes("algebra")) return exerciseBanks.fourEsoAExpresiones;
-  if (lower.includes("ecuacion") || lower.includes("sistema")) return [...exerciseBanks.fourEsoAEcuaciones, ...exerciseBanks.fourEsoASistemas];
-  if (lower.includes("proporcional")) return exerciseBanks.fourEsoAProporcionalidad;
-  if (lower.includes("sucesion")) return exerciseBanks.fourEsoBLimiteSucesiones;
-  if (lower.includes("cuerpo") || lower.includes("geometrico")) return exerciseBanks.fourEsoAAreasCuerpos;
-  if (lower.includes("funcion")) return exerciseBanks.fourEsoBFunciones;
-  if (lower.includes("estadistica")) return exerciseBanks.estadistica;
-  if (lower.includes("probabilidad")) return exerciseBanks.probabilidad;
-  return null;
+  // 3.º ESO dispone de bancos originales, exámenes verificados y generadores
+  // propios. No debe heredar modelos de 4.º ESO ni bancos compartidos cuya
+  // procedencia curricular no pueda garantizarse.
+  return [];
 }
 
 function twoEsoModelBank(lower) {
@@ -9303,7 +9818,7 @@ function pickExerciseBank(lower, courseId) {
   if (isUpperEso) {
     if (courseId === "3eso") {
       const bank = threeEsoModelBank(lower);
-      if (bank?.length) return bank;
+      return bank;
     }
     if (courseId === "4eso-a") {
       const bank = fourEsoAModelBank(lower);
@@ -9311,7 +9826,9 @@ function pickExerciseBank(lower, courseId) {
     }
     if (courseId === "4eso-b") {
       const bank = fourEsoBModelBank(lower);
-      if (bank?.length) return bank;
+      // No caer en los bancos genéricos ni en bancos de Matemáticas A cuando
+      // un tema B todavía tenga originales pendientes de revisión visual.
+      return bank;
     }
     if (lower.includes("potencia") || lower.includes("raices") || lower.includes("radical")) return exerciseBanks.potenciasUpper;
     if (lower.includes("polinomio")) return exerciseBanks.polinomios;
@@ -9506,7 +10023,6 @@ const exerciseBanks = {
     { text: "Si lim x→a⁻ f(x)=2 y lim x→a⁺ f(x)=5, el límite en a...", options: ["No existe", "Vale 2", "Vale 5", "Vale 7"], correct: 0, solution: "Resolución:\n1. Para que exista el límite, los límites laterales deben coincidir.\n2. Como 2≠5, no existe.\nResultado final: no existe." },
     { text: "Calcula lim x→3 (x²-9)/(x-3).", options: ["6", "0", "3", "No existe"], correct: 0, solution: "Resolución:\n1. Factorizamos x²-9=(x-3)(x+3).\n2. Simplificamos x-3.\n3. Queda x+3.\n4. Sustituimos x=3.\nResultado final: 6." },
     { text: "La recta x=2 puede ser asíntota vertical de 1/(x-2) porque...", options: ["El denominador se anula", "El numerador se anula", "La función vale 2", "Es una recta horizontal"], correct: 0, solution: "Resolución:\n1. En x=2, el denominador x-2 vale 0.\n2. La función crece sin límite cerca de ese valor.\nResultado final: x=2 es asíntota vertical." },
-    { text: "Calcula lim x→0 sen(x)/x.", options: ["1", "0", "∞", "No existe"], correct: 0, solution: "Resolución:\n1. Es un límite fundamental.\n2. sen(x)/x tiende a 1 cuando x tiende a 0.\nResultado final: 1." },
     { text: "Si f es continua en a, entonces...", options: ["lim x→a f(x)=f(a)", "f'(a)=0", "f(a)=0", "No existe límite"], correct: 0, solution: "Resolución:\n1. La continuidad exige que el límite exista.\n2. Además debe coincidir con el valor de la función.\nResultado final: lim x→a f(x)=f(a)." },
     { text: "Calcula lim x→∞ (2x²-1)/(5x²+3).", options: ["2/5", "5/2", "0", "∞"], correct: 0, solution: "Resolución:\n1. Numerador y denominador tienen el mismo grado.\n2. Tomamos cociente de coeficientes principales.\nResultado final: 2/5." }
   ],
@@ -10050,7 +10566,6 @@ const exerciseBanks = {
     { text: "Calcula lim x->1 de (x^2 - 1)/(x - 1).", options: ["2", "0", "1", "No existe"], correct: 0, solution: "Solucion:\n1. Al sustituir aparece 0/0, una indeterminacion.\n2. Factorizamos: x^2-1=(x-1)(x+1).\n3. Simplificamos x-1 y queda x+1.\n4. Sustituimos x=1: 2.\nResultado final: 2." },
     { text: "lim x->infinito de (3x^2 + 1)/(x^2 - 5) es...", options: ["3", "0", "infinito", "-3"], correct: 0, solution: "Solucion:\n1. En cocientes de polinomios de igual grado, mandan los coeficientes principales.\n2. Coeficiente principal del numerador: 3. Del denominador: 1.\nResultado final: 3/1=3." },
     { text: "Para que f sea continua en x=a debe cumplirse...", options: ["lim x->a f(x) = f(a)", "f'(a)=0", "f(a)=0", "a=0"], correct: 0, solution: "Solucion:\n1. La continuidad exige que no haya salto ni hueco en x=a.\n2. Por eso deben coincidir el limite y el valor de la funcion.\nResultado final: lim x->a f(x)=f(a)." },
-    { text: "lim x->0 de sen(x)/x vale...", options: ["1", "0", "infinito", "No existe"], correct: 0, solution: "Solucion:\n1. Es un limite trigonometrico fundamental.\n2. Cuando x se acerca a 0, sen(x) y x se aproximan al mismo ritmo.\nResultado final: 1." },
     { text: "Calcula lim x->3 de (x^2 - 9)/(x - 3).", options: ["6", "3", "0", "No existe"], correct: 0, solution: "Solucion:\n1. Al sustituir sale 0/0, una indeterminacion.\n2. Factorizamos: x^2-9=(x-3)(x+3).\n3. Simplificamos x-3 y queda x+3.\n4. Sustituimos x=3.\nResultado final: 6." },
     { text: "lim x->infinito de 7/x es...", options: ["0", "7", "infinito", "1"], correct: 0, solution: "Solucion:\n1. El numerador queda fijo y el denominador crece sin limite.\n2. Una cantidad fija dividida entre algo cada vez mayor tiende a 0.\nResultado final: 0." },
     { text: "Si lim x->a- f(x)=2 y lim x->a+ f(x)=5, el limite en a...", options: ["No existe", "Vale 2", "Vale 5", "Vale 7"], correct: 0, solution: "Solucion:\n1. Para que exista el limite, los limites laterales deben coincidir.\n2. Aqui 2 no es igual a 5.\nResultado final: el limite no existe." }
@@ -11112,12 +11627,35 @@ function topicVideoVisual(scene) {
 }
 
 function currentTopicPodcast() {
-  return window.TOPIC_PODCASTS?.[state.courseId]?.[state.topicIndex] || null;
+  const podcasts = window.TOPIC_PODCASTS?.[state.courseId] || [];
+  if (!ESO_COURSE_IDS.includes(state.courseId)) return podcasts[state.topicIndex] || null;
+  const course = courseById(state.courseId);
+  const normalizedPodcastTitle = (value) => normalizeDisplayText(value)
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase();
+  const expectedTitle = normalizedPodcastTitle(course.themes[state.topicIndex] || "");
+  const semanticId = semanticTopicId(course, state.topicIndex);
+  const semanticTitleAliases = {
+    "1eso:fracciones-decimales": ["fracciones"]
+  };
+  const acceptedTitles = new Set([
+    expectedTitle,
+    ...(semanticTitleAliases[semanticId] || []).map(normalizedPodcastTitle)
+  ]);
+  return podcasts.find((podcast) => acceptedTitles.has(normalizedPodcastTitle(podcast?.title || ""))) || null;
 }
 
 function topicPodcastControlsHtml(course) {
   const podcast = currentTopicPodcast();
   const isBachillerato = course?.id?.includes("bach");
+  if (isBachillerato && !podcast?.master) {
+    return `
+      <section class="topic-podcast-inline is-pending" id="topic-podcast-inline" aria-label="Escuchar explicación">
+        <strong class="topic-podcast-inline-title">Escuchar explicación</strong>
+        <p class="topic-podcast-pending" role="status">Audio Master pendiente</p>
+      </section>`;
+  }
   const versions = isBachillerato
     ? [{ level: "master", icon: "★", label: "Master" }]
     : [

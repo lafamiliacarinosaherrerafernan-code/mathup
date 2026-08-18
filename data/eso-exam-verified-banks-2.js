@@ -123,7 +123,7 @@
     ],
     "4eso-a::sistemas de ecuaciones e inecuaciones": [
       {
-        rawBaseId: "4eso-a-ecuaciones-e-inecuaciones-439df3a1bb75",
+        rawBaseId: "4eso-a-sistemas-de-ecuaciones-e-inecuaciones-439df3a1bb75",
         source: "documentos/4 ESO A/Exámenes tipo/2017-2018/Unidad 5-6/Examen 4-5.pdf",
         sourceKind: "exam", difficulty: "hard",
         text: "2. Ejercicio: Resuelve por reducción y por el método gráfico y clasifica según el número de soluciones el sistema: 2x+y=3; x−3y=5.",

@@ -120,6 +120,8 @@ window.TOPIC_PODCASTS = {
     { title: "Ecuaciones y sistemas", master: "documentos/1º BACHILLERATO CCSSI/Audios 1º Bach CCSS I/7- Ecuaciones y Sistemas Master.m4a" },
     { title: "Inecuaciones y sistemas", master: "documentos/1º BACHILLERATO CCSSI/Audios 1º Bach CCSS I/8- Inecuaciones y Sistemas Master.m4a" },
     { title: "Funciones", master: "documentos/1º BACHILLERATO CCSSI/Audios 1º Bach CCSS I/9- Funciones Master.m4a" },
+    { title: "Derivadas" },
+    { title: "Aplicación de derivadas" },
     { title: "Combinatoria", master: "documentos/1º BACHILLERATO CCSSI/Audios 1º Bach CCSS I/10-Combinatoria Master.m4a" }
   ],
   "2bach-mates": [

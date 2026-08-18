@@ -10,11 +10,21 @@
       "Probabilidad y estadística"
     ],
     "2bach-ccss": [
-      "Matrices y determinantes",
+      "Matrices",
       "Sistemas y programación lineal",
       "Análisis",
-      "Probabilidad",
-      "Estadística"
+      "Probabilidad o estadística"
+    ]
+  };
+
+  const CCSS_II_EXAM_FAMILIES = {
+    2: [
+      { id: "sistemas", label: "Sistemas", blockId: "algebra", topicIndexes: [2] },
+      { id: "programacion-lineal", label: "Programación lineal", blockId: "algebra", topicIndexes: [3] }
+    ],
+    4: [
+      { id: "probabilidad", label: "Probabilidad", blockId: "probabilidad", topicIndexes: [8] },
+      { id: "estadistica", label: "Estadística", blockId: "estadistica", topicIndexes: [9, 10] }
     ]
   };
 
@@ -79,23 +89,24 @@
     }
   }
 
-  function examBlockForSlot(courseId, slot) {
+  function examBlocksForSlot(courseId, slot) {
     if (courseId === "2bach-mates") {
-      return slot === 1
+      return [slot === 1
         ? "algebra"
         : slot === 2 || slot === 3
           ? "analisis"
           : slot === 4
             ? "geometria"
-            : "probabilidad-estadistica";
+            : "probabilidad-estadistica"];
     }
-    return slot === 1 || slot === 2
-      ? "algebra"
-      : slot === 3
-        ? "analisis"
-        : slot === 4
-          ? "probabilidad"
-          : "estadistica";
+    if (slot === 1 || slot === 2) return ["algebra"];
+    if (slot === 3) return ["analisis"];
+    if (slot === 4) return ["probabilidad", "estadistica"];
+    return [];
+  }
+
+  function examBlockForSlot(courseId, slot) {
+    return examBlocksForSlot(courseId, slot)[0] || null;
   }
 
   function examSearchableText(question) {
@@ -110,25 +121,68 @@
       .toLowerCase();
   }
 
+  function examTopicIndexesForSlot(courseId, slot) {
+    if (courseId !== "2bach-ccss") return [];
+    if (slot === 1) return [0];
+    if (slot === 2) return [2, 3];
+    if (slot === 3) return [4, 5];
+    if (slot === 4) return [8, 9, 10];
+    return [];
+  }
+
   function questionBelongsToExamSlot(courseId, slot, question) {
-    const blockId = question?.blockId || examBlockForSlot(courseId, slot);
-    if (blockId !== examBlockForSlot(courseId, slot)) return false;
+    const allowedBlocks = examBlocksForSlot(courseId, slot);
+    const blockId = question?.blockId || allowedBlocks[0];
+    if (!allowedBlocks.includes(blockId)) return false;
+    if (courseId === "2bach-ccss") {
+      const allowedTopics = new Set(examTopicIndexesForSlot(courseId, slot));
+      const questionTopics = Array.isArray(question?.topicIndexes) ? question.topicIndexes : [];
+      return questionTopics.length > 0 && questionTopics.some((topicIndex) => allowedTopics.has(topicIndex));
+    }
     const text = examSearchableText(question);
     if (courseId === "2bach-mates" && blockId === "analisis") {
       const isIntegral = /\bintegral|primitiv|barrow|área|area|recinto|región limitada|region limitada/.test(text);
       return slot === 3 ? isIntegral : !isIntegral;
     }
-    if (courseId === "2bach-ccss" && blockId === "algebra") {
-      const isSystemOrProgramming = /programación lineal|programacion lineal|sistema de ecuaciones|compatibilidad|rouché|rouche|gauss|cramer/.test(text);
-      return slot === 2 ? isSystemOrProgramming : !isSystemOrProgramming;
-    }
     return true;
+  }
+
+  function ccssIIExamFamilyForQuestion(slot, question) {
+    const topics = new Set(question?.topicIndexes || []);
+    return (CCSS_II_EXAM_FAMILIES[slot] || []).find((family) => (
+      family.blockId === question?.blockId
+      && family.topicIndexes.some((topicIndex) => topics.has(topicIndex))
+    )) || null;
+  }
+
+  function filterExamSlotPoolByFamily(courseId, slot, pool, familyId = null) {
+    if (courseId !== "2bach-ccss" || !familyId) return pool;
+    return pool.filter((question) => ccssIIExamFamilyForQuestion(slot, question)?.id === familyId);
+  }
+
+  function officialPauMetadata(courseId, question) {
+    const source = String(question?.source || officialExerciseSource(question) || "");
+    const year = String(question?.year || source.match(/\b(20\d{2})\b/)?.[1] || "");
+    const official = hasOfficialConvocation(question)
+      && question?.sourceType !== "legacy-unverified"
+      && question?.officialStatus !== "legacy-unverified";
+    return {
+      official,
+      year,
+      pauEra: courseId === "2bach-ccss" && (year === "2025" || year === "2026")
+        ? "current"
+        : "historical"
+    };
   }
 
   function questionAvailableForMode(courseId, question, mode) {
     const availability = window.MargaritaContentAvailability;
     if (!availability?.isAvailable) return true;
     const topicIndexes = Array.isArray(question?.topicIndexes) ? question.topicIndexes : [];
+    // En CCSS II un apartado sin clasificación no puede entrar por accidente
+    // en Práctica por temas ni en Examen por bloques. El examen completo puede
+    // conservar el ejercicio oficial mediante su slot fiable.
+    if (courseId === "2bach-ccss" && mode !== "exam" && !topicIndexes.length) return false;
     return topicIndexes.every((topicIndex) => availability.isAvailable(courseId, topicIndex, mode));
   }
 
@@ -147,7 +201,7 @@
     };
   }
 
-  function asPreparedExamQuestion(question, slot, blockId, rotationSeed = 0) {
+  function asPreparedExamQuestion(question, slot, blockId, rotationSeed = 0, courseId = state.courseId) {
     if (!question) return null;
     const expanded = expandCompositeQuestionParts(question);
     const sourceParts = expanded.parts?.length
@@ -165,8 +219,10 @@
     const parts = sourceParts.map((part, index) => rotateExamPart(part, rotationSeed + index));
     if (!parts.length || parts.some((part) => !part)) return null;
     const identity = challengeQuestionIdentity(expanded);
+    const pauMetadata = officialPauMetadata(expanded.courseId || courseId, expanded);
     return {
       ...expanded,
+      ...pauMetadata,
       id: expanded.id || `exam-${blockId}-${Math.abs(hashExamText(identity))}`,
       rawBaseId: expanded.rawBaseId || identity,
       source: expanded.source || officialExerciseSource(expanded),
@@ -216,6 +272,153 @@
     };
   }
 
+  function completeRawPartExercise(courseId, raw, part, partIndex, blockId, rotationSeed) {
+    const authored = answerBank(courseId)[raw?.id];
+    if (!raw || !part || !authored) return null;
+    const answer = officialPartAnswer(authored, raw.parts, part, partIndex);
+    const preparedPart = rotateExamPart({
+      label: part.label,
+      text: exercisePartPrompt(part),
+      html: exercisePartPrompt(part, true),
+      options: answer?.options,
+      correct: answer?.correct,
+      solution: answer?.solution
+    }, rotationSeed);
+    if (!preparedPart) return null;
+    const topicIndexes = Array.isArray(part.topicIndexes) ? [...part.topicIndexes] : [];
+    return {
+      id: part.partId || `${raw.id}:part-${partIndex + 1}`,
+      rawBaseId: `${raw.id}|${part.partId || partIndex}|${raw.source}`,
+      exerciseId: raw.id,
+      partId: part.partId || `${raw.id}:part-${partIndex + 1}`,
+      source: raw.source,
+      sourceType: part.sourceType || raw.sourceType || "official-pau",
+      officialStatus: part.officialStatus || raw.officialStatus || "official",
+      sourceCourseLabel: part.sourceCourseLabel || raw.sourceCourseLabel || "2.º Bachillerato · Matemáticas Aplicadas a las CCSS II",
+      year: part.year || raw.year || "",
+      convocatoria: part.convocatoria || raw.convocatoria || "",
+      topicIndexes,
+      primaryTopicIndex: part.primaryTopicIndex,
+      subtopic: part.subtopic,
+      reasoningTypes: Array.isArray(part.reasoningTypes) ? [...part.reasoningTypes] : [],
+      blockId,
+      text: joinExerciseParagraphs(raw.statement),
+      statementHtml: joinExerciseParagraphs(raw.statement, true),
+      parts: [preparedPart],
+      type: "corrected-official-part"
+    };
+  }
+
+  function prepareDidacticTopicQuestion(question, topicIndex, rotationSeed) {
+    if (!question?.options?.length || question.options.length !== 4 || !String(question.solution || "").trim()) return null;
+    const amount = Math.abs(rotationSeed) % question.options.length;
+    return {
+      ...question,
+      topicIndexes: [topicIndex],
+      options: rotate(question.options, amount),
+      correct: (question.correct - amount + question.options.length) % question.options.length,
+      type: question.type || "didactic-original"
+    };
+  }
+
+  function crossCourseContentKey(question) {
+    return normalizeDisplayText([
+      question?.text || "",
+      ...(question?.parts || []).map((part) => part?.text || part?.html || "")
+    ].join(" "))
+      .replace(/<[^>]+>/g, " ")
+      .toLowerCase()
+      .normalize("NFD")
+      .replace(/[\u0300-\u036f]/g, "")
+      .replace(/\b(?:apartado|ejercicio|propuesta|opcion)\s*[a-z0-9.\-]*/g, " ")
+      .replace(/\s+/g, " ")
+      .trim();
+  }
+
+  function prepareCcssIICrossCourseQuestion(record, topicIndex, rotationSeed) {
+    const suppliedQuestion = record.question;
+    const basePrepared = suppliedQuestion
+      ? (() => {
+        if (suppliedQuestion.options?.length !== 4
+          || !Number.isInteger(suppliedQuestion.correct)
+          || !String(suppliedQuestion.solution || "").trim()) return null;
+        const amount = Math.abs(rotationSeed) % suppliedQuestion.options.length;
+        return {
+          ...suppliedQuestion,
+          options: rotate(suppliedQuestion.options, amount),
+          correct: (suppliedQuestion.correct - amount + suppliedQuestion.options.length) % suppliedQuestion.options.length
+        };
+      })()
+      : completeRawPartExercise(
+        "2bach-mates",
+        record.exercise,
+        record.part,
+        record.partIndex,
+        record.blockId,
+        rotationSeed
+      );
+    const prepared = record.solutionOverride && basePrepared?.parts?.length
+      ? {
+        ...basePrepared,
+        parts: basePrepared.parts.map((part, index) => index === 0 ? { ...part, solution: record.solutionOverride } : part)
+      }
+      : basePrepared;
+    if (!prepared) return null;
+    const searchable = normalizeDisplayText([
+      record.part?.paragraphs?.map((paragraph) => paragraph?.plain || "").join(" ") || "",
+      prepared.text || "",
+      prepared.solution || "",
+      ...(prepared.parts || []).map((part) => part?.solution || "")
+    ].join(" ")).toLowerCase();
+    // En CCSS II los sistemas con parámetros se discuten mediante rangos y
+    // Rouché-Frobenius. No reutilizamos un ejercicio de Matemáticas II si su
+    // solución disponible no acredita ese procedimiento didáctico.
+    if (topicIndex === 2
+      && (record.subtypes || []).includes("discusion")
+      && !/rouch|rango/.test(searchable)) return null;
+    const subtypes = new Set(record.subtypes || []);
+    if (topicIndex === 1) {
+      if (/sarrus/.test(searchable)) subtypes.add("sarrus");
+      if (/cofactor|laplace|desarrollamos? por (?:la )?(?:fila|columna)/.test(searchable)) subtypes.add("cofactores");
+      if (/orden 2|2\s*[x×]\s*2/.test(searchable)) subtypes.add("2x2");
+      if (/orden 3|3\s*[x×]\s*3/.test(searchable)) subtypes.add("3x3");
+      if (/menor.*no nulo|rango/.test(searchable)) subtypes.add("rango");
+    } else {
+      if (/rouch/.test(searchable)) subtypes.add("rouche-frobenius");
+      if (/matriz ampliada|a\*/.test(searchable)) subtypes.add("discusion");
+      if (/gauss/.test(searchable)) subtypes.add("gauss");
+      if (/cramer/.test(searchable)) subtypes.add("cramer");
+      if (/\bx\b.*\by\b.*\bz\b|tres incognit/.test(searchable)) subtypes.add("3x3");
+      if (subtypes.has("discusion") && !/rouch|rango/.test(searchable)) return null;
+    }
+    if (!subtypes.size) return null;
+    const sourceLabel = record.sourceCourseLabel || "Matemáticas II";
+    return {
+      ...prepared,
+      id: `ccss-ii-practice|${prepared.id}`,
+      rawBaseId: `ccss-ii-topic-${topicIndex}|mates-ii|${prepared.rawBaseId || prepared.id || prepared.source}`,
+      exerciseId: prepared.exerciseId || prepared.id,
+      courseId: "2bach-ccss",
+      practiceCourseId: "2bach-ccss",
+      sourceCourse: "2bach-mates",
+      sourceCourseLabel: sourceLabel,
+      sourceOriginalType: prepared.sourceType || "official-pau",
+      sourceType: "cross-course-practice",
+      officialStatus: prepared.officialStatus || "official",
+      usedFor: "Práctica por temas CCSS II",
+      topicIndexes: [topicIndex],
+      primaryTopicIndex: topicIndex,
+      subtopic: topicIndex === 1 ? "Determinantes compatibles con CCSS II" : "Sistemas compatibles con CCSS II",
+      reasoningTypes: [...subtypes],
+      practiceOnly: true,
+      availableForTopicPractice: true,
+      availableForExamByBlocks: false,
+      availableForExam: false,
+      statementHtml: `<div class="official-source">Procedencia: ${escapeHtml(sourceLabel)} · ${escapeHtml(prepared.source)}</div>${prepared.statementHtml || `<p>${escapeHtml(prepared.text || "")}</p>`}`,
+      type: "cross-course-official-part"
+    };
+  }
+
   function officialLegacyBlockPool(course, blockId) {
     const block = (BACH_II_BLOCKS[course.id] || []).find((item) => item.id === blockId);
     if (!block) return [];
@@ -230,20 +433,22 @@
 
   function buildExamSlotPool(courseId, slot, rotationSeed = 0) {
     const course = courseById(courseId);
-    const blockId = examBlockForSlot(courseId, slot);
-    if (!course || !blockId) return [];
+    const blockIds = examBlocksForSlot(courseId, slot);
+    if (!course || !blockIds.length) return [];
     ensurePauTopicMetadata(courseId);
 
     const curatedEntries = catalog(courseId)
       .filter((entry) => entry.slot === slot && exerciseIsComplete(courseId, entry))
       .map((entry, index) => prepareExercise(courseId, entry, rotationSeed + index))
       .filter(Boolean);
-    const corrected = buildCorrectedBlockQuestions(course, blockId);
-    const completeRaw = (rawBanks(courseId)[blockId] || [])
-      .map((raw, index) => completeRawExercise(courseId, raw, blockId, rotationSeed + index))
-      .filter(Boolean);
+    const corrected = blockIds.flatMap((blockId) => buildCorrectedBlockQuestions(course, blockId));
+    const completeRaw = courseId === "2bach-ccss"
+      ? []
+      : blockIds.flatMap((blockId) => (rawBanks(courseId)[blockId] || [])
+          .map((raw, index) => completeRawExercise(courseId, raw, blockId, rotationSeed + index))
+          .filter(Boolean));
     const suppliedExtras = courseId === "2bach-mates"
-      ? window.MATES_II_EXTRA_BLOCK_QUESTIONS?.[blockId] || []
+      ? blockIds.flatMap((blockId) => window.MATES_II_EXTRA_BLOCK_QUESTIONS?.[blockId] || [])
       : [];
     const seen = new Set();
     // En los exámenes solo utilizamos los bancos oficiales corregidos de la
@@ -252,9 +457,16 @@
     // incorporarse aquí: así evitamos mezclar enunciados entre modalidades.
     return [...curatedEntries, ...corrected, ...completeRaw, ...suppliedExtras]
       .filter((question) => hasOfficialConvocation(question))
+      .filter((question) => officialPauMetadata(courseId, question).official)
       .filter((question) => questionAvailableForMode(courseId, question, "exam"))
       .filter((question) => questionBelongsToExamSlot(courseId, slot, question))
-      .map((question, index) => asPreparedExamQuestion(question, slot, blockId, rotationSeed + index))
+      .map((question, index) => asPreparedExamQuestion(
+        question,
+        slot,
+        question.blockId || blockIds[0],
+        rotationSeed + index,
+        courseId
+      ))
       .filter(Boolean)
       .filter((question) => {
         const identity = officialQuestionDedupKey(question);
@@ -264,9 +476,80 @@
       });
   }
 
-  function chooseWithoutRepeating(courseId, slot, seed) {
-    const pool = buildExamSlotPool(courseId, slot, hashExamText(`${seed}|${slot}`));
+  function filterExamSlotPoolByTopics(courseId, slot, pool, selectedTopicIndexes = null) {
+    if (!Array.isArray(selectedTopicIndexes)) return pool;
+    const selected = new Set(selectedTopicIndexes);
+    const permitted = examTopicIndexesForSlot(courseId, slot)
+      .filter((topicIndex) => selected.has(topicIndex));
+    if (!permitted.length) return [];
+    const permittedSet = new Set(permitted);
+    return pool.filter((question) => {
+      const topics = question.topicIndexes || [];
+      return topics.length > 0 && topics.every((topicIndex) => permittedSet.has(topicIndex));
+    });
+  }
+
+  function buildFilteredExamSlotPool(courseId, slot, selectedTopicIndexes = null, rotationSeed = 0) {
+    return filterExamSlotPoolByTopics(
+      courseId,
+      slot,
+      buildExamSlotPool(courseId, slot, rotationSeed),
+      selectedTopicIndexes
+    );
+  }
+
+  function chooseWithoutRepeating(courseId, slot, seed, selectedTopicIndexes = null, familyId = null) {
+    const filteredPool = filterExamSlotPoolByFamily(courseId, slot, buildFilteredExamSlotPool(
+      courseId,
+      slot,
+      selectedTopicIndexes,
+      hashExamText(`${seed}|${slot}`)
+    ), familyId);
+    // El examen completo de CCSS II prioriza el modelo vigente. El banco
+    // histórico solo actúa como alternativa cuando el filtro solicitado no
+    // dispone de ejercicios actuales compatibles.
+    const currentPool = courseId === "2bach-ccss"
+      ? filteredPool.filter((question) => question.pauEra === "current")
+      : [];
+    const pool = currentPool.length ? currentPool : filteredPool;
     return chooseFromExamPoolWithoutRepeating(courseId, slot, seed, pool);
+  }
+
+  function alternatingFamilyHistoryKey(courseId, slot) {
+    return `${studentExamKey(courseId)}|slot-${slot}|last-family`;
+  }
+
+  function chooseAlternatingExamFamily(courseId, slot, seed, selectedTopicIndexes = null) {
+    if (courseId !== "2bach-ccss" || !CCSS_II_EXAM_FAMILIES[slot]) return null;
+    const completePool = buildFilteredExamSlotPool(
+      courseId,
+      slot,
+      selectedTopicIndexes,
+      hashExamText(`${seed}|family-${slot}`)
+    );
+    const availableFamilies = CCSS_II_EXAM_FAMILIES[slot].filter((family) => (
+      filterExamSlotPoolByFamily(courseId, slot, completePool, family.id).length > 0
+    ));
+    if (!availableFamilies.length) return null;
+    const history = readExamHistory();
+    const key = alternatingFamilyHistoryKey(courseId, slot);
+    const lastFamily = history[key];
+    const opposite = availableFamilies.find((family) => family.id !== lastFamily);
+    const selected = lastFamily
+      ? opposite || availableFamilies.find((family) => family.id === lastFamily)
+      : seededShuffle(availableFamilies, `${seed}|first-family-${slot}`)[0];
+    if (!selected) return null;
+    if (lastFamily && selected.id === lastFamily && availableFamilies.length === 1) {
+      const fallbackKey = `${key}|fallbacks`;
+      const fallbacks = Array.isArray(history[fallbackKey]) ? history[fallbackKey] : [];
+      history[fallbackKey] = [...fallbacks.slice(-19), {
+        at: new Date().toISOString(),
+        unavailableAlternative: (CCSS_II_EXAM_FAMILIES[slot] || []).find((family) => family.id !== lastFamily)?.id || ""
+      }];
+    }
+    history[key] = selected.id;
+    writeExamHistory(history);
+    return selected;
   }
 
   function chooseFromExamPoolWithoutRepeating(courseId, slot, seed, pool) {
@@ -552,6 +835,7 @@
       renderStudentHome();
       return;
     }
+    let validTopicIndexes = null;
     if (Array.isArray(selectedTopicIndexes)) {
       const availability = window.MargaritaContentAvailability;
       const partition = availability?.partition
@@ -562,16 +846,42 @@
         renderBachIIHome();
         return;
       }
+      validTopicIndexes = partition.valid;
+      const requiredSlots = course.id === "2bach-ccss" ? [1, 2, 3, 4] : [1, 2, 3, 4, 5];
+      const incompatibleSlots = requiredSlots.filter((slot) => {
+        const slotTopics = examTopicIndexesForSlot(course.id, slot);
+        return slotTopics.length && !slotTopics.some((topicIndex) => validTopicIndexes.includes(topicIndex));
+      });
+      if (incompatibleSlots.length) {
+        const labels = incompatibleSlots.map((slot) => slotLabels[course.id]?.[slot - 1] || `Grupo ${slot}`);
+        alert(`La selección no permite construir un examen completo PAU: faltan temas compatibles para ${labels.join(", ")}. Selecciona al menos un tema de cada grupo.`);
+        renderBachIIHome();
+        return;
+      }
     }
     const seed = `${Date.now()}|${studentExamKey(course.id)}`;
-    const questions = [1, 2, 3, 4, 5]
-      .map((slot) => chooseWithoutRepeating(course.id, slot, seed))
+    const examSlots = course.id === "2bach-ccss" ? [1, 2, 3, 4] : [1, 2, 3, 4, 5];
+    const selectedFamilies = course.id === "2bach-ccss"
+      ? {
+        2: chooseAlternatingExamFamily(course.id, 2, seed, validTopicIndexes),
+        4: chooseAlternatingExamFamily(course.id, 4, seed, validTopicIndexes)
+      }
+      : {};
+    const questions = examSlots
+      .map((slot) => chooseWithoutRepeating(course.id, slot, seed, validTopicIndexes, selectedFamilies[slot]?.id || null))
       .filter(Boolean);
-    if (questions.length !== 5) {
-      alert("El examen todavía no dispone de cinco grupos completos de ejercicios revisados.");
+    if (questions.length !== examSlots.length) {
+      alert(`El examen todavía no dispone de ${examSlots.length} grupos completos de ejercicios oficiales revisados.`);
       renderBachIIHome();
       return;
     }
+    questions.forEach((question) => {
+      const family = ccssIIExamFamilyForQuestion(question.slot, question);
+      if (family) {
+        question.examFamily = family.id;
+        question.examFamilyLabel = family.label;
+      }
+    });
     state.bachExam = {
       courseId: course.id,
       index: 0,
@@ -615,13 +925,29 @@
     // abandone antes de corregir el ejercicio.
     markExamExerciseAnswered(exam.courseId, question);
     const labels = slotLabels[course.id] || [];
+    const exerciseCount = exam.questions.length;
     const answeredCount = exam.questions.reduce((total, item) => total + (item.graded ? item.results.length : 0), 0);
     const partsHtml = question.parts.map((part, partIndex) => {
       const selected = question.selections[partIndex];
       const isCorrect = question.results[partIndex];
       return `
         <section class="exam-part">
-          <div class="exam-part-prompt">${part.html}</div>
+          <div class="exam-part-prompt">${formatMathHtml(part.html, { preserveTrigNotation: true })}</div>
+          ${handwritingAnswerHtml(question, {
+            courseId: exam.courseId,
+            answerSource: part,
+            correctIndex: part.correct,
+            topicId: question.topicId ?? question.topicIndex ?? question.slot,
+            topicLabel: question.examFamilyLabel || labels[question.slot - 1] || "Ejercicio",
+            blockId: question.blockId || question.blockKey || "",
+            partId: part.id || part.label || partIndex,
+            questionIndex: exam.index,
+            mode: "bachExam",
+            resultChannel: "bachExamPart",
+            statementHtml: `${renderOfficialSourceCallout(question, course.id)}<div class="question-text official-exercise-statement">${officialQuestionStatementHtml(question, course.id)}</div><div class="exam-part-prompt">${formatMathHtml(part.html, { preserveTrigNotation: true })}</div>`,
+            scoreState: { score: exam.score, answeredParts: answeredCount, progressIndex: exam.index, total: exam.totalParts },
+            attemptContext: { slot: question.slot, examFamily: question.examFamilyLabel || "" }
+          })}
           <div class="answers exam-part-options">${renderExamOptions(question, part, partIndex)}</div>
           ${question.graded ? `<div class="part-feedback ${isCorrect ? "is-correct" : "is-wrong"}">${isCorrect ? "Respuesta correcta." : `Respuesta incorrecta. La opción correcta es ${String.fromCharCode(65 + part.correct)}.`}</div>` : ""}
           ${question.graded && question.showSolutions ? `<div class="solution-help exam-solution">${formatSolutionText(didacticSolutionText({ solution: part.solution }))}</div>` : ""}
@@ -637,7 +963,7 @@
           <div class="workspace-head exam-workspace-head">
             <div>
               <span class="topic-kicker">Examen de ${escapeHtml(courseDisplayName(course))}</span>
-              <h1>Ejercicio ${exam.index + 1} de 5 · ${escapeHtml(labels[question.slot - 1] || "Ejercicio")}</h1>
+              <h1>Ejercicio ${exam.index + 1} de ${exerciseCount} · ${escapeHtml(question.examFamilyLabel || labels[question.slot - 1] || "Ejercicio")}</h1>
               <div class="badge-row">
                 <span class="badge">Convocatoria: ${escapeHtml(officialConvocationLabel(question))}</span>
                 <span class="badge">Aciertos: ${exam.score}/${answeredCount || 0}</span>
@@ -656,7 +982,7 @@
             <div class="exam-actions">
               ${!question.graded ? `<button class="primary" ${allSelected ? "" : "disabled"} onclick="gradeBachExamExercise()">Corregir ejercicio</button>` : `
                 <button class="secondary" onclick="toggleBachExamSolutions()">${question.showSolutions ? "Ocultar resolución" : "Ver resolución paso a paso"}</button>
-                <button class="primary" onclick="nextBachExamExercise()">${exam.index === 4 ? "Ver resultado del examen" : "Siguiente ejercicio"}</button>
+                <button class="primary" onclick="nextBachExamExercise()">${exam.index === exerciseCount - 1 ? "Ver resultado del examen" : "Siguiente ejercicio"}</button>
               `}
             </div>
           </article>
@@ -738,6 +1064,49 @@
     if (window.MargaritaContentAvailability?.isAvailable
       && !window.MargaritaContentAvailability.isAvailable(course.id, topicIndex, "topicPractice")) return [];
     ensurePauTopicMetadata(course.id);
+    if (course.id === "2bach-ccss") {
+      const classifier = window.MargaritaCcssIITopicClassification;
+      const classifiedParts = classifier?.partRecords?.(topicIndex) || [];
+      const officialParts = classifiedParts
+        .map((record, index) => completeRawPartExercise(
+          course.id,
+          record.exercise,
+          record.part,
+          record.partIndex,
+          record.blockId,
+          state.practiceRound + topicIndex + index
+        ))
+        .filter(Boolean)
+        .map((question) => ({
+          ...question,
+          statementHtml: `<div class="official-source">Enunciado original · ${escapeHtml(question.source)}</div>${question.statementHtml}`
+        }));
+      const didacticTopic10 = topicIndex === 9
+        ? (classifier?.originalTopic10PracticeBank?.() || [])
+          .map((question, index) => prepareDidacticTopicQuestion(question, topicIndex, state.practiceRound + index))
+          .filter(Boolean)
+        : [];
+      const crossCoursePractice = (topicIndex === 1 || topicIndex === 2)
+        ? (() => {
+          ensurePauTopicMetadata("2bach-mates");
+          return (window.MargaritaCcssIICrossCoursePractice?.recordsFor?.(topicIndex) || [])
+            .map((record, index) => prepareCcssIICrossCourseQuestion(record, topicIndex, state.practiceRound + topicIndex + index))
+            .filter(Boolean);
+        })()
+        : [];
+      const seen = new Set();
+      const seenContent = new Set();
+      return [...officialParts, ...didacticTopic10, ...crossCoursePractice]
+        .filter((question) => questionAvailableForMode(course.id, question, "topicPractice"))
+        .filter((question) => {
+          const identity = officialQuestionDedupKey(question);
+          const contentIdentity = crossCourseContentKey(question);
+          if (!identity || seen.has(identity) || (contentIdentity && seenContent.has(contentIdentity))) return false;
+          seen.add(identity);
+          if (contentIdentity) seenContent.add(contentIdentity);
+          return true;
+        });
+    }
     const entries = catalog(course.id)
       .filter((entry) => entry.topics.includes(topicIndex) && exerciseIsComplete(course.id, entry));
     const curated = seededShuffle(entries, `${course.id}|topic-${topicIndex}`).map((entry, index) => {
@@ -779,6 +1148,50 @@
   function buildCorrectedBlockQuestions(course, blockId) {
     if (!BACH_II_COURSE_IDS.includes(course?.id)) return [];
     ensurePauTopicMetadata(course.id);
+    if (course.id === "2bach-ccss") {
+      const seen = new Set();
+      const curated = catalog(course.id)
+        .filter((entry) => entry.block === blockId && exerciseIsComplete(course.id, entry))
+        .map((entry, index) => {
+          const raw = findRawExercise(course.id, entry);
+          const classifiedTopics = new Set(raw?.topicIndexes || []);
+          if (!(entry.topics || []).every((topicIndex) => classifiedTopics.has(topicIndex))) return null;
+          const prepared = prepareExercise(course.id, entry, state.practiceRound + index);
+          return prepared ? {
+            ...prepared,
+            topicIndexes: [...entry.topics],
+            primaryTopicIndex: entry.topics.length === 1 ? entry.topics[0] : null
+          } : null;
+        })
+        .filter(Boolean);
+      const officialQuestions = (rawBanks(course.id)[blockId] || []).flatMap((raw, rawIndex) => {
+        const classifiedParts = (raw.parts || []).filter((part) => part.topicIndexes?.length);
+        const allTopics = [...new Set(classifiedParts.flatMap((part) => part.topicIndexes || []))];
+        const keepComplete = classifiedParts.length === raw.parts?.length && allTopics.length === 1;
+        if (keepComplete) {
+          const complete = completeRawExercise(course.id, raw, blockId, state.practiceRound + rawIndex);
+          return complete ? [complete] : [];
+        }
+        return (raw.parts || []).map((part, partIndex) => completeRawPartExercise(
+          course.id,
+          raw,
+          part,
+          partIndex,
+          blockId,
+          state.practiceRound + rawIndex + partIndex
+        )).filter(Boolean);
+      });
+      return [...curated, ...officialQuestions]
+        .map((question) => ({ ...question, ...officialPauMetadata(course.id, question) }))
+        .filter((question) => question.official)
+        .filter((question) => questionAvailableForMode(course.id, question, "examByBlocks"))
+        .filter((question) => {
+          const identity = officialQuestionDedupKey(question);
+          if (!identity || seen.has(identity)) return false;
+          seen.add(identity);
+          return true;
+        });
+    }
     const entries = catalog(course.id)
       .filter((entry) => entry.block === blockId && exerciseIsComplete(course.id, entry));
     const curated = entries.map((entry, index) => prepareExercise(course.id, entry, state.practiceRound + index));
@@ -817,7 +1230,8 @@
   }
 
   function auditExamSlotCounts(course) {
-    return [1, 2, 3, 4, 5].map((slot) => ({
+    const slots = course.id === "2bach-ccss" ? [1, 2, 3, 4] : [1, 2, 3, 4, 5];
+    return slots.map((slot) => ({
       slot,
       label: slotLabels[course.id]?.[slot - 1] || `Grupo ${slot}`,
       count: buildExamSlotPool(course.id, slot, 0).length
@@ -835,6 +1249,12 @@
     buildTopicQuestions: buildCorrectedTopicQuestions,
     buildBlockQuestions: buildCorrectedBlockQuestions,
     buildExamSlotPool,
+    buildFilteredExamSlotPool,
+    examTopicIndexesForSlot,
+    examBlocksForSlot,
+    examFamilyForQuestion: ccssIIExamFamilyForQuestion,
+    filterExamSlotPoolByFamily,
+    chooseAlternatingExamFamily,
     chooseWithoutRepeating,
     chooseFromExamPoolWithoutRepeating,
     markExamExerciseAnswered,

@@ -32,6 +32,15 @@
       q("3eso-cuerpos-geometricos-b696243e6b33", geo, "6. Ejercicio (3 puntos): Indica el tipo de sucesión y el término general, y suma los infinitos términos: b) 4, 2, 1, 1/2, …", ["Geométrica, aₙ=4·(1/2)ⁿ⁻¹; S∞=8", "Aritmética, aₙ=5−n; S∞=0", "Geométrica, aₙ=2ⁿ; S∞ no converge", "Geométrica, aₙ=4·2ⁿ⁻¹; S∞=8"], "Resolución:\n1. Es geométrica porque cada término se obtiene multiplicando por r=1/2.\n2. aₙ=4·(1/2)ⁿ⁻¹.\n3. Como |r|<1, S∞=4/(1−1/2)=8.\nComprobación: las sumas parciales 4, 6, 7, 7,5,… se acercan a 8.\nResultado final: aₙ=4·(1/2)ⁿ⁻¹; S∞=8.")
     ]
   };
+  Object.entries(banks).forEach(([key, items]) => {
+    if (!key.startsWith("3eso::")) return;
+    const slug = key.split("::")[1].normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+    items.forEach((item, index) => {
+      item.originalRawBaseId = item.rawBaseId;
+      const stableSuffix = item.originalRawBaseId.match(/([a-f0-9]{12}(?:-[a-z0-9]+)?)$/)?.[1] || String(index + 1).padStart(3, "0");
+      item.rawBaseId = `3eso-${slug}-${stableSuffix}`;
+    });
+  });
   const previous = window.MargaritaEsoExamVerified;
   const normalize = (value) => String(value || "").normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().trim();
   window.MargaritaEsoExamVerified = { build(courseId, theme) { return [...(previous?.build?.(courseId, theme) || []), ...(banks[`${courseId}::${normalize(theme)}`] || []).map((item) => ({ ...item }))]; }, count: (previous?.count || 0) + Object.values(banks).reduce((sum, items) => sum + items.length, 0) };

@@ -11,11 +11,11 @@ window.MARGARITA_COACH_DATA = {
   coursePriorities: {
     "1eso": ["primes", "divisibility", "factors", "mcd-mcm", "hierarchy", "integers", "powers-roots", "fractions", "mixed-operations", "algebra", "proportionality", "geometry"],
     "2eso": ["mixed-operations", "powers-roots", "fractions", "integers", "proportionality", "percentages", "algebra", "equations", "geometry"],
-    "3eso": ["powers-roots", "fractions", "mixed-operations", "algebra", "equations", "systems", "proportionality", "areas-volumes", "functions", "statistics-probability"],
+    "3eso": ["real-numbers", "powers-roots", "algebra", "equations-systems-3eso", "proportionality", "sequences", "geometry-3eso", "functions", "statistics", "probability"],
     "4eso-a": ["powers-roots", "mixed-operations", "algebra", "equations", "systems", "functions", "geometry", "trigonometry"],
     "4eso-b": ["powers-roots", "radicals", "mixed-operations", "algebra", "equations", "systems", "functions", "geometry", "trigonometry", "combinatorics"],
     "1bach-mates": ["real-numbers", "algebra", "equations", "systems", "trigonometry", "complex-numbers", "analytic-geometry", "conics", "functions", "limits", "continuity", "derivatives", "statistics-probability"],
-    "1bach-ccss": ["real-numbers", "algebra", "equations", "systems", "functions", "combinatorics", "statistics-probability"]
+    "1bach-ccss": ["real-numbers", "algebra", "equations", "systems", "functions", "ccss-derivatives", "derivative-applications", "combinatorics", "statistics-probability"]
   },
   topics: {
     "primes": { label: "Números primos", prerequisites: [], minimumMasteryRequired: 0, priority: 1 },
@@ -37,6 +37,10 @@ window.MARGARITA_COACH_DATA = {
     "trigonometry": { label: "Trigonometría", prerequisites: ["geometry", "algebra"], minimumMasteryRequired: 0.70, priority: 17 },
     "functions": { label: "Funciones", prerequisites: ["algebra", "equations"], minimumMasteryRequired: 0.70, priority: 18 },
     "statistics": { label: "Estadística", prerequisites: ["fractions"], minimumMasteryRequired: 0.60, priority: 19 },
+    "probability": { label: "Probabilidad", prerequisites: ["fractions"], minimumMasteryRequired: 0.60, priority: 20 },
+    "sequences": { label: "Sucesiones", prerequisites: ["algebra"], minimumMasteryRequired: 0.65, priority: 17 },
+    "geometry-3eso": { label: "Cuerpos geométricos", prerequisites: ["powers-roots"], minimumMasteryRequired: 0.65, priority: 18 },
+    "equations-systems-3eso": { label: "Ecuaciones y sistemas", prerequisites: ["algebra"], minimumMasteryRequired: 0.70, priority: 12 },
     "statistics-probability": { label: "Estadística y probabilidad", prerequisites: ["fractions", "algebra"], minimumMasteryRequired: 0.65, priority: 20 },
     "radicals": { label: "Radicales", prerequisites: ["powers-roots"], minimumMasteryRequired: 0.70, priority: 21 },
     "real-numbers": { label: "Números reales", prerequisites: ["mixed-operations"], minimumMasteryRequired: 0.75, priority: 22 },
@@ -45,6 +49,8 @@ window.MARGARITA_COACH_DATA = {
     "limits": { label: "Límites", prerequisites: ["functions", "algebra"], minimumMasteryRequired: 0.75, priority: 25 },
     "continuity": { label: "Continuidad", prerequisites: ["limits", "functions"], minimumMasteryRequired: 0.70, priority: 26 },
     "derivatives": { label: "Derivadas", prerequisites: ["functions", "limits"], minimumMasteryRequired: 0.75, priority: 27 },
+    "ccss-derivatives": { label: "Derivadas", prerequisites: ["functions", "algebra"], minimumMasteryRequired: 0.75, priority: 27 },
+    "derivative-applications": { label: "Aplicación de derivadas", prerequisites: ["ccss-derivatives", "functions"], minimumMasteryRequired: 0.75, priority: 28 },
     "conics": { label: "Cónicas", prerequisites: ["analytic-geometry", "algebra"], minimumMasteryRequired: 0.70, priority: 28 },
     "combinatorics": { label: "Combinatoria", prerequisites: ["mixed-operations", "algebra"], minimumMasteryRequired: 0.70, priority: 29 }
   },

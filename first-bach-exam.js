@@ -254,7 +254,17 @@
             <div class="dashboard-exit"><button class="ghost" onclick="leaveFirstBachExam()">Salir del examen</button></div>
           </div>
           <div class="progress-track"><div style="width:${((exam.index + 1) / exam.questions.length) * 100}%"></div></div>
-          <article class="first-bach-exam-statement">${question.statementHtml || formatMathText(question.text || "")}</article>
+          <article class="first-bach-exam-statement">${question.statementHtml ? formatMathHtml(question.statementHtml, { preserveTrigNotation: Boolean(source) }) : formatMathText(question.text || "", { preserveTrigNotation: Boolean(source) })}</article>
+          ${handwritingAnswerHtml(question, {
+            topicIndex: question.topicIndex,
+            topicLabel: topicName(question),
+            questionIndex: exam.index,
+            mode: "firstBachExam",
+            resultChannel: "firstBachExam",
+            statementHtml: `<article class="first-bach-exam-statement">${question.statementHtml ? formatMathHtml(question.statementHtml, { preserveTrigNotation: Boolean(source) }) : formatMathText(question.text || "", { preserveTrigNotation: Boolean(source) })}</article>`,
+            scoreState: { answered: exam.answers.length, progressIndex: exam.index, total: exam.questions.length },
+            attemptContext: { selectedTopics: exam.selectedTopics || [] }
+          })}
           <p class="first-bach-exam-instruction">Selecciona el resultado correcto.</p>
           <div class="answers">${optionButtons}</div>
           ${exam.answered ? `

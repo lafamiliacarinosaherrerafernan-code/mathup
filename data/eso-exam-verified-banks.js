@@ -58,9 +58,9 @@
         solution: "Resolución:\n1. Sea p la edad del padre y h la edad del hijo.\n2. La diferencia actual da p=h+30.\n3. Dentro de 15 años: p+15=2(h+15).\n4. Sustituimos: h+30+15=2h+30 ⇒ h=15.\n5. Entonces p=15+30=45.\nComprobación: dentro de 15 años tendrán 60 y 30 años, y 60=2·30.\nResultado final: el padre tiene 45 años y el hijo 15 años."
       }
     ],
-    "4eso-a::ecuaciones e inecuaciones": [
+    "4eso-a::sistemas de ecuaciones e inecuaciones": [
       {
-        rawBaseId: "4eso-a-ecuaciones-e-inecuaciones-950f78024be2",
+        rawBaseId: "4eso-a-sistemas-de-ecuaciones-e-inecuaciones-950f78024be2",
         source: "documentos/4 ESO A/Exámenes tipo/2017-2018/Unidad 5-6/Examen 4-5.pdf",
         sourceKind: "exam",
         difficulty: "hard",
@@ -70,7 +70,7 @@
         solution: "Resolución:\n1. Sea x la cantidad de aceite de oliva e y la de girasol, en litros.\n2. Por el volumen total: x+y=40.\n3. El valor de la mezcla es 40·2,5=100 €, así que 3x+y=100.\n4. Sistema: x+y=40; 3x+y=100. Restamos la primera ecuación de la segunda: 2x=60 ⇒ x=30.\n5. Sustituimos: y=40−30=10.\nComprobación: 30+10=40 L y 3·30+1·10=100 €, que son 100/40=2,5 €/L.\nResultado final: 30 L de oliva y 10 L de girasol."
       },
       {
-        rawBaseId: "4eso-a-ecuaciones-e-inecuaciones-9909de07487e",
+        rawBaseId: "4eso-a-sistemas-de-ecuaciones-e-inecuaciones-9909de07487e",
         source: "documentos/4 ESO A/Exámenes tipo/2017-2018/Unidad 5-6/Examen 4-5.pdf",
         sourceKind: "exam",
         difficulty: "hard",
