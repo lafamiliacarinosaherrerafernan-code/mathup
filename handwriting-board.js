@@ -1,11 +1,17 @@
 (function initializeHandwritingBoard() {
   "use strict";
 
+  const Ink = window.MargaritaHandwritingInk;
+  if (!Ink) throw new Error("MargaritaHandwritingInk debe cargarse antes de handwriting-board.js");
   const drafts = new Map();
   const instances = new WeakMap();
+  const exerciseContexts = new Map();
+  const validationHandlers = new Map();
   const INITIAL_PAPER_HEIGHT = 1050;
   const PAPER_GROWTH = 720;
   const MAX_PIXEL_RATIO = 1.5;
+  let strokeSequence = 0;
+  let selectionSequence = 0;
 
   function escapeAttribute(value) {
     return String(value ?? "")
@@ -18,7 +24,7 @@
   function emptyDraft() {
     return {
       strokes: [],
-      finalRegion: null,
+      selection: null,
       logicalHeight: INITIAL_PAPER_HEIGHT,
       undoStack: [],
       redoStack: []
@@ -36,19 +42,27 @@
         ...stroke,
         points: stroke.points.map((point) => ({ ...point }))
       })),
-      finalRegion: draft.finalRegion ? { ...draft.finalRegion } : null,
+      selection: draft.selection ? {
+        ...draft.selection,
+        regions: draft.selection.regions.map((region) => ({ ...region })),
+        selectedStrokeIds: [...draft.selection.selectedStrokeIds]
+      } : null,
       logicalHeight: draft.logicalHeight
     };
   }
 
   function restoreDrawing(draft, snapshot) {
     draft.strokes = snapshot.strokes;
-    draft.finalRegion = snapshot.finalRegion;
+    draft.selection = snapshot.selection || null;
     draft.logicalHeight = snapshot.logicalHeight || INITIAL_PAPER_HEIGHT;
   }
 
-  function render({ exerciseKey, label = "Resolver a mano" } = {}) {
-    const key = escapeAttribute(exerciseKey || "ejercicio-sin-identificador");
+  function render({ exerciseKey, label = "Resolver a mano", context = {}, statementHtml = "", onValidated = null } = {}) {
+    const rawKey = String(exerciseKey || "ejercicio-sin-identificador");
+    const key = escapeAttribute(rawKey);
+    exerciseContexts.set(rawKey, Object.freeze({ ...context, exerciseKey: rawKey, statementHtml }));
+    if (typeof onValidated === "function") validationHandlers.set(rawKey, onValidated);
+    else validationHandlers.delete(rawKey);
     const buttonLabel = escapeAttribute(label);
     return `
       <section class="handwriting-host" data-handwriting-key="${key}">
@@ -88,6 +102,11 @@
                   <button class="ghost handwriting-redo" type="button" onclick="MargaritaHandwriting.redo(this)" disabled>Rehacer</button>
                   <button class="ghost handwriting-expand" type="button" onclick="MargaritaHandwriting.toggleExpanded(this)" aria-pressed="false">Ampliar pizarra</button>
                 </div>
+                <div class="handwriting-clear-confirmation" hidden role="group" aria-label="Confirmar borrado de la pizarra">
+                  <span>¿Borrar todos los trazos y la respuesta marcada?</span>
+                  <button class="danger handwriting-confirm-clear" type="button" onclick="MargaritaHandwriting.confirmClear(this)">Borrar todo</button>
+                  <button class="ghost handwriting-cancel-clear" type="button" onclick="MargaritaHandwriting.cancelClear(this)">Cancelar</button>
+                </div>
               </section>
               <div class="handwriting-scroll-area" tabindex="0" aria-label="Hoja de resolución con desplazamiento vertical">
                 <div class="handwriting-canvas-wrap">
@@ -95,6 +114,16 @@
                   <p class="handwriting-empty-hint">Escribe aquí tu procedimiento. La hoja crecerá cuando llegues al final.</p>
                 </div>
               </div>
+              <section class="handwriting-recognition-confirmation" hidden aria-live="polite">
+                <strong>He reconocido:</strong>
+                <div class="handwriting-recognized-expression"></div>
+                <p class="handwriting-recognition-message"></p>
+                <div class="handwriting-recognition-actions">
+                  <button class="primary handwriting-confirm-recognition" type="button" onclick="MargaritaHandwriting.confirmRecognition(this)">Confirmar</button>
+                  <button class="ghost" type="button" onclick="MargaritaHandwriting.retryRecognition(this)">Volver a escribir</button>
+                </div>
+              </section>
+              <div class="handwriting-external-feedback-slot" aria-live="polite"></div>
               <p class="handwriting-status" role="status" aria-live="polite">Bolígrafo seleccionado.</p>
             </main>
           </div>
@@ -142,25 +171,51 @@
     return clone;
   }
 
+  function moveOriginalContextToPanel(host, contextTarget) {
+    const originalAside = host.closest(".app-grid")?.querySelector(":scope > aside.screen-panel");
+    if (!originalAside) return false;
+
+    const placeholder = document.createComment("handwriting-context-return-point");
+    originalAside.parentNode.insertBefore(placeholder, originalAside);
+    host.__handwritingContext = { originalAside, placeholder };
+    originalAside.classList.add("handwriting-context-card");
+    contextTarget.replaceChildren(originalAside);
+    return true;
+  }
+
+  function restoreOriginalContext(host) {
+    const context = host.__handwritingContext;
+    if (!context) return;
+    const { originalAside, placeholder } = context;
+    originalAside.classList.remove("handwriting-context-card");
+    if (placeholder?.parentNode) {
+      placeholder.parentNode.insertBefore(originalAside, placeholder);
+      placeholder.remove();
+    }
+    host.__handwritingContext = null;
+  }
+
   function populateExerciseView(host) {
     const panel = host.querySelector(".handwriting-panel");
     const statementTarget = panel.querySelector(".handwriting-statement-content");
     const contextTarget = panel.querySelector(".handwriting-context");
-    const questionBox = host.closest(".question-box");
-    const statementParts = [
-      questionBox?.querySelector(":scope > .question-meta"),
-      questionBox?.querySelector(":scope > .official-source"),
-      questionBox?.querySelector(":scope > .question-text")
-    ].filter(Boolean);
-    statementTarget.replaceChildren(...statementParts.map(cloneWithCanvasContent));
-
-    const originalAside = host.closest(".app-grid")?.querySelector(":scope > aside.screen-panel");
-    if (originalAside) {
-      const asideCopy = cloneWithCanvasContent(originalAside);
-      asideCopy.classList.add("handwriting-context-card");
-      asideCopy.setAttribute("inert", "");
-      contextTarget.replaceChildren(asideCopy);
+    const exerciseContext = exerciseContexts.get(host.dataset.handwritingKey);
+    if (exerciseContext?.statementHtml) {
+      const source = document.createElement("div");
+      source.innerHTML = exerciseContext.statementHtml;
+      statementTarget.replaceChildren(...Array.from(source.childNodes));
     } else {
+      const questionBox = host.closest(".question-box, .exam-question-card, .first-bach-exam-question, .coach-question-card");
+      const explicitStatement = questionBox?.querySelector("[data-handwriting-statement]");
+      const statementParts = explicitStatement ? [explicitStatement] : [
+        questionBox?.querySelector(":scope > .question-meta"),
+        questionBox?.querySelector(":scope > .official-source"),
+        questionBox?.querySelector(":scope > .question-text, :scope > .first-bach-exam-statement, :scope > h2")
+      ].filter(Boolean);
+      statementTarget.replaceChildren(...statementParts.map(cloneWithCanvasContent));
+    }
+
+    if (!moveOriginalContextToPanel(host, contextTarget)) {
       contextTarget.innerHTML = `<div class="handwriting-context-card"><strong>Resolución del ejercicio</strong><p>La pantalla anterior permanece conservada detrás de esta vista.</p></div>`;
     }
   }
@@ -212,6 +267,7 @@
     }
     setOpenLayout(false);
     restoreHostPosition(host);
+    restoreOriginalContext(host);
     launcher?.focus();
   }
 
@@ -223,19 +279,44 @@
     element.textContent = expanded ? "Restaurar vista" : "Ampliar pizarra";
     element.setAttribute("aria-pressed", String(expanded));
     const instance = ensureInstance(host);
-    requestAnimationFrame(() => resizeCanvas(instance));
+    requestAnimationFrame(() => {
+      resizeCanvas(instance);
+      const pendingClassification = panel.querySelector(".handwriting-external-feedback-slot .phase2c-classification:not([hidden])");
+      pendingClassification?.scrollIntoView({ block: "nearest", inline: "nearest", behavior: "smooth" });
+    });
   }
 
   function canvasPoint(instance, event) {
     const rect = instance.canvas.getBoundingClientRect();
+    const scale = Ink.displayScale(rect.width);
+    // offsetX/offsetY are reported in the canvas' own CSS coordinate space.
+    // They remain aligned with a Surface Pen when Windows display scaling or
+    // the visual viewport makes clientY differ from the painted canvas.
+    const hasLocalCoordinates = Number.isFinite(Number(event.offsetX))
+      && Number.isFinite(Number(event.offsetY))
+      && event.target === instance.canvas;
+    const logical = hasLocalCoordinates
+      ? { x: Number(event.offsetX) / scale, y: Number(event.offsetY) / scale }
+      : Ink.screenToLogical(event, rect);
     return {
-      x: Math.max(0, Math.min(1, (event.clientX - rect.left) / Math.max(1, rect.width))),
-      y: Math.max(0, Math.min(instance.draft.logicalHeight, event.clientY - rect.top)),
-      pressure: event.pointerType === "mouse" ? 0.5 : Math.max(0.15, event.pressure || 0.5)
+      x: Math.max(0, Math.min(Ink.LOGICAL_WIDTH, logical.x)),
+      y: Math.max(0, Math.min(instance.draft.logicalHeight, logical.y)),
+      timestamp: Ink.monotonicNow(),
+      pressure: event.pointerType === "mouse" ? 0.5 : Math.max(0.15, event.pressure || 0.5),
+      pointerType: Ink.normalizePointerType(event.pointerType)
     };
   }
 
-  function drawStroke(context, stroke, width) {
+  function strokePoint(point) {
+    return {
+      x: point.x,
+      y: point.y,
+      timestamp: point.timestamp,
+      pressure: point.pressure
+    };
+  }
+
+  function drawStroke(context, stroke) {
     if (stroke.points.length < 1) return;
     context.save();
     context.strokeStyle = stroke.color;
@@ -244,24 +325,25 @@
     context.lineJoin = "round";
     context.beginPath();
     const first = stroke.points[0];
-    context.moveTo(first.x * width, first.y);
-    stroke.points.slice(1).forEach((point) => context.lineTo(point.x * width, point.y));
-    if (stroke.points.length === 1) context.lineTo(first.x * width + 0.01, first.y + 0.01);
+    context.moveTo(first.x, first.y);
+    stroke.points.slice(1).forEach((point) => context.lineTo(point.x, point.y));
+    if (stroke.points.length === 1) context.lineTo(first.x + 0.01, first.y + 0.01);
     context.stroke();
     context.restore();
   }
 
-  function drawFinalRegion(context, region, width) {
+  function drawSelection(context, selection) {
+    const region = selection?.regions?.[0];
     if (!region) return;
     context.save();
     context.strokeStyle = "#155fbd";
     context.fillStyle = "rgba(21, 95, 189, 0.08)";
     context.lineWidth = 3;
     context.setLineDash([10, 7]);
-    const x = Math.min(region.x1, region.x2) * width;
-    const y = Math.min(region.y1, region.y2);
-    const w = Math.abs(region.x2 - region.x1) * width;
-    const h = Math.abs(region.y2 - region.y1);
+    const x = region.left;
+    const y = region.top;
+    const w = region.right - region.left;
+    const h = region.bottom - region.top;
     context.fillRect(x, y, w, h);
     context.strokeRect(x, y, w, h);
     context.setLineDash([]);
@@ -274,22 +356,28 @@
   function redraw(instance) {
     const { canvas, context, draft } = instance;
     const ratio = Math.min(window.devicePixelRatio || 1, MAX_PIXEL_RATIO);
-    const width = canvas.width / ratio;
-    context.setTransform(ratio, 0, 0, ratio, 0, 0);
-    context.clearRect(0, 0, width, draft.logicalHeight);
-    draft.strokes.forEach((stroke) => drawStroke(context, stroke, width));
-    drawFinalRegion(context, instance.previewRegion || draft.finalRegion, width);
-    instance.host.classList.toggle("has-handwriting", draft.strokes.length > 0 || Boolean(draft.finalRegion));
+    const displayWidth = canvas.width / ratio;
+    const scale = Ink.displayScale(displayWidth);
+    context.setTransform(ratio * scale, 0, 0, ratio * scale, 0, 0);
+    context.clearRect(0, 0, Ink.LOGICAL_WIDTH, draft.logicalHeight);
+    draft.strokes.forEach((stroke) => drawStroke(context, stroke));
+    const previewSelection = instance.previewRegion
+      ? { regions: [Ink.normalizeRegion(instance.previewRegion)] }
+      : draft.selection;
+    drawSelection(context, previewSelection);
+    instance.host.classList.toggle("has-handwriting", draft.strokes.length > 0 || Boolean(draft.selection));
     updateButtons(instance);
   }
 
   function resizeCanvas(instance) {
     const wrap = instance.host.querySelector(".handwriting-canvas-wrap");
-    wrap.style.height = `${instance.draft.logicalHeight}px`;
     const rect = wrap.getBoundingClientRect();
     const ratio = Math.min(window.devicePixelRatio || 1, MAX_PIXEL_RATIO);
     const width = Math.max(320, Math.round(rect.width));
-    const height = Math.max(INITIAL_PAPER_HEIGHT, Math.round(instance.draft.logicalHeight));
+    const scale = Ink.displayScale(width);
+    const height = Math.round(instance.draft.logicalHeight * scale);
+    wrap.style.height = `${height}px`;
+    wrap.style.backgroundSize = `${24 * scale}px ${24 * scale}px`;
     if (instance.canvas.width !== Math.round(width * ratio) || instance.canvas.height !== Math.round(height * ratio)) {
       instance.canvas.width = Math.round(width * ratio);
       instance.canvas.height = Math.round(height * ratio);
@@ -321,15 +409,16 @@
     redraw(instance);
   }
 
-  function distanceToPoint(point, other, width) {
-    return Math.hypot((point.x - other.x) * width, point.y - other.y);
+  function distanceToPoint(point, other) {
+    return Math.hypot(point.x - other.x, point.y - other.y);
   }
 
   function eraseAt(instance, point) {
     const rect = instance.canvas.getBoundingClientRect();
+    const logicalRadius = 18 / Ink.displayScale(rect.width);
     const previousLength = instance.draft.strokes.length;
     instance.draft.strokes = instance.draft.strokes.filter((stroke) =>
-      !stroke.points.some((strokePoint) => distanceToPoint(point, strokePoint, rect.width) < 18)
+      !stroke.points.some((strokePoint) => distanceToPoint(point, strokePoint) < logicalRadius)
     );
     if (instance.draft.strokes.length !== previousLength) {
       instance.actionChanged = true;
@@ -340,11 +429,17 @@
   function onPointerDown(instance, event) {
     if (event.button !== undefined && event.button !== 0) return;
     event.preventDefault();
+    // The panel can finish adapting to the viewport after its first paint
+    // (notably when a browser side panel opens or a pen changes the visual
+    // viewport).  Refresh the backing store immediately before capturing the
+    // first point so CSS pixels and canvas pixels cannot drift apart.
+    resizeCanvas(instance);
     instance.canvas.setPointerCapture?.(event.pointerId);
     instance.pointerId = event.pointerId;
     instance.beforeAction = cloneDrawing(instance.draft);
     instance.actionChanged = false;
-    const point = canvasPoint(instance, event);
+    const capturedPoint = canvasPoint(instance, event);
+    const point = strokePoint(capturedPoint);
     growPaperIfNeeded(instance, point);
     if (instance.tool === "eraser") {
       eraseAt(instance, point);
@@ -352,11 +447,14 @@
     }
     if (instance.tool === "final") {
       instance.startPoint = point;
-      instance.previewRegion = { x1: point.x, y1: point.y, x2: point.x, y2: point.y };
+      instance.previewRegion = { left: point.x, top: point.y, right: point.x, bottom: point.y };
       redraw(instance);
       return;
     }
     instance.currentStroke = {
+      strokeId: `stroke-${++strokeSequence}`,
+      order: strokeSequence,
+      pointerType: capturedPoint.pointerType,
       color: "#13213a",
       width: instance.thickness * (0.85 + point.pressure * 0.3),
       points: [point]
@@ -369,14 +467,19 @@
   function onPointerMove(instance, event) {
     if (instance.pointerId !== event.pointerId) return;
     event.preventDefault();
-    const point = canvasPoint(instance, event);
+    const point = strokePoint(canvasPoint(instance, event));
     growPaperIfNeeded(instance, point);
     if (instance.tool === "eraser") {
       eraseAt(instance, point);
       return;
     }
     if (instance.tool === "final" && instance.startPoint) {
-      instance.previewRegion = { x1: instance.startPoint.x, y1: instance.startPoint.y, x2: point.x, y2: point.y };
+      instance.previewRegion = {
+        left: instance.startPoint.x,
+        top: instance.startPoint.y,
+        right: point.x,
+        bottom: point.y
+      };
       instance.actionChanged = true;
       redraw(instance);
       return;
@@ -392,11 +495,29 @@
     if (instance.pointerId !== event.pointerId) return;
     event.preventDefault();
     if (instance.tool === "final" && instance.previewRegion) {
-      const region = instance.previewRegion;
-      if (Math.abs(region.x2 - region.x1) > 0.02 && Math.abs(region.y2 - region.y1) > 16) {
-        instance.draft.finalRegion = { ...region };
+      const region = Ink.normalizeRegion(instance.previewRegion);
+      if (region && region.right - region.left > 20 && region.bottom - region.top > 16) {
+        instance.draft.selection = Ink.createSelection(region, instance.draft.strokes, {
+          selectionId: `selection-${++selectionSequence}`,
+          createdAt: Ink.monotonicNow()
+        });
         instance.actionChanged = true;
         instance.status.textContent = "Respuesta final marcada. Puedes volver a dibujar el rectángulo para cambiarla.";
+        void requestRecognition(instance).catch((error) => {
+          const context = exerciseContexts.get(instance.host.dataset.handwritingKey) || {};
+          const panel = recognitionPanel(instance);
+          const message = panel?.querySelector(".handwriting-recognition-message");
+          const expressionTarget = panel?.querySelector(".handwriting-recognized-expression");
+          const confirm = panel?.querySelector(".handwriting-confirm-recognition");
+          if (panel) panel.hidden = false;
+          if (message) message.textContent = "La interfaz no pudo completar el reconocimiento. Clasifica esta muestra como error técnico sin repetirla.";
+          if (expressionTarget) expressionTarget.hidden = true;
+          if (confirm) confirm.hidden = true;
+          instance.status.textContent = message?.textContent || "Fallo técnico de la interfaz.";
+          window.dispatchEvent(new CustomEvent("margarita:handwriting-recognized", {
+            detail: Object.freeze({ context, status: "technical-error", recognizedExpression: "", confidence: null, latencyMs: null, requestCount: Number(error?.requestCount) || 0, validationType: context.expectedAnswerType || "auto", isEquivalent: null, reason: error?.message || "pilot-ui-exception", alternatives: [], rawSemanticResult: null })
+          }));
+        });
       }
       instance.previewRegion = null;
       instance.startPoint = null;
@@ -423,6 +544,8 @@
       actionChanged: false,
       previewRegion: null,
       startPoint: null,
+      pendingRecognition: null,
+      recognitionRequestToken: null,
       status: host.querySelector(".handwriting-status")
     };
     canvas.addEventListener("pointerdown", (event) => onPointerDown(instance, event));
@@ -435,6 +558,7 @@
         if (!host.querySelector(".handwriting-panel")?.hidden) resizeCanvas(instance);
       });
       instance.resizeObserver.observe(host.querySelector(".handwriting-scroll-area"));
+      instance.resizeObserver.observe(host.querySelector(".handwriting-canvas-wrap"));
     }
     instances.set(host, instance);
     return instance;
@@ -494,17 +618,257 @@
     const host = hostFrom(element);
     if (!host) return;
     const instance = ensureInstance(host);
-    if (!instance.draft.strokes.length && !instance.draft.finalRegion) {
+    if (!instance.draft.strokes.length && !instance.draft.selection) {
       instance.status.textContent = "La pizarra ya está vacía.";
       return;
     }
-    if (!window.confirm("¿Quieres borrar todos los trazos y la respuesta marcada?")) return;
+    const confirmation = host.querySelector(".handwriting-clear-confirmation");
+    if (!confirmation) return;
+    confirmation.hidden = false;
+    element.setAttribute("aria-expanded", "true");
+    confirmation.querySelector(".handwriting-confirm-clear")?.focus();
+    instance.status.textContent = "Confirma si quieres borrar toda la pizarra o cancela para conservarla.";
+  }
+
+  function hideClearConfirmation(host) {
+    const confirmation = host?.querySelector(".handwriting-clear-confirmation");
+    if (confirmation) confirmation.hidden = true;
+    const trigger = host?.querySelector(".handwriting-clear");
+    if (trigger) trigger.setAttribute("aria-expanded", "false");
+  }
+
+  function confirmClear(element) {
+    const host = hostFrom(element);
+    if (!host) return;
+    const instance = ensureInstance(host);
+    hideClearConfirmation(host);
     instance.draft.undoStack.push(cloneDrawing(instance.draft));
     instance.draft.redoStack = [];
     instance.draft.strokes = [];
-    instance.draft.finalRegion = null;
+    instance.draft.selection = null;
     instance.status.textContent = "Pizarra borrada. Puedes deshacer esta acción.";
     redraw(instance);
+  }
+
+  function cancelClear(element) {
+    const host = hostFrom(element);
+    if (!host) return;
+    const instance = ensureInstance(host);
+    hideClearConfirmation(host);
+    instance.status.textContent = "Borrado cancelado. Tu resolución se mantiene intacta.";
+    host.querySelector(".handwriting-clear")?.focus();
+  }
+
+  function contextFor(elementOrKey) {
+    const key = typeof elementOrKey === "string"
+      ? elementOrKey
+      : hostFrom(elementOrKey)?.dataset.handwritingKey;
+    return key ? exerciseContexts.get(key) || null : null;
+  }
+
+  function exportSelectedInk(elementOrKey, options = {}) {
+    const key = typeof elementOrKey === "string"
+      ? elementOrKey
+      : hostFrom(elementOrKey)?.dataset.handwritingKey;
+    if (!key) return null;
+    const draft = drafts.get(key);
+    if (!draft?.selection) return null;
+    const context = exerciseContexts.get(key) || {};
+    return Ink.normalizeSelectedInk(draft.strokes, draft.selection, {
+      expectedAnswerType: options.expectedAnswerType || context.expectedAnswerType
+    });
+  }
+
+  function recognitionPanel(instance) {
+    return instance.host.querySelector(".handwriting-recognition-confirmation");
+  }
+
+  function hideRecognition(instance) {
+    const panel = recognitionPanel(instance);
+    if (panel) panel.hidden = true;
+    instance.pendingRecognition = null;
+  }
+
+  function renderRecognizedExpression(target, expression) {
+    const renderer = window.MargaritaMathRenderer;
+    if (renderer?.text) target.innerHTML = renderer.text(expression);
+    else target.textContent = expression;
+  }
+
+  async function requestRecognition(instance) {
+    const context = exerciseContexts.get(instance.host.dataset.handwritingKey) || {};
+    const recognizer = window.MargaritaHandwritingRecognition;
+    const panel = recognitionPanel(instance);
+    const expressionTarget = panel?.querySelector(".handwriting-recognized-expression");
+    const message = panel?.querySelector(".handwriting-recognition-message");
+    const confirm = panel?.querySelector(".handwriting-confirm-recognition");
+    if (!recognizer) {
+      if (panel) panel.hidden = false;
+      if (expressionTarget) expressionTarget.hidden = true;
+      if (confirm) confirm.hidden = true;
+      if (message) message.textContent = "El componente de reconocimiento no está disponible. No se ha enviado ninguna petición.";
+      instance.status.textContent = message?.textContent || "Reconocimiento no disponible.";
+      return;
+    }
+    if (!/^\d+eso(?:-|$)/i.test(String(context.courseId || ""))) {
+      instance.status.textContent = "La prueba real de reconocimiento está limitada actualmente a ESO.";
+      return;
+    }
+    const ink = exportSelectedInk(instance.host, { expectedAnswerType: context.expectedAnswerType || "expression" });
+    if (!ink?.strokes?.length) {
+      instance.status.textContent = "La zona marcada no contiene trazos reconocibles. No se ha enviado ninguna petición.";
+      if (context.mode === "myscript-pilot") {
+        window.dispatchEvent(new CustomEvent("margarita:handwriting-recognized", {
+          detail: Object.freeze({ context, status: "technical-error", recognizedExpression: "", confidence: null, latencyMs: null, requestCount: 0, validationType: context.expectedAnswerType || "auto", isEquivalent: null, reason: "empty-selected-ink", alternatives: [], rawSemanticResult: null })
+        }));
+      }
+      return;
+    }
+    const evaluationGate = window.MargaritaMyScriptEvaluation?.beforeRecognition?.(context);
+    if (evaluationGate && evaluationGate.allowed === false) {
+      instance.status.textContent = evaluationGate.message || "Se ha alcanzado el límite de peticiones autorizado.";
+      if (panel) panel.hidden = false;
+      if (expressionTarget) expressionTarget.hidden = true;
+      if (confirm) confirm.hidden = true;
+      if (message) message.textContent = instance.status.textContent;
+      if (/clasifica primero/i.test(instance.status.textContent)) {
+        window.MargaritaMyScriptEvaluation?.goToPending?.();
+      }
+      return;
+    }
+    const requestToken = Symbol("recognition-request");
+    instance.recognitionRequestToken = requestToken;
+    instance.status.textContent = "Intentando reconocer la respuesta marcada…";
+    if (panel) panel.hidden = false;
+    if (expressionTarget) expressionTarget.hidden = true;
+    if (confirm) confirm.hidden = true;
+    if (message) message.textContent = "Reconociendo la respuesta marcada…";
+    const diagnosis = recognizer.diagnose({
+      ink,
+      provider: "myscript-iink",
+      expectedExpression: context.correctAnswer,
+      validationType: context.expectedAnswerType || "auto",
+      tolerance: context.answerTolerance,
+      equationMode: context.equationMode,
+      context
+    });
+    const guardedDiagnosis = context.mode === "myscript-pilot"
+      ? diagnosis.catch((error) => ({
+          status: "technical-error",
+          recognizedExpression: "",
+          confidence: null,
+          reason: error?.message || "pilot-recognition-failed",
+          requestCount: Number(error?.requestCount) || 1,
+          validationType: context.expectedAnswerType || "auto"
+        }))
+      : diagnosis;
+    const result = context.mode === "myscript-pilot"
+      ? await Promise.race([
+          guardedDiagnosis,
+          new Promise((resolve) => window.setTimeout(() => resolve({
+            status: "technical-error",
+            recognizedExpression: "",
+            confidence: null,
+            reason: "pilot-recognition-timeout",
+            requestCount: 1,
+            validationType: context.expectedAnswerType || "auto"
+          }), 15000))
+        ])
+      : await guardedDiagnosis;
+    if (instance.recognitionRequestToken !== requestToken) return;
+    instance.pendingRecognition = result;
+    window.dispatchEvent(new CustomEvent("margarita:handwriting-recognized", {
+      detail: Object.freeze({
+        context,
+        status: result.status,
+        recognizedExpression: result.recognizedExpression || result.expression || "",
+        confidence: result.confidence ?? null,
+        latencyMs: Number.isFinite(Number(result.latencyMs)) ? Number(result.latencyMs) : null,
+        requestCount: Number(result.requestCount) || 0,
+        validationType: result.validationType || context.expectedAnswerType || "auto",
+        isEquivalent: typeof result.isEquivalent === "boolean" ? result.isEquivalent : null,
+        reason: result.reason || "",
+        alternatives: Array.isArray(result.alternatives) ? result.alternatives : [],
+        rawSemanticResult: result.rawSemanticResult || null
+      })
+    }));
+    const hasExpression = Boolean(result.recognizedExpression);
+    panel.hidden = false;
+    expressionTarget.hidden = !hasExpression;
+    if (hasExpression) {
+      const pilotRenderedExpression = context.mode === "myscript-pilot"
+        ? window.MargaritaMyScriptEvaluation?.renderDisplayExpression?.(result.recognizedExpression)
+        : "";
+      if (pilotRenderedExpression) expressionTarget.innerHTML = pilotRenderedExpression;
+      else renderRecognizedExpression(expressionTarget, result.recognizedExpression);
+    }
+    confirm.hidden = !hasExpression;
+    if (result.status === "unavailable") message.textContent = "El reconocimiento matemático no está disponible todavía. La pizarra sigue funcionando y no se ha consumido ningún intento.";
+    else if (result.status === "technical-error") message.textContent = "No se ha podido contactar con el reconocimiento. Puedes seguir escribiendo y volver a intentarlo.";
+    else if (result.status === "ambiguous") message.textContent = hasExpression ? "La confianza no es suficiente. Comprueba la expresión antes de confirmarla." : "No he podido reconocer la respuesta con suficiente seguridad.";
+    else message.textContent = "Comprueba que coincide exactamente con lo que has escrito antes de confirmar.";
+    instance.status.textContent = message.textContent;
+  }
+
+  function confirmRecognition(element) {
+    const host = hostFrom(element);
+    if (!host) return;
+    const instance = ensureInstance(host);
+    const result = instance.pendingRecognition;
+    if (!result?.recognizedExpression) return;
+    handwritingValidated(host, {
+      recognizedExpression: result.recognizedExpression,
+      normalizedExpression: result.normalizedExpression || result.recognizedExpression,
+      isEquivalent: result.isEquivalent,
+      confidence: Number.isFinite(result.confidence) ? result.confidence : 0,
+      validationType: result.validationType,
+      status: result.status === "ambiguous" ? "recognized" : result.status
+    });
+    recognitionPanel(instance).hidden = true;
+    instance.status.textContent = "Expresión reconocida confirmada para el diagnóstico. No se han modificado puntos ni progreso.";
+  }
+
+  function retryRecognition(element) {
+    const host = hostFrom(element);
+    if (!host) return;
+    const instance = ensureInstance(host);
+    hideRecognition(instance);
+    instance.draft.selection = null;
+    instance.tool = "pen";
+    instance.host.querySelectorAll(".handwriting-tool").forEach((button) => {
+      const active = button.dataset.tool === "pen";
+      button.classList.toggle("is-active", active);
+      button.setAttribute("aria-pressed", String(active));
+    });
+    instance.status.textContent = "Puedes corregir la escritura y volver a marcar la respuesta.";
+    redraw(instance);
+  }
+
+  function handwritingValidated(elementOrKey, payload) {
+    const context = contextFor(elementOrKey);
+    if (!context) return false;
+    const normalizedExpression = String(payload?.normalizedExpression || payload?.normalizedAnswer || "").trim();
+    const recognizedExpression = String(payload?.recognizedExpression || normalizedExpression).trim();
+    const confidence = Number(payload?.confidence);
+    const legacyValid = typeof payload?.isCorrect === "boolean";
+    const status = String(payload?.status || (legacyValid ? (payload.isCorrect ? "equivalent" : "not-equivalent") : "")).trim();
+    if (!status || !Number.isFinite(confidence)) return false;
+    if (["equivalent", "not-equivalent", "recognized"].includes(status) && !normalizedExpression) return false;
+    const detail = Object.freeze({
+      context,
+      answerMethod: "handwriting",
+      recognizedExpression,
+      normalizedExpression,
+      isEquivalent: typeof payload?.isEquivalent === "boolean" ? payload.isEquivalent : legacyValid ? payload.isCorrect : null,
+      isCorrect: typeof payload?.isEquivalent === "boolean" ? payload.isEquivalent : legacyValid ? payload.isCorrect : null,
+      confidence,
+      validationType: String(payload?.validationType || context.expectedAnswerType || ""),
+      status
+    });
+    window.dispatchEvent(new CustomEvent("margarita:handwriting-validated", { detail }));
+    const handler = validationHandlers.get(context.exerciseKey);
+    if (handler) handler(detail);
+    return true;
   }
 
   window.MargaritaHandwriting = Object.freeze({
@@ -518,6 +882,14 @@
     undo,
     redo,
     clear: clearBoard,
-    __audit: { drafts, INITIAL_PAPER_HEIGHT, PAPER_GROWTH }
+    confirmClear,
+    cancelClear,
+    exportSelectedInk,
+    contextFor,
+    handwritingValidated,
+    requestRecognition,
+    confirmRecognition,
+    retryRecognition,
+    __audit: { drafts, exerciseContexts, validationHandlers, INITIAL_PAPER_HEIGHT, PAPER_GROWTH }
   });
 })();

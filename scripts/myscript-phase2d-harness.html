@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <base href="/">
+  <title>Harness MyScript fase 2D</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="myscript-evaluation.css">
+</head>
+<body>
+  <main id="app"></main>
+  <script>
+    window.APP_CONFIG = Object.freeze({ DEVELOPER_MODE: true });
+    window.renderLogin = () => { document.getElementById("app").textContent = "Bloqueado"; };
+    window.renderDeveloperHub = () => {};
+    window.renderShell = (html) => { document.getElementById("app").innerHTML = html; };
+    window.MargaritaHandwriting = Object.freeze({
+      render({ statementHtml }) {
+        return `<section style="padding:20px;border:2px dashed #9bb2c8;border-radius:16px"><div>${statementHtml}</div><p><strong>Pizarra real omitida únicamente en el arnés.</strong></p></section>`;
+      }
+    });
+    window.MargaritaMathRenderer = Object.freeze({ renderElement() {} });
+  </script>
+  <script src="math-answer-validator.js"></script>
+  <script src="data/myscript-phase2c-corpus.js"></script>
+  <script src="data/myscript-phase2d-pilot-selection.js"></script>
+  <script src="myscript-evaluation.js"></script>
+  <script>window.MargaritaMyScriptEvaluation.render();</script>
+</body>
+</html>

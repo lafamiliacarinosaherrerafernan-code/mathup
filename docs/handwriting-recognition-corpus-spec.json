@@ -1,0 +1,109 @@
+{
+  "version": "1.0",
+  "status": "structure-only-no-student-ink",
+  "purpose": "Compare future handwriting recognition engines with the same anonymized cases.",
+  "sampleSchema": {
+    "caseId": "stable anonymous identifier",
+    "stage": "ESO or BACHILLERATO",
+    "category": "one value from categories",
+    "difficulty": "basic, intermediate or advanced",
+    "expectedAnswerType": "canonical answer type",
+    "canonicalLatex": "ground truth used only by the offline audit",
+    "ink": "NormalizedInkResponse without personal data",
+    "tags": ["ambiguities and structural features"],
+    "sourceDeviceClass": "mouse, pen or touch",
+    "reviewStatus": "pending, verified or rejected"
+  },
+  "categories": {
+    "ESO": [
+      "natural-numbers",
+      "integers",
+      "fractions",
+      "powers",
+      "roots",
+      "equations",
+      "inequalities",
+      "proportionality",
+      "basic-geometry"
+    ],
+    "BACHILLERATO": [
+      "algebraic-expressions",
+      "logarithms",
+      "trigonometry",
+      "limits",
+      "derivatives",
+      "integrals",
+      "matrices",
+      "determinants",
+      "systems",
+      "vectors",
+      "intervals",
+      "probability",
+      "binomial",
+      "normal",
+      "inference"
+    ]
+  },
+  "mandatoryDifficultCases": [
+    "1-l-vertical-bar",
+    "0-uppercase-O",
+    "x-multiplication-sign",
+    "5-uppercase-S",
+    "2-lowercase-z",
+    "minus-fraction-bar",
+    "sen",
+    "cos",
+    "tg",
+    "log",
+    "ln",
+    "pi",
+    "infinity",
+    "left-limit",
+    "right-limit",
+    "vector-arrows",
+    "determinant-bars",
+    "absolute-value-bars",
+    "conditional-probability"
+  ],
+  "mandatoryStructures": {
+    "matrices": ["2x2", "3x3", "fraction-entries"],
+    "determinants": ["2x2", "3x3", "parameter-entries"],
+    "systems": ["two-equations", "three-equations", "with-parameters"],
+    "limits": ["finite", "infinite", "left-sided", "right-sided", "fraction-under-limit"],
+    "integrals": ["indefinite", "definite", "upper-lower-bounds", "differential-dx", "composite-expression"]
+  },
+  "deviceCoverage": [
+    "mouse-laptop",
+    "pen-surface",
+    "touch-tablet",
+    "pen-large-monitor"
+  ],
+  "evaluationByCategory": [
+    "exact-structure-rate",
+    "symbol-recognition-rate",
+    "two-dimensional-structure-rate",
+    "manual-edit-rate",
+    "unrecognized-rate",
+    "serious-error-rate",
+    "latency-distribution"
+  ],
+  "seriousErrors": [
+    "changed-sign",
+    "changed-exponent",
+    "changed-denominator",
+    "lost-solution",
+    "strict-vs-nonstrict-inequality",
+    "plus-vs-minus",
+    "lost-lateral-limit",
+    "changed-matrix-shape-or-entry",
+    "determinant-vs-absolute-value"
+  ],
+  "privacyRules": [
+    "No student name or identifier",
+    "No email, group, score, streak or progress",
+    "No full exercise statement",
+    "Store only selected normalized ink and technical labels",
+    "Obtain appropriate authorization before collecting real student handwriting"
+  ],
+  "futureAcceptanceRule": "Do not choose a provider from global accuracy alone; all serious-error categories and every mathematical structure must be reported separately."
+}

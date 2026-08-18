@@ -13,12 +13,33 @@
     <section class="app-grid">
       <aside class="screen-panel">
         <button class="ghost">Volver a temas</button>
-        <section class="challenge-student-card">
-          <div class="challenge-course-summary"><small>Curso</small><strong>2.º Bachillerato CCSS II</strong></div>
-          <div class="challenge-student-identity"><strong>Alumna de prueba</strong></div>
+        <section class="challenge-student-card" aria-label="Datos del alumno y del curso">
+          <div class="challenge-student-top">
+            <div class="challenge-course-summary"><small>Curso</small><strong>2.º Bachillerato CCSS II</strong></div>
+            <div class="challenge-student-identity">
+              <div class="challenge-student-avatar" aria-hidden="true"></div>
+              <strong>Alumna de prueba</strong>
+              <button class="challenge-edit-avatar">Editar avatar</button>
+            </div>
+          </div>
+          <div class="challenge-score-row">
+            <span><small>Puntuación</small><strong>40</strong></span>
+            <span><small>Racha</small><strong>3</strong></span>
+            <span><small>Progreso</small><strong>3/8</strong></span>
+          </div>
         </section>
         <div class="progress challenge-sidebar-progress"><span style="width:38%"></span></div>
-        <div class="sidebar-actions"><button class="secondary">Resumen del tema</button></div>
+        <div class="sidebar-actions">
+          <button class="secondary">Leer explicación del tema</button>
+          <section class="topic-podcast-inline" aria-label="Escuchar explicación">
+            <strong class="topic-podcast-inline-title">Escuchar explicación</strong>
+            <div class="topic-podcast-inline-options">
+              <button class="topic-podcast-inline-choice"><span>⚡</span><strong>Express</strong><small>Audio breve</small></button>
+              <button class="topic-podcast-inline-choice"><span>★</span><strong>Master</strong><small>Audio completo</small></button>
+            </div>
+          </section>
+        </div>
+        <div class="resource-note">Material complementario del tema.</div>
       </aside>
       <section class="study-layout challenge-only">
         <div class="screen-panel game-panel">
@@ -40,6 +61,7 @@
       </section>
     </section>
   </main>
+  <script src="../handwriting-ink.js"></script>
   <script src="../handwriting-board.js"></script>
   <script>
     document.getElementById("handwriting-mount").innerHTML = MargaritaHandwriting.render({ exerciseKey: "audit-handwriting-exercise" });

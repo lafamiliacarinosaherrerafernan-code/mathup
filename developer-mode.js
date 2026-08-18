@@ -120,6 +120,11 @@ function renderDeveloperHub() {
               <strong>Conexión de cuentas</strong>
               <small>Consulta qué falta para activar Google y correo.</small>
             </button>
+            <button class="developer-action-card" onclick="MargaritaMyScriptEvaluation.render()">
+              <span class="developer-action-icon" aria-hidden="true">05</span>
+              <strong>Piloto transversal MyScript</strong>
+              <small>60 muestras, tres escritores anónimos y métricas sin puntuación.</small>
+            </button>
           </div>
           <p id="developer-hub-message" class="developer-hub-message" role="status" aria-live="polite"></p>
         </section>

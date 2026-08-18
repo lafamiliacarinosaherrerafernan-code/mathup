@@ -3,6 +3,7 @@ config.local.js
 .env
 .env.*
 !.env.example
+supabase/functions/.env
 
 # Biblioteca pesada y duplicados locales
 documentos/

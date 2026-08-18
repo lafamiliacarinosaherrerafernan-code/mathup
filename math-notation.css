@@ -25,6 +25,22 @@ math.native-math mtext {
   transform-origin: right center;
 }
 
+/* La llave debe abarcar visualmente todas las ecuaciones del sistema. */
+.math-system-rows-3 > .math-system-brace {
+  font-size: 4.55em;
+  line-height: 0.72;
+}
+
+.math-system-rows-4 > .math-system-brace {
+  font-size: 5.75em;
+  line-height: 0.68;
+}
+
+.math-system-rows-5 > .math-system-brace {
+  font-size: 6.8em;
+  line-height: 0.64;
+}
+
 .math-system-lines {
   display: grid;
   gap: 5px;
@@ -45,9 +61,47 @@ math.native-math mtext {
   font-family: Georgia, "Times New Roman", serif;
 }
 
+.math-piecewise-prefix {
+  display: inline-block;
+  font-family: "Cambria Math", "STIX Two Math", "Times New Roman", serif;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1;
+  vertical-align: middle;
+}
+
+.math-piecewise-prefix i {
+  font-family: inherit;
+  font-style: italic;
+  font-weight: 400;
+}
+
+.math-piecewise-prefix > i:first-child {
+  margin-right: 0.20em;
+}
+
+.math-piecewise-prefix .math-function-paren {
+  display: inline-block;
+  font-family: "Cambria Math", "STIX Two Math", "Times New Roman", serif;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1;
+  position: relative;
+  top: 0.01em;
+}
+
+.math-piecewise-prefix > .math-function-paren:nth-of-type(1) {
+  margin-right: -0.04em;
+}
+
+.math-piecewise-prefix > .math-function-paren:nth-of-type(2) {
+  margin-left: 0.04em;
+}
+
 .math-piecewise-lines {
   display: grid;
   gap: 5px;
+  font-weight: 400;
 }
 
 .math-piecewise-lines > span {
@@ -58,14 +112,17 @@ math.native-math mtext {
 }
 
 .math-piecewise-lines small {
-  font-size: 0.76em;
-  font-weight: 600;
+  font-size: 0.84em;
+  font-weight: 400;
 }
 
 .math-piecewise .math-system-brace {
-  min-height: 1.25em;
-  font-size: 4.45em;
-  line-height: 0.72;
+  min-height: 0;
+  font-size: 2.25em;
+  font-family: "Cambria Math", "STIX Two Math", "Times New Roman", serif;
+  font-weight: 400;
+  line-height: 0.84;
+  transform: scaleX(0.56);
 }
 
 .pau-open-statement .math-piecewise {
@@ -181,6 +238,57 @@ math.native-math mtext {
   line-height: 1;
 }
 
+/* Límite completo: operador y función comparten exactamente la primera
+   línea; la condición ocupa únicamente la celda inferior del operador. */
+.math-limit-expression {
+  display: inline-grid;
+  grid-template-columns: max-content max-content;
+  grid-template-rows: 1em 0.58em;
+  column-gap: 0.14em;
+  align-items: center;
+  margin: 0 0.16em;
+  vertical-align: -0.22em;
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.math-limit-main {
+  grid-column: 1;
+  grid-row: 1;
+  align-self: center;
+  font-size: 1em;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.math-limit-condition {
+  grid-column: 1;
+  grid-row: 2;
+  align-self: start;
+  justify-self: center;
+  font-size: 0.56em;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.math-limit-condition sup {
+  position: relative;
+  top: -0.38em;
+  margin-left: 0.04em;
+  font-size: 0.72em;
+  line-height: 0;
+}
+
+.math-limit-body {
+  grid-column: 2;
+  grid-row: 1;
+  align-self: center;
+  font-size: 1.08em;
+  font-weight: 700;
+  line-height: 1;
+}
+
 .math-integral {
   display: inline-grid;
   grid-template-columns: auto max-content;
@@ -230,6 +338,71 @@ math.native-math mtext {
 .math-evaluation sub {
   position: static;
   line-height: inherit;
+}
+
+.math-indexed-root {
+  position: relative;
+  padding-left: 0.26em;
+}
+
+.math-indexed-root > sup {
+  position: absolute;
+  top: -0.18em;
+  left: -0.06em;
+  font-size: 0.52em;
+  line-height: 1;
+}
+
+.math-vector {
+  position: relative;
+  display: inline-block;
+  min-width: 0.72em;
+  padding-top: 0.28em;
+  vertical-align: 0.02em;
+  font-family: Georgia, "Times New Roman", serif;
+  font-style: italic;
+  line-height: 1;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.math-vector::before {
+  content: "";
+  position: absolute;
+  top: 0.02em;
+  right: 0;
+  left: 0;
+  border-top: 0.08em solid currentColor;
+}
+
+.math-vector::after {
+  content: "";
+  position: absolute;
+  top: -0.08em;
+  right: -0.01em;
+  width: 0.22em;
+  height: 0.22em;
+  border-top: 0.08em solid currentColor;
+  border-right: 0.08em solid currentColor;
+  transform: rotate(45deg);
+  transform-origin: center;
+}
+
+.math-leibniz {
+  margin-inline: 0.18em;
+}
+
+.matrix-row > span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 1.25em;
+}
+
+.matrix-row .math-fraction {
+  margin-top: 0.08em;
+  margin-bottom: 0.08em;
+  font-size: 0.86em;
 }
 
 .math-determinant .matrix-bracket {
