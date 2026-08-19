@@ -346,22 +346,49 @@ Solución: (x,y,z)=(−3/4,13/8,−3/8).`
     },
     "mates2-algebra-18a8a3fbb232": {
       "Resultado": answer(
-        "rg(A)=3 si a≠3; rg(A)=2 si a=3",
+        "rg(A)=3 para todo a∈ℝ",
         [
-          "rg(A)=3 para todo a",
+          "rg(A)=3 si a≠3; rg(A)=2 si a=3",
           "rg(A)=2 si a=0; rg(A)=3 si a≠0",
           "rg(A)=1 si a=3; rg(A)=3 si a≠3",
         ],
-        `La matriz tiene tres filas, luego su rango máximo es 3. Calculamos menores de orden 3. Por ejemplo:
-D₁=a(a−3),
-D₂=3−a.
+        `1. La matriz tiene tres filas, luego rg(A)≤3.
 
-Para a≠3, al menos uno de estos menores es distinto de cero, así que rg(A)=3.
+2. Tomamos el menor de orden 3 formado por las columnas 1, 2 y 3:
 
-Para a=3 se anulan todos los menores de orden 3. Sin embargo, el menor de orden 2 formado por las dos primeras filas y las dos primeras columnas vale
-|1 2; 2 −1|=−5≠0.
+D₁=det [[1,2,0],[2,−1,a],[1,−a,a]].
 
-Por tanto, rg(A)=2 cuando a=3.`
+Aplicamos la regla de Sarrus. La suma de las diagonales descendentes es:
+1·(−1)·a+2·a·1+0·2·(−a)=−a+2a=a.
+
+La suma de las diagonales ascendentes es:
+0·(−1)·1+2·2·a+1·a·(−a)=4a−a².
+
+Por tanto:
+D₁=a−(4a−a²)=a²−3a=a(a−3).
+
+La ecuación D₁=0 da a=0 o a=3. Si a≠0,3, entonces D₁≠0 y rg(A)=3.
+
+3. Estudiamos los dos valores excepcionales con otro menor de orden 3, el formado por las columnas 1, 2 y 4:
+
+D₂=det [[1,2,1],[2,−1,2],[1,−a,a]].
+
+Por Sarrus, las diagonales descendentes suman:
+1·(−1)·a+2·2·1+1·2·(−a)=4−3a.
+
+Las diagonales ascendentes suman:
+1·(−1)·1+2·2·a+1·2·(−a)=−1+2a.
+
+Así:
+D₂=(4−3a)−(−1+2a)=5−5a=5(1−a).
+
+Para a=0, D₂=5≠0. Para a=3, D₂=−10≠0. En ambos casos también hay un menor de orden 3 no nulo, luego rg(A)=3.
+
+4. Como comprobación de que el rango nunca podría bajar de 2, el menor de las dos primeras filas y las dos primeras columnas es:
+
+M=det [[1,2],[2,−1]]=1·(−1)−2·2=−5≠0.
+
+Conclusión: rg(A)=3 para todo a∈ℝ.`
       ),
     },
     "mates2-algebra-3fed204b2656": {

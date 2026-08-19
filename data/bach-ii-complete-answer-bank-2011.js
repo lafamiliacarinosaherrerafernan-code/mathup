@@ -1137,38 +1137,61 @@ Resultado: k=−29/2 o k=31/2.`
       "a)": answer(
         "Las rectas son secantes y se cortan en (1,0,1)",
         ["Son paralelas", "Son coincidentes", "Se cruzan sin cortarse"],
-        `Parametrizamos r tomando y=u:
-x=1+u, y=u, z=1−u.
+        `1. Parametrizamos r tomando y=λ:
+r: (x,y,z)=(1+λ,λ,1−λ).
 
-La recta s es:
-x=t, y=1−t, z=t.
+Por tanto, un punto y un vector director de r son:
+P=(1,0,1),  u⃗=(1,1,−1).
 
-Igualamos coordenadas:
-1+u=t,
-u=1−t,
-1−u=t.
+De s obtenemos:
+Q=(0,1,0),  v⃗=(1,−1,1).
 
-De la primera y la tercera resulta u=0 y t=1; estos valores también verifican la segunda ecuación.
+El vector que une un punto de r con un punto de s es:
+PQ⃗=Q−P=(−1,1,−1).
 
-El punto común es (1,0,1). Por tanto, las rectas son secantes.`
+2. Calculamos el rango de los vectores directores. El menor
+
+det [[1,1],[1,−1]]=1·(−1)−1·1=−2≠0
+
+prueba que rg(u⃗,v⃗)=2. Los vectores no son proporcionales, así que las rectas no son paralelas ni coincidentes.
+
+3. Añadimos el vector PQ⃗ y calculamos:
+
+det [[1,1,−1],[1,−1,1],[−1,1,−1]]=0.
+
+Por ello rg(u⃗,v⃗,PQ⃗)=2=rg(u⃗,v⃗). Los tres vectores son coplanarios. Como los directores no son proporcionales, las rectas son secantes.
+
+4. Hallamos el punto de corte igualando las parametrizaciones:
+1+λ=t,
+λ=1−t,
+1−λ=t.
+
+Se obtiene λ=0 y t=1. El punto común es (1,0,1).
+
+Conclusión: las rectas son secantes y se cortan en (1,0,1).`
       ),
       "b)": answer(
         "α=arccos(1/3)",
         ["α=90°", "α=arccos(2/3)", "α=60°"],
-        `Los vectores directores son:
+        `1. Los vectores directores son:
 u⃗=(1,1,−1),
 v⃗=(1,−1,1).
 
-El ángulo menor entre rectas cumple:
-cos α=|u⃗·v⃗|/(|u⃗|·|v⃗|).
+2. Calculamos el producto escalar componente a componente:
+u⃗·v⃗=1·1+1·(−1)+(−1)·1=−1.
 
-Calculamos:
-u⃗·v⃗=−1,
-|u⃗|=|v⃗|=√3.
+3. Calculamos por separado los módulos:
+|u⃗|=sqrt{1²+1²+(−1)²}=sqrt{3},
+|v⃗|=sqrt{1²+(−1)²+1²}=sqrt{3}.
 
-Por tanto:
-cos α=1/3
-⇒ α=arccos(1/3).`
+4. Sustituimos en la fórmula del ángulo menor entre rectas:
+
+cos α=frac{|u⃗·v⃗|}{|u⃗|·|v⃗|}
+=frac{|−1|}{sqrt{3}·sqrt{3}}
+=frac{1}{3}.
+
+5. Despejamos el ángulo:
+α=arccos(frac{1}{3})≈70,53°.`
       ),
     },
 

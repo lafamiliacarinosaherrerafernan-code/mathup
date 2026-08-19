@@ -28,6 +28,25 @@ function Test-AppServer {
     }
 }
 
+function Open-AppBrowser {
+    $browserCandidates = @(
+        (Join-Path $env:ProgramFiles "Google\Chrome\Application\chrome.exe"),
+        (Join-Path ${env:ProgramFiles(x86)} "Google\Chrome\Application\chrome.exe"),
+        (Join-Path ${env:ProgramFiles(x86)} "Microsoft\Edge\Application\msedge.exe"),
+        (Join-Path $env:ProgramFiles "Microsoft\Edge\Application\msedge.exe")
+    )
+
+    foreach ($browserPath in $browserCandidates) {
+        if ($browserPath -and (Test-Path -LiteralPath $browserPath)) {
+            Start-Process -FilePath $browserPath `
+                -ArgumentList @("--new-window", $appUrl)
+            return
+        }
+    }
+
+    Start-Process -FilePath $appUrl
+}
+
 try {
     Write-LauncherLog "Starting desktop launcher."
 
@@ -69,7 +88,7 @@ try {
     }
 
     Write-LauncherLog "Opening $appUrl."
-    Start-Process -FilePath $appUrl
+    Open-AppBrowser
 }
 catch {
     Write-LauncherLog "ERROR: $($_.Exception.Message)"

@@ -355,24 +355,24 @@ Si después de derivar vuelve a aparecer una de esas indeterminaciones, la regla
         "1/3",
         ["0", "1/2", "1"],
         `Calculamos:
-L=lim(x→0) (x−sen x)/(tg x−sen x).
+L=lim_{x→0}frac{x−sen x}{tg x−sen x}.
 
 Al sustituir x=0:
-(0−sen 0)/(tg 0−sen 0)=0/0.
+frac{0−sen 0}{tg 0−sen 0}=frac{0}{0}.
 Aplicamos L'Hôpital.
 
 Recordamos que:
 (tg x)'=1+tg²x.
 
 Primera aplicación:
-L=lim(x→0) (1−cos x)/(1+tg²x−cos x).
+L=lim_{x→0}frac{1−cos x}{1+tg²x−cos x}.
 Al sustituir x=0 vuelve a aparecer 0/0.
 
 Derivamos de nuevo. En el denominador:
 (1+tg²x−cos x)'
 =2·tg x·(1+tg²x)+sen x.
 Por tanto:
-L=lim(x→0) sen x/[2·tg x·(1+tg²x)+sen x].
+L=lim_{x→0}frac{sen x}{2·tg x·(1+tg²x)+sen x}.
 Al sustituir x=0 obtenemos de nuevo 0/0.
 
 Antes de volver a derivar, desarrollamos:
@@ -380,12 +380,12 @@ Antes de volver a derivar, desarrollamos:
 =2·tg x+2·tg³x+sen x.
 
 Aplicamos L'Hôpital por tercera vez:
-L=lim(x→0) cos x/[2(1+tg²x)+6tg²x(1+tg²x)+cos x].
+L=lim_{x→0}frac{cos x}{2(1+tg²x)+6tg²x(1+tg²x)+cos x}.
 
 Sustituimos x=0:
-L=1/(2+0+1)=1/3.
+L=frac{1}{2+0+1}=frac{1}{3}.
 
-Resultado: el límite vale 1/3.`
+Resultado: el límite vale frac{1}{3}.`
       ),
     },
     "mates2-analisis-d37150a012da": {

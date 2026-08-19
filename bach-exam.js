@@ -1,5 +1,40 @@
 (function () {
   const EXAM_HISTORY_KEY = "margarita-bach-ii-exam-history-v1";
+  const EXAM_SECONDS_PER_EXERCISE = 10 * 60;
+  let bachExamTimerId = null;
+
+  function examTimeText(seconds) {
+    const safe = Math.max(0, Number(seconds) || 0);
+    return `${String(Math.floor(safe / 60)).padStart(2, "0")}:${String(safe % 60).padStart(2, "0")}`;
+  }
+
+  function clearBachExamCountdown() {
+    if (bachExamTimerId) clearInterval(bachExamTimerId);
+    bachExamTimerId = null;
+  }
+
+  function updateBachExamCountdown() {
+    const timer = document.getElementById("bach-exam-countdown");
+    if (timer) timer.textContent = `Tiempo: ${examTimeText(state.bachExam?.remainingSeconds)}`;
+  }
+
+  function ensureBachExamCountdown() {
+    const exam = state.bachExam;
+    updateBachExamCountdown();
+    if (!exam || bachExamTimerId || exam.remainingSeconds <= 0) return;
+    bachExamTimerId = setInterval(() => {
+      if (!state.bachExam) {
+        clearBachExamCountdown();
+        return;
+      }
+      state.bachExam.remainingSeconds -= 1;
+      updateBachExamCountdown();
+      if (state.bachExam.remainingSeconds <= 0) {
+        clearBachExamCountdown();
+        renderBachExamResult();
+      }
+    }, 1000);
+  }
 
   const slotLabels = {
     "2bach-mates": [
@@ -962,6 +997,7 @@
 
   function startBachExam(selectedTopicIndexes = null) {
     clearQuestionTimer();
+    clearBachExamCountdown();
     const course = courseById(state.courseId);
     if (!BACH_II_COURSE_IDS.includes(course?.id)) {
       renderStudentHome();
@@ -1019,6 +1055,7 @@
       index: 0,
       score: 0,
       totalParts: questions.reduce((total, question) => total + question.parts.length, 0),
+      remainingSeconds: questions.length * EXAM_SECONDS_PER_EXERCISE,
       questions: questions.map((question) => ({
         ...question,
         selections: Array(question.parts.length).fill(null),
@@ -1095,17 +1132,17 @@
       <section class="student-dashboard bach-exam-screen">
         <section class="screen-panel bach-exam-panel">
           <div class="workspace-head exam-workspace-head">
-            <div>
-              <span class="topic-kicker">Examen de ${escapeHtml(courseDisplayName(course))}</span>
-              <h1>Ejercicio ${exam.index + 1} de ${exerciseCount} · ${escapeHtml(question.examFamilyLabel || labels[question.slot - 1] || "Ejercicio")}</h1>
-              <div class="badge-row">
-                <span class="badge">${currentPauCommunity() === "madrid" ? escapeHtml(officialConvocationLabel(question)) : `Convocatoria: ${escapeHtml(officialConvocationLabel(question))}`}</span>
-                <span class="badge">${isMadridOpenExam ? "Trabajados" : "Aciertos"}: ${isMadridOpenExam ? exam.questions.filter((item) => item.graded).length : exam.score}/${isMadridOpenExam ? exerciseCount : (answeredCount || 0)}</span>
+            <div class="exam-heading-copy">
+              <div class="exam-summary-line">
+                <span class="topic-kicker">Examen de ${escapeHtml(courseDisplayName(course))}</span>
+                <h1>Ejercicio ${exam.index + 1} de ${exerciseCount} · ${escapeHtml(question.examFamilyLabel || labels[question.slot - 1] || "Ejercicio")}</h1>
+                <span class="badge">Aciertos: ${isMadridOpenExam ? exam.questions.filter((item) => item.graded).length : exam.score}/${isMadridOpenExam ? exerciseCount : (answeredCount || 0)}</span>
               </div>
             </div>
             <div class="dashboard-exit">
+              <span id="bach-exam-countdown" class="badge exam-countdown"></span>
               <button class="ghost" onclick="leaveBachExam()">Volver</button>
-              <button class="ghost" onclick="renderLogin()">Salir</button>
+              <button class="ghost" onclick="publicLogout()">Salir</button>
             </div>
           </div>
           <div class="progress exam-progress"><span style="width:${progress}%"></span></div>
@@ -1124,6 +1161,7 @@
         </section>
       </section>
     `);
+    ensureBachExamCountdown();
   }
 
   function selectBachExamAnswer(partIndex, optionIndex) {
@@ -1164,6 +1202,7 @@
   }
 
   function renderBachExamResult() {
+    clearBachExamCountdown();
     const exam = state.bachExam;
     const course = courseById(exam?.courseId);
     if (!exam || !course) {
@@ -1182,12 +1221,14 @@
       : percent >= 50
         ? "Buen trabajo. Revisa las resoluciones de los apartados que han fallado."
         : "Conviene repasar los bloques y volver a intentarlo con otro examen.";
+    const grade = percent / 10;
     renderShell(`
       <section class="student-dashboard bach-exam-screen">
         <section class="screen-panel bach-exam-result">
           <span class="topic-kicker">Examen terminado</span>
           <h1>${escapeHtml(courseDisplayName(course))}</h1>
           <div class="exam-result-score">${isMadridOpenExam ? workedCount : exam.score}<small>${isMadridOpenExam ? `de ${exam.questions.length} problemas trabajados` : `de ${exam.totalParts} apartados correctos`}</small></div>
+          <p class="exam-final-grade">Nota final: <strong>${grade.toFixed(1).replace(".", ",")}/10</strong></p>
           <div class="progress exam-progress"><span style="width:${percent}%"></span></div>
           <p>${escapeHtml(message)}</p>
           <div class="exam-actions">
@@ -1200,6 +1241,7 @@
   }
 
   function leaveBachExam() {
+    clearBachExamCountdown();
     state.bachExam = null;
     renderBachIIHome();
   }

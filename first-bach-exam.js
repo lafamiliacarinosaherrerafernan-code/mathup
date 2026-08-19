@@ -9,8 +9,39 @@
     answers: [],
     answered: false,
     selected: -1,
-    showSolution: false
+    showSolution: false,
+    remainingSeconds: 0,
+    timerId: null
   };
+  const EXAM_SECONDS_PER_QUESTION = 10 * 60;
+
+  function examTimeText(seconds) {
+    const safe = Math.max(0, Number(seconds) || 0);
+    return `${String(Math.floor(safe / 60)).padStart(2, "0")}:${String(safe % 60).padStart(2, "0")}`;
+  }
+
+  function clearFirstBachExamCountdown() {
+    if (exam.timerId) clearInterval(exam.timerId);
+    exam.timerId = null;
+  }
+
+  function updateFirstBachExamCountdown() {
+    const timer = document.getElementById("first-bach-exam-countdown");
+    if (timer) timer.textContent = `Tiempo: ${examTimeText(exam.remainingSeconds)}`;
+  }
+
+  function ensureFirstBachExamCountdown() {
+    updateFirstBachExamCountdown();
+    if (exam.timerId || exam.remainingSeconds <= 0) return;
+    exam.timerId = setInterval(() => {
+      exam.remainingSeconds -= 1;
+      updateFirstBachExamCountdown();
+      if (exam.remainingSeconds <= 0) {
+        clearFirstBachExamCountdown();
+        renderFirstBachExamResult();
+      }
+    }, 1000);
+  }
 
   function isFirstBachCourse() {
     return state.courseId === "1bach-mates" || state.courseId === "1bach-ccss";
@@ -54,10 +85,12 @@
 
   window.renderFirstBachExamSetup = function renderFirstBachExamSetup(reset = true) {
     if (!state.student || !isFirstBachCourse()) {
-      renderLogin();
+      publicLogout();
       return;
     }
     clearQuestionTimer();
+    clearFirstBachExamCountdown();
+    clearFirstBachExamCountdown();
     if (reset || !exam.selectedTopics.size) resetSelectedTopics();
     renderShell(`
       <section class="student-dashboard first-bach-exam-page">
@@ -74,7 +107,7 @@
             </div>
             <div class="dashboard-exit">
               <button class="ghost" onclick="renderFirstBachGateway()">Volver</button>
-              <button class="ghost" onclick="renderLogin()">Salir</button>
+              <button class="ghost" onclick="publicLogout()">Salir</button>
             </div>
           </div>
 
@@ -213,6 +246,8 @@
     exam.answered = false;
     exam.selected = -1;
     exam.showSolution = false;
+    clearFirstBachExamCountdown();
+    exam.remainingSeconds = exam.questions.length * EXAM_SECONDS_PER_QUESTION;
     renderFirstBachExamQuestion();
   };
 
@@ -253,7 +288,7 @@
               <h1>Ejercicio ${exam.index + 1} de ${exam.questions.length} · ${escapeHtml(topicName(question))}</h1>
               ${source ? `<div class="badge-row"><span class="badge">${escapeHtml(source)}</span></div>` : ""}
             </div>
-            <div class="dashboard-exit"><button class="ghost" onclick="leaveFirstBachExam()">Salir del examen</button></div>
+            <div class="dashboard-exit"><span id="first-bach-exam-countdown" class="badge exam-countdown"></span><button class="ghost" onclick="leaveFirstBachExam()">Salir del examen</button></div>
           </div>
           <div class="progress-track"><div style="width:${((exam.index + 1) / exam.questions.length) * 100}%"></div></div>
           <article class="first-bach-exam-statement">${question.statementHtml ? formatMathHtml(question.statementHtml, { preserveTrigNotation: Boolean(source) }) : formatMathText(question.text || "", { preserveTrigNotation: Boolean(source) })}</article>
@@ -282,6 +317,7 @@
         </section>
       </section>
     `);
+    ensureFirstBachExamCountdown();
   };
 
   window.answerFirstBachExam = function answerFirstBachExam(optionIndex) {
@@ -339,9 +375,11 @@
 
   window.renderFirstBachExamResult = function renderFirstBachExamResult() {
     clearQuestionTimer();
+    clearFirstBachExamCountdown();
     const correct = exam.answers.filter((answer) => answer.correct).length;
     saveExamReport(correct);
     const percentage = Math.round((correct / exam.questions.length) * 100);
+    const grade = exam.questions.length ? (correct / exam.questions.length) * 10 : 0;
     const topics = [...new Set(exam.questions.map(topicName))];
     renderShell(`
       <section class="student-dashboard first-bach-exam-page">
@@ -349,6 +387,7 @@
           <span class="coach-kicker">Examen completado</span>
           <h1>${correct} de ${exam.questions.length} ejercicios correctos</h1>
           <div class="first-bach-exam-result-score">${percentage}%</div>
+          <p class="exam-final-grade">Nota final: <strong>${grade.toFixed(1).replace(".", ",")}/10</strong></p>
           <p>Temas trabajados: ${topics.map(escapeHtml).join(" · ")}</p>
           <div class="first-bach-exam-result-actions">
             <button class="primary" onclick="renderFirstBachExamSetup(true)">Preparar otro examen</button>
@@ -361,6 +400,7 @@
 
   window.leaveFirstBachExam = function leaveFirstBachExam() {
     clearQuestionTimer();
+    clearFirstBachExamCountdown();
     renderFirstBachGateway();
   };
 

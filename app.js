@@ -2200,7 +2200,7 @@ function renderShell(content, compact = false) {
   if (fitScreen) scheduleFitStudentScreen();
 }
 
-function renderLogin() {
+function renderLegacyLogin() {
   clearQuestionTimer();
   const yearOptions = ACADEMIC_YEARS
     .map((year) => `<option value="${year}" ${year === DEFAULT_ACADEMIC_YEAR ? "selected" : ""}>${year}</option>`)
@@ -2340,7 +2340,7 @@ function renderAdminLogin() {
           <input id="admin-password" type="password" placeholder="Contraseña" />
         </div>
         <button class="primary" onclick="adminLogin()">Entrar</button>
-        <button class="ghost" style="width:100%;margin-top:10px" onclick="renderLogin()">Volver</button>
+        <button class="ghost" style="width:100%;margin-top:10px" onclick="renderPublicAccess()">Volver</button>
         <p class="error" id="admin-error"></p>
       </div>
     </section>
@@ -3703,7 +3703,7 @@ function renderStudentHome() {
           </div>
           <div class="dashboard-exit">
             <button class="ghost" onclick="renderStudentGateway()">Inicio principal</button>
-            <button class="ghost" onclick="renderLogin()">Salir</button>
+            <button class="ghost" onclick="publicLogout()">Salir</button>
           </div>
         </div>
         <div class="path-choice-grid">
@@ -3752,7 +3752,7 @@ function renderBachIIHome() {
             </div>
           </div>
           <div class="dashboard-exit">
-            <button class="ghost" onclick="renderLogin()">Salir</button>
+            <button class="ghost" onclick="publicLogout()">Salir</button>
           </div>
         </div>
         <div class="path-choice-grid bach-ii-home-grid">
@@ -3817,7 +3817,7 @@ function renderBachBlockSelector() {
           </div>
           <div class="dashboard-exit">
             <button class="ghost" onclick="renderBachIIHome()">Volver</button>
-            <button class="ghost" onclick="renderLogin()">Salir</button>
+            <button class="ghost" onclick="publicLogout()">Salir</button>
           </div>
         </div>
         <div class="topics-grid block-choice-grid">${cards}</div>
@@ -3928,7 +3928,7 @@ function renderDashboard() {
             ${eso ? `<button class="ghost" onclick="renderStudentGateway()">Inicio</button>` : ""}
             ${FIRST_BACH_COURSE_IDS.includes(course.id) ? `<button class="ghost" onclick="renderFirstBachGateway()">Inicio</button>` : ""}
             ${BACH_II_COURSE_IDS.includes(course.id) ? `<button class="ghost" onclick="renderBachIIHome()">Inicio</button>` : ""}
-            <button class="ghost" onclick="renderLogin()">Salir</button>
+            <button class="ghost" onclick="publicLogout()">Salir</button>
           </div>
         </div>
         <div class="stat-row">
@@ -4093,6 +4093,13 @@ function officialQuestionStatementHtml(question, courseId = state.courseId) {
   }
   if (question.statementHtml) {
     const statement = String(question.statementHtml).replace(/^\s*<div class="official-source">[\s\S]*?<\/div>\s*/i, "");
+    // Official matrix cells can contain typographic tags such as <i>. Those
+    // tags split [[...]] across several text nodes, so the HTML renderer can
+    // no longer see a complete matrix. Render the equivalent plain source in
+    // those cases; the stored corpus and its mathematical meaning stay intact.
+    if (statement.includes("[[") && question.text) {
+      return formatMathText(question.text, { preserveTrigNotation: true });
+    }
     return formatMathHtml(statement, { preserveTrigNotation: true });
   }
   const source = officialExerciseSource(question);
@@ -4251,8 +4258,8 @@ function renderStudy() {
   `;
 
   renderShell(`
-    <section class="app-grid">
-      <aside class="screen-panel">
+    <section class="app-grid ${activeBlock ? "block-challenge-layout" : "topic-challenge-layout"}">
+      <aside class="screen-panel challenge-sidebar">
         <button class="ghost" onclick="${backToTopicsAction}">${activeBlock ? "Volver a bloques" : "Volver a temas"}</button>
         <section class="challenge-student-card" aria-label="Datos del alumno y del curso">
           <div class="challenge-student-top">
@@ -4275,31 +4282,35 @@ function renderStudy() {
         <div class="progress challenge-sidebar-progress" aria-label="Progreso del reto">
           <span style="width:${progress}%"></span>
         </div>
-        <div class="sidebar-actions">
-          <button class="secondary" onclick="showTopicExplanation()">Leer explicación del tema</button>
-          ${topicPodcastControlsHtml(course)}
-        </div>
-        <div class="resource-note" id="resource-note"></div>
+        ${activeBlock ? "" : `
+          <div class="sidebar-actions">
+            <button class="secondary" onclick="showTopicExplanation()">Leer explicación del tema</button>
+            ${topicPodcastControlsHtml(course)}
+          </div>
+          <div class="resource-note" id="resource-note"></div>
+        `}
       </aside>
-      <section class="study-layout challenge-only">
-        <div class="screen-panel explain-panel lesson-modal" id="lesson-modal">
-          <h2>Tema elegido</h2>
-          <div class="topic-summary-card">
-            <span class="topic-kicker">${escapeHtml(courseDisplayName(course))}</span>
-            <h3>${escapeHtml(theme)}</h3>
-            <p>${escapeHtml(explanation.summary)}</p>
-          </div>
-          <div class="book-content-panel" id="book-content-panel">
-            <div class="book-content-head">
-              <strong>Contenido del libro</strong>
-              <button class="ghost compact-btn" onclick="openTopicResource()">Abrir documento original</button>
+      <section class="study-layout challenge-only challenge-workspace">
+        ${activeBlock ? "" : `
+          <div class="screen-panel explain-panel lesson-modal" id="lesson-modal">
+            <h2>Tema elegido</h2>
+            <div class="topic-summary-card">
+              <span class="topic-kicker">${escapeHtml(courseDisplayName(course))}</span>
+              <h3>${escapeHtml(theme)}</h3>
+              <p>${escapeHtml(explanation.summary)}</p>
             </div>
-            ${bookContentHtml}
+            <div class="book-content-panel" id="book-content-panel">
+              <div class="book-content-head">
+                <strong>Contenido del libro</strong>
+                <button class="ghost compact-btn" onclick="openTopicResource()">Abrir documento original</button>
+              </div>
+              ${bookContentHtml}
+            </div>
+            <div class="topic-explanation-detail" id="topic-explanation-detail" data-infographic="${infographicUrl ? "true" : "false"}">
+              ${explanationDetailHtml}
+            </div>
           </div>
-          <div class="topic-explanation-detail" id="topic-explanation-detail" data-infographic="${infographicUrl ? "true" : "false"}">
-            ${explanationDetailHtml}
-          </div>
-        </div>
+        `}
         <div class="screen-panel game-panel">
           <div class="challenge-titlebar">
             <h2>
@@ -12375,7 +12386,7 @@ function renderAdmin() {
         </div>
         <div class="topic-actions">
           <button class="secondary" onclick="downloadReports()">Descargar CSV</button>
-          <button class="ghost" onclick="renderLogin()">Salir</button>
+          <button class="ghost" onclick="publicLogout()">Salir</button>
         </div>
       </div>
       <div class="admin-toolbar">
@@ -12656,7 +12667,7 @@ document.addEventListener("click", (event) => {
 window.addEventListener("pagehide", stopAllAppMedia);
 window.addEventListener("beforeunload", stopAllAppMedia);
 stopAllAppMedia();
-renderLogin();
+window.addEventListener("load", () => window.bootstrapPublicAuth?.());
 
 
 

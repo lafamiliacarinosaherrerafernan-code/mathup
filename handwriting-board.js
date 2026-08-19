@@ -10,6 +10,7 @@
   const INITIAL_PAPER_HEIGHT = 1050;
   const PAPER_GROWTH = 720;
   const MAX_PIXEL_RATIO = 1.5;
+  const HANDWRITING_HEADER_SRC = "assets/mathup-header.png";
   let strokeSequence = 0;
   let selectionSequence = 0;
 
@@ -71,8 +72,14 @@
           <span>${buttonLabel}</span>
         </button>
         <section class="handwriting-panel" hidden role="dialog" aria-modal="true" aria-label="Vista para resolver el ejercicio a mano">
+          <header class="top-strip top-strip-centered top-strip-compact mathup-header handwriting-brand-header">
+            <div class="mathup-header-layout" aria-label="+MathUp · Aula de retos, estudio y aventuras">
+              <span class="mathup-crop mathup-crop-icon"><img src="${HANDWRITING_HEADER_SRC}" alt="" aria-hidden="true" /></span>
+              <span class="mathup-crop mathup-crop-wordmark"><img src="${HANDWRITING_HEADER_SRC}" alt="" aria-hidden="true" /></span>
+              <span class="mathup-crop mathup-crop-tagline"><img src="${HANDWRITING_HEADER_SRC}" alt="" aria-hidden="true" /></span>
+            </div>
+          </header>
           <div class="handwriting-workspace">
-            <aside class="handwriting-context" aria-label="Información del alumno y del ejercicio"></aside>
             <main class="handwriting-work-area">
               <header class="handwriting-panel-head">
                 <div>
@@ -171,34 +178,9 @@
     return clone;
   }
 
-  function moveOriginalContextToPanel(host, contextTarget) {
-    const originalAside = host.closest(".app-grid")?.querySelector(":scope > aside.screen-panel");
-    if (!originalAside) return false;
-
-    const placeholder = document.createComment("handwriting-context-return-point");
-    originalAside.parentNode.insertBefore(placeholder, originalAside);
-    host.__handwritingContext = { originalAside, placeholder };
-    originalAside.classList.add("handwriting-context-card");
-    contextTarget.replaceChildren(originalAside);
-    return true;
-  }
-
-  function restoreOriginalContext(host) {
-    const context = host.__handwritingContext;
-    if (!context) return;
-    const { originalAside, placeholder } = context;
-    originalAside.classList.remove("handwriting-context-card");
-    if (placeholder?.parentNode) {
-      placeholder.parentNode.insertBefore(originalAside, placeholder);
-      placeholder.remove();
-    }
-    host.__handwritingContext = null;
-  }
-
   function populateExerciseView(host) {
     const panel = host.querySelector(".handwriting-panel");
     const statementTarget = panel.querySelector(".handwriting-statement-content");
-    const contextTarget = panel.querySelector(".handwriting-context");
     const exerciseContext = exerciseContexts.get(host.dataset.handwritingKey);
     if (exerciseContext?.statementHtml) {
       const source = document.createElement("div");
@@ -215,9 +197,6 @@
       statementTarget.replaceChildren(...statementParts.map(cloneWithCanvasContent));
     }
 
-    if (!moveOriginalContextToPanel(host, contextTarget)) {
-      contextTarget.innerHTML = `<div class="handwriting-context-card"><strong>Resolución del ejercicio</strong><p>La pantalla anterior permanece conservada detrás de esta vista.</p></div>`;
-    }
   }
 
   function setOpenLayout(open) {
@@ -267,7 +246,6 @@
     }
     setOpenLayout(false);
     restoreHostPosition(host);
-    restoreOriginalContext(host);
     launcher?.focus();
   }
 

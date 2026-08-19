@@ -26,14 +26,27 @@
     mAnA.parts[1].label = "1A b)";
     mAnA.parts.push(part("2A", secondExercise));
   }
-  const mAnB = mates("analisis").find((e) => e.id === "mates2-analisis-c1bd298a3533");
+  const mAnBList = window.MATES_II_BLOCK_EXERCISES?.analisis || [];
+  const mAnBIndex = mAnBList.findIndex((e) => e.id === "mates2-analisis-c1bd298a3533" && String(e.source || "").startsWith("2014"));
+  const mAnB = mAnBList[mAnBIndex];
   if (mAnB?.parts?.length === 3) {
-    const setup = mAnB.parts[0].paragraphs.splice(1);
-    mAnB.parts.unshift(part("1B a)", copy(mAnB.statement)));
-    mAnB.parts[1].label = "1B b)";
-    mAnB.parts[2].label = "2B a)";
-    mAnB.parts[2].paragraphs = [...setup, ...mAnB.parts[2].paragraphs];
-    mAnB.parts[3].label = "2B b)";
+    const asymptoteQuestion = copy(mAnB.parts[0].paragraphs.slice(0, 1));
+    const areaStatement = copy(mAnB.parts[0].paragraphs.slice(1));
+    const areaQuestion = copy(mAnB.parts[1].paragraphs);
+    const areaLimitQuestion = copy(mAnB.parts[2].paragraphs);
+
+    mAnB.statement = [para("Sea f(x)=1+x²·e^(−x²).")];
+    mAnB.parts = [
+      part("a)", [para("Calcula los extremos relativos y los intervalos de crecimiento y decrecimiento de f.")]),
+      part("b)", asymptoteQuestion),
+    ];
+
+    mAnBList.splice(mAnBIndex + 1, 0, {
+      ...mAnB,
+      id: "mates2-analisis-c1bd298a3533-2",
+      statement: areaStatement,
+      parts: [part("a)", areaQuestion), part("b)", areaLimitQuestion)],
+    });
   }
   const mAnSeptA = mates("analisis").find((e) => e.id === "mates2-analisis-cf4f1e3eed37");
   if (mAnSeptA?.parts?.length === 2) {
@@ -124,10 +137,12 @@
       "2A": ans("I=4−8/e", ["I=4+8/e", "I=8/e", "I=1−2/e"], `Buscamos una primitiva por partes o por identificación:\n∫(x²+x+1)e⁻ˣ dx=−(x²+3x+4)e⁻ˣ+C.\nAplicamos la regla de Barrow:\nI=[−(x²+3x+4)e⁻ˣ]₀¹=−8/e−(−4)=4−8/e.`)
     },
     "mates2-analisis-c1bd298a3533": {
-      "1B a)": ans("Máximos en x=±1, mínimo en x=0", ["Máximo en x=0", "Mínimos en x=±1", "No tiene extremos"], `f(x)=1+x²e⁻ˣ².\nf'(x)=2x(1−x²)e⁻ˣ².\nLos puntos críticos son x=−1,0,1. Estudiamos el signo en la recta real:\n(+)\u00a0en (−∞,−1), (−)\u00a0en (−1,0), (+)\u00a0en (0,1), (−)\u00a0en (1,∞).\nPor tanto hay máximos relativos en x=−1 y x=1, de valor 1+1/e, y mínimo relativo en x=0, de valor 1.`),
-      "1B b)": ans("Asíntota horizontal y=1 cuando x→±∞", ["Asíntota horizontal y=0", "Asíntota oblicua y=x", "No tiene asíntotas"], `Como x²e⁻ˣ²→0 cuando x→±∞,\nlim_{x→±∞}f(x)=1.\nPor ello y=1 es asíntota horizontal en ambos extremos. No hay asíntotas verticales porque la función está definida para todo x, ni oblicuas al existir horizontal.`),
-      "2B a)": ans("A(c)=4/3−1/c−1/(3c³)", ["A(c)=1/c+1/(3c³)", "A(c)=4/3+1/c", "A(c)=c³/3+c"], `La función es positiva para x≥1, así que\nA(c)=∫₁ᶜ (1+x²)/x⁴ dx=∫₁ᶜ(x⁻⁴+x⁻²)dx.\nUna primitiva es −1/(3x³)−1/x.\nPor Barrow:\nA(c)=[−1/(3x³)−1/x]₁ᶜ=4/3−1/c−1/(3c³).`),
-      "2B b)": ans("lim_{c→∞}A(c)=4/3", ["0", "1/3", "+∞"], `Usamos A(c)=4/3−1/c−1/(3c³).\nCuando c→∞, 1/c→0 y 1/(3c³)→0. Por tanto, el límite vale 4/3.`)
+      "a)": ans("Máximos en x=±1, mínimo en x=0", ["Máximo en x=0", "Mínimos en x=±1", "No tiene extremos"], `1. La función es f(x)=1+x²e⁻ˣ² y su derivada es:\nf'(x)=2x(1−x²)e⁻ˣ².\n\n2. Como e⁻ˣ²>0 para todo x, los puntos críticos se obtienen de 2x(1−x²)=0:\nx=−1, x=0, x=1.\n\n3. Probamos un valor de cada intervalo:\n• Si x=−2, f'(−2)=12e⁻⁴>0.\n• Si x=−1/2, f'(−1/2)=−frac{3}{4}e⁻¹ᐟ⁴<0.\n• Si x=1/2, f'(1/2)=frac{3}{4}e⁻¹ᐟ⁴>0.\n• Si x=2, f'(2)=−12e⁻⁴<0.\n\n[[signchart points="−∞|−1|0|1|+∞" signs="+|−|+|−" arrows="↑|↓|↑|↓"]]\n\n4. La función crece en (−∞,−1) y (0,1), y decrece en (−1,0) y (1,+∞).\n\n5. En x=−1 y x=1 el signo cambia de + a −: hay máximos relativos, ambos de valor 1+frac{1}{e}. En x=0 cambia de − a +: hay un mínimo relativo de valor 1.\n\nResultado final: máximos relativos en x=±1 y mínimo relativo en x=0.`),
+      "b)": ans("Asíntota horizontal y=1 cuando x→±∞", ["Asíntota horizontal y=0", "Asíntota oblicua y=x", "No tiene asíntotas"], `Como x²e⁻ˣ²→0 cuando x→±∞,\nlim_{x→±∞}f(x)=1.\nPor ello y=1 es asíntota horizontal en ambos extremos. No hay asíntotas verticales porque la función está definida para todo x, ni oblicuas al existir horizontal.`)
+    },
+    "mates2-analisis-c1bd298a3533-2": {
+      "a)": ans("A(c)=4/3−1/c−1/(3c³)", ["A(c)=1/c+1/(3c³)", "A(c)=4/3+1/c", "A(c)=c³/3+c"], `1. Para x≥1, la función frac{1+x²}{x⁴} es positiva, así que el área es:\nA(c)=∫₁ᶜ frac{1+x²}{x⁴} dx.\n\n2. Separamos potencias:\nA(c)=∫₁ᶜ(x⁻⁴+x⁻²)dx.\n\n3. Una primitiva es:\nF(x)=−frac{1}{3x³}−frac{1}{x}.\n\n4. Aplicamos la regla de Barrow:\nA(c)=[−frac{1}{3x³}−frac{1}{x}]₁ᶜ\n=−frac{1}{3c³}−frac{1}{c}−(−frac{1}{3}−1)\n=frac{4}{3}−frac{1}{c}−frac{1}{3c³}.`),
+      "b)": ans("lim_{c→∞}A(c)=4/3", ["0", "1/3", "+∞"], `Usamos A(c)=frac{4}{3}−frac{1}{c}−frac{1}{3c³}.\nCuando c→∞, frac{1}{c}→0 y frac{1}{3c³}→0. Por tanto:\nlim_{c→∞}A(c)=frac{4}{3}.`)
     },
     "mates2-analisis-cf4f1e3eed37": {
       "1A a)": ans("Convexa en (−∞,−1), cóncava en (−1,∞); sin puntos de inflexión", ["Cóncava en todo ℝ", "Convexa en todo su dominio", "Punto de inflexión en x=−1"], `El dominio excluye x=−1.\nf'(x)=1/(x+1)² y f''(x)=−2/(x+1)³.\nEn (−∞,−1), f''>0: la función es convexa. En (−1,∞), f''<0: es cóncava.\nAunque cambia la curvatura en x=−1, ese valor no pertenece al dominio; por tanto, no es punto de inflexión.`),

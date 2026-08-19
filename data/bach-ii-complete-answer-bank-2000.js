@@ -591,9 +591,7 @@ La fracción ocupa todo el denominador anterior. Antes de derivar otra vez, desa
 
 Al sustituir x=0 vuelve a aparecer 0/0. Aplicamos L’Hôpital por tercera vez:
 
-lim_{x→0}
-frac{cos x}
-{2(1+tg²x)+6tg²x(1+tg²x)+cos x}.
+lim_{x→0}frac{cos x}{2(1+tg²x)+6tg²x(1+tg²x)+cos x}.
 
 Sustituimos x=0:
 

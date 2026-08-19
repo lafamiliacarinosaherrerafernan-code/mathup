@@ -11,9 +11,30 @@ let developerSupabaseCheckId = 0;
 let developerSupabaseConnectionState = "idle";
 let developerSelectedCourseId = "1eso";
 
+function canUseDeveloperTools() {
+  return DEVELOPER_MODE || ["owner", "developer"].includes(window.MATHUP_VERIFIED_ADMIN_ROLE);
+}
+
+async function renderOwnerDashboard() {
+  if (!["owner", "developer"].includes(window.MATHUP_VERIFIED_ADMIN_ROLE)) return renderPublicAccess("Acceso no autorizado.", true);
+  clearQuestionTimer();
+  renderShell(`<section class="developer-hub"><header class="developer-hub-header"><div><span class="developer-local-badge">Panel privado · acceso verificado</span><h1>Administración de +MathUp</h1><p>Datos agregados del piloto y acceso de comprobación a todos los cursos.</p></div><button class="ghost" onclick="publicLogout()">Cerrar sesión</button></header>
+    <div id="owner-stat-cards" class="developer-status-row"><article class="developer-status-card is-pending"><span>…</span><div><strong>Cargando estadísticas</strong><small>Consultando datos agregados</small></div></article></div>
+    <div class="developer-hub-grid"><section class="developer-action-panel"><div class="developer-section-heading"><span>Pruebas</span><h2>Ver la aplicación como alumno</h2></div><p>El índice privado permite abrir cualquier curso, tema, bloque o examen con datos ficticios, sin modificar matrículas reales.</p><button class="primary" onclick="renderDeveloperCourseCatalog('1eso')">Abrir todos los cursos</button></section><aside class="developer-checklist-panel"><div class="developer-section-heading"><span>Distribución</span><h2>Alumnado por zona</h2></div><div id="owner-location-stats"><p>Cargando…</p></div></aside></div></section>`,false);
+  try {
+    const stats=await window.APP_SUPABASE.getAdminStats();
+    const courses=(stats.byCourse||[]).map(x=>`<span>${escapeHtml(x.label)}: <strong>${x.count}</strong></span>`).join(" · ")||"Sin matrículas";
+    document.getElementById("owner-stat-cards").innerHTML=`<article class="developer-status-card is-ready"><span>${stats.registeredUsers||0}</span><div><strong>Personas registradas</strong><small>Total del piloto</small></div></article><article class="developer-status-card is-ready"><span>${stats.onlineUsers||0}</span><div><strong>En la aplicación ahora</strong><small>Actividad en los últimos 2 minutos</small></div></article><article class="developer-status-card is-ready"><span>✓</span><div><strong>Por curso</strong><small>${courses}</small></div></article>`;
+    const list=(items)=>items?.length?`<ul class="owner-stat-list">${items.map(x=>`<li><span>${escapeHtml(x.label)}</span><strong>${x.count}</strong></li>`).join("")}</ul>`:"<p>Aún no hay datos suficientes.</p>";
+    document.getElementById("owner-location-stats").innerHTML=`<h3>Provincias</h3>${list(stats.byProvince)}<h3>Municipios</h3>${list(stats.byMunicipality)}`;
+  } catch (error) {
+    document.getElementById("owner-stat-cards").innerHTML=`<p class="error">${escapeHtml(error.message||"No se pudieron cargar las estadísticas.")}</p>`;
+  }
+}
+
 function renderDeveloperLogin() {
   if (!DEVELOPER_MODE) {
-    renderLogin();
+    renderPublicAccess();
     return;
   }
   clearQuestionTimer();
@@ -28,7 +49,7 @@ function renderDeveloperLogin() {
           <input id="developer-password" type="password" autocomplete="current-password" placeholder="Contraseña" onkeydown="if(event.key === 'Enter') developerLogin()" />
         </div>
         <button class="primary" onclick="developerLogin()">Entrar al panel de pruebas</button>
-        <button class="ghost developer-back-button" onclick="renderLogin()">Volver</button>
+        <button class="ghost developer-back-button" onclick="renderPublicAccess()">Volver</button>
         <p class="error" id="developer-login-error"></p>
       </div>
     </section>
@@ -46,8 +67,8 @@ function developerLogin() {
 }
 
 function renderDeveloperHub() {
-  if (!DEVELOPER_MODE) {
-    renderLogin();
+  if (!canUseDeveloperTools()) {
+    renderPublicAccess();
     return;
   }
   removeDeveloperTestReturn();
@@ -75,7 +96,7 @@ function renderDeveloperHub() {
           <h1 id="developer-hub-title">Panel de desarrollo</h1>
           <p>Prueba cada recorrido sin utilizar cuentas ni resultados de alumnos reales.</p>
         </div>
-        <button class="ghost" onclick="renderLogin()">Salir del panel</button>
+        <button class="ghost" onclick="publicLogout()">Salir del panel</button>
       </header>
 
       <div class="developer-status-row">
@@ -152,8 +173,8 @@ function renderDeveloperHub() {
 }
 
 function openDeveloperTestArea(id) {
-  if (!DEVELOPER_MODE) {
-    renderLogin();
+  if (!canUseDeveloperTools()) {
+    renderPublicAccess();
     return;
   }
   if (id === "registro") {
@@ -173,7 +194,8 @@ function openDeveloperTestArea(id) {
     mountDeveloperTestReturn();
     return;
   }
-  renderLogin();
+  if (id === "acceso") renderLegacyLogin();
+  else renderPublicAccess();
   mountDeveloperTestReturn();
 }
 
@@ -207,8 +229,8 @@ function prepareDeveloperStudent(courseId) {
 }
 
 function renderDeveloperCourseCatalog(courseId = developerSelectedCourseId) {
-  if (!DEVELOPER_MODE) {
-    renderLogin();
+  if (!canUseDeveloperTools()) {
+    renderPublicAccess();
     return;
   }
   removeDeveloperTestReturn();

@@ -2505,8 +2505,42 @@ body::before {
 }
 
 .exam-workspace-head h1 {
-  margin: 6px 0 10px;
+  margin: 4px 0 0;
   font-size: clamp(1.55rem, 2.8vw, 2.5rem);
+}
+
+.exam-heading-copy {
+  min-width: 0;
+}
+
+.exam-summary-line {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px 18px;
+}
+
+.exam-summary-line h1 {
+  font-size: clamp(1.35rem, 2.15vw, 2rem);
+  line-height: 1.12;
+}
+
+.exam-summary-line .topic-kicker {
+  flex: 0 0 auto;
+}
+
+.exam-summary-line .badge {
+  flex: 0 0 auto;
+}
+
+.exam-countdown {
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+
+.exam-final-grade {
+  color: #0b2b70;
+  font-size: clamp(1.05rem, 1.5vw, 1.35rem);
 }
 
 .exam-progress {

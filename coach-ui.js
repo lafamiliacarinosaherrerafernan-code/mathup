@@ -32,7 +32,7 @@
   function guardCoachAccess() {
     if (coach()?.isEligible()) return true;
     if (state.student) returnToCourseGateway();
-    else renderLogin();
+    else publicLogout();
     return false;
   }
 
@@ -52,7 +52,7 @@
         <section class="screen-panel home-panel">
           <div class="workspace-head">
             <div><h1>${escapeHtml(title)}</h1>${studentBadges()}</div>
-            <div class="dashboard-exit"><button class="ghost" onclick="renderLogin()">Salir</button></div>
+            <div class="dashboard-exit"><button class="ghost" onclick="publicLogout()">Salir</button></div>
           </div>
           <div class="path-choice-grid ${escapeHtml(gridClass)}">${cards}</div>
         </section>
@@ -64,7 +64,7 @@
     const course = courseById(state.courseId);
     if (!state.student || !isEsoCourseId(state.courseId)) {
       if (BACH_II_COURSE_IDS.includes(state.courseId)) renderBachIIHome();
-      else renderLogin();
+      else publicLogout();
       return;
     }
     gatewayShell(`${courseDisplayName(course)}: elige cómo aprender`, `
@@ -93,7 +93,7 @@
     const course = courseById(state.courseId);
     if (!state.student || !firstBachCourse()) {
       if (BACH_II_COURSE_IDS.includes(state.courseId)) renderBachIIHome();
-      else renderLogin();
+      else publicLogout();
       return;
     }
     gatewayShell(`${courseDisplayName(course)}: elige cómo estudiar`, `
@@ -135,7 +135,7 @@
         <section class="screen-panel coach-panel">
           <div class="workspace-head">
             <div><span class="coach-kicker">Entrenador personal</span><h1>Hola, ${escapeHtml(state.student.name)}</h1>${studentBadges()}</div>
-            <div class="dashboard-exit"><button class="ghost" onclick="returnToCourseGateway()">Inicio</button><button class="ghost" onclick="renderLogin()">Salir</button></div>
+            <div class="dashboard-exit"><button class="ghost" onclick="returnToCourseGateway()">Inicio</button><button class="ghost" onclick="publicLogout()">Salir</button></div>
           </div>
           <div class="coach-summary-grid">
             <article class="coach-profile-card">

@@ -1,259 +1,98 @@
 const PUBLIC_REGISTRATION_COURSES = [
-  ["1eso", "1.º ESO"],
-  ["2eso", "2.º ESO"],
-  ["3eso", "3.º ESO"],
-  ["4eso-a", "4.º ESO · Matemáticas A"],
-  ["4eso-b", "4.º ESO · Matemáticas B"],
-  ["1bach-mates", "1.º Bachillerato · Matemáticas I"],
-  ["1bach-ccss", "1.º Bachillerato · CCSS I"],
-  ["2bach-mates", "2.º Bachillerato · Matemáticas II"],
-  ["2bach-ccss", "2.º Bachillerato · CCSS II"]
+  ["1eso", "1.º ESO"], ["2eso", "2.º ESO"], ["3eso", "3.º ESO"],
+  ["4eso-a", "4.º ESO · Matemáticas A"], ["4eso-b", "4.º ESO · Matemáticas B"],
+  ["1bach-mates", "1.º Bachillerato · Matemáticas I"], ["1bach-ccss", "1.º Bachillerato · CCSS I"],
+  ["2bach-mates", "2.º Bachillerato · Matemáticas II"], ["2bach-ccss", "2.º Bachillerato · CCSS II"]
 ];
-
 let publicRegistrationStep = 1;
 let publicRegistrationReturnView = "login";
+let publicHeartbeatTimer = null;
+let publicCenterSearchTimer = null;
+let publicRegistrationOauthUser = null;
+let publicCenterOptions = [];
 
-function showPublicRegistrationPreview(returnView = "login") {
+function publicOwnerMode() { return new URLSearchParams(location.search).get("owner") === "1"; }
+
+function renderPublicAccess(message = "", isError = false) {
   clearQuestionTimer();
-  publicRegistrationStep = 1;
-  publicRegistrationReturnView = returnView;
-  const courseOptions = PUBLIC_REGISTRATION_COURSES
-    .map(([value, label]) => `<option value="${value}">${label}</option>`)
-    .join("");
-  const yearOptions = ACADEMIC_YEARS
-    .map((year) => `<option value="${year}" ${year === DEFAULT_ACADEMIC_YEAR ? "selected" : ""}>${year}</option>`)
-    .join("");
-
-  renderShell(`
-    <section class="public-register-shell" aria-labelledby="public-register-title">
-      <div class="public-register-topline">
-        <button class="public-register-back" type="button" onclick="returnFromPublicRegistrationPreview()">← Volver</button>
-        <span class="public-register-preview-badge">Vista previa · no guarda datos</span>
-      </div>
-
-      <div class="public-register-card">
-        <aside class="public-register-intro">
-          <span class="public-register-eyebrow">Tu cuenta de aprendizaje</span>
-          <h1 id="public-register-title">Una cuenta, todo tu progreso</h1>
-          <p>La futura cuenta permitirá continuar los retos desde cualquier dispositivo y conservar resultados de forma segura.</p>
-
-          <ol class="public-register-progress" aria-label="Pasos del registro">
-            <li data-public-progress="1" aria-current="step"><span>1</span><div><strong>Acceso</strong><small>Correo y contraseña</small></div></li>
-            <li data-public-progress="2"><span>2</span><div><strong>Perfil académico</strong><small>Curso y centro</small></div></li>
-            <li data-public-progress="3"><span>3</span><div><strong>Privacidad</strong><small>Revisión y autorización</small></div></li>
-          </ol>
-
-          <div class="public-register-safety">
-            <strong>Diseñado para estudiantes</strong>
-            <span>Sin teléfono obligatorio y con autorización familiar cuando corresponda.</span>
-          </div>
-        </aside>
-
-        <div class="public-register-panel">
-          <div class="public-register-step" data-public-step="1">
-            <span class="public-register-step-count">Paso 1 de 3</span>
-            <h2>Crea tu acceso</h2>
-            <p class="public-register-copy">En la versión pública podrás entrar con Google o con tu correo.</p>
-
-            <button class="public-register-google" type="button" onclick="showPublicRegistrationMessage('El acceso con Google se conectará en la fase de autenticación.')">
-              <span aria-hidden="true">G</span> Continuar con Google
-            </button>
-            <div class="public-register-divider"><span>o utiliza tu correo</span></div>
-
-            <div class="field">
-              <label for="public-register-email">Correo electrónico</label>
-              <input id="public-register-email" type="email" autocomplete="email" placeholder="alumno@correo.es" />
-            </div>
-            <div class="field">
-              <label for="public-register-password">Contraseña</label>
-              <input id="public-register-password" type="password" autocomplete="new-password" minlength="8" placeholder="Mínimo 8 caracteres" />
-            </div>
-            <div class="field">
-              <label for="public-register-password-confirm">Repite la contraseña</label>
-              <input id="public-register-password-confirm" type="password" autocomplete="new-password" placeholder="Vuelve a escribirla" />
-            </div>
-          </div>
-
-          <div class="public-register-step" data-public-step="2" hidden>
-            <span class="public-register-step-count">Paso 2 de 3</span>
-            <h2>Personaliza tu aprendizaje</h2>
-            <p class="public-register-copy">Estos datos ajustarán los contenidos y permitirán estadísticas agrupadas.</p>
-
-            <div class="public-register-fields-two">
-              <div class="field">
-                <label for="public-register-name">Nombre o apodo</label>
-                <input id="public-register-name" autocomplete="nickname" placeholder="Como quieres que te llamemos" />
-              </div>
-              <div class="field">
-                <label for="public-register-birthdate">Fecha de nacimiento</label>
-                <input id="public-register-birthdate" type="date" onchange="updatePublicRegistrationGuardian()" />
-              </div>
-              <div class="field">
-                <label for="public-register-year">Año académico</label>
-                <select id="public-register-year">${yearOptions}</select>
-              </div>
-              <div class="field">
-                <label for="public-register-course">Curso</label>
-                <select id="public-register-course">${courseOptions}</select>
-              </div>
-            </div>
-
-            <div class="field public-register-center-field">
-              <label for="public-register-center">Centro educativo</label>
-              <input id="public-register-center" list="public-register-centers" autocomplete="off" value="IES Margarita Salas (centro piloto)" />
-              <datalist id="public-register-centers">
-                <option value="IES Margarita Salas (centro piloto)"></option>
-              </datalist>
-              <small>En la apertura pública se conectará con el Registro Estatal de Centros Docentes.</small>
-            </div>
-
-            <label class="public-register-checkbox">
-              <input id="public-register-no-center" type="checkbox" onchange="togglePublicRegistrationCenter()" />
-              <span>No encuentro mi centro o prefiero indicarlo más adelante</span>
-            </label>
-          </div>
-
-          <div class="public-register-step" data-public-step="3" hidden>
-            <span class="public-register-step-count">Paso 3 de 3</span>
-            <h2>Protegemos tus datos</h2>
-            <p class="public-register-copy">Antes de crear la cuenta explicaremos de forma clara qué información se utiliza y para qué.</p>
-
-            <div class="public-register-privacy-summary">
-              <article><span aria-hidden="true">✓</span><div><strong>Datos mínimos</strong><small>No pediremos teléfono ni apellidos si no son necesarios.</small></div></article>
-              <article><span aria-hidden="true">✓</span><div><strong>Progreso privado</strong><small>Los resultados individuales solo pertenecerán a la cuenta.</small></div></article>
-              <article><span aria-hidden="true">✓</span><div><strong>Estadísticas agrupadas</strong><small>Nunca se publicarán clasificaciones identificables de alumnos.</small></div></article>
-            </div>
-
-            <div id="public-register-guardian" class="public-register-guardian" hidden>
-              <strong>Necesitamos autorización familiar</strong>
-              <p>Al ser menor de 14 años, enviaremos una solicitud a tu madre, padre o tutor legal.</p>
-              <div class="field">
-                <label for="public-register-guardian-email">Correo de la persona responsable</label>
-                <input id="public-register-guardian-email" type="email" autocomplete="email" placeholder="familia@correo.es" />
-              </div>
-            </div>
-
-            <label class="public-register-checkbox public-register-consent">
-              <input id="public-register-privacy" type="checkbox" />
-              <span>He leído la información de privacidad de esta demostración.</span>
-            </label>
-          </div>
-
-          <p id="public-register-message" class="public-register-message" role="status" aria-live="polite"></p>
-          <div class="public-register-actions">
-            <button id="public-register-previous" class="ghost" type="button" onclick="changePublicRegistrationStep(-1)" hidden>Anterior</button>
-            <button id="public-register-next" class="primary" type="button" onclick="changePublicRegistrationStep(1)">Continuar</button>
-          </div>
-        </div>
-      </div>
-    </section>
-  `, false);
-  updatePublicRegistrationStep();
+  renderShell(`<section class="public-access-shell"><div class="public-access-card">
+    <aside class="public-access-intro"><span class="public-register-eyebrow">Tu cuenta de aprendizaje</span><h1>Una cuenta, todo tu progreso</h1><p>Continúa tus retos desde cualquier dispositivo y conserva tus resultados de forma segura.</p><div class="public-register-safety"><strong>Acceso del alumnado</strong><span>Cada cuenta muestra únicamente su curso matriculado.</span></div></aside>
+    <div class="public-access-panel"><span class="public-register-step-count">${publicOwnerMode() ? "Acceso privado" : "Bienvenido/a"}</span><h2>${publicOwnerMode() ? "Administración de +MathUp" : "Entra en +MathUp"}</h2><p class="public-register-copy">${publicOwnerMode() ? "El rol se comprobará antes de abrir el panel." : "Usa el correo con el que creaste tu cuenta."}</p>
+      <button class="public-register-google" type="button" onclick="publicGoogleLogin()"><span>G</span> Continuar con Google</button><div class="public-register-divider"><span>o utiliza tu correo</span></div>
+      <div class="field"><label for="public-login-email">Correo electrónico</label><input id="public-login-email" type="email" autocomplete="email" /></div><div class="field"><label for="public-login-password">Contraseña</label><input id="public-login-password" type="password" autocomplete="current-password" onkeydown="if(event.key==='Enter') publicEmailLogin()" /></div>
+      <button class="primary" type="button" onclick="publicEmailLogin()">Entrar</button>${publicOwnerMode() ? "" : `<button class="ghost public-auth-preview-entry" type="button" onclick="showPublicRegistrationPreview()">Crear una cuenta</button>`}<p id="public-login-message" class="public-register-message ${isError ? "is-error" : ""}" role="status">${escapeHtml(message)}</p>
+    </div></div></section>`, false);
+  document.getElementById("public-login-email")?.focus();
 }
 
-function returnFromPublicRegistrationPreview() {
-  if (publicRegistrationReturnView === "developer" && DEVELOPER_MODE) renderDeveloperHub();
-  else renderLogin();
-}
+function setPublicLoginMessage(message, isError = false) { const n=document.getElementById("public-login-message"); if(n){n.textContent=message;n.classList.toggle("is-error",isError);} }
+function publicAuthError(error) { const t=String(error?.message||"No se pudo completar el acceso."); if(/invalid login/i.test(t))return "Correo o contraseña incorrectos."; if(/email not confirmed/i.test(t))return "Confirma primero el correo que te hemos enviado."; return t; }
 
-function showPublicRegistrationMessage(message, isError = false) {
-  const element = document.getElementById("public-register-message");
-  if (!element) return;
-  element.textContent = message;
-  element.classList.toggle("is-error", isError);
+async function publicEmailLogin() {
+  if(!window.APP_SUPABASE?.isConfigured?.())return setPublicLoginMessage("El acceso público todavía no está conectado a Supabase.",true);
+  const email=document.getElementById("public-login-email")?.value.trim(),password=document.getElementById("public-login-password")?.value||"";
+  if(!email||!password)return setPublicLoginMessage("Escribe tu correo y contraseña.",true);
+  setPublicLoginMessage("Comprobando acceso…");
+  try{const {user}=await window.APP_SUPABASE.signInWithPassword(email,password);await continueAuthenticatedAccess(user);}catch(e){setPublicLoginMessage(publicAuthError(e),true);}
 }
+async function publicGoogleLogin(){if(!window.APP_SUPABASE?.isConfigured?.())return setPublicLoginMessage("Supabase no está configurado.",true);try{sessionStorage.setItem("mathup-google-access-kind",publicOwnerMode()?"owner":document.querySelector("[data-public-step]")?"register":"student");await window.APP_SUPABASE.signInWithGoogle(publicOwnerMode());}catch(e){setPublicLoginMessage(publicAuthError(e),true);}}
 
-function publicRegistrationStepIsValid() {
-  if (publicRegistrationStep === 1) {
-    const email = document.getElementById("public-register-email").value.trim();
-    const password = document.getElementById("public-register-password").value;
-    const confirmation = document.getElementById("public-register-password-confirm").value;
-    if (!email.includes("@")) {
-      showPublicRegistrationMessage("Escribe un correo válido para continuar con la demostración.", true);
-      return false;
-    }
-    if (password.length < 8) {
-      showPublicRegistrationMessage("La contraseña debe tener al menos 8 caracteres.", true);
-      return false;
-    }
-    if (password !== confirmation) {
-      showPublicRegistrationMessage("Las dos contraseñas no coinciden.", true);
-      return false;
-    }
+async function continueAuthenticatedAccess(user) {
+  if(publicOwnerMode()){
+    const role=await window.APP_SUPABASE.getAdminRole();
+    if(!role){await window.APP_SUPABASE.signOut();throw new Error("Esta cuenta no tiene autorización administrativa.");}
+    window.MATHUP_VERIFIED_ADMIN_ROLE=role;return renderOwnerDashboard();
   }
-
-  if (publicRegistrationStep === 2) {
-    const displayName = document.getElementById("public-register-name").value.trim();
-    const birthdate = document.getElementById("public-register-birthdate").value;
-    if (!displayName || !birthdate) {
-      showPublicRegistrationMessage("Indica un nombre o apodo y la fecha de nacimiento para continuar.", true);
-      return false;
-    }
-  }
-
-  if (publicRegistrationStep === 3) {
-    if (!document.getElementById("public-register-privacy").checked) {
-      showPublicRegistrationMessage("Marca la casilla de privacidad para completar la demostración.", true);
-      return false;
-    }
-    const guardian = document.getElementById("public-register-guardian");
-    if (!guardian.hidden && !document.getElementById("public-register-guardian-email").value.includes("@")) {
-      showPublicRegistrationMessage("Escribe un correo válido de la persona responsable.", true);
-      return false;
-    }
-  }
-  return true;
-}
-
-function changePublicRegistrationStep(direction) {
-  if (direction > 0 && !publicRegistrationStepIsValid()) return;
-  if (publicRegistrationStep === 3 && direction > 0) {
-    showPublicRegistrationMessage("Demostración completada. No se ha creado ninguna cuenta ni se ha guardado ningún dato.");
-    document.getElementById("public-register-next").textContent = "Demostración completada";
-    document.getElementById("public-register-next").disabled = true;
+  if(!user?.user_metadata?.course_code){
+    publicRegistrationOauthUser=user;
+    showPublicRegistrationPreview("login");
+    publicRegistrationOauthUser=user;
+    publicRegistrationStep=2;
+    updatePublicRegistrationStep();
+    showPublicRegistrationMessage("Completa el perfil académico para vincular tu cuenta de Google.");
     return;
   }
-  publicRegistrationStep = Math.min(3, Math.max(1, publicRegistrationStep + direction));
-  updatePublicRegistrationStep();
+  const claimed=await window.APP_SUPABASE.claimSession();
+  if(!claimed){await window.APP_SUPABASE.getClient().auth.signOut();throw new Error("Esta cuenta ya está abierta en otro dispositivo. Cierra allí la sesión o espera dos minutos.");}
+  enterAuthenticatedStudent(await window.APP_SUPABASE.loadStudentContext(user));
+  clearInterval(publicHeartbeatTimer);publicHeartbeatTimer=setInterval(async()=>{try{if(!await window.APP_SUPABASE.heartbeat())await publicLogout("La sesión se ha abierto en otro dispositivo.");}catch(_){}},45000);
 }
 
-function updatePublicRegistrationStep() {
-  document.querySelectorAll("[data-public-step]").forEach((element) => {
-    element.hidden = Number(element.dataset.publicStep) !== publicRegistrationStep;
-  });
-  document.querySelectorAll("[data-public-progress]").forEach((element) => {
-    const step = Number(element.dataset.publicProgress);
-    element.classList.toggle("is-complete", step < publicRegistrationStep);
-    if (step === publicRegistrationStep) element.setAttribute("aria-current", "step");
-    else element.removeAttribute("aria-current");
-  });
-  document.getElementById("public-register-previous").hidden = publicRegistrationStep === 1;
-  document.getElementById("public-register-next").textContent = publicRegistrationStep === 3 ? "Completar demostración" : "Continuar";
-  showPublicRegistrationMessage("");
-  if (publicRegistrationStep === 3) updatePublicRegistrationGuardian();
-  scheduleFitStudentScreen();
+function enterAuthenticatedStudent({user,profile,enrollment}) {
+  const courseId=enrollment.course_code;
+  const student={id:user.id,userId:user.id,name:profile.display_name,academicYear:enrollment.academic_year,courseId,group:enrollment.group_label||"",groupLabel:enrollment.group_label||"",enrollmentId:enrollment.id,isRemote:true};
+  state={...state,student,academicYear:enrollment.academic_year,courseId,view:"home",topicIndex:0,questionIndex:0,score:0,streak:0,practiceRound:0,topicChallengeLevel:"apprentice",blockKey:"",pauCommunity:BACH_II_COURSE_IDS.includes(courseId)?readBachPauCommunity(courseId,student):"clm",trainingQuestionHistory:{},challengeQuestionHistory:{},challengeRoundCache:{},answered:false,multipartResponses:[],blockChallengeSeed:0,sessionAnswers:[]};
+  if(isEsoCourseId(courseId))renderStudentGateway();else if(FIRST_BACH_COURSE_IDS.includes(courseId))renderFirstBachGateway();else if(BACH_II_COURSE_IDS.includes(courseId))renderBachIIHome();else renderDashboard();
 }
 
-function updatePublicRegistrationGuardian() {
-  const birthdateInput = document.getElementById("public-register-birthdate");
-  const guardian = document.getElementById("public-register-guardian");
-  if (!birthdateInput || !guardian || !birthdateInput.value) {
-    if (guardian) guardian.hidden = true;
-    return;
-  }
-  const birthdate = new Date(`${birthdateInput.value}T00:00:00`);
-  const today = new Date();
-  let age = today.getFullYear() - birthdate.getFullYear();
-  const birthdayPending = today.getMonth() < birthdate.getMonth()
-    || (today.getMonth() === birthdate.getMonth() && today.getDate() < birthdate.getDate());
-  if (birthdayPending) age -= 1;
-  guardian.hidden = age >= 14;
+async function publicLogout(message="") { clearInterval(publicHeartbeatTimer);publicHeartbeatTimer=null;try{if(window.APP_SUPABASE?.isConfigured?.())await window.APP_SUPABASE.signOut();}catch(_){}window.MATHUP_VERIFIED_ADMIN_ROLE=null;const u=new URL(location.href);u.search="";history.replaceState({},"",u);renderPublicAccess(message); }
+
+function showPublicRegistrationPreview(returnView="login") {
+  publicRegistrationOauthUser=null;publicRegistrationStep=1;publicRegistrationReturnView=returnView;
+  const courses=PUBLIC_REGISTRATION_COURSES.map(([v,l])=>`<option value="${v}">${l}</option>`).join("");
+  const years=ACADEMIC_YEARS.map(y=>`<option value="${y}" ${y===DEFAULT_ACADEMIC_YEAR?"selected":""}>${y}</option>`).join("");
+  renderShell(`<section class="public-register-shell"><div class="public-register-topline"><button class="public-register-back" onclick="returnFromPublicRegistrationPreview()">← Volver</button></div><div class="public-register-card">
+    <aside class="public-register-intro"><span class="public-register-eyebrow">Tu cuenta de aprendizaje</span><h1>Una cuenta, todo tu progreso</h1><p>Tu matrícula dejará visible solo el curso que elijas.</p><ol class="public-register-progress"><li data-public-progress="1"><span>1</span><div><strong>Acceso</strong><small>Correo y contraseña</small></div></li><li data-public-progress="2"><span>2</span><div><strong>Perfil académico</strong><small>Curso y centro</small></div></li><li data-public-progress="3"><span>3</span><div><strong>Privacidad</strong><small>Revisión</small></div></li></ol><div class="public-register-safety"><strong>Datos mínimos</strong><span>No solicitamos una dirección personal.</span></div></aside>
+    <div class="public-register-panel">
+      <div data-public-step="1"><span class="public-register-step-count">Paso 1 de 3</span><h2>Crea tu acceso</h2><button class="public-register-google" onclick="publicGoogleLogin()"><span>G</span> Continuar con Google</button><div class="public-register-divider"><span>o utiliza tu correo</span></div><div class="field"><label for="public-register-email">Correo electrónico</label><input id="public-register-email" type="email" /></div><div class="field"><label for="public-register-password">Contraseña</label><input id="public-register-password" type="password" minlength="8" /></div><div class="field"><label for="public-register-password-confirm">Repite la contraseña</label><input id="public-register-password-confirm" type="password" /></div></div>
+      <div data-public-step="2" hidden><span class="public-register-step-count">Paso 2 de 3</span><h2>Personaliza tu aprendizaje</h2><div class="public-register-fields-two"><div class="field"><label for="public-register-name">Nombre o apodo</label><input id="public-register-name" maxlength="60" /></div><div class="field"><label for="public-register-birthdate">Fecha de nacimiento</label><input id="public-register-birthdate" type="date" onchange="updatePublicRegistrationGuardian()" /></div><div class="field"><label for="public-register-year">Año académico</label><select id="public-register-year">${years}</select></div><div class="field"><label for="public-register-course">Curso</label><select id="public-register-course">${courses}</select></div></div><div class="public-location-grid"><div class="field"><label for="public-register-postal">Código postal</label><input id="public-register-postal" inputmode="numeric" maxlength="5" oninput="schedulePublicCenterSearch()" /></div><div class="field"><label for="public-register-municipality">Pueblo o ciudad</label><input id="public-register-municipality" readonly /></div><div class="field"><label for="public-register-province">Provincia</label><input id="public-register-province" readonly /></div></div><div class="field public-register-center-field"><label for="public-register-center-search">Nombre del instituto</label><input id="public-register-center-search" type="search" list="public-register-center-options" autocomplete="off" placeholder="Escribe primero el código postal" disabled oninput="selectPublicCenter()" /><datalist id="public-register-center-options"></datalist><input id="public-register-center" type="hidden" /><input id="public-register-center-manual" maxlength="140" placeholder="Escribe el nombre completo del instituto" hidden /><small id="public-register-center-help">Al completar el código postal podrás buscar por nombre o localidad y seleccionar un centro oficial.</small></div></div>
+      <div data-public-step="3" hidden><span class="public-register-step-count">Paso 3 de 3</span><h2>Protegemos tus datos</h2><div class="public-register-privacy-summary"><article><span>✓</span><div><strong>Progreso privado</strong><small>Tus resultados pertenecen a tu cuenta.</small></div></article><article><span>✓</span><div><strong>Estadísticas agrupadas</strong><small>La zona se analiza sin publicar nombres.</small></div></article></div><div id="public-register-guardian" class="public-register-guardian" hidden><strong>Autorización familiar</strong><div class="field"><label for="public-register-guardian-email">Correo de la persona responsable</label><input id="public-register-guardian-email" type="email" /></div></div><label class="public-register-checkbox"><input id="public-register-privacy" type="checkbox" /><span>Acepto la información de privacidad.</span></label></div>
+      <p id="public-register-message" class="public-register-message" role="status"></p><div class="public-register-actions"><button id="public-register-previous" class="ghost" onclick="changePublicRegistrationStep(-1)" hidden>Anterior</button><button id="public-register-next" class="primary" onclick="changePublicRegistrationStep(1)">Continuar</button></div>
+    </div></div></section>`,false);updatePublicRegistrationStep();
 }
 
-function togglePublicRegistrationCenter() {
-  const centerInput = document.getElementById("public-register-center");
-  const skipCenter = document.getElementById("public-register-no-center").checked;
-  centerInput.disabled = skipCenter;
-  if (skipCenter) centerInput.value = "";
-  else centerInput.value = "IES Margarita Salas (centro piloto)";
-}
+function returnFromPublicRegistrationPreview(){if(publicRegistrationReturnView==="developer"&&DEVELOPER_MODE)renderDeveloperHub();else renderPublicAccess();}
+function showPublicRegistrationMessage(m,e=false){const n=document.getElementById("public-register-message");if(n){n.textContent=m;n.classList.toggle("is-error",e);}}
+function registrationAgeBand(){const v=document.getElementById("public-register-birthdate")?.value;if(!v)return "14_to_17";const d=new Date(v+"T00:00:00"),t=new Date();let a=t.getFullYear()-d.getFullYear();if(t<new Date(t.getFullYear(),d.getMonth(),d.getDate()))a--;return a<14?"under_14":a<18?"14_to_17":"adult";}
+function publicRegistrationStepIsValid(){if(publicRegistrationStep===1){const e=document.getElementById("public-register-email").value.trim(),p=document.getElementById("public-register-password").value,c=document.getElementById("public-register-password-confirm").value;if(!/^\S+@\S+\.\S+$/.test(e)){showPublicRegistrationMessage("Escribe un correo válido.",true);return false;}if(p.length<8){showPublicRegistrationMessage("La contraseña debe tener al menos 8 caracteres.",true);return false;}if(p!==c){showPublicRegistrationMessage("Las contraseñas no coinciden.",true);return false;}}if(publicRegistrationStep===2){if(!document.getElementById("public-register-name").value.trim()||!document.getElementById("public-register-birthdate").value){showPublicRegistrationMessage("Indica nombre y fecha de nacimiento.",true);return false;}if(!/^\d{5}$/.test(document.getElementById("public-register-postal").value)||!document.getElementById("public-register-municipality").value){showPublicRegistrationMessage("Indica un código postal válido y espera a que aparezca la localidad.",true);return false;}const selected=document.getElementById("public-register-center").value,manual=document.getElementById("public-register-center-manual").value.trim();if(!selected&&!manual){showPublicRegistrationMessage("Busca el instituto por nombre o localidad y selecciónalo de la lista.",true);return false;}}if(publicRegistrationStep===3&&!document.getElementById("public-register-privacy").checked){showPublicRegistrationMessage("Acepta la información de privacidad.",true);return false;}return true;}
+async function changePublicRegistrationStep(d){if(d>0&&!publicRegistrationStepIsValid())return;if(publicRegistrationStep===3&&d>0)return completePublicRegistration();publicRegistrationStep=Math.min(3,Math.max(1,publicRegistrationStep+d));updatePublicRegistrationStep();}
+function updatePublicRegistrationStep(){document.querySelectorAll("[data-public-step]").forEach(n=>n.hidden=Number(n.dataset.publicStep)!==publicRegistrationStep);document.querySelectorAll("[data-public-progress]").forEach(n=>{const s=Number(n.dataset.publicProgress);n.classList.toggle("is-complete",s<publicRegistrationStep);if(s===publicRegistrationStep)n.setAttribute("aria-current","step");else n.removeAttribute("aria-current")});document.getElementById("public-register-previous").hidden=publicRegistrationStep===1;document.getElementById("public-register-next").textContent=publicRegistrationStep===3?"Crear cuenta":"Continuar";showPublicRegistrationMessage("");if(publicRegistrationStep===3)updatePublicRegistrationGuardian();scheduleFitStudentScreen();}
+function updatePublicRegistrationGuardian(){const g=document.getElementById("public-register-guardian");if(g)g.hidden=registrationAgeBand()!=="under_14";}
+function schedulePublicCenterSearch(){clearTimeout(publicCenterSearchTimer);publicCenterSearchTimer=setTimeout(searchPublicCenters,350);}
+function publicCenterLabel(center){const kind=center.ownership?` · ${center.ownership.replace("Centro ","")}`:"";return `${center.name} · ${center.municipality}${kind}`;}
+function selectPublicCenter(){const search=document.getElementById("public-register-center-search"),hidden=document.getElementById("public-register-center"),manual=document.getElementById("public-register-center-manual"),help=document.getElementById("public-register-center-help"),selected=publicCenterOptions.find(c=>publicCenterLabel(c)===search.value);hidden.value=selected?.id||"";manual.value="";manual.hidden=true;search.setCustomValidity(search.value&&!selected?"Selecciona un centro de la lista oficial.":"");if(selected)help.textContent=`Centro seleccionado: ${selected.name} (${selected.municipality}).`;else if(search.value)help.textContent="Sigue escribiendo y selecciona una coincidencia de la lista.";}
+async function searchPublicCenters(){const p=document.getElementById("public-register-postal")?.value.trim(),search=document.getElementById("public-register-center-search"),hidden=document.getElementById("public-register-center"),list=document.getElementById("public-register-center-options"),manual=document.getElementById("public-register-center-manual"),h=document.getElementById("public-register-center-help"),m=document.getElementById("public-register-municipality"),v=document.getElementById("public-register-province");m.value="";v.value="";m.readOnly=true;v.readOnly=true;hidden.value="";search.value="";manual.value="";manual.hidden=true;publicCenterOptions=[];list.innerHTML="";if(!/^\d{5}$/.test(p)){search.disabled=true;search.placeholder="Escribe primero el código postal";return;}try{const result=await window.APP_SUPABASE.searchCenters(p),c=result.centers||[],locations=result.locations||[],location=locations[0]||null;if(location){m.value=location.municipality||"";v.value=location.province||"";}publicCenterOptions=c;list.innerHTML=c.map(x=>`<option value="${escapeHtml(publicCenterLabel(x))}"></option>`).join("");search.disabled=!c.length;search.placeholder=c.length?"Escribe parte del nombre o de la localidad":"No hay centros importados para esta provincia";h.textContent=c.length?`${c.length} centros oficiales de secundaria en ${location.province}. Escribe parte del nombre o localidad y selecciona uno.`:"Este código postal aún no tiene asociado un listado provincial de centros.";if(c.length)search.focus();if(!location){m.readOnly=false;v.readOnly=false;m.placeholder="Pueblo o ciudad";v.placeholder="Provincia";manual.hidden=false;h.textContent="Este código postal aún no está importado: completa localidad, provincia e instituto para continuar.";}}catch(e){showPublicRegistrationMessage("No se pudo consultar el listado de centros.",true);}}
+async function completePublicRegistration(){if(!window.APP_SUPABASE?.isConfigured?.())return showPublicRegistrationMessage("Supabase no está configurado.",true);const b=document.getElementById("public-register-next");b.disabled=true;showPublicRegistrationMessage("Creando la cuenta…");const centerId=document.getElementById("public-register-center").value,centerManual=document.getElementById("public-register-center-manual"),selectedCenter=publicCenterOptions.find(c=>c.id===centerId);const metadata={display_name:document.getElementById("public-register-name").value.trim(),age_band:registrationAgeBand(),academic_year:document.getElementById("public-register-year").value,course_code:document.getElementById("public-register-course").value,postal_code:document.getElementById("public-register-postal").value,municipality:document.getElementById("public-register-municipality").value,province:document.getElementById("public-register-province").value,center_id:centerId||null,center_name:selectedCenter?.name||centerManual.value.trim()||null,guardian_email:document.getElementById("public-register-guardian-email")?.value.trim()||null};try{if(publicRegistrationOauthUser){const user=await window.APP_SUPABASE.updateUserMetadata(metadata);publicRegistrationOauthUser=null;await window.APP_SUPABASE.completeOnboarding(user);return await continueAuthenticatedAccess(user);}const data=await window.APP_SUPABASE.signUp(document.getElementById("public-register-email").value.trim(),document.getElementById("public-register-password").value,metadata);if(data.session&&data.user)await continueAuthenticatedAccess(data.user);else{showPublicRegistrationMessage("Cuenta creada. Revisa tu correo y confirma el enlace antes de entrar.");b.textContent="Correo enviado";}}catch(e){b.disabled=false;showPublicRegistrationMessage(publicAuthError(e),true);}}
+
+async function bootstrapPublicAuth(){document.addEventListener("keydown",e=>{if(DEVELOPER_MODE&&e.ctrlKey&&e.altKey&&e.key.toLowerCase()==="a")renderDeveloperLogin();});if(!window.APP_SUPABASE?.isConfigured?.())return renderPublicAccess("El administrador debe completar la conexión segura antes del piloto.",true);try{const s=await window.APP_SUPABASE.getSession();if(s?.user)return await continueAuthenticatedAccess(s.user);renderPublicAccess();}catch(e){renderPublicAccess(publicAuthError(e),true);}}
+window.bootstrapPublicAuth=bootstrapPublicAuth;

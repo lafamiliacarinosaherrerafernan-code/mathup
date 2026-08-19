@@ -104,6 +104,43 @@
   margin-inline: auto;
 }
 
+/* A block challenge combines several topics, so it has no topic summary or
+   topic audio. Its workspace also uses the full scaled stage width: this
+   keeps both outer edges aligned with the +MathUp header while leaving the
+   student information in a deliberately compact left column. */
+.shell-stage > .app-grid.block-challenge-layout {
+  width: 100%;
+  max-width: 100%;
+  margin-inline: 0;
+  grid-template-columns: minmax(220px, 270px) minmax(0, 1fr);
+  gap: clamp(12px, 1.25vw, 18px);
+}
+
+/* The active 2nd Bachillerato exam follows the same full-width rule as the
+   block challenge. The stage may be scaled vertically, so a percentage width
+   keeps its visible edges aligned with the header. */
+.shell-stage > .student-dashboard.bach-exam-screen {
+  width: 100%;
+  max-width: 100%;
+  margin-inline: 0;
+}
+
+.block-challenge-layout > .challenge-sidebar {
+  padding-inline: clamp(10px, 1vw, 14px);
+}
+
+.block-challenge-layout > .challenge-workspace,
+.block-challenge-layout .game-panel,
+.block-challenge-layout .question-box {
+  min-width: 0;
+}
+
+@media (max-width: 980px) {
+  .shell-stage > .app-grid.block-challenge-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
 .coach-page {
   width: min(1320px, 100%);
 }

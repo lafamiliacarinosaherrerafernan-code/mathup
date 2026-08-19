@@ -45,12 +45,12 @@ check(toolbarOrder.every((label) => {
 }) && /flex-wrap:\s*nowrap/.test(css), "CASO 2: herramientas completas y en una sola línea");
 
 check(/toggleExpanded/.test(js)
-  && /is-expanded[\s\S]*handwriting-context[\s\S]*display:\s*none/.test(css)
+  && /\.handwriting-panel\.is-expanded \.handwriting-workspace[\s\S]*grid-template-columns:\s*minmax\(0,\s*1fr\)/.test(css)
   && !/is-expanded[^{]*handwriting-statement[^}]*display:\s*none/.test(css), "CASO 3: ampliar conserva enunciado, herramientas y estado");
 
 check(/Restaurar vista/.test(js)
-  && /requestAnimationFrame\(\(\) => resizeCanvas\(instance\)\)/.test(js)
-  && /is-expanded \.handwriting-close[\s\S]*display:\s*none/.test(css), "CASO 4: restaurar cambia solo el layout y Volver al ejercicio no aparece al ampliar");
+  && /requestAnimationFrame\([\s\S]{0,180}resizeCanvas\(instance\)/.test(js)
+  && /\.handwriting-panel\.is-expanded \.handwriting-close[\s\S]*display:\s*none/.test(css), "CASO 4: restaurar cambia solo el layout y Volver al ejercicio no aparece al ampliar");
 
 check(/logicalHeight:\s*INITIAL_PAPER_HEIGHT/.test(js)
   && /logicalHeight \+= PAPER_GROWTH/.test(js)
@@ -76,12 +76,14 @@ check(/MargaritaMathRenderer/.test(js)
 check(/exerciseContext\?\.statementHtml/.test(js)
   && /cloneNode\(true\)/.test(js), "El enunciado usa el contexto original y conserva el fallback de clonación");
 
-check(/moveOriginalContextToPanel/.test(js)
-  && /contextTarget\.replaceChildren\(originalAside\)/.test(js)
-  && /restoreOriginalContext\(host\)/.test(js), "La columna izquierda reutiliza el componente original completo y lo restaura al cerrar");
+check(/HANDWRITING_HEADER_SRC/.test(js)
+  && /handwriting-brand-header/.test(js)
+  && /mathup-header-layout/.test(js), "La pizarra incorpora el encabezado corporativo");
 
-check(!/handwriting-context-card \.sidebar-actions[\s\S]*display:\s*none/.test(css)
-  && !/handwriting-context-card > \.ghost:first-child[\s\S]*display:\s*none/.test(css), "La columna conserva Volver a temas, explicación y audios");
+check(!/moveOriginalContextToPanel/.test(js)
+  && !/handwriting-context/.test(js)
+  && /\.handwriting-workspace\s*\{[\s\S]*?grid-template-columns:\s*minmax\(0,\s*1fr\)/.test(css)
+  && /\.handwriting-workspace\s*\{[\s\S]*?width:\s*min\(1320px,\s*100%\)/.test(css), "La pizarra elimina la columna lateral y alinea el área de trabajo con el encabezado");
 
 check(/\.handwriting-toolbar[\s\S]*overflow:\s*hidden/.test(css)
   && /\.handwriting-work-area[\s\S]*min-width:\s*0/.test(css)
