@@ -2533,6 +2533,13 @@ body::before {
   font-weight: 800;
 }
 
+.bach-exam-screen .official-source,
+.bach-block-challenge .official-source,
+.bach-topic-challenge .official-source {
+  font-size: clamp(1rem, 1.15vw, 1.3rem);
+  padding: 0.55rem 0.9rem;
+}
+
 .exam-parts {
   display: grid;
   gap: 18px;
@@ -5689,6 +5696,56 @@ body::before {
 .official-exercise-statement p,
 .exercise-part-prompt p { margin: 0; }
 
+.pau-reference-table {
+  margin: 14px 0;
+  border: 1px solid rgba(30, 94, 180, 0.22);
+  border-radius: 16px;
+  background: #f8fbff;
+  overflow: hidden;
+}
+
+.pau-reference-table summary {
+  cursor: pointer;
+  padding: 12px 16px;
+  color: #0b2a67;
+  font-weight: 800;
+}
+
+.pau-reference-table-frame {
+  min-height: 70vh;
+  border-top: 1px solid rgba(30, 94, 180, 0.16);
+  background: white;
+}
+
+.pau-reference-table-frame object {
+  display: block;
+  width: 100%;
+  min-height: 70vh;
+  border: 0;
+}
+
+.madrid-pau-statement-image,
+.pau-official-solution-figure img {
+  display: block;
+  width: min(100%, 1400px);
+  height: auto;
+  margin: 0 auto 0.75rem;
+  border-radius: 14px;
+  background: #fff;
+}
+
+.madrid-pau-statement-image {
+  border: 1px solid rgba(19, 74, 153, 0.18);
+}
+
+.pau-official-solution-figure {
+  margin: 0.75rem 0 1rem;
+  padding: 0.75rem;
+  border: 1px solid rgba(19, 74, 153, 0.18);
+  border-radius: 16px;
+  background: #fff;
+}
+
 .native-math {
   font-family: "Cambria Math", "STIX Two Math", serif;
   font-size: 1.08em;
@@ -8393,5 +8450,299 @@ body.lesson-infographic-open {
     width: 100%;
     justify-content: space-between;
     flex-wrap: wrap;
+  }
+}
+
+/* +MathUp brand system ----------------------------------------------------- */
+:root {
+  --brand-navy: #061a57;
+  --brand-navy-deep: #03103d;
+  --brand-blue: #075cff;
+  --brand-blue-bright: #168cff;
+  --brand-gold: #ffbf00;
+  --brand-ice: #eef6ff;
+  --ink: #111d3b;
+  --ink-soft: #263b66;
+  --muted: #5a6c8d;
+  --line: rgba(7, 92, 255, 0.15);
+  --panel: rgba(255, 255, 255, 0.95);
+  --paper: #f8fbff;
+  --blue: var(--brand-blue);
+  --blue-deep: var(--brand-navy);
+  --gold: var(--brand-gold);
+  --sky: var(--brand-ice);
+  --violet: #244fd8;
+  --shadow: 0 20px 48px rgba(3, 24, 78, 0.15);
+  --shadow-tight: 0 0 0 1px rgba(7, 92, 255, 0.08), 0 12px 24px rgba(3, 24, 78, 0.12);
+  --lift: 0 0 0 1px rgba(255, 255, 255, 0.78), 0 18px 38px rgba(3, 24, 78, 0.14);
+}
+
+body {
+  background:
+    linear-gradient(rgba(7, 92, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(7, 92, 255, 0.04) 1px, transparent 1px),
+    radial-gradient(circle at 12% 8%, rgba(22, 140, 255, 0.1), transparent 28%),
+    linear-gradient(135deg, #f5f9ff 0%, #ffffff 52%, #eef5ff 100%);
+  background-size: 34px 34px, 34px 34px, auto, auto;
+}
+
+body::before {
+  color: rgba(7, 92, 255, 0.055);
+}
+
+.top-strip.mathup-header,
+.shell-compact .top-strip.mathup-header {
+  display: block;
+  width: min(1320px, 100%);
+  height: clamp(112px, 10vw, 140px);
+  min-height: 0;
+  aspect-ratio: auto;
+  padding: 10px clamp(18px, 2.5vw, 34px) 14px;
+  overflow: hidden;
+  color: #ffffff;
+  border: 0;
+  border-radius: clamp(18px, 2.2vw, 30px);
+  background: var(--brand-navy);
+  box-shadow: 0 10px 0 rgba(3, 16, 61, 0.12), 0 24px 50px rgba(3, 24, 78, 0.24);
+  backdrop-filter: none;
+}
+
+.shell-student-fit .top-strip.mathup-header {
+  width: min(1320px, 100%);
+  height: clamp(96px, 9vw, 118px);
+}
+
+.top-strip.mathup-header::before {
+  display: none;
+}
+
+.top-strip.mathup-header::after {
+  display: none;
+}
+
+.mathup-header-layout {
+  display: grid;
+  grid-template-columns: auto minmax(280px, 1fr) minmax(250px, 0.78fr);
+  align-items: center;
+  justify-items: center;
+  gap: clamp(18px, 3vw, 46px);
+  width: 100%;
+  height: 100%;
+}
+
+.mathup-crop {
+  position: relative;
+  display: block;
+  overflow: hidden;
+}
+
+.mathup-crop img {
+  position: absolute;
+  display: block;
+  max-width: none;
+  height: auto;
+}
+
+.mathup-crop-icon {
+  width: clamp(72px, 7.5vw, 104px);
+  aspect-ratio: 250 / 234;
+  border-radius: 22%;
+}
+
+.mathup-crop-icon img {
+  top: -105.6%;
+  left: -47.6%;
+  width: 838.4%;
+}
+
+.mathup-crop-wordmark {
+  width: clamp(300px, 34vw, 440px);
+  max-width: 100%;
+  aspect-ratio: 843 / 252;
+}
+
+.mathup-crop-wordmark img {
+  top: -94.4%;
+  left: -55%;
+  width: 248.6%;
+}
+
+.mathup-crop-tagline {
+  width: min(100%, 360px);
+  aspect-ratio: 630 / 88;
+}
+
+.mathup-crop-tagline img {
+  top: -379.5%;
+  left: -214.9%;
+  width: 332.7%;
+}
+
+.top-strip,
+.login-card,
+.screen-panel,
+.topic-card,
+.question-box,
+.admin-table,
+.topic-podcast-card {
+  border-color: rgba(7, 92, 255, 0.12);
+}
+
+.primary {
+  color: #ffffff;
+  background: linear-gradient(135deg, var(--brand-blue), var(--brand-blue-bright));
+  box-shadow: 0 6px 0 #043dbe, 0 16px 28px rgba(7, 92, 255, 0.24);
+}
+
+.primary:hover {
+  color: #ffffff;
+  background: linear-gradient(135deg, #034bd8, #087ee8);
+  box-shadow: 0 8px 0 #032d91, 0 20px 32px rgba(7, 92, 255, 0.28);
+}
+
+.secondary {
+  color: #ffffff;
+  background: linear-gradient(135deg, var(--brand-navy), var(--brand-blue));
+  box-shadow: 0 6px 0 var(--brand-navy-deep), 0 16px 28px rgba(3, 24, 78, 0.24);
+}
+
+.secondary:hover {
+  color: #ffffff;
+  background: linear-gradient(135deg, #0a2b79, var(--brand-blue-bright));
+  box-shadow: 0 8px 0 var(--brand-navy-deep), 0 20px 32px rgba(3, 24, 78, 0.27);
+}
+
+.ghost {
+  color: var(--brand-navy);
+  border-color: rgba(7, 92, 255, 0.18);
+  background: var(--brand-ice);
+  box-shadow: 0 5px 0 #c4d9fa, 0 12px 20px rgba(3, 24, 78, 0.12);
+}
+
+.ghost:hover {
+  color: #ffffff;
+  border-color: transparent;
+  background: linear-gradient(135deg, var(--brand-navy), var(--brand-blue));
+  box-shadow: 0 7px 0 var(--brand-navy-deep), 0 18px 28px rgba(3, 24, 78, 0.2);
+}
+
+.primary:focus-visible,
+.secondary:focus-visible,
+.ghost:focus-visible,
+.answer-btn:focus-visible,
+.course-btn:focus-visible,
+button:focus-visible,
+a:focus-visible {
+  outline-color: rgba(255, 191, 0, 0.82);
+}
+
+.student-pill,
+.topic-podcast-option.is-express,
+.topic-podcast-option.is-master {
+  background: linear-gradient(135deg, var(--brand-navy), var(--brand-blue));
+}
+
+.path-choice,
+.path-choice-study,
+.path-choice-adventure {
+  background:
+    radial-gradient(circle at 14% 14%, rgba(255, 191, 0, 0.22), transparent 25%),
+    radial-gradient(circle at 86% 12%, rgba(22, 140, 255, 0.25), transparent 28%),
+    linear-gradient(135deg, var(--brand-navy-deep) 0%, var(--brand-navy) 48%, var(--brand-blue) 100%);
+}
+
+.path-choice .primary,
+.path-choice .secondary {
+  color: var(--brand-navy);
+  background: #ffffff;
+  box-shadow: 0 6px 0 rgba(3, 16, 61, 0.42), 0 16px 28px rgba(3, 16, 61, 0.24);
+}
+
+.path-choice .primary:hover,
+.path-choice .secondary:hover {
+  color: var(--brand-navy);
+  background: #fff6d8;
+}
+
+.bach-pau-community-control {
+  display: grid;
+  gap: 7px;
+  width: min(100%, 360px);
+  margin: 0;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: clamp(0.82rem, 0.8vw, 1rem);
+  font-weight: 800;
+}
+
+.bach-pau-card-actions {
+  display: flex;
+  align-items: flex-end;
+  gap: 16px;
+  width: 100%;
+  margin-top: auto;
+}
+
+.bach-pau-card-actions .bach-pau-community-control {
+  flex: 1 1 260px;
+  min-width: 0;
+}
+
+.bach-pau-card-actions > button {
+  flex: 0 0 auto;
+  white-space: nowrap;
+}
+
+.bach-pau-community-control select {
+  width: 100%;
+  min-height: 46px;
+  padding: 8px 38px 8px 14px;
+  border: 1px solid rgba(255, 255, 255, 0.48);
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.96);
+  color: #082461;
+  font: inherit;
+  font-weight: 850;
+  cursor: pointer;
+}
+
+.bach-pau-community-control select:focus-visible {
+  outline: 3px solid #4cc9ff;
+  outline-offset: 3px;
+}
+
+.bach-pau-community-badge {
+  border-color: #72d7ff;
+  background: #e9f8ff;
+  color: #07509d;
+}
+
+@media (max-width: 760px) {
+  .bach-pau-card-actions {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .top-strip.mathup-header,
+  .shell-compact .top-strip.mathup-header {
+    height: 92px;
+    padding: 8px 12px 12px;
+    border-radius: 16px;
+  }
+
+  .mathup-header-layout {
+    grid-template-columns: auto minmax(0, 1fr);
+    gap: 10px 14px;
+  }
+
+  .mathup-crop-icon {
+    width: 58px;
+  }
+
+  .mathup-crop-wordmark {
+    width: min(100%, 300px);
+  }
+
+  .mathup-crop-tagline {
+    display: none;
   }
 }

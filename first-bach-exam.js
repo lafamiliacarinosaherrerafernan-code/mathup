@@ -79,15 +79,20 @@
           </div>
 
           <div class="first-bach-exam-config">
-            <article class="first-bach-exam-count-card">
-              <span class="path-icon">Duración</span>
-              <h2>¿Cuántos ejercicios quieres?</h2>
-              <div class="first-bach-count-options" role="group" aria-label="Número de ejercicios">
-                <button class="${exam.count === 5 ? "is-selected" : ""}" onclick="setFirstBachExamCount(5)">5 ejercicios</button>
-                <button class="${exam.count === 6 ? "is-selected" : ""}" onclick="setFirstBachExamCount(6)">6 ejercicios</button>
+            <div class="first-bach-exam-count-column">
+              <article class="first-bach-exam-count-card">
+                <h2>¿Cuántas preguntas quieres?</h2>
+                <div class="first-bach-count-options eso-exam-count-options" role="group" aria-label="Número de preguntas">
+                  ${[4, 5, 6, 7, 8].map((count) => `
+                    <button class="${exam.count === count ? "is-selected" : ""}" onclick="setFirstBachExamCount(${count})">${count}</button>
+                  `).join("")}
+                </div>
+                <p>Después de responder podrás consultar la resolución completa paso a paso.</p>
+              </article>
+              <div class="first-bach-exam-start-row">
+                <button id="first-bach-exam-start" class="primary" onclick="startFirstBachExam()">Comenzar examen</button>
               </div>
-              <p>Dispondrás de una ayuda paso a paso después de responder cada ejercicio.</p>
-            </article>
+            </div>
 
             <article class="first-bach-exam-topics-card">
               <div class="first-bach-exam-topics-head">
@@ -107,17 +112,14 @@
             </article>
           </div>
 
-          <div class="first-bach-exam-start-row">
-            <p>Los ejercicios se elegirán sin repetir los que este alumno ya haya resuelto, hasta completar el banco disponible.</p>
-            <button id="first-bach-exam-start" class="primary" onclick="startFirstBachExam()">Comenzar examen</button>
-          </div>
         </section>
       </section>
     `);
+    document.querySelector(".shell-student-fit")?.classList.add("shell-scroll-if-needed");
   };
 
   window.setFirstBachExamCount = function setFirstBachExamCount(count) {
-    exam.count = count === 6 ? 6 : 5;
+    exam.count = Math.min(8, Math.max(4, Number(count) || 5));
     renderFirstBachExamSetup(false);
   };
 

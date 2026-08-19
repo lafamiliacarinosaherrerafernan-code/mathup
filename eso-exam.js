@@ -75,16 +75,21 @@
           </div>
 
           <div class="first-bach-exam-config">
-            <article class="first-bach-exam-count-card">
-              <span class="path-icon">Preguntas</span>
-              <h2>¿Cuántas preguntas quieres?</h2>
-              <div class="first-bach-count-options eso-exam-count-options" role="group" aria-label="Número de preguntas">
-                ${[4, 5, 6, 7, 8].map((count) => `
-                  <button class="${exam.count === count ? "is-selected" : ""}" onclick="setEsoExamCount(${count})">${count}</button>
-                `).join("")}
+            <div class="first-bach-exam-count-column">
+              <article class="first-bach-exam-count-card">
+                <span class="path-icon">Preguntas</span>
+                <h2>¿Cuántas preguntas quieres?</h2>
+                <div class="first-bach-count-options eso-exam-count-options" role="group" aria-label="Número de preguntas">
+                  ${[4, 5, 6, 7, 8].map((count) => `
+                    <button class="${exam.count === count ? "is-selected" : ""}" onclick="setEsoExamCount(${count})">${count}</button>
+                  `).join("")}
+                </div>
+                <p>Después de responder podrás consultar la resolución completa y paso a paso.</p>
+              </article>
+              <div class="first-bach-exam-start-row eso-exam-start-row">
+                <button id="eso-exam-start" class="primary" onclick="startEsoExam()">Comenzar examen</button>
               </div>
-              <p>Después de responder podrás consultar la resolución completa y paso a paso.</p>
-            </article>
+            </div>
 
             <article class="first-bach-exam-topics-card">
               <div class="first-bach-exam-topics-head">
@@ -102,12 +107,10 @@
             </article>
           </div>
 
-          <div class="first-bach-exam-start-row eso-exam-start-row">
-            <button id="eso-exam-start" class="primary" onclick="startEsoExam()">Comenzar examen</button>
-          </div>
         </section>
       </section>
     `);
+    document.querySelector(".shell-student-fit")?.classList.add("shell-scroll-if-needed");
   };
 
   window.setEsoExamCount = function setEsoExamCount(count) {

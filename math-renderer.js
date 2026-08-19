@@ -290,6 +290,65 @@
       .filter((row) => row.length && row.some(Boolean));
   }
 
+  function splitTopLevel(value) {
+    const parts = [];
+    let start = 0;
+    let depth = 0;
+    const text = String(value);
+    for (let index = 0; index < text.length; index += 1) {
+      const character = text[index];
+      if (character === "(" || character === "[" || character === "{") depth += 1;
+      if (character === ")" || character === "]" || character === "}") depth -= 1;
+      if (character === "," && depth === 0) {
+        parts.push(text.slice(start, index).trim());
+        start = index + 1;
+      }
+    }
+    parts.push(text.slice(start).trim());
+    return parts;
+  }
+
+  function tupleMatrixContent(candidate) {
+    const inner = String(candidate).slice(1, -1).trim();
+    const rowTokens = splitTopLevel(inner);
+    if (rowTokens.length < 2 || rowTokens.some((row) => !/^\([\s\S]*\)$/.test(row))) return null;
+    const rows = rowTokens.map((row) => splitTopLevel(row.slice(1, -1)));
+    const columnCount = rows[0]?.length || 0;
+    if (columnCount < 2 || rows.some((row) => row.length !== columnCount || row.some((cell) => !cell))) return null;
+    return rows.map((row) => `[${row.join(",")}]`).join(",");
+  }
+
+  // Los bancos oficiales importados pueden conservar una matriz como una
+  // tupla anidada: A=((1,2),(3,4)). Es una representacion interna valida,
+  // pero nunca debe llegar asi a la interfaz. La convertimos al formato de
+  // matriz que ya entiende este renderizador, sin alterar el dato original.
+  function normalizeTupleMatrices(value) {
+    const text = String(value);
+    let output = "";
+    let cursor = 0;
+    while (cursor < text.length) {
+      const start = text.indexOf("((", cursor);
+      if (start < 0) return output + text.slice(cursor);
+      output += text.slice(cursor, start);
+      let depth = 0;
+      let end = -1;
+      for (let index = start; index < text.length; index += 1) {
+        if (text[index] === "(") depth += 1;
+        if (text[index] === ")") depth -= 1;
+        if (depth === 0) {
+          end = index + 1;
+          break;
+        }
+      }
+      if (end < 0) return output + text.slice(start);
+      const candidate = text.slice(start, end);
+      const matrixContent = tupleMatrixContent(candidate);
+      output += matrixContent === null ? candidate : `[${matrixContent}]`;
+      cursor = end;
+    }
+    return output;
+  }
+
   function renderMatrix(content, determinant = false, options = {}) {
     const rows = splitMatrixRows(content);
     if (!rows.length) return `[[${escapeHtml(content)}]]`;
@@ -324,7 +383,7 @@
       .replace(/\\(?:quad|qquad)\b/gi, " ")
       // MyScript puede compactar `si x` como `six x`. Eliminamos la x
       // repetida mientras el comparador conserva todavía su forma LaTeX.
-      .replace(/\b(si|if)([A-Za-z])\s+\2(?=\s*(?:<|>|\\?(?:lt|gt|le|ge)(?:q|qslant)?\s*;?|&(?:lt|gt|le|ge);))/gi, "$1 $2")
+      .replace(/(si|if)([A-Za-z])\s+\2(?=\s*(?:<|>|\u2264|\u2265|\\?(?:lt|gt|le|ge)(?:q|qslant)?\s*;?|&(?:lt|gt|le|ge);))/gi, "$1 $2")
       .replace(/\\(?:leqslant|leq|le)\s*;?/gi, "\u2264")
       .replace(/\\(?:geqslant|geq|ge)\s*;?/gi, "\u2265")
       .replace(/\\lt\s*;?/gi, "<")
@@ -492,7 +551,7 @@
   }
 
   function fragment(value, options = {}) {
-    const normalized = normalizeCoordinateFractions(normalize(value, options));
+    const normalized = normalizeTupleMatrices(normalizeCoordinateFractions(normalize(value, options)));
     let output = escapeHtml(normalized);
     output = replaceLatexCases(output, options);
     // La cabecera de una función a trozos debe conservar tipografía matemática

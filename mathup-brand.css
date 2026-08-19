@@ -1,0 +1,323 @@
+/* +MathUp overrides loaded after every feature stylesheet. */
+.public-register-intro,
+.coach-entry-card,
+.coach-result-score {
+  background:
+    radial-gradient(circle at 88% 12%, rgba(255, 191, 0, 0.28), transparent 28%),
+    linear-gradient(145deg, var(--brand-navy-deep), var(--brand-navy) 48%, var(--brand-blue));
+}
+
+.public-register-intro .public-register-eyebrow {
+  color: #d9ecff;
+}
+
+.developer-entry-button,
+.developer-local-badge {
+  color: var(--brand-navy);
+  border-color: rgba(7, 92, 255, 0.3);
+  background: var(--brand-ice);
+}
+
+.developer-entry-button:hover {
+  color: #ffffff;
+  border-color: var(--brand-blue);
+  background: var(--brand-blue);
+}
+
+.developer-action-card:hover,
+.developer-action-card:focus-visible {
+  border-color: rgba(7, 92, 255, 0.5);
+  background: #eef6ff;
+}
+
+.developer-action-card.is-primary,
+.developer-action-card.is-primary:hover,
+.developer-action-card.is-primary:focus-visible,
+.developer-catalog-primary-actions .is-exam,
+.developer-catalog-exam,
+.developer-test-return {
+  color: #ffffff;
+  border-color: transparent;
+  background: linear-gradient(145deg, var(--brand-navy), var(--brand-blue));
+}
+
+.developer-action-card.is-primary .developer-action-icon {
+  color: var(--brand-navy);
+  background: #e8f3ff;
+}
+
+.developer-catalog-primary-actions button,
+.developer-catalog-actions button,
+.developer-catalog-exam {
+  color: var(--brand-navy);
+  border-color: rgba(7, 92, 255, 0.24);
+  background: var(--brand-ice);
+}
+
+.developer-catalog-primary-actions button:hover,
+.developer-catalog-actions button:hover,
+.developer-catalog-exam:hover {
+  color: #ffffff;
+  border-color: var(--brand-blue);
+  background: var(--brand-blue);
+}
+
+.developer-catalog-primary-actions .is-exam,
+.developer-catalog-exam,
+.developer-test-return {
+  color: #ffffff;
+  background: linear-gradient(135deg, var(--brand-navy), var(--brand-blue));
+}
+
+.developer-test-return:hover,
+.developer-test-return:focus-visible {
+  background: linear-gradient(135deg, #09266d, var(--brand-blue-bright));
+}
+
+.developer-check-progress > div span,
+.coach-progress span,
+.coach-mastery-track span {
+  background: linear-gradient(90deg, var(--brand-blue), var(--brand-blue-bright));
+}
+
+.coach-kicker,
+.coach-info-card h2,
+.coach-profile-card > strong,
+.coach-stat-card strong,
+.coach-chip,
+.coach-question-meta span,
+.coach-feedback summary,
+.coach-recommendation,
+.coach-table th {
+  color: var(--brand-navy);
+}
+
+/* Keep the main work area aligned with the +MathUp header on every
+   student-facing screen. The stage still scales as a single unit when a
+   shorter viewport needs it, so these widths do not introduce side scroll. */
+.shell-stage > .student-dashboard,
+.shell-stage > .coach-page,
+.shell-stage > .app-grid,
+.shell-stage > .adventure-shell {
+  width: min(1320px, 100%);
+  max-width: 100%;
+  margin-inline: auto;
+}
+
+.coach-page {
+  width: min(1320px, 100%);
+}
+
+/* Maps and exam setup pages are intentionally allowed to scroll vertically
+   instead of being reduced as a whole. This keeps both edges aligned with
+   the brand header. */
+.shell-scroll-if-needed .adventure-shell,
+.shell-scroll-if-needed .first-bach-exam-page {
+  width: min(1320px, 100%);
+  max-width: 100%;
+}
+
+/* Compact exam configuration: a narrower count selector on the left, its
+   start action immediately below, and the topic selector using the rest of
+   the available width. Shared by ESO and 1st Bachillerato. */
+.first-bach-exam-config {
+  grid-template-columns: minmax(270px, 0.56fr) minmax(0, 2fr);
+  align-items: stretch;
+  gap: clamp(12px, 1.2vw, 16px);
+}
+
+.first-bach-exam-count-column {
+  display: grid;
+  align-content: start;
+  gap: 12px;
+  min-width: 0;
+}
+
+.first-bach-exam-count-card {
+  gap: 12px;
+  padding: clamp(15px, 1.45vw, 19px);
+}
+
+.first-bach-exam-count-card > .path-icon {
+  display: none;
+}
+
+.first-bach-exam-count-card h2 {
+  font-size: clamp(1.3rem, 1.75vw, 1.7rem);
+  line-height: 1.14;
+}
+
+.first-bach-exam-count-card p {
+  font-size: clamp(0.9rem, 0.94vw, 1rem);
+  line-height: 1.38;
+}
+
+.first-bach-exam-count-column > .first-bach-exam-start-row {
+  display: block;
+  padding: 0;
+  background: transparent;
+}
+
+.first-bach-exam-count-column > .first-bach-exam-start-row .primary,
+.first-bach-exam-count-column > .eso-exam-start-row .primary {
+  width: 100%;
+  min-height: 48px;
+  margin: 0;
+}
+
+.first-bach-count-options button {
+  min-height: 54px;
+}
+
+.first-bach-exam-topics-card {
+  min-width: 0;
+  padding: clamp(16px, 1.55vw, 20px);
+}
+
+@media (max-width: 900px) {
+  .first-bach-exam-config {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* The learning gateway previously inherited a 540-650px minimum height.
+   That forced its buttons below a typical laptop viewport even after the
+   header had been reduced. Keep the same three-card hierarchy in a denser,
+   readable layout. */
+.coach-gateway .home-panel {
+  width: 100%;
+}
+
+.coach-gateway .eso-home-grid,
+.coach-gateway .first-bach-home-grid {
+  min-height: min(450px, calc(100dvh - 285px));
+  gap: clamp(12px, 1.2vw, 18px);
+}
+
+.bach-ii-home-grid {
+  min-height: min(460px, calc(100dvh - 285px));
+  gap: clamp(12px, 1.2vw, 18px);
+}
+
+.bach-ii-home-grid .path-choice {
+  min-height: 0;
+  padding: clamp(16px, 1.55vw, 22px);
+}
+
+.bach-ii-home-grid .path-choice h2 {
+  font-size: clamp(1.6rem, 2.15vw, 2.35rem);
+  line-height: 1.08;
+}
+
+.bach-ii-home-grid .path-choice p {
+  font-size: clamp(1rem, 1.08vw, 1.12rem);
+  line-height: 1.4;
+}
+
+.coach-gateway .gateway-card {
+  min-height: 0;
+  padding: clamp(16px, 1.55vw, 22px);
+}
+
+.coach-gateway .gateway-card h2 {
+  font-size: clamp(1.6rem, 2.15vw, 2.35rem);
+  line-height: 1.08;
+}
+
+.coach-gateway .gateway-card p {
+  font-size: clamp(1rem, 1.08vw, 1.12rem);
+  line-height: 1.4;
+}
+
+/* The coach summary uses the newly available width and less vertical
+   padding, preserving its information while keeping the complete panel in
+   view on common desktop and laptop screens. */
+.shell-student-fit .coach-panel {
+  gap: clamp(12px, 1.35vh, 18px);
+}
+
+.shell-student-fit .coach-summary-grid {
+  gap: clamp(10px, 1vw, 14px);
+}
+
+.shell-student-fit .coach-profile-card {
+  padding: clamp(16px, 1.45vw, 20px);
+}
+
+.shell-student-fit .coach-stat-card,
+.shell-student-fit .coach-info-card {
+  padding: clamp(14px, 1.25vw, 18px);
+}
+
+.shell-student-fit .coach-profile-card p,
+.shell-student-fit .coach-info-card p,
+.shell-student-fit .coach-stat-card small {
+  font-size: clamp(0.96rem, 1vw, 1.06rem);
+}
+
+@media (min-width: 821px) and (min-height: 501px) {
+  .shell-student-fit .coach-gateway .workspace-head {
+    margin-bottom: 8px;
+  }
+
+  .shell-student-fit .coach-gateway .eso-home-grid,
+  .shell-student-fit .coach-gateway .first-bach-home-grid {
+    min-height: min(430px, calc(100dvh - 300px));
+  }
+}
+
+@media (max-width: 980px) {
+  .coach-gateway .eso-home-grid,
+  .coach-gateway .first-bach-home-grid,
+  .bach-ii-home-grid {
+    min-height: 0;
+  }
+}
+
+.coach-chip,
+.coach-question-meta span,
+.coach-recommendation {
+  background: var(--brand-ice);
+  border-color: rgba(7, 92, 255, 0.18);
+}
+
+.handwriting-tool.is-active {
+  color: #ffffff;
+  border-color: var(--brand-blue);
+  background: var(--brand-blue);
+  box-shadow: 0 3px 0 #043dbe;
+}
+
+.handwriting-toolbar {
+  border-color: rgba(7, 92, 255, 0.2);
+}
+
+.phase2c-prompt {
+  background: var(--brand-ice);
+}
+
+.phase2c-classification,
+.phase2c-metrics {
+  border-color: rgba(7, 92, 255, 0.14);
+}
+
+.phase2c-kpis span {
+  background: #f1f7ff;
+}
+
+.phase2c-kpis strong {
+  color: var(--brand-blue);
+}
+
+.phase2c-outcomes button {
+  color: var(--brand-navy);
+  border-color: rgba(7, 92, 255, 0.22);
+  background: #f5f9ff;
+}
+
+.phase2c-outcomes button:hover,
+.phase2c-outcomes button:focus-visible {
+  color: #ffffff;
+  border-color: var(--brand-blue);
+  background: var(--brand-blue);
+}

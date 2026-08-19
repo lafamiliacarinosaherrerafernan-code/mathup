@@ -112,7 +112,7 @@
       <article class="path-choice path-choice-exam gateway-card first-bach-home-exam">
         <span class="path-icon">Examen</span>
         <h2>Hacer examen</h2>
-        <p>Elige los temas y practica con 5 o 6 ejercicios diferentes de los bancos del curso.</p>
+        <p>Elige los temas y practica con un examen de 4 a 8 preguntas de los bancos del curso.</p>
         <button class="secondary" onclick="renderFirstBachExamSetup()">Preparar examen</button>
       </article>
     `, "first-bach-home-grid");

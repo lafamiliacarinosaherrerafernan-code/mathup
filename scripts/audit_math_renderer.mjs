@@ -66,9 +66,9 @@ check(
   String.raw`f(x)=\begin{cases}x+1six lt;0\\x^2six ge;0\end{cases}`,
   (output) => /math-piecewise/.test(output)
     && (output.match(/<small>si /g) || []).length === 2
-    && !/(?:six|lt;|ge;|\\begin|\\end)/i.test(output)
-    && /<small>si x&lt;0<\/small>/.test(output)
-    && /<small>si x≥0<\/small>/.test(output)
+    && !/(?:six|\\begin|\\end)/i.test(output)
+    && /<small>si x\s*&lt;\s*0<\/small>/.test(output)
+    && /<small>si x\s*≥\s*0<\/small>/.test(output)
 );
 check(
   "37 función a trozos alineada",
@@ -83,9 +83,9 @@ check(
   String.raw`f(x)=\begin{cases}x+1six &amp;amp;lt;0x^2six \ge 0\end{cases}`,
   (output) => /math-piecewise/.test(output)
     && (output.match(/<small>si /g) || []).length === 2
-    && !/(?:six|lt;|ge;|\\begin|\\end)/i.test(output)
-    && /<small>si x&lt;0<\/small>/.test(output)
-    && /<small>si x≥0<\/small>/.test(output)
+    && !/(?:six|\\begin|\\end)/i.test(output)
+    && /<small>si x\s*&lt;\s*0<\/small>/.test(output)
+    && /<small>si x\s*≥\s*0<\/small>/.test(output)
 );
 
 check(
@@ -93,9 +93,24 @@ check(
   String.raw`f(x)=\begin{cases}x+1six lt;0\\x^2six x \ge 0\end{cases}`,
   (output) => /math-piecewise/.test(output)
     && (output.match(/<small>si /g) || []).length === 2
-    && !/(?:six|lt;|ge;|\\begin|\\end)/i.test(output)
-    && /<small>si x&lt;0<\/small>/.test(output)
-    && /<small>si x\u22650<\/small>/.test(output)
+    && !/(?:six|\\begin|\\end)/i.test(output)
+    && /<small>si x\s*&lt;\s*0<\/small>/.test(output)
+    && /<small>si x\s*\u2265\s*0<\/small>/.test(output)
+);
+
+check(
+  "40 matriz importada como tupla anidada",
+  "A=((1,1),(0,1))",
+  (output) => /A=/.test(output)
+    && /class="math-matrix/.test(output)
+    && (output.match(/class="matrix-row"/g) || []).length === 2
+    && !/\(\(1,1\),\(0,1\)\)/.test(output.replace(/<[^>]+>/g, ""))
+);
+
+check(
+  "41 coordenadas ordinarias no se convierten en matriz",
+  "A=(1,2), B=(3,4)",
+  (output) => !/class="math-matrix/.test(output)
 );
 
 const summary = { passed: failures.length === 0, total: results.length, failures, results };
