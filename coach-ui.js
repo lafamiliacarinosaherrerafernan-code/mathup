@@ -32,7 +32,7 @@
   function guardCoachAccess() {
     if (coach()?.isEligible()) return true;
     if (state.student) returnToCourseGateway();
-    else renderLogin();
+    else publicLogout();
     return false;
   }
 
@@ -45,16 +45,16 @@
       </div>`;
   }
 
-  function gatewayShell(title, cards) {
+  function gatewayShell(title, cards, gridClass = "") {
     clearQuestionTimer();
     renderShell(`
       <section class="student-dashboard coach-gateway">
         <section class="screen-panel home-panel">
           <div class="workspace-head">
             <div><h1>${escapeHtml(title)}</h1>${studentBadges()}</div>
-            <div class="dashboard-exit"><button class="ghost" onclick="renderLogin()">Salir</button></div>
+            <div class="dashboard-exit"><button class="ghost" onclick="publicLogout()">Salir</button></div>
           </div>
-          <div class="path-choice-grid">${cards}</div>
+          <div class="path-choice-grid ${escapeHtml(gridClass)}">${cards}</div>
         </section>
       </section>
     `);
@@ -64,46 +64,58 @@
     const course = courseById(state.courseId);
     if (!state.student || !isEsoCourseId(state.courseId)) {
       if (BACH_II_COURSE_IDS.includes(state.courseId)) renderBachIIHome();
-      else renderLogin();
+      else publicLogout();
       return;
     }
     gatewayShell(`${courseDisplayName(course)}: elige cómo aprender`, `
-      <article class="path-choice path-choice-study gateway-card">
+      <article class="path-choice path-choice-study gateway-card eso-home-study">
         <span class="path-icon">Aprender</span>
         <h2>Aprende y juega</h2>
         <p>Entra en el espacio habitual para estudiar por temas, realizar retos y continuar la aventura matemática.</p>
         <button class="primary" onclick="renderStudentHome()">Entrar</button>
       </article>
-      <article class="path-choice path-choice-adventure gateway-card coach-entry-card">
+      <article class="path-choice path-choice-adventure gateway-card coach-entry-card eso-home-coach">
         <span class="path-icon">Entrenador</span>
         <h2>Entrenador personal con IA</h2>
         <p>Descubre qué necesitas reforzar y realiza sesiones breves adaptadas a tu progreso.</p>
         <button class="secondary" onclick="renderCoachHome()">Abrir mi entrenador</button>
       </article>
-    `);
+      <article class="path-choice path-choice-exam gateway-card eso-home-exam">
+        <span class="path-icon">Examen</span>
+        <h2>Hacer examen</h2>
+        <p>Elige los temas y prepara un examen de 4 a 8 preguntas diferentes.</p>
+        <button class="secondary" onclick="renderEsoExamSetup()">Preparar examen</button>
+      </article>
+    `, "eso-home-grid");
   };
 
   window.renderFirstBachGateway = function renderFirstBachGateway() {
     const course = courseById(state.courseId);
     if (!state.student || !firstBachCourse()) {
       if (BACH_II_COURSE_IDS.includes(state.courseId)) renderBachIIHome();
-      else renderLogin();
+      else publicLogout();
       return;
     }
     gatewayShell(`${courseDisplayName(course)}: elige cómo estudiar`, `
-      <article class="path-choice path-choice-study gateway-card">
+      <article class="path-choice path-choice-study gateway-card first-bach-home-topics">
         <span class="path-icon">Temas</span>
         <h2>Estudiar temas y retos</h2>
         <p>Accede al estudio habitual del curso y practica con sus retos organizados por temas.</p>
         <button class="primary" onclick="renderDashboard()">Entrar a estudiar</button>
       </article>
-      <article class="path-choice path-choice-adventure gateway-card coach-entry-card">
+      <article class="path-choice path-choice-adventure gateway-card coach-entry-card first-bach-home-coach">
         <span class="path-icon">Entrenador</span>
         <h2>Entrenador personal con IA</h2>
         <p>Realiza un diagnóstico y recibe sesiones breves ajustadas a tus errores y conocimientos previos.</p>
         <button class="secondary" onclick="renderCoachHome()">Abrir mi entrenador</button>
       </article>
-    `);
+      <article class="path-choice path-choice-exam gateway-card first-bach-home-exam">
+        <span class="path-icon">Examen</span>
+        <h2>Hacer examen</h2>
+        <p>Elige los temas y practica con un examen de 4 a 8 preguntas de los bancos del curso.</p>
+        <button class="secondary" onclick="renderFirstBachExamSetup()">Preparar examen</button>
+      </article>
+    `, "first-bach-home-grid");
   };
 
   function listOrEmpty(items, emptyText) {
@@ -123,7 +135,7 @@
         <section class="screen-panel coach-panel">
           <div class="workspace-head">
             <div><span class="coach-kicker">Entrenador personal</span><h1>Hola, ${escapeHtml(state.student.name)}</h1>${studentBadges()}</div>
-            <div class="dashboard-exit"><button class="ghost" onclick="returnToCourseGateway()">Inicio</button><button class="ghost" onclick="renderLogin()">Salir</button></div>
+            <div class="dashboard-exit"><button class="ghost" onclick="returnToCourseGateway()">Inicio</button><button class="ghost" onclick="publicLogout()">Salir</button></div>
           </div>
           <div class="coach-summary-grid">
             <article class="coach-profile-card">
@@ -215,6 +227,7 @@
       return;
     }
     const diagnostic = ui.mode === "diagnostic";
+    if (!diagnostic) window.MargaritaExerciseSelector?.markShown?.(question);
     const progress = Math.round(((ui.index + (ui.answered ? 1 : 0)) / ui.questions.length) * 100);
     const phase = diagnostic ? "Diagnóstico inicial" : question.phase;
     const correction = ui.answered ? `
@@ -235,9 +248,20 @@
           <div class="coach-progress" aria-label="Progreso"><span style="width:${progress}%"></span></div>
           ${phaseHelp}
           <article class="coach-question-card">
-            <div class="coach-question-meta"><span>${escapeHtml(coach().topicLabel(question.topic))}</span><span>Dificultad ${question.difficulty || 1}</span></div>
-            <h2>${formatMathText(question.text)}</h2>
-            <div class="coach-options">${questionOptions(question)}</div>
+             <div class="coach-question-meta"><span>${escapeHtml(coach().topicLabel(question.topic))}</span><span>Dificultad ${question.difficulty || 1}</span></div>
+             <h2>${formatMathText(question.text)}</h2>
+             ${handwritingAnswerHtml(question, {
+               topicId: question.topic,
+               topicLabel: coach().topicLabel(question.topic),
+               questionIndex: ui.index,
+               difficulty: question.difficulty || 1,
+               mode: diagnostic ? "coachDiagnostic" : "coachSession",
+               resultChannel: "coach",
+               statementHtml: `<div class="coach-question-meta"><span>${escapeHtml(coach().topicLabel(question.topic))}</span><span>Dificultad ${question.difficulty || 1}</span></div><h2>${formatMathText(question.text)}</h2>`,
+               scoreState: { answered: ui.answers.length, progressIndex: ui.index, total: ui.questions.length },
+               attemptContext: { phase, hintsUsed: ui.hintsUsed }
+             })}
+             <div class="coach-options">${questionOptions(question)}</div>
             ${!diagnostic && !ui.answered ? `<button class="ghost coach-hint-button" onclick="showCoachHint()">Necesito una pista</button><p id="coach-hint" class="coach-hint" hidden></p>` : ""}
           </article>
           ${correction}

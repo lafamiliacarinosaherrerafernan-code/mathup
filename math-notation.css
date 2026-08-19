@@ -25,6 +25,22 @@ math.native-math mtext {
   transform-origin: right center;
 }
 
+/* La llave debe abarcar visualmente todas las ecuaciones del sistema. */
+.math-system-rows-3 > .math-system-brace {
+  font-size: 4.55em;
+  line-height: 0.72;
+}
+
+.math-system-rows-4 > .math-system-brace {
+  font-size: 5.75em;
+  line-height: 0.68;
+}
+
+.math-system-rows-5 > .math-system-brace {
+  font-size: 6.8em;
+  line-height: 0.64;
+}
+
 .math-system-lines {
   display: grid;
   gap: 5px;
@@ -45,9 +61,47 @@ math.native-math mtext {
   font-family: Georgia, "Times New Roman", serif;
 }
 
+.math-piecewise-prefix {
+  display: inline-block;
+  font-family: "Cambria Math", "STIX Two Math", "Times New Roman", serif;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1;
+  vertical-align: middle;
+}
+
+.math-piecewise-prefix i {
+  font-family: inherit;
+  font-style: italic;
+  font-weight: 400;
+}
+
+.math-piecewise-prefix > i:first-child {
+  margin-right: 0.20em;
+}
+
+.math-piecewise-prefix .math-function-paren {
+  display: inline-block;
+  font-family: "Cambria Math", "STIX Two Math", "Times New Roman", serif;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1;
+  position: relative;
+  top: 0.01em;
+}
+
+.math-piecewise-prefix > .math-function-paren:nth-of-type(1) {
+  margin-right: -0.04em;
+}
+
+.math-piecewise-prefix > .math-function-paren:nth-of-type(2) {
+  margin-left: 0.04em;
+}
+
 .math-piecewise-lines {
   display: grid;
   gap: 5px;
+  font-weight: 400;
 }
 
 .math-piecewise-lines > span {
@@ -58,14 +112,17 @@ math.native-math mtext {
 }
 
 .math-piecewise-lines small {
-  font-size: 0.76em;
-  font-weight: 600;
+  font-size: 0.84em;
+  font-weight: 400;
 }
 
 .math-piecewise .math-system-brace {
-  min-height: 1.25em;
-  font-size: 4.45em;
-  line-height: 0.72;
+  min-height: 0;
+  font-size: 2.25em;
+  font-family: "Cambria Math", "STIX Two Math", "Times New Roman", serif;
+  font-weight: 400;
+  line-height: 0.84;
+  transform: scaleX(0.56);
 }
 
 .pau-open-statement .math-piecewise {
@@ -123,11 +180,15 @@ math.native-math mtext {
 }
 
 .math-fraction > span:first-child {
+  box-sizing: border-box;
+  width: 100%;
   padding: 0 0.16em 0.08em;
   border-bottom: 0.08em solid currentColor;
 }
 
 .math-fraction > span:last-child {
+  box-sizing: border-box;
+  width: 100%;
   padding: 0.08em 0.16em 0;
 }
 
@@ -177,25 +238,84 @@ math.native-math mtext {
   line-height: 1;
 }
 
-.math-integral {
-  display: inline-flex;
+/* Límite completo: operador y función comparten exactamente la primera
+   línea; la condición ocupa únicamente la celda inferior del operador. */
+.math-limit-expression {
+  display: inline-grid;
+  grid-template-columns: max-content max-content;
+  grid-template-rows: 1em 0.58em;
+  column-gap: 0.14em;
   align-items: center;
-  margin: 0 0.12em;
-  vertical-align: middle;
+  margin: 0 0.16em;
+  vertical-align: -0.22em;
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.math-limit-main {
+  grid-column: 1;
+  grid-row: 1;
+  align-self: center;
+  font-size: 1em;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.math-limit-condition {
+  grid-column: 1;
+  grid-row: 2;
+  align-self: start;
+  justify-self: center;
+  font-size: 0.56em;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.math-limit-condition sup {
+  position: relative;
+  top: -0.38em;
+  margin-left: 0.04em;
+  font-size: 0.72em;
+  line-height: 0;
+}
+
+.math-limit-body {
+  grid-column: 2;
+  grid-row: 1;
+  align-self: center;
+  font-size: 1.08em;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.math-integral {
+  display: inline-grid;
+  grid-template-columns: auto max-content;
+  grid-template-rows: 0.72em 0.72em;
+  align-items: center;
+  margin: 0 0.16em;
+  vertical-align: -0.28em;
   font-family: Georgia, "Times New Roman", serif;
 }
 
 .integral-sign {
-  font-size: 1.85em;
-  line-height: 0.8;
+  grid-column: 1;
+  grid-row: 1 / 3;
+  font-size: 2em;
+  line-height: 0.72;
 }
 
 .integral-bounds {
   display: grid;
+  grid-column: 2;
+  grid-row: 1 / 3;
   grid-template-rows: 1fr 1fr;
-  margin-left: -0.12em;
-  font-size: 0.58em;
-  line-height: 0.82;
+  align-self: stretch;
+  margin-left: -0.08em;
+  font-size: 0.54em;
+  line-height: 0.9;
+  text-align: left;
 }
 
 .integral-bounds sup,
@@ -218,6 +338,71 @@ math.native-math mtext {
 .math-evaluation sub {
   position: static;
   line-height: inherit;
+}
+
+.math-indexed-root {
+  position: relative;
+  padding-left: 0.26em;
+}
+
+.math-indexed-root > sup {
+  position: absolute;
+  top: -0.18em;
+  left: -0.06em;
+  font-size: 0.52em;
+  line-height: 1;
+}
+
+.math-vector {
+  position: relative;
+  display: inline-block;
+  min-width: 0.72em;
+  padding-top: 0.28em;
+  vertical-align: 0.02em;
+  font-family: Georgia, "Times New Roman", serif;
+  font-style: italic;
+  line-height: 1;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.math-vector::before {
+  content: "";
+  position: absolute;
+  top: 0.02em;
+  right: 0;
+  left: 0;
+  border-top: 0.08em solid currentColor;
+}
+
+.math-vector::after {
+  content: "";
+  position: absolute;
+  top: -0.08em;
+  right: -0.01em;
+  width: 0.22em;
+  height: 0.22em;
+  border-top: 0.08em solid currentColor;
+  border-right: 0.08em solid currentColor;
+  transform: rotate(45deg);
+  transform-origin: center;
+}
+
+.math-leibniz {
+  margin-inline: 0.18em;
+}
+
+.matrix-row > span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 1.25em;
+}
+
+.matrix-row .math-fraction {
+  margin-top: 0.08em;
+  margin-bottom: 0.08em;
+  font-size: 0.86em;
 }
 
 .math-determinant .matrix-bracket {
@@ -352,6 +537,51 @@ math.native-math mtext {
   .derivative-sign-chart { padding-inline: 14px; }
 }
 
+.derivative-cycle-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  width: min(1120px, 100%);
+  margin: 18px 0 20px;
+}
+
+.derivative-cycle-column {
+  min-width: 0;
+  padding: 14px;
+  border: 1px solid rgba(21, 95, 189, 0.22);
+  border-radius: 16px;
+  background: linear-gradient(180deg, #ffffff, #f4f8ff);
+  box-shadow: 0 8px 20px rgba(21, 76, 145, 0.08);
+}
+
+.derivative-cycle-column h4 {
+  margin: 0 0 10px;
+  color: #14569f;
+  font-size: 1.05rem;
+  font-weight: 900;
+}
+
+.derivative-cycle-row {
+  margin-top: 7px;
+  padding: 9px 11px;
+  border-left: 5px solid var(--cycle-color, #2368bd);
+  border-radius: 10px;
+  background: color-mix(in srgb, var(--cycle-color, #2368bd) 9%, white);
+  font-size: clamp(1rem, 1.15vw, 1.25rem);
+  line-height: 1.45;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+.derivative-cycle-row.cycle-1 { --cycle-color: #1573c7; }
+.derivative-cycle-row.cycle-2 { --cycle-color: #0c9b83; }
+.derivative-cycle-row.cycle-3 { --cycle-color: #e18a17; }
+.derivative-cycle-row.cycle-4 { --cycle-color: #d33c63; }
+
+@media (max-width: 760px) {
+  .derivative-cycle-grid { grid-template-columns: 1fr; }
+}
+
 .math-point-prime {
   font-style: italic;
   letter-spacing: 0;
@@ -457,6 +687,16 @@ math.native-math mtext {
   stroke-width: 4;
 }
 
+.distance-normal-arrow {
+  stroke: #155fbd;
+  stroke-width: 5;
+  stroke-linecap: round;
+}
+
+.distance-normal-arrow-head {
+  fill: #155fbd;
+}
+
 .distance-point {
   stroke: #ffffff;
   stroke-width: 4;
@@ -556,7 +796,16 @@ math.native-math mtext {
 
 .cramer-determinant-line { display: flex; align-items: center; justify-content: center; gap: 5px; white-space: nowrap; }
 .cramer-determinant-line .math-matrix { font-size: .74em; }
-.cramer-variable-line { min-height: 2.3em; display: grid; place-items: center; text-align: center; font-weight: 800; }
+.cramer-variable-line {
+  min-height: 2.3em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.08em;
+  text-align: center;
+  font-weight: 800;
+  white-space: nowrap;
+}
 
 .gauss-compact-work {
   display: flex;
@@ -620,8 +869,35 @@ math.native-math mtext {
 }
 
 .area-region-fill {
-  fill: url(#abs-parabola-area-fill);
+  fill: #44c2ad;
+  fill-opacity: 0.34;
   stroke: none;
+}
+
+.area-region-left {
+  fill: #f2b84b;
+  fill-opacity: 0.38;
+}
+
+.area-region-right {
+  fill: #44c2ad;
+  fill-opacity: 0.38;
+}
+
+.abs-parabola-region {
+  stroke-width: 1.5;
+}
+
+.abs-parabola-region-left {
+  fill: #f2b84b;
+  fill-opacity: 0.48;
+  stroke: #d99a1f;
+}
+
+.abs-parabola-region-right {
+  fill: #35bfa8;
+  fill-opacity: 0.5;
+  stroke: #118275;
 }
 
 .area-curve {
@@ -639,9 +915,200 @@ math.native-math mtext {
   stroke: #1769aa;
 }
 
-.parabola-line-region { fill: url(#parabola-line-area-fill); }
+.parabola-area-region {
+  fill: #1769aa;
+  fill-opacity: 0.3;
+}
+
+.line-area-region {
+  fill: #0f766e;
+  fill-opacity: 0.3;
+}
+
+.area-region-label.parabola-area-label { fill: #155a93; }
+.area-region-label.line-area-region-label { fill: #0f766e; }
 .area-curve-line { fill: none; stroke: #0f766e; stroke-width: 4; }
 .area-line-label { fill: #0f766e; }
+
+.reciprocal-region {
+  fill: url(#reciprocal-area-fill);
+}
+
+.area-curve-reciprocal {
+  stroke: #e4572e;
+}
+
+.area-curve-reciprocal-square {
+  stroke: #1769aa;
+}
+
+.reciprocal-area-diagram .area-curve {
+  stroke-width: 3.7;
+}
+
+.area-boundary-line {
+  stroke: #7c3aed;
+  stroke-width: 3;
+}
+
+.area-boundary-guide {
+  stroke: #a78bfa;
+  stroke-width: 1.4;
+  stroke-dasharray: 5 6;
+}
+
+.area-boundary-label,
+.reciprocal-point-labels {
+  font-family: "Cambria Math", Georgia, serif;
+  font-weight: 800;
+}
+
+.area-boundary-label {
+  fill: #6d28d9;
+  font-size: 20px;
+}
+
+.reciprocal-point-labels {
+  fill: #28496f;
+  stroke: rgba(248, 251, 255, 0.96);
+  stroke-width: 5px;
+  font-size: 15px;
+  paint-order: stroke fill;
+}
+
+.area-reciprocal-label {
+  fill: #c83f1d;
+}
+
+.area-reciprocal-square-label {
+  fill: #155a93;
+}
+
+.reciprocal-area-diagram .area-curve-label {
+  stroke: rgba(248, 251, 255, 0.96);
+  stroke-width: 6px;
+  font-size: 18px;
+  paint-order: stroke fill;
+}
+
+.reciprocal-area-diagram .area-intersection-points circle {
+  stroke-width: 3;
+}
+
+.area-display-equation {
+  display: flex;
+  width: fit-content;
+  max-width: 100%;
+  min-height: 76px;
+  align-items: center;
+  gap: 0.22em;
+  margin: 12px auto 20px;
+  padding: 12px 18px;
+  overflow-x: auto;
+  color: #213a61;
+  border: 1px solid rgba(21, 95, 189, 0.2);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.82);
+  font-family: "Cambria Math", Georgia, serif;
+  font-size: 1.24em;
+  font-weight: 750;
+  white-space: nowrap;
+}
+
+.display-integral {
+  position: relative;
+  display: inline-block;
+  flex: 0 0 2.15em;
+  width: 2.15em;
+  height: 3.45em;
+  margin: 0 0.3em 0 0.08em;
+  vertical-align: middle;
+}
+
+.display-integral-sign {
+  position: absolute;
+  inset: 0.08em auto auto 0.08em;
+  font-family: "Cambria Math", "STIX Two Math", serif;
+  font-size: 2.7em;
+  font-weight: 400;
+  line-height: 1;
+  transform: scaleX(0.6);
+  transform-origin: left center;
+}
+
+.display-integral-upper,
+.display-integral-lower {
+  position: absolute;
+  left: 1.25em;
+  width: 1.05em;
+  font-size: 0.9em;
+  font-weight: 800;
+  line-height: 1;
+  text-align: center;
+}
+
+.display-integral-upper { top: -0.12em; }
+.display-integral-lower { bottom: -0.1em; }
+.display-integrand { margin-left: 0.22em; }
+
+.display-integral-term {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.08em;
+}
+
+.parabola-integral-term {
+  color: #155a93;
+}
+
+.line-integral-term {
+  color: #0f766e;
+}
+
+.area-equation-plus {
+  margin-inline: 0.18em;
+  color: #213a61;
+}
+
+.parabola-line-integral-equation,
+.parabola-line-barrow-equation {
+  font-size: clamp(1.05rem, 1.6vw, 1.42rem);
+}
+
+.barrow-evaluation {
+  position: relative;
+  display: inline-flex;
+  min-height: 3.45em;
+  align-items: center;
+  padding-right: 1.8em;
+}
+
+.barrow-bracket {
+  font-family: "Cambria Math", "STIX Two Math", "Times New Roman", serif;
+  font-size: 2.45em;
+  font-weight: 300;
+  line-height: 1;
+}
+
+.barrow-expression {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.1em;
+}
+
+.barrow-upper,
+.barrow-lower {
+  position: absolute;
+  right: 0;
+  width: 1.25em;
+  font-size: 0.9em;
+  font-weight: 800;
+  line-height: 1;
+  text-align: center;
+}
+
+.barrow-upper { top: -0.08em; }
+.barrow-lower { bottom: -0.08em; }
 
 .area-intersection-points circle {
   fill: #ffffff;
@@ -654,6 +1121,108 @@ math.native-math mtext {
 .area-region-label {
   font-family: "Cambria Math", Georgia, serif;
   font-weight: 800;
+}
+
+.area-symmetry-equation {
+  display: flex;
+  width: fit-content;
+  max-width: 100%;
+  align-items: center;
+  gap: 0.14em;
+  margin: 12px auto 20px;
+  padding: 10px 16px;
+  overflow-x: auto;
+  color: #213a61;
+  border: 1px solid rgba(21, 95, 189, 0.2);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.82);
+  font-family: "Cambria Math", Georgia, serif;
+  font-size: 1.18em;
+  font-weight: 750;
+  white-space: nowrap;
+}
+
+.area-symmetry-equation .area-integral {
+  display: inline-block;
+  position: relative;
+  width: 2.2em;
+  height: 3.45em;
+  margin: 0 0.28em 0 0.08em;
+  vertical-align: middle;
+}
+
+.area-symmetry-equation .area-integral .integral-sign {
+  position: absolute;
+  left: 0.08em;
+  top: 0.08em;
+  font-family: "Cambria Math", "STIX Two Math", serif;
+  font-size: 2.7em;
+  font-weight: 400;
+  line-height: 1;
+  transform: scaleX(0.6);
+  transform-origin: left center;
+}
+
+.area-symmetry-equation .area-integral .integral-bounds {
+  position: absolute;
+  left: 1.25em;
+  top: -0.1em;
+  display: grid;
+  width: 1.05em;
+  height: 3.55em;
+  grid-template-rows: 1fr 1fr;
+  align-items: start;
+  font-size: 0.9em;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.area-symmetry-equation .area-integral .integral-bounds sub {
+  align-self: end;
+}
+
+.proportion-table-wrap {
+  width: min(620px, 100%);
+  margin: 12px 0 16px;
+  overflow-x: auto;
+}
+
+.proportion-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  overflow: hidden;
+  color: #183a64;
+  border: 2px solid #8bb8ea;
+  border-radius: 14px;
+  background: #fff;
+  text-align: center;
+}
+
+.proportion-table th,
+.proportion-table td {
+  min-width: 110px;
+  padding: 10px 14px;
+  border-right: 1px solid #bdd5ef;
+  border-bottom: 1px solid #bdd5ef;
+}
+
+.proportion-table th {
+  background: #eaf4ff;
+  font-weight: 900;
+}
+
+.proportion-table tr:last-child td { border-bottom: 0; }
+.proportion-table th:last-child,
+.proportion-table td:last-child { border-right: 0; }
+
+.area-integrand,
+.area-differential {
+  display: inline-block;
+}
+
+.area-equation-equals {
+  margin: 0 0.18em;
 }
 
 .area-axis-labels {

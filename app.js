@@ -1,11 +1,8 @@
 ﻿const LOGO_SRC = "assets/logos-institucionales.png";
-const SCHOOL_LOGO_SRC = "assets/logo-margarita-salas-app.png?v=20260719-logos-1";
-const SCHOOL_LOGO_HOVER_SRC = "assets/logo-margarita-salas-app.png?v=20260719-logos-1";
-const CLM_LOGO_SRC = "assets/logo-clm.png?v=20260719-logos-1";
-const EU_LOGO_SRC = "assets/logo-eu-fse.png?v=20260719-logos-1";
-const SCHOOL_URL = "https://www.iesmargaritasalas.edu.es/";
+const MATHUP_HEADER_SRC = "assets/mathup-header.png";
 const STUDENT_PASSWORD = window.APP_CONFIG?.STUDENT_PASSWORD || "";
 const ADMIN_PASSWORD = window.APP_CONFIG?.ADMIN_PASSWORD || "";
+const DEVELOPER_MODE = window.APP_CONFIG?.DEVELOPER_MODE === true;
 const REPORT_KEY = "margaritaSalasReports";
 const GAME_PROGRESS_KEY = "margaritaSalasGameProgress";
 const DEFAULT_QUESTION_SECONDS = 120;
@@ -15,6 +12,11 @@ const ACADEMIC_YEARS = ["2026-2027", "2025-2026"];
 const ESO_COURSE_IDS = ["1eso", "2eso", "3eso", "4eso-a", "4eso-b"];
 const BACH_II_COURSE_IDS = ["2bach-mates", "2bach-ccss"];
 const FIRST_BACH_COURSE_IDS = ["1bach-mates", "1bach-ccss"];
+const BACH_II_PAU_COMMUNITY_KEY = "margarita-bach-ii-pau-community-v1";
+const BACH_II_PAU_COMMUNITIES = {
+  clm: "Castilla-La Mancha",
+  madrid: "Madrid"
+};
 
 const BACH_II_BLOCKS = {
   "2bach-mates": [
@@ -128,7 +130,7 @@ const courses = [
       "Numeros naturales",
       "Numeros enteros",
       "Potencias y raices cuadradas",
-      "Fracciones",
+      "Fracciones y numeros decimales",
       "Expresiones algebraicas",
       "Proporcionalidad",
       "Medida, angulos, rectas y circunferencias",
@@ -231,7 +233,8 @@ const courses = [
       "Infografías 4 ESO A/5-Ecuaciones e inecuaciones - Infografía.pdf",
       "Infografías 4 ESO A/6-Sistemas de ecuaciones e inecuaciones - Infografía.pdf",
       "Infografías 4 ESO A/7-Semejanza y trigonometría - Infografía.pdf",
-      "Infografías 4 ESO A/8-Áreas y cuerpos geométricos - Infografía.pdf"
+      "Infografías 4 ESO A/8-Áreas y cuerpos geométricos - Infografía.pdf",
+      "Infografías 4 ESO A/9-Funciones - Infografía.pdf"
     ],
     exerciseResources: [
       "documentos/4 ESO A/Temas mios/1-Nº Reales Ejercicios.doc",
@@ -241,7 +244,8 @@ const courses = [
       "documentos/4 ESO A/Temas mios/5-Ecuaciones e inecuacioines Ejercicios.doc",
       "documentos/4 ESO A/Temas mios/6-Sistemas de ecuaciones e inecuaciones Ejercicios.doc",
       "documentos/4 ESO A/Temas mios/7-Semejanza y Trigonometría Ejercicios.doc",
-      "documentos/4 ESO A/Temas mios/8-Áreas y Cuerpos geométricos Ejercicios.doc"
+      "documentos/4 ESO A/Temas mios/8-Áreas y Cuerpos geométricos Ejercicios.doc",
+      "documentos/4 ESO A/Temas mios/9-Funciones Ejercicio.pdf"
     ],
     themes: [
       "Numeros reales",
@@ -251,7 +255,8 @@ const courses = [
       "Ecuaciones e inecuaciones",
       "Sistemas de ecuaciones e inecuaciones",
       "Semejanza y trigonometria",
-      "Areas y cuerpos geometricos"
+      "Areas y cuerpos geometricos",
+      "Funciones"
     ]
   },
   {
@@ -312,18 +317,20 @@ const courses = [
     id: "1bach-ccss",
     name: "1º Bachillerato CCSS I",
     label: "Matematicas aplicadas CCSS I",
-    folder: "C:/Users/aherr/OneDrive/Escritorio/1Âº BACHILLERATO CCSSI",
+    folder: "documentos/1º BACHILLERATO CCSSI",
     resources: [
-      "C:/Users/aherr/OneDrive/Escritorio/1Âº BACHILLERATO CCSSI/1-Estadística Unidimensional y Bidimensional.doc",
-      "C:/Users/aherr/OneDrive/Escritorio/1Âº BACHILLERATO CCSSI/2-Probabilidad.doc",
-      "C:/Users/aherr/OneDrive/Escritorio/1Âº BACHILLERATO CCSSI/3-Distribución de probabilidad. Distribución Binomial.doc",
-      "C:/Users/aherr/OneDrive/Escritorio/1Âº BACHILLERATO CCSSI/4-Distribuciones continuas. Distribuición normal.doc",
-      "C:/Users/aherr/OneDrive/Escritorio/1Âº BACHILLERATO CCSSI/5-NÂº Reales.doc",
-      "C:/Users/aherr/OneDrive/Escritorio/1Âº BACHILLERATO CCSSI/6-NÂº Complejos.doc",
-      "C:/Users/aherr/OneDrive/Escritorio/1Âº BACHILLERATO CCSSI/7- Ecuaciones y Sistemas.doc",
-      "C:/Users/aherr/OneDrive/Escritorio/1Âº BACHILLERATO CCSSI/8- Inecuaciones y Sistemas.doc",
-      "C:/Users/aherr/OneDrive/Escritorio/1Âº BACHILLERATO CCSSI/9- Funciones.doc",
-      "C:/Users/aherr/OneDrive/Escritorio/1Âº BACHILLERATO CCSSI/Combinatoria.doc"
+      "documentos/1º BACHILLERATO CCSSI/1-Estadística Unidimensional y Bidimensional Teoria.pdf",
+      "documentos/1º BACHILLERATO CCSSI/2-Probabilidad teoria.pdf",
+      "documentos/1º BACHILLERATO CCSSI/3-Distribución de probabilidad. Distribución Binomial teoria.pdf",
+      "documentos/1º BACHILLERATO CCSSI/4-Distribuciones continuas. Distribuición normal teoria.pdf",
+      "documentos/1º BACHILLERATO CCSSI/5-Nº Reales teoria.pdf",
+      "documentos/1º BACHILLERATO CCSSI/6-Nº Complejos teoria.pdf",
+      "documentos/1º BACHILLERATO CCSSI/7- Ecuaciones y Sistemas teoria.pdf",
+      "documentos/1º BACHILLERATO CCSSI/8- Inecuaciones y Sistemas teoria.pdf",
+      "documentos/1º BACHILLERATO CCSSI/9- Funciones teoria.pdf",
+      "documentos/1º BACHILLERATO CCSSI/10-Derivadas.pdf",
+      "documentos/1º BACHILLERATO CCSSI/11-Aplicación de Derivadas.pdf",
+      "documentos/1º BACHILLERATO CCSSI/12-Combinatoria Teoria.pdf"
     ],
     themes: [
       "Estadistica unidimensional y bidimensional",
@@ -335,6 +342,8 @@ const courses = [
       "Ecuaciones y sistemas",
       "Inecuaciones y sistemas",
       "Funciones",
+      "Derivadas",
+      "Aplicacion de derivadas",
       "Combinatoria"
     ]
   },
@@ -342,19 +351,19 @@ const courses = [
     id: "1bach-mates",
     name: "1º Bachillerato Matematicas I",
     label: "Matematicas I",
-    folder: "C:/Users/aherr/OneDrive/Escritorio/1Âª BACHILLERATO MATES I",
+    folder: "C:/Users/aherr/OneDrive/Escritorio/1ª BACHILLERATO MATES I",
     resources: [
-      "C:/Users/aherr/OneDrive/Escritorio/1Âª BACHILLERATO MATES I/1-NÂº Reales.doc",
-      "C:/Users/aherr/OneDrive/Escritorio/1Âª BACHILLERATO MATES I/2-NÂº Complejos.docx",
-      "C:/Users/aherr/OneDrive/Escritorio/1Âª BACHILLERATO MATES I/3- Ecuaciones, Sistemas e inecuaciones.doc",
-      "C:/Users/aherr/OneDrive/Escritorio/1Âª BACHILLERATO MATES I/4-Trigonometría.doc",
-      "C:/Users/aherr/OneDrive/Escritorio/1Âª BACHILLERATO MATES I/5-Geometría analítica.doc",
-      "C:/Users/aherr/OneDrive/Escritorio/1Âª BACHILLERATO MATES I/6-Cónicas.doc",
-      "C:/Users/aherr/OneDrive/Escritorio/1Âª BACHILLERATO MATES I/7-Funciones.doc",
-      "C:/Users/aherr/OneDrive/Escritorio/1Âª BACHILLERATO MATES I/8-Límite de Sucesiones y Funciones.doc",
-      "C:/Users/aherr/OneDrive/Escritorio/1Âª BACHILLERATO MATES I/9-Derivadas.doc",
-      "C:/Users/aherr/OneDrive/Escritorio/1Âª BACHILLERATO MATES I/10-Aplicación de Derivadas.doc",
-      "documentos/1Âª BACHILLERATO MATES I/11-Probabilidad teoria.pdf"
+      "C:/Users/aherr/OneDrive/Escritorio/1ª BACHILLERATO MATES I/1-Nº Reales.doc",
+      "C:/Users/aherr/OneDrive/Escritorio/1ª BACHILLERATO MATES I/2-Nº Complejos.docx",
+      "C:/Users/aherr/OneDrive/Escritorio/1ª BACHILLERATO MATES I/3- Ecuaciones, Sistemas e inecuaciones.doc",
+      "C:/Users/aherr/OneDrive/Escritorio/1ª BACHILLERATO MATES I/4-Trigonometría.doc",
+      "C:/Users/aherr/OneDrive/Escritorio/1ª BACHILLERATO MATES I/5-Geometría analítica.doc",
+      "C:/Users/aherr/OneDrive/Escritorio/1ª BACHILLERATO MATES I/6-Cónicas.doc",
+      "C:/Users/aherr/OneDrive/Escritorio/1ª BACHILLERATO MATES I/7-Funciones.doc",
+      "C:/Users/aherr/OneDrive/Escritorio/1ª BACHILLERATO MATES I/8-Límite de Sucesiones y Funciones.doc",
+      "C:/Users/aherr/OneDrive/Escritorio/1ª BACHILLERATO MATES I/9-Derivadas.doc",
+      "C:/Users/aherr/OneDrive/Escritorio/1ª BACHILLERATO MATES I/10-Aplicación de Derivadas.doc",
+      "documentos/1ª BACHILLERATO MATES I/11-Probabilidad teoria.pdf"
     ],
     themes: [
       "Numeros reales",
@@ -374,19 +383,19 @@ const courses = [
     id: "2bach-ccss",
     name: "2º Bachillerato CCSS II",
     label: "Matematicas aplicadas CCSS II",
-    folder: "C:/Users/aherr/OneDrive/Escritorio/2Âº Bachillerato CCSS II",
+    folder: "documentos/2º Bachillerato CCSS II",
     resources: [
-      "C:/Users/aherr/OneDrive/Escritorio/2Âº Bachillerato CCSS II/1-Matrices.doc",
-      "C:/Users/aherr/OneDrive/Escritorio/2Âº Bachillerato CCSS II/2-Determinantes.doc",
-      "C:/Users/aherr/OneDrive/Escritorio/2Âº Bachillerato CCSS II/3- Resolución de sistemas mediante determinantes.doc",
-      "C:/Users/aherr/OneDrive/Escritorio/2Âº Bachillerato CCSS II/4-Programación lineal.doc",
-      "C:/Users/aherr/OneDrive/Escritorio/2Âº Bachillerato CCSS II/5-Límite de Funciones. Continuidad.doc",
-      "C:/Users/aherr/OneDrive/Escritorio/2Âº Bachillerato CCSS II/6-Derivadas y Aplicación de Derivadas.doc",
-      "C:/Users/aherr/OneDrive/Escritorio/2Âº Bachillerato CCSS II/7-Integrales indefinidas.doc",
-      "C:/Users/aherr/OneDrive/Escritorio/2Âº Bachillerato CCSS II/8-Integrales definidas.doc",
-      "C:/Users/aherr/OneDrive/Escritorio/2Âº Bachillerato CCSS II/9-Probabilidad.doc",
-      "C:/Users/aherr/OneDrive/Escritorio/2Âº Bachillerato CCSS II/10-Distribución de probabilidad. Distribución Binomial. Continuas.doc",
-      "C:/Users/aherr/OneDrive/Escritorio/2Âº Bachillerato CCSS II/11- Muestreo e indiferencia estadística.docx"
+      "book-resources/theory-pdfs/2bach-ccss/Tema 1.pdf",
+      "book-resources/theory-pdfs/2bach-ccss/Tema 2.pdf",
+      "book-resources/theory-pdfs/2bach-ccss/Tema 3.pdf",
+      "book-resources/theory-pdfs/2bach-ccss/Tema 4.pdf",
+      "book-resources/theory-pdfs/2bach-ccss/Tema 5.pdf",
+      "book-resources/theory-pdfs/2bach-ccss/Tema 6.pdf",
+      "book-resources/theory-pdfs/2bach-ccss/Tema 7.pdf",
+      "book-resources/theory-pdfs/2bach-ccss/Tema 8.pdf",
+      "book-resources/theory-pdfs/2bach-ccss/Tema 9.pdf",
+      "book-resources/theory-pdfs/2bach-ccss/Tema 10.pdf",
+      "book-resources/theory-pdfs/2bach-ccss/Tema 11.pdf"
     ],
     themes: [
       "Matrices",
@@ -406,22 +415,22 @@ const courses = [
     id: "2bach-mates",
     name: "2º Bachillerato Matematicas II",
     label: "Matematicas II",
-    folder: "C:/Users/aherr/OneDrive/Escritorio/2Âº Bachillerato Mates II",
+    folder: "C:/Users/aherr/OneDrive/Escritorio/2º Bachillerato Mates II",
     resources: [
-      "C:/Users/aherr/OneDrive/Escritorio/2Âº Bachillerato Mates II/1-Matrices.doc",
-      "C:/Users/aherr/OneDrive/Escritorio/2Âº Bachillerato Mates II/2-Determinantes.doc",
-      "C:/Users/aherr/OneDrive/Escritorio/2Âº Bachillerato Mates II/3- Resolución de sistemas mediante determinantes.doc",
-      "C:/Users/aherr/OneDrive/Escritorio/2Âº Bachillerato Mates II/4-Vectores en el Espacio.doc",
-      "C:/Users/aherr/OneDrive/Escritorio/2Âº Bachillerato Mates II/5-Planos y rectas en el espacio.doc",
-      "C:/Users/aherr/OneDrive/Escritorio/2Âº Bachillerato Mates II/6-Propiedades métricas.doc",
-      "C:/Users/aherr/OneDrive/Escritorio/2Âº Bachillerato Mates II/7-Límite de Sucesiones y Funciones.doc",
-      "C:/Users/aherr/OneDrive/Escritorio/2Âº Bachillerato Mates II/8-Continuidad.doc",
-      "C:/Users/aherr/OneDrive/Escritorio/2Âº Bachillerato Mates II/9-Derivadas.doc",
-      "C:/Users/aherr/OneDrive/Escritorio/2Âº Bachillerato Mates II/10-Aplicación de Derivadas.doc",
-      "C:/Users/aherr/OneDrive/Escritorio/2Âº Bachillerato Mates II/11-Integrales indefinidas.doc",
-      "C:/Users/aherr/OneDrive/Escritorio/2Âº Bachillerato Mates II/12-Integrales definidas.doc",
-      "C:/Users/aherr/OneDrive/Escritorio/2Âº Bachillerato Mates II/13-Probabilidad.doc",
-      "C:/Users/aherr/OneDrive/Escritorio/2Âº Bachillerato Mates II/14-Distribución de probabilidad. Distribución Binomial.doc"
+      "C:/Users/aherr/OneDrive/Escritorio/2º Bachillerato Mates II/1-Matrices.doc",
+      "C:/Users/aherr/OneDrive/Escritorio/2º Bachillerato Mates II/2-Determinantes.doc",
+      "C:/Users/aherr/OneDrive/Escritorio/2º Bachillerato Mates II/3- Resolución de sistemas mediante determinantes.doc",
+      "C:/Users/aherr/OneDrive/Escritorio/2º Bachillerato Mates II/4-Vectores en el Espacio.doc",
+      "C:/Users/aherr/OneDrive/Escritorio/2º Bachillerato Mates II/5-Planos y rectas en el espacio.doc",
+      "C:/Users/aherr/OneDrive/Escritorio/2º Bachillerato Mates II/6-Propiedades métricas.doc",
+      "C:/Users/aherr/OneDrive/Escritorio/2º Bachillerato Mates II/7-Límite de Sucesiones y Funciones.doc",
+      "C:/Users/aherr/OneDrive/Escritorio/2º Bachillerato Mates II/8-Continuidad.doc",
+      "C:/Users/aherr/OneDrive/Escritorio/2º Bachillerato Mates II/9-Derivadas.doc",
+      "C:/Users/aherr/OneDrive/Escritorio/2º Bachillerato Mates II/10-Aplicación de Derivadas.doc",
+      "C:/Users/aherr/OneDrive/Escritorio/2º Bachillerato Mates II/11-Integrales indefinidas.doc",
+      "C:/Users/aherr/OneDrive/Escritorio/2º Bachillerato Mates II/12-Integrales definidas.doc",
+      "C:/Users/aherr/OneDrive/Escritorio/2º Bachillerato Mates II/13-Probabilidad.doc",
+      "C:/Users/aherr/OneDrive/Escritorio/2º Bachillerato Mates II/14-Distribución de probabilidad. Distribución Binomial.doc"
     ],
     themes: [
       "Matrices",
@@ -534,7 +543,7 @@ const adventureWorlds = {
     boss: "Arquitecto de los Modelos",
     guide: "Pi",
     accent: "applications",
-    zones: ["Ciudad de los Reales", "Cristales Radicales", "Mercado Proporcional", "Taller Algebraico", "Sala de Ecuaciones", "Puente de Sistemas", "Mirador de Semejanza", "Ciudad de Cuerpos"]
+    zones: ["Ciudad de los Reales", "Cristales Radicales", "Mercado Proporcional", "Taller Algebraico", "Sala de Ecuaciones", "Puente de Sistemas", "Mirador de Semejanza", "Ciudad de Cuerpos", "Observatorio de Funciones"]
   },
   "4eso-b": {
     world: "Reino del Pensamiento Matemático",
@@ -579,7 +588,7 @@ const adventureMapLayouts = {
   ],
   "4eso-a": [
     [14, 14], [43, 10], [74, 21], [81, 45],
-    [56, 54], [27, 43], [14, 69], [54, 78]
+    [56, 54], [27, 43], [14, 69], [54, 78], [84, 78]
   ],
   "4eso-b": [
     [13, 9], [39, 14], [69, 8], [82, 22], [65, 31], [35, 27], [13, 40],
@@ -654,6 +663,7 @@ let state = {
   practiceRound: 0,
   topicChallengeLevel: "apprentice",
   blockKey: "",
+  pauCommunity: "clm",
   trainingQuestionHistory: {},
   answered: false,
   multipartResponses: [],
@@ -704,12 +714,18 @@ function topicKey(course, topicIndex = state.topicIndex) {
   return `${course.id}-${topicIndex}`;
 }
 
+function semanticTopicId(course, topicIndex = state.topicIndex) {
+  const esoId = window.ESO_TOPIC_IDS?.[course?.id]?.[topicIndex];
+  return esoId ? `${course.id}:${esoId}` : `${course?.id || ""}:topic-${topicIndex}`;
+}
+
 function bookExplanationFor(course, topicIndex = state.topicIndex) {
   return window.TOPIC_BOOK_EXPLANATIONS?.[topicKey(course, topicIndex)] || "";
 }
 
 function esoTopicInfo(course, topicIndex = state.topicIndex) {
-  return window.ESO_TOPIC_CONTENT?.[topicKey(course, topicIndex)] || null;
+  if (!isEsoCourse(course)) return null;
+  return window.ESO_TOPIC_CONTENT_BY_ID?.[semanticTopicId(course, topicIndex)] || null;
 }
 
 function isEsoCourse(course) {
@@ -734,11 +750,91 @@ function currentStudentKey() {
   if (!state.student) return "";
   return [
     state.academicYear || state.student.academicYear || DEFAULT_ACADEMIC_YEAR,
-    state.student.courseId,
-    state.student.group,
-    state.student.name
+    state.student.courseId || state.courseId || "sin-curso",
+    state.student.group || state.student.groupLabel || "sin-grupo",
+    state.student.name || state.student.displayName || "sin-nombre"
   ].join("__");
 }
+
+function normalizeBachPauCommunity(value) {
+  return Object.prototype.hasOwnProperty.call(BACH_II_PAU_COMMUNITIES, value) ? value : "clm";
+}
+
+function bachPauCommunityPreferenceKey(courseId = state.courseId, student = state.student) {
+  const studentIdentity = student?.id || student?.userId || student?.username || student?.email || student?.name || "alumno";
+  return [state.academicYear || DEFAULT_ACADEMIC_YEAR, courseId || "sin-curso", student?.group || student?.groupLabel || "sin-grupo", studentIdentity].join("|");
+}
+
+function readBachPauCommunity(courseId = state.courseId, student = state.student) {
+  try {
+    const preferences = JSON.parse(localStorage.getItem(BACH_II_PAU_COMMUNITY_KEY) || "{}") || {};
+    return normalizeBachPauCommunity(preferences[bachPauCommunityPreferenceKey(courseId, student)]);
+  } catch (_) {
+    return "clm";
+  }
+}
+
+function currentBachPauCommunity() {
+  return normalizeBachPauCommunity(state.pauCommunity);
+}
+
+function setBachPauCommunity(value) {
+  if (!BACH_II_COURSE_IDS.includes(state.courseId)) return;
+  const community = normalizeBachPauCommunity(value);
+  state.pauCommunity = community;
+  state.blockKey = "";
+  state.blockTopicIndexes = [];
+  state.challengeQuestionHistory = {};
+  state.challengeRoundCache = {};
+  try {
+    const preferences = JSON.parse(localStorage.getItem(BACH_II_PAU_COMMUNITY_KEY) || "{}") || {};
+    preferences[bachPauCommunityPreferenceKey()] = community;
+    localStorage.setItem(BACH_II_PAU_COMMUNITY_KEY, JSON.stringify(preferences));
+  } catch (_) {
+    // La selección sigue activa durante la sesión aunque el almacenamiento local no esté disponible.
+  }
+  renderBachIIHome();
+}
+
+function bachPauCommunityControl(label = "Elegir la comunidad autónoma") {
+  const selected = currentBachPauCommunity();
+  return `
+    <label class="bach-pau-community-control">
+      <span>${escapeHtml(label)}</span>
+      <select onchange="setBachPauCommunity(this.value)" aria-label="${escapeHtml(label)}">
+        ${Object.entries(BACH_II_PAU_COMMUNITIES).map(([value, name]) => `<option value="${value}" ${selected === value ? "selected" : ""}>${escapeHtml(name)}</option>`).join("")}
+      </select>
+    </label>
+  `;
+}
+
+function bachPauRawBanks(courseId = state.courseId) {
+  if (currentBachPauCommunity() === "madrid") {
+    const excluded = window.MADRID_PAU_AUTHORED?.exclusions?.[courseId] || {};
+    return (window.MADRID_PAU_BANK?.[courseId] || []).reduce((banks, exercise) => {
+      if (excluded[exercise.id]) return banks;
+      const authored = window.MADRID_PAU_AUTHORED?.[courseId]?.[exercise.id]?.exercise;
+      const completeExercise = { ...exercise, ...(authored || {}), community: "madrid" };
+      if (!banks[completeExercise.blockId]) banks[completeExercise.blockId] = [];
+      banks[completeExercise.blockId].push(completeExercise);
+      return banks;
+    }, {});
+  }
+  const banks = courseId === "2bach-mates"
+    ? window.MATES_II_BLOCK_EXERCISES || {}
+    : window.CCSS_II_BLOCK_EXERCISES || {};
+  return Object.fromEntries(Object.entries(banks).map(([blockId, exercises]) => [
+    blockId,
+    (exercises || []).filter((exercise) => !/\bmadrid\b/i.test([
+      exercise?.community,
+      exercise?.source,
+      exercise?.text,
+      ...(Array.isArray(exercise?.statement) ? exercise.statement : [])
+    ].filter(Boolean).join(" ")))
+  ]));
+}
+
+window.currentBachPauCommunity = currentBachPauCommunity;
 
 const localPdfResources = {};
 
@@ -786,7 +882,8 @@ const bachInfographics = {
     "Infografías 4 ESO A/5-Ecuaciones e inecuaciones - Infografía.pdf",
     "Infografías 4 ESO A/6-Sistemas de ecuaciones e inecuaciones - Infografía.pdf",
     "Infografías 4 ESO A/7-Semejanza y trigonometría - Infografía.pdf",
-    "Infografías 4 ESO A/8-Áreas y cuerpos geométricos - Infografía.pdf"
+    "Infografías 4 ESO A/8-Áreas y cuerpos geométricos - Infografía.pdf",
+    "Infografías 4 ESO A/9-Funciones - Infografía.pdf"
   ],
   "4eso-b": [
     "Infografías 4º ESO B/1-Números reales - Infografía.pdf",
@@ -827,7 +924,9 @@ const bachInfographics = {
     "Infografías 1º Bachillerato CCSSI/7-Ecuaciones y sistemas - Infografía.pdf",
     "Infografías 1º Bachillerato CCSSI/8-Inecuaciones y sistemas - Infografía.pdf",
     "Infografías 1º Bachillerato CCSSI/9-Funciones - Infografía.pdf",
-    "Infografías 1º Bachillerato CCSSI/10-Combinatoria - Infografía.pdf"
+    "Infografías 1º Bachillerato CCSSI/10-Derivadas - Infografía.pdf",
+    "Infografías 1º Bachillerato CCSSI/11-Aplicación de derivadas - Infografía.pdf",
+    "Infografías 1º Bachillerato CCSSI/12-Combinatoria - Infografía.pdf"
   ],
   "2bach-mates": [
     "Infografías 2º Bachillerato Mates II/1-Matrices - Infografía.pdf",
@@ -886,6 +985,9 @@ function infographicViewerUrl(course, topicIndex = state.topicIndex) {
 }
 
 function localPdfFor(course, topicIndex = state.topicIndex) {
+  if (course?.id === "1bach-ccss") {
+    return course.resources?.[topicIndex] || bachInfographicFor(course, topicIndex);
+  }
   if (course?.id?.includes("bach")) {
     return `book-resources/theory-pdfs/${course.id}/Tema ${topicIndex + 1}.pdf`;
   }
@@ -906,7 +1008,9 @@ function topicResource(course, topicIndex = state.topicIndex) {
   const esoInfo = esoTopicInfo(course, topicIndex);
   const localPdf = localPdfFor(course, topicIndex);
   const resourcePath = localPdf || esoInfo?.pdfPath || course.resources?.[topicIndex] || course.pdf || course.folder || "";
-  const page = esoInfo?.page || pdfTopicPages[course.id]?.[topicIndex] || null;
+  // Las infografías propias ya corresponden exactamente al tema completo.
+  // No deben heredar la página aproximada del libro general del curso.
+  const page = localPdf ? null : (esoInfo?.page || pdfTopicPages[course.id]?.[topicIndex] || null);
   const isPdf = /\.pdf$/i.test(resourcePath);
   const isDocument = /\.(doc|docx)$/i.test(resourcePath);
   return {
@@ -1049,35 +1153,35 @@ function escapeHtml(value) {
 
 function normalizeDisplayText(value) {
   return String(value ?? "")
-    .replace(/Â¿/g, "¿")
-    .replace(/Â¡/g, "¡")
-    .replace(/Âº/g, "º")
-    .replace(/Âª/g, "ª")
+    .replace(/¿/g, "¿")
+    .replace(/¡/g, "¡")
+    .replace(/º/g, "º")
+    .replace(/ª/g, "ª")
     .replace(/Â±/g, "±")
-    .replace(/Â·/g, "·")
+    .replace(/·/g, "·")
     .replace(/Â/g, "")
-    .replace(/Ã|Ã�/g, "Á")
-    .replace(/Ã¡/g, "á")
-    .replace(/Ã‰/g, "É")
-    .replace(/Ã©/g, "é")
-    .replace(/Ã/g, "Í")
-    .replace(/Ã­/g, "í")
-    .replace(/Ã“/g, "Ó")
-    .replace(/Ã³/g, "ó")
-    .replace(/Ãš/g, "Ú")
-    .replace(/Ãº/g, "ú")
-    .replace(/Ã‘/g, "Ñ")
-    .replace(/Ã±/g, "ñ")
-    .replace(/â‰¤/g, "≤")
-    .replace(/â‰¥/g, "≥")
-    .replace(/â‰ /g, "≠")
-    .replace(/âˆž/g, "∞")
-    .replace(/âˆ©/g, "∩")
-    .replace(/âˆª/g, "∪")
-    .replace(/â‚¬/g, "€")
-    .replace(/Ïƒ/g, "σ")
-    .replace(/Î¼/g, "μ")
-    .replace(/Î»/g, "λ")
+    .replace(/Á|Ã�/g, "Á")
+    .replace(/á/g, "á")
+    .replace(/É/g, "É")
+    .replace(/é/g, "é")
+    .replace(/Í/g, "Í")
+    .replace(/í/g, "í")
+    .replace(/Ó/g, "Ó")
+    .replace(/ó/g, "ó")
+    .replace(/Ú/g, "Ú")
+    .replace(/ú/g, "ú")
+    .replace(/Ñ/g, "Ñ")
+    .replace(/ñ/g, "ñ")
+    .replace(/≤/g, "≤")
+    .replace(/≥/g, "≥")
+    .replace(/≠/g, "≠")
+    .replace(/∞/g, "∞")
+    .replace(/∩/g, "∩")
+    .replace(/∪/g, "∪")
+    .replace(/€/g, "€")
+    .replace(/σ/g, "σ")
+    .replace(/μ/g, "μ")
+    .replace(/λ/g, "λ")
     .replace(/t\?rmino/g, "término")
     .replace(/funci\?n/g, "función")
     .replace(/n\?mero/g, "número")
@@ -1393,6 +1497,35 @@ function formatMathText(value) {
   return rendered.join("<br>");
 }
 
+const mathNotationRenderer = window.MargaritaMathRenderer;
+if (!mathNotationRenderer) {
+  throw new Error("No se ha cargado el renderizador matemático común de Margarita Salas.");
+}
+
+normalizeMathNotation = function normalizeMathNotationWithCommonRenderer(value, options = {}) {
+  return mathNotationRenderer.normalize(value, options);
+};
+
+formatMathFragment = function formatMathFragmentWithCommonRenderer(value, options = {}) {
+  return mathNotationRenderer.fragment(value, options);
+};
+
+formatMathText = function formatMathTextWithCommonRenderer(value, options = {}) {
+  return mathNotationRenderer.text(value, options);
+};
+
+renderMatrixMarkup = function renderMatrixMarkupWithCommonRenderer(content, determinant = false, options = {}) {
+  return mathNotationRenderer.matrix(content, determinant, options);
+};
+
+renderSystemMarkup = function renderSystemMarkupWithCommonRenderer(equations, options = {}) {
+  return mathNotationRenderer.system(equations, options);
+};
+
+function formatMathHtml(value, options = {}) {
+  return mathNotationRenderer.html(value, options);
+}
+
 function renderPlaneReflectionDiagram({ plane, pointA, pointQ, pointAprime }) {
   return `
     <figure class="plane-reflection-diagram">
@@ -1424,18 +1557,20 @@ function renderPointPlaneDistanceDiagram({ plane, pointP, pointQ }) {
             <stop offset="1" stop-color="#14b8a6" stop-opacity="0.28"></stop>
           </linearGradient>
         </defs>
-        <polygon class="distance-plane-shape" points="95,190 545,118 665,212 215,286"></polygon>
-        <line class="distance-perpendicular-line" x1="365" y1="42" x2="389" y2="213"></line>
-        <path class="distance-right-angle" d="M389 213 l19 -3 l3 19"></path>
-        <circle class="distance-point distance-point-p" cx="365" cy="42" r="9"></circle>
-        <circle class="distance-point distance-point-q" cx="389" cy="213" r="9"></circle>
-        <text class="distance-point-label" x="392" y="47">${escapeHtml(pointP)}</text>
-        <text class="distance-point-label" x="416" y="207">${escapeHtml(pointQ)}</text>
-        <text class="distance-plane-label" x="136" y="250">${escapeHtml(plane)}</text>
-        <text class="distance-segment-label" x="411" y="119">d(P,π)=2</text>
-        <text class="distance-normal-label" x="277" y="144">n=(3,4,12)</text>
+        <polygon class="distance-plane-shape" points="92,192 548,118 665,214 208,288"></polygon>
+        <line class="distance-perpendicular-line" x1="432" y1="40" x2="397" y2="217"></line>
+        <path class="distance-right-angle" d="M397 217 l20 -3 l3 20"></path>
+        <line class="distance-normal-arrow" x1="520" y1="208" x2="543" y2="88"></line>
+        <polygon class="distance-normal-arrow-head" points="543,88 532,104 550,107"></polygon>
+        <circle class="distance-point distance-point-p" cx="432" cy="40" r="9"></circle>
+        <circle class="distance-point distance-point-q" cx="397" cy="217" r="9"></circle>
+        <text class="distance-point-label" x="458" y="45">${escapeHtml(pointP)}</text>
+        <text class="distance-point-label" x="350" y="207">${escapeHtml(pointQ)}</text>
+        <text class="distance-plane-label" x="128" y="253">${escapeHtml(plane)}</text>
+        <text class="distance-segment-label" x="444" y="132">d(P,π)=2</text>
+        <text class="distance-normal-label" x="550" y="100">n⃗=(3,4,12)</text>
       </svg>
-      <figcaption>Q es el pie de la perpendicular desde P al plano π; la longitud del segmento PQ es la distancia.</figcaption>
+      <figcaption>Q es el pie de la perpendicular desde P al plano π; PQ es paralelo al vector normal n⃗ y su longitud es la distancia.</figcaption>
     </figure>
   `;
 }
@@ -1500,37 +1635,33 @@ function renderAbsParabolaAreaGraph() {
   const plotX = (x) => 360 + 190 * x;
   const plotY = (y) => 300 - 130 * y;
   const parabolaPoints = [];
-  const lowerBoundaryPoints = [];
   for (let index = 0; index <= 58; index += 1) {
     const x = -1.45 + (2.9 * index) / 58;
     parabolaPoints.push(`${plotX(x).toFixed(1)},${plotY(x * x).toFixed(1)}`);
   }
-  for (let index = 0; index <= 40; index += 1) {
-    const x = 1 - (2 * index) / 40;
-    lowerBoundaryPoints.push(`${plotX(x).toFixed(1)},${plotY(x * x).toFixed(1)}`);
-  }
-  const areaPath = [
-    `M ${plotX(-1)} ${plotY(1)}`,
-    `L ${plotX(0)} ${plotY(0)}`,
-    `L ${plotX(1)} ${plotY(1)}`,
-    ...lowerBoundaryPoints.map((point) => `L ${point}`),
-    "Z"
-  ].join(" ");
+  const areaPath = (start, end, steps = 40) => {
+    const path = [];
+    for (let index = 0; index <= steps; index += 1) {
+      const x = start + ((end - start) * index) / steps;
+      path.push(`${index ? "L" : "M"} ${plotX(x).toFixed(1)} ${plotY(Math.abs(x)).toFixed(1)}`);
+    }
+    for (let index = steps; index >= 0; index -= 1) {
+      const x = start + ((end - start) * index) / steps;
+      path.push(`L ${plotX(x).toFixed(1)} ${plotY(x * x).toFixed(1)}`);
+    }
+    path.push("Z");
+    return path.join(" ");
+  };
   return `
     <figure class="defined-area-diagram">
       <svg viewBox="0 0 720 360" role="img" aria-label="Gráfica de y igual a valor absoluto de x y de y igual a x al cuadrado, con el recinto entre x igual a menos uno y x igual a uno coloreado">
-        <defs>
-          <linearGradient id="abs-parabola-area-fill" x1="0" x2="1">
-            <stop offset="0" stop-color="#f59e0b" stop-opacity="0.42"></stop>
-            <stop offset="1" stop-color="#14b8a6" stop-opacity="0.42"></stop>
-          </linearGradient>
-        </defs>
         <rect class="area-graph-background" x="20" y="16" width="680" height="326" rx="18"></rect>
         <line class="area-graph-grid" x1="170" y1="28" x2="170" y2="315"></line>
         <line class="area-graph-grid" x1="550" y1="28" x2="550" y2="315"></line>
         <line class="area-graph-axis" x1="52" y1="300" x2="678" y2="300"></line>
         <line class="area-graph-axis" x1="360" y1="326" x2="360" y2="30"></line>
-        <path class="area-region-fill" d="${areaPath}"></path>
+        <path class="area-region-fill abs-parabola-region abs-parabola-region-left" d="${areaPath(-1, 0)}"></path>
+        <path class="area-region-fill abs-parabola-region abs-parabola-region-right" d="${areaPath(0, 1)}"></path>
         <polyline class="area-curve area-curve-parabola" points="${parabolaPoints.join(" ")}"></polyline>
         <polyline class="area-curve area-curve-absolute" points="84.5,26.7 360,300 635.5,26.7"></polyline>
         <g class="area-intersection-points">
@@ -1549,9 +1680,128 @@ function renderAbsParabolaAreaGraph() {
         <text class="area-curve-label area-parabola-label" x="566" y="239">y=x²</text>
         <text class="area-region-label" x="360" y="205">Área</text>
       </svg>
-      <figcaption>Los puntos de corte que delimitan el recinto son x=−1 y x=1; la región coloreada está entre y=|x| e y=x².</figcaption>
+      <figcaption>La región coloreada está exclusivamente entre la función superior y=|x| (roja) y la función inferior y=x² (azul), desde x=−1 hasta x=1.</figcaption>
     </figure>
   `;
+}
+
+function renderDefiniteIntegral(lower, upper, integrand) {
+  return `<span class="math-integral area-integral" aria-label="integral desde ${escapeHtml(lower)} hasta ${escapeHtml(upper)}"><span class="integral-sign">∫</span><span class="integral-bounds"><sup>${escapeHtml(upper)}</sup><sub>${escapeHtml(lower)}</sub></span></span><span class="area-integrand">${integrand}</span><span class="area-differential">dx</span>`;
+}
+
+function renderAbsParabolaSymmetryEquation() {
+  return `
+    <div class="area-symmetry-equation" role="img" aria-label="A igual a la integral desde menos uno hasta uno de valor absoluto de x menos x al cuadrado, igual a dos por la integral desde cero hasta uno de x menos x al cuadrado">
+      <span class="area-equation-symbol">A=</span>
+      ${renderDefiniteIntegral("−1", "1", "(|x|−x<sup>2</sup>)")}
+      <span class="area-equation-equals">=</span>
+      <span>2·</span>${renderDefiniteIntegral("0", "1", "(x−x<sup>2</sup>)")}
+    </div>
+  `;
+}
+
+function renderReciprocalAreaGraph() {
+  const plotX = (x) => 64 + x * 230;
+  const plotY = (y) => 340 - y * 132;
+  const curvePoints = (fn, start, end, steps = 64) => {
+    const points = [];
+    for (let index = 0; index <= steps; index += 1) {
+      const x = start + ((end - start) * index) / steps;
+      points.push(`${plotX(x).toFixed(1)},${plotY(fn(x)).toFixed(1)}`);
+    }
+    return points.join(" ");
+  };
+  const region = [];
+  for (let index = 0; index <= 36; index += 1) {
+    const x = 1 + index / 36;
+    region.push(`${index ? "L" : "M"} ${plotX(x).toFixed(1)} ${plotY(1 / x).toFixed(1)}`);
+  }
+  for (let index = 36; index >= 0; index -= 1) {
+    const x = 1 + index / 36;
+    region.push(`L ${plotX(x).toFixed(1)} ${plotY(1 / (x * x)).toFixed(1)}`);
+  }
+  region.push("Z");
+  const p = { x: plotX(1), y: plotY(1) };
+  const q = { x: plotX(2), y: plotY(0.5) };
+  const r = { x: plotX(2), y: plotY(0.25) };
+  return `
+    <figure class="defined-area-diagram reciprocal-area-diagram">
+      <svg viewBox="0 0 720 390" role="img" aria-label="Región del primer cuadrante limitada por y igual a uno partido por x, y igual a uno partido por x al cuadrado y la recta x igual a dos">
+        <defs><linearGradient id="reciprocal-area-fill" x1="0" x2="1"><stop offset="0" stop-color="#f2b84b" stop-opacity="0.5"></stop><stop offset="1" stop-color="#22b8a7" stop-opacity="0.5"></stop></linearGradient></defs>
+        <rect class="area-graph-background" x="18" y="14" width="684" height="360" rx="18"></rect>
+        <line class="area-graph-axis" x1="45" y1="340" x2="688" y2="340"></line>
+        <line class="area-graph-axis" x1="64" y1="365" x2="64" y2="24"></line>
+        <path class="area-region-fill reciprocal-region" d="${region.join(" ")}"></path>
+        <line class="area-boundary-guide" x1="${r.x}" y1="${r.y}" x2="${r.x}" y2="340"></line>
+        <line class="area-boundary-line" x1="${q.x}" y1="${q.y}" x2="${r.x}" y2="${r.y}"></line>
+        <polyline class="area-curve area-curve-reciprocal" points="${curvePoints((x) => 1 / x, 0.46, 2.65)}"></polyline>
+        <polyline class="area-curve area-curve-reciprocal-square" points="${curvePoints((x) => 1 / (x * x), 0.67, 2.65)}"></polyline>
+        <g class="area-intersection-points"><circle cx="${p.x}" cy="${p.y}" r="6"></circle><circle cx="${q.x}" cy="${q.y}" r="6"></circle><circle cx="${r.x}" cy="${r.y}" r="6"></circle></g>
+        <g class="area-axis-labels"><text x="${plotX(1) - 14}" y="367">x=1</text><text x="${plotX(2) - 14}" y="367">x=2</text><text x="677" y="332">x</text><text x="75" y="36">y</text></g>
+        <g class="reciprocal-point-labels"><text x="${p.x - 82}" y="${p.y - 14}">P=(1,1)</text><text x="${q.x + 16}" y="${q.y - 10}">Q=(2,½)</text><text x="${r.x + 16}" y="${r.y + 24}">R=(2,¼)</text></g>
+        <text class="area-curve-label area-reciprocal-label" x="608" y="254">y=1/x</text>
+        <text class="area-curve-label area-reciprocal-square-label" x="608" y="309">y=1/x²</text>
+        <text class="area-region-label" x="392" y="242">Área</text>
+      </svg>
+      <figcaption>El recinto queda entre x=1 y x=2: la curva superior es f(x)=1/x y la inferior es g(x)=1/x². La recta x=2 une Q=(2,½) con R=(2,¼).</figcaption>
+    </figure>`;
+}
+
+function renderReciprocalAreaIntegral() {
+  return `
+    <div class="area-display-equation reciprocal-integral-equation" role="img" aria-label="A igual a la integral desde uno hasta dos de uno partido por x menos uno partido por x al cuadrado, diferencial de x">
+      <span>A=</span>
+      <span class="display-integral"><span class="display-integral-sign">∫</span><span class="display-integral-upper">2</span><span class="display-integral-lower">1</span></span>
+      <span class="display-integrand">(${formatMathFragment("frac{1}{x}-frac{1}{x²}")})</span><span>dx</span>
+    </div>`;
+}
+
+function renderReciprocalBarrowEquation() {
+  return `
+    <div class="area-display-equation reciprocal-barrow-equation" role="img" aria-label="Aplicación de la regla de Barrow desde uno hasta dos">
+      <span>A=</span>
+      <span class="barrow-evaluation"><span class="barrow-bracket">[</span><span class="barrow-expression">ln x+${formatMathFragment("frac{1}{x}")}</span><span class="barrow-bracket">]</span><span class="barrow-upper">2</span><span class="barrow-lower">1</span></span>
+      <span>=</span><span>(ln 2+${formatMathFragment("frac{1}{2}")})−(ln 1+1)</span><span>=ln 2−${formatMathFragment("frac{1}{2}")}.</span>
+    </div>`;
+}
+
+function renderDisplayIntegralTerm(lower, upper, integrand, className = "") {
+  return `
+    <span class="display-integral-term ${className}">
+      <span class="display-integral"><span class="display-integral-sign">∫</span><span class="display-integral-upper">${upper}</span><span class="display-integral-lower">${lower}</span></span>
+      <span class="display-integrand">${formatMathFragment(integrand)}</span><span class="area-differential">dx</span>
+    </span>`;
+}
+
+function renderParabolaLineAreaIntegral() {
+  return `
+    <div class="area-display-equation parabola-line-integral-equation" role="img" aria-label="Área igual a la integral desde uno hasta tres de x al cuadrado menos uno, más la integral desde tres hasta once de once menos x">
+      <span>A=</span>
+      ${renderDisplayIntegralTerm("1", "3", "(x²−1)", "parabola-integral-term")}
+      <span class="area-equation-plus">+</span>
+      ${renderDisplayIntegralTerm("3", "11", "(11−x)", "line-integral-term")}
+    </div>`;
+}
+
+function renderParabolaBarrowEquation() {
+  return `
+    <div class="area-display-equation parabola-line-barrow-equation" role="img" aria-label="Primera integral evaluada entre uno y tres mediante la regla de Barrow">
+      ${renderDisplayIntegralTerm("1", "3", "(x²−1)", "parabola-integral-term")}
+      <span>=</span>
+      <span class="barrow-evaluation"><span class="barrow-bracket">[</span><span class="barrow-expression">${formatMathFragment("frac{x³}{3}−x")}</span><span class="barrow-bracket">]</span><span class="barrow-upper">3</span><span class="barrow-lower">1</span></span>
+      <span>=</span><span>(9−3)−(${formatMathFragment("frac{1}{3}−1")})</span>
+      <span>=${formatMathFragment("frac{20}{3}")}.</span>
+    </div>`;
+}
+
+function renderLineBarrowEquation() {
+  return `
+    <div class="area-display-equation parabola-line-barrow-equation" role="img" aria-label="Segunda integral evaluada entre tres y once mediante la regla de Barrow">
+      ${renderDisplayIntegralTerm("3", "11", "(11−x)", "line-integral-term")}
+      <span>=</span>
+      <span class="barrow-evaluation"><span class="barrow-bracket">[</span><span class="barrow-expression">${formatMathFragment("11x−frac{x²}{2}")}</span><span class="barrow-bracket">]</span><span class="barrow-upper">11</span><span class="barrow-lower">3</span></span>
+      <span>=${formatMathFragment("frac{121}{2}−frac{57}{2}=32")}.</span>
+    </div>`;
 }
 
 function renderParabolaLineAreaGraph() {
@@ -1559,7 +1809,8 @@ function renderParabolaLineAreaGraph() {
   const plotY = (y) => 338 - y * 31;
   const parabola = [];
   const line = [];
-  const region = [];
+  const parabolaRegion = [];
+  const lineRegion = [];
   for (let index = 0; index <= 48; index += 1) {
     const x = index * (3.15 / 48);
     parabola.push(`${plotX(x).toFixed(1)},${plotY(x * x - 1).toFixed(1)}`);
@@ -1568,35 +1819,72 @@ function renderParabolaLineAreaGraph() {
     const x = index * (11 / 55);
     line.push(`${plotX(x).toFixed(1)},${plotY(11 - x).toFixed(1)}`);
   }
-  region.push(`M ${plotX(1)} ${plotY(0)}`, `L ${plotX(11)} ${plotY(0)}`);
+  parabolaRegion.push(`M ${plotX(1)} ${plotY(0)}`);
   for (let index = 0; index <= 32; index += 1) {
-    const x = 11 - index * (8 / 32);
-    region.push(`L ${plotX(x).toFixed(1)} ${plotY(11 - x).toFixed(1)}`);
+    const x = 1 + index * (2 / 32);
+    parabolaRegion.push(`L ${plotX(x).toFixed(1)} ${plotY(x * x - 1).toFixed(1)}`);
   }
-  for (let index = 0; index <= 24; index += 1) {
-    const x = 3 - index * (2 / 24);
-    region.push(`L ${plotX(x).toFixed(1)} ${plotY(x * x - 1).toFixed(1)}`);
+  parabolaRegion.push(`L ${plotX(3)} ${plotY(0)}`, "Z");
+  lineRegion.push(`M ${plotX(3)} ${plotY(0)}`, `L ${plotX(3)} ${plotY(8)}`);
+  for (let index = 1; index <= 48; index += 1) {
+    const x = 3 + index * (8 / 48);
+    lineRegion.push(`L ${plotX(x).toFixed(1)} ${plotY(11 - x).toFixed(1)}`);
   }
-  region.push("Z");
+  lineRegion.push(`L ${plotX(3)} ${plotY(0)}`, "Z");
   return `
     <figure class="defined-area-diagram">
       <svg viewBox="0 0 720 395" role="img" aria-label="Recinto limitado por la parábola y igual a x al cuadrado menos uno, la recta y igual a once menos x y el eje OX">
-        <defs><linearGradient id="parabola-line-area-fill" x1="0" x2="1"><stop offset="0" stop-color="#f59e0b" stop-opacity="0.46"></stop><stop offset="1" stop-color="#14b8a6" stop-opacity="0.42"></stop></linearGradient></defs>
         <rect class="area-graph-background" x="18" y="14" width="684" height="365" rx="18"></rect>
         <line class="area-graph-axis" x1="38" y1="338" x2="688" y2="338"></line>
         <line class="area-graph-axis" x1="64" y1="365" x2="64" y2="24"></line>
-        <path class="area-region-fill parabola-line-region" d="${region.join(" ")}"></path>
+        <path class="area-region-fill parabola-area-region" d="${parabolaRegion.join(" ")}"></path>
+        <path class="area-region-fill line-area-region" d="${lineRegion.join(" ")}"></path>
         <polyline class="area-curve area-curve-parabola" points="${parabola.join(" ")}"></polyline>
         <polyline class="area-curve area-curve-line" points="${line.join(" ")}"></polyline>
         <g class="area-intersection-points"><circle cx="${plotX(1)}" cy="${plotY(0)}" r="7"></circle><circle cx="${plotX(3)}" cy="${plotY(8)}" r="7"></circle><circle cx="${plotX(11)}" cy="${plotY(0)}" r="7"></circle></g>
         <g class="area-axis-labels"><text x="${plotX(1) - 14}" y="365">x=1</text><text x="${plotX(3) - 15}" y="365">x=3</text><text x="${plotX(11) - 21}" y="365">x=11</text><text x="677" y="331">x</text><text x="75" y="36">y</text></g>
-        <text class="area-curve-label area-parabola-label" x="205" y="72">y=x²−1</text><text class="area-curve-label area-line-label" x="456" y="111">y=11−x</text><text class="area-region-label" x="390" y="285">Área</text>
+        <text class="area-curve-label area-parabola-label" x="205" y="72">y=x²−1</text><text class="area-curve-label area-line-label" x="456" y="111">y=11−x</text>
+        <text class="area-region-label parabola-area-label" x="148" y="305">Área 1</text><text class="area-region-label line-area-region-label" x="425" y="285">Área 2</text>
       </svg>
-      <figcaption>La gráfica muestra por qué el área se divide en x=3: de x=1 a x=3 manda la parábola y de x=3 a x=11 manda la recta.</figcaption>
+      <figcaption>En azul, el área bajo la parábola entre x=1 y x=3. En verde, el área bajo la recta entre x=3 y x=11.</figcaption>
     </figure>`;
 }
 
+function renderDerivativeCycle2008() {
+  const columns = [
+    {
+      title: "Función y derivadas 1.ª–3.ª",
+      entries: [
+        { cycle: 1, expression: "f(x)=7·sen(x)−5·cos(x)" },
+        { cycle: 2, expression: "f′(x)=7·cos(x)+5·sen(x)" },
+        { cycle: 3, expression: "f″(x)=−7·sen(x)+5·cos(x)" },
+        { cycle: 4, expression: "f‴(x)=−7·cos(x)−5·sen(x)" }
+      ]
+    },
+    {
+      title: "Derivadas IV–VII",
+      entries: [
+        { cycle: 1, expression: "f^{IV}(x)=7·sen(x)−5·cos(x)=f(x)" },
+        { cycle: 2, expression: "f^{V}(x)=7·cos(x)+5·sen(x)=f′(x)" },
+        { cycle: 3, expression: "f^{VI}(x)=−7·sen(x)+5·cos(x)=f″(x)" },
+        { cycle: 4, expression: "f^{VII}(x)=−7·cos(x)−5·sen(x)=f‴(x)" }
+      ]
+    }
+  ];
+  return `
+    <div class="derivative-cycle-grid" role="img" aria-label="La función y sus siete primeras derivadas, distribuidas en dos columnas, muestran que las expresiones se repiten cada cuatro órdenes">
+      ${columns.map((column) => `
+        <section class="derivative-cycle-column">
+          <h4>${column.title}</h4>
+          ${column.entries.map((entry) => `<div class="derivative-cycle-row cycle-${entry.cycle}">${formatMathFragment(entry.expression)}</div>`).join("")}
+        </section>
+      `).join("")}
+    </div>
+  `;
+}
+
 function formatSolutionText(value) {
+  const officialSolutionImages = [];
   const signCharts = [];
   const reflectionDiagrams = [];
   const pointPlaneDiagrams = [];
@@ -1604,7 +1892,41 @@ function formatSolutionText(value) {
   const cramerWorks = [];
   const gaussWorks = [];
   const areaGraphs = [];
+  const areaEquations = [];
+  const derivativeCycles = [];
+  const proportionTables = [];
   const source = String(value || "Lee el enunciado, ordena los datos y comprueba la opcion elegida.")
+    .replace(/\[\[official-solution-image\s+src="([^"]+)"\s*\]\]/gi, (_, rawSource) => {
+      const imageIndex = officialSolutionImages.length;
+      officialSolutionImages.push(`
+        <figure class="pau-official-solution-figure">
+          <img src="${escapeHtml(rawSource)}" alt="Desarrollo matemático completo de la solución oficial">
+        </figure>
+      `);
+      return `@@OSI${imageIndex}@@`;
+    })
+    .replace(/\[\[proportion-table\s+headers="([^"]+)"\s+row1="([^"]+)"\s+row2="([^"]+)"\]\]/gi, (_, rawHeaders, rawRow1, rawRow2) => {
+      const rows = [rawHeaders, rawRow1, rawRow2].map((row) => row.split("|").map((cell) => cell.trim()));
+      if (rows.some((row) => row.length !== 3)) return _;
+      const tableIndex = proportionTables.length;
+      proportionTables.push(`
+        <div class="proportion-table-wrap">
+          <table class="proportion-table">
+            <thead><tr>${rows[0].map((cell) => `<th>${formatMathFragment(cell)}</th>`).join("")}</tr></thead>
+            <tbody>
+              <tr>${rows[1].map((cell) => `<td>${formatMathFragment(cell)}</td>`).join("")}</tr>
+              <tr>${rows[2].map((cell) => `<td>${formatMathFragment(cell)}</td>`).join("")}</tr>
+            </tbody>
+          </table>
+        </div>
+      `);
+      return `@@PT${tableIndex}@@`;
+    })
+    .replace(/\[\[derivative-cycle-2008\]\]/gi, () => {
+      const cycleIndex = derivativeCycles.length;
+      derivativeCycles.push(renderDerivativeCycle2008());
+      return `@@DC${cycleIndex}@@`;
+    })
     .replace(/\[\[area-graph-abs-parabola\]\]/gi, () => {
       const graphIndex = areaGraphs.length;
       areaGraphs.push(renderAbsParabolaAreaGraph());
@@ -1614,6 +1936,41 @@ function formatSolutionText(value) {
       const graphIndex = areaGraphs.length;
       areaGraphs.push(renderParabolaLineAreaGraph());
       return `@@AG${graphIndex}@@`;
+    })
+    .replace(/\[\[area-graph-reciprocal\]\]/gi, () => {
+      const graphIndex = areaGraphs.length;
+      areaGraphs.push(renderReciprocalAreaGraph());
+      return `@@AG${graphIndex}@@`;
+    })
+    .replace(/\[\[area-equation-abs-parabola\]\]/gi, () => {
+      const equationIndex = areaEquations.length;
+      areaEquations.push(renderAbsParabolaSymmetryEquation());
+      return `@@AE${equationIndex}@@`;
+    })
+    .replace(/\[\[area-equation-reciprocal\]\]/gi, () => {
+      const equationIndex = areaEquations.length;
+      areaEquations.push(renderReciprocalAreaIntegral());
+      return `@@AE${equationIndex}@@`;
+    })
+    .replace(/\[\[barrow-equation-reciprocal\]\]/gi, () => {
+      const equationIndex = areaEquations.length;
+      areaEquations.push(renderReciprocalBarrowEquation());
+      return `@@AE${equationIndex}@@`;
+    })
+    .replace(/\[\[area-equation-parabola-line\]\]/gi, () => {
+      const equationIndex = areaEquations.length;
+      areaEquations.push(renderParabolaLineAreaIntegral());
+      return `@@AE${equationIndex}@@`;
+    })
+    .replace(/\[\[barrow-equation-parabola\]\]/gi, () => {
+      const equationIndex = areaEquations.length;
+      areaEquations.push(renderParabolaBarrowEquation());
+      return `@@AE${equationIndex}@@`;
+    })
+    .replace(/\[\[barrow-equation-line\]\]/gi, () => {
+      const equationIndex = areaEquations.length;
+      areaEquations.push(renderLineBarrowEquation());
+      return `@@AE${equationIndex}@@`;
     })
     .replace(/\[\[point-plane-distance\s+plane="([^"]+)"\s+p="([^"]+)"\s+q="([^"]+)"\]\]/gi, (_, plane, pointP, pointQ) => {
       const diagramIndex = pointPlaneDiagrams.length;
@@ -1664,7 +2021,7 @@ function formatSolutionText(value) {
       return `@@SC${chartIndex}@@`;
     });
   let rendered = formatMathText(source)
-    .replace(/(Resolución|Desarrollo|Resultado final|Comprobación|Conclusión):<br>/g, '<span class="solution-section-title">$1</span><br>');
+    .replace(/(Resolución|Planteamiento|Desarrollo paso a paso|Desarrollo|Resultado final|Comprobación|Conclusión):<br>/g, '<span class="solution-section-title">$1</span><br>');
   signCharts.forEach((chart, index) => {
     rendered = rendered.replace(`@@SC${index}@@`, chart);
   });
@@ -1685,6 +2042,18 @@ function formatSolutionText(value) {
   });
   areaGraphs.forEach((graph, index) => {
     rendered = rendered.replace(`@@AG${index}@@`, graph);
+  });
+  areaEquations.forEach((equation, index) => {
+    rendered = rendered.replace(`@@AE${index}@@`, equation);
+  });
+  derivativeCycles.forEach((cycle, index) => {
+    rendered = rendered.replace(`@@DC${index}@@`, cycle);
+  });
+  proportionTables.forEach((table, index) => {
+    rendered = rendered.replace(`@@PT${index}@@`, table);
+  });
+  officialSolutionImages.forEach((figure, index) => {
+    rendered = rendered.replace(`@@OSI${index}@@`, figure);
   });
   return rendered;
 }
@@ -1718,6 +2087,13 @@ function didacticSolutionText(question) {
     ? `Resolución:\n1. El resultado correcto es ${correctOption}.`
     : "Resolución no disponible para este ejercicio.";
   if (!raw) return fallback;
+
+  // Los ejercicios PAU abiertos de Madrid ya llegan estructurados según la
+  // política didáctica. Se conservan tal cual para no duplicar el encabezado
+  // "Resolución" que aporta la propia interfaz.
+  if (/^Planteamiento:\s*[\s\S]*Desarrollo paso a paso:\s*[\s\S]*Resultado final:\s*[\s\S]*Comprobaci[oó]n:/i.test(raw)) {
+    return raw;
+  }
 
   const alreadyStructured = /(?:^|\n)\s*(?:paso\s*)?\d+[.)]/i.test(raw)
     || /resultado final|comprobaci[oó]n|conclusi[oó]n/i.test(raw);
@@ -1756,9 +2132,13 @@ function fitStudentScreen() {
   if (!shell || !viewport || !stage) return;
 
   stage.style.width = "100%";
+  if (window.innerWidth < 821 || window.innerHeight < 501) {
+    stage.style.transform = "none";
+    viewport.style.overflowY = "visible";
+    return;
+  }
   stage.style.transform = "translateX(-50%) scale(1)";
   viewport.style.overflowY = "hidden";
-  if (window.innerWidth < 821 || window.innerHeight < 501) return;
 
   if (shell.classList.contains("shell-scroll-if-needed")) {
     viewport.style.overflowY = stage.scrollHeight > viewport.clientHeight ? "auto" : "hidden";
@@ -1807,25 +2187,12 @@ function renderShell(content, compact = false) {
   const useCompactHeader = compact || fitScreen;
   app.innerHTML = `
     <main class="shell ${useCompactHeader ? "shell-compact" : ""} ${fitScreen ? "shell-student-fit" : ""}">
-      <header class="top-strip top-strip-centered ${useCompactHeader ? "top-strip-compact" : ""}">
-        <img class="corner-logo corner-logo-left" src="${CLM_LOGO_SRC}" alt="Castilla-La Mancha" />
-        <div class="brand-block">
-          <div class="brand-main">
-            <div class="site-title">
-              <span>IES Margarita Salas</span>
-              <small>Aula de retos, estudio y aventura</small>
-            </div>
-            <a class="logo-link school-logo-link" href="${SCHOOL_URL}" target="_blank" rel="noopener" title="Abrir web del IES Margarita Salas">
-              <img class="school-logo school-logo-base" src="${SCHOOL_LOGO_SRC}" alt="Logo IES Margarita Salas" />
-              <img class="school-logo school-logo-hover" src="${SCHOOL_LOGO_HOVER_SRC}" alt="" aria-hidden="true" />
-            </a>
-          </div>
-          <div class="math-word" aria-label="Matemáticas">
-            <span>MATEMÁTICAS</span>
-            <small>números · álgebra · geometría · funciones</small>
-          </div>
+      <header class="top-strip top-strip-centered mathup-header ${useCompactHeader ? "top-strip-compact" : ""}">
+        <div class="mathup-header-layout" aria-label="+MathUp · Aula de retos, estudio y aventuras">
+          <span class="mathup-crop mathup-crop-icon"><img src="${MATHUP_HEADER_SRC}" alt="" aria-hidden="true" /></span>
+          <span class="mathup-crop mathup-crop-wordmark"><img src="${MATHUP_HEADER_SRC}" alt="" aria-hidden="true" /></span>
+          <span class="mathup-crop mathup-crop-tagline"><img src="${MATHUP_HEADER_SRC}" alt="" aria-hidden="true" /></span>
         </div>
-        <img class="corner-logo corner-logo-right" src="${EU_LOGO_SRC}" alt="Union Europea Fondo Social Europeo" />
       </header>
       <div class="shell-stage-viewport"><div class="shell-stage">${content}</div></div>
     </main>
@@ -1833,7 +2200,7 @@ function renderShell(content, compact = false) {
   if (fitScreen) scheduleFitStudentScreen();
 }
 
-function renderLogin() {
+function renderLegacyLogin() {
   clearQuestionTimer();
   const yearOptions = ACADEMIC_YEARS
     .map((year) => `<option value="${year}" ${year === DEFAULT_ACADEMIC_YEAR ? "selected" : ""}>${year}</option>`)
@@ -1878,6 +2245,9 @@ function renderLogin() {
           <input id="password" type="password" placeholder="Contraseña" />
         </div>
         <button class="primary" onclick="login()">Entrar</button>
+        <button class="ghost public-auth-preview-entry" onclick="showPublicRegistrationPreview()">Vista previa del nuevo registro</button>
+        ${DEVELOPER_MODE ? `<button class="developer-entry-button" onclick="renderDeveloperLogin()">Acceso de desarrollo</button>` : ""}
+        <p class="public-auth-preview-note">No sustituye el acceso actual ni crea todavía una cuenta.</p>
         <p class="error" id="login-error"></p>
       </div>
     </section>
@@ -1947,6 +2317,7 @@ function login() {
     practiceRound: 0,
     topicChallengeLevel: "apprentice",
     blockKey: "",
+    pauCommunity: BACH_II_COURSE_IDS.includes(courseId) ? readBachPauCommunity(courseId, student) : "clm",
     trainingQuestionHistory: {},
     answered: false,
     sessionAnswers: []
@@ -1969,7 +2340,7 @@ function renderAdminLogin() {
           <input id="admin-password" type="password" placeholder="Contraseña" />
         </div>
         <button class="primary" onclick="adminLogin()">Entrar</button>
-        <button class="ghost" style="width:100%;margin-top:10px" onclick="renderLogin()">Volver</button>
+        <button class="ghost" style="width:100%;margin-top:10px" onclick="renderPublicAccess()">Volver</button>
         <p class="error" id="admin-error"></p>
       </div>
     </section>
@@ -1988,7 +2359,23 @@ function adminLogin() {
 
 function readGameProgressStore() {
   try {
-    return JSON.parse(localStorage.getItem(GAME_PROGRESS_KEY) || "{}");
+    const store = JSON.parse(localStorage.getItem(GAME_PROGRESS_KEY) || "{}");
+    const migration = window.MargaritaCcssIProgressMigration;
+    if (!migration?.migrateStore) return store;
+    const readStoredJson = (key, fallback) => {
+      try {
+        return JSON.parse(localStorage.getItem(key) || JSON.stringify(fallback));
+      } catch (_) {
+        return fallback;
+      }
+    };
+    const result = migration.migrateStore(store, {
+      challengeHistory: readStoredJson("margarita-challenge-answer-history-v2", {}),
+      coachStore: readStoredJson("margaritaSalasCoachV1", {}),
+      reports: readStoredJson(REPORT_KEY, [])
+    });
+    if (result.changed) localStorage.setItem(GAME_PROGRESS_KEY, JSON.stringify(result.store));
+    return result.store;
   } catch {
     return {};
   }
@@ -2000,6 +2387,9 @@ function saveGameProgressStore(store) {
 
 function defaultGameProgress() {
   return {
+    ...(state.courseId === "1bach-ccss"
+      ? { ccssITopicSchemaVersion: window.MargaritaCcssIProgressMigration?.TOPIC_SCHEMA_VERSION || 2 }
+      : {}),
     unlockedTopics: [0],
     completedTopics: [],
     defeatedBosses: [],
@@ -2340,6 +2730,60 @@ function renderAvatarCustomizer() {
   updateAvatarPreview();
 }
 
+function openAvatarCustomizerModal() {
+  document.getElementById("avatar-customizer-modal")?.remove();
+  const avatar = normalizeAvatar(getGameProgress().avatar);
+  const profile = avatarProfile(avatar.type);
+  document.body.insertAdjacentHTML("beforeend", `
+    <div class="avatar-modal-backdrop" id="avatar-customizer-modal" role="dialog" aria-modal="true" aria-labelledby="avatar-modal-title" onclick="if(event.target===this) closeAvatarCustomizerModal()">
+      <section class="screen-panel avatar-editor avatar-editor-modal">
+        <div class="workspace-head">
+          <div>
+            <h1 id="avatar-modal-title">Editar avatar</h1>
+            <div class="badge-row">
+              <span class="badge">${escapeHtml(state.student.name)}</span>
+              <span class="badge">${escapeHtml(courseById(state.courseId).name)}</span>
+            </div>
+          </div>
+          <button class="ghost" onclick="closeAvatarCustomizerModal()">Cerrar</button>
+        </div>
+        <div class="avatar-editor-grid">
+          <div class="avatar-preview-card">
+            <div id="avatar-live-preview">${renderAvatarFigure(avatar, true)}</div>
+            <h2 id="avatar-preview-name">${escapeHtml(avatar.name || "Mati")}</h2>
+            <p id="avatar-preview-summary">${avatarTypeLabel(avatar.type)} · ${avatarProfileValue(avatar.type, "styles", avatar.hairStyle)} · ${avatarProfileValue(avatar.type, "details", avatar.hairColor)} · ${avatarProfileValue(avatar.type, "outfits", avatar.outfit)}</p>
+          </div>
+          <div class="avatar-form ${avatar.type === "explorer" ? "avatar-is-explorer" : ""}" data-avatar-type="${escapeHtml(avatar.type)}">
+            <div class="field">
+              <label for="avatar-name">Nombre del avatar</label>
+              <input id="avatar-name" value="${escapeHtml(avatar.name || "Mati")}" maxlength="18" oninput="updateAvatarPreview()" />
+            </div>
+            <div class="avatar-options-grid">
+              ${avatarChoiceField("avatar-type", "avatar-type-label", "Personaje", avatarTypeOptions, avatar.type, "type", avatar)}
+              ${avatarChoiceField("avatar-color", "avatar-color-label", profile.colorLabel, profile.colors, avatar.color, "color", avatar)}
+              ${avatarChoiceField("avatar-hair-style", "avatar-style-label", profile.styleLabel, profile.styles, avatar.hairStyle, "style", avatar)}
+              ${avatarChoiceField("avatar-hair-color", "avatar-detail-label", profile.detailLabel, profile.details, avatar.hairColor, "detail", avatar)}
+              ${avatarChoiceField("avatar-outfit", "avatar-outfit-label", profile.outfitLabel, profile.outfits, avatar.outfit, "outfit", avatar)}
+              ${avatarChoiceField("avatar-skin-tone", "avatar-skin-label", "Tono de piel", avatarSkinToneOptions, avatar.skinTone, "skin", avatar, "avatar-explorer-only")}
+              ${avatarChoiceField("avatar-glasses", "avatar-glasses-label", "Gafas", avatarGlassesOptions, avatar.glasses, "glasses", avatar, "avatar-explorer-only")}
+              ${avatarChoiceField("avatar-mouth", "avatar-mouth-label", "Expresión", avatarMouthOptions, avatar.mouth, "mouth", avatar)}
+              ${avatarChoiceField("avatar-background", "avatar-background-label", "Escenario", avatarBackgroundOptions, avatar.background, "background", avatar)}
+            </div>
+            <p class="avatar-access-note">Todas las opciones están disponibles desde el principio.</p>
+            <button class="primary avatar-save-button" onclick="saveAvatarCustomization()">Guardar avatar</button>
+          </div>
+        </div>
+      </section>
+    </div>
+  `);
+  updateAvatarPreview();
+}
+
+function closeAvatarCustomizerModal() {
+  closeAvatarDropdowns();
+  document.getElementById("avatar-customizer-modal")?.remove();
+}
+
 function avatarFromCustomizerForm() {
   return {
     name: document.getElementById("avatar-name").value.trim() || "Mati",
@@ -2431,9 +2875,15 @@ function updateAvatarPreview() {
 }
 
 function saveAvatarCustomization() {
+  const openedFromChallenge = Boolean(document.getElementById("avatar-customizer-modal"));
   updateGameProgress((progress) => {
     progress.avatar = normalizeAvatar(avatarFromCustomizerForm());
   });
+  if (openedFromChallenge) {
+    closeAvatarCustomizerModal();
+    renderStudy();
+    return;
+  }
   renderAdventureMap();
 }
 
@@ -2761,6 +3211,7 @@ function renderAdventureMap() {
       </section>
     </section>
   `);
+  document.querySelector(".shell-student-fit")?.classList.add("shell-scroll-if-needed");
 }
 
 function renderAdventureZone(topicIndex) {
@@ -2988,9 +3439,17 @@ function startAdventureChallenge(topicIndex, mode, difficulty = "medium") {
   };
   state.topicIndex = topicIndex;
   state.practiceRound += mode === "boss" ? 2 : difficultyRound;
-  state.adventure.questions = mode === "train"
-    ? buildAdventureTrainingQuestions(theme, course, trainingDifficulty, state.practiceRound)
-    : buildQuestions(theme, course);
+  if (mode === "train") {
+    state.adventure.questions = buildAdventureTrainingQuestions(theme, course, trainingDifficulty, state.practiceRound);
+  } else {
+    const previousSelectionContext = state.exerciseSelectionContext;
+    state.exerciseSelectionContext = "boss";
+    try {
+      state.adventure.questions = buildQuestions(theme, course);
+    } finally {
+      state.exerciseSelectionContext = previousSelectionContext;
+    }
+  }
   renderAdventureQuestion();
 }
 
@@ -2999,7 +3458,13 @@ function currentAdventureQuestions() {
   if (adventure?.questions?.length) return adventure.questions;
   const course = courseById(state.courseId);
   const theme = course.themes[adventure.topicIndex];
-  return buildQuestions(theme, course);
+  const previousSelectionContext = state.exerciseSelectionContext;
+  state.exerciseSelectionContext = adventure.mode === "boss" ? "boss" : "adventure";
+  try {
+    return buildQuestions(theme, course);
+  } finally {
+    state.exerciseSelectionContext = previousSelectionContext;
+  }
 }
 
 function renderAdventureQuestion() {
@@ -3008,6 +3473,7 @@ function renderAdventureQuestion() {
   const theme = course.themes[adventure.topicIndex];
   const questions = currentAdventureQuestions();
   const question = questions[adventure.questionIndex];
+  markChallengeQuestionShown(question);
   const meta = adventureWorlds[course.id];
   const progress = Math.round((adventure.questionIndex / questions.length) * 100);
   const modeTitle = adventure.mode === "boss"
@@ -3041,6 +3507,23 @@ function renderAdventureQuestion() {
             <span id="adventure-avatar-message">¡Vamos a por ella!</span>
           </div>
           <p class="question-text">${formatMathText(question.text)}</p>
+          ${handwritingAnswerHtml(question, {
+            topicIndex: adventure.topicIndex,
+            topicLabel: theme,
+            questionIndex: adventure.questionIndex,
+            difficulty: adventure.difficulty || "boss",
+            mode: adventure.mode === "boss" ? "adventureBoss" : "adventureTraining",
+            resultChannel: "adventure",
+            statementHtml: `<p class="question-text">${formatMathText(question.text)}</p>`,
+            scoreState: {
+              score: adventure.score,
+              streak: adventure.streak,
+              energy: adventure.energy,
+              bossHp: adventure.bossHp,
+              progressIndex: adventure.questionIndex
+            },
+            attemptContext: { adventureMode: adventure.mode, difficulty: adventure.difficulty }
+          })}
           <div class="answers">
             ${question.options.map((option, index) => `
               <button class="answer-btn" id="answer-${index}" onclick="answerAdventureQuestion(${index})"><span class="answer-letter">${String.fromCharCode(65 + index)}</span><span class="answer-content">${formatMathText(option)}</span></button>
@@ -3067,6 +3550,7 @@ function answerAdventureQuestion(index) {
   const difficultyMultiplier = { easy: 1, medium: 1.2, hard: 1.5 }[adventure.difficulty] || 1;
   const energyLoss = { easy: 12, medium: 18, hard: 24 }[adventure.difficulty] || 18;
   adventure.answered = true;
+  markChallengeQuestionAnswered(question);
   adventure.answers.push({ question: question.text, correct: isCorrect, solution: question.solution || "" });
   adventure.score += isCorrect ? Math.round((120 + adventure.streak * 15) * difficultyMultiplier) : 0;
   adventure.streak = isCorrect ? adventure.streak + 1 : 0;
@@ -3140,9 +3624,11 @@ function renderAdventureResult() {
     if (passed) {
       item.xp += adventure.mode === "boss" ? 160 : 90;
       item.coins += adventure.mode === "boss" ? 35 : 18;
-      item.completedTopics.push(adventure.topicIndex);
-      item.unlockedTopics.push(nextTopic);
-      if (adventure.mode === "boss") item.defeatedBosses.push(adventure.topicIndex);
+      if (adventure.mode === "boss") {
+        item.completedTopics.push(adventure.topicIndex);
+        item.unlockedTopics.push(nextTopic);
+        item.defeatedBosses.push(adventure.topicIndex);
+      }
       if (correct === total) item.titles.push(`Maestro de ${theme}`);
     }
   });
@@ -3158,8 +3644,8 @@ function renderAdventureResult() {
         ${renderAvatarFigure({ ...progress.avatar, mouth: passed ? "surprised" : "sad" }, false, "reaction")}
         <span>${passed ? "¡Recompensa conseguida!" : "Volvemos a intentarlo cuando quieras."}</span>
       </div>
-      <h1 class="headline">${passed ? "Victoria de aventura" : "Intento registrado"}</h1>
-      <p class="subhead">${passed ? `Has superado ${theme}.` : `${adventureWorlds[course.id].guide} recomienda volver a estudiar ${theme} antes de repetir.`}</p>
+      <h1 class="headline">${passed ? (adventure.mode === "boss" ? "Victoria de aventura" : "Entrenamiento superado") : "Intento registrado"}</h1>
+      <p class="subhead">${passed ? (adventure.mode === "boss" ? `Has superado ${theme} y desbloqueado la siguiente zona.` : `Has completado el entrenamiento de ${theme}. Para desbloquear la siguiente zona debes derrotar al jefe.`) : `${adventureWorlds[course.id].guide} recomienda volver a estudiar ${theme} antes de repetir.`}</p>
       <div class="badge-row" style="justify-content:center">
         <span class="badge">Aciertos ${correct}/${total}</span>
         <span class="badge">Puntuación ${progress.xp}</span>
@@ -3217,7 +3703,7 @@ function renderStudentHome() {
           </div>
           <div class="dashboard-exit">
             <button class="ghost" onclick="renderStudentGateway()">Inicio principal</button>
-            <button class="ghost" onclick="renderLogin()">Salir</button>
+            <button class="ghost" onclick="publicLogout()">Salir</button>
           </div>
         </div>
         <div class="path-choice-grid">
@@ -3247,8 +3733,11 @@ function renderStudentHome() {
 function renderBachIIHome() {
   clearQuestionTimer();
   state.blockKey = "";
+  state.blockTopicIndexes = [];
   const course = courseById(state.courseId);
   const questionCount = questionsPerChallengeFor(course);
+  const examQuestionCount = course.id === "2bach-ccss" ? 4 : 5;
+  const communityName = BACH_II_PAU_COMMUNITIES[currentBachPauCommunity()];
   renderShell(`
     <section class="student-dashboard">
       <section class="screen-panel home-panel">
@@ -3259,10 +3748,11 @@ function renderBachIIHome() {
               <span class="badge">${escapeHtml(state.academicYear)}</span>
               <span class="badge">${escapeHtml(state.student.groupLabel || state.student.group)}</span>
               <span class="badge">${escapeHtml(state.student.name)}</span>
+              <span class="badge bach-pau-community-badge">PAU · ${escapeHtml(communityName)}</span>
             </div>
           </div>
           <div class="dashboard-exit">
-            <button class="ghost" onclick="renderLogin()">Salir</button>
+            <button class="ghost" onclick="publicLogout()">Salir</button>
           </div>
         </div>
         <div class="path-choice-grid bach-ii-home-grid">
@@ -3270,24 +3760,34 @@ function renderBachIIHome() {
             <span class="path-icon">Temas</span>
             <h2>Estudiar temas y hacer retos</h2>
             <p>Accede a las infografías y a los retos PAU organizados por cada tema del curso.</p>
-            <button class="primary" onclick="renderDashboard()">Entrar por temas</button>
+            <div class="bach-pau-card-actions">
+              ${bachPauCommunityControl()}
+              <button class="primary" onclick="renderDashboard()">Entrar por temas</button>
+            </div>
           </article>
           <article class="path-choice path-choice-adventure bach-home-blocks">
             <span class="path-icon">Bloques</span>
             <h2>Estudiar por bloques y hacer retos</h2>
             <p>Repasa los contenidos agrupados por bloques PAU, con ${questionCount} ejercicios por reto.</p>
-            <button class="secondary" onclick="renderBachBlockSelector()">Ver bloques</button>
+            <div class="bach-pau-card-actions">
+              ${bachPauCommunityControl()}
+              <button class="secondary" onclick="renderBachBlockSelector()">Ver bloques</button>
+            </div>
           </article>
           <article class="path-choice path-choice-exam bach-home-exam">
             <span class="path-icon">Examen</span>
             <h2>Hacer examen</h2>
-            <p>Realiza cinco ejercicios elegidos de los bancos corregidos y consulta después su resolución completa.</p>
-            <button class="secondary" onclick="startBachExam()">Comenzar examen</button>
+            <p>Realiza ${examQuestionCount} ejercicios elegidos de los bancos corregidos y consulta después su resolución completa.</p>
+            <div class="bach-pau-card-actions">
+              ${bachPauCommunityControl()}
+              <button class="secondary" onclick="startBachExam()">Comenzar examen</button>
+            </div>
           </article>
         </div>
       </section>
     </section>
   `);
+  document.querySelector(".shell-student-fit")?.classList.add("shell-scroll-if-needed");
 }
 
 function renderBachBlockSelector() {
@@ -3295,7 +3795,7 @@ function renderBachBlockSelector() {
   const course = courseById(state.courseId);
   const blocks = BACH_II_BLOCKS[course.id] || [];
   const cards = blocks.map((block) => {
-    const pending = course.id === "2bach-ccss" && !(window.CCSS_II_BLOCK_EXERCISES?.[block.id]?.length);
+    const pending = !(bachPauRawBanks(course.id)?.[block.id]?.length);
     return `
     <article class="path-choice path-choice-adventure block-choice-card ${escapeHtml(block.slot)}">
       <div>
@@ -3313,11 +3813,11 @@ function renderBachBlockSelector() {
         <div class="workspace-head">
           <div>
             <h1>Estudiar por bloques y hacer retos</h1>
-            <div class="badge-row"><span class="badge">${escapeHtml(courseDisplayName(course))}</span></div>
+            <div class="badge-row"><span class="badge">${escapeHtml(courseDisplayName(course))}</span><span class="badge">PAU · ${escapeHtml(BACH_II_PAU_COMMUNITIES[currentBachPauCommunity()])}</span></div>
           </div>
           <div class="dashboard-exit">
             <button class="ghost" onclick="renderBachIIHome()">Volver</button>
-            <button class="ghost" onclick="renderLogin()">Salir</button>
+            <button class="ghost" onclick="publicLogout()">Salir</button>
           </div>
         </div>
         <div class="topics-grid block-choice-grid">${cards}</div>
@@ -3330,7 +3830,7 @@ function renderBachBlockDashboard(blockId) {
   startBachBlockChallenge(blockId);
 }
 
-function startBachBlockChallenge(blockId) {
+function startBachBlockChallenge(blockId, selectedTopicIndexes = null) {
   clearQuestionTimer();
   const course = courseById(state.courseId);
   const block = (BACH_II_BLOCKS[course.id] || []).find((item) => item.id === blockId);
@@ -3338,8 +3838,21 @@ function startBachBlockChallenge(blockId) {
     renderBachBlockSelector();
     return;
   }
+  const requestedTopics = Array.isArray(selectedTopicIndexes) ? selectedTopicIndexes : block.topics;
+  const availability = window.MargaritaContentAvailability;
+  const partition = availability?.partition
+    ? availability.partition(course.id, requestedTopics, "examByBlocks")
+    : { valid: requestedTopics, excluded: [] };
+  if (partition.excluded.length) {
+    alert(availability.warning(course.id, partition.excluded, "examByBlocks"));
+  }
+  if (!partition.valid.length) {
+    renderBachBlockSelector();
+    return;
+  }
   state.blockKey = block.id;
-  state.topicIndex = block.topics[0] || 0;
+  state.blockTopicIndexes = partition.valid;
+  state.topicIndex = partition.valid[0];
   state.questionIndex = 0;
   state.score = 0;
   state.streak = 0;
@@ -3351,6 +3864,13 @@ function startBachBlockChallenge(blockId) {
   state.challengeRoundCache = {};
   state.timeLeft = questionSecondsFor(course);
   state.sessionAnswers = [];
+  if (course.id === "2bach-ccss") {
+    const preview = buildCcssIIBlockQuestions(block.id);
+    const requestedCount = questionsPerChallengeFor(course);
+    if (preview.length < requestedCount) {
+      alert(`Solo existen ${preview.length} ejercicios PAU CCSS II revisados y no repetidos para este filtro. Se mostrarán únicamente esos ejercicios, sin rellenar con otros temas ni con Matemáticas II.`);
+    }
+  }
   renderStudy();
 }
 
@@ -3408,7 +3928,7 @@ function renderDashboard() {
             ${eso ? `<button class="ghost" onclick="renderStudentGateway()">Inicio</button>` : ""}
             ${FIRST_BACH_COURSE_IDS.includes(course.id) ? `<button class="ghost" onclick="renderFirstBachGateway()">Inicio</button>` : ""}
             ${BACH_II_COURSE_IDS.includes(course.id) ? `<button class="ghost" onclick="renderBachIIHome()">Inicio</button>` : ""}
-            <button class="ghost" onclick="renderLogin()">Salir</button>
+            <button class="ghost" onclick="publicLogout()">Salir</button>
           </div>
         </div>
         <div class="stat-row">
@@ -3500,6 +4020,95 @@ function repeatTopic() {
   renderStudy();
 }
 
+function officialExerciseSource(question) {
+  const explicitSource = String(question?.source || "").trim();
+  if (explicitSource) return explicitSource;
+  const firstLine = String(question?.text || "").split(/\r?\n/)[0].trim();
+  return /\b(?:19|20)\d{2}\b/.test(firstLine)
+    && /\b(?:junio|julio|septiembre|reserva\s*\d*)\b/i.test(firstLine)
+    ? firstLine
+    : "";
+}
+
+function hasOfficialConvocation(question) {
+  const source = officialExerciseSource(question);
+  const hasYear = /\b(?:19|20)\d{2}\b/.test(source);
+  if ((question?.community === "madrid" || currentBachPauCommunity() === "madrid") && hasYear) return true;
+  return hasYear
+    && /\b(?:junio|julio|septiembre|reserva\s*\d*|modelo|ordinaria(?:-coincidente)?|extraordinaria(?:-coincidente)?)\b/i.test(source);
+}
+
+function officialConvocationLabel(question) {
+  const source = officialExerciseSource(question);
+  if (!source) return "";
+  const year = source.match(/\b((?:19|20)\d{2})\b/)?.[1] || "";
+  const session = source.match(/\b(junio|julio|septiembre|reserva\s*\d*|modelo|ordinaria(?:-coincidente)?|extraordinaria(?:-coincidente)?)\b/i)?.[1] || "";
+  if (!year) return source;
+  if (question?.community === "madrid" || currentBachPauCommunity() === "madrid") {
+    const sessionLabel = session ? session.charAt(0).toUpperCase() + session.slice(1).toLowerCase() : "";
+    return ["Problema", sessionLabel, year].filter(Boolean).join(" · ");
+  }
+  if (!session) return source;
+  const sessionLabel = session.charAt(0).toUpperCase() + session.slice(1).toLowerCase();
+  return `${sessionLabel} ${year}`;
+}
+
+function renderOfficialSourceCallout(question, courseId = state.courseId) {
+  if (!BACH_II_COURSE_IDS.includes(courseId)) return "";
+  const label = officialConvocationLabel(question);
+  const sourceCourse = String(question?.sourceCourseLabel || "").trim();
+  const origin = sourceCourse ? `${sourceCourse} · ` : "";
+  if (!label) return "";
+  return question?.community === "madrid" || currentBachPauCommunity() === "madrid"
+    ? `<div class="official-source">${escapeHtml(label)}</div>`
+    : `<div class="official-source">Enunciado original · ${escapeHtml(origin)}Convocatoria: ${escapeHtml(label)}</div>`;
+}
+
+function renderPauReferenceTable(question) {
+  const table = String(question?.referenceTable || "").toLowerCase();
+  if (table !== "binomial" && table !== "normal") return "";
+  const page = table === "binomial" ? 1 : 2;
+  const label = table === "binomial" ? "Tabla de la distribución binomial" : "Tabla de la distribución normal";
+  const source = `documentos/PAU Comunidades/MADRID/Tablas de la distribución binomial y normal.pdf#page=${page}&view=FitH`;
+  return `
+    <details class="pau-reference-table">
+      <summary>Consultar ${escapeHtml(label.toLowerCase())}</summary>
+      <div class="pau-reference-table-frame">
+        <object data="${encodeURI(source)}" type="application/pdf" aria-label="${escapeHtml(label)}">
+          <a href="${encodeURI(source)}" target="_blank" rel="noopener">Abrir ${escapeHtml(label.toLowerCase())}</a>
+        </object>
+      </div>
+    </details>
+  `;
+}
+
+window.renderPauReferenceTable = renderPauReferenceTable;
+
+function officialQuestionStatementHtml(question, courseId = state.courseId) {
+  if (!BACH_II_COURSE_IDS.includes(courseId)) {
+    const preserveTrigNotation = Boolean(officialExerciseSource(question));
+    return question.statementHtml
+      ? formatMathHtml(question.statementHtml, { preserveTrigNotation })
+      : formatMathText(question.text, { preserveTrigNotation });
+  }
+  if (question.statementHtml) {
+    const statement = String(question.statementHtml).replace(/^\s*<div class="official-source">[\s\S]*?<\/div>\s*/i, "");
+    // Official matrix cells can contain typographic tags such as <i>. Those
+    // tags split [[...]] across several text nodes, so the HTML renderer can
+    // no longer see a complete matrix. Render the equivalent plain source in
+    // those cases; the stored corpus and its mathematical meaning stay intact.
+    if (statement.includes("[[") && question.text) {
+      return formatMathText(question.text, { preserveTrigNotation: true });
+    }
+    return formatMathHtml(statement, { preserveTrigNotation: true });
+  }
+  const source = officialExerciseSource(question);
+  const text = source && !question.source && String(question.text || "").split(/\r?\n/)[0].trim() === source
+    ? String(question.text || "").split(/\r?\n/).slice(1).join("\n").trim()
+    : question.text;
+  return formatMathText(text, { preserveTrigNotation: true });
+}
+
 function renderStudy() {
   const course = courseById(state.courseId);
   const eso = isEsoCourse(course);
@@ -3516,9 +4125,20 @@ function renderStudy() {
   const questions = buildQuestions(theme, course);
   const question = questions[state.questionIndex];
   if (!question) {
-    renderBachBlockSelector();
+    renderShell(`
+      <section class="student-dashboard">
+        <section class="screen-panel empty-topic-bank">
+          <span class="topic-kicker">Banco del tema agotado o no disponible</span>
+          <h1>${escapeHtml(theme)}</h1>
+          <p>No existen ahora suficientes ejercicios válidos, no repetidos y correctamente clasificados para este tema.</p>
+          <p>No se ha utilizado ningún ejercicio de otro tema para completar el reto.</p>
+          <button class="primary" onclick="renderDashboard()">Volver a los temas</button>
+        </section>
+      </section>
+    `);
     return;
   }
+  markChallengeQuestionShown(question);
   const progress = Math.round((state.questionIndex / questions.length) * 100);
   const questionSeconds = questionSecondsFor(course);
   const minutesPerQuestion = Math.round(questionSeconds / 60);
@@ -3529,14 +4149,26 @@ function renderStudy() {
   const esoInfo = esoTopicInfo(course, state.topicIndex);
   const bookStatus = topicBookStatus(course, state.topicIndex);
   const resourcePreviewUrl = resource.type === "pdf" && !resource.error ? resourceUrl(resource, theme) : "";
+  const challengeAvatar = getGameProgress().avatar || defaultGameProgress().avatar;
+  const challengeStudentName = state.student?.name || "Alumno";
   const isOpenPauQuestion = question.type === "pau-open";
   const isPauWithoutOptions = isOpenPauQuestion && !question.options?.length;
   const isMultipartQuestion = Array.isArray(question.parts) && question.parts.length > 0;
+  const officialSourceHtml = renderOfficialSourceCallout(question, course.id);
+  const displayedStatementHtml = officialQuestionStatementHtml(question, course.id);
+  const referenceTableHtml = renderPauReferenceTable(question);
   const answersHtml = isMultipartQuestion ? `
     <div class="multipart-exercise-options">
       ${question.parts.map((part, partIndex) => `
         <section class="exercise-part" id="exercise-part-${partIndex}">
-          <div class="exercise-part-heading"><strong>${escapeHtml(part.label)}</strong><div class="exercise-part-prompt">${part.html || formatMathText(part.text)}</div></div>
+          <div class="exercise-part-heading"><strong>${escapeHtml(part.label)}</strong><div class="exercise-part-prompt">${part.html ? formatMathHtml(part.html, { preserveTrigNotation: Boolean(officialExerciseSource(question)) }) : formatMathText(part.text, { preserveTrigNotation: Boolean(officialExerciseSource(question)) })}</div></div>
+          ${handwritingAnswerHtml(question, {
+            answerSource: part,
+            partId: part.id || part.label || partIndex,
+            mode: activeBlock ? "blockChallenge" : "topicChallenge",
+            resultChannel: "challengePart",
+            statementHtml: `${officialSourceHtml}<div class="question-text official-exercise-statement">${displayedStatementHtml}</div>${referenceTableHtml}<div class="exercise-part-heading"><strong>${escapeHtml(part.label)}</strong><div class="exercise-part-prompt">${part.html ? formatMathHtml(part.html, { preserveTrigNotation: Boolean(officialExerciseSource(question)) }) : formatMathText(part.text, { preserveTrigNotation: Boolean(officialExerciseSource(question)) })}</div></div>`
+          })}
           <div class="answers compact-part-answers">
             ${part.options.map((option, optionIndex) => `
               <button class="answer-btn" id="part-${partIndex}-answer-${optionIndex}" onclick="answerMultipartPart(${partIndex},${optionIndex})"><span class="answer-letter">${String.fromCharCode(65 + optionIndex)}</span><span class="answer-content">${formatMathText(option)}</span></button>
@@ -3550,7 +4182,7 @@ function renderStudy() {
     <button class="primary" id="next-btn" style="display:none" onclick="nextQuestion()">Siguiente ejercicio</button>
   ` : isPauWithoutOptions ? `
     <div class="pau-open-actions">
-      <button class="secondary" id="help-btn" onclick="showSolutionHelp()">Ver ayuda paso a paso</button>
+      <button class="secondary" id="help-btn" onclick="showSolutionHelp()">Ver resolución paso a paso</button>
       <button class="primary" id="next-btn" onclick="completeOpenPauQuestion()">Marcar como trabajado</button>
     </div>
   ` : `
@@ -3626,53 +4258,81 @@ function renderStudy() {
   `;
 
   renderShell(`
-    <section class="app-grid">
-      <aside class="screen-panel">
+    <section class="app-grid ${activeBlock ? "block-challenge-layout" : "topic-challenge-layout"}">
+      <aside class="screen-panel challenge-sidebar">
         <button class="ghost" onclick="${backToTopicsAction}">${activeBlock ? "Volver a bloques" : "Volver a temas"}</button>
-        <h2 class="sidebar-title" style="margin-top:18px">${escapeHtml(theme)}</h2>
-        <div class="small">${escapeHtml(courseDisplayName(course))}</div>
-        ${eso ? `<div class="challenge-level-badge challenge-level-${state.topicChallengeLevel}">Nivel ${challengeLevel}</div>` : ""}
-        <div class="stat-row">
-          <span class="stat">Puntos: ${state.score}</span>
-          <span class="stat">Racha: ${state.streak}</span>
-          <span class="stat">${state.questionIndex + 1}/${questions.length}</span>
-          <span class="stat timer-stat" id="timer">${formatTimer(questionSeconds)}</span>
-        </div>
-        <div class="progress"><span style="width:${progress}%"></span></div>
-        <div class="sidebar-actions">
-          <button class="secondary" onclick="showTopicExplanation()">Leer explicación del tema</button>
-          <button class="secondary" id="speak-summary-btn" onclick="openTopicPodcastSelector()">Escuchar explicación</button>
-        </div>
-        <div class="resource-note" id="resource-note"></div>
-      </aside>
-      <section class="study-layout challenge-only">
-        <div class="screen-panel explain-panel lesson-modal" id="lesson-modal">
-          <h2>Tema elegido</h2>
-          <div class="topic-summary-card">
-            <span class="topic-kicker">${escapeHtml(courseDisplayName(course))}</span>
-            <h3>${escapeHtml(theme)}</h3>
-            <p>${escapeHtml(explanation.summary)}</p>
-          </div>
-          <div class="book-content-panel" id="book-content-panel">
-            <div class="book-content-head">
-              <strong>Contenido del libro</strong>
-              <button class="ghost compact-btn" onclick="openTopicResource()">Abrir documento original</button>
+        <section class="challenge-student-card" aria-label="Datos del alumno y del curso">
+          <div class="challenge-student-top">
+            <div class="challenge-course-summary">
+              <small>Curso</small>
+              <strong>${escapeHtml(courseDisplayName(course))}</strong>
             </div>
-            ${bookContentHtml}
+            <div class="challenge-student-identity">
+              <div class="challenge-student-avatar">${renderAvatarFigure(challengeAvatar, false, "portrait")}</div>
+              <strong>${escapeHtml(challengeStudentName)}</strong>
+              <button class="challenge-edit-avatar" onclick="openAvatarCustomizerModal()">Editar avatar</button>
+            </div>
           </div>
-          <div class="topic-explanation-detail" id="topic-explanation-detail" data-infographic="${infographicUrl ? "true" : "false"}">
-            ${explanationDetailHtml}
+          <div class="challenge-score-row">
+            <span><small>Puntuación</small><strong>${state.score}</strong></span>
+            <span><small>Racha</small><strong>${state.streak}</strong></span>
+            <span><small>Progreso</small><strong>${state.questionIndex + 1}/${questions.length}</strong></span>
           </div>
+        </section>
+        <div class="progress challenge-sidebar-progress" aria-label="Progreso del reto">
+          <span style="width:${progress}%"></span>
         </div>
+        ${activeBlock ? "" : `
+          <div class="sidebar-actions">
+            <button class="secondary" onclick="showTopicExplanation()">Leer explicación del tema</button>
+            ${topicPodcastControlsHtml(course)}
+          </div>
+          <div class="resource-note" id="resource-note"></div>
+        `}
+      </aside>
+      <section class="study-layout challenge-only challenge-workspace">
+        ${activeBlock ? "" : `
+          <div class="screen-panel explain-panel lesson-modal" id="lesson-modal">
+            <h2>Tema elegido</h2>
+            <div class="topic-summary-card">
+              <span class="topic-kicker">${escapeHtml(courseDisplayName(course))}</span>
+              <h3>${escapeHtml(theme)}</h3>
+              <p>${escapeHtml(explanation.summary)}</p>
+            </div>
+            <div class="book-content-panel" id="book-content-panel">
+              <div class="book-content-head">
+                <strong>Contenido del libro</strong>
+                <button class="ghost compact-btn" onclick="openTopicResource()">Abrir documento original</button>
+              </div>
+              ${bookContentHtml}
+            </div>
+            <div class="topic-explanation-detail" id="topic-explanation-detail" data-infographic="${infographicUrl ? "true" : "false"}">
+              ${explanationDetailHtml}
+            </div>
+          </div>
+        `}
         <div class="screen-panel game-panel">
-          <h2>${activeBlock ? "Reto del bloque" : "Reto del tema"}${eso ? ` · ${challengeLevel}` : ""}</h2>
+          <div class="challenge-titlebar">
+            <h2>
+              <span>${activeBlock ? "Reto del bloque" : "Reto del tema"}</span>
+              <span class="challenge-title-topic">· ${escapeHtml(theme)}</span>
+              ${eso ? `<span class="challenge-title-level">· ${challengeLevel}</span>` : ""}
+            </h2>
+            <span class="stat timer-stat challenge-header-timer" id="timer">${formatTimer(questionSeconds)}</span>
+          </div>
           <p class="challenge-intro">${questions.length} preguntas ${activeBlock ? "del bloque seleccionado" : "del tema seleccionado"}.${eso ? ` Nivel ${challengeLevel}: ${state.topicChallengeLevel === "master" ? "ejercicios avanzados, cercanos al curso siguiente" : "ejercicios del curso ordenados de menor a mayor dificultad"}.` : ""} Tienes ${minutesPerQuestion} minutos por pregunta y solución paso a paso si la necesitas.</p>
           <div class="question-box">
             <div class="question-meta">
               <span>Pregunta ${state.questionIndex + 1} de ${questions.length}</span>
-              <span>${escapeHtml(theme)}</span>
             </div>
-            <div class="question-text ${isOpenPauQuestion ? "pau-open-statement" : ""} ${isMultipartQuestion ? "official-exercise-statement" : ""}">${question.statementHtml || formatMathText(question.text)}</div>
+            ${officialSourceHtml}
+            <div class="question-text ${isOpenPauQuestion ? "pau-open-statement" : ""} ${isMultipartQuestion ? "official-exercise-statement" : ""}">${displayedStatementHtml}</div>
+            ${referenceTableHtml}
+            ${!isPauWithoutOptions && !isMultipartQuestion ? handwritingAnswerHtml(question, {
+              mode: activeBlock ? "blockChallenge" : "topicChallenge",
+              resultChannel: "challenge",
+              statementHtml: `${officialSourceHtml}<div class="question-text ${isOpenPauQuestion ? "pau-open-statement" : ""}">${displayedStatementHtml}</div>${referenceTableHtml}`
+            }) : ""}
             ${answersHtml}
             <div class="solution-help" id="solution-help"></div>
             <div class="feedback" id="feedback"></div>
@@ -3829,7 +4489,7 @@ function topicExplanation(theme, course) {
         { title: "Variables", body: "Define qué representa cada incógnita y añade condiciones como x>=0, y>=0 si son cantidades reales." },
         { title: "Restricciones", body: "Convierte cada condición del enunciado en una inecuación lineal." },
         { title: "Región", body: "Dibuja las rectas frontera y conserva el semiplano que cumple cada restricción." },
-        { title: "Ã“ptimo", body: "Evalúa la función objetivo en los vértices de la región factible." }
+        { title: "Óptimo", body: "Evalúa la función objetivo en los vértices de la región factible." }
       ],
       "Antes de responder, comprueba que el punto elegido cumple todas las restricciones, no solo una."
     );
@@ -3846,7 +4506,7 @@ function topicExplanation(theme, course) {
         { title: "Repetición", body: "Decide si un elemento puede aparecer más de una vez." },
         { title: "Factorial", body: "Recuerda que n! multiplica n por todos los enteros positivos anteriores." }
       ],
-      "La pregunta más importante es: Â¿AB y BA cuentan como lo mismo o como casos distintos?"
+      "La pregunta más importante es: ¿AB y BA cuentan como lo mismo o como casos distintos?"
     );
   }
 
@@ -3927,7 +4587,7 @@ function topicExplanation(theme, course) {
 
   if (lower.includes("ecuacion") || lower.includes("sistema") || lower.includes("inecuacion") || lower.includes("algebra") || lower.includes("polinomio")) {
     return make(
-      "Ãlgebra: transformar sin perder equivalencia",
+      "Álgebra: transformar sin perder equivalencia",
       "El álgebra permite resolver incógnitas, trabajar con expresiones, polinomios, ecuaciones, sistemas e inecuaciones. Lo importante es operar igual en ambos lados y controlar los signos.",
       "Este contenido aparece de forma progresiva desde ESO hasta Bachillerato, aumentando la dificultad de los métodos.",
       [
@@ -4052,7 +4712,11 @@ function presentationCards(theme) {
 }
 
 function questionHasCoherentOptions(question) {
-  if (!question.options?.length) return false;
+  if (!question.options?.length) {
+    return Array.isArray(question.parts)
+      && question.parts.length > 0
+      && question.parts.every((part) => questionHasCoherentOptions(part));
+  }
 
   const text = normalizeMathNotation(question.text).replace(/\s+/g, " ").trim();
   const options = question.options.map((option) => normalizeMathNotation(option).replace(/\s+/g, " ").trim());
@@ -4064,7 +4728,7 @@ function questionHasCoherentOptions(question) {
   if (options.some((option) => !option || genericResponse.test(option))) return false;
   if (solutionIsInstructionOnly(question.solution)) return false;
 
-  const sameBasePower = /simplifica/i.test(text)
+  const sameBasePower = !/[√]/.test(text) && /simplifica/i.test(text)
     && (/([A-Za-z0-9]+)\^[-\d()]+\s*[·x×:*÷/]\s*\1\^/i.test(text)
       || /\([^)]*\^[-\d()]+\)\^[-\d()]+/.test(text));
   if (sameBasePower) {
@@ -4076,8 +4740,6 @@ function questionHasCoherentOptions(question) {
     if (options.some((option) => !/\bX\s*=/.test(option) || !/\bY\s*=/.test(option) || !/\[\[/.test(option))) return false;
   }
 
-  const correctOption = options[question.correct];
-  if (/\[\[/.test(correctOption) && options.some((option) => !/\[\[/.test(option))) return false;
   return true;
 }
 
@@ -4088,38 +4750,274 @@ function solutionIsInstructionOnly(solution) {
     && !/resultado final|respuesta correcta|conclusi[oó]n/i.test(text);
 }
 
-function buildAdventureTrainingQuestions(theme, course, difficulty, roundSeed) {
+function stableExerciseHash(value) {
+  let hash = 2166136261;
+  String(value || "").split("").forEach((character) => {
+    hash ^= character.charCodeAt(0);
+    hash = Math.imul(hash, 16777619);
+  });
+  return (hash >>> 0).toString(36);
+}
+
+function exerciseVisibleText(question) {
+  return normalizeDisplayText([
+    question?.text || "",
+    question?.statementHtml || "",
+    ...(question?.parts || []).map((part) => `${part?.label || ""} ${part?.text || part?.html || ""}`)
+  ].join(" "))
+    .replace(/<[^>]+>/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+function exerciseStructureText(question) {
+  return exerciseVisibleText(question)
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/-?\d+(?:[.,]\d+)?/g, "#")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+function topicMetadata(course, topicIndex) {
+  const safeIndex = Number.isInteger(topicIndex) ? topicIndex : -1;
+  return {
+    courseId: course?.id || "",
+    topicId: safeIndex >= 0 ? semanticTopicId(course, safeIndex) : "",
+    topicIndex: safeIndex,
+    topicName: safeIndex >= 0 ? course?.themes?.[safeIndex] || "" : ""
+  };
+}
+
+function decorateExerciseForTopic(question, course, topicIndex, sourceType = "bank", historyScopeKey = "") {
+  if (!question || !course || !Number.isInteger(topicIndex) || !course.themes?.[topicIndex]) return null;
+  const metadata = topicMetadata(course, topicIndex);
+  const visibleText = exerciseVisibleText(question);
+  if (!visibleText) return null;
+  const originalIdentity = question.exerciseId || question.rawBaseId || question.id || "";
+  const exerciseId = String(originalIdentity || `${metadata.topicId}:exercise-${stableExerciseHash(visibleText)}`);
+  const official = BACH_II_COURSE_IDS.includes(course.id) || /^pau|official/i.test(String(sourceType));
+  const templateBasis = official
+    ? exerciseId
+    : exerciseStructureText(question) || visibleText;
+  const templateId = String(question.templateId || `${metadata.topicId}:template-${stableExerciseHash(templateBasis)}`);
+  return {
+    ...question,
+    ...metadata,
+    exerciseId,
+    templateId,
+    sourceType: question.sourceType || sourceType,
+    _historyScopeKey: historyScopeKey || question._historyScopeKey || sharedTopicHistoryScope(course, topicIndex),
+    _historyIdentity: question._historyIdentity || `exercise:${exerciseId}`
+  };
+}
+
+function exerciseMatchesTopic(question, courseId, topicIndex) {
+  const course = courseById(courseId);
+  return Boolean(question
+    && question.courseId === courseId
+    && question.topicId === semanticTopicId(course, topicIndex)
+    && question.topicIndex === topicIndex);
+}
+
+function exerciseContentMatchesTopic(question, courseId, topicIndex) {
+  const course = courseById(courseId);
+  const expectedTopicId = semanticTopicId(course, topicIndex);
+  const declaredCourseId = question?.courseId || question?.course || "";
+  const declaredTopicIndex = Number.isInteger(question?.topicIndex) ? question.topicIndex : null;
+  const declaredTopicId = question?.topicId || question?.declaredTopicId || "";
+  if (declaredCourseId && declaredCourseId !== courseId) return false;
+  if (declaredTopicIndex !== null && declaredTopicIndex !== topicIndex) return false;
+  if (declaredTopicId && ![expectedTopicId, `${courseId}:topic-${topicIndex}`].includes(declaredTopicId)) return false;
+
+  const rawId = String(question?.rawBaseId || question?.exerciseId || question?.id || "");
+  const idCourse = rawId.match(/^(1eso|2eso|3eso|4eso-a|4eso-b)-/)?.[1];
+  if (idCourse && idCourse !== courseId) return false;
+
+  const statement = `${question?.text || ""} ${question?.statementHtml || ""}`
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/<[^>]+>/g, " ")
+    .toLowerCase();
+  if (!statement.trim()) return false;
+
+  if (isEsoCourse(course)) {
+    const topicSlug = expectedTopicId.split(":").slice(1).join(":");
+    const asksStandaloneAlgebra = /\bresuelve\b[^.]{0,100}\b(?:el\s+)?(?:sistema|ecuacion)\b/.test(statement);
+    const hasGeometryContext = /triang|recta|angulo|polig|circunfer|area|perimetr|volumen|prisma|piramide|cono|cilindro|esfera|semejan|pitagor|vector|punto|coordenad/.test(statement);
+    const geometryTopic = /figuras|geometric|semejanza|trigonometria|areas|geometria-analitica/.test(topicSlug);
+    if (geometryTopic && asksStandaloneAlgebra && !hasGeometryContext) return false;
+    if (courseId === "4eso-a" && topicIndex === 4 && /plantea[^.]{0,80}\bsistema\b|\bdos\s+incognitas\b/.test(statement)) return false;
+    if (topicSlug === "estadistica" && /bayes|laplace|espacio muestral|suceso/.test(statement)) return false;
+    if (topicSlug === "probabilidad" && /media aritmetica|mediana|moda|desviacion tipica|tabla de frecuencias/.test(statement)) return false;
+    if (/limite-funciones/.test(topicSlug) && /limite de (?:la )?sucesion|a_n|aₙ/.test(statement)) return false;
+    if (/limite-sucesiones/.test(topicSlug) && /limite de (?:la )?funcion|f\s*\(\s*x\s*\)/.test(statement)) return false;
+    if (courseId === "2eso" && topicIndex === 8) {
+      const exceedsSecondEsoFunctions = /funcion inversa|composicion de funciones|f\s*[o∘]\s*g|g\s*[o∘]\s*f|\bderivad|dominio[^.]{0,100}(?:raiz|sqrt|√)/.test(statement);
+      if (exceedsSecondEsoFunctions) return false;
+    }
+  }
+
+  if (courseId !== "1bach-ccss") return true;
+  if (topicIndex === 0) {
+    return !/\bbinomial\b|x\s*~?\s*b\s*\(|distribucion normal|normal tipica|x\s*~?\s*n\s*\(|tipific|intervalo de confianza|estimacion|error tipico/.test(statement);
+  }
+  if (topicIndex === 2) {
+    return !/distribucion normal|normal tipica|x\s*~?\s*n\s*\(|tipific|intervalo de confianza|estimacion|error tipico/.test(statement);
+  }
+  if (topicIndex === 3) {
+    return !/\bbinomial\b|x\s*~?\s*b\s*\(|intervalo de confianza|estimacion|error tipico/.test(statement);
+  }
+  if (topicIndex === 7) {
+    return /inecuaci|[<>≤≥]/.test(statement);
+  }
+  return true;
+}
+
+function stableTopicHistoryId(course, topicIndex) {
+  if (isEsoCourse(course)) return semanticTopicId(course, topicIndex).split(":").slice(1).join(":");
+  if (course?.id === "1bach-ccss") {
+    if (topicIndex === 9) return "derivadas";
+    if (topicIndex === 10) return "aplicacion-derivadas";
+    // Combinatoria era el tema 9 (índice 9). Conservamos su clave histórica
+    // aunque visualmente pase a ser el tema 12.
+    if (topicIndex === 11) return "9";
+  }
+  return String(topicIndex);
+}
+
+function sharedTopicHistoryScope(course, topicIndex) {
+  return `${course.id}|topic-${stableTopicHistoryId(course, topicIndex)}|todos-los-modos`;
+}
+
+function topicHistoryScope(course, topicIndex, mode = "topicPractice", detail = "") {
+  const normalizedMode = ["topicPractice", "adventure", "coach", "exam", "boss"].includes(mode) ? mode : "topicPractice";
+  const suffix = detail ? `|${detail}` : "";
+  return `${course.id}|topic-${stableTopicHistoryId(course, topicIndex)}|modo-${normalizedMode}${suffix}`;
+}
+
+function currentExerciseHistoryMode() {
+  return ["adventure", "coach", "exam", "boss"].includes(state.exerciseSelectionContext)
+    ? state.exerciseSelectionContext
+    : "topicPractice";
+}
+
+function strictTopicSelection({ course, topicIndex, questions, count, sourceType = "bank", scopeKey = "", historyMode = "", historyDetail = "", roundToken = state.practiceRound }) {
+  if (!course || !Number.isInteger(topicIndex) || !course.themes?.[topicIndex] || count <= 0) return [];
+  const scope = scopeKey || topicHistoryScope(course, topicIndex, historyMode || currentExerciseHistoryMode(), historyDetail);
+  const decorated = (questions || [])
+    .filter((question) => exerciseContentMatchesTopic(question, course.id, topicIndex))
+    .map((question) => decorateExerciseForTopic(question, course, topicIndex, sourceType, scope))
+    .filter((question) => exerciseMatchesTopic(question, course.id, topicIndex))
+    .filter((question) => question?.type === "pau-open" || questionHasCoherentOptions(question));
+  return selectNoRepeatQuestionRound(
+    decorated,
+    count,
+    scope,
+    roundToken
+  );
+}
+
+function availableTopicQuestions({ course, topicIndex, questions, sourceType = "bank", scopeKey = "", historyMode = "coach", historyDetail = "" }) {
+  if (!course || !Number.isInteger(topicIndex) || !course.themes?.[topicIndex]) return [];
+  const scope = scopeKey || topicHistoryScope(course, topicIndex, historyMode, historyDetail);
+  const unique = [];
+  const identities = new Set();
+  (questions || [])
+    .filter((question) => exerciseContentMatchesTopic(question, course.id, topicIndex))
+    .map((question) => decorateExerciseForTopic(question, course, topicIndex, sourceType, scope))
+    .filter((question) => exerciseMatchesTopic(question, course.id, topicIndex))
+    .filter(questionHasCoherentOptions)
+    .forEach((question) => {
+      const identity = challengeHistoryIdentity(question);
+      if (!identity || identities.has(identity)) return;
+      identities.add(identity);
+      unique.push(question);
+    });
+  const history = new Set([
+    ...(state.challengeQuestionHistory?.[scope] || []),
+    ...readChallengeAnswerHistory(scope)
+  ]);
+  const available = unique.filter((question) => !history.has(challengeHistoryIdentity(question)));
+  if (available.length) return available;
+  if (!unique.length) return [];
+  const lastIdentity = [...history].at(-1);
+  const nextCycle = unique.filter((question) => challengeHistoryIdentity(question) !== lastIdentity);
+  state.challengeQuestionHistory = state.challengeQuestionHistory || {};
+  state.challengeQuestionHistory[scope] = lastIdentity ? [lastIdentity] : [];
+  writeChallengeAnswerHistory(scope, state.challengeQuestionHistory[scope]);
+  return nextCycle.length ? nextCycle : unique;
+}
+
+function distributeBalancedTopicQuestions(poolsByTopic, selectedTopicIndexes, count) {
+  const selected = [...new Set(selectedTopicIndexes || [])].filter(Number.isInteger);
+  if (!selected.length || count <= 0) return [];
+  const queues = new Map(selected.map((topicIndex) => [topicIndex, [...(poolsByTopic.get(topicIndex) || [])]]));
+  const used = new Map(selected.map((topicIndex) => [topicIndex, 0]));
+  const result = [];
+  while (result.length < count) {
+    const availableTopics = selected.filter((topicIndex) => queues.get(topicIndex)?.length);
+    if (!availableTopics.length) break;
+    availableTopics.sort((left, right) => (used.get(left) || 0) - (used.get(right) || 0));
+    const topicIndex = availableTopics[0];
+    const question = queues.get(topicIndex).shift();
+    if (!exerciseMatchesTopic(question, question.courseId, topicIndex)) continue;
+    result.push(question);
+    used.set(topicIndex, (used.get(topicIndex) || 0) + 1);
+  }
+  return result;
+}
+
+window.MargaritaExerciseSelector = {
+  decorateExerciseForTopic,
+  exerciseMatchesTopic,
+  exerciseContentMatchesTopic,
+  strictTopicSelection,
+  availableTopicQuestions,
+  distributeBalancedTopicQuestions,
+  sharedTopicHistoryScope,
+  topicHistoryScope,
+  semanticTopicId,
+  markShown: markChallengeQuestionShown
+};
+
+function buildAdventureTrainingQuestions(theme, course, difficulty, roundSeed, requestedCount = questionsPerChallengeFor(course)) {
   if (!ESO_COURSE_IDS.includes(course.id)) {
-    return buildQuestions(theme, course);
+    return buildQuestions(theme, course, requestedCount);
   }
 
   const lower = normalizeMathNotation(theme).toLowerCase();
-  const count = questionsPerChallengeFor(course);
-  const historyKey = `${course.id}:${theme}:${difficulty}`;
-  const previousQuestions = new Set(state.trainingQuestionHistory?.[historyKey] || []);
-  const currentQuestions = new Set();
-  const questions = [];
-
-  for (let index = 0; index < count; index += 1) {
-    let attempt = 0;
-    let question;
-    do {
-      const seed = roundSeed * 53 + state.topicIndex * 17 + index + attempt * 101;
-      question = generatedEsoDifficultyQuestion(lower, course.id, difficulty, seed, index);
-      attempt += 1;
-    } while (
-      attempt < 80
-      && (currentQuestions.has(question.text) || previousQuestions.has(question.text))
-    );
-    currentQuestions.add(question.text);
-    questions.push(question);
-  }
-
-  state.trainingQuestionHistory = {
-    ...(state.trainingQuestionHistory || {}),
-    [historyKey]: [...new Set([...previousQuestions, ...currentQuestions])]
-  };
-
+  const count = requestedCount;
+  const verifiedExamPool = difficulty === "hard"
+    ? (window.MargaritaEsoExamVerified?.build?.(course.id, theme) || [])
+    : [];
+  const originalPracticePool = window.MargaritaEsoOriginalPractice?.build?.(
+    course.id,
+    theme,
+    difficulty === "hard" ? "master" : "apprentice"
+  )?.filter((question) => question.adventureEligible !== false) || [];
+  const approvedABAdventurePool = window.MargaritaEso3ApprovedABPractice?.buildAdventure?.(
+    course.id,
+    theme,
+    difficulty === "hard" ? "master" : "apprentice"
+  ) || [];
+  const generatedPool = Array.from({ length: Math.max(160, count * 20) }, (_, index) => {
+    const seed = state.topicIndex * 100003 + parseInt(stableExerciseHash(`${course.id}|${difficulty}`), 36) + index * 101;
+    const progression = index % 10;
+    return generatedEsoDifficultyQuestion(lower, course.id, difficulty, seed, progression, progression);
+  });
+  const questions = strictTopicSelection({
+    course,
+    topicIndex: state.topicIndex,
+    questions: [...verifiedExamPool, ...originalPracticePool, ...approvedABAdventurePool, ...generatedPool]
+      .filter((question) => !isForbiddenIntroLimitQuestion(question, course.id, lower)),
+    count,
+    sourceType: verifiedExamPool.length ? "verified-and-generated" : "generated",
+    historyMode: "adventure",
+    historyDetail: difficulty,
+    roundToken: `${state.practiceRound}|aventura-${roundSeed}`
+  });
   return questions.map((question, index) => {
     const amount = (roundSeed + state.topicIndex + index) % question.options.length;
     return {
@@ -4135,60 +5033,51 @@ function topicChallengeLevelLabel(level = state.topicChallengeLevel) {
   return level === "master" ? "Maestro" : "Aprendiz";
 }
 
-function buildEsoTopicLevelQuestions(theme, course) {
-  const level = state.topicChallengeLevel === "master" ? "master" : "apprentice";
-  const count = questionsPerChallengeFor(course);
+function buildEsoTopicLevelQuestions(theme, course, requestedCount = questionsPerChallengeFor(course)) {
+  const selectionMode = currentExerciseHistoryMode();
+  const isExam = selectionMode === "exam";
+  const level = isExam ? "exam" : (state.topicChallengeLevel === "master" ? "master" : "apprentice");
+  const count = requestedCount;
   const lower = normalizeMathNotation(theme).toLowerCase();
-  const scopeKey = `${course.id}:${theme}:topic-${level}`;
-  const roundKey = `${scopeKey}:round-${state.practiceRound}`;
-
-  state.challengeRoundCache = state.challengeRoundCache || {};
-  if (state.challengeRoundCache[roundKey]) return state.challengeRoundCache[roundKey];
-
-  const previousIdentities = new Set(state.trainingQuestionHistory?.[scopeKey] || []);
-  const currentIdentities = new Set();
-  const questions = [];
-  const roundSeed = state.practiceRound * 1009 + state.topicIndex * 137 + (level === "master" ? 5003 : 101);
-
-  for (let index = 0; index < count; index += 1) {
-    const difficulty = level === "master"
-      ? (index < 3 ? "medium" : "hard")
-      : (index < 5 ? "easy" : "medium");
-    const progressionIndex = level === "master" ? Math.min(9, index + 4) : index;
-    let attempt = 0;
-    let question;
-    let identity = "";
-
-    do {
-      const seed = roundSeed + index * 97 + attempt * 7919;
-      question = generatedEsoDifficultyQuestion(lower, course.id, difficulty, seed, progressionIndex, index);
-      identity = challengeQuestionIdentity(question);
-      attempt += 1;
-    } while (
-      attempt < 140
-      && (currentIdentities.has(identity) || previousIdentities.has(identity))
-    );
-
-    const optionCount = question.options?.length || 0;
-    const rotation = optionCount ? (roundSeed + index * 3) % optionCount : 0;
-    const prepared = optionCount ? {
-      ...question,
-      difficulty,
-      challengeLevel: level,
-      options: rotate(question.options, rotation),
-      correct: (question.correct - rotation + optionCount) % optionCount
-    } : { ...question, difficulty, challengeLevel: level };
-
-    currentIdentities.add(identity);
-    questions.push(prepared);
-  }
-
-  state.trainingQuestionHistory = {
-    ...(state.trainingQuestionHistory || {}),
-    [scopeKey]: [...new Set([...previousIdentities, ...currentIdentities])]
-  };
-  state.challengeRoundCache[roundKey] = questions;
-  return questions;
+  const rawVerifiedExamPool = level === "master" || isExam
+    ? (window.MargaritaEsoExamVerified?.build?.(course.id, theme) || [])
+    : [];
+  const approvedABExamPool = isExam
+    ? (window.MargaritaEso3ApprovedABPractice?.buildExam?.(course.id, theme) || [])
+    : [];
+  const isThirdEsoSolidsPractice = !isExam
+    && course.id === "3eso"
+    && (lower.includes("cuerpo") || lower.includes("geometrico"));
+  const verifiedExamPool = isExam
+    ? rawVerifiedExamPool
+    : rawVerifiedExamPool.filter((question) => question.practiceEligible !== false);
+  const originalPracticePool = isExam
+    ? []
+    : (window.MargaritaEsoOriginalPractice?.build?.(course.id, theme, level) || [])
+      .filter((question) => question.practiceEligible !== false);
+  // Banco A+B aprobado en 3.º ESO. En la práctica temática se respeta el
+  // nivel elegido; Aventura y Examen lo consumen mediante rutas separadas.
+  const approvedABPracticePool = isExam
+    ? []
+    : (window.MargaritaEso3ApprovedABPractice?.buildChallenge?.(course.id, theme, level) || []);
+  const roundSeed = state.topicIndex * 137 + (isExam ? 9001 : level === "master" ? 5003 : 101);
+  const generatedPool = Array.from({ length: Math.max(240, count * 24) }, (_, index) => {
+    const difficulty = isExam
+      ? (index % 3 === 0 ? "medium" : "hard")
+      : level === "master" ? (index % 3 === 0 ? "medium" : "hard") : (index % 3 === 0 ? "medium" : "easy");
+    const progression = isExam || level === "master" ? 4 + (index % 6) : index % 10;
+    return generatedEsoDifficultyQuestion(lower, course.id, difficulty, roundSeed + index * 7919, progression, progression);
+  }).filter((question) => !isThirdEsoSolidsPractice || question.geometryDomain === "solid");
+  return strictTopicSelection({
+    course,
+    topicIndex: state.topicIndex,
+    questions: [...verifiedExamPool, ...approvedABExamPool, ...originalPracticePool, ...approvedABPracticePool, ...generatedPool]
+      .filter((question) => !isForbiddenIntroLimitQuestion(question, course.id, lower)),
+    count,
+    sourceType: verifiedExamPool.length ? "verified-and-generated" : "generated",
+    historyMode: selectionMode,
+    historyDetail: isExam ? "independiente" : level
+  }).map((question) => ({ ...question, challengeLevel: level }));
 }
 
 function generatedQuestion(text, correct, distractors, solution) {
@@ -4205,6 +5094,15 @@ function generatedQuestion(text, correct, distractors, solution) {
     fallback += 1;
   }
   return { text, options: unique.slice(0, 4), correct: 0, solution };
+}
+
+function isForbiddenIntroLimitQuestion(question, courseId, normalizedTheme = "") {
+  if (courseId !== "4eso-b" && courseId !== "1bach-mates") return false;
+  if (!String(normalizedTheme).includes("limite")) return false;
+  const content = normalizeMathNotation(`${question?.text || ""} ${question?.solution || ""}`).toLowerCase();
+  const sineRatio = /sen\s*\(?\s*(?:\d+\s*)?x\s*\)?\s*\/\s*(?:\d+\s*)?x/.test(content);
+  const lhopital = content.includes("l'hopital") || content.includes("lhopital");
+  return sineRatio || lhopital;
 }
 
 function greatestCommonDivisor(a, b) {
@@ -4236,6 +5134,25 @@ function generatedEsoDifficultyQuestion(lower, courseId, difficulty, seed, progr
   if (courseId === "2eso" && lower.includes("ecuacion")) {
     return generatedSecondEsoEquationQuestion(difficulty, seed, progressionIndex);
   }
+  if (courseId === "2eso" && lower.includes("funcion")) {
+    return generatedSecondEsoFunctionQuestion(difficulty, seed, progressionIndex);
+  }
+  if (courseId === "3eso" && (lower.includes("ecuacion") || lower.includes("sistema"))) {
+    const ownTopic = progressionIndex % 2 === 0 ? "ecuacion" : "sistema";
+    return generatedEquationLevelQuestion(ownTopic, difficulty, seed);
+  }
+  if (courseId === "3eso" && lower.includes("funcion")) {
+    // La rama avanzada del generador común incluye composición, inversa y
+    // dominios radicales. En 3.º ESO se mantienen funciones lineales/afines;
+    // las parábolas y la interpretación cualitativa proceden del banco propio.
+    return generatedFunctionLevelQuestion("easy", seed);
+  }
+  if (courseId === "3eso" && lower.includes("sucesion")) {
+    return generatedThirdEsoSequenceQuestion(difficulty, seed, progressionIndex);
+  }
+  if (courseId === "3eso" && (lower.includes("cuerpo") || lower.includes("geometrico"))) {
+    return generatedThirdEsoGeometryQuestion(difficulty, seed, sequenceIndex);
+  }
   if (lower.includes("potencia")) {
     return generatedPowerLevelQuestion(lower, difficulty, seed, progressionIndex);
   }
@@ -4248,19 +5165,36 @@ function generatedEsoDifficultyQuestion(lower, courseId, difficulty, seed, progr
   if (lower.includes("cuerpo") || lower.includes("figura") || lower.includes("medida") || lower.includes("angulo") || lower.includes("recta") || lower.includes("circunferencia") || lower.includes("semejanza") || lower.includes("pitagoras") || lower.includes("area")) {
     return generatedGeometryLevelQuestion(lower, difficulty, seed, sequenceIndex, courseId);
   }
-  if (difficulty === "medium") return generatedEsoMediumQuestion(lower, courseId, seed);
-  if (lower.includes("derivada")) return generatedDerivativeLevelQuestion(difficulty, seed);
-  if (lower.includes("limite")) return generatedLimitLevelQuestion(lower, difficulty, seed);
-  if (lower.includes("combinatoria")) return generatedCombinatoricsLevelQuestion(difficulty, seed);
+  // Estos temas necesitan conservar su propia variedad también en dificultad
+  // media; si pasan por el generador genérico se repiten demasiados modelos.
+  if (lower.includes("combinatoria")) {
+    const supplied = window.MargaritaCombinatoricsSupplied?.pick?.(courseId, lower, difficulty, seed);
+    // Alternamos los enunciados aportados por la usuaria con los modelos
+    // generativos para conservar la progresión y ampliar el ciclo completo.
+    if (supplied && Math.abs(seed) % 2 === 0) return supplied;
+    return generatedCombinatoricsLevelQuestion(difficulty, seed);
+  }
   if (lower.includes("estadistica")) return generatedStatisticsLevelQuestion(difficulty, seed);
   if (lower.includes("probabilidad")) return generatedProbabilityLevelQuestion(difficulty, seed);
+  if (lower.includes("raiz") || lower.includes("radical") || lower.includes("logaritmo")) {
+    return generatedPowerLevelQuestion(lower, difficulty, seed, progressionIndex);
+  }
+  // Los generadores especializados se usan también en dificultad media. De
+  // este modo el mazo conserva todas sus estructuras y no queda reducido a
+  // unas pocas plantillas genéricas al repetir un reto.
+  if (lower.includes("derivada")) return generatedDerivativeLevelQuestion(difficulty, seed);
+  if (lower.includes("limite")) return generatedLimitLevelQuestion(lower, difficulty, seed);
   if (lower.includes("sucesion")) return generatedSequenceLevelQuestion(difficulty, seed);
   if (lower.includes("trigonometr")) return generatedTrigonometryLevelQuestion(difficulty, seed);
   if (lower.includes("geometria analitica")) return generatedAnalyticGeometryLevelQuestion(difficulty, seed);
+  if (courseId === "4eso-a" && lower.includes("funcion")) {
+    return generatedFourthEsoAFunctionQuestion(difficulty, seed);
+  }
   if (lower.includes("funcion")) return generatedFunctionLevelQuestion(difficulty, seed);
   if (lower.includes("ecuacion") || lower.includes("sistema") || lower.includes("inecuacion")) return generatedEquationLevelQuestion(lower, difficulty, seed);
   if (lower.includes("expresion") || lower.includes("algebra")) return generatedAlgebraLevelQuestion(difficulty, seed);
   if (lower.includes("proporcional")) return generatedProportionLevelQuestion(difficulty, seed);
+  if (difficulty === "medium") return generatedEsoMediumQuestion(lower, courseId, seed);
   if (lower.includes("fraccion")) return generatedFractionLevelQuestion(courseId, difficulty, seed, progressionIndex);
   if (lower.includes("potencia") || lower.includes("raiz") || lower.includes("radical") || lower.includes("logaritmo")) {
     return generatedPowerLevelQuestion(lower, difficulty, seed, progressionIndex);
@@ -4272,7 +5206,7 @@ function generatedEsoMediumQuestion(lower, courseId, seed) {
   const a = 2 + (seed % 7);
   const b = 3 + ((seed * 3) % 8);
   const c = 2 + ((seed * 5) % 6);
-  const operation = seed % 3;
+  const operation = seed % 4;
 
   if (lower.includes("derivada")) {
     return generatedQuestion(
@@ -4328,6 +5262,15 @@ function generatedEsoMediumQuestion(lower, courseId, seed) {
         10,
         [a + 10, 7, 13],
         `Resolución:\n1. El rango es máximo menos mínimo.\n2. (${a + 10})-${a}=10.\nResultado final: 10.`
+      );
+    }
+    if (operation === 3) {
+      const repeated = a + 2;
+      return generatedQuestion(
+        `Calcula la moda de los datos: ${a}, ${repeated}, ${repeated}, ${a + 5}, ${a + 7}.`,
+        repeated,
+        [a, a + 5, a + 7],
+        `Resolución:\n1. Contamos cuántas veces aparece cada dato.\n2. ${repeated} aparece dos veces y los demás una sola vez.\nResultado final: la moda es ${repeated}.`
       );
     }
     const values = [a, a + 2, a + 4, a + 6, a + 8];
@@ -4644,7 +5587,7 @@ function generatedIntegerOperationsLevelQuestion(seed, progressionStage, a, b, c
       `Calcula: [${a} + (-${b})] · (${large} - ${d})`,
       result,
       [a - b * (large - d), (a + b) * (large - d), a - b + large - d],
-      `Resolución:\nResolvemos un grupo en cada línea:\nbracket{${a}+(-${b})}·paren{${large}-${d}}\n=${a - b}·paren{${large}-${d}}\n=${a - b}·${large - d}\n=${result}.\nResultado final: ${result}.`
+      `Resolución:\nResolvemos una sola operación en cada línea y mantenemos visible la expresión completa:\nbracket{${a}+(-${b})}·paren{${large}-${d}}\n=bracket{${a}-${b}}·paren{${large}-${d}}\n=paren{${a - b}}·paren{${large}-${d}}\n=paren{${a - b}}·${large - d}\n=${result}.\nResultado final: ${result}.`
     );
   }
   if (progressionStage === 8) {
@@ -4654,7 +5597,7 @@ function generatedIntegerOperationsLevelQuestion(seed, progressionStage, a, b, c
       `Calcula: (-${c})^2 + ${a} · (${large} - ${d}) - ${b}`,
       result,
       [-(c ** 2) + a * (large - d) - b, (c ** 2 + a) * (large - d) - b, c ** 2 + a * large - d - b],
-      `Resolución:\nCalculamos primero la potencia y el paréntesis, manteniendo toda la expresión:\nparen{-${c}}^2+${a}·paren{${large}-${d}}-${b}\n=${c ** 2}+${a}·paren{${large}-${d}}-${b}\n=${c ** 2}+${a}·${large - d}-${b}\n=${c ** 2}+${a * (large - d)}-${b}\n=${result}.\nResultado final: ${result}.`
+      `Resolución:\nCalculamos una operación en cada línea y mantenemos toda la expresión:\nparen{-${c}}²+${a}·paren{${large}-${d}}−${b}\n=${c ** 2}+${a}·paren{${large}-${d}}−${b}\n=${c ** 2}+${a}·${large - d}−${b}\n=${c ** 2}+${a * (large - d)}−${b}\n=${result}.\nResultado final: ${result}.`
     );
   }
   const divisor = 2 + (seed % 3);
@@ -4797,12 +5740,13 @@ function generatedNumberLevelQuestion(lower, courseId, difficulty, seed, progres
 
 function generatedPowerLevelQuestion(lower, difficulty, seed, progressionIndex = seed) {
   const levelExtra = difficulty === "hard" ? 2 : difficulty === "medium" ? 1 : 0;
-  const a = 2 + (seed % 6);
-  const m = 2 + levelExtra + (Math.floor(seed / 3) % 4);
-  const n = 2 + levelExtra + (Math.floor(seed / 7) % 4);
-  const p = 1 + (Math.floor(seed / 11) % 3);
-  const outer = 2 + (Math.floor(seed / 13) % 2);
-  const radicand = [2, 3, 5, 7][seed % 4];
+  const positiveSeed = Math.abs(seed);
+  const a = 2 + ((positiveSeed + Math.floor(positiveSeed / 17)) % 19);
+  const m = 2 + levelExtra + (Math.floor(positiveSeed / 19) % 7);
+  const n = 2 + levelExtra + (Math.floor(positiveSeed / 131) % 7);
+  const p = 1 + (Math.floor(positiveSeed / 29) % 5);
+  const outer = 2 + (Math.floor(positiveSeed / 43) % 3);
+  const radicand = [2, 3, 5, 7, 11, 13][positiveSeed % 6];
   const rawProgressionStage = ((progressionIndex % 10) + 10) % 10;
   const easyProgression = [10, 10, 0, 0, 1, 1, 2, 3, 7, 8];
   const progressionStage = difficulty === "easy"
@@ -4838,12 +5782,37 @@ function generatedPowerLevelQuestion(lower, difficulty, seed, progressionIndex =
   };
 
   if (!lower.includes("potencia")) {
-    if (lower.includes("logaritmo") && seed % 2 === 0) {
+    if (lower.includes("logaritmo")) {
+      const logarithmVariant = seed % 4;
+      if (logarithmVariant === 0) {
+        return generatedQuestion(
+          `Calcula: log(10^${m}) - log(10)`,
+          m - 1,
+          [m, m + 1, 10 ** (m - 1)],
+          `Resolución:\n1. Aplicamos log(10^k)=k: log(10^${m})=${m}.\n2. Como log(10)=1, restamos: ${m}-1=${m - 1}.\nResultado final: ${m - 1}.`
+        );
+      }
+      if (logarithmVariant === 1) {
+        return generatedQuestion(
+          `Resuelve: log_${a}(x)=${m}.`,
+          `x=${a ** m}`,
+          [`x=${a * m}`, `x=${m ** a}`, `x=${m}`],
+          `Resolución:\n1. Pasamos de forma logarítmica a exponencial: x=${a}^${m}.\n2. Calculamos la potencia.\nResultado final: x=${a ** m}.`
+        );
+      }
+      if (logarithmVariant === 2) {
+        return generatedQuestion(
+          `Calcula: log(10^${m}·10^${n}).`,
+          m + n,
+          [m * n, Math.abs(m - n), 10 ** Math.min(5, m + n)],
+          `Resolución:\n1. Multiplicamos potencias de base 10: 10^${m}·10^${n}=10^${m + n}.\n2. log(10^${m + n})=${m + n}.\nResultado final: ${m + n}.`
+        );
+      }
       return generatedQuestion(
-        `Calcula: log(10^${m}) - log(10)`,
-        m - 1,
-        [m, m + 1, 10 ** (m - 1)],
-        `Resolución:\n1. Aplicamos log(10^k)=k: log(10^${m})=${m}.\n2. Como log(10)=1, restamos: ${m}-1=${m - 1}.\nResultado final: ${m - 1}.`
+        `Calcula: log_${a}paren{frac{${a ** (m + 1)}}{${a}}}.`,
+        m,
+        [m + 1, m - 1, a * m],
+        `Resolución:\n1. Dividimos potencias de igual base: frac{${a}^${m + 1}}{${a}}=${a}^${m}.\n2. log_${a}(${a}^${m})=${m}.\nResultado final: ${m}.`
       );
     }
     if (difficulty === "easy") {
@@ -4853,6 +5822,32 @@ function generatedPowerLevelQuestion(lower, difficulty, seed, progressionIndex =
         root,
         [root * root, root + 2, Math.max(1, root - 2)],
         `Resolución:\n1. Buscamos el número positivo cuyo cuadrado es ${root * root}.\n2. ${root}²=${root * root}.\nResultado final: √${root * root}=${root}.`
+      );
+    }
+    const radicalVariant = seed % 4;
+    if (radicalVariant === 1) {
+      return generatedQuestion(
+        `Racionaliza: frac{${a}}{√${radicand}}.`,
+        `frac{${a}√${radicand}}{${radicand}}`,
+        [`frac{√${radicand}}{${a}}`, `${a}√${radicand}`, `frac{${radicand}}{${a}√${radicand}}`],
+        `Resolución:\n1. Multiplicamos numerador y denominador por √${radicand}.\n2. El denominador queda ${radicand}.\nResultado final: frac{${a}√${radicand}}{${radicand}}.`
+      );
+    }
+    if (radicalVariant === 2) {
+      const other = 2 + (Math.floor(seed / 5) % 6);
+      return generatedQuestion(
+        `Reduce: √${a * a * radicand}+√${other * other * radicand}.`,
+        `${a + other}√${radicand}`,
+        [`${a * other}√${radicand}`, `${a + other}√${2 * radicand}`, `${a + other + radicand}`],
+        `Resolución:\n1. Extraemos cuadrados perfectos: √${a * a * radicand}=${a}√${radicand} y √${other * other * radicand}=${other}√${radicand}.\n2. Sumamos radicales semejantes.\nResultado final: ${a + other}√${radicand}.`
+      );
+    }
+    if (radicalVariant === 3) {
+      return generatedQuestion(
+        `Calcula y simplifica: √${radicand}·√${a * a * radicand}.`,
+        a * radicand,
+        [a * a * radicand, a * Math.sqrt(radicand), a + radicand],
+        `Resolución:\n1. Unimos los radicales: √${radicand}·√${a * a * radicand}=√${a * a * radicand * radicand}.\n2. El radicando es (${a}·${radicand})².\nResultado final: ${a * radicand}.`
       );
     }
     return generatedQuestion(
@@ -5172,7 +6167,7 @@ function generatedProportionLevelQuestion(difficulty, seed) {
   const units = 2 + (seed % 7);
   const price = 3 + ((seed * 2) % 8);
   const requested = units + 3 + (seed % 4);
-  const operation = seed % 3;
+  const operation = seed % 4;
 
   if (difficulty === "easy") {
     if (operation === 1) {
@@ -5197,6 +6192,17 @@ function generatedProportionLevelQuestion(difficulty, seed) {
         `Resolución:\n1. Escribimos ${percentage}% como ${percentage}/100.\n2. Multiplicamos: ${total}·${percentage}/100=${result}.\nResultado final: ${result}.`
       );
     }
+    if (operation === 3) {
+      const mapDistance = 2 + (seed % 7);
+      const scale = 50000;
+      const realKm = mapDistance * scale / 100000;
+      return generatedQuestion(
+        `En un mapa a escala 1:${scale}, dos lugares están separados ${mapDistance} cm. ¿Qué distancia real hay entre ellos?`,
+        `${decimalAnswer(realKm)} km`,
+        [`${mapDistance * scale} km`, `${mapDistance / 2} km`, `${mapDistance * 5} km`],
+        `Resolución:\n1. La distancia real en centímetros es ${mapDistance}·${scale}=${mapDistance * scale} cm.\n2. Pasamos de centímetros a kilómetros dividiendo entre 100000.\nResultado final: ${decimalAnswer(realKm)} km.`
+      );
+    }
     const result = requested * price;
     return generatedQuestion(
       `Cada cuaderno cuesta ${price} €. ¿Cuánto cuestan ${requested} cuadernos?`,
@@ -5218,7 +6224,15 @@ function generatedProportionLevelQuestion(difficulty, seed) {
       `Si ${workers} personas realizan un trabajo en ${days} días, ¿cuántos días tardarán ${newWorkers} personas al mismo ritmo?`,
       `${result} días`,
       [`${days * 2} días`, `${days} días`, `${days - workers} días`],
-      `Resolución:\n1. Es una proporcionalidad inversa: al duplicar el número de personas, el tiempo se reduce a la mitad.\n2. ${days}/2=${result}.\nResultado final: ${result} días.`
+      `Resolución:
+1. Ordenamos los datos en una tabla:
+[[proportion-table headers="Magnitud|Situación inicial|Situación nueva" row1="Personas|${workers}|${newWorkers}" row2="Días|${days}|x"]]
+2. A más personas, menos días se necesitan para realizar el mismo trabajo. Por tanto, es una proporcionalidad inversa.
+3. En una proporcionalidad inversa igualamos los productos:
+${workers}·${days}=${newWorkers}·x.
+4. Despejamos x:
+x=frac{${workers}·${days}}{${newWorkers}}=frac{${workers * days}}{${newWorkers}}=${result}.
+Resultado final: ${result} días.`
     );
   }
   if (operation === 2) {
@@ -5230,6 +6244,19 @@ function generatedProportionLevelQuestion(difficulty, seed) {
       `${distance} km`,
       [`${speed + hours} km`, `${distance / hours} km`, `${distance + speed} km`],
       `Resolución:\n1. Usamos distancia=velocidad·tiempo.\n2. d=${speed}·${hours}=${distance}.\nResultado final: ${distance} km.`
+      );
+  }
+  if (operation === 3) {
+    const kilograms = 2 + (seed % 6);
+    const unitPrice = 3 + (seed % 8);
+    const paid = kilograms * unitPrice;
+    const requestedKg = kilograms + 3;
+    const result = requestedKg * unitPrice;
+    return generatedQuestion(
+      `${kilograms} kg de fruta cuestan ${paid} €. Al mismo precio por kilogramo, ¿cuánto cuestan ${requestedKg} kg?`,
+      `${result} €`,
+      [`${paid + requestedKg} €`, `${unitPrice * kilograms * requestedKg} €`, `${result - unitPrice} €`],
+      `Resolución:\n1. Calculamos el precio de 1 kg: ${paid}/${kilograms}=${unitPrice} €.\n2. Multiplicamos por ${requestedKg}: ${unitPrice}·${requestedKg}=${result}.\nResultado final: ${result} €.`
     );
   }
   const afterDiscount = original * (1 - discount / 100);
@@ -5238,7 +6265,16 @@ function generatedProportionLevelQuestion(difficulty, seed) {
     `Un artículo de ${original} € baja un ${discount}% y después sube un ${increase}%. ¿Cuál es su precio final?`,
     `${decimalAnswer(result)} €`,
     [`${decimalAnswer(original * (1 + (increase - discount) / 100))} €`, `${decimalAnswer(afterDiscount)} €`, `${decimalAnswer(original * (1 + increase / 100))} €`],
-    `Resolución:\n1. Aplicamos la rebaja: ${original}·${100 - discount}/100=${decimalAnswer(afterDiscount)} €.\n2. La subida se aplica al nuevo precio: ${decimalAnswer(afterDiscount)}·${100 + increase}/100=${decimalAnswer(result)} €.\nResultado final: ${decimalAnswer(result)} €.`
+    `Resolución:
+1. Convertimos el descuento en el factor que permanece:
+100%−${discount}%=${100 - discount}%=frac{${100 - discount}}{100}=${decimalAnswer((100 - discount) / 100)}.
+2. Convertimos el aumento en el factor por el que se multiplica:
+100%+${increase}%=${100 + increase}%=frac{${100 + increase}}{100}=${decimalAnswer((100 + increase) / 100)}.
+3. Aplicamos ambos factores, en ese orden, al precio inicial:
+${original}·${decimalAnswer((100 - discount) / 100)}·${decimalAnswer((100 + increase) / 100)}
+=${decimalAnswer(afterDiscount)}·${decimalAnswer((100 + increase) / 100)}
+=${decimalAnswer(result)} €.
+Resultado final: ${decimalAnswer(result)} €.`
   );
 }
 
@@ -5246,7 +6282,7 @@ function generatedAlgebraLevelQuestion(difficulty, seed) {
   const a = 2 + (seed % 7);
   const b = 3 + ((seed * 2) % 8);
   const value = 1 + (seed % 5);
-  const operation = seed % 3;
+  const operation = seed % 4;
 
   if (difficulty === "easy") {
     if (operation === 1) {
@@ -5263,6 +6299,14 @@ function generatedAlgebraLevelQuestion(difficulty, seed) {
         `${a}x + ${a * value}`,
         [`${a}x + ${value}`, `${a + value}x`, `${a}x + ${a + value}`],
         `Resolución:\n1. Multiplicamos ${a} por cada término del paréntesis.\n2. ${a}·x=${a}x y ${a}·${value}=${a * value}.\nResultado final: ${a}x+${a * value}.`
+      );
+    }
+    if (operation === 3) {
+      return generatedQuestion(
+        `Multiplica los monomios: (${a}x^2)·(${value}x^3).`,
+        `${a * value}x^5`,
+        [`${a * value}x^6`, `${a + value}x^5`, `${a * value}x`],
+        `Resolución:\n1. Multiplicamos los coeficientes: ${a}·${value}=${a * value}.\n2. Sumamos los exponentes de la misma base: x²·x³=x⁵.\nResultado final: ${a * value}x⁵.`
       );
     }
     const result = a * value + b;
@@ -5288,6 +6332,14 @@ function generatedAlgebraLevelQuestion(difficulty, seed) {
       `${a}x^2 + ${a * b + value}x + ${value * b}`,
       [`${a}x^2 + ${a + b + value}x + ${value * b}`, `${a}x^2 + ${a * b - value}x + ${value * b}`, `${a}x^2 + ${a * b + value}x - ${value * b}`],
       `Resolución:\n1. Multiplicamos cada término del primer paréntesis por cada término del segundo.\n2. Obtenemos ${a}x²+${a * b}x+${value}x+${value * b}.\n3. Sumamos términos semejantes: ${a * b}x+${value}x=${a * b + value}x.\nResultado final: ${a}x²+${a * b + value}x+${value * b}.`
+      );
+  }
+  if (operation === 3) {
+    return generatedQuestion(
+      `Desarrolla la identidad notable: (${a}x+${value})^2.`,
+      `${a * a}x^2 + ${2 * a * value}x + ${value * value}`,
+      [`${a * a}x^2 + ${value * value}`, `${a * a}x^2 - ${2 * a * value}x + ${value * value}`, `${a}x^2 + ${2 * value}x + ${value * value}`],
+      `Resolución:\n1. Usamos (u+v)²=u²+2uv+v².\n2. Tomamos u=${a}x y v=${value}.\n3. Sustituimos: (${a}x)²+2·${a}x·${value}+${value}².\nResultado final: ${a * a}x²+${2 * a * value}x+${value * value}.`
     );
   }
   return generatedQuestion(
@@ -5969,7 +7021,59 @@ function generatedEquationLevelQuestion(lower, difficulty, seed) {
   const a = 2 + (seed % 7);
   const solution = 3 + ((seed * 2) % 9);
   const b = 4 + (seed % 8);
-  const operation = seed % 3;
+  const operation = seed % 4;
+
+  if (lower.includes("sistema")) {
+    const x = solution;
+    const y = 1 + (seed % 6);
+    const systems = [
+      { text: `{ 2x + y = ${2 * x + y} ; x - y = ${x - y} }`, step: "Sumamos las ecuaciones después de multiplicar la segunda cuando sea necesario." },
+      { text: `{ x + y = ${x + y} ; x - 2y = ${x - 2 * y} }`, step: "Restamos la segunda ecuación de la primera para eliminar x." },
+      { text: `{ 3x - y = ${3 * x - y} ; 2x + y = ${2 * x + y} }`, step: "Sumamos las dos ecuaciones para eliminar y." },
+      { text: `{ x + 2y = ${x + 2 * y} ; 3x - y = ${3 * x - y} }`, step: "Multiplicamos la segunda ecuación por 2 y la sumamos con la primera para eliminar y." }
+    ];
+    const selected = systems[operation];
+    return generatedQuestion(
+      `Resuelve el sistema: ${selected.text}`,
+      `x = ${x}, y = ${y}`,
+      [`x = ${y}, y = ${x}`, `x = ${x + 1}, y = ${y - 1}`, `x = ${x - 1}, y = ${y + 1}`],
+      `Resolución:\n1. Escribimos juntas las dos ecuaciones del sistema.\n2. ${selected.step}\n3. Obtenemos una ecuación con una sola incógnita y hallamos x=${x}.\n4. Sustituimos ese valor en una de las ecuaciones y obtenemos y=${y}.\n5. Comprobamos ambos valores en las dos ecuaciones.\nResultado final: x=${x}, y=${y}.`
+    );
+  }
+
+  if (lower.includes("inecuacion")) {
+    if (operation === 1) {
+      return generatedQuestion(
+        `Resuelve la inecuación: ${a}x + ${b} < ${a * solution + b}`,
+        `x < ${solution}`,
+        [`x > ${solution}`, `x < ${a * solution + b}`, `x ≤ ${solution - 1}`],
+        `Resolución:\n1. Restamos ${b} en los dos miembros.\n2. Dividimos entre ${a}, que es positivo, y el signo no cambia.\nResultado final: x<${solution}.`
+      );
+    }
+    if (operation === 2) {
+      return generatedQuestion(
+        `Resuelve la inecuación: -${a}x + ${b} ≤ ${-a * solution + b}`,
+        `x ≥ ${solution}`,
+        [`x ≤ ${solution}`, `x ≥ ${-a * solution + b}`, `x > ${solution + 1}`],
+        `Resolución:\n1. Restamos ${b}: -${a}x≤${-a * solution}.\n2. Dividimos entre -${a}. Como es negativo, invertimos el signo de la desigualdad.\nResultado final: x≥${solution}.`
+      );
+    }
+    if (operation === 3) {
+      return generatedQuestion(
+        `Resuelve la inecuación: ${a}(x+1) > ${a * (solution + 1)}`,
+        `x > ${solution}`,
+        [`x < ${solution}`, `x > ${solution + 1}`, `x ≥ ${a * solution}`],
+        `Resolución:\n1. Dividimos entre ${a}, que es positivo: x+1>${solution + 1}.\n2. Restamos 1.\nResultado final: x>${solution}.`
+      );
+    }
+    const right = a * solution - b;
+    return generatedQuestion(
+      `Resuelve la inecuación: ${a}x - ${b} ≥ ${right}`,
+      `x ≥ ${solution}`,
+      [`x ≤ ${solution}`, `x ≥ ${right}`, `x > ${solution + 1}`],
+      `Resolución:\n1. Sumamos ${b}: ${a}x≥${right + b}.\n2. Dividimos entre ${a}, que es positivo, por lo que no cambia el signo.\nResultado final: x≥${solution}.`
+    );
+  }
 
   if (difficulty === "easy") {
     if (operation === 1) {
@@ -5988,6 +7092,14 @@ function generatedEquationLevelQuestion(lower, difficulty, seed) {
         `Resolución:\n1. Sumamos ${a} en los dos miembros.\n2. x=${solution - a}+${a}.\nResultado final: x=${solution}.`
       );
     }
+    if (operation === 3) {
+      return generatedQuestion(
+        `Resuelve: 2x + ${a} = ${2 * solution + a}`,
+        `x = ${solution}`,
+        [`x = ${2 * solution}`, `x = ${solution + a}`, `x = ${solution - a}`],
+        `Resolución:\n1. Restamos ${a}: 2x=${2 * solution}.\n2. Dividimos entre 2.\nResultado final: x=${solution}.`
+      );
+    }
     return generatedQuestion(
       `Resuelve: x + ${a} = ${solution + a}`,
       `x = ${solution}`,
@@ -5996,17 +7108,7 @@ function generatedEquationLevelQuestion(lower, difficulty, seed) {
     );
   }
 
-  if (lower.includes("inecuacion") && !lower.includes("sistema")) {
-    const right = a * solution - b;
-    return generatedQuestion(
-      `Resuelve la inecuación: ${a}x - ${b} ≥ ${right}`,
-      `x ≥ ${solution}`,
-      [`x ≤ ${solution}`, `x ≥ ${right}`, `x > ${solution + 1}`],
-      `Resolución:\n1. Sumamos ${b}: ${a}x≥${right + b}.\n2. Dividimos entre ${a}, que es positivo, por lo que no cambia el signo.\n3. x≥${solution}.\nResultado final: x≥${solution}.`
-    );
-  }
-
-  if (!lower.includes("sistema") && operation === 1) {
+  if (operation === 1) {
     const right = a * (solution + 1) + b;
     return generatedQuestion(
       `Resuelve: ${a}(x+1)+${b}=${right}`,
@@ -6015,16 +7117,28 @@ function generatedEquationLevelQuestion(lower, difficulty, seed) {
       `Resolución:\n1. Restamos ${b}: ${a}(x+1)=${right - b}.\n2. Dividimos entre ${a}: x+1=${solution + 1}.\n3. Restamos 1.\nResultado final: x=${solution}.`
     );
   }
-
-  const x = solution;
-  const y = 1 + (seed % 6);
-  const first = 2 * x + y;
-  const second = x - y;
+  if (operation === 2) {
+    const right = a * solution - b * (solution - 1);
+    return generatedQuestion(
+      `Resuelve: ${a}x-${b}(x-1)=${right}`,
+      `x = ${solution}`,
+      [`x = ${solution - 1}`, `x = ${right}`, `x = ${solution + b}`],
+      `Resolución:\n1. Quitamos el paréntesis: ${a}x-${b}x+${b}=${right}.\n2. Reducimos términos semejantes y dejamos los términos con x en un miembro.\n3. Dividimos entre su coeficiente.\nResultado final: x=${solution}.`
+    );
+  }
+  if (operation === 3) {
+    return generatedQuestion(
+      `Resuelve la ecuación con fracciones: frac{x}{${a}}+1=frac{${solution}}{${a}}+1`,
+      `x = ${solution}`,
+      [`x = ${solution + a}`, `x = ${solution * a}`, `x = ${solution - a}`],
+      `Resolución:\n1. Restamos 1 en los dos miembros: frac{x}{${a}}=frac{${solution}}{${a}}.\n2. Multiplicamos toda la igualdad por ${a}.\nResultado final: x=${solution}.`
+    );
+  }
   return generatedQuestion(
-    `Resuelve el sistema: { 2x + y = ${first} ; x - y = ${second} }`,
-    `x = ${x}, y = ${y}`,
-    [`x = ${y}, y = ${x}`, `x = ${x + 1}, y = ${y - 1}`, `x = ${x - 1}, y = ${y + 1}`],
-    `Resolución:\n1. Sumamos las ecuaciones: 3x=${first + second}.\n2. Dividimos entre 3: x=${x}.\n3. Sustituimos en x-y=${second}: ${x}-y=${second}.\n4. Despejamos y=${y}.\nResultado final: x=${x}, y=${y}.`
+    `Resuelve: ${a}x-${b}=${a * solution - b}`,
+    `x = ${solution}`,
+    [`x = ${solution + 1}`, `x = ${a * solution - b}`, `x = ${solution - 1}`],
+    `Resolución:\n1. Sumamos ${b} en los dos miembros.\n2. Dividimos toda la igualdad entre ${a}.\nResultado final: x=${solution}.`
   );
 }
 
@@ -6198,7 +7312,7 @@ function generatedPlaneGeometryQuestion(difficulty, seed, variant) {
 
 function generatedPythagorasGeometryQuestion(difficulty, seed, variant) {
   const extra = difficulty === "hard" ? 2 : difficulty === "medium" ? 1 : 0;
-  const scale = 1 + extra + (seed % 3);
+  const scale = 1 + extra + (seed % 11);
   const legA = 3 * scale;
   const legB = 4 * scale;
   const hypotenuse = 5 * scale;
@@ -6271,12 +7385,18 @@ function generatedGeometryLevelQuestion(lower, difficulty, seed, sequenceIndex =
   return generatedPlaneGeometryQuestion(difficulty, seed, variant);
 }
 
+function generatedThirdEsoGeometryQuestion(difficulty, seed, sequenceIndex = seed) {
+  const classified = (question, geometryDomain) => ({ ...question, geometryDomain });
+  const variant = ((sequenceIndex % 10) + 10) % 10;
+  return classified(generatedSolidGeometryQuestion(difficulty, seed, variant), "solid");
+}
+
 function generatedTrigonometryLevelQuestion(difficulty, seed) {
   const scale = 1 + (seed % 31);
   const opposite = 3 * scale;
   const adjacent = 4 * scale;
   const hypotenuse = 5 * scale;
-  const operation = seed % 3;
+  const operation = seed % 4;
 
   if (difficulty === "easy") {
     if (operation === 1) {
@@ -6295,6 +7415,14 @@ function generatedTrigonometryLevelQuestion(difficulty, seed) {
         `Resolución:\n1. tg(α)=cateto opuesto/cateto adyacente.\n2. Sustituimos las medidas.\nResultado final: tg(α)=${opposite}/${adjacent}.`
       );
     }
+    if (operation === 3) {
+      return generatedQuestion(
+        `Un triángulo rectángulo tiene catetos ${opposite} y ${adjacent}. Calcula la hipotenusa.`,
+        hypotenuse,
+        [opposite + adjacent, hypotenuse + scale, adjacent],
+        `Resolución:\n1. Aplicamos Pitágoras: h²=${opposite}²+${adjacent}².\n2. h=√(${opposite ** 2}+${adjacent ** 2})=√${hypotenuse ** 2}.\nResultado final: h=${hypotenuse}.`
+      );
+    }
     return generatedQuestion(
       `En un triángulo rectángulo, respecto del ángulo α, el cateto opuesto mide ${opposite} y la hipotenusa ${hypotenuse}. Calcula sen(α).`,
       `${opposite}/${hypotenuse}`,
@@ -6311,6 +7439,25 @@ function generatedTrigonometryLevelQuestion(difficulty, seed) {
       `${height} m`,
       [`${height * 2} m`, `${decimalAnswer(height * Math.sqrt(3))} m`, `${decimalAnswer(height / 2)} m`],
       `Resolución:\n1. La escalera es la hipotenusa y la altura es el cateto opuesto.\n2. sen(30°)=altura/${height * 2}.\n3. Como sen(30°)=1/2, altura=${height * 2}·1/2=${height}.\nResultado final: ${height} m.`
+      );
+  }
+  if (operation === 2) {
+    const shadow = 5 + (seed % 23);
+    return generatedQuestion(
+      `Un poste proyecta una sombra de ${shadow} m cuando el ángulo de elevación del Sol es 45°. ¿Cuánto mide el poste?`,
+      `${shadow} m`,
+      [`${shadow * 2} m`, `${decimalAnswer(shadow / 2)} m`, `${decimalAnswer(shadow * Math.sqrt(2))} m`],
+      `Resolución:\n1. tg(45°)=altura/sombra.\n2. Como tg(45°)=1, h/${shadow}=1.\nResultado final: h=${shadow} m.`
+    );
+  }
+  if (operation === 3) {
+    const cable = 2 * (6 + seed % 18);
+    const height = cable / 2;
+    return generatedQuestion(
+      `Un cable de ${cable} m forma 30° con el suelo. ¿Qué altura alcanza su extremo?`,
+      `${height} m`,
+      [`${cable} m`, `${decimalAnswer(cable * Math.sqrt(3) / 2)} m`, `${decimalAnswer(height / 2)} m`],
+      `Resolución:\n1. El cable es la hipotenusa.\n2. sen(30°)=h/${cable}=1/2.\n3. h=${cable}·1/2=${height}.\nResultado final: ${height} m.`
     );
   }
   return generatedQuestion(
@@ -6326,8 +7473,33 @@ function generatedAnalyticGeometryLevelQuestion(difficulty, seed) {
   const y1 = 2 + ((seed * 2) % 7);
   const x2 = x1 + 2;
   const y2 = y1 + 4;
+  const operation = seed % 4;
 
   if (difficulty === "easy") {
+    if (operation === 1) {
+      return generatedQuestion(
+        `Halla el vector AB si A(${x1},${y1}) y B(${x2},${y2}).`,
+        `(2, 4)`,
+        [`(${x1 + x2}, ${y1 + y2})`, `(-2, -4)`, `(4, 2)`],
+        `Resolución:\n1. Restamos las coordenadas del origen a las del extremo.\n2. AB=(${x2}-${x1},${y2}-${y1})=(2,4).\nResultado final: AB=(2,4).`
+      );
+    }
+    if (operation === 2) {
+      return generatedQuestion(
+        `Calcula la pendiente de la recta que pasa por A(${x1},${y1}) y B(${x2},${y2}).`,
+        2,
+        [1, 4, -2],
+        `Resolución:\n1. Usamos m=(y₂-y₁)/(x₂-x₁).\n2. m=(${y2}-${y1})/(${x2}-${x1})=4/2.\nResultado final: m=2.`
+      );
+    }
+    if (operation === 3) {
+      return generatedQuestion(
+        `Calcula la distancia entre A(${x1},${y1}) y B(${x2},${y2}).`,
+        `2sqrt(5)`,
+        [`sqrt(6)`, `6`, `4sqrt(2)`],
+        `Resolución:\n1. d(A,B)=√((x₂-x₁)²+(y₂-y₁)²).\n2. d=√(2²+4²)=√20.\n3. Simplificamos √20=2√5.\nResultado final: 2√5.`
+      );
+    }
     return generatedQuestion(
       `Calcula el punto medio de A(${x1},${y1}) y B(${x2},${y2}).`,
       `(${x1 + 1}, ${y1 + 2})`,
@@ -6337,6 +7509,31 @@ function generatedAnalyticGeometryLevelQuestion(difficulty, seed) {
   }
 
   const intercept = y1 - 2 * x1;
+  if (operation === 1) {
+    return generatedQuestion(
+      `Halla la recta paralela a y=2x+1 que pasa por P(${x1},${y1}).`,
+      `y = 2x ${intercept >= 0 ? "+" : "-"} ${Math.abs(intercept)}`,
+      [`y = -2x + ${y1}`, `y = ${x1}x + 1`, `y = 2x + ${y1}`],
+      `Resolución:\n1. Las rectas paralelas tienen la misma pendiente, m=2.\n2. Usamos y-y₁=m(x-x₁).\n3. y-${y1}=2(x-${x1}) y despejamos.\nResultado final: y=2x${intercept >= 0 ? "+" : ""}${intercept}.`
+    );
+  }
+  if (operation === 2) {
+    const perpendicularSlope = "-1/2";
+    return generatedQuestion(
+      `Halla la pendiente de una recta perpendicular a y=2x+1.`,
+      perpendicularSlope,
+      [`2`, `1/2`, `-2`],
+      `Resolución:\n1. Las pendientes de dos rectas perpendiculares cumplen m·m'=-1.\n2. 2·m'=-1.\n3. Despejamos m'=-1/2.\nResultado final: -1/2.`
+    );
+  }
+  if (operation === 3) {
+    return generatedQuestion(
+      `¿Cuál es la ecuación de la recta vertical que pasa por P(${x1},${y1})?`,
+      `x = ${x1}`,
+      [`y = ${y1}`, `y = ${x1}`, `x = ${y1}`],
+      `Resolución:\n1. En una recta vertical todos los puntos tienen la misma abscisa.\n2. La abscisa de P es ${x1}.\nResultado final: x=${x1}.`
+    );
+  }
   return generatedQuestion(
     `Halla la ecuación de la recta de pendiente 2 que pasa por P(${x1},${y1}).`,
     `y = 2x ${intercept >= 0 ? "+" : "-"} ${Math.abs(intercept)}`,
@@ -6349,8 +7546,34 @@ function generatedFunctionLevelQuestion(difficulty, seed) {
   const a = 2 + (seed % 5);
   const b = 1 + ((seed * 3) % 8);
   const value = 1 + (seed % 6);
+  const operation = seed % 4;
 
   if (difficulty === "easy") {
+    if (operation === 1) {
+      const zero = 1 + (seed % 6);
+      return generatedQuestion(
+        `Halla el cero de la función f(x)=${a}x-${a * zero}.`,
+        `x = ${zero}`,
+        [`x = ${a * zero}`, `x = -${zero}`, `x = ${a}`],
+        `Resolución:\n1. Igualamos la función a cero: ${a}x-${a * zero}=0.\n2. Despejamos ${a}x=${a * zero}.\nResultado final: x=${zero}.`
+      );
+    }
+    if (operation === 2) {
+      return generatedQuestion(
+        `¿Cuál es la ordenada en el origen de f(x)=${a}x+${b}?`,
+        b,
+        [a, a + b, 0],
+        `Resolución:\n1. La ordenada en el origen es f(0).\n2. f(0)=${a}·0+${b}=${b}.\nResultado final: ${b}.`
+      );
+    }
+    if (operation === 3) {
+      return generatedQuestion(
+        `Indica la pendiente de la función afín f(x)=${a}x+${b}.`,
+        a,
+        [b, -a, a + b],
+        `Resolución:\n1. Una función afín tiene la forma f(x)=mx+n.\n2. La pendiente es el coeficiente de x.\nResultado final: m=${a}.`
+      );
+    }
     const result = a * value + b;
     return generatedQuestion(
       `Sea f(x)=${a}x+${b}. Calcula f(${value}).`,
@@ -6362,6 +7585,31 @@ function generatedFunctionLevelQuestion(difficulty, seed) {
 
   const h = 1 + (seed % 5);
   const k = -1 - (seed % 6);
+  if (operation === 1) {
+    return generatedQuestion(
+      `Sea f(x)=${a}x+${b}. Halla f^(-1)(x).`,
+      `frac{x-${b}}{${a}}`,
+      [`frac{x+${b}}{${a}}`, `${a}x-${b}`, `frac{${a}}{x-${b}}`],
+      `Resolución:\n1. Escribimos y=${a}x+${b}.\n2. Intercambiamos x e y: x=${a}y+${b}.\n3. Despejamos y=(x-${b})/${a}.\nResultado final: f⁻¹(x)=frac{x-${b}}{${a}}.`
+    );
+  }
+  if (operation === 2) {
+    const composed = a * (value + 1) + b;
+    return generatedQuestion(
+      `Sean f(x)=${a}x+${b} y g(x)=x+1. Calcula (f∘g)(${value}).`,
+      composed,
+      [a * value + b, value + 1 + b, composed + a],
+      `Resolución:\n1. Calculamos primero g(${value})=${value + 1}.\n2. Sustituimos en f: f(${value + 1})=${a}·${value + 1}+${b}.\nResultado final: ${composed}.`
+    );
+  }
+  if (operation === 3) {
+    return generatedQuestion(
+      `Determina el dominio de f(x)=sqrt(x-${h}).`,
+      `x ≥ ${h}`,
+      [`x ≤ ${h}`, `x > ${-h}`, `Todos los números reales`],
+      `Resolución:\n1. El radicando de una raíz cuadrada debe ser no negativo.\n2. x-${h}≥0.\nResultado final: Dom(f)=[${h},∞).`
+    );
+  }
   return generatedQuestion(
     `Determina el vértice de f(x)=(x-${h})^2 ${k < 0 ? "-" : "+"} ${Math.abs(k)}.`,
     `(${h}, ${k})`,
@@ -6370,11 +7618,258 @@ function generatedFunctionLevelQuestion(difficulty, seed) {
   );
 }
 
+// 2.º ESO trabaja lectura, representación e interpretación de funciones
+// lineales y afines. Mantiene un generador propio para que la dificultad
+// media no herede composición, inversa, radicales ni vértices de parábolas
+// del generador común de cursos posteriores.
+function generatedSecondEsoFunctionQuestion(difficulty, seed, progressionIndex = seed) {
+  const safeSeed = Math.abs(seed);
+  const operation = ((progressionIndex % 10) + 10) % 10;
+  const slope = 1 + (safeSeed % 6);
+  const intercept = 1 + (Math.floor(safeSeed / 7) % 9);
+  const x = 1 + (Math.floor(safeSeed / 11) % 8);
+  const value = slope * x + intercept;
+
+  if (operation === 0) {
+    return generatedQuestion(
+      `Sea f(x)=${slope}x+${intercept}. Calcula f(${x}).`,
+      value,
+      [slope + x + intercept, slope * x, value + slope],
+      `Resolución:\n1. Sustituimos x por ${x}.\n2. f(${x})=${slope}·${x}+${intercept}=${value}.\nResultado final: ${value}.`
+    );
+  }
+  if (operation === 1) {
+    const root = 1 + (safeSeed % 8);
+    return generatedQuestion(
+      `Halla el corte con el eje X de y=${slope}x-${slope * root}.`,
+      `(${root}, 0)`,
+      [`(0, ${root})`, `(${-root}, 0)`, `(0, ${-slope * root})`],
+      `Resolución:\n1. En el eje X se cumple y=0.\n2. 0=${slope}x-${slope * root}, luego ${slope}x=${slope * root}.\n3. x=${root}.\nResultado final: (${root},0).`
+    );
+  }
+  if (operation === 2) {
+    return generatedQuestion(
+      `Indica la pendiente de la recta y=${slope}x+${intercept}.`,
+      slope,
+      [intercept, -slope, slope + intercept],
+      `Resolución:\n1. Una función afín se escribe y=mx+n.\n2. La pendiente es el coeficiente m de x.\nResultado final: m=${slope}.`
+    );
+  }
+  if (operation === 3) {
+    return generatedQuestion(
+      `Indica la ordenada en el origen de y=${slope}x-${intercept}.`,
+      -intercept,
+      [intercept, slope, -slope],
+      `Resolución:\n1. La ordenada en el origen es el valor de y cuando x=0.\n2. y=${slope}·0-${intercept}=-${intercept}.\nResultado final: n=-${intercept}.`
+    );
+  }
+  if (operation === 4) {
+    const y0 = intercept;
+    const y1 = slope + intercept;
+    const y2 = 2 * slope + intercept;
+    return generatedQuestion(
+      `La tabla contiene los puntos (0,${y0}), (1,${y1}) y (2,${y2}). ¿Qué expresión los relaciona?`,
+      `y=${slope}x+${intercept}`,
+      [`y=${intercept}x+${slope}`, `y=${slope}x-${intercept}`, `y=${slope + intercept}x`],
+      `Resolución:\n1. Al aumentar x una unidad, y aumenta ${slope}; esa es la pendiente.\n2. Cuando x=0, y=${intercept}; esa es la ordenada en el origen.\nResultado final: y=${slope}x+${intercept}.`
+    );
+  }
+  if (operation === 5) {
+    return generatedQuestion(
+      `¿La función y=${slope}x+${intercept} es lineal o afín?`,
+      "Afín, porque su ordenada en el origen no es 0",
+      ["Lineal, porque contiene x", "Constante, porque tiene dos términos", "No es una función"],
+      `Resolución:\n1. Una función lineal tiene la forma y=mx y pasa por el origen.\n2. Aquí aparece el término independiente ${intercept}≠0.\nResultado final: es una función afín.`
+    );
+  }
+  if (operation === 6) {
+    const negativeSlope = -slope;
+    return generatedQuestion(
+      `Sin dibujarla, indica si y=${negativeSlope}x+${intercept} es creciente o decreciente.`,
+      "Decreciente",
+      ["Creciente", "Constante", "No puede saberse"],
+      `Resolución:\n1. Observamos el signo de la pendiente.\n2. Como m=${negativeSlope}<0, y disminuye cuando x aumenta.\nResultado final: decreciente.`
+    );
+  }
+  if (operation === 7) {
+    return generatedQuestion(
+      `Escribe la función afín de pendiente ${slope} y ordenada en el origen ${intercept}.`,
+      `y=${slope}x+${intercept}`,
+      [`y=${intercept}x+${slope}`, `y=${slope + intercept}x`, `y=${slope}x-${intercept}`],
+      `Resolución:\n1. Usamos la forma y=mx+n.\n2. Sustituimos m=${slope} y n=${intercept}.\nResultado final: y=${slope}x+${intercept}.`
+    );
+  }
+  if (operation === 8) {
+    return generatedQuestion(
+      `Comprueba si el punto P(${x},${value}) pertenece a la recta y=${slope}x+${intercept}.`,
+      "Sí pertenece",
+      ["No pertenece", "Solo pertenece si x=0", "Solo pertenece si y=0"],
+      `Resolución:\n1. Sustituimos las coordenadas de P en la ecuación.\n2. ${slope}·${x}+${intercept}=${value}.\n3. Coincide con la ordenada del punto.\nResultado final: P sí pertenece a la recta.`
+    );
+  }
+  const fixedCost = 2 + (safeSeed % 8);
+  const unitCost = 1 + (Math.floor(safeSeed / 13) % 5);
+  const units = 2 + (Math.floor(safeSeed / 17) % 7);
+  const total = fixedCost + unitCost * units;
+  return generatedQuestion(
+    `Un servicio cobra ${fixedCost} € fijos y ${unitCost} € por cada hora. ¿Cuánto cuesta utilizarlo ${units} horas?`,
+    `${total} €`,
+    [`${fixedCost * units + unitCost} €`, `${unitCost * units} €`, `${fixedCost + unitCost + units} €`],
+    `Resolución:\n1. La relación es C(h)=${fixedCost}+${unitCost}h.\n2. C(${units})=${fixedCost}+${unitCost}·${units}=${total}.\nResultado final: ${total} €.`
+  );
+}
+
+// Tema 9 de 4.º ESO A. Las estructuras proceden del documento
+// "9-Funciones Ejercicio.pdf": dominio y recorrido, simetría, continuidad,
+// representación, tasa de variación, operaciones, composición e inversa.
+// Se generan variantes numéricas para que el alumno pueda repetir el reto sin
+// recibir únicamente el mismo enunciado con el mismo resultado.
+function generatedFourthEsoAFunctionQuestion(difficulty, seed) {
+  const safeSeed = Math.abs(seed);
+  const operation = safeSeed % 10;
+  const a = 2 + (safeSeed % 5);
+  const b = 1 + (Math.floor(safeSeed / 5) % 7);
+  const h = 1 + (Math.floor(safeSeed / 11) % 5);
+  const k = 1 + (Math.floor(safeSeed / 17) % 6);
+
+  if (operation === 0) {
+    const x = 1 + (safeSeed % 6);
+    const result = a * x - b;
+    return generatedQuestion(
+      `Sea f(x)=${a}x-${b}. Calcula f(${x}).`,
+      result,
+      [a * x + b, a + x - b, result + a],
+      `Resolución:\n1. Sustituimos x por ${x} en la expresión de la función.\n2. f(${x})=${a}·${x}-${b}=${a * x}-${b}=${result}.\nResultado final: f(${x})=${result}.`
+    );
+  }
+
+  if (operation === 1) {
+    return generatedQuestion(
+      `Calcula el dominio y el recorrido de la función f(x)=${a}x-${b}.`,
+      "Dom(f)=ℝ y Rec(f)=ℝ",
+      ["Dom(f)=ℝ−{0} y Rec(f)=ℝ", "Dom(f)=[0,∞) y Rec(f)=[0,∞)", `Dom(f)=ℝ y Rec(f)=[-${b},∞)`],
+      `Resolución:\n1. Es una función afín y no contiene denominadores, raíces pares ni logaritmos que restrinjan x. Por tanto, Dom(f)=ℝ.\n2. Como su pendiente ${a} es distinta de cero, puede tomar cualquier valor real. Por tanto, Rec(f)=ℝ.\nResultado final: Dom(f)=ℝ y Rec(f)=ℝ.`
+    );
+  }
+
+  if (operation === 2) {
+    const vertexY = -k;
+    return generatedQuestion(
+      `Calcula el dominio y el recorrido de f(x)=(x-${h})^2-${k}.`,
+      `Dom(f)=ℝ y Rec(f)=[-${k},∞)`,
+      [`Dom(f)=[${h},∞) y Rec(f)=ℝ`, `Dom(f)=ℝ y Rec(f)=(-∞,-${k}]`, `Dom(f)=ℝ−{${h}} y Rec(f)=ℝ`],
+      `Resolución:\n1. La expresión cuadrática está definida para todo número real: Dom(f)=ℝ.\n2. Está escrita en forma de vértice f(x)=(x-h)²+k. Su vértice es V(${h},${vertexY}).\n3. El coeficiente de (x-${h})² es positivo, así que la parábola abre hacia arriba y su valor mínimo es -${k}.\nResultado final: Dom(f)=ℝ y Rec(f)=[-${k},∞).`
+    );
+  }
+
+  if (operation === 3) {
+    return generatedQuestion(
+      `Calcula el dominio de f(x)=frac{${a}x+${b}}{x-${h}}.`,
+      `ℝ−{${h}}`,
+      ["ℝ", `ℝ−{-${h}}`, `[${h},∞)`],
+      `Resolución:\n1. En una función racional, el denominador no puede ser cero.\n2. x-${h}=0 ⇒ x=${h}.\n3. Excluimos ese valor del dominio.\nResultado final: Dom(f)=ℝ−{${h}}.`
+    );
+  }
+
+  if (operation === 4) {
+    const oddPower = difficulty === "hard" ? 3 : 1;
+    return generatedQuestion(
+      `Estudia la simetría de f(x)=${a}x^${oddPower}.`,
+      "Es impar: simétrica respecto del origen",
+      ["Es par: simétrica respecto del eje Y", "No presenta simetría", "Es periódica"],
+      `Resolución:\n1. Sustituimos x por -x.\n2. f(-x)=${a}·(-x)^${oddPower}=-${a}x^${oddPower}=-f(x).\n3. Como f(-x)=-f(x), la función es impar.\nResultado final: es simétrica respecto del origen de coordenadas.`
+    );
+  }
+
+  if (operation === 5) {
+    return generatedQuestion(
+      `Estudia la continuidad de f(x)=frac{${a}x+${b}}{x-${h}}.`,
+      `Es continua en ℝ−{${h}} y discontinua en x=${h}`,
+      ["Es continua en ℝ", `Es discontinua en x=-${h}`, `Solo es continua en [${h},∞)`],
+      `Resolución:\n1. Una función racional es continua en todos los puntos en los que está definida.\n2. El denominador se anula cuando x-${h}=0, es decir, en x=${h}.\n3. En ese punto la función no está definida y presenta una discontinuidad.\nResultado final: es continua en ℝ−{${h}} y discontinua en x=${h}.`
+    );
+  }
+
+  if (operation === 6) {
+    return generatedQuestion(
+      `Calcula la función inversa de f(x)=${a}x-${b}.`,
+      `f^(-1)(x)=frac{x+${b}}{${a}}`,
+      [`f^(-1)(x)=frac{x-${b}}{${a}}`, `f^(-1)(x)=${a}x+${b}`, `f^(-1)(x)=frac{${a}}{x+${b}}`],
+      `Resolución:\n1. Escribimos y=${a}x-${b}.\n2. Intercambiamos las variables: x=${a}y-${b}.\n3. Despejamos y: x+${b}=${a}y ⇒ y=frac{x+${b}}{${a}}.\nResultado final: f⁻¹(x)=frac{x+${b}}{${a}}.`
+    );
+  }
+
+  if (operation === 7) {
+    const x = 1 + (safeSeed % 4);
+    const result = a * (x * x - b) + k;
+    return generatedQuestion(
+      `Sean f(x)=${a}x+${k} y g(x)=x^2-${b}. Calcula (f∘g)(${x}).`,
+      result,
+      [a * x * x - b + k, x * x - b + k, result + a],
+      `Resolución:\n1. Calculamos primero la función interior: g(${x})=${x}²-${b}=${x * x - b}.\n2. Sustituimos ese resultado en f: f(g(${x}))=${a}·(${x * x - b})+${k}=${result}.\nResultado final: (f∘g)(${x})=${result}.`
+    );
+  }
+
+  if (operation === 8) {
+    const left = 1 + (safeSeed % 3);
+    const right = left + 4;
+    const leftValue = (left - h) ** 2;
+    const rightValue = (right - h) ** 2;
+    const rate = (rightValue - leftValue) / (right - left);
+    return generatedQuestion(
+      `Dada g(x)=(x-${h})^2, calcula la tasa de variación media en [${left},${right}].`,
+      rate,
+      [rightValue - leftValue, rate + 2, -rate],
+      `Resolución:\n1. Usamos TVM=frac{g(${right})-g(${left})}{${right}-${left}}.\n2. g(${right})=(${right}-${h})²=${rightValue} y g(${left})=(${left}-${h})²=${leftValue}.\n3. TVM=frac{${rightValue}-${leftValue}}{${right - left}}=${rate}.\nResultado final: ${rate}.`
+    );
+  }
+
+  const base = 2 + (safeSeed % 4);
+  return generatedQuestion(
+    `Calcula el dominio y el recorrido de f(x)=${base}^x.`,
+    "Dom(f)=ℝ y Rec(f)=(0,∞)",
+    ["Dom(f)=(0,∞) y Rec(f)=ℝ", "Dom(f)=ℝ y Rec(f)=[0,∞)", "Dom(f)=ℝ−{0} y Rec(f)=ℝ"],
+    `Resolución:\n1. Una función exponencial de base positiva distinta de 1 está definida para cualquier exponente real: Dom(f)=ℝ.\n2. Sus valores son siempre positivos y nunca alcanza 0.\nResultado final: Dom(f)=ℝ y Rec(f)=(0,∞).`
+  );
+}
+
 function generatedSequenceLevelQuestion(difficulty, seed) {
-  const first = 2 + (seed % 8);
-  const difference = 2 + ((seed * 2) % 6);
+  // Separar cada parámetro en una "cifra" distinta de la semilla evita que
+  // primer término, diferencia y tipo de pregunta repitan siempre el mismo
+  // ciclo corto. Así el alumno recorre más de 30 variantes reales antes de
+  // volver a ver una sucesión ya resuelta.
+  const safeSeed = Math.abs(seed);
+  const operation = safeSeed % 4;
+  const first = 2 + (Math.floor(safeSeed / 4) % 11);
+  const difference = 2 + (Math.floor(safeSeed / 44) % 7);
 
   if (difficulty === "easy") {
+    if (operation === 1) {
+      const ratio = 2 + (Math.floor(safeSeed / 13) % 4);
+      return generatedQuestion(
+        `Completa la sucesión geométrica: ${first}, ${first * ratio}, ${first * ratio ** 2}, ${first * ratio ** 3}, ...`,
+        first * ratio ** 4,
+        [first * ratio ** 3 + ratio, first * ratio ** 5, first + 4 * ratio],
+        `Resolución:\n1. Cada término se obtiene multiplicando por ${ratio}.\n2. Multiplicamos el último término por ${ratio}.\nResultado final: ${first * ratio ** 4}.`
+      );
+    }
+    if (operation === 2) {
+      return generatedQuestion(
+        `Halla la diferencia de la progresión: ${first}, ${first + difference}, ${first + 2 * difference}, ...`,
+        difference,
+        [first, first + difference, 2 * difference],
+        `Resolución:\n1. Restamos dos términos consecutivos.\n2. (${first + difference})-${first}=${difference}.\nResultado final: d=${difference}.`
+      );
+    }
+    if (operation === 3) {
+      const fifth = first + 4 * difference;
+      return generatedQuestion(
+        `Si a_n=${first}+(n-1)·${difference}, calcula a_5.`,
+        fifth,
+        [first + 5 * difference, 5 * difference, fifth - difference],
+        `Resolución:\n1. Sustituimos n=5.\n2. a₅=${first}+(5-1)·${difference}=${first}+${4 * difference}.\nResultado final: ${fifth}.`
+      );
+    }
     return generatedQuestion(
       `Completa la sucesión: ${first}, ${first + difference}, ${first + 2 * difference}, ${first + 3 * difference}, ...`,
       first + 4 * difference,
@@ -6383,13 +7878,73 @@ function generatedSequenceLevelQuestion(difficulty, seed) {
     );
   }
 
-  const position = 8 + (seed % 8);
+  const position = 8 + (Math.floor(safeSeed / 7) % 10);
   const result = first + (position - 1) * difference;
+  if (operation === 1) {
+    const ratio = 2 + (Math.floor(safeSeed / 13) % 4);
+    const geometricResult = first * ratio ** (position - 1);
+    return generatedQuestion(
+      `En la progresión geométrica a₁=${first} y r=${ratio}, calcula a_${position}.`,
+      geometricResult,
+      [first * ratio ** position, first + (position - 1) * ratio, geometricResult / ratio],
+      `Resolución:\n1. Usamos aₙ=a₁·r^(n-1).\n2. a_${position}=${first}·${ratio}^${position - 1}.\nResultado final: ${geometricResult}.`
+    );
+  }
+  if (operation === 2) {
+    const terms = 6 + (Math.floor(safeSeed / 17) % 7);
+    const last = first + (terms - 1) * difference;
+    const sum = terms * (first + last) / 2;
+    return generatedQuestion(
+      `Calcula la suma de los ${terms} primeros términos de una progresión aritmética con a₁=${first} y d=${difference}.`,
+      sum,
+      [terms * first, first + last, sum + difference],
+      `Resolución:\n1. Hallamos a_${terms}=${first}+(${terms}-1)·${difference}=${last}.\n2. Aplicamos Sₙ=n(a₁+aₙ)/2.\n3. S_${terms}=${terms}(${first}+${last})/2=${sum}.\nResultado final: ${sum}.`
+    );
+  }
+  if (operation === 3) {
+    const ratio = 2 + (Math.floor(safeSeed / 13) % 5);
+    return generatedQuestion(
+      `Determina la razón de la progresión geométrica ${first}, ${first * ratio}, ${first * ratio ** 2}, ${first * ratio ** 3}, ...`,
+      ratio,
+      [difference, first, ratio + 1],
+      `Resolución:\n1. Dividimos un término entre el anterior.\n2. ${first * ratio}/${first}=${ratio}.\nResultado final: r=${ratio}.`
+    );
+  }
   return generatedQuestion(
     `En la progresión aritmética a₁=${first} y d=${difference}, calcula a_${position}.`,
     result,
     [first + position * difference, position * difference, result - difference],
     `Resolución:\n1. Usamos aₙ=a₁+(n-1)d.\n2. a_${position}=${first}+(${position}-1)·${difference}.\n3. a_${position}=${first}+${(position - 1) * difference}.\nResultado final: ${result}.`
+  );
+}
+
+function generatedThirdEsoSequenceQuestion(difficulty, seed, progressionIndex = seed) {
+  const stage = ((progressionIndex % 6) + 6) % 6;
+  if (stage < 4) return generatedSequenceLevelQuestion(difficulty, seed);
+
+  if (stage === 4) {
+    const capital = 1200 + (Math.abs(seed) % 5) * 300;
+    const rate = 3 + (Math.abs(seed) % 4);
+    const months = 2 + (Math.abs(seed) % 9);
+    const interest = capital * rate * months / (12 * 100);
+    const finalCapital = capital + interest;
+    return generatedQuestion(
+      `Se depositan ${capital} € a interés simple del ${rate} % anual durante ${months} meses. Calcula el interés producido y el capital final.`,
+      `I=${decimalAnswer(interest)} €; C_F=${decimalAnswer(finalCapital)} €`,
+      [`I=${decimalAnswer(capital * rate * months / 100)} €`, `I=${decimalAnswer(interest)} €; C_F=${decimalAnswer(capital)} €`, `I=${rate * months} €; C_F=${decimalAnswer(capital + rate * months)} €`],
+      `Resolución:\n1. Como T está en meses, n=12.\n2. I=C₀·R·T/(n·100)=${capital}·${rate}·${months}/(12·100)=${decimalAnswer(interest)} €.\n3. C_F=C₀+I=${capital}+${decimalAnswer(interest)}=${decimalAnswer(finalCapital)} €.\nResultado final: I=${decimalAnswer(interest)} € y C_F=${decimalAnswer(finalCapital)} €.`
+    );
+  }
+
+  const capital = 1000 + (Math.abs(seed) % 4) * 500;
+  const rate = 4 + (Math.abs(seed) % 3);
+  const years = 2 + (Math.abs(seed) % 3);
+  const finalCapital = capital * (1 + rate / 100) ** years;
+  return generatedQuestion(
+    `Se invierten ${capital} € al ${rate} % anual con capitalización anual durante ${years} años. Calcula el capital final mediante interés compuesto.`,
+    `${decimalAnswer(finalCapital)} €`,
+    [`${decimalAnswer(capital + capital * rate * years / 100)} €`, `${decimalAnswer(capital * (1 + rate / 100))} €`, `${decimalAnswer(capital + rate * years)} €`],
+    `Resolución:\n1. Usamos C_F=C₀(1+R/(100n))^(nt), con n=1.\n2. C_F=${capital}(1+${rate}/100)^${years}.\n3. C_F=${decimalAnswer(finalCapital)} €.\nResultado final: ${decimalAnswer(finalCapital)} €.`
   );
 }
 
@@ -6424,10 +7979,38 @@ function generatedStatisticsLevelQuestion(difficulty, seed) {
     );
   }
 
-  const value1 = 4 + (seed % 5);
-  const value2 = value1 + 3;
-  const frequency1 = 2 + (seed % 3);
-  const frequency2 = frequency1 + 2;
+  const advancedOperation = seed % 4;
+  const value1 = 4 + (seed % 17);
+  const value2 = value1 + 2 + (Math.floor(seed / 17) % 5);
+  const frequency1 = 2 + (Math.floor(seed / 7) % 5);
+  const frequency2 = 3 + (Math.floor(seed / 11) % 6);
+  if (advancedOperation === 1) {
+    const total = frequency1 + frequency2;
+    return generatedQuestion(
+      `En una tabla, el valor ${value1} tiene frecuencia ${frequency1} y el valor ${value2} frecuencia ${frequency2}. ¿Cuántos datos hay en total?`,
+      total,
+      [frequency1 * frequency2, value1 + value2, total + 1],
+      `Resolución:\n1. El número total de datos es la suma de las frecuencias.\n2. N=${frequency1}+${frequency2}=${total}.\nResultado final: ${total}.`
+    );
+  }
+  if (advancedOperation === 2) {
+    const mode = frequency1 > frequency2 ? value1 : value2;
+    return generatedQuestion(
+      `El valor ${value1} aparece ${frequency1} veces y el valor ${value2} aparece ${frequency2} veces. Determina la moda.`,
+      mode,
+      [mode === value1 ? value2 : value1, frequency1, frequency2],
+      `Resolución:\n1. La moda es el valor con mayor frecuencia.\n2. Comparamos ${frequency1} y ${frequency2}; la frecuencia mayor corresponde a ${mode}.\nResultado final: ${mode}.`
+    );
+  }
+  if (advancedOperation === 3) {
+    const range = value2 - value1;
+    return generatedQuestion(
+      `Una distribución solo toma los valores ${value1} y ${value2}. Calcula su recorrido o rango.`,
+      range,
+      [value2, value1, value1 + value2],
+      `Resolución:\n1. El rango es máximo menos mínimo.\n2. R=${value2}-${value1}=${range}.\nResultado final: ${range}.`
+    );
+  }
   const mean = (value1 * frequency1 + value2 * frequency2) / (frequency1 + frequency2);
   return generatedQuestion(
     `El valor ${value1} aparece ${frequency1} veces y el valor ${value2} aparece ${frequency2} veces. Calcula la media.`,
@@ -6438,10 +8021,10 @@ function generatedStatisticsLevelQuestion(difficulty, seed) {
 }
 
 function generatedProbabilityLevelQuestion(difficulty, seed) {
-  const red = 2 + (seed % 5);
-  const blue = 3 + ((seed * 2) % 6);
+  const red = 2 + (seed % 11);
+  const blue = 3 + (Math.floor(seed / 11) % 13);
   const total = red + blue;
-  const operation = seed % 3;
+  const operation = seed % 4;
 
   if (difficulty === "easy") {
     if (operation === 1) {
@@ -6480,6 +8063,24 @@ function generatedProbabilityLevelQuestion(difficulty, seed) {
       `Resolución:\n1. Al devolver la primera bola, las dos extracciones tienen la misma probabilidad: ${red}/${total}.\n2. Multiplicamos: ${red}/${total}·${red}/${total}.\n3. Simplificamos.\nResultado final: ${result}.`
     );
   }
+  if (operation === 2) {
+    const result = reducedFraction(2 * red * blue, total * total);
+    return generatedQuestion(
+      `Una bolsa contiene ${red} bolas rojas y ${blue} azules. Se extraen dos bolas con reemplazamiento. ¿Cuál es la probabilidad de obtener una de cada color?`,
+      result,
+      [reducedFraction(red * blue, total * total), reducedFraction(red + blue, total * total), reducedFraction(2 * red, total)],
+      `Resolución:\n1. Puede salir roja-azul o azul-roja.\n2. P=frac{${red}}{${total}}·frac{${blue}}{${total}}+frac{${blue}}{${total}}·frac{${red}}{${total}}.\n3. Sumamos y simplificamos.\nResultado final: ${result}.`
+    );
+  }
+  if (operation === 3) {
+    const result = reducedFraction(blue, total);
+    return generatedQuestion(
+      `En una bolsa hay ${red} bolas rojas y ${blue} azules. Si A es «sacar roja», calcula P(A^c).`,
+      result,
+      [reducedFraction(red, total), reducedFraction(blue, red), reducedFraction(total, blue)],
+      `Resolución:\n1. El complementario de sacar roja es sacar azul.\n2. P(A^c)=1-P(A)=1-frac{${red}}{${total}}=frac{${blue}}{${total}}.\nResultado final: ${result}.`
+    );
+  }
   const result = reducedFraction(red * (red - 1), total * (total - 1));
   return generatedQuestion(
     `Una bolsa contiene ${red} bolas rojas y ${blue} azules. Se extraen dos sin reemplazamiento. ¿Cuál es la probabilidad de que ambas sean rojas?`,
@@ -6490,8 +8091,8 @@ function generatedProbabilityLevelQuestion(difficulty, seed) {
 }
 
 function generatedCombinatoricsLevelQuestion(difficulty, seed) {
-  const n = 4 + (seed % 9);
-  const operation = seed % 3;
+  const n = 4 + (seed % 23);
+  const operation = seed % 4;
   if (difficulty === "easy") {
     if (operation === 1) {
       const result = n * (n - 1);
@@ -6500,6 +8101,24 @@ function generatedCombinatoricsLevelQuestion(difficulty, seed) {
         result,
         [n * n, n + (n - 1), result / 2],
         `Resolución:\n1. Para la primera posición hay ${n} opciones.\n2. Para la segunda quedan ${n - 1}.\n3. Multiplicamos: ${n}·${n - 1}=${result}.\nResultado final: ${result}.`
+      );
+    }
+    if (operation === 2) {
+      const result = n * (n - 1) / 2;
+      return generatedQuestion(
+        `De ${n} personas se elige una pareja sin distinguir el orden. ¿Cuántas parejas distintas hay?`,
+        result,
+        [n * (n - 1), n * 2, result + n],
+        `Resolución:\n1. No importa el orden, así que usamos combinaciones.\n2. C(${n},2)=${n}·${n - 1}/2=${result}.\nResultado final: ${result}.`
+      );
+    }
+    if (operation === 3) {
+      const result = n ** 2;
+      return generatedQuestion(
+        `Con ${n} símbolos se forman códigos de dos posiciones permitiendo repetición. ¿Cuántos códigos hay?`,
+        result,
+        [n * (n - 1), 2 * n, result / 2],
+        `Resolución:\n1. En cada una de las dos posiciones hay ${n} posibilidades.\n2. Por el principio multiplicativo: ${n}·${n}=${result}.\nResultado final: ${result}.`
       );
     }
     let factorial = 1;
@@ -6512,7 +8131,7 @@ function generatedCombinatoricsLevelQuestion(difficulty, seed) {
     );
   }
 
-  const people = 6 + (seed % 13);
+  const people = 6 + (seed % 31);
   if (operation === 1) {
     const result = people * (people - 1);
     return generatedQuestion(
@@ -6520,6 +8139,24 @@ function generatedCombinatoricsLevelQuestion(difficulty, seed) {
       result,
       [result / 2, people * people, people + (people - 1)],
       `Resolución:\n1. Los cargos son distintos, por lo que importa el orden.\n2. Hay ${people} opciones para delegado y ${people - 1} para subdelegado.\n3. ${people}·${people - 1}=${result}.\nResultado final: ${result}.`
+    );
+  }
+  if (operation === 2) {
+    const result = people * (people - 1) * (people - 2);
+    return generatedQuestion(
+      `Con ${people} personas se asignan tres cargos distintos. ¿De cuántas formas puede hacerse?`,
+      result,
+      [result / 6, people ** 3, people * (people - 1)],
+      `Resolución:\n1. Los cargos son distintos y no se repite persona.\n2. Hay ${people}, ${people - 1} y ${people - 2} opciones sucesivas.\n3. Multiplicamos: ${people}·${people - 1}·${people - 2}=${result}.\nResultado final: ${result}.`
+    );
+  }
+  if (operation === 3) {
+    const result = people * (people - 1) * (people - 2) / 6;
+    return generatedQuestion(
+      `De ${people} estudiantes se forma un equipo de 3 sin asignar cargos. ¿Cuántos equipos distintos hay?`,
+      result,
+      [result * 6, people * 3, people * (people - 1)],
+      `Resolución:\n1. No importa el orden, por lo que usamos C(${people},3).\n2. C(${people},3)=frac{${people}·${people - 1}·${people - 2}}{3·2·1}.\n3. Calculamos y obtenemos ${result}.\nResultado final: ${result}.`
     );
   }
   const combinations = people * (people - 1) / 2;
@@ -6532,15 +8169,64 @@ function generatedCombinatoricsLevelQuestion(difficulty, seed) {
 }
 
 function generatedLimitLevelQuestion(lower, difficulty, seed) {
-  const a = 2 + (seed % 8);
-  const b = 3 + ((seed * 2) % 7);
+  const a = 2 + (seed % 31);
+  const b = 3 + (Math.floor(seed / 7) % 19);
+  const operation = seed % 4;
   if (lower.includes("sucesion")) {
     if (difficulty === "easy") {
+      if (operation === 1) {
+        return generatedQuestion(
+          `Calcula: lim n→∞ (${a}n+1)/n`,
+          a,
+          [0, 1, "∞"],
+          `Resolución:\n1. Dividimos todos los términos entre n.\n2. Obtenemos ${a}+1/n.\n3. Como 1/n→0, el límite vale ${a}.\nResultado final: ${a}.`
+        );
+      }
+      if (operation === 2) {
+        return generatedQuestion(
+          `Calcula: lim n→∞ 1/n^${a}`,
+          0,
+          [1, a, "∞"],
+          `Resolución:\n1. n^${a} crece sin límite.\n2. Su inverso se aproxima a cero.\nResultado final: 0.`
+        );
+      }
+      if (operation === 3) {
+        return generatedQuestion(
+          `Calcula: lim n→∞ (${a}n+${b})/(${a}n)`,
+          1,
+          [0, a, `${a}/${b}`],
+          `Resolución:\n1. Dividimos numerador y denominador entre n.\n2. (${a}+${b}/n)/${a}.\n3. Como ${b}/n→0, queda ${a}/${a}=1.\nResultado final: 1.`
+        );
+      }
       return generatedQuestion(
         `Calcula: lim n→∞ ${a}/n`,
         0,
         [a, 1, "∞"],
         `Resolución:\n1. El numerador es constante.\n2. El denominador crece sin límite.\nResultado final: 0.`
+      );
+    }
+    if (operation === 1) {
+      return generatedQuestion(
+        `Calcula: lim n→∞ (${a}n^3+${b}n)/(2n^3-1)`,
+        `${a}/2`,
+        [`2/${a}`, 0, "∞"],
+        `Resolución:\n1. Numerador y denominador tienen grado 3.\n2. El límite es el cociente de los coeficientes principales.\nResultado final: ${a}/2.`
+      );
+    }
+    if (operation === 2) {
+      return generatedQuestion(
+        `Calcula: lim n→∞ (${a}n+1)/(n^2+${b})`,
+        0,
+        [a, 1, "∞"],
+        `Resolución:\n1. El grado del denominador es mayor.\n2. Dividimos entre n² y todos los términos del numerador tienden a 0.\nResultado final: 0.`
+      );
+    }
+    if (operation === 3) {
+      return generatedQuestion(
+        `Calcula: lim n→∞ (n^2+${a})/(${b}n+1)`,
+        "∞",
+        [0, `${a}/${b}`, 1],
+        `Resolución:\n1. El grado del numerador es mayor que el del denominador.\n2. El cociente se comporta como n/${b}, que crece sin límite.\nResultado final: +∞.`
       );
     }
     return generatedQuestion(
@@ -6551,11 +8237,59 @@ function generatedLimitLevelQuestion(lower, difficulty, seed) {
     );
   }
   if (difficulty === "easy") {
+    if (operation === 1) {
+      return generatedQuestion(
+        `Calcula: lim x→${a} (x^2+${b})`,
+        a * a + b,
+        [a + b, a * a, b],
+        `Resolución:\n1. El polinomio es continuo.\n2. Sustituimos x=${a}: ${a}²+${b}.\nResultado final: ${a * a + b}.`
+      );
+    }
+    if (operation === 2) {
+      return generatedQuestion(
+        `Calcula: lim x→${a} frac{x+${b}}{2}.`,
+        reducedFraction(a + b, 2),
+        [a + b, reducedFraction(a, 2), b],
+        `Resolución:\n1. La función es continua en x=${a}.\n2. Sustituimos: frac{${a}+${b}}{2}.\nResultado final: ${reducedFraction(a + b, 2)}.`
+      );
+    }
+    if (operation === 3) {
+      return generatedQuestion(
+        `Calcula: lim x→${a} (${b}-x).`,
+        b - a,
+        [a - b, b, a],
+        `Resolución:\n1. La función es continua.\n2. Sustituimos x=${a}: ${b}-${a}.\nResultado final: ${b - a}.`
+      );
+    }
     return generatedQuestion(
       `Calcula: lim x→${a} (2x+${b})`,
       2 * a + b,
       [a + b, 2 * a, b],
       `Resolución:\n1. La función es continua.\n2. Sustituimos x=${a}: 2·${a}+${b}.\nResultado final: ${2 * a + b}.`
+    );
+  }
+  if (operation === 1) {
+    return generatedQuestion(
+      `Calcula: lim x→0 frac{sen(${a}x)}{x}.`,
+      a,
+      [0, 1, `${a}x`],
+      `Resolución:\n1. Multiplicamos y dividimos por ${a}.\n2. frac{sen(${a}x)}{x}=${a}·frac{sen(${a}x)}{${a}x}.\n3. El límite notable vale 1.\nResultado final: ${a}.`
+    );
+  }
+  if (operation === 2) {
+    return generatedQuestion(
+      `Calcula: lim x→∞ (${a}x^2+${b})/(x^2+1).`,
+      a,
+      [0, 1, "∞"],
+      `Resolución:\n1. Es una indeterminación ∞/∞.\n2. Dividimos numerador y denominador entre x².\n3. Los términos con 1/x² tienden a 0.\nResultado final: ${a}.`
+    );
+  }
+  if (operation === 3) {
+    return generatedQuestion(
+      `Calcula: lim x→0 frac{e^(${a}x)-1}{x}.`,
+      a,
+      [0, 1, Math.E],
+      `Resolución:\n1. La sustitución produce 0/0.\n2. Aplicamos L'Hôpital: la derivada del numerador es ${a}e^(${a}x) y la del denominador es 1.\n3. Sustituimos x=0.\nResultado final: ${a}.`
     );
   }
   return generatedQuestion(
@@ -6567,9 +8301,38 @@ function generatedLimitLevelQuestion(lower, difficulty, seed) {
 }
 
 function generatedDerivativeLevelQuestion(difficulty, seed) {
-  const coefficient = 2 + (seed % 7);
-  const exponent = 2 + ((seed * 2) % 4);
+  // Los parámetros se obtienen de posiciones independientes de la semilla.
+  // Antes estaban acoplados por módulos pequeños y el nivel fácil solo
+  // producía 22 identidades distintas aunque se probaran cientos de semillas.
+  const safeSeed = Math.abs(seed);
+  const operation = safeSeed % 4;
+  const coefficient = 2 + (Math.floor(safeSeed / 4) % 11);
+  const exponent = 2 + (Math.floor(safeSeed / 44) % 5);
   if (difficulty === "easy") {
+    if (operation === 1) {
+      return generatedQuestion(
+        `Deriva: f(x)=${coefficient}x^2+${exponent}x-${coefficient}.`,
+        `${2 * coefficient}x+${exponent}`,
+        [`${coefficient}x+${exponent}`, `${2 * coefficient}x-${exponent}`, `${2 * coefficient}x^2+${exponent}`],
+        `Resolución:\n1. Derivamos término a término.\n2. (${coefficient}x²)'=${2 * coefficient}x, (${exponent}x)'=${exponent} y la constante deriva 0.\nResultado final: ${2 * coefficient}x+${exponent}.`
+      );
+    }
+    if (operation === 2) {
+      return generatedQuestion(
+        `Deriva: f(x)=frac{1}{x^${exponent}}.`,
+        `-${exponent}x^-${exponent + 1}`,
+        [`${exponent}x^${exponent - 1}`, `-x^-${exponent}`, `${exponent}x^-${exponent + 1}`],
+        `Resolución:\n1. Escribimos f(x)=x^(-${exponent}).\n2. Aplicamos la regla de la potencia.\nResultado final: f'(x)=-${exponent}x^(-${exponent + 1}).`
+      );
+    }
+    if (operation === 3) {
+      return generatedQuestion(
+        `Deriva: f(x)=sen x+${coefficient}cos x.`,
+        `cos x-${coefficient}sen x`,
+        [`sen x+${coefficient}cos x`, `cos x+${coefficient}sen x`, `-sen x-${coefficient}cos x`],
+        `Resolución:\n1. (sen x)'=cos x.\n2. (${coefficient}cos x)'=-${coefficient}sen x.\nResultado final: cos x-${coefficient}sen x.`
+      );
+    }
     return generatedQuestion(
       `Deriva: f(x)=${coefficient}x^${exponent}`,
       `${coefficient * exponent}x^${exponent - 1}`,
@@ -6577,9 +8340,33 @@ function generatedDerivativeLevelQuestion(difficulty, seed) {
       `Resolución:\n1. Aplicamos (xⁿ)'=n·xⁿ⁻¹.\n2. Multiplicamos ${coefficient}·${exponent}=${coefficient * exponent}.\n3. Restamos 1 al exponente.\nResultado final: f'(x)=${coefficient * exponent}x^${exponent - 1}.`
     );
   }
-  const point = 1 + (seed % 5);
-  const linear = 1 + ((seed * 3) % 6);
+  const point = 1 + (Math.floor(safeSeed / 9) % 7);
+  const linear = 1 + (Math.floor(safeSeed / 17) % 8);
   const slope = 2 * coefficient * point + linear;
+  if (operation === 1) {
+    return generatedQuestion(
+      `Deriva el producto f(x)=(x^2+${coefficient})(x+${linear}).`,
+      `2x(x+${linear})+(x^2+${coefficient})`,
+      [`2x(x+${linear})`, `(x^2+${coefficient})`, `2x+1`],
+      `Resolución:\n1. Aplicamos (uv)'=u'v+uv'.\n2. u=x²+${coefficient}, u'=2x; v=x+${linear}, v'=1.\nResultado final: f'(x)=2x(x+${linear})+(x²+${coefficient}).`
+    );
+  }
+  if (operation === 2) {
+    return generatedQuestion(
+      `Deriva el cociente f(x)=frac{x^2+${coefficient}}{x+1}.`,
+      `frac{2x(x+1)-(x^2+${coefficient})}{(x+1)^2}`,
+      [`frac{2x}{1}`, `frac{2x(x+1)+(x^2+${coefficient})}{(x+1)^2}`, `frac{x^2+${coefficient}}{(x+1)^2}`],
+      `Resolución:\n1. Aplicamos la regla del cociente: (u/v)'=frac{u'v-uv'}{v²}.\n2. u=x²+${coefficient}, u'=2x; v=x+1, v'=1.\nResultado final: frac{2x(x+1)-(x²+${coefficient})}{(x+1)²}.`
+    );
+  }
+  if (operation === 3) {
+    return generatedQuestion(
+      `Deriva la función compuesta f(x)=(${coefficient}x+1)^${exponent}.`,
+      `${coefficient * exponent}(${coefficient}x+1)^${exponent - 1}`,
+      [`${exponent}(${coefficient}x+1)^${exponent - 1}`, `${coefficient}(${coefficient}x+1)^${exponent}`, `${coefficient * exponent}(${coefficient}x+1)^${exponent}`],
+      `Resolución:\n1. Aplicamos la regla de la cadena.\n2. La derivada exterior aporta ${exponent}(${coefficient}x+1)^${exponent - 1}.\n3. Multiplicamos por la derivada interior, ${coefficient}.\nResultado final: ${coefficient * exponent}(${coefficient}x+1)^${exponent - 1}.`
+    );
+  }
   return generatedQuestion(
     `Calcula la pendiente de la tangente a f(x)=${coefficient}x^2+${linear}x-1 en x=${point}.`,
     slope,
@@ -6708,32 +8495,75 @@ function buildSecondEsoEquationTopicQuestions(theme, course) {
   return questions;
 }
 
-function buildQuestions(theme, course = courseById(state.courseId)) {
-  const questionCount = questionsPerChallengeFor(course);
-  if (!state.blockKey && ESO_COURSE_IDS.includes(course.id)) {
-    return buildEsoTopicLevelQuestions(theme, course);
-  }
-  if (!state.blockKey && window.MargaritaBachExam?.buildTopicQuestions) {
-    const topicQuestions = window.MargaritaBachExam.buildTopicQuestions(course, state.topicIndex);
-    const topicBlock = (BACH_II_BLOCKS[course.id] || []).find((block) => block.topics.includes(state.topicIndex));
-    const blockQuestions = topicBlock
-      ? window.MargaritaBachExam.buildBlockQuestions(course, topicBlock.id)
+function firstBachBankByTopic(courseId, topicIndex) {
+  const keys = courseId === "1bach-mates"
+    ? ["matesIReales", "matesIComplejos", "matesIEcuaciones", "matesITrigonometria", "matesIGeometriaAnalitica", "matesIConicas", "matesIFunciones", "matesILimites", "matesIDerivadas", "matesIAplicacionDerivadas", "matesIProbabilidad"]
+    : courseId === "1bach-ccss"
+      ? ["ccssIEstadistica", "ccssIProbabilidad", "ccssIBinomial", "ccssINormal", "ccssIReales", "ccssIComplejos", "ccssIEcuaciones", "ccssIInecuaciones", "ccssIFunciones", "matesIDerivadas", "matesIAplicacionDerivadas", "ccssICombinatoria"]
       : [];
+  return [...(exerciseBanks[keys[topicIndex]] || [])];
+}
+
+function firstBachExtensionBankByTopic(courseId, topicIndex) {
+  if (courseId === "1bach-mates") {
+    const suppliedLimits = Array.isArray(window.MATES_I_LIMITS_BANK) ? window.MATES_I_LIMITS_BANK : [];
+    const suppliedDerivatives = Array.isArray(window.MATES_I_DERIVATIVES_BANK) ? window.MATES_I_DERIVATIVES_BANK : [];
+    const suppliedApplications = Array.isArray(window.MATES_I_DERIVATIVE_APPLICATIONS_BANK) ? window.MATES_I_DERIVATIVE_APPLICATIONS_BANK : [];
+    const extensions = [exerciseBanks.realesBach, exerciseBanks.complejos, exerciseBanks.ecuacionesBach, exerciseBanks.trigonometriaBach, exerciseBanks.geometriaAnalitica, exerciseBanks.conicas, exerciseBanks.funciones, [...exerciseBanks.limites, ...suppliedLimits], [...exerciseBanks.derivadas, ...suppliedDerivatives], [...exerciseBanks.derivadas, ...suppliedApplications], exerciseBanks.probabilidadBach];
+    return [...(extensions[topicIndex] || [])];
+  }
+  if (courseId === "1bach-ccss") {
+    const suppliedDerivatives = Array.isArray(window.MATES_I_DERIVATIVES_BANK) ? window.MATES_I_DERIVATIVES_BANK : [];
+    const suppliedApplications = Array.isArray(window.MATES_I_DERIVATIVE_APPLICATIONS_BANK) ? window.MATES_I_DERIVATIVE_APPLICATIONS_BANK : [];
+    const originalCombinatorics = Array.isArray(window.CCSS_I_ORIGINAL_COMBINATORICS_BANK) ? window.CCSS_I_ORIGINAL_COMBINATORICS_BANK : [];
+    const originalByTopic = Array.isArray(window.CCSS_I_ORIGINAL_EXERCISE_BANKS?.[topicIndex])
+      ? window.CCSS_I_ORIGINAL_EXERCISE_BANKS[topicIndex]
+      : [];
+    const safeForCcssI = (question) => {
+      const searchable = `${question?.text || ""} ${question?.solution || ""} ${question?.source || ""}`.toLowerCase();
+      return !/l['’]?h[oô]pital/.test(searchable)
+        && !/matem[aá]ticas ii|ccss ii|2[.ºº]\s*bach/.test(searchable);
+    };
+    // CCSS I usa extensiones asociadas explícitamente a cada tema. Los temas
+    // 0, 2, 3 y 7 quedan sin extensión genérica para impedir que una etiqueta
+    // posterior convierta ejercicios de otro contenido en preguntas válidas.
+    const extensions = [[], exerciseBanks.probabilidadBach, [], [], exerciseBanks.realesBach, exerciseBanks.complejos, exerciseBanks.ecuacionesBach, [], exerciseBanks.funciones, suppliedDerivatives.filter(safeForCcssI), suppliedApplications.filter(safeForCcssI), [...exerciseBanks.combinatoria, ...originalCombinatorics]];
+    return [...(extensions[topicIndex] || []), ...originalByTopic];
+  }
+  return [];
+}
+
+function buildQuestions(theme, course = courseById(state.courseId), requestedCount = questionsPerChallengeFor(course)) {
+  const questionCount = Math.max(1, Number(requestedCount) || questionsPerChallengeFor(course));
+  if (!state.blockKey && ESO_COURSE_IDS.includes(course.id)) {
+    return buildEsoTopicLevelQuestions(theme, course, questionCount);
+  }
+  if (!state.blockKey && BACH_II_COURSE_IDS.includes(course.id) && window.MargaritaBachExam?.buildTopicQuestions) {
+    const availabilityRule = window.MargaritaContentAvailability?.get?.(course.id, state.topicIndex);
+    if (availabilityRule?.availableForTopicPractice === false) return [];
+    if (availabilityRule?.practiceBank && window.MargaritaTopicPracticeBanks?.build) {
+      const practiceQuestions = window.MargaritaTopicPracticeBanks.build(availabilityRule.practiceBank);
+      return strictTopicSelection({
+        course,
+        topicIndex: state.topicIndex,
+        questions: practiceQuestions,
+        count: questionCount,
+        sourceType: "topic-practice"
+      });
+    }
+    const topicQuestions = window.MargaritaBachExam.buildTopicQuestions(course, state.topicIndex);
     const correctedQuestions = [];
     const correctedIdentities = new Set();
-    [...topicQuestions, ...blockQuestions].forEach((question) => {
+    topicQuestions.forEach((question) => {
       const identity = challengeQuestionIdentity(question);
       if (!identity || correctedIdentities.has(identity)) return;
       correctedIdentities.add(identity);
       correctedQuestions.push(question);
     });
     if (correctedQuestions.length) {
-      return selectNoRepeatQuestionRound(
-        correctedQuestions,
-        questionCount,
-        `${course.id}|tema-corregido-${state.topicIndex}`
-      );
+      return strictTopicSelection({ course, topicIndex: state.topicIndex, questions: correctedQuestions, count: questionCount, sourceType: "official-pau" });
     }
+    return [];
   }
   if (state.blockKey && course.id === "2bach-mates") {
     return buildMatesIIBlockQuestions(course, state.blockKey);
@@ -6743,15 +8573,17 @@ function buildQuestions(theme, course = courseById(state.courseId)) {
   }
   const lower = theme.toLowerCase();
   if (course.id === "1eso" && (lower.includes("expresion") || lower.includes("algebra"))) {
-    return buildFirstEsoAlgebraTopicQuestions(theme, course);
+    return strictTopicSelection({ course, topicIndex: state.topicIndex, questions: buildFirstEsoAlgebraTopicQuestions(theme, course), count: questionCount, sourceType: "generated" });
   }
   if (course.id === "2eso" && (lower.includes("expresion") || lower.includes("algebra") || lower.includes("polinomio"))) {
-    return buildSecondEsoPolynomialTopicQuestions(theme, course);
+    return strictTopicSelection({ course, topicIndex: state.topicIndex, questions: buildSecondEsoPolynomialTopicQuestions(theme, course), count: questionCount, sourceType: "generated" });
   }
   if (course.id === "2eso" && lower.includes("ecuacion")) {
-    return buildSecondEsoEquationTopicQuestions(theme, course);
+    return strictTopicSelection({ course, topicIndex: state.topicIndex, questions: buildSecondEsoEquationTopicQuestions(theme, course), count: questionCount, sourceType: "generated" });
   }
-  const selectedBank = pickExerciseBank(lower, course.id);
+  const selectedBank = course.id === "1bach-mates" || course.id === "1bach-ccss"
+    ? firstBachBankByTopic(course.id, state.topicIndex)
+    : pickExerciseBank(lower, course.id);
   const supplements = supplementalExercisesFor(lower, course.id);
   const generatedSeed = state.practiceRound * 101 + state.topicIndex * 17;
   const generated = [
@@ -6762,12 +8594,24 @@ function buildQuestions(theme, course = courseById(state.courseId)) {
       )
       : [])
   ];
+  const sourceVerified = window.MargaritaSourceVerified?.build?.(course.id, theme) || [];
+  const esoExamVerified = window.MargaritaEsoExamVerified?.build?.(course.id, theme) || [];
+  const approvedABBlockPool = ESO_COURSE_IDS.includes(course.id) && state.blockKey
+    ? (currentExerciseHistoryMode() === "exam"
+      ? (window.MargaritaEso3ApprovedABPractice?.buildExamByBlocks?.(course.id, theme) || [])
+      : (window.MargaritaEso3ApprovedABPractice?.buildChallenge?.(
+          course.id,
+          theme,
+          state.topicChallengeLevel === "master" ? "master" : "apprentice"
+        ) || []))
+    : [];
   const modelPool = (course.id === "1bach-mates" || course.id === "1bach-ccss") && selectedBank.length
     ? [
       ...selectedBank,
-      ...(course.id === "1bach-mates"
-        ? [...matesIRepeatBank(lower), ...matesIExtensionBank(lower)]
-        : ccssIExtensionBank(lower))
+      ...firstBachExtensionBankByTopic(course.id, state.topicIndex),
+      ...(window.MargaritaFirstBachVariety?.build?.(course.id, theme) || []),
+      ...(window.MargaritaCombinatoricsSupplied?.build?.(course.id, theme) || []),
+      ...sourceVerified
     ]
     : null;
   const isOfficialPauBank = (course.id === "2bach-mates" || course.id === "2bach-ccss")
@@ -6775,31 +8619,40 @@ function buildQuestions(theme, course = courseById(state.courseId)) {
   const officialPauPool = isOfficialPauBank
     ? selectedBank
       .map((question) => question.options?.length ? question : withPauTestOptions(question))
+      .filter(hasOfficialConvocation)
       .filter(questionHasCoherentOptions)
     : null;
-  const candidatePool = officialPauPool || modelPool || [...selectedBank, ...supplements, ...generated];
+  const unfilteredCandidatePool = (officialPauPool || modelPool || [...selectedBank, ...supplements, ...sourceVerified, ...esoExamVerified, ...approvedABBlockPool, ...generated])
+    .filter((question) => !isForbiddenIntroLimitQuestion(question, course.id, lower));
+  const candidatePool = BACH_II_COURSE_IDS.includes(course.id)
+    ? unfilteredCandidatePool.filter(hasOfficialConvocation)
+    : unfilteredCandidatePool;
   const coherentPool = candidatePool.filter(questionHasCoherentOptions);
-  const base = ensureQuestionCount(coherentPool, questionCount);
-  const orderedRound = selectNoRepeatQuestionRound(
-    base,
-    questionCount,
-    `${course.id}|tema-${state.topicIndex}`
-  );
+  const orderedRound = strictTopicSelection({
+    course,
+    topicIndex: state.topicIndex,
+    questions: coherentPool,
+    count: questionCount,
+    sourceType: BACH_II_COURSE_IDS.includes(course.id) ? "official-pau" : "bank"
+  });
 
   return orderedRound.map((question, index) => {
     const preparedQuestion = question.type === "pau-open" && !question.options?.length ? withPauTestOptions(question) : question;
     if (!preparedQuestion.options?.length) return { ...preparedQuestion };
     const amount = (state.topicIndex + state.practiceRound + index) % preparedQuestion.options.length;
-    return {
+    const rotatedQuestion = {
       ...preparedQuestion,
       options: rotate(preparedQuestion.options, amount),
       correct: (preparedQuestion.correct - amount + preparedQuestion.options.length) % preparedQuestion.options.length
     };
+    return BACH_II_COURSE_IDS.includes(course.id)
+      ? expandCompositeQuestionParts(rotatedQuestion)
+      : rotatedQuestion;
   });
 }
 
 function ensureQuestionCount(questions, target) {
-  const source = questions.length ? questions : exerciseBanks.general;
+  const source = questions || [];
   const seen = new Set();
   const unique = source.filter((question) => {
     const identity = String(question.text || "").replace(/\s+/g, " ").trim().toLowerCase();
@@ -6811,6 +8664,7 @@ function ensureQuestionCount(questions, target) {
 }
 
 function challengeQuestionIdentity(question) {
+  if (question?.exerciseId) return `exercise:${question.exerciseId}`;
   if (question?.rawBaseId) return `raw:${question.rawBaseId}`;
   if (question?.id) return `id:${question.id}`;
   const statement = question?.statementHtml || question?.text || "";
@@ -6822,7 +8676,64 @@ function challengeQuestionIdentity(question) {
     .toLowerCase();
 }
 
-function officialQuestionDedupKey(question) {
+function handwritingAnswerHtml(question, overrides = {}) {
+  if (!window.MargaritaHandwriting || !question) return "";
+  const course = courseById(overrides.courseId || state.courseId);
+  const answerSource = overrides.answerSource || question;
+  const correctIndex = Number.isInteger(overrides.correctIndex) ? overrides.correctIndex : answerSource.correct;
+  const topicIndex = Number.isInteger(overrides.topicIndex) ? overrides.topicIndex : state.topicIndex;
+  const topicLabel = overrides.topicLabel || course?.themes?.[topicIndex] || "";
+  const mode = overrides.mode || (state.blockKey ? "blockChallenge" : "topicChallenge");
+  const partId = overrides.partId ?? answerSource.partId ?? answerSource.label ?? "";
+  const questionIndex = Number.isInteger(overrides.questionIndex) ? overrides.questionIndex : state.questionIndex;
+  const identity = challengeQuestionIdentity(question);
+  const exerciseKey = [
+    currentStudentKey(),
+    course?.id || state.courseId || "sin-curso",
+    mode,
+    overrides.blockId ?? state.blockKey ?? "",
+    identity,
+    partId
+  ].join("|");
+  const correctAnswer = Array.isArray(answerSource.options) && Number.isInteger(correctIndex)
+    ? answerSource.options[correctIndex]
+    : answerSource.answer ?? question.answer ?? "";
+  const statementHtml = overrides.statementHtml || `
+    ${renderOfficialSourceCallout(question, course?.id || state.courseId)}
+    <div class="question-text official-exercise-statement">${officialQuestionStatementHtml(question, course?.id || state.courseId)}</div>
+  `;
+  return window.MargaritaHandwriting.render({
+    exerciseKey,
+    statementHtml,
+    context: {
+      courseId: course?.id || state.courseId,
+      subject: course?.label || course?.name || "Matemáticas",
+      topicId: overrides.topicId ?? topicIndex,
+      topicLabel,
+      blockId: overrides.blockId ?? state.blockKey ?? "",
+      exerciseId: question.exerciseId || question.rawBaseId || question.id || identity,
+      partId,
+      questionIndex,
+      difficulty: overrides.difficulty ?? question.difficulty ?? state.topicChallengeLevel ?? "",
+      mode,
+      answerMethod: "handwriting",
+      resultChannel: overrides.resultChannel || mode,
+      correctAnswer,
+      correctIndex,
+      solution: overrides.solution ?? answerSource.solution ?? question.solution ?? "",
+      didacticPolicy: overrides.didacticPolicy ?? answerSource.didacticSpec ?? question.didacticSpec ?? null,
+      scoreState: overrides.scoreState || {
+        score: state.score,
+        streak: state.streak,
+        progressIndex: questionIndex
+      },
+      attemptContext: overrides.attemptContext || null
+    },
+    onValidated: overrides.onValidated || null
+  });
+}
+
+function legacyOfficialQuestionDedupKey(question) {
   // Los apartados oficiales que se han dividido expresamente en preguntas
   // independientes conservan su propia identidad. Así no se eliminan entre sí
   // dos apartados distintos del mismo ejercicio PAU.
@@ -6844,44 +8755,174 @@ function officialQuestionDedupKey(question) {
     || searchable.match(/\bejercicio\s+(\d+)[^a-z0-9]+apartado\s+([a-d])\b/);
   const exercise = exerciseMatch?.slice(1).join("-");
   if (year && session && exercise) return `oficial:${year}:${session}:${exercise}`;
+  if (year && session) {
+    const statementIdentity = normalizeDisplayText(question?.text || question?.statementHtml || "")
+      .replace(/<[^>]+>/g, " ")
+      .replace(/\b(?:enunciado\s+original|convocatoria|pregunta|ejercicio|apartado)\b/gi, " ")
+      .replace(/\b20\d{2}\b/g, " ")
+      .replace(/\b(?:junio|julio|septiembre|reserva\s*\d*)\b/gi, " ")
+      .replace(/\s+/g, " ")
+      .trim()
+      .toLowerCase();
+    if (statementIdentity) return `oficial:${year}:${session}:enunciado:${statementIdentity}`;
+  }
   return challengeQuestionIdentity(question);
 }
 
-const BACH_II_CHALLENGE_HISTORY_KEY = "margarita-bach-ii-challenge-history-v1";
+function officialExerciseReference(searchable) {
+  const normalized = String(searchable || "")
+    .replace(/\s+/g, " ")
+    .trim()
+    .toLowerCase();
+  if (!normalized) return "";
 
-function bachIIChallengeStudentKey(scopeKey) {
+  const numberedPart = normalized.match(/\b(\d+)\s*[º°]?\s*-\s*([a-d])\b/)
+    || normalized.match(/\bejercicio\s+(\d+)[^a-z0-9]+apartado\s+([a-d])\b/)
+    || normalized.match(/\bejercicio\s+(\d+)\s*[,.;:-]*\s*(?:apartado\s*)?([a-d])\b/);
+  if (numberedPart) return `ejercicio-${numberedPart[1]}-${numberedPart[2]}`;
+
+  const decimalQuestion = normalized.match(/\b(?:pregunta|ejercicio)\s+(\d+)\s*[.,]\s*(\d+)\b/);
+  if (decimalQuestion) return `pregunta-${decimalQuestion[1]}-${decimalQuestion[2]}`;
+
+  const blockPart = normalized.match(/\b(primer|segundo|tercer|cuarto)\s+bloque\s+([a-d])\b/);
+  if (blockPart) {
+    const blockNumbers = { primer: 1, segundo: 2, tercer: 3, cuarto: 4 };
+    return `bloque-${blockNumbers[blockPart[1]]}-${blockPart[2]}`;
+  }
+
+  const ordinalQuestion = normalized.match(/\b(\d+)\s*[º°]\s*\)\s*([a-d])?/);
+  if (ordinalQuestion) return `pregunta-${ordinalQuestion[1]}${ordinalQuestion[2] ? `-${ordinalQuestion[2]}` : ""}`;
+
+  const numberedExercise = normalized.match(/\bejercicio\s+(\d+)\b/);
+  if (numberedExercise) return `ejercicio-${numberedExercise[1]}`;
+  return "";
+}
+
+function officialQuestionDedupKey(question) {
+  // Los apartados añadidos expresamente son preguntas distintas incluso si
+  // comparten convocatoria y enunciado base.
+  if (/\bextra\b/i.test(String(question?.id || ""))) {
+    return challengeQuestionIdentity(question);
+  }
+  // Los bancos oficiales completos ya asignan un identificador estable a cada
+  // ejercicio. Lo usamos para no confundir ejercicios distintos de una misma
+  // convocatoria y, al mismo tiempo, unificar sus copias de tema, bloque y examen.
+  const officialId = String(question?.rawBaseId || question?.id || "").match(
+    /\b(?:mates2|ccss2)-[a-z0-9-]+/
+  )?.[0];
+  if (officialId) return `oficial-id:${officialId}`;
+  const searchable = normalizeDisplayText([
+    question?.source || "",
+    question?.sourceLabel || "",
+    question?.text || "",
+    question?.statementHtml || ""
+  ].join(" "))
+    .replace(/<[^>]+>/g, " ")
+    .replace(/\s+/g, " ")
+    .trim()
+    .toLowerCase();
+  const year = searchable.match(/\b(20\d{2})\b/)?.[1];
+  const session = searchable.match(/\b(junio|julio|septiembre|reserva\s*\d*)\b/)?.[1]?.replace(/\s+/g, "-");
+  const reference = officialExerciseReference(searchable);
+  if (year && session && reference) return `oficial:${year}:${session}:${reference}`;
+  return legacyOfficialQuestionDedupKey(question);
+}
+
+function challengeHistoryIdentity(question) {
+  // En 2.º de Bachillerato una misma pregunta oficial puede llegar desde el
+  // catálogo corregido, el banco del bloque o el banco del tema con ids
+  // distintos. Para el historial usamos la identidad oficial común y no el id
+  // interno de cada copia.
+  return BACH_II_COURSE_IDS.includes(question?.courseId || state.courseId)
+    ? officialQuestionDedupKey(question)
+    : challengeQuestionIdentity(question);
+}
+
+const CHALLENGE_ANSWER_HISTORY_KEY = "margarita-challenge-answer-history-v2";
+const LEGACY_BACH_II_CHALLENGE_HISTORY_KEY = "margarita-bach-ii-challenge-history-v1";
+
+function challengeStudentScopeKey(scopeKey) {
+  const studentKey = currentStudentKey() || [state.academicYear, state.courseId, "sin-alumno"].join("__");
+  const communityScope = BACH_II_COURSE_IDS.includes(state.courseId) ? `|pau-${currentBachPauCommunity()}` : "";
+  return `${studentKey}${communityScope}|${scopeKey}`;
+}
+
+function legacyChallengeStudentScopeKey(scopeKey) {
   const studentKey = currentStudentKey() || [state.academicYear, state.courseId, "sin-alumno"].join("__");
   return `${studentKey}|${scopeKey}`;
 }
 
-function readBachIIChallengeHistory(scopeKey) {
-  if (!BACH_II_COURSE_IDS.includes(state.courseId)) return [];
+function readChallengeAnswerHistory(scopeKey) {
   try {
-    const history = JSON.parse(localStorage.getItem(BACH_II_CHALLENGE_HISTORY_KEY) || "{}") || {};
-    const stored = history[bachIIChallengeStudentKey(scopeKey)];
-    return Array.isArray(stored) ? stored : [];
+    const history = JSON.parse(localStorage.getItem(CHALLENGE_ANSWER_HISTORY_KEY) || "{}") || {};
+    const storageKey = challengeStudentScopeKey(scopeKey);
+    const stored = Array.isArray(history[storageKey]) ? history[storageKey] : [];
+    if (Object.prototype.hasOwnProperty.call(history, storageKey) || !BACH_II_COURSE_IDS.includes(state.courseId)) return stored;
+    if (currentBachPauCommunity() === "clm") {
+      const previousKey = legacyChallengeStudentScopeKey(scopeKey);
+      const previousStored = Array.isArray(history[previousKey]) ? history[previousKey] : [];
+      if (previousStored.length || Object.prototype.hasOwnProperty.call(history, previousKey)) return [...new Set(previousStored)];
+    }
+    const legacy = JSON.parse(localStorage.getItem(LEGACY_BACH_II_CHALLENGE_HISTORY_KEY) || "{}") || {};
+    const legacyKey = currentBachPauCommunity() === "clm" ? legacyChallengeStudentScopeKey(scopeKey) : storageKey;
+    const legacyStored = Array.isArray(legacy[legacyKey]) ? legacy[legacyKey] : [];
+    return [...new Set(legacyStored)];
   } catch (_) {
     return [];
   }
 }
 
-function writeBachIIChallengeHistory(scopeKey, identities) {
-  if (!BACH_II_COURSE_IDS.includes(state.courseId)) return;
+function writeChallengeAnswerHistory(scopeKey, identities) {
   try {
-    const history = JSON.parse(localStorage.getItem(BACH_II_CHALLENGE_HISTORY_KEY) || "{}") || {};
-    history[bachIIChallengeStudentKey(scopeKey)] = [...new Set(identities)];
-    localStorage.setItem(BACH_II_CHALLENGE_HISTORY_KEY, JSON.stringify(history));
+    const history = JSON.parse(localStorage.getItem(CHALLENGE_ANSWER_HISTORY_KEY) || "{}") || {};
+    history[challengeStudentScopeKey(scopeKey)] = [...new Set(identities)];
+    localStorage.setItem(CHALLENGE_ANSWER_HISTORY_KEY, JSON.stringify(history));
   } catch (_) {
     // Si el almacenamiento no está disponible, se mantiene el historial de la sesión.
   }
 }
 
-function selectNoRepeatQuestionRound(questions, target, scopeKey) {
+function markChallengeQuestionAnswered(question) {
+  if (!question) return;
+  const scopeKey = question._historyScopeKey;
+  const identity = question._historyIdentity || challengeHistoryIdentity(question);
+  if (!scopeKey || !identity) return;
+
+  state.challengeQuestionHistory = state.challengeQuestionHistory || {};
+  const mustResetBefore = Boolean(question._historyResetBefore && !question._historyResetApplied);
+  if (mustResetBefore) question._historyResetApplied = true;
+  const previous = mustResetBefore
+    ? []
+    : [
+      ...(state.challengeQuestionHistory[scopeKey] || []),
+      ...readChallengeAnswerHistory(scopeKey)
+    ];
+  // Volvemos a colocar la identidad al final para conservar cuál fue el
+  // último ejercicio respondido y evitar repetirlo al abrir un ciclo nuevo.
+  const answered = [...new Set(previous)].filter((item) => item !== identity);
+  answered.push(identity);
+  state.challengeQuestionHistory[scopeKey] = answered;
+  writeChallengeAnswerHistory(scopeKey, answered);
+}
+
+function markChallengeQuestionShown(question) {
+  // Un ejercicio cuenta como visto cuando llega realmente a la pantalla, no
+  // cuando forma parte de una preselección interna que quizá nunca se muestre.
+  markChallengeQuestionAnswered(question);
+}
+
+function selectNoRepeatQuestionRound(questions, target, scopeKey, roundToken = state.practiceRound) {
   const unique = [];
   const identities = new Set();
+  const identityAliases = new Map();
   (questions || []).forEach((question) => {
-    const identity = challengeQuestionIdentity(question);
-    if (!identity || identities.has(identity)) return;
+    const identity = challengeHistoryIdentity(question);
+    if (!identity) return;
+    identityAliases.set(challengeQuestionIdentity(question), identity);
+    identityAliases.set(legacyOfficialQuestionDedupKey(question), identity);
+    if (question?.id) identityAliases.set(String(question.id), identity);
+    if (question?.rawBaseId) identityAliases.set(String(question.rawBaseId), identity);
+    if (identities.has(identity)) return;
     identities.add(identity);
     unique.push(question);
   });
@@ -6889,42 +8930,62 @@ function selectNoRepeatQuestionRound(questions, target, scopeKey) {
 
   state.challengeQuestionHistory = state.challengeQuestionHistory || {};
   state.challengeRoundCache = state.challengeRoundCache || {};
-  const roundKey = `${scopeKey}|ronda-${state.practiceRound}`;
+  const roundKey = `${scopeKey}|ronda-${roundToken}`;
   if (state.challengeRoundCache[roundKey]) return state.challengeRoundCache[roundKey];
 
-  const availableIdentities = new Set(unique.map(challengeQuestionIdentity));
-  const sessionHistory = state.challengeQuestionHistory[scopeKey] || [];
-  const persistentHistory = readBachIIChallengeHistory(scopeKey);
+  const availableIdentities = new Set(unique.map(challengeHistoryIdentity));
+  const canonicalizeHistory = (items) => (items || []).map((identity) => identityAliases.get(identity) || identity);
+  const sessionHistory = canonicalizeHistory(state.challengeQuestionHistory[scopeKey] || []);
+  const persistentHistory = canonicalizeHistory(readChallengeAnswerHistory(scopeKey));
   let used = new Set([...sessionHistory, ...persistentHistory].filter((identity) => availableIdentities.has(identity)));
-  let available = unique.filter((question) => !used.has(challengeQuestionIdentity(question)));
+  let available = unique.filter((question) => !used.has(challengeHistoryIdentity(question)));
 
-  // Solo se reinicia el mazo cuando todos los ejercicios de este banco ya han aparecido.
+  // Solo se reinicia el mazo cuando todos los ejercicios de este banco ya han sido respondidos.
   if (!available.length) {
     const lastIdentity = [...used].at(-1);
     used = lastIdentity && unique.length > 1 ? new Set([lastIdentity]) : new Set();
-    available = unique.filter((question) => !used.has(challengeQuestionIdentity(question)));
+    state.challengeQuestionHistory[scopeKey] = [...used];
+    writeChallengeAnswerHistory(scopeKey, [...used]);
+    available = unique.filter((question) => !used.has(challengeHistoryIdentity(question)));
   }
 
-  const seed = `${scopeKey}|${state.blockChallengeSeed || 0}|${state.practiceRound}`;
-  const ordered = seededShuffle(available, seed);
+  const seed = `${scopeKey}|${state.blockChallengeSeed || 0}|${roundToken}`;
+  const shuffled = seededShuffle(available, seed);
+  const templateBuckets = new Map();
+  shuffled.forEach((question) => {
+    const template = question.templateId || challengeHistoryIdentity(question);
+    if (!templateBuckets.has(template)) templateBuckets.set(template, []);
+    templateBuckets.get(template).push(question);
+  });
+  const ordered = [];
+  while (ordered.length < shuffled.length) {
+    templateBuckets.forEach((bucket) => {
+      if (bucket.length) ordered.push(bucket.shift());
+    });
+  }
   const selected = ordered.slice(0, Math.min(target, ordered.length));
+  let resetBeforeIdentity = "";
 
   // Si el reto cruza el final del banco, primero se muestran todos los ejercicios
   // inéditos. Después comienza un ciclo nuevo, sin repetir ninguno dentro de esta
   // misma ronda, para conservar las 5 preguntas de Matemáticas II o las 4 de CCSS II.
   if (selected.length < target && unique.length >= target) {
-    const selectedIdentities = new Set(selected.map(challengeQuestionIdentity));
+    const selectedIdentities = new Set(selected.map(challengeHistoryIdentity));
     used = new Set(selectedIdentities);
-    const refillPool = unique.filter((question) => !selectedIdentities.has(challengeQuestionIdentity(question)));
+    const refillPool = unique.filter((question) => !selectedIdentities.has(challengeHistoryIdentity(question)));
     const refill = seededShuffle(refillPool, `${seed}|nuevo-ciclo`).slice(0, target - selected.length);
+    resetBeforeIdentity = refill.length ? challengeHistoryIdentity(refill[0]) : "";
     selected.push(...refill);
   }
 
-  selected.forEach((question) => used.add(challengeQuestionIdentity(question)));
-  state.challengeQuestionHistory[scopeKey] = [...used];
-  writeBachIIChallengeHistory(scopeKey, [...used]);
-  state.challengeRoundCache[roundKey] = selected;
-  return selected;
+  const preparedSelection = selected.map((question) => ({
+    ...question,
+    _historyScopeKey: scopeKey,
+    _historyIdentity: challengeHistoryIdentity(question),
+    _historyResetBefore: Boolean(resetBeforeIdentity && challengeHistoryIdentity(question) === resetBeforeIdentity)
+  }));
+  state.challengeRoundCache[roundKey] = preparedSelection;
+  return preparedSelection;
 }
 
 function joinExerciseParagraphs(paragraphs, html = false) {
@@ -6949,52 +9010,62 @@ function exercisePartPrompt(part, html = false) {
     : joined.replace(new RegExp(`^\\s*${escapedLabel}\\s*`, "i"), "");
 }
 
+function officialPartAnswer(authored, parts, part, partIndex) {
+  const answer = authored?.[part?.label] || authored?.Resultado;
+  if (!Array.isArray(answer)) return answer;
+  const occurrence = (parts || [])
+    .slice(0, partIndex + 1)
+    .filter((candidate) => candidate?.label === part?.label)
+    .length - 1;
+  return answer[occurrence] || null;
+}
+
 function buildCcssIIBlockQuestions(blockId) {
-  const rawBank = window.CCSS_II_BLOCK_EXERCISES?.[blockId] || [];
-  const answerBank = window.CCSS_II_BLOCK_ANSWERS || {};
-  const completeExercises = rawBank.map((exercise) => {
-    const authored = answerBank[exercise.id];
-    if (!authored) return null;
-    const parts = exercise.parts.map((part, partIndex) => {
-      const answer = authored[part.label];
-      if (!answer?.options || answer.options.length !== 4) return null;
-      const amount = (state.practiceRound + partIndex) % answer.options.length;
-      return {
-        label: part.label,
-        text: exercisePartPrompt(part),
-        html: exercisePartPrompt(part, true),
-        options: rotate(answer.options, amount),
-        correct: (answer.correct - amount + answer.options.length) % answer.options.length,
-        solution: answer.solution
-      };
-    });
-    if (parts.some((part) => !part)) return null;
-    return {
-      id: exercise.id,
-      source: exercise.source,
-      text: joinExerciseParagraphs(exercise.statement),
-      statementHtml: joinExerciseParagraphs(exercise.statement, true),
-      parts,
-      type: "ccss-block-exercise",
-      blockId
-    };
-  }).filter(Boolean);
   const course = courseById("2bach-ccss");
   const correctedPool = window.MargaritaBachExam?.buildBlockQuestions?.(course, blockId) || [];
-  const combined = [];
-  const identities = new Set();
-  [...correctedPool, ...completeExercises].forEach((question) => {
-    const identity = challengeQuestionIdentity(question);
-    if (!identity || identities.has(identity)) return;
-    identities.add(identity);
-    combined.push(question);
-  });
-  if (!combined.length) return [];
+  const block = (BACH_II_BLOCKS[course.id] || []).find((item) => item.id === blockId);
+  const selectedTopics = [...new Set(
+    Array.isArray(state.blockTopicIndexes) && state.blockTopicIndexes.length
+      ? state.blockTopicIndexes
+      : block?.topics || []
+  )];
+  if (!correctedPool.length || !selectedTopics.length) return [];
   const questionCount = questionsPerChallengeFor("2bach-ccss");
-  return selectNoRepeatQuestionRound(
-    combined,
-    questionCount,
-    `${state.courseId}|bloque-${blockId}`
+  const baseQuota = Math.floor(questionCount / selectedTopics.length);
+  const remainder = questionCount % selectedTopics.length;
+  const bonusOrder = seededShuffle(
+    selectedTopics,
+    `${state.courseId}|bloque-${blockId}|reparto|${state.blockChallengeSeed || 0}|${state.practiceRound}`
+  );
+  const quotas = new Map(selectedTopics.map((topicIndex) => [topicIndex, baseQuota]));
+  bonusOrder.slice(0, remainder).forEach((topicIndex) => quotas.set(topicIndex, quotas.get(topicIndex) + 1));
+
+  const selected = [];
+  const selectedIdentities = new Set();
+  const poolsByTopic = new Map(selectedTopics.map((topicIndex) => [topicIndex, correctedPool.filter((question) => {
+    const indexes = Array.isArray(question.topicIndexes) ? question.topicIndexes : [];
+    if (Number.isInteger(question.primaryTopicIndex)) return question.primaryTopicIndex === topicIndex;
+    return indexes.includes(topicIndex);
+  })]));
+  // Se asignan primero los temas con menos PAU disponibles. Así un ejercicio
+  // mixto Matrices/Determinantes se reserva para Determinantes cuando sea el
+  // único compatible, sin duplicarlo después como ejercicio de Matrices.
+  const topicOrder = [...selectedTopics].sort((left, right) =>
+    (poolsByTopic.get(left)?.length || 0) - (poolsByTopic.get(right)?.length || 0));
+  topicOrder.forEach((topicIndex) => {
+    const topicPool = (poolsByTopic.get(topicIndex) || [])
+      .filter((question) => !selectedIdentities.has(officialQuestionDedupKey(question)));
+    const topicSelection = selectNoRepeatQuestionRound(
+      topicPool,
+      quotas.get(topicIndex) || 0,
+      `${state.courseId}|bloque-${blockId}|tema-${topicIndex}`
+    ).map((question) => ({ ...question, selectedBlockTopicIndex: topicIndex }));
+    topicSelection.forEach((question) => selectedIdentities.add(officialQuestionDedupKey(question)));
+    selected.push(...topicSelection);
+  });
+  return seededShuffle(
+    selected,
+    `${state.courseId}|bloque-${blockId}|orden|${state.blockChallengeSeed || 0}|${state.practiceRound}`
   );
 }
 
@@ -7008,20 +9079,45 @@ function splitCompositeSegments(value) {
   }));
 }
 
+function splitOrderedCompositeOption(value, partCount) {
+  if (partCount < 2) return null;
+  const semicolonParts = String(value || "").split(/\s*;\s*/).map((part) => part.trim()).filter(Boolean);
+  if (semicolonParts.length >= partCount) {
+    return [
+      ...semicolonParts.slice(0, partCount - 1),
+      semicolonParts.slice(partCount - 1).join("; ")
+    ];
+  }
+  if (partCount === 3 && semicolonParts.length === 2) {
+    const finalPair = semicolonParts[1].split(/,\s*(?=(?:crece|decrece|aumenta|disminuye)\b)/i);
+    if (finalPair.length >= 2) {
+      return [semicolonParts[0], finalPair[0].trim(), finalPair.slice(1).join(", ").trim()];
+    }
+  }
+  return null;
+}
+
 function expandCompositeQuestionParts(question) {
   const statementParts = splitCompositeSegments(question.text);
-  const optionParts = question.options?.map(splitCompositeSegments);
-  if (!statementParts || !optionParts?.every((parts) => parts?.length === statementParts.length)) return question;
+  if (!statementParts) return question;
+  const labelledOptionParts = question.options?.map(splitCompositeSegments);
+  const orderedOptionParts = question.options?.map((option) => splitOrderedCompositeOption(option, statementParts.length));
+  const optionParts = labelledOptionParts?.every((parts) => parts?.length === statementParts.length)
+    ? labelledOptionParts.map((parts) => parts.map((part) => part.text))
+    : orderedOptionParts?.every((parts) => parts?.length === statementParts.length)
+      ? orderedOptionParts
+      : null;
+  if (!optionParts) return question;
   const statementStart = question.text.search(/(?:^|\n)\s*[a-d](?:\.\d+)?\)\s*/i);
   return {
     ...question,
     text: statementStart > 0 ? question.text.slice(0, statementStart).trim() : "",
     parts: statementParts.map((part, partIndex) => ({
       label: part.label,
-      text: `${part.label} ${part.text}`,
-      options: optionParts.map((parts) => parts[partIndex].text),
+      text: part.text,
+      options: optionParts.map((parts) => parts[partIndex]),
       correct: question.correct,
-      solution: question.solution
+      solution: question.partSolutions?.[partIndex] || question.solution
     }))
   };
 }
@@ -7032,13 +9128,15 @@ function buildMatesIIBlockQuestions(course, blockId) {
   if (!block) return [];
 
   const correctedPool = window.MargaritaBachExam?.buildBlockQuestions?.(course, blockId) || [];
-  const extraOfficialPool = window.MATES_II_EXTRA_BLOCK_QUESTIONS?.[blockId] || [];
+  const madridOnly = currentBachPauCommunity() === "madrid";
+  const extraOfficialPool = madridOnly ? [] : window.MATES_II_EXTRA_BLOCK_QUESTIONS?.[blockId] || [];
 
   const seen = new Set();
-  const pool = block.topics.flatMap((topicIndex) => {
+  const pool = madridOnly ? [] : block.topics.flatMap((topicIndex) => {
     const theme = course.themes[topicIndex] || "";
     return pickExerciseBank(theme.toLowerCase(), course.id)
       .map((question) => question.options?.length ? question : withPauTestOptions(question))
+      .filter(hasOfficialConvocation)
       .filter(questionHasCoherentOptions)
       .filter((question) => !/\bccss\b|ciencias\s+sociales/i.test(normalizeDisplayText(question.text || "")));
   }).filter((question) => {
@@ -7050,19 +9148,26 @@ function buildMatesIIBlockQuestions(course, blockId) {
 
   const combinedPool = [];
   const combinedIdentities = new Set();
-  [...correctedPool, ...extraOfficialPool, ...pool].forEach((question) => {
+  [...correctedPool, ...extraOfficialPool, ...pool].filter(hasOfficialConvocation).forEach((question) => {
     const identity = officialQuestionDedupKey(question);
     if (!identity || combinedIdentities.has(identity)) return;
     combinedIdentities.add(identity);
     combinedPool.push(question);
   });
-  const usablePool = combinedPool.length ? combinedPool : exerciseBanks.general.filter(questionHasCoherentOptions);
+  const usablePool = combinedPool;
   return selectNoRepeatQuestionRound(
     usablePool,
     questionCount,
     `${course.id}|bloque-oficial-${blockId}`
   ).map((question, index) => {
     if (question.parts?.length) return { ...question, blockId };
+    // Los registros oficiales de Madrid se incorporan de forma progresiva.
+    // Mientras un problema no tenga todavía cuatro alternativas validadas,
+    // conserva el flujo abierto de trabajo manual en lugar de intentar rotar
+    // un array inexistente y dejar todo el bloque sin ejercicios.
+    if (!Array.isArray(question.options) || question.options.length !== 4) {
+      return { ...question, blockId };
+    }
     const amount = (state.practiceRound + index) % question.options.length;
     return expandCompositeQuestionParts({
       ...question,
@@ -7127,7 +9232,7 @@ function supplementalExercisesFor(lower, courseId) {
       { text: "Una integral indefinida debe llevar...", options: ["+ C", "Solo límites", "Una matriz", "Un porcentaje"], correct: 0, solution: "La constante aparece porque hay infinitas primitivas." },
       { text: "Integral de cos(x) dx.", options: ["sen(x) + C", "-sen(x) + C", "cos(x) + C", "tg(x) + C"], correct: 0, solution: "La derivada de sen(x) es cos(x)." },
       { text: "Por Barrow, integral de a a b de f(x) dx es...", options: ["F(b)-F(a)", "F(a)-F(b)", "f(b)-f(a)", "F(a)+F(b)"], correct: 0, solution: "Se evalúa una primitiva en el extremo superior menos el inferior." },
-      { text: "Si f es positiva, la integral definida representa...", options: ["Ãrea bajo la curva", "Pendiente", "Módulo", "Mediana"], correct: 0, solution: "Con función positiva, integral y área coinciden." },
+      { text: "Si f es positiva, la integral definida representa...", options: ["Área bajo la curva", "Pendiente", "Módulo", "Mediana"], correct: 0, solution: "Con función positiva, integral y área coinciden." },
       { text: "Integral de e^x dx.", options: ["e^x + C", "xe^x + C", "ln(x)+C", "1/x+C"], correct: 0, solution: "e^x es su propia primitiva." }
     ];
   }
@@ -7142,11 +9247,11 @@ function supplementalExercisesFor(lower, courseId) {
   }
   if (lower.includes("probabilidad")) {
     return [
-      { text: "La regla de Laplace usa...", options: ["Casos favorables / casos posibles", "Media / desviación", "Derivada / función", "Ãrea / base"], correct: 0, solution: "Se usa con casos equiprobables." },
-      { text: "Si A y B son incompatibles, P(Aâˆ©B) vale...", options: ["0", "1", "P(A)P(B)", "P(A)+P(B)"], correct: 0, solution: "No pueden ocurrir a la vez." },
+      { text: "La regla de Laplace usa...", options: ["Casos favorables / casos posibles", "Media / desviación", "Derivada / función", "Área / base"], correct: 0, solution: "Se usa con casos equiprobables." },
+      { text: "Si A y B son incompatibles, P(A∩B) vale...", options: ["0", "1", "P(A)P(B)", "P(A)+P(B)"], correct: 0, solution: "No pueden ocurrir a la vez." },
       { text: "P(A|B) significa...", options: ["Probabilidad de A sabiendo B", "Probabilidad de B sabiendo A", "Unión", "Contrario"], correct: 0, solution: "La barra vertical expresa condición." },
       { text: "P(A contrario) es...", options: ["1 - P(A)", "P(A)-1", "P(A)/2", "P(A)^2"], correct: 0, solution: "Un suceso y su contrario completan el total." },
-      { text: "Un diagrama de árbol ayuda a calcular...", options: ["Probabilidades compuestas", "Derivadas", "Determinantes", "Ãreas de triángulos"], correct: 0, solution: "Organiza etapas y ramas con sus probabilidades." }
+      { text: "Un diagrama de árbol ayuda a calcular...", options: ["Probabilidades compuestas", "Derivadas", "Determinantes", "Áreas de triángulos"], correct: 0, solution: "Organiza etapas y ramas con sus probabilidades." }
     ];
   }
   if (lower.includes("estadistica") || lower.includes("binomial") || lower.includes("normal") || lower.includes("muestreo") || lower.includes("inferencia")) {
@@ -7566,8 +9671,8 @@ function generatedComplexExercises(seed) {
   const b = 1 + ((seed + 2) % 6);
   const c = 1 + ((seed + 4) % 5);
   return [
-    { text: `Si z = ${a} + ${b}i, Â¿cuál es Re(z)?`, options: optionSet(a, [`${b}`, `${a}i`, `${a + b}`]), correct: 0, solution: "La parte real es el número que no multiplica a i." },
-    { text: `Si z = ${a} - ${b}i, Â¿cuál es Im(z)?`, options: optionSet(-b, [`${b}`, `${a}`, `-${a}`]), correct: 0, solution: "La parte imaginaria es el coeficiente de i, con su signo." },
+    { text: `Si z = ${a} + ${b}i, ¿cuál es Re(z)?`, options: optionSet(a, [`${b}`, `${a}i`, `${a + b}`]), correct: 0, solution: "La parte real es el número que no multiplica a i." },
+    { text: `Si z = ${a} - ${b}i, ¿cuál es Im(z)?`, options: optionSet(-b, [`${b}`, `${a}`, `-${a}`]), correct: 0, solution: "La parte imaginaria es el coeficiente de i, con su signo." },
     { text: `El conjugado de ${a} + ${b}i es...`, options: [`${a} - ${b}i`, `-${a} + ${b}i`, `${b} + ${a}i`, `${a + b}i`], correct: 0, solution: "El conjugado conserva la parte real y cambia el signo de la imaginaria." },
     { text: `El opuesto de ${a} - ${b}i es...`, options: [`-${a} + ${b}i`, `${a} + ${b}i`, `-${a} - ${b}i`, `${b} - ${a}i`], correct: 0, solution: "El opuesto cambia el signo de la parte real y de la parte imaginaria." },
     { text: `Calcula (${a}+${b}i)+(${c}-${b}i).`, options: [`${a + c}`, `${a + c}+${2 * b}i`, `${a - c}`, `${a + c}-${b}i`], correct: 0, solution: "Se suman partes reales y partes imaginarias: las imaginarias se anulan." },
@@ -7597,9 +9702,9 @@ function generatedBasicExercises(lower, seed) {
     { text: `Calcula: ${a}/${c} de ${c * b}`, options: optionSet(a * b, [b, c * b - a, a + b]), correct: 0, solution: `Dividimos ${c * b} entre ${c}: ${b}. Multiplicamos por ${a}: ${a * b}.` },
     { text: `Ordena de menor a mayor: ${a}, -${b}, 0, ${c}`, options: [`-${b}, 0, ${a}, ${c}`, `0, -${b}, ${a}, ${c}`, `${c}, ${a}, 0, -${b}`, `-${b}, ${a}, 0, ${c}`], correct: 0, solution: `Los negativos van antes que 0. Después van los positivos de menor a mayor.` },
     { text: `Simplifica la fracción ${a * 2}/${a * 4}.`, options: ["1/2", "2/4", "1/4", "2/8"], correct: 0, solution: `Dividimos numerador y denominador entre ${a * 2}: queda 1/2.` },
-    { text: `Si un producto cuesta ${total} euros y baja un 10%, Â¿cuánto baja?`, options: optionSet(total / 10, [10, total - 10, total + 10]), correct: 0, solution: `El 10% es dividir entre 10: ${total} : 10 = ${total / 10}.` },
+    { text: `Si un producto cuesta ${total} euros y baja un 10%, ¿cuánto baja?`, options: optionSet(total / 10, [10, total - 10, total + 10]), correct: 0, solution: `El 10% es dividir entre 10: ${total} : 10 = ${total / 10}.` },
     { text: `Calcula: ${b * c} : ${c} + ${a}`, options: optionSet(b + a, [b * c + a, b, a]), correct: 0, solution: `Primero la división: ${b * c} : ${c} = ${b}. Luego sumamos ${a}: ${b + a}.` },
-    { text: `Â¿Cuál es el doble de ${total / 5}?`, options: optionSet((total / 5) * 2, [total / 5, total, (total / 5) + 2]), correct: 0, solution: `Doble significa multiplicar por 2: ${total / 5} x 2 = ${(total / 5) * 2}.` },
+    { text: `¿Cuál es el doble de ${total / 5}?`, options: optionSet((total / 5) * 2, [total / 5, total, (total / 5) + 2]), correct: 0, solution: `Doble significa multiplicar por 2: ${total / 5} x 2 = ${(total / 5) * 2}.` },
     { text: `Calcula: (${a} + ${c})^2`, options: optionSet((a + c) ** 2, [a ** 2 + c ** 2, a + c * 2, (a + c) * 2]), correct: 0, solution: `Primero ${a} + ${c} = ${a + c}. Luego elevamos al cuadrado: ${(a + c) ** 2}.` },
     { text: `Resuelve: ${a}x = ${a * b}`, options: optionSet(b, [a, a * b, b - a]), correct: 0, solution: `Dividimos entre ${a}: x = ${a * b} : ${a} = ${b}.` },
     { text: `Media de ${a}, ${b} y ${c}.`, options: optionSet(((a + b + c) / 3).toFixed(2), [a + b + c, b, c]), correct: 0, solution: `Sumamos ${a}+${b}+${c}=${a + b + c} y dividimos entre 3.` },
@@ -7635,12 +9740,12 @@ function generatedBachExercises(lower, seed) {
     { text: `Calcula integral de ${a}x^${b} dx.`, options: [`${a}/${b + 1} x^${b + 1} + C`, `${a * b}x^${b - 1} + C`, `${a}x^${b} + C`, `x^${b + 1} + C`], correct: 0, solution: `Subimos el exponente a ${b + 1} y dividimos entre ${b + 1}.` },
     { text: `lim x->${a} de (x + ${b})`, options: optionSet(a + b, [a, b, a * b]), correct: 0, solution: `Es continua, sustituimos: ${a}+${b}=${a + b}.` },
     { text: `det [[${a},0],[0,${b}]]`, options: optionSet(a * b, [a + b, 0, a - b]), correct: 0, solution: `En una diagonal, el determinante es el producto: ${a} x ${b} = ${a * b}.` },
-    { text: `Si A y B son independientes, P(A)=${a}/10 y P(B)=${b}/10. P(Aâˆ©B)=`, options: [`${a * b}/100`, `${a + b}/10`, `${a}/${b}`, `${b}/${a}`], correct: 0, solution: `Independientes: multiplicamos probabilidades, (${a}/10)(${b}/10)=${a * b}/100.` },
+    { text: `Si A y B son independientes, P(A)=${a}/10 y P(B)=${b}/10. P(A∩B)=`, options: [`${a * b}/100`, `${a + b}/10`, `${a}/${b}`, `${b}/${a}`], correct: 0, solution: `Independientes: multiplicamos probabilidades, (${a}/10)(${b}/10)=${a * b}/100.` },
     { text: `En B(${b + 5}, ${a}/10), la media es...`, options: [`${((b + 5) * a / 10).toFixed(1)}`, `${b + 5 + a / 10}`, `${a}/10`, `${b + 5}`], correct: 0, solution: `En una binomial, media = np = ${b + 5} x ${a}/10.` },
     { text: `Traza de [[${a},1],[0,${b}]]`, options: optionSet(a + b, [a * b, a, b]), correct: 0, solution: `La traza suma la diagonal principal: ${a}+${b}=${a + b}.` },
     { text: `Resuelve e^x = e^${a}.`, options: [`x = ${a}`, `x = e`, `x = ${a ** 2}`, "x = 0"], correct: 0, solution: `Si las bases son iguales, igualamos exponentes: x=${a}.` },
     { text: `Deriva f(x)=1/x en x=${a}.`, options: [`-${(1 / (a * a)).toFixed(3)}`, `${(1 / a).toFixed(3)}`, `${a}`, `-${a}`], correct: 0, solution: `f'(x)=-1/x^2. En x=${a}: -1/${a ** 2}.` },
-    { text: `Integral de ${b} dx entre 0 y ${a}.`, options: optionSet(a * b, [a + b, b, a]), correct: 0, solution: `Ãrea de un rectángulo: base ${a} por altura ${b}, resultado ${a * b}.` }
+    { text: `Integral de ${b} dx entre 0 y ${a}.`, options: optionSet(a * b, [a + b, b, a]), correct: 0, solution: `Área de un rectángulo: base ${a} por altura ${b}, resultado ${a * b}.` }
   ];
 }
 
@@ -7660,13 +9765,24 @@ function matesIModelBank(lower) {
 }
 
 function matesIExtensionBank(lower) {
+  const suppliedLimits = Array.isArray(window.MATES_I_LIMITS_BANK) ? window.MATES_I_LIMITS_BANK : [];
+  const suppliedDerivatives = Array.isArray(window.MATES_I_DERIVATIVES_BANK) ? window.MATES_I_DERIVATIVES_BANK : [];
+  const suppliedDerivativeApplications = Array.isArray(window.MATES_I_DERIVATIVE_APPLICATIONS_BANK)
+    ? window.MATES_I_DERIVATIVE_APPLICATIONS_BANK
+    : [];
   if (lower.includes("complejo")) return exerciseBanks.complejos;
   if (lower.includes("numero") || lower.includes("real")) return exerciseBanks.realesBach;
   if (lower.includes("trigonometr")) return exerciseBanks.trigonometriaBach;
   if (lower.includes("geometria analitica")) return exerciseBanks.geometriaAnalitica;
   if (lower.includes("conica")) return exerciseBanks.conicas;
-  if (lower.includes("limite")) return exerciseBanks.limites;
-  if (lower.includes("aplicacion de derivada") || lower.includes("derivada")) return exerciseBanks.derivadas;
+  if (lower.includes("limite")) {
+    return [...exerciseBanks.limites, ...suppliedLimits]
+      .filter((question) => !isForbiddenIntroLimitQuestion(question, "1bach-mates", lower));
+  }
+  if (lower.includes("aplicacion de derivada")) {
+    return [...exerciseBanks.derivadas, ...suppliedDerivativeApplications];
+  }
+  if (lower.includes("derivada")) return [...exerciseBanks.derivadas, ...suppliedDerivatives];
   if (lower.includes("funcion")) return exerciseBanks.funciones;
   if (lower.includes("probabilidad")) return exerciseBanks.probabilidadBach;
   if (lower.includes("ecuacion") || lower.includes("sistema") || lower.includes("inecuacion")) return exerciseBanks.ecuacionesBach;
@@ -7694,27 +9810,39 @@ function ccssIModelBank(lower) {
   if (lower.includes("probabilidad") && !lower.includes("distribucion")) return exerciseBanks.ccssIProbabilidad;
   if (lower.includes("binomial")) return exerciseBanks.ccssIBinomial;
   if (lower.includes("normal")) return exerciseBanks.ccssINormal;
-  if (lower.includes("numero") || lower.includes("real")) return exerciseBanks.ccssIReales;
   if (lower.includes("complejo")) return exerciseBanks.ccssIComplejos;
+  if (lower.includes("numero") || lower.includes("real")) return exerciseBanks.ccssIReales;
   if (lower.includes("inecuacion")) return exerciseBanks.ccssIInecuaciones;
   if (lower.includes("ecuacion") || lower.includes("sistema")) return exerciseBanks.ccssIEcuaciones;
+  if (lower.includes("aplicacion") && lower.includes("derivada")) return exerciseBanks.matesIAplicacionDerivadas;
+  if (lower.includes("derivada")) return exerciseBanks.matesIDerivadas;
   if (lower.includes("funcion")) return exerciseBanks.ccssIFunciones;
   if (lower.includes("combinatoria")) return exerciseBanks.ccssICombinatoria;
   return null;
 }
 
 function ccssIIModelBank(lower) {
-  if (lower.includes("matrice")) return exerciseBanks.ccssIIPauMatrices;
-  if (lower.includes("determinante") && !lower.includes("sistema")) return exerciseBanks.ccssIIPauMatrices;
-  if (lower.includes("sistema")) return exerciseBanks.ccssIIPauSistemas;
-  if (lower.includes("programacion lineal")) return exerciseBanks.ccssIIPauProgramacionLineal;
-  if (lower.includes("limite") || lower.includes("continuidad")) return exerciseBanks.ccssIIPauFuncionesContinuidad;
-  if (lower.includes("derivada")) return exerciseBanks.ccssIIPauFuncionesContinuidad;
-  if (lower.includes("integrales indefinidas")) return exerciseBanks.ccssIIIntegralesIndefinidas;
-  if (lower.includes("integrales definidas")) return exerciseBanks.ccssIIIntegralesDefinidas;
-  if (lower.includes("probabilidad") && !lower.includes("distribucion")) return exerciseBanks.ccssIIPauProbabilidad;
-  if (lower.includes("distribucion") || lower.includes("binomial") || lower.includes("normal")) return exerciseBanks.ccssIIPauMuestreoInferencia;
-  if (lower.includes("muestreo") || lower.includes("inferencia")) return exerciseBanks.ccssIIPauMuestreoInferencia;
+  const legacy = (bank) => (bank || []).map((question) => ({
+    ...question,
+    sourceType: "legacy-unverified",
+    officialStatus: "legacy-unverified"
+  }));
+  if (lower.includes("matrice")) return legacy(exerciseBanks.ccssIIPauMatrices);
+  if (lower.includes("determinante") && !lower.includes("sistema")) return legacy(exerciseBanks.ccssIIPauMatrices);
+  if (lower.includes("sistema")) return legacy(exerciseBanks.ccssIIPauSistemas);
+  if (lower.includes("programacion lineal")) return legacy(exerciseBanks.ccssIIPauProgramacionLineal);
+  if (lower.includes("limite") || lower.includes("continuidad")) return legacy(exerciseBanks.ccssIIPauFuncionesContinuidad);
+  if (lower.includes("derivada")) return legacy(exerciseBanks.ccssIIPauFuncionesContinuidad);
+  // Estos bancos heredados solo sirven para enlazar respuestas antiguas con
+  // enunciados oficiales. La práctica visible usa MargaritaTopicPracticeBanks.
+  if (lower.includes("integrales indefinidas")) return legacy(exerciseBanks.ccssIIIntegralesIndefinidas);
+  if (lower.includes("integrales definidas")) return legacy(exerciseBanks.ccssIIIntegralesDefinidas);
+  if (lower.includes("probabilidad") && !lower.includes("distribucion")) return legacy(exerciseBanks.ccssIIPauProbabilidad);
+  // La práctica visible de los temas 10 y 11 usa exclusivamente la
+  // clasificación limpia a nivel de apartado. El banco heredado no se emplea
+  // para evitar que inferencia contamine Distribución binomial y normal.
+  if (lower.includes("distribucion") || lower.includes("binomial") || lower.includes("normal")) return [];
+  if (lower.includes("muestreo") || lower.includes("inferencia")) return legacy(exerciseBanks.ccssIIPauMuestreoInferencia);
   return null;
 }
 
@@ -7745,11 +9873,12 @@ function pauPendingBank(lower, courseId) {
 }
 
 function ccssIExtensionBank(lower) {
-  if (lower.includes("estadistica") || lower.includes("normal") || lower.includes("binomial")) return exerciseBanks.estadisticaBach;
+  if (lower.includes("estadistica") || lower.includes("normal") || lower.includes("binomial")) return [];
   if (lower.includes("probabilidad")) return exerciseBanks.probabilidadBach;
-  if (lower.includes("numero") || lower.includes("real")) return exerciseBanks.realesBach;
   if (lower.includes("complejo")) return exerciseBanks.complejos;
-  if (lower.includes("inecuacion") || lower.includes("ecuacion") || lower.includes("sistema")) return exerciseBanks.ecuacionesBach;
+  if (lower.includes("numero") || lower.includes("real")) return exerciseBanks.realesBach;
+  if (lower.includes("inecuacion")) return [];
+  if (lower.includes("ecuacion") || lower.includes("sistema")) return exerciseBanks.ecuacionesBach;
   if (lower.includes("funcion")) return exerciseBanks.funciones;
   if (lower.includes("combinatoria")) return exerciseBanks.combinatoria;
   return [];
@@ -7764,39 +9893,22 @@ function fourEsoAModelBank(lower) {
   if (lower.includes("ecuacion") || lower.includes("inecuacion")) return exerciseBanks.fourEsoAEcuaciones;
   if (lower.includes("semejanza") || lower.includes("trigonometr")) return exerciseBanks.fourEsoASemejanzaTrigonometria;
   if (lower.includes("area") || lower.includes("cuerpo") || lower.includes("geometrico")) return exerciseBanks.fourEsoAAreasCuerpos;
+  if (lower.includes("funcion")) return window.MargaritaFourEsoAOwnBanks?.model?.("funciones") || [];
   return null;
 }
 
 function fourEsoBModelBank(lower) {
-  if (lower.includes("real")) return exerciseBanks.fourEsoAReales;
-  if (lower.includes("radical") || lower.includes("logaritmo")) return exerciseBanks.fourEsoBRadicalesLogaritmos;
-  if (lower.includes("expresion") || lower.includes("algebra")) return exerciseBanks.fourEsoAExpresiones;
-  if (lower.includes("ecuacion") && lower.includes("sistema")) return [...exerciseBanks.fourEsoAEcuaciones, ...exerciseBanks.fourEsoASistemas];
-  if (lower.includes("inecuacion")) return exerciseBanks.fourEsoBInecuaciones;
-  if (lower.includes("proporcional")) return exerciseBanks.fourEsoAProporcionalidad;
-  if (lower.includes("semejanza")) return exerciseBanks.fourEsoASemejanzaTrigonometria;
-  if (lower.includes("trigonometr")) return exerciseBanks.fourEsoASemejanzaTrigonometria;
-  if (lower.includes("geometria analitica")) return exerciseBanks.fourEsoBGeometriaAnalitica;
-  if (lower.includes("funcion") && !lower.includes("limite")) return exerciseBanks.fourEsoBFunciones;
-  if (lower.includes("limite") && lower.includes("sucesion")) return exerciseBanks.fourEsoBLimiteSucesiones;
-  if (lower.includes("limite")) return exerciseBanks.fourEsoBLimiteFunciones;
-  if (lower.includes("derivada")) return exerciseBanks.fourEsoBDerivadas;
-  if (lower.includes("combinatoria")) return exerciseBanks.fourEsoBCombinatoria;
-  return null;
+  // Matemáticas B debe disponer de una capa propia. La capa combina sus
+  // originales controlados, sus exámenes verificados y el banco específico
+  // de combinatoria, sin heredar bancos ordinarios de Matemáticas A.
+  return window.MargaritaFourEsoBOwnBanks?.model?.(lower) || [];
 }
 
 function threeEsoModelBank(lower) {
-  if (lower.includes("real")) return exerciseBanks.fourEsoAReales;
-  if (lower.includes("potencia") || lower.includes("raices") || lower.includes("radical")) return exerciseBanks.fourEsoBRadicalesLogaritmos;
-  if (lower.includes("expresion") || lower.includes("algebra")) return exerciseBanks.fourEsoAExpresiones;
-  if (lower.includes("ecuacion") || lower.includes("sistema")) return [...exerciseBanks.fourEsoAEcuaciones, ...exerciseBanks.fourEsoASistemas];
-  if (lower.includes("proporcional")) return exerciseBanks.fourEsoAProporcionalidad;
-  if (lower.includes("sucesion")) return exerciseBanks.fourEsoBLimiteSucesiones;
-  if (lower.includes("cuerpo") || lower.includes("geometrico")) return exerciseBanks.fourEsoAAreasCuerpos;
-  if (lower.includes("funcion")) return exerciseBanks.fourEsoBFunciones;
-  if (lower.includes("estadistica")) return exerciseBanks.estadistica;
-  if (lower.includes("probabilidad")) return exerciseBanks.probabilidad;
-  return null;
+  // 3.º ESO dispone de bancos originales, exámenes verificados y generadores
+  // propios. No debe heredar modelos de 4.º ESO ni bancos compartidos cuya
+  // procedencia curricular no pueda garantizarse.
+  return [];
 }
 
 function twoEsoModelBank(lower) {
@@ -7816,6 +9928,7 @@ function oneEsoModelBank(lower) {
   if (lower.includes("natural")) return exerciseBanks.operaciones;
   if (lower.includes("entero")) return exerciseBanks.operaciones;
   if (lower.includes("potencia") || lower.includes("raices")) return exerciseBanks.potencias;
+  if (lower.includes("fraccion") && lower.includes("decimal")) return [...exerciseBanks.fracciones, ...exerciseBanks.decimales];
   if (lower.includes("fraccion")) return exerciseBanks.fracciones;
   if (lower.includes("expresion") || lower.includes("algebra")) return exerciseBanks.fourEsoAExpresiones;
   if (lower.includes("proporcional")) return exerciseBanks.fourEsoAProporcionalidad;
@@ -7865,13 +9978,13 @@ function pickExerciseBank(lower, courseId) {
     if (lower.includes("estadistica") || lower.includes("muestreo") || lower.includes("normal") || lower.includes("binomial")) return exerciseBanks.estadisticaBach;
     if (lower.includes("funcion")) return exerciseBanks.funciones;
     if (lower.includes("ecuacion") || lower.includes("sistema") || lower.includes("inecuacion")) return exerciseBanks.ecuacionesBach;
-    return exerciseBanks.bachGeneral;
+    return [];
   }
 
   if (isUpperEso) {
     if (courseId === "3eso") {
       const bank = threeEsoModelBank(lower);
-      if (bank?.length) return bank;
+      return bank;
     }
     if (courseId === "4eso-a") {
       const bank = fourEsoAModelBank(lower);
@@ -7879,7 +9992,9 @@ function pickExerciseBank(lower, courseId) {
     }
     if (courseId === "4eso-b") {
       const bank = fourEsoBModelBank(lower);
-      if (bank?.length) return bank;
+      // No caer en los bancos genéricos ni en bancos de Matemáticas A cuando
+      // un tema B todavía tenga originales pendientes de revisión visual.
+      return bank;
     }
     if (lower.includes("potencia") || lower.includes("raices") || lower.includes("radical")) return exerciseBanks.potenciasUpper;
     if (lower.includes("polinomio")) return exerciseBanks.polinomios;
@@ -7893,7 +10008,7 @@ function pickExerciseBank(lower, courseId) {
     if (lower.includes("proporcional") || lower.includes("porcentaje")) return exerciseBanks.porcentajes;
     if (lower.includes("real")) return exerciseBanks.realesBach;
     if (lower.includes("fraccion") || lower.includes("racional") || lower.includes("real")) return exerciseBanks.fracciones;
-    return exerciseBanks.upperEsoGeneral;
+    return [];
   }
 
   if (courseId === "2eso") {
@@ -7917,7 +10032,7 @@ function pickExerciseBank(lower, courseId) {
   if (lower.includes("estadistica")) return exerciseBanks.estadistica;
   if (lower.includes("proporcional") || lower.includes("porcentaje")) return exerciseBanks.porcentajes;
   if (lower.includes("natural") || lower.includes("operaciones") || lower.includes("entero")) return exerciseBanks.operaciones;
-  return exerciseBanks.general;
+  return [];
 }
 
 
@@ -7977,8 +10092,8 @@ const exerciseBanks = {
     { text: "Resuelve: −x+2=12−2(x−8).", options: ["x=26", "x=-26", "x=6", "x=14"], correct: 0, solution: "Derecha: 12−2x+16=28−2x. Entonces −x+2=28−2x. Sumamos 2x: x+2=28, luego x=26." },
     { text: "Resuelve: 3(x−10)=4(x−20).", options: ["x=50", "x=-50", "x=10", "x=20"], correct: 0, solution: "3x−30=4x−80. Pasamos: 50=x." },
     { text: "Resuelve: −3x + 2x − 28 = 50.", options: ["x=-78", "x=78", "x=-22", "x=22"], correct: 0, solution: "−x−28=50. Sumamos 28: −x=78. Luego x=-78." },
-    { text: "Resuelve la inecuacion: 2x−3 > 7.", options: ["x>5", "x<5", "x>2", "x<2"], correct: 0, solution: "2x−3>7, luego 2x>10 y x>5." },
-    { text: "Resuelve la inecuacion: −3x ≤ 12.", options: ["x≥−4", "x≤−4", "x≥4", "x≤4"], correct: 0, solution: "Al dividir por −3 cambia el signo: x≥−4." },
+    { text: "Resuelve la inecuación: 2x−3 > 7.", options: ["x>5", "x<5", "x>2", "x<2"], correct: 0, solution: "Resolución:\n1. Sumamos 3 en ambos miembros: 2x−3+3>7+3.\n2. Simplificamos: 2x>10.\n3. Dividimos ambos miembros entre 2: x>10/2.\nResultado final: x>5." },
+    { text: "Resuelve la inecuación: −3x ≤ 12.", options: ["x≥−4", "x≤−4", "x≥4", "x≤4"], correct: 0, solution: "Resolución:\n1. Partimos de −3x≤12.\n2. Dividimos ambos miembros entre −3. Al dividir una inecuación por un número negativo, el signo cambia de sentido: x≥12/(−3).\nResultado final: x≥−4." },
     { text: "Resuelve: x^2−9=0.", options: ["x=−3 y x=3", "x=9", "x=−9", "x=3"], correct: 0, solution: "x^2=9, luego x=±3." },
     { text: "Resuelve: x(x−5)=0.", options: ["x=0 y x=5", "x=5", "x=−5", "x=0 y x=−5"], correct: 0, solution: "Producto nulo: x=0 o x−5=0. Por tanto x=0 y x=5." }
   ],
@@ -8074,7 +10189,6 @@ const exerciseBanks = {
     { text: "Si lim x→a⁻ f(x)=2 y lim x→a⁺ f(x)=5, el límite en a...", options: ["No existe", "Vale 2", "Vale 5", "Vale 7"], correct: 0, solution: "Resolución:\n1. Para que exista el límite, los límites laterales deben coincidir.\n2. Como 2≠5, no existe.\nResultado final: no existe." },
     { text: "Calcula lim x→3 (x²-9)/(x-3).", options: ["6", "0", "3", "No existe"], correct: 0, solution: "Resolución:\n1. Factorizamos x²-9=(x-3)(x+3).\n2. Simplificamos x-3.\n3. Queda x+3.\n4. Sustituimos x=3.\nResultado final: 6." },
     { text: "La recta x=2 puede ser asíntota vertical de 1/(x-2) porque...", options: ["El denominador se anula", "El numerador se anula", "La función vale 2", "Es una recta horizontal"], correct: 0, solution: "Resolución:\n1. En x=2, el denominador x-2 vale 0.\n2. La función crece sin límite cerca de ese valor.\nResultado final: x=2 es asíntota vertical." },
-    { text: "Calcula lim x→0 sen(x)/x.", options: ["1", "0", "∞", "No existe"], correct: 0, solution: "Resolución:\n1. Es un límite fundamental.\n2. sen(x)/x tiende a 1 cuando x tiende a 0.\nResultado final: 1." },
     { text: "Si f es continua en a, entonces...", options: ["lim x→a f(x)=f(a)", "f'(a)=0", "f(a)=0", "No existe límite"], correct: 0, solution: "Resolución:\n1. La continuidad exige que el límite exista.\n2. Además debe coincidir con el valor de la función.\nResultado final: lim x→a f(x)=f(a)." },
     { text: "Calcula lim x→∞ (2x²-1)/(5x²+3).", options: ["2/5", "5/2", "0", "∞"], correct: 0, solution: "Resolución:\n1. Numerador y denominador tienen el mismo grado.\n2. Tomamos cociente de coeficientes principales.\nResultado final: 2/5." }
   ],
@@ -8128,13 +10242,13 @@ const exerciseBanks = {
       solution: "Primero paréntesis: 15 - 9 = 6. Luego multiplicación: 2 x 6 = 12. Por último 6 + 12 = 18."
     },
     {
-      text: "Â¿Cuál es el resultado de (-7) + 12 - 5?",
+      text: "¿Cuál es el resultado de (-7) + 12 - 5?",
       options: ["0", "-24", "10", "-10"],
       correct: 0,
       solution: "Suma con orden: -7 + 12 = 5. Después 5 - 5 = 0."
     },
     {
-      text: "Un cuaderno cuesta 3 euros. Â¿Cuánto cuestan 7 cuadernos?",
+      text: "Un cuaderno cuesta 3 euros. ¿Cuánto cuestan 7 cuadernos?",
       options: ["21 euros", "10 euros", "24 euros", "17 euros"],
       correct: 0,
       solution: "Multiplicamos precio por cantidad: 3 x 7 = 21 euros."
@@ -8175,7 +10289,7 @@ const exerciseBanks = {
       text: "Calcula: 5^0",
       options: ["1", "0", "5", "10"],
       correct: 0,
-      solution: "Toda potencia de exponente 0, con base distinta de 0, vale 1."
+      solution: "Resolución:\n1. Aplicamos la propiedad a⁰=1, siempre que a≠0.\n2. Como la base es 5 y 5≠0, se cumple 5⁰=1.\nResultado final: 1."
     }
   ],
   ecuaciones: [
@@ -8221,7 +10335,7 @@ const exerciseBanks = {
       text: "Calcula: 2/3 de 18",
       options: ["12", "9", "27", "6"],
       correct: 0,
-      solution: "Dividimos 18 entre 3: 6. Luego multiplicamos por 2: 12."
+      solution: "Resolución:\n1. Calculamos dos tercios de 18: (2/3)·18.\n2. Dividimos 18 entre 3: 18/3=6.\n3. Multiplicamos por 2: 6·2=12.\nResultado final: 12."
     },
     {
       text: "Simplifica la fracción 12/18.",
@@ -8230,7 +10344,7 @@ const exerciseBanks = {
       solution: "Dividimos numerador y denominador entre 6: 12/18 = 2/3."
     },
     {
-      text: "Â¿Cuál es mayor?",
+      text: "¿Cuál es mayor?",
       options: ["3/4", "2/5", "1/2", "3/8"],
       correct: 0,
       solution: "En decimal: 3/4 = 0,75; 2/5 = 0,4; 1/2 = 0,5; 3/8 = 0,375. La mayor es 3/4."
@@ -8250,13 +10364,13 @@ const exerciseBanks = {
       solution: "20% es 20/100. Entonces 80 x 20/100 = 16."
     },
     {
-      text: "Una camiseta de 30 euros tiene un descuento del 10%. Â¿Cuánto se descuenta?",
+      text: "Una camiseta de 30 euros tiene un descuento del 10%. ¿Cuánto se descuenta?",
       options: ["3 euros", "10 euros", "27 euros", "1 euro"],
       correct: 0,
       solution: "10% de 30 es 30 x 10/100 = 3 euros."
     },
     {
-      text: "Si 4 lápices cuestan 2 euros, Â¿cuánto cuestan 10 lápices al mismo precio?",
+      text: "Si 4 lápices cuestan 2 euros, ¿cuánto cuestan 10 lápices al mismo precio?",
       options: ["5 euros", "8 euros", "6 euros", "20 euros"],
       correct: 0,
       solution: "Cada lápiz cuesta 2 : 4 = 0,5 euros. Diez lápices cuestan 10 x 0,5 = 5 euros."
@@ -8268,21 +10382,21 @@ const exerciseBanks = {
       solution: "El 10% de 50 es 5. Aumentar significa sumar: 50 + 5 = 55."
     },
     {
-      text: "Â¿Qué porcentaje representa 25 de 100?",
+      text: "¿Qué porcentaje representa 25 de 100?",
       options: ["25%", "20%", "75%", "100%"],
       correct: 0,
       solution: "Si el total es 100, 25 partes equivalen directamente al 25%."
     }
   ],
   divisibilidad: [
-    { text: "Â¿Cuál de estos números es múltiplo de 6?", options: ["42", "44", "49", "55"], correct: 0, solution: "Un múltiplo de 6 debe ser divisible entre 2 y entre 3. 42 cumple ambas condiciones." },
-    { text: "Â¿Cuál es un divisor de 36?", options: ["9", "7", "5", "11"], correct: 0, solution: "36 : 9 = 4, por tanto 9 es divisor de 36." },
+    { text: "¿Cuál de estos números es múltiplo de 6?", options: ["42", "44", "49", "55"], correct: 0, solution: "Un múltiplo de 6 debe ser divisible entre 2 y entre 3. 42 cumple ambas condiciones." },
+    { text: "¿Cuál es un divisor de 36?", options: ["9", "7", "5", "11"], correct: 0, solution: "36 : 9 = 4, por tanto 9 es divisor de 36." },
     { text: "El m.c.d. de 12 y 18 es...", options: ["6", "12", "18", "36"], correct: 0, solution: "Divisores comunes: 1,2,3,6. El mayor es 6." },
     { text: "El m.c.m. de 4 y 6 es...", options: ["12", "10", "24", "2"], correct: 0, solution: "Los múltiplos comunes son 12,24,... El menor es 12." },
-    { text: "Un número divisible por 3 tiene...", options: ["Suma de cifras múltiplo de 3", "Ãšltima cifra par", "Ãšltima cifra 5", "Dos cifras siempre"], correct: 0, solution: "El criterio de divisibilidad por 3 usa la suma de sus cifras." },
-    { text: "Â¿Cuál es primo?", options: ["13", "21", "27", "1"], correct: 0, solution: "13 solo tiene dos divisores positivos: 1 y 13." },
+    { text: "Un número divisible por 3 tiene...", options: ["Suma de cifras múltiplo de 3", "Última cifra par", "Última cifra 5", "Dos cifras siempre"], correct: 0, solution: "El criterio de divisibilidad por 3 usa la suma de sus cifras." },
+    { text: "¿Cuál es primo?", options: ["13", "21", "27", "1"], correct: 0, solution: "13 solo tiene dos divisores positivos: 1 y 13." },
     { text: "Descompón 18 en factores primos.", options: ["2 x 3^2", "2^2 x 3", "3 x 6", "18 x 1"], correct: 0, solution: "18=2x9=2x3^2." },
-    { text: "Â¿Cuál es divisible por 5?", options: ["125", "122", "118", "111"], correct: 0, solution: "Los números divisibles por 5 terminan en 0 o en 5." },
+    { text: "¿Cuál es divisible por 5?", options: ["125", "122", "118", "111"], correct: 0, solution: "Los números divisibles por 5 terminan en 0 o en 5." },
     { text: "El número 1 es...", options: ["Ni primo ni compuesto", "Primo", "Compuesto", "Múltiplo solo de 2"], correct: 0, solution: "El 1 no tiene exactamente dos divisores, por eso no es primo." },
     { text: "Si un número es divisible por 10, termina en...", options: ["0", "2", "5", "10 siempre con dos cifras"], correct: 0, solution: "Todo múltiplo de 10 termina en 0." }
   ],
@@ -8299,15 +10413,15 @@ const exerciseBanks = {
     { text: "Calcula 5,2 + 0,08.", options: ["5,28", "5,10", "5,208", "13,2"], correct: 0, solution: "5,20+0,08=5,28." }
   ],
   geometriaEso: [
-    { text: "La suma de los ángulos de un triángulo es...", options: ["180Âº", "90Âº", "270Âº", "360Âº"], correct: 0, solution: "En cualquier triángulo, los ángulos interiores suman 180Âº." },
-    { text: "Ãrea de un rectángulo de base 6 y altura 4.", options: ["24", "20", "10", "12"], correct: 0, solution: "Ãrea del rectángulo = base x altura = 6x4=24." },
+    { text: "La suma de los ángulos de un triángulo es...", options: ["180º", "90º", "270º", "360º"], correct: 0, solution: "En cualquier triángulo, los ángulos interiores suman 180º." },
+    { text: "Área de un rectángulo de base 6 y altura 4.", options: ["24", "20", "10", "12"], correct: 0, solution: "Área del rectángulo = base x altura = 6x4=24." },
     { text: "Perímetro de un cuadrado de lado 5.", options: ["20", "25", "10", "15"], correct: 0, solution: "Un cuadrado tiene 4 lados iguales: 4x5=20." },
-    { text: "Ãrea de un triángulo de base 8 y altura 3.", options: ["12", "24", "11", "6"], correct: 0, solution: "Ãrea = base x altura / 2 = 8x3/2=12." },
+    { text: "Área de un triángulo de base 8 y altura 3.", options: ["12", "24", "11", "6"], correct: 0, solution: "Área = base x altura / 2 = 8x3/2=12." },
     { text: "Si un círculo tiene radio r, su diámetro es...", options: ["2r", "r/2", "pi r", "r^2"], correct: 0, solution: "El diámetro mide el doble del radio." },
     { text: "Por Pitágoras, si los catetos son 3 y 4, la hipotenusa es...", options: ["5", "7", "12", "25"], correct: 0, solution: "h^2=3^2+4^2=25, luego h=5." },
-    { text: "Un ángulo recto mide...", options: ["90Âº", "180Âº", "45Âº", "360Âº"], correct: 0, solution: "Por definición, un ángulo recto mide 90Âº." },
+    { text: "Un ángulo recto mide...", options: ["90º", "180º", "45º", "360º"], correct: 0, solution: "Por definición, un ángulo recto mide 90º." },
     { text: "Volumen de un prisma rectangular 2 x 3 x 4.", options: ["24", "9", "14", "20"], correct: 0, solution: "Volumen = largo x ancho x alto = 2x3x4=24." },
-    { text: "Dos figuras semejantes tienen...", options: ["La misma forma", "La misma área siempre", "El mismo tamaño siempre", "Ãngulos distintos siempre"], correct: 0, solution: "Las figuras semejantes conservan forma y ángulos, aunque cambie el tamaño." },
+    { text: "Dos figuras semejantes tienen...", options: ["La misma forma", "La misma área siempre", "El mismo tamaño siempre", "Ángulos distintos siempre"], correct: 0, solution: "Las figuras semejantes conservan forma y ángulos, aunque cambie el tamaño." },
     { text: "Una circunferencia es...", options: ["La línea curva cerrada", "La región interior", "Un diámetro", "Un polígono"], correct: 0, solution: "Circunferencia es la línea; círculo es la región interior." }
   ],
   polinomios: [
@@ -8330,13 +10444,13 @@ const exerciseBanks = {
       solution: "Sumamos los datos: 4 + 6 + 8 + 10 = 28. Hay 4 datos. Media = 28 : 4 = 7."
     },
     {
-      text: "En los datos 2, 3, 3, 5, 7, Â¿cuál es la moda?",
+      text: "En los datos 2, 3, 3, 5, 7, ¿cuál es la moda?",
       options: ["3", "5", "4", "7"],
       correct: 0,
       solution: "La moda es el dato que más se repite. El 3 aparece dos veces; los demás una."
     },
     {
-      text: "Â¿Cuál es el rango de 5, 8, 12, 15?",
+      text: "¿Cuál es el rango de 5, 8, 12, 15?",
       options: ["10", "15", "5", "7"],
       correct: 0,
       solution: "Rango = valor mayor - valor menor = 15 - 5 = 10."
@@ -8348,7 +10462,7 @@ const exerciseBanks = {
       solution: "Ordenados ya están: 1, 4, 9. El valor central es 4."
     },
     {
-      text: "Si hay 6 aprobados de 10 alumnos, Â¿qué porcentaje aprobó?",
+      text: "Si hay 6 aprobados de 10 alumnos, ¿qué porcentaje aprobó?",
       options: ["60%", "6%", "40%", "10%"],
       correct: 0,
       solution: "6 de 10 equivale a 60 de 100, es decir, 60%."
@@ -8356,25 +10470,25 @@ const exerciseBanks = {
   ],
   probabilidad: [
     {
-      text: "En un dado normal, Â¿cuál es la probabilidad de sacar un 6?",
+      text: "En un dado normal, ¿cuál es la probabilidad de sacar un 6?",
       options: ["1/6", "1/2", "6/1", "5/6"],
       correct: 0,
       solution: "Hay 1 caso favorable y 6 posibles. Probabilidad = 1/6."
     },
     {
-      text: "En una moneda, Â¿cuál es la probabilidad de sacar cara?",
+      text: "En una moneda, ¿cuál es la probabilidad de sacar cara?",
       options: ["1/2", "1/4", "2", "0"],
       correct: 0,
       solution: "Hay dos resultados posibles: cara o cruz. Cara es 1 de 2: 1/2."
     },
     {
-      text: "En una bolsa hay 3 bolas rojas y 2 azules. Â¿Probabilidad de azul?",
+      text: "En una bolsa hay 3 bolas rojas y 2 azules. ¿Probabilidad de azul?",
       options: ["2/5", "3/5", "1/2", "5/2"],
       correct: 0,
       solution: "Hay 2 azules y 5 bolas en total. Probabilidad = 2/5."
     },
     {
-      text: "Al sacar una carta de 4 ases y 36 cartas no ases, Â¿probabilidad de as?",
+      text: "Al sacar una carta de 4 ases y 36 cartas no ases, ¿probabilidad de as?",
       options: ["1/10", "4/36", "36/40", "1/4"],
       correct: 0,
       solution: "Hay 4 ases de 40 cartas. 4/40 se simplifica dividiendo entre 4: 1/10."
@@ -8443,19 +10557,19 @@ const exerciseBanks = {
     { text: "La pendiente de la recta y = 3x - 2 es...", options: ["3", "-2", "x", "2"], correct: 0, solution: "En y = mx + n, la pendiente es m. Aqu m = 3." },
     { text: "Si f(x)=x^2-1, calcula f(3).", options: ["8", "6", "9", "2"], correct: 0, solution: "Sustituimos x por 3: 3^2 - 1 = 9 - 1 = 8." },
     { text: "?D?nde corta y = 2x + 5 al eje Y?", options: ["En y = 5", "En x = 5", "En y = 2", "En x = -5"], correct: 0, solution: "El corte con el eje Y se obtiene en x=0. Entonces y=5." },
-    { text: "La funci?n y = x^2 es...", options: ["Una par?bola", "Una recta horizontal", "Una hip?rbola", "Una circunferencia"], correct: 0, solution: "Las funciones cuadr?ticas como y=x^2 se representan con par?bolas." },
+    { text: "La función y = x^2 es...", options: ["Una par?bola", "Una recta horizontal", "Una hip?rbola", "Una circunferencia"], correct: 0, solution: "Las funciones cuadráticas como y=x^2 se representan con parábolas." },
     { text: "Si una recta tiene pendiente negativa, al avanzar hacia la derecha...", options: ["Baja", "Sube", "No cambia", "Se hace vertical"], correct: 0, solution: "Pendiente negativa significa que cuando x aumenta, y disminuye." }
   ],
   complejos: [
-    { text: "Si z = 3 + 2i, Â¿cuál es su parte real?", options: ["3", "2", "i", "5"], correct: 0, solution: "En z=a+bi, la parte real es a. Aquí a=3." },
-    { text: "Si z = 3 + 2i, Â¿cuál es su parte imaginaria?", options: ["2", "3", "2i", "5"], correct: 0, solution: "En z=a+bi, la parte imaginaria es el coeficiente de i. Aquí es 2." },
+    { text: "Si z = 3 + 2i, ¿cuál es su parte real?", options: ["3", "2", "i", "5"], correct: 0, solution: "En z=a+bi, la parte real es a. Aquí a=3." },
+    { text: "Si z = 3 + 2i, ¿cuál es su parte imaginaria?", options: ["2", "3", "2i", "5"], correct: 0, solution: "En z=a+bi, la parte imaginaria es el coeficiente de i. Aquí es 2." },
     { text: "Calcula (2 + 3i) + (4 - i).", options: ["6 + 2i", "6 + 4i", "-2 + 2i", "6 - 3i"], correct: 0, solution: "Sumamos partes reales: 2+4=6. Sumamos partes imaginarias: 3i-i=2i." },
     { text: "Calcula (5 - i) - (2 + 3i).", options: ["3 - 4i", "3 + 2i", "7 + 2i", "-3 - 4i"], correct: 0, solution: "Restamos reales: 5-2=3. Restamos imaginarios: -i-3i=-4i." },
     { text: "Calcula i^2.", options: ["-1", "1", "i", "0"], correct: 0, solution: "Por definición de la unidad imaginaria, i^2=-1." },
     { text: "Calcula (2+i)(3-i).", options: ["7 + i", "6 - i", "5 + i", "7 - i"], correct: 0, solution: "Desarrollamos: 6-2i+3i-i^2 = 6+i+1 = 7+i." },
     { text: "El conjugado de 4 - 5i es...", options: ["4 + 5i", "-4 - 5i", "-4 + 5i", "5 - 4i"], correct: 0, solution: "El conjugado conserva la parte real y cambia el signo de la imaginaria." },
     { text: "Calcula el módulo de z = 3 + 4i.", options: ["5", "7", "25", "1"], correct: 0, solution: "|z|=sqrt(3^2+4^2)=sqrt(9+16)=sqrt(25)=5." },
-    { text: "Â¿Qué complejo representa el punto (2,-3) en el plano complejo?", options: ["2 - 3i", "-3 + 2i", "2 + 3i", "-2 - 3i"], correct: 0, solution: "La coordenada x es la parte real y la y es la parte imaginaria: 2-3i." },
+    { text: "¿Qué complejo representa el punto (2,-3) en el plano complejo?", options: ["2 - 3i", "-3 + 2i", "2 + 3i", "-2 - 3i"], correct: 0, solution: "La coordenada x es la parte real y la y es la parte imaginaria: 2-3i." },
     { text: "Resuelve en complejos x^2 + 9 = 0.", options: ["x = 3i o x = -3i", "x = 3", "x = -3", "No tiene solución"], correct: 0, solution: "x^2=-9. Como i^2=-1, las soluciones son 3i y -3i." }
   ],
   realesBach: [
@@ -8464,23 +10578,23 @@ const exerciseBanks = {
     { text: "Expresa 0,00045 en notación científica.", options: ["4,5 x 10^-4", "45 x 10^-4", "4,5 x 10^4", "0,45 x 10^-3"], correct: 0, solution: "Movemos la coma 4 posiciones: 4,5 x 10^-4." },
     { text: "Calcula 2^-3.", options: ["1/8", "-8", "8", "-1/8"], correct: 0, solution: "Un exponente negativo invierte la potencia: 2^-3=1/2^3=1/8." },
     { text: "Simplifica a^5 : a^2.", options: ["a^3", "a^7", "a^10", "a^1"], correct: 0, solution: "Al dividir potencias de la misma base se restan exponentes: a^(5-2)=a^3. Resultado final: a^3." },
-    { text: "Calcula | -7 |.", options: ["7", "-7", "0", "1/7"], correct: 0, solution: "El valor absoluto es distancia a 0, por eso vale 7." },
-    { text: "Â¿Cuál es el intervalo solución de x > 2?", options: ["(2, +infinito)", "(-infinito, 2)", "[2, +infinito)", "(-2, 2)"], correct: 0, solution: "Los números mayores que 2 se escriben (2,+infinito), sin incluir el 2." },
+    { text: "Calcula |−7|.", options: ["7", "−7", "0", "1/7"], correct: 0, solution: "Resolución:\n1. El valor absoluto de un número es su distancia al 0 en la recta real.\n2. La distancia entre −7 y 0 es 7 unidades: |−7|=7.\nResultado final: 7." },
+    { text: "¿Cuál es el intervalo solución de x > 2?", options: ["(2, +infinito)", "(-infinito, 2)", "[2, +infinito)", "(-2, 2)"], correct: 0, solution: "Los números mayores que 2 se escriben (2,+infinito), sin incluir el 2." },
     { text: "Simplifica (x^2)^3.", options: ["x^6", "x^5", "x^8", "x^1"], correct: 0, solution: "Potencia de una potencia: multiplicamos exponentes, 2·3=6. Resultado final: x^6." },
     { text: "Si log_a(1)=x, entonces x vale...", options: ["0", "1", "a", "-1"], correct: 0, solution: "Cualquier base positiva distinta de 1 elevada a 0 da 1." },
-    { text: "Racionaliza 1/√2.", options: ["√2/2", "√2", "1/2", "2√2"], correct: 0, solution: "Multiplicamos por √2/√2: queda √2/2." }
+    { text: "Racionaliza 1/√2.", options: ["√2/2", "√2", "1/2", "2√2"], correct: 0, solution: "Resolución:\n1. Multiplicamos numerador y denominador por √2: (1/√2)·(√2/√2).\n2. En el numerador queda √2 y en el denominador √2·√2=2.\nResultado final: √2/2." }
   ],
   trigonometriaBach: [
     { text: "En un triángulo rectángulo, sen(alpha) es...", options: ["Cateto opuesto / hipotenusa", "Cateto contiguo / hipotenusa", "Opuesto / contiguo", "Hipotenusa / opuesto"], correct: 0, solution: "El seno relaciona cateto opuesto e hipotenusa." },
     { text: "cos(0) vale...", options: ["1", "0", "-1", "1/2"], correct: 0, solution: "En la circunferencia goniométrica, cos(0)=1." },
-    { text: "sen(90Âº) vale...", options: ["1", "0", "-1", "1/2"], correct: 0, solution: "El seno de 90Âº es 1." },
+    { text: "sen(90º) vale...", options: ["1", "0", "-1", "1/2"], correct: 0, solution: "El seno de 90º es 1." },
     { text: "La identidad fundamental es...", options: ["sen²(x)+cos²(x)=1", "sen(x)+cos(x)=1", "tg(x)=sen(x)cos(x)", "cos²(x)-sen²(x)=1 siempre"], correct: 0, solution: "La identidad fundamental de trigonometría es sen²(x)+cos²(x)=1." },
-    { text: "tg(x) se calcula como...", options: ["sen(x)/cos(x)", "cos(x)/sen(x)", "sen(x)+cos(x)", "1/cos(x)"], correct: 0, solution: "La tangente es el cociente entre seno y coseno." },
-    { text: "180Âº equivalen a...", options: ["pi radianes", "2pi radianes", "pi/2 radianes", "1 radian"], correct: 0, solution: "La media circunferencia mide pi radianes." },
+    { text: "tg(x) se calcula como...", options: ["sen(x)/cos(x)", "cos(x)/sen(x)", "sen(x)+cos(x)", "1/cos(x)"], correct: 0, solution: "Resolución:\n1. Recordamos la identidad fundamental de la tangente.\n2. Siempre que cos(x)≠0, se cumple tg(x)=sen(x)/cos(x).\nResultado final: tg(x)=sen(x)/cos(x)." },
+    { text: "180º equivalen a...", options: ["pi radianes", "2pi radianes", "pi/2 radianes", "1 radian"], correct: 0, solution: "La media circunferencia mide pi radianes." },
     { text: "Si sen(x)=3/5 y x es agudo, cos(x) vale...", options: ["4/5", "3/4", "5/4", "2/5"], correct: 0, solution: "Por sen²(x)+cos²(x)=1, cos²(x)=1-9/25=16/25. Al ser agudo, cos(x)=4/5." },
     { text: "En un triángulo rectángulo, si hipotenusa=10 y cateto opuesto=6, sen(alpha) es...", options: ["3/5", "5/3", "4/5", "6"], correct: 0, solution: "sen=opuesto/hipotenusa=6/10=3/5." },
     { text: "El coseno de un ángulo agudo siempre es...", options: ["Positivo", "Negativo", "Cero", "Mayor que 1"], correct: 0, solution: "En el primer cuadrante seno y coseno son positivos." },
-    { text: "Si tg(x)=1 y x es agudo, x vale...", options: ["45Âº", "30Âº", "60Âº", "90Âº"], correct: 0, solution: "En 45Âº los catetos son iguales, por eso la tangente vale 1." }
+    { text: "Si tg(x)=1 y x es agudo, x vale...", options: ["45º", "30º", "60º", "90º"], correct: 0, solution: "En 45º los catetos son iguales, por eso la tangente vale 1." }
   ],
   geometriaAnalitica: [
     { text: "El vector entre A(1,2) y B(4,6) es...", options: ["(3,4)", "(5,8)", "(-3,-4)", "(4,6)"], correct: 0, solution: "Restamos coordenadas: B-A=(4-1,6-2)=(3,4)." },
@@ -8512,8 +10626,8 @@ const exerciseBanks = {
     { text: "En un triángulo rectángulo, tg(alpha) es...", options: ["Cateto opuesto / cateto contiguo", "Contiguo / hipotenusa", "Opuesto / hipotenusa", "Hipotenusa / opuesto"], correct: 0, solution: "La tangente relaciona los dos catetos." },
     { text: "Si hipotenusa=10 y cateto opuesto=6, sen(alpha) vale...", options: ["3/5", "4/5", "5/3", "6"], correct: 0, solution: "sen=6/10=3/5." },
     { text: "Si cos(alpha)=4/5 en un ángulo agudo, el coseno es...", options: ["Positivo", "Negativo", "Cero", "Mayor que 1"], correct: 0, solution: "En ángulos agudos las razones trigonométricas básicas son positivas." },
-    { text: "Un ángulo de 30Âº es...", options: ["Agudo", "Recto", "Obtuso", "Llano"], correct: 0, solution: "Los ángulos menores de 90Âº son agudos." },
-    { text: "La hipotenusa es siempre...", options: ["El lado mayor del triángulo rectángulo", "El cateto menor", "El lado opuesto a 30Âº siempre", "La altura"], correct: 0, solution: "La hipotenusa está frente al ángulo recto y es el lado mayor." },
+    { text: "Un ángulo de 30º es...", options: ["Agudo", "Recto", "Obtuso", "Llano"], correct: 0, solution: "Los ángulos menores de 90º son agudos." },
+    { text: "La hipotenusa es siempre...", options: ["El lado mayor del triángulo rectángulo", "El cateto menor", "El lado opuesto a 30º siempre", "La altura"], correct: 0, solution: "La hipotenusa está frente al ángulo recto y es el lado mayor." },
     { text: "Si los catetos son 5 y 12, la hipotenusa es...", options: ["13", "17", "60", "7"], correct: 0, solution: "Por Pitágoras: h^2=25+144=169, h=13." },
     { text: "La razón trigonométrica que usa opuesto/contiguo es...", options: ["Tangente", "Seno", "Coseno", "Secante"], correct: 0, solution: "Tangente = cateto opuesto / cateto contiguo." },
     { text: "Para usar seno, coseno o tangente en ESO, normalmente necesitas...", options: ["Un triángulo rectángulo", "Un polinomio", "Una matriz", "Una tabla estadística"], correct: 0, solution: "Las razones trigonométricas básicas se definen en triángulos rectángulos." }
@@ -8535,7 +10649,7 @@ const exerciseBanks = {
     { text: "Si importa el orden y se usan todos los elementos, hablamos de...", options: ["Permutaciones", "Combinaciones", "Medias", "Derivadas"], correct: 0, solution: "Las permutaciones ordenan todos los elementos." },
     { text: "Si no importa el orden, hablamos de...", options: ["Combinaciones", "Permutaciones", "Variaciones siempre", "Matrices"], correct: 0, solution: "En combinaciones, elegir A y B es lo mismo que elegir B y A." },
     { text: "Número de formas de ordenar 3 libros distintos.", options: ["6", "3", "9", "1"], correct: 0, solution: "Son 3!=3x2x1=6." },
-    { text: "Â¿Cuántas parejas se forman con 4 personas si no importa el orden?", options: ["6", "8", "12", "4"], correct: 0, solution: "C(4,2)=4x3/2=6." },
+    { text: "¿Cuántas parejas se forman con 4 personas si no importa el orden?", options: ["6", "8", "12", "4"], correct: 0, solution: "C(4,2)=4x3/2=6." },
     { text: "En variaciones de 5 elementos tomados de 2 en 2, el orden...", options: ["Importa", "No importa", "Se ignora siempre", "Solo importa si hay repetición"], correct: 0, solution: "En variaciones sí importa el orden." },
     { text: "C(5,1) vale...", options: ["5", "1", "10", "0"], correct: 0, solution: "Elegir 1 elemento entre 5 puede hacerse de 5 formas." },
     { text: "C(5,5) vale...", options: ["1", "5", "25", "120"], correct: 0, solution: "Solo hay una forma de elegir todos los elementos." },
@@ -8618,7 +10732,6 @@ const exerciseBanks = {
     { text: "Calcula lim x->1 de (x^2 - 1)/(x - 1).", options: ["2", "0", "1", "No existe"], correct: 0, solution: "Solucion:\n1. Al sustituir aparece 0/0, una indeterminacion.\n2. Factorizamos: x^2-1=(x-1)(x+1).\n3. Simplificamos x-1 y queda x+1.\n4. Sustituimos x=1: 2.\nResultado final: 2." },
     { text: "lim x->infinito de (3x^2 + 1)/(x^2 - 5) es...", options: ["3", "0", "infinito", "-3"], correct: 0, solution: "Solucion:\n1. En cocientes de polinomios de igual grado, mandan los coeficientes principales.\n2. Coeficiente principal del numerador: 3. Del denominador: 1.\nResultado final: 3/1=3." },
     { text: "Para que f sea continua en x=a debe cumplirse...", options: ["lim x->a f(x) = f(a)", "f'(a)=0", "f(a)=0", "a=0"], correct: 0, solution: "Solucion:\n1. La continuidad exige que no haya salto ni hueco en x=a.\n2. Por eso deben coincidir el limite y el valor de la funcion.\nResultado final: lim x->a f(x)=f(a)." },
-    { text: "lim x->0 de sen(x)/x vale...", options: ["1", "0", "infinito", "No existe"], correct: 0, solution: "Solucion:\n1. Es un limite trigonometrico fundamental.\n2. Cuando x se acerca a 0, sen(x) y x se aproximan al mismo ritmo.\nResultado final: 1." },
     { text: "Calcula lim x->3 de (x^2 - 9)/(x - 3).", options: ["6", "3", "0", "No existe"], correct: 0, solution: "Solucion:\n1. Al sustituir sale 0/0, una indeterminacion.\n2. Factorizamos: x^2-9=(x-3)(x+3).\n3. Simplificamos x-3 y queda x+3.\n4. Sustituimos x=3.\nResultado final: 6." },
     { text: "lim x->infinito de 7/x es...", options: ["0", "7", "infinito", "1"], correct: 0, solution: "Solucion:\n1. El numerador queda fijo y el denominador crece sin limite.\n2. Una cantidad fija dividida entre algo cada vez mayor tiende a 0.\nResultado final: 0." },
     { text: "Si lim x->a- f(x)=2 y lim x->a+ f(x)=5, el limite en a...", options: ["No existe", "Vale 2", "Vale 5", "Vale 7"], correct: 0, solution: "Solucion:\n1. Para que exista el limite, los limites laterales deben coincidir.\n2. Aqui 2 no es igual a 5.\nResultado final: el limite no existe." }
@@ -8669,9 +10782,9 @@ const exerciseBanks = {
     { text: "Con la misma bolsa, P(no verde).", options: ["15/19", "4/19", "1/4", "19/15"], correct: 0, solution: "Solucion:\n1. No verdes: 5+2+8=15.\n2. Total: 19.\nResultado final: P(no verde)=15/19." },
     { text: "Con la misma bolsa, P(roja o azul).", options: ["10/19", "2/19", "8/19", "6/19"], correct: 0, solution: "Solucion:\n1. Rojas o azules: 2+8=10.\n2. Total: 19.\nResultado final: 10/19." },
     { text: "Moneda lanzada dos veces. P(dos caras).", options: ["1/4", "1/2", "3/4", "1"], correct: 0, solution: "Solucion:\n1. Espacio muestral: CC, CX, XC, XX.\n2. Solo CC tiene dos caras.\nResultado final: 1/4." },
-    { text: "Si P(A)=2/3, P(B)=3/4 y P(Aâˆ©B)=4/6, calcula P(AâˆªB).", options: ["3/4", "17/12", "1/6", "2/9"], correct: 0, solution: "Solucion:\n1. Usamos P(AâˆªB)=P(A)+P(B)-P(Aâˆ©B).\n2. 2/3+3/4-4/6 = 8/12+9/12-8/12 = 9/12.\nResultado final: 3/4." },
+    { text: "Si P(A)=2/3, P(B)=3/4 y P(A∩B)=4/6, calcula P(A∪B).", options: ["3/4", "17/12", "1/6", "2/9"], correct: 0, solution: "Solucion:\n1. Usamos P(A∪B)=P(A)+P(B)-P(A∩B).\n2. 2/3+3/4-4/6 = 8/12+9/12-8/12 = 9/12.\nResultado final: 3/4." },
     { text: "En una baraja española de 40 cartas, P(sacar un oro).", options: ["1/4", "1/10", "10/30", "4/40"], correct: 0, solution: "Solucion:\n1. Hay 10 oros en 40 cartas.\n2. P(oro)=10/40=1/4.\nResultado final: 1/4." },
-    { text: "Si A y B son independientes, P(Aâˆ©B) es...", options: ["P(A)P(B)", "P(A)+P(B)", "P(A)-P(B)", "P(A)/P(B)"], correct: 0, solution: "Solucion:\n1. En sucesos independientes, que ocurra uno no cambia el otro.\n2. La interseccion se calcula multiplicando.\nResultado final: P(Aâˆ©B)=P(A)P(B)." }
+    { text: "Si A y B son independientes, P(A∩B) es...", options: ["P(A)P(B)", "P(A)+P(B)", "P(A)-P(B)", "P(A)/P(B)"], correct: 0, solution: "Solucion:\n1. En sucesos independientes, que ocurra uno no cambia el otro.\n2. La interseccion se calcula multiplicando.\nResultado final: P(A∩B)=P(A)P(B)." }
   ],
   ccssIBinomial: [
     { text: "En una binomial B(5, 0,2), la media es...", options: ["1", "5,2", "0,2", "4"], correct: 0, solution: "Solucion:\n1. En B(n,p), media = np.\n2. n=5 y p=0,2.\nResultado final: 5x0,2=1." },
@@ -8680,25 +10793,25 @@ const exerciseBanks = {
     { text: "En B(3, 0,2), P(X=0) es...", options: ["0,512", "0,008", "0,2", "0,6"], correct: 0, solution: "Solucion:\n1. Si X=0, no hay exitos.\n2. P(X=0)=q^3=(0,8)^3=0,512.\nResultado final: 0,512." },
     { text: "Si X cuenta bolas rojas en 3 extracciones con reemplazamiento y P(roja)=3/4, entonces X sigue...", options: ["B(3, 3/4)", "B(4, 3)", "Normal", "Uniforme"], correct: 0, solution: "Solucion:\n1. Hay 3 ensayos iguales e independientes.\n2. La probabilidad de exito es 3/4.\nResultado final: X~B(3,3/4)." },
     { text: "En una distribucion de probabilidad, la suma de todas las probabilidades debe ser...", options: ["1", "0", "100", "n"], correct: 0, solution: "Solucion:\n1. Todos los valores posibles forman el espacio completo.\n2. La probabilidad total siempre es 1.\nResultado final: 1." },
-    { text: "Juego: premios 5 â‚¬ con p=0,1 y 0 â‚¬ con p=0,9. Esperanza.", options: ["0,5 â‚¬", "5 â‚¬", "4,5 â‚¬", "0,9 â‚¬"], correct: 0, solution: "Solucion:\n1. Esperanza = suma de valor x probabilidad.\n2. E=5x0,1+0x0,9=0,5.\nResultado final: 0,5 â‚¬." },
-    { text: "En B(n,p), la desviacion tipica es...", options: ["√(npq)", "np", "npq", "p/n"], correct: 0, solution: "Solucion:\n1. La varianza de una binomial es npq.\n2. La desviacion tipica es la raiz de la varianza.\nResultado final: Ïƒ=√(npq)." }
+    { text: "Juego: premios 5 € con p=0,1 y 0 € con p=0,9. Esperanza.", options: ["0,5 €", "5 €", "4,5 €", "0,9 €"], correct: 0, solution: "Solucion:\n1. Esperanza = suma de valor x probabilidad.\n2. E=5x0,1+0x0,9=0,5.\nResultado final: 0,5 €." },
+    { text: "En B(n,p), la desviacion tipica es...", options: ["√(npq)", "np", "npq", "p/n"], correct: 0, solution: "Solucion:\n1. La varianza de una binomial es npq.\n2. La desviacion tipica es la raiz de la varianza.\nResultado final: σ=√(npq)." }
   ],
   ccssINormal: [
-    { text: "En N(10, 2), la media es...", options: ["10", "2", "12", "8"], correct: 0, solution: "Solucion:\n1. En N(Î¼,Ïƒ), Î¼ representa la media.\n2. Aqui Î¼=10.\nResultado final: media 10." },
-    { text: "Para tipificar X~N(20, 5), si x=30, z es...", options: ["2", "10", "5", "0,5"], correct: 0, solution: "Solucion:\n1. Tipificamos con z=(x-Î¼)/Ïƒ.\n2. z=(30-20)/5=10/5=2.\nResultado final: z=2." },
-    { text: "En una normal, P(X<Î¼) vale...", options: ["0,5", "1", "0", "0,95"], correct: 0, solution: "Solucion:\n1. La normal es simetrica respecto de la media.\n2. La mitad del area queda a la izquierda.\nResultado final: 0,5." },
+    { text: "En N(10, 2), la media es...", options: ["10", "2", "12", "8"], correct: 0, solution: "Solucion:\n1. En N(μ,σ), μ representa la media.\n2. Aqui μ=10.\nResultado final: media 10." },
+    { text: "Para tipificar X~N(20, 5), si x=30, z es...", options: ["2", "10", "5", "0,5"], correct: 0, solution: "Solucion:\n1. Tipificamos con z=(x-μ)/σ.\n2. z=(30-20)/5=10/5=2.\nResultado final: z=2." },
+    { text: "En una normal, P(X<μ) vale...", options: ["0,5", "1", "0", "0,95"], correct: 0, solution: "Solucion:\n1. La normal es simetrica respecto de la media.\n2. La mitad del area queda a la izquierda.\nResultado final: 0,5." },
     { text: "Si Z~N(0,1), P(Z<0) es...", options: ["0,5", "0", "1", "0,025"], correct: 0, solution: "Solucion:\n1. La normal tipica esta centrada en 0.\n2. Por simetria, la mitad queda por debajo de 0.\nResultado final: 0,5." },
-    { text: "En N(50, 10), x=40 corresponde a z...", options: ["-1", "1", "-10", "0,4"], correct: 0, solution: "Solucion:\n1. z=(x-Î¼)/Ïƒ.\n2. z=(40-50)/10=-10/10=-1.\nResultado final: z=-1." },
+    { text: "En N(50, 10), x=40 corresponde a z...", options: ["-1", "1", "-10", "0,4"], correct: 0, solution: "Solucion:\n1. z=(x-μ)/σ.\n2. z=(40-50)/10=-10/10=-1.\nResultado final: z=-1." },
     { text: "La normal tipica es...", options: ["N(0,1)", "N(1,0)", "B(n,p)", "N(0,0)"], correct: 0, solution: "Solucion:\n1. Tipica significa media 0 y desviacion tipica 1.\nResultado final: N(0,1)." },
-    { text: "Si X~N(100,15), Ïƒ representa...", options: ["La desviacion tipica", "La media", "La varianza", "La probabilidad"], correct: 0, solution: "Solucion:\n1. En N(Î¼,Ïƒ), el segundo parametro es Ïƒ.\n2. Ïƒ mide dispersion.\nResultado final: desviacion tipica." },
-    { text: "Al tipificar, una normal N(Î¼,Ïƒ) se transforma en...", options: ["N(0,1)", "B(n,p)", "Una recta", "Una tabla de frecuencias"], correct: 0, solution: "Solucion:\n1. Tipificar cambia la escala restando la media y dividiendo por Ïƒ.\n2. El resultado se compara con la normal tipica.\nResultado final: N(0,1)." }
+    { text: "Si X~N(100,15), σ representa...", options: ["La desviacion tipica", "La media", "La varianza", "La probabilidad"], correct: 0, solution: "Solucion:\n1. En N(μ,σ), el segundo parametro es σ.\n2. σ mide dispersion.\nResultado final: desviacion tipica." },
+    { text: "Al tipificar, una normal N(μ,σ) se transforma en...", options: ["N(0,1)", "B(n,p)", "Una recta", "Una tabla de frecuencias"], correct: 0, solution: "Solucion:\n1. Tipificar cambia la escala restando la media y dividiendo por σ.\n2. El resultado se compara con la normal tipica.\nResultado final: N(0,1)." }
   ],
   ccssIReales: [
     { text: "Simplifica √(50).", options: ["5√(2)", "25√(2)", "2√(5)", "10√(5)"], correct: 0, solution: "Solucion:\n1. 50=25x2.\n2. √(50)=√(25)√(2)=5√(2).\nResultado final: 5√(2)." },
     { text: "Racionaliza 1/√(3).", options: ["√(3)/3", "√(3)", "1/3", "3√(3)"], correct: 0, solution: "Solucion:\n1. Multiplicamos por √(3)/√(3).\n2. 1/√(3)=√(3)/3.\nResultado final: √(3)/3." },
     { text: "Calcula log_10(10000).", options: ["4", "3", "10", "1000"], correct: 0, solution: "Solucion:\n1. log_10(10000)=x significa 10^x=10000.\n2. 10000=10^4.\nResultado final: 4." },
     { text: "Resuelve |x|=5.", options: ["x=5 o x=-5", "x=5", "x=-5", "x=0"], correct: 0, solution: "Solucion:\n1. Valor absoluto es distancia a 0.\n2. Hay dos numeros a distancia 5.\nResultado final: x=5 o x=-5." },
-    { text: "Intervalo de x<3.", options: ["(-âˆž,3)", "(-âˆž,3]", "(3,âˆž)", "[3,âˆž)"], correct: 0, solution: "Solucion:\n1. x<3 son todos los numeros menores que 3.\n2. El 3 no se incluye.\nResultado final: (-âˆž,3)." },
+    { text: "Intervalo de x<3.", options: ["(-∞,3)", "(-∞,3]", "(3,∞)", "[3,∞)"], correct: 0, solution: "Solucion:\n1. x<3 son todos los numeros menores que 3.\n2. El 3 no se incluye.\nResultado final: (-∞,3)." },
     { text: "Calcula 3^-2.", options: ["1/9", "-9", "9", "-1/9"], correct: 0, solution: "Solucion:\n1. Exponente negativo invierte la potencia.\n2. 3^-2=1/3²=1/9.\nResultado final: 1/9." },
     { text: "Simplifica √(18).", options: ["3√(2)", "9√(2)", "2√(3)", "6√(3)"], correct: 0, solution: "Solucion:\n1. 18=9x2.\n2. √(18)=√(9)√(2)=3√(2).\nResultado final: 3√(2)." },
     { text: "Calcula √(8)+√(18).", options: ["5√(2)", "√(26)", "10√(2)", "13"], correct: 0, solution: "Solucion:\n1. √(8)=2√(2) y √(18)=3√(2).\n2. Sumamos: 2√(2)+3√(2)=5√(2).\nResultado final: 5√(2)." }
@@ -8719,30 +10832,30 @@ const exerciseBanks = {
     { text: "Resuelve mediante el método de Gauss el sistema:\nx + y + z = 9\n2x - y + z = 5\nx + 2y - z = 4", options: ["x = 2, y = 3, z = 4", "x = 3, y = 2, z = 4", "x = 2, y = 4, z = 3", "x = 4, y = 3, z = 2"], correct: 0, solution: "Resolución por el método de Gauss:\n1. Escribimos la matriz ampliada:\n[[1, 1, 1, 9], [2, -1, 1, 5], [1, 2, -1, 4]].\n2. Hacemos ceros debajo del primer pivote:\nF2 → F2 - 2F1 y F3 → F3 - F1.\nQueda [[1, 1, 1, 9], [0, -3, -1, -13], [0, 1, -2, -5]].\n3. Intercambiamos F2 y F3:\n[[1, 1, 1, 9], [0, 1, -2, -5], [0, -3, -1, -13]].\n4. Hacemos F3 → F3 + 3F2:\n[[1, 1, 1, 9], [0, 1, -2, -5], [0, 0, -7, -28]].\n5. Sustituimos hacia atrás. De la tercera fila: z=4. De la segunda: y-8=-5, luego y=3. De la primera: x+3+4=9, luego x=2.\n6. Comprobación: 2+3+4=9; 2·2-3+4=5; 2+2·3-4=4.\nResultado final: x=2, y=3, z=4." },
     { text: "Resuelve 2x+3=11.", options: ["x=4", "x=7", "x=5", "x=3"], correct: 0, solution: "Solucion:\n1. Restamos 3: 2x=8.\n2. Dividimos entre 2.\nResultado final: x=4." },
     { text: "Resuelve x²=49.", options: ["x=7 o x=-7", "x=7", "x=-7", "x=49"], correct: 0, solution: "Solucion:\n1. Dos numeros tienen cuadrado 49.\nResultado final: x=7 o x=-7." },
-    { text: "Resuelve 3^x=27.", options: ["x=3", "x=9", "x=24", "x=2"], correct: 0, solution: "Solucion:\n1. 27=3Â³.\n2. Igualamos exponentes.\nResultado final: x=3." },
+    { text: "Resuelve 3^x=27.", options: ["x=3", "x=9", "x=24", "x=2"], correct: 0, solution: "Solucion:\n1. 27=3³.\n2. Igualamos exponentes.\nResultado final: x=3." },
     { text: "Resuelve log_2(x)=4.", options: ["x=16", "x=8", "x=6", "x=2"], correct: 0, solution: "Solucion:\n1. log_2(x)=4 significa 2^4=x.\n2. 2^4=16.\nResultado final: x=16." },
-    { text: "Resuelve x²-9=0.", options: ["x=3 o x=-3", "x=9", "x=-9", "x=0"], correct: 0, solution: "Solucion:\n1. x²=9.\n2. Las raices son 3 y -3.\nResultado final: x=Â±3." },
+    { text: "Resuelve x²−9=0.", options: ["x=3 o x=−3", "x=9", "x=−9", "x=0"], correct: 0, solution: "Solución:\n1. Sumamos 9 en ambos miembros: x²=9.\n2. Extraemos la raíz cuadrada teniendo en cuenta los dos signos: x=±√9.\n3. Como √9=3, obtenemos x=3 o x=−3.\nResultado final: x=±3." },
     { text: "Resuelve x+y=6, 2x+y=10.", options: ["x=4, y=2", "x=2, y=4", "x=6, y=0", "x=5, y=1"], correct: 0, solution: "Solucion:\n1. Restamos la primera ecuacion a la segunda: x=4.\n2. Sustituimos: 4+y=6, y=2.\nResultado final: x=4, y=2." }
   ],
   ccssIInecuaciones: [
     { text: "Resuelve 2x-1>5.", options: ["x>3", "x<3", "x>2", "x<-3"], correct: 0, solution: "Solucion:\n1. Sumamos 1: 2x>6.\n2. Dividimos entre 2.\nResultado final: x>3." },
-    { text: "Resuelve -3xâ‰¤6.", options: ["xâ‰¥-2", "xâ‰¤-2", "xâ‰¥2", "xâ‰¤2"], correct: 0, solution: "Solucion:\n1. Dividimos entre -3.\n2. Al dividir por negativo cambia el sentido.\nResultado final: xâ‰¥-2." },
-    { text: "Resuelve x²-4â‰¥0.", options: ["(-âˆž,-2]âˆª[2,âˆž)", "[-2,2]", "(2,âˆž)", "(-âˆž,2]"], correct: 0, solution: "Solucion:\n1. Factorizamos: x²-4=(x-2)(x+2).\n2. La parabola abre hacia arriba.\n3. Es positiva fuera de las raices.\nResultado final: (-âˆž,-2]âˆª[2,âˆž)." },
-    { text: "Resuelve x+1<4 y xâ‰¥0.", options: ["[0,3)", "(0,3]", "(-âˆž,3)", "[3,âˆž)"], correct: 0, solution: "Solucion:\n1. De x+1<4 sale x<3.\n2. Tambien debe cumplirse xâ‰¥0.\nResultado final: [0,3)." },
-    { text: "Resuelve 5-2xâ‰¥1.", options: ["xâ‰¤2", "xâ‰¥2", "xâ‰¤-2", "xâ‰¥-2"], correct: 0, solution: "Solucion:\n1. Restamos 5: -2xâ‰¥-4.\n2. Dividimos por -2 y cambia el signo.\nResultado final: xâ‰¤2." },
-    { text: "La solucion de x<2 o x>5 es...", options: ["(-âˆž,2)âˆª(5,âˆž)", "(2,5)", "[2,5]", "R"], correct: 0, solution: "Solucion:\n1. Es una union de dos intervalos separados.\n2. No incluye 2 ni 5.\nResultado final: (-âˆž,2)âˆª(5,âˆž)." },
-    { text: "Resuelve (x-1)(x-3)>0.", options: ["(-âˆž,1)âˆª(3,âˆž)", "(1,3)", "[1,3]", "R"], correct: 0, solution: "Solucion:\n1. Las raices son 1 y 3.\n2. Producto positivo fuera del intervalo entre raices.\nResultado final: (-âˆž,1)âˆª(3,âˆž)." },
-    { text: "Resuelve x/2â‰¤4.", options: ["xâ‰¤8", "xâ‰¥8", "xâ‰¤2", "xâ‰¥2"], correct: 0, solution: "Solucion:\n1. Multiplicamos por 2, que es positivo.\n2. No cambia el sentido.\nResultado final: xâ‰¤8." }
+    { text: "Resuelve -3x≤6.", options: ["x≥-2", "x≤-2", "x≥2", "x≤2"], correct: 0, solution: "Solucion:\n1. Dividimos entre -3.\n2. Al dividir por negativo cambia el sentido.\nResultado final: x≥-2." },
+    { text: "Resuelve x²-4≥0.", options: ["(-∞,-2]∪[2,∞)", "[-2,2]", "(2,∞)", "(-∞,2]"], correct: 0, solution: "Solucion:\n1. Factorizamos: x²-4=(x-2)(x+2).\n2. La parabola abre hacia arriba.\n3. Es positiva fuera de las raices.\nResultado final: (-∞,-2]∪[2,∞)." },
+    { text: "Resuelve x+1<4 y x≥0.", options: ["[0,3)", "(0,3]", "(-∞,3)", "[3,∞)"], correct: 0, solution: "Solucion:\n1. De x+1<4 sale x<3.\n2. Tambien debe cumplirse x≥0.\nResultado final: [0,3)." },
+    { text: "Resuelve 5-2x≥1.", options: ["x≤2", "x≥2", "x≤-2", "x≥-2"], correct: 0, solution: "Solucion:\n1. Restamos 5: -2x≥-4.\n2. Dividimos por -2 y cambia el signo.\nResultado final: x≤2." },
+    { text: "La solucion de x<2 o x>5 es...", options: ["(-∞,2)∪(5,∞)", "(2,5)", "[2,5]", "R"], correct: 0, solution: "Solucion:\n1. Es una union de dos intervalos separados.\n2. No incluye 2 ni 5.\nResultado final: (-∞,2)∪(5,∞)." },
+    { text: "Resuelve (x-1)(x-3)>0.", options: ["(-∞,1)∪(3,∞)", "(1,3)", "[1,3]", "R"], correct: 0, solution: "Solucion:\n1. Las raices son 1 y 3.\n2. Producto positivo fuera del intervalo entre raices.\nResultado final: (-∞,1)∪(3,∞)." },
+    { text: "Resuelve x/2≤4.", options: ["x≤8", "x≥8", "x≤2", "x≥2"], correct: 0, solution: "Solucion:\n1. Multiplicamos por 2, que es positivo.\n2. No cambia el sentido.\nResultado final: x≤8." }
   ],
   ccssIFunciones: [
-    { text: "Dominio de f(x)=1/(x-2).", options: ["R menos {2}", "R", "R menos {0}", "[2,âˆž)"], correct: 0, solution: "Solucion:\n1. El denominador no puede ser cero.\n2. x-2=0 da x=2.\nResultado final: R menos {2}." },
-    { text: "Dominio de f(x)=√(x+3).", options: ["[-3,âˆž)", "(-âˆž,-3]", "R", "R menos {-3}"], correct: 0, solution: "Solucion:\n1. En una raiz cuadrada, el radicando debe ser â‰¥0.\n2. x+3â‰¥0, luego xâ‰¥-3.\nResultado final: [-3,âˆž)." },
+    { text: "Dominio de f(x)=1/(x-2).", options: ["R menos {2}", "R", "R menos {0}", "[2,∞)"], correct: 0, solution: "Solucion:\n1. El denominador no puede ser cero.\n2. x-2=0 da x=2.\nResultado final: R menos {2}." },
+    { text: "Dominio de f(x)=√(x+3).", options: ["[-3,∞)", "(-∞,-3]", "R", "R menos {-3}"], correct: 0, solution: "Solucion:\n1. En una raiz cuadrada, el radicando debe ser ≥0.\n2. x+3≥0, luego x≥-3.\nResultado final: [-3,∞)." },
     { text: "Si f(x)=2x+1, calcula f(5).", options: ["11", "10", "7", "12"], correct: 0, solution: "Solucion:\n1. Sustituimos x=5.\n2. f(5)=2x5+1=11.\nResultado final: 11." },
     { text: "Corte con el eje X de f(x)=x-4.", options: ["x=4", "x=-4", "x=0", "x=1"], correct: 0, solution: "Solucion:\n1. En el eje X se cumple f(x)=0.\n2. x-4=0.\nResultado final: x=4." },
     { text: "La pendiente de f(x)=3x-2 es...", options: ["3", "-2", "1", "0"], correct: 0, solution: "Solucion:\n1. En f(x)=mx+n, m es la pendiente.\nResultado final: 3." },
     { text: "Vertice de f(x)=x².", options: ["(0,0)", "(1,1)", "(-1,1)", "(0,1)"], correct: 0, solution: "Solucion:\n1. La parabola basica x² tiene minimo en x=0.\n2. f(0)=0.\nResultado final: (0,0)." },
     { text: "Si f es creciente, al aumentar x, f(x)...", options: ["Aumenta", "Disminuye", "Vale 0", "No existe"], correct: 0, solution: "Solucion:\n1. Creciente significa que la funcion sube al avanzar hacia la derecha.\nResultado final: f(x) aumenta." },
-    { text: "Dominio de f(x)=√(5-x).", options: ["(-âˆž,5]", "[5,âˆž)", "R", "R menos {5}"], correct: 0, solution: "Solucion:\n1. 5-xâ‰¥0.\n2. -xâ‰¥-5, luego xâ‰¤5.\nResultado final: (-âˆž,5]." }
+    { text: "Dominio de f(x)=√(5-x).", options: ["(-∞,5]", "[5,∞)", "R", "R menos {5}"], correct: 0, solution: "Solucion:\n1. 5-x≥0.\n2. -x≥-5, luego x≤5.\nResultado final: (-∞,5]." }
   ],
   ccssICombinatoria: [
     { text: "5! vale...", options: ["120", "25", "10", "5"], correct: 0, solution: "Solucion:\n1. 5!=5x4x3x2x1.\nResultado final: 120." },
@@ -8755,7 +10868,7 @@ const exerciseBanks = {
     { text: "Si no importa el orden y no se repite, hablamos de...", options: ["Combinaciones", "Permutaciones", "Variaciones", "Potencias"], correct: 0, solution: "Solucion:\n1. Elegir un grupo sin orden corresponde a combinaciones.\nResultado final: combinaciones." }
   ],
   matesIIPauMatrices: [
-    { type: "pau-open", text: "2000 - convocatoria de junio - Bloque 4 - 4-B\nResolver el sistema de ecuaciones matriciales:\n3X - 2Y = [[7, 3], [16, 4]]\nX + 3Y = [[6, 12], [-2, 27]]", options: ["X = [[3, 3], [4, 6]]\nY = [[1, 3], [-2, 7]]", "X = [[1, 3], [-2, 7]]\nY = [[3, 3], [4, 6]]", "X = [[3, 9], [-6, 21]]\nY = [[1, 3], [-2, 7]]", "X = [[6, 12], [-2, 27]]\nY = [[7, 3], [16, 4]]"], correct: 0, solution: "Resoluci?n paso a paso:\n1. Llamamos A = [[7, 3], [16, 4]] y B = [[6, 12], [-2, 27]].\n2. El sistema queda:\n3X - 2Y = A\nX + 3Y = B\n3. De la segunda ecuaci?n despejamos X:\nX = B - 3Y.\n4. Sustituimos en la primera:\n3(B - 3Y) - 2Y = A.\n5. Desarrollamos:\n3B - 9Y - 2Y = A, luego 3B - 11Y = A.\n6. Despejamos Y:\n11Y = 3B - A, por tanto Y = (3B - A)/11.\n7. Calculamos 3B:\n3B = [[18, 36], [-6, 81]].\n8. Restamos A:\n3B - A = [[18-7, 36-3], [-6-16, 81-4]] = [[11, 33], [-22, 77]].\n9. Dividimos entre 11:\nY = [[1, 3], [-2, 7]].\n10. Ahora usamos X = B - 3Y:\n3Y = [[3, 9], [-6, 21]].\n11. Restamos:\nX = [[6, 12], [-2, 27]] - [[3, 9], [-6, 21]] = [[3, 3], [4, 6]].\nResultado final:\nX = [[3, 3], [4, 6]] e Y = [[1, 3], [-2, 7]]." },
+    { type: "pau-open", text: "2000 - convocatoria de junio - Bloque 4 - 4-B\nResolver el sistema de ecuaciones matriciales:\n3X - 2Y = [[7, 3], [16, 4]]\nX + 3Y = [[6, 12], [-2, 27]]", options: ["X = [[3, 3], [4, 6]]\nY = [[1, 3], [-2, 7]]", "X = [[1, 3], [-2, 7]]\nY = [[3, 3], [4, 6]]", "X = [[3, 9], [-6, 21]]\nY = [[1, 3], [-2, 7]]", "X = [[6, 12], [-2, 27]]\nY = [[7, 3], [16, 4]]"], correct: 0, solution: "Resolución paso a paso:\n1. Llamamos A = [[7, 3], [16, 4]] y B = [[6, 12], [-2, 27]].\n2. El sistema queda:\n3X - 2Y = A\nX + 3Y = B\n3. De la segunda ecuación despejamos X:\nX = B - 3Y.\n4. Sustituimos en la primera:\n3(B - 3Y) - 2Y = A.\n5. Desarrollamos:\n3B - 9Y - 2Y = A, luego 3B - 11Y = A.\n6. Despejamos Y:\n11Y = 3B - A, por tanto Y = (3B - A)/11.\n7. Calculamos 3B:\n3B = [[18, 36], [-6, 81]].\n8. Restamos A:\n3B - A = [[18-7, 36-3], [-6-16, 81-4]] = [[11, 33], [-22, 77]].\n9. Dividimos entre 11:\nY = [[1, 3], [-2, 7]].\n10. Ahora usamos X = B - 3Y:\n3Y = [[3, 9], [-6, 21]].\n11. Restamos:\nX = [[6, 12], [-2, 27]] - [[3, 9], [-6, 21]] = [[3, 3], [4, 6]].\nResultado final:\nX = [[3, 3], [4, 6]] e Y = [[1, 3], [-2, 7]]." },
     { type: "pau-open", text: "2008 - convocatoria de junio - CCSS II - Bloque 1 - A\n1) Despeja la matriz X en la ecuacion: 2·X - B = A·X.\n2) Halla la matriz X de la ecuacion anterior sabiendo que\nA = [[1, 0, 1], [2, 1, 0], [-1, 3, 1]] y B = [[1, -2], [-3, 3], [4, -3]].", solution: "Solucion guiada:\n1. Agrupamos los terminos con X: 2X-A X = B.\n2. Sacamos factor comun por la derecha: (2I-A)X=B.\n3. Si 2I-A tiene inversa, X=(2I-A)^(-1)B.\n4. Sustituye A y B y calcula la inversa de 2I-A." },
     { type: "pau-open", text: "PAEG 2010 - reserva 1 - Matrices\nEncuentra el valor de X en una ecuacion matricial de la forma A·X=B, despejando mediante la matriz inversa cuando exista.", solution: "Solucion guiada:\n1. Comprueba que A sea cuadrada y que det(A) sea distinto de 0.\n2. Multiplica por A^(-1) a la izquierda.\n3. X=A^(-1)B.\n4. Revisa dimensiones para que el producto tenga sentido." },
     { type: "pau-open", text: "PAEG 2008 - reserva 2 - Matrices\nDada una matriz A, calcula A^2 y resuelve una ecuacion matricial asociada usando operaciones con matrices.", solution: "Solucion guiada:\n1. Calcula A^2 multiplicando A por A.\n2. Ordena la ecuacion matricial hasta dejar los terminos con X en un lado.\n3. Si aparece AX=B, usa X=A^(-1)B cuando A tenga inversa." },
@@ -8763,8 +10876,8 @@ const exerciseBanks = {
   ],
   matesIIPauDeterminantes: [
     { type: "pau-open", text: "2000 - convocatoria de junio - Bloque 2 - 2-B\nEstudiar la compatibilidad del siguiente sistema de ecuaciones lineales, según los valores del parámetro a, y resolverlo cuando sea posible:\nx - y = 5\ny + z = a\nx - 2z = 3\n2x - 3z = a", options: PAU_SYSTEM_2000_OPTIONS, correct: 0, solution: PAU_SYSTEM_2000_SOLUTION },
-    { type: "pau-open", text: "PAEG 2007 - junio - Castilla-La Mancha\nCalcula el rango de una matriz A en funcion del parametro Î». Â¿Para que valores del parametro Î» tiene inversa la matriz A? No se pide hallarla. Discute y resuelve, en funcion del parametro a, el sistema asociado.", solution: "Solucion guiada:\n1. Para estudiar inversa, calcula det(A).\n2. A tiene inversa exactamente cuando det(A)â‰ 0.\n3. Para los valores que anulan el determinante, estudia rangos.\n4. Aplica Rouche-Frobenius para clasificar el sistema." },
-    { type: "pau-open", text: "PAEG 2005 - septiembre - Castilla-La Mancha\nSe consideran dos matrices A y B, donde m es un numero real. Encuentra los valores de m para los que A·B tiene inversa.", solution: "Solucion guiada:\n1. A·B tiene inversa si det(A·B)â‰ 0.\n2. Usa det(A·B)=det(A)·det(B).\n3. Calcula los valores de m que anulan alguno de los dos determinantes.\n4. Excluye esos valores." },
+    { type: "pau-open", text: "PAEG 2007 - junio - Castilla-La Mancha\nCalcula el rango de una matriz A en funcion del parametro λ. ¿Para que valores del parametro λ tiene inversa la matriz A? No se pide hallarla. Discute y resuelve, en funcion del parametro a, el sistema asociado.", solution: "Solucion guiada:\n1. Para estudiar inversa, calcula det(A).\n2. A tiene inversa exactamente cuando det(A)≠0.\n3. Para los valores que anulan el determinante, estudia rangos.\n4. Aplica Rouche-Frobenius para clasificar el sistema." },
+    { type: "pau-open", text: "PAEG 2005 - septiembre - Castilla-La Mancha\nSe consideran dos matrices A y B, donde m es un numero real. Encuentra los valores de m para los que A·B tiene inversa.", solution: "Solucion guiada:\n1. A·B tiene inversa si det(A·B)≠0.\n2. Usa det(A·B)=det(A)·det(B).\n3. Calcula los valores de m que anulan alguno de los dos determinantes.\n4. Excluye esos valores." },
     { type: "pau-open", text: "PAEG 2007 - junio - Madrid\nEstudiar el rango de una matriz segun los valores del parametro m.", solution: "Solucion guiada:\n1. Calcula determinantes de orden maximo.\n2. Si algun determinante de orden maximo es no nulo, el rango es maximo.\n3. Si se anulan, baja al estudio de menores de orden inferior.\n4. Separa los casos segun los valores de m." },
     { type: "pau-open", text: "PAEG 2005 - septiembre - Madrid\nDada una matriz A dependiente de parametros, halla constantes para expresar una potencia de A, calcula A^5 usando la expresion obtenida y resuelve una ecuacion matricial.", solution: "Solucion guiada:\n1. Busca una relacion polinomica sencilla para A.\n2. Usa esa relacion para reducir potencias altas.\n3. En la ecuacion matricial, cuidado: en matrices no siempre se puede conmutar." }
   ],
@@ -8832,7 +10945,7 @@ const exerciseBanks = {
       text: "2008 - reserva 1 - Primer bloque B\nDetermina los valores a,b ∈ R para que la función f(x)=a·sen(x)+b·cos(x) pase por el punto (π/4, √2) y además cumpla que la pendiente de la recta tangente en el punto de abscisa x=π/2 sea 5. Calcula la derivada de orden 2008 de dicha función.",
       options: ["a=7, b=-5 y f^(2008)(x)=7·sen(x)-5·cos(x)", "a=-5, b=7 y f^(2008)(x)=-5·sen(x)+7·cos(x)", "a=7, b=-5 y f^(2008)(x)=-7·sen(x)+5·cos(x)", "a=2, b=0 y f^(2008)(x)=2·sen(x)"],
       correct: 0,
-      solution: "Resolución:\n1. Como la gráfica pasa por (π/4,√2), se cumple f(π/4)=√2.\n2. sen(π/4)=cos(π/4)=√2/2, así que a·√2/2+b·√2/2=√2. Dividimos por √2/2 y obtenemos a+b=2.\n3. Derivamos: f'(x)=a·cos(x)-b·sen(x).\n4. La pendiente en x=π/2 es 5:\nf'(π/2)=a·0-b·1=-b=5, luego b=-5.\n5. Sustituimos en a+b=2: a-5=2, de donde a=7.\n6. Las derivadas de seno y coseno se repiten cada cuatro órdenes. Como 2008 es múltiplo de 4, f^(2008)(x)=f(x).\nResultado final: a=7, b=-5 y f^(2008)(x)=7·sen(x)-5·cos(x)."
+      solution: "Resolución:\n1. Como la gráfica pasa por (π/4,√2), se cumple f(π/4)=√2.\n2. sen(π/4)=cos(π/4)=√2/2, así que a·√2/2+b·√2/2=√2. Dividimos por √2/2 y obtenemos a+b=2.\n3. Derivamos: f'(x)=a·cos(x)-b·sen(x).\n4. La pendiente en x=π/2 es 5:\nf'(π/2)=a·0-b·1=-b=5, luego b=-5.\n5. Sustituimos en a+b=2: a-5=2, de donde a=7. La función es f(x)=7·sen(x)-5·cos(x).\n6. Escribimos la función y sus siete primeras derivadas para observar la repetición:\n[[derivative-cycle-2008]]\nEl ciclo se repite cada cuatro derivadas. Por eso dividimos el orden solicitado entre la longitud del ciclo:\n2008:4=502, resto 0.\nEs decir, 2008=4·502+0. Como el resto es 0, corresponde la posición de f(x) en el ciclo:\nf^(2008)(x)=f(x)=7·sen(x)-5·cos(x).\nResultado final: a=7, b=-5 y f^(2008)(x)=7·sen(x)-5·cos(x)."
     },
     {
       type: "pau-open",
@@ -8844,9 +10957,13 @@ const exerciseBanks = {
     {
       type: "pau-open",
       text: "2021 - convocatoria de julio - Ejercicio 6\nSea la función f(x)=(2x^2+2x-2)/(3x^2+3).\na) Halla razonadamente las coordenadas de los extremos relativos de la función f(x) y clasifícalos.\nb) Calcula la ecuación de la recta tangente y la ecuación de la recta normal a la gráfica de la función f(x) en el punto de abscisa x=1.",
-      options: ["Mínimo (2-√5,-√5/3), máximo (2+√5,√5/3); tangente y=2x/3-1/3; normal y=-3x/2+11/6", "Máximo (2-√5,-√5/3), mínimo (2+√5,√5/3); tangente y=2x/3+1/3; normal y=3x/2-11/6", "Mínimo (-2-√5,-√5/3), máximo (-2+√5,√5/3); tangente y=x/3; normal y=-3x", "No tiene extremos; tangente y=2x/3-1/3; normal y=-3x/2+11/6"],
+      options: ["Mínimo (2-√5,-√5/3), máximo (2+√5,√5/3); tangente y=2x/3-1/3; normal y=-3x/2+11/6", "Máximo (2-√5,-√5/3), mínimo (2+√5,√5/3); tangente y=2x/3+1/3; normal y=3x/2-11/6", "Mínimo (-2-√5,-√5/3), máximo (-2+√5,√5/3); tangente y=x/3; normal y=-3x", "No tiene extremos; tangente y=x/3+1/3; normal y=-3x"],
       correct: 0,
-      solution: "Resolución:\n1. Derivamos con la regla del cociente:\nf'(x)=[(4x+2)(3x²+3)-(2x²+2x-2)(6x)]/(3x²+3)²\n=(-6x²+24x+6)/(3x²+3)²\n=-6(x²-4x-1)/(3x²+3)².\n2. El denominador es siempre positivo. Los puntos críticos verifican x²-4x-1=0, luego x=2-√5 o x=2+√5.\n3. El signo de f' es negativo antes de 2-√5, positivo entre las dos raíces y negativo después de 2+√5. Por tanto hay un mínimo en x=2-√5 y un máximo en x=2+√5.\n4. Usando x²=4x+1 en ambos puntos críticos, f(x)=5x/[3(2x+1)]. Así obtenemos f(2-√5)=-√5/3 y f(2+√5)=√5/3.\n5. En x=1: f(1)=1/3 y f'(1)=2/3. La tangente es y-1/3=(2/3)(x-1), es decir, y=2x/3-1/3.\n6. La pendiente de la normal es la opuesta de la inversa: -3/2. Entonces y-1/3=(-3/2)(x-1), es decir, y=-3x/2+11/6.\nResultado final: mínimo (2-√5,-√5/3), máximo (2+√5,√5/3), tangente y=2x/3-1/3 y normal y=-3x/2+11/6."
+      partSolutions: [
+        "Resolución del apartado a):\n1. Derivamos con la regla del cociente y escribimos toda la derivada como una fracción:\nf'(x)=frac{(4x+2)(3x²+3)−(2x²+2x−2)·6x}{(3x²+3)²}=frac{−6x²+24x+6}{(3x²+3)²}=frac{−6(x²−4x−1)}{(3x²+3)²}.\n2. El denominador (3x²+3)² es siempre positivo. Por tanto, los puntos críticos se obtienen anulando el numerador:\nx²−4x−1=0, de donde x=2−√5 o x=2+√5.\n3. Probamos un valor de cada intervalo en f'(x):\n• En (−∞,2−√5), tomamos x=−1: f'(−1)=frac{−24}{36}<0.\n• En (2−√5,2+√5), tomamos x=0: f'(0)=frac{6}{9}=frac{2}{3}>0.\n• En (2+√5,+∞), tomamos x=5: f'(5)=frac{−24}{6084}<0.\n[[signchart points=\"−∞|2−√5|2+√5|+∞\" signs=\"−|+|−\" arrows=\"↓|↑|↓\"]]\n4. En x=2−√5 el signo cambia de − a +, luego hay un mínimo relativo. En x=2+√5 cambia de + a −, luego hay un máximo relativo.\n5. Como en ambos puntos críticos x²=4x+1, se obtiene f(x)=frac{5x}{3(2x+1)}. Por tanto, f(2−√5)=frac{−√5}{3} y f(2+√5)=frac{√5}{3}.\nResultado final: mínimo relativo en (2−√5,frac{−√5}{3}) y máximo relativo en (2+√5,frac{√5}{3}).",
+        "Resolución del apartado b):\n1. Calculamos el punto de tangencia: f(1)=frac{2+2−2}{3+3}=frac{1}{3}.\n2. Sustituimos x=1 en la derivada: f'(1)=frac{−6+24+6}{(3+3)²}=frac{24}{36}=frac{2}{3}.\n3. La recta tangente tiene pendiente m=frac{2}{3}:\ny−frac{1}{3}=frac{2}{3}(x−1), por tanto y=frac{2x}{3}−frac{1}{3}.\n4. La recta normal es perpendicular a la tangente. Por tanto, sus pendientes cumplen:\nm·m_n=−1.\nSustituimos m=frac{2}{3}:\nfrac{2}{3}·m_n=−1.\nDespejamos la pendiente de la normal:\nm_n=frac{−1}{frac{2}{3}}=−1·frac{3}{2}=frac{−3}{2}.\n5. Usamos la ecuación punto-pendiente de la normal:\ny−frac{1}{3}=frac{−3}{2}(x−1), por tanto y=frac{−3x}{2}+frac{11}{6}.\nResultado final: tangente y=frac{2x}{3}−frac{1}{3} y normal y=frac{−3x}{2}+frac{11}{6}."
+      ],
+      solution: "Resolución:\n1. Derivamos con la regla del cociente:\nf'(x)=[(4x+2)(3x²+3)-(2x²+2x-2)(6x)]/(3x²+3)²\n=(-6x²+24x+6)/(3x²+3)²\n=-6(x²-4x-1)/(3x²+3)².\n2. El denominador es siempre positivo. Los puntos críticos verifican x²-4x-1=0, luego x=2-√5 o x=2+√5.\n3. El signo de f' es negativo antes de 2-√5, positivo entre las dos raíces y negativo después de 2+√5. Por tanto hay un mínimo en x=2-√5 y un máximo en x=2+√5.\n4. Usando x²=4x+1 en ambos puntos críticos, f(x)=5x/[3(2x+1)]. Así obtenemos f(2-√5)=-√5/3 y f(2+√5)=√5/3.\n5. En x=1: f(1)=1/3 y f'(1)=2/3. La tangente es y-1/3=(2/3)(x-1), es decir, y=2x/3-1/3.\n6. Para hallar la pendiente de la normal usamos que las pendientes de dos rectas perpendiculares cumplen m·m_n=-1. Sustituimos m=2/3:\n(2/3)·m_n=-1, luego m_n=-1:(2/3)=-3/2.\n7. La normal es y-1/3=(-3/2)(x-1), es decir, y=-3x/2+11/6.\nResultado final: mínimo (2-√5,-√5/3), máximo (2+√5,√5/3), tangente y=2x/3-1/3 y normal y=-3x/2+11/6."
     },
     {
       type: "pau-open",
@@ -8956,7 +11073,7 @@ I=-frac{1}{6}·ln|x|-frac{2}{15}·ln|x+3|+frac{3}{10}·ln|x-2|+C.`
         "A = 32"
       ],
       correct: 0,
-      solution: "Resolución:\n1. Buscamos los puntos que delimitan el recinto. La parábola corta al eje OX cuando x²-1=0, es decir, en x=-1 y x=1. La recta corta al eje OX cuando 11-x=0, es decir, en x=11.\n2. Calculamos el corte entre la parábola y la recta:\nx²-1=11-x ⇒ x²+x-12=0 ⇒ (x+4)(x-3)=0.\nLos cortes son x=-4 y x=3. Para el recinto cerrado con el eje OX se utiliza x=3.\n[[area-graph-parabola-line]]\n3. Como se ve en la gráfica, el recinto queda bajo la parábola desde x=1 hasta x=3 y bajo la recta desde x=3 hasta x=11. Por eso dividimos el cálculo en dos integrales:\nA=∫_{1}^{3} (x²-1) dx + ∫_{3}^{11} (11-x) dx.\n4. Calculamos la primera integral:\n∫_{1}^{3} (x²-1) dx = [frac{x³}{3}-x]_{1}^{3}\n=(9-3)-paren{frac{1}{3}-1}=6+frac{2}{3}=frac{20}{3}.\n5. Calculamos la segunda integral:\n∫_{3}^{11} (11-x) dx = [11x-frac{x²}{2}]_{3}^{11}\n=frac{121}{2}-frac{57}{2}=frac{64}{2}=32.\n6. Sumamos las dos áreas:\nA=frac{20}{3}+32=frac{20}{3}+frac{96}{3}=frac{116}{3}.\nResultado final:\nA=frac{116}{3} unidades cuadradas."
+      solution: "Resolución:\n1. Buscamos los puntos que delimitan el recinto. La parábola corta al eje OX cuando x²−1=0, es decir, en x=−1 y x=1. La recta corta al eje OX cuando 11−x=0, es decir, en x=11. Para este recinto utilizamos el corte x=1 de la parábola con el eje OX.\n2. Calculamos el corte entre la parábola y la recta:\nx²−1=11−x ⇒ x²+x−12=0 ⇒ (x+4)(x−3)=0.\nLos cortes son x=−4 y x=3. El que delimita este recinto es x=3 y su ordenada es y=8.\n[[area-graph-parabola-line]]\n3. Como se ve en la gráfica, el área azul queda bajo la parábola desde x=1 hasta x=3 y el área verde queda bajo la recta desde x=3 hasta x=11. Por eso dividimos el cálculo en dos integrales:\n[[area-equation-parabola-line]]\n4. Calculamos la primera integral y aplicamos la regla de Barrow:\n[[barrow-equation-parabola]]\n5. Calculamos la segunda integral y aplicamos la regla de Barrow:\n[[barrow-equation-line]]\n6. Sumamos las dos áreas:\nA=frac{20}{3}+32=frac{20}{3}+frac{96}{3}=frac{116}{3}.\nResultado final:\nA=frac{116}{3} unidades cuadradas."
     },
     {
       type: "pau-open",
@@ -8987,7 +11104,7 @@ I=-frac{1}{6}·ln|x|-frac{2}{15}·ln|x+3|+frac{3}{10}·ln|x-2|+C.`
   ],
   ccssIIPauMatrices: [
     { type: "pau-open", text: "2008 - convocatoria de junio - CCSS II - Bloque 1 - A\n1) Despeja la matriz X en la ecuacion: 2·X - B = A·X.\n2) Halla la matriz X de la ecuacion anterior sabiendo que\nA = [[1, 0, 1], [2, 1, 0], [-1, 3, 1]] y B = [[1, -2], [-3, 3], [4, -3]].", solution: "Solucion guiada:\n1. Agrupa los terminos con X: 2X-AX=B.\n2. Factoriza: (2I-A)X=B.\n3. Calcula 2I-A.\n4. Si tiene inversa, X=(2I-A)^(-1)B." },
-    { type: "pau-open", text: "2000 - convocatoria de junio - Mates II - Bloque 4 - 4-B\nResolver el sistema de ecuaciones matriciales:\n3X - 2Y = [[7, 3], [16, 4]]\nX + 3Y = [[6, 12], [-2, 27]]", options: ["X = [[3, 3], [4, 6]]\nY = [[1, 3], [-2, 7]]", "X = [[1, 3], [-2, 7]]\nY = [[3, 3], [4, 6]]", "X = [[3, 9], [-6, 21]]\nY = [[1, 3], [-2, 7]]", "X = [[6, 12], [-2, 27]]\nY = [[7, 3], [16, 4]]"], correct: 0, solution: "Resoluci?n paso a paso:\n1. Llamamos A = [[7, 3], [16, 4]] y B = [[6, 12], [-2, 27]].\n2. El sistema queda:\n3X - 2Y = A\nX + 3Y = B\n3. De la segunda ecuaci?n despejamos X:\nX = B - 3Y.\n4. Sustituimos en la primera:\n3(B - 3Y) - 2Y = A.\n5. Desarrollamos:\n3B - 9Y - 2Y = A, luego 3B - 11Y = A.\n6. Despejamos Y:\n11Y = 3B - A, por tanto Y = (3B - A)/11.\n7. Calculamos 3B:\n3B = [[18, 36], [-6, 81]].\n8. Restamos A:\n3B - A = [[18-7, 36-3], [-6-16, 81-4]] = [[11, 33], [-22, 77]].\n9. Dividimos entre 11:\nY = [[1, 3], [-2, 7]].\n10. Ahora usamos X = B - 3Y:\n3Y = [[3, 9], [-6, 21]].\n11. Restamos:\nX = [[6, 12], [-2, 27]] - [[3, 9], [-6, 21]] = [[3, 3], [4, 6]].\nResultado final:\nX = [[3, 3], [4, 6]] e Y = [[1, 3], [-2, 7]]." },
+    { type: "pau-open", text: "2000 - convocatoria de junio - Mates II - Bloque 4 - 4-B\nResolver el sistema de ecuaciones matriciales:\n3X - 2Y = [[7, 3], [16, 4]]\nX + 3Y = [[6, 12], [-2, 27]]", options: ["X = [[3, 3], [4, 6]]\nY = [[1, 3], [-2, 7]]", "X = [[1, 3], [-2, 7]]\nY = [[3, 3], [4, 6]]", "X = [[3, 9], [-6, 21]]\nY = [[1, 3], [-2, 7]]", "X = [[6, 12], [-2, 27]]\nY = [[7, 3], [16, 4]]"], correct: 0, solution: "Resolución paso a paso:\n1. Llamamos A = [[7, 3], [16, 4]] y B = [[6, 12], [-2, 27]].\n2. El sistema queda:\n3X - 2Y = A\nX + 3Y = B\n3. De la segunda ecuación despejamos X:\nX = B - 3Y.\n4. Sustituimos en la primera:\n3(B - 3Y) - 2Y = A.\n5. Desarrollamos:\n3B - 9Y - 2Y = A, luego 3B - 11Y = A.\n6. Despejamos Y:\n11Y = 3B - A, por tanto Y = (3B - A)/11.\n7. Calculamos 3B:\n3B = [[18, 36], [-6, 81]].\n8. Restamos A:\n3B - A = [[18-7, 36-3], [-6-16, 81-4]] = [[11, 33], [-22, 77]].\n9. Dividimos entre 11:\nY = [[1, 3], [-2, 7]].\n10. Ahora usamos X = B - 3Y:\n3Y = [[3, 9], [-6, 21]].\n11. Restamos:\nX = [[6, 12], [-2, 27]] - [[3, 9], [-6, 21]] = [[3, 3], [4, 6]].\nResultado final:\nX = [[3, 3], [4, 6]] e Y = [[1, 3], [-2, 7]]." },
     { type: "pau-open", text: "PAEG 2006 - junio - Castilla-La Mancha - Matrices\nDespeja la matriz X en funcion de A e I2 en una ecuacion matricial con matrices cuadradas de orden dos, y resuelve para la matriz dada.", solution: "Solucion guiada:\n1. Agrupa terminos con X.\n2. Factoriza respetando el orden de multiplicacion.\n3. Usa inversa cuando el determinante no sea cero." },
     { type: "pau-open", text: "PAEG 2005 - septiembre - Castilla-La Mancha\nSe consideran dos matrices A y B, donde m es un numero real. Encuentra los valores de m para los que A·B tiene inversa.", solution: "Solucion guiada:\n1. Usa det(A·B)=det(A)det(B).\n2. A·B tiene inversa si ese producto es distinto de cero.\n3. Excluye los valores de m que anulen algun determinante." }
   ],
@@ -8998,10 +11115,10 @@ I=-frac{1}{6}·ln|x|-frac{2}{15}·ln|x+3|+frac{3}{10}·ln|x-2|+C.`
     { type: "pau-open", text: "PAEG reserva 1 - 2013 - Sistemas\nTres amigos van a una papeleria. Luis compra 3 cuadernos, 2 carpetas y 4 boligrafos y paga 29 euros. Carmen compra 4 carpetas y 6 boligrafos y paga 38 euros. Pedro compra 5 cuadernos y 3 carpetas y paga 39 euros. Plantea y resuelve el sistema.", solution: "Solucion guiada:\n1. Sea x el precio del cuaderno, y el de carpeta, z el de boligrafo.\n2. Escribe las tres ecuaciones de las compras.\n3. Resuelve por eliminacion o matriz inversa.\n4. Comprueba cada importe." }
   ],
   ccssIIPauProgramacionLineal: [
-    { type: "pau-open", text: "2008 - convocatoria de junio - CCSS II - Bloque 2 - A\nUna compañia de telefonia movil ofrece 15 centimos por cada SMS y 25 centimos por cada minuto de conversacion. Condiciones: el numero de llamadas de un minuto no puede ser mayor que el numero de mensajes aumentado en 3, ni menor que el numero de mensajes disminuido en 3. Sumando el quintuplo del numero de mensajes con el numero de llamadas no puede obtenerse mas de 27.\n1) Dibuja la region factible. 2) Determina el numero de mensajes y llamadas para que el beneficio sea maximo. 3) Â¿Cual es ese beneficio maximo?", solution: "Solucion guiada:\n1. Define x=mensajes, y=llamadas.\n2. Restricciones: yâ‰¤x+3, yâ‰¥x-3, 5x+yâ‰¤27, xâ‰¥0, yâ‰¥0.\n3. Funcion objetivo: B=15x+25y.\n4. Calcula vertices de la region factible y evalua B." },
-    { type: "pau-open", text: "PAEG reserva 1 - 2013 - Programacion lineal\nUna empresa tiene 160 kg de arroz y 60 tarros de azafran. Elabora lotes A con 3 kg de arroz y 2 tarros, que vende a 50 euros; y lotes B con 5 kg de arroz y 1 tarro, que vende a 30 euros. Plantea el problema, dibuja la region factible, determina vertices y calcula la solucion optima.", solution: "Solucion guiada:\n1. Sea x=lotes A, y=lotes B.\n2. Restricciones: 3x+5yâ‰¤160, 2x+yâ‰¤60, xâ‰¥0, yâ‰¥0.\n3. Funcion objetivo: F=50x+30y.\n4. Evalua F en los vertices." },
-    { type: "pau-open", text: "PAEG junio 2012 - Programacion lineal\nUna empresa tiene 3000 bolsas de ajo y 2000 botellas de aceite. Lotes A: 3 bolsas y 1 botella, precio 50 euros. Lotes B: 1 bolsa y 2 botellas, precio 80 euros. Dibuja la region factible y calcula cuantos lotes de cada tipo debe preparar para obtener la mayor cantidad de dinero.", solution: "Solucion guiada:\n1. Define x=lotes A, y=lotes B.\n2. Restricciones: 3x+yâ‰¤3000, x+2yâ‰¤2000, xâ‰¥0, yâ‰¥0.\n3. Funcion objetivo: F=50x+80y.\n4. Calcula vertices y elige el maximo." },
-    { type: "pau-open", text: "PAEG septiembre 2012 - Programacion lineal\nQueremos invertir en dos tipos de acciones. A no puede superar 10000 euros, B no puede superar 8000 euros y A+B no puede exceder de 15000 euros. Rentabilidad esperada: A 1%, B 5%. Dibuja la region factible y determina la inversion que maximiza el beneficio.", solution: "Solucion guiada:\n1. Sea x inversion en A, y inversion en B.\n2. Restricciones: xâ‰¤10000, yâ‰¤8000, x+yâ‰¤15000, xâ‰¥0, yâ‰¥0.\n3. Funcion objetivo: F=0,01x+0,05y.\n4. Evalua en vertices." }
+    { type: "pau-open", text: "2008 - convocatoria de junio - CCSS II - Bloque 2 - A\nUna compañia de telefonia movil ofrece 15 centimos por cada SMS y 25 centimos por cada minuto de conversacion. Condiciones: el numero de llamadas de un minuto no puede ser mayor que el numero de mensajes aumentado en 3, ni menor que el numero de mensajes disminuido en 3. Sumando el quintuplo del numero de mensajes con el numero de llamadas no puede obtenerse mas de 27.\n1) Dibuja la region factible. 2) Determina el numero de mensajes y llamadas para que el beneficio sea maximo. 3) ¿Cual es ese beneficio maximo?", solution: "Solucion guiada:\n1. Define x=mensajes, y=llamadas.\n2. Restricciones: y≤x+3, y≥x-3, 5x+y≤27, x≥0, y≥0.\n3. Funcion objetivo: B=15x+25y.\n4. Calcula vertices de la region factible y evalua B." },
+    { type: "pau-open", text: "PAEG reserva 1 - 2013 - Programacion lineal\nUna empresa tiene 160 kg de arroz y 60 tarros de azafran. Elabora lotes A con 3 kg de arroz y 2 tarros, que vende a 50 euros; y lotes B con 5 kg de arroz y 1 tarro, que vende a 30 euros. Plantea el problema, dibuja la region factible, determina vertices y calcula la solucion optima.", solution: "Solucion guiada:\n1. Sea x=lotes A, y=lotes B.\n2. Restricciones: 3x+5y≤160, 2x+y≤60, x≥0, y≥0.\n3. Funcion objetivo: F=50x+30y.\n4. Evalua F en los vertices." },
+    { type: "pau-open", text: "PAEG junio 2012 - Programacion lineal\nUna empresa tiene 3000 bolsas de ajo y 2000 botellas de aceite. Lotes A: 3 bolsas y 1 botella, precio 50 euros. Lotes B: 1 bolsa y 2 botellas, precio 80 euros. Dibuja la region factible y calcula cuantos lotes de cada tipo debe preparar para obtener la mayor cantidad de dinero.", solution: "Solucion guiada:\n1. Define x=lotes A, y=lotes B.\n2. Restricciones: 3x+y≤3000, x+2y≤2000, x≥0, y≥0.\n3. Funcion objetivo: F=50x+80y.\n4. Calcula vertices y elige el maximo." },
+    { type: "pau-open", text: "PAEG septiembre 2012 - Programacion lineal\nQueremos invertir en dos tipos de acciones. A no puede superar 10000 euros, B no puede superar 8000 euros y A+B no puede exceder de 15000 euros. Rentabilidad esperada: A 1%, B 5%. Dibuja la region factible y determina la inversion que maximiza el beneficio.", solution: "Solucion guiada:\n1. Sea x inversion en A, y inversion en B.\n2. Restricciones: x≤10000, y≤8000, x+y≤15000, x≥0, y≥0.\n3. Funcion objetivo: F=0,01x+0,05y.\n4. Evalua en vertices." }
   ],
   ccssIIPauFuncionesContinuidad: [
     { type: "pau-open", text: "2008 - convocatoria de junio - CCSS II - Bloque 3 - A\nDada la función\nf(x) = { |x+2| si x≤-1; k si -1<x<1; (x-2)^2 si x≥1 }.\n1) Halla el valor de k para que la gráfica sea continua para x=-1.\n2) Para ese valor de k, dibuja la gráfica.\n3) Calcula el área del recinto limitado por la gráfica de f y el eje de abscisas.", options: ["k=1 y área=17/6", "k=-1 y área=13/6", "k=1 y área=7/3", "k=2 y área=17/6"], correct: 0, solution: "Resolución:\n1. En x=-1, la rama izquierda vale |-1+2|=1. Para que haya continuidad, la rama central debe tener el mismo valor, por tanto k=1.\n2. Los ceros que delimitan el recinto son x=-2 en la primera rama y x=2 en la tercera. Entre ellos la función es no negativa.\n3. Separamos el área por tramos:\nA=∫_{-2}^{-1}(x+2)dx+∫_{-1}^{1}1dx+∫_{1}^{2}(x-2)²dx.\n4. Calculamos:\n∫_{-2}^{-1}(x+2)dx=1/2,\n∫_{-1}^{1}1dx=2,\n∫_{1}^{2}(x-2)²dx=1/3.\n5. Sumamos: A=1/2+2+1/3=17/6.\nResultado final: k=1 y el área es 17/6 unidades cuadradas." },
@@ -9010,16 +11127,16 @@ I=-frac{1}{6}·ln|x|-frac{2}{15}·ln|x+3|+frac{3}{10}·ln|x-2|+C.`
     { type: "pau-open", text: "2020 - Matemáticas aplicadas a las CCSS II - Bloque 2 - Ejercicio 3\nSe considera la función\nf(x) = { x+t si x≤-1; x^3-2x^2+4 si x>-1 }.\na) ¿Para qué valor de t es continua en x=-1?\nb) Calcula los extremos relativos en (-1,+∞).\nc) Calcula los intervalos de crecimiento y decrecimiento en (-1,+∞).", options: ["t=2; máximo (0,4), mínimo (4/3,76/27); crece en (-1,0)∪(4/3,+∞) y decrece en (0,4/3)", "t=-2; mínimo (0,4), máximo (4/3,76/27); decrece en (-1,0)∪(4/3,+∞)", "t=1; único mínimo (0,4); crece en todo el intervalo", "t=2; no tiene extremos relativos"], correct: 0, solution: "Resolución:\n1. En x=-1, la rama izquierda vale -1+t. El límite por la derecha es (-1)³-2(-1)²+4=1.\n2. Para continuidad: -1+t=1, luego t=2.\n3. En x>-1 derivamos f(x)=x³-2x²+4:\nf'(x)=3x²-4x=x(3x-4).\n4. Los puntos críticos son x=0 y x=4/3.\n5. Estudiamos el signo: f'>0 en (-1,0), f'<0 en (0,4/3) y f'>0 en (4/3,+∞).\n6. Por tanto hay un máximo en x=0, con f(0)=4, y un mínimo en x=4/3.\n7. f(4/3)=64/27-32/9+4=76/27.\nResultado final: t=2; máximo (0,4), mínimo (4/3,76/27); crece en (-1,0)∪(4/3,+∞) y decrece en (0,4/3)." }
   ],
   ccssIIPauProbabilidad: [
-    { type: "pau-open", text: "2008 - convocatoria de junio - CCSS II - Bloque 2 - B\nUna caja contiene tres monedas. Una moneda es normal, otra tiene dos caras y la tercera esta trucada de forma que la probabilidad de obtener cara es 1/3. Las tres monedas tienen igual probabilidad de ser elegidas.\n1) Se elige al azar una moneda y se lanza al aire, Â¿cual es la probabilidad de que salga cara?\n2) Si lanzamos la moneda trucada dos veces, Â¿cual es la probabilidad de que salga una cara y una cruz?", solution: "Solucion guiada:\n1. Usa probabilidad total para la primera pregunta.\n2. P(cara)=1/3·1/2+1/3·1+1/3·1/3.\n3. Para la moneda trucada dos lanzamientos: cara-cruz o cruz-cara.\n4. P=2·(1/3)·(2/3)." },
-    { type: "pau-open", text: "2008 - convocatoria de junio - CCSS II - Bloque 4 - A\nEntre la poblacion de una determinada region se estima que el 55% presenta obesidad, el 20% padece hipertension y el 15% tiene obesidad y es hipertenso.\n1) Calcula la probabilidad de ser hipertenso o tener obesidad.\n2) Calcula la probabilidad de tener obesidad condicionada a ser hipertenso.", solution: "Solucion guiada:\n1. P(OâˆªH)=P(O)+P(H)-P(Oâˆ©H).\n2. Sustituye: 0,55+0,20-0,15.\n3. P(O|H)=P(Oâˆ©H)/P(H)=0,15/0,20." },
-    { type: "pau-open", text: "PAEG junio 2014 - Probabilidad\nEn una poblacion, el 40% ve habitualmente la television, el 10% lee habitualmente y el 1% ve la television y lee habitualmente. Calcula la probabilidad de que vea television o lea, y la probabilidad de que lea sabiendo que ve television.", solution: "Solucion guiada:\n1. Usa P(TâˆªL)=P(T)+P(L)-P(Tâˆ©L).\n2. Usa P(L|T)=P(Lâˆ©T)/P(T)." },
+    { type: "pau-open", text: "2008 - convocatoria de junio - CCSS II - Bloque 2 - B\nUna caja contiene tres monedas. Una moneda es normal, otra tiene dos caras y la tercera esta trucada de forma que la probabilidad de obtener cara es 1/3. Las tres monedas tienen igual probabilidad de ser elegidas.\n1) Se elige al azar una moneda y se lanza al aire, ¿cual es la probabilidad de que salga cara?\n2) Si lanzamos la moneda trucada dos veces, ¿cual es la probabilidad de que salga una cara y una cruz?", solution: "Solucion guiada:\n1. Usa probabilidad total para la primera pregunta.\n2. P(cara)=1/3·1/2+1/3·1+1/3·1/3.\n3. Para la moneda trucada dos lanzamientos: cara-cruz o cruz-cara.\n4. P=2·(1/3)·(2/3)." },
+    { type: "pau-open", text: "2008 - convocatoria de junio - CCSS II - Bloque 4 - A\nEntre la poblacion de una determinada region se estima que el 55% presenta obesidad, el 20% padece hipertension y el 15% tiene obesidad y es hipertenso.\n1) Calcula la probabilidad de ser hipertenso o tener obesidad.\n2) Calcula la probabilidad de tener obesidad condicionada a ser hipertenso.", solution: "Solucion guiada:\n1. P(O∪H)=P(O)+P(H)-P(O∩H).\n2. Sustituye: 0,55+0,20-0,15.\n3. P(O|H)=P(O∩H)/P(H)=0,15/0,20." },
+    { type: "pau-open", text: "PAEG junio 2014 - Probabilidad\nEn una poblacion, el 40% ve habitualmente la television, el 10% lee habitualmente y el 1% ve la television y lee habitualmente. Calcula la probabilidad de que vea television o lea, y la probabilidad de que lea sabiendo que ve television.", solution: "Solucion guiada:\n1. Usa P(T∪L)=P(T)+P(L)-P(T∩L).\n2. Usa P(L|T)=P(L∩T)/P(T)." },
     { type: "pau-open", text: "PAEG junio 2014 - Probabilidad total y Bayes\nEn una empresa hay robots A, B y C que sueldan el 15%, 20% y 65% de los productos. Las probabilidades de defecto son 0,02, 0,03 y 0,01. Calcula la probabilidad de defecto y, si hay defecto, la probabilidad de que lo haya soldado A.", solution: "Solucion guiada:\n1. P(D)=P(A)P(D|A)+P(B)P(D|B)+P(C)P(D|C).\n2. Para Bayes: P(A|D)=P(A)P(D|A)/P(D)." }
   ],
   ccssIIPauMuestreoInferencia: [
-    { type: "pau-open", text: "2008 - convocatoria de junio - CCSS II - Bloque 4 - B\nPara efectuar un control de calidad sobre la duracion en horas de un modelo de juguetes electronicos se elige una muestra aleatoria de 36 juguetes de ese modelo, obteniendose una duracion media de 97 horas. Sabiendo que la duracion se distribuye normalmente con desviacion tipica de 10 horas:\n1) Encontrar el intervalo de confianza al 99,2% para la duracion media.\n2) Interpretar el significado del intervalo obtenido.", solution: "Solucion guiada:\n1. Con Ïƒ conocida: IC=xbarra Â± z·Ïƒ/sqrt(n).\n2. xbarra=97, Ïƒ=10, n=36.\n3. Busca z para confianza 99,2%.\n4. Sustituye y expresa el intervalo.\n5. Interpreta: el procedimiento captura la media poblacional con ese nivel de confianza." },
-    { type: "pau-open", text: "PAEG junio 2014 - Muestreo e inferencia\nUna empresa produce dispositivos electronicos con pantalla HD. La resolucion sigue una normal de media desconocida y desviacion tipica Ïƒ=20 pixeles. Se toma una muestra de 100 dispositivos y se obtiene el intervalo de confianza (1076,08 , 1083,92). Calcula la media muestral y el nivel de confianza.", solution: "Solucion guiada:\n1. La media muestral es el centro del intervalo.\n2. El error es la semiamplitud.\n3. Usa E=z·Ïƒ/sqrt(n) para despejar z.\n4. Con z obtienes el nivel de confianza." },
-    { type: "pau-open", text: "PAEG junio 2014 - Muestreo e inferencia\nEn un aeropuerto, el tiempo de espera hasta que sale la maleta sigue una normal de media desconocida y desviacion tipica Ïƒ=3 minutos. Se toma una muestra de 50 viajeros con media 17 minutos. Halla un intervalo de confianza para la media poblacional al 95%.", solution: "Solucion guiada:\n1. IC=xbarra Â± z·Ïƒ/sqrt(n).\n2. Para 95%, z=1,96.\n3. Sustituye xbarra=17, Ïƒ=3, n=50." },
-    { type: "pau-open", text: "PAEG septiembre 2014 - Muestreo e inferencia\nEl tiempo medio que tarda una empresa de mensajeria en recoger un paquete sigue una normal de media desconocida y desviacion tipica Ïƒ=10 minutos. Se toman 10 encargos con tiempos 15,19,20,22,24,25,27,28,30,32. Halla un intervalo de confianza al 95% y el tamaño minimo para error menor que 1 minuto.", solution: "Solucion guiada:\n1. Calcula la media muestral de los 10 datos.\n2. IC=xbarra Â± 1,96·Ïƒ/sqrt(n).\n3. Para el tamaño minimo: E=zÏƒ/sqrt(n)<1.\n4. Despeja n>(zÏƒ/E)^2." }
+    { type: "pau-open", text: "2008 - convocatoria de junio - CCSS II - Bloque 4 - B\nPara efectuar un control de calidad sobre la duracion en horas de un modelo de juguetes electronicos se elige una muestra aleatoria de 36 juguetes de ese modelo, obteniendose una duracion media de 97 horas. Sabiendo que la duracion se distribuye normalmente con desviacion tipica de 10 horas:\n1) Encontrar el intervalo de confianza al 99,2% para la duracion media.\n2) Interpretar el significado del intervalo obtenido.", solution: "Solucion guiada:\n1. Con σ conocida: IC=xbarra Â± z·σ/sqrt(n).\n2. xbarra=97, σ=10, n=36.\n3. Busca z para confianza 99,2%.\n4. Sustituye y expresa el intervalo.\n5. Interpreta: el procedimiento captura la media poblacional con ese nivel de confianza." },
+    { type: "pau-open", text: "PAEG junio 2014 - Muestreo e inferencia\nUna empresa produce dispositivos electronicos con pantalla HD. La resolucion sigue una normal de media desconocida y desviacion tipica σ=20 pixeles. Se toma una muestra de 100 dispositivos y se obtiene el intervalo de confianza (1076,08 , 1083,92). Calcula la media muestral y el nivel de confianza.", solution: "Solucion guiada:\n1. La media muestral es el centro del intervalo.\n2. El error es la semiamplitud.\n3. Usa E=z·σ/sqrt(n) para despejar z.\n4. Con z obtienes el nivel de confianza." },
+    { type: "pau-open", text: "PAEG junio 2014 - Muestreo e inferencia\nEn un aeropuerto, el tiempo de espera hasta que sale la maleta sigue una normal de media desconocida y desviacion tipica σ=3 minutos. Se toma una muestra de 50 viajeros con media 17 minutos. Halla un intervalo de confianza para la media poblacional al 95%.", solution: "Solucion guiada:\n1. IC=xbarra Â± z·σ/sqrt(n).\n2. Para 95%, z=1,96.\n3. Sustituye xbarra=17, σ=3, n=50." },
+    { type: "pau-open", text: "PAEG septiembre 2014 - Muestreo e inferencia\nEl tiempo medio que tarda una empresa de mensajeria en recoger un paquete sigue una normal de media desconocida y desviacion tipica σ=10 minutos. Se toman 10 encargos con tiempos 15,19,20,22,24,25,27,28,30,32. Halla un intervalo de confianza al 95% y el tamaño minimo para error menor que 1 minuto.", solution: "Solucion guiada:\n1. Calcula la media muestral de los 10 datos.\n2. IC=xbarra Â± 1,96·σ/sqrt(n).\n3. Para el tamaño minimo: E=zσ/sqrt(n)<1.\n4. Despeja n>(zσ/E)^2." }
   ],
   ccssIIMatrices: [
     { text: "(PAU modelo) Sean A=[[1,2],[0,1]] y B=[[3,0],[1,-1]]. Calcula 2A-B.", options: ["[[-1,4],[-1,3]]", "[[5,4],[1,1]]", "[[1,4],[1,1]]", "[[-1,2],[-1,1]]"], correct: 0, solution: "Solucion:\n1. Calculamos 2A=[[2,4],[0,2]].\n2. Restamos B elemento a elemento: [[2-3,4-0],[0-1,2-(-1)]].\nResultado final: [[-1,4],[-1,3]]." },
@@ -9027,7 +11144,7 @@ I=-frac{1}{6}·ln|x|-frac{2}{15}·ln|x+3|+frac{3}{10}·ln|x-2|+C.`
     { text: "(PAU modelo) Resuelve la ecuacion matricial X+A=B, con A=[[2,1],[0,3]] y B=[[5,4],[2,1]].", options: ["X=[[3,3],[2,-2]]", "X=[[7,5],[2,4]]", "X=[[3,5],[2,4]]", "X=[[-3,-3],[-2,2]]"], correct: 0, solution: "Solucion:\n1. Despejamos X=B-A.\n2. Restamos elemento a elemento.\nResultado final: X=[[3,3],[2,-2]]." },
     { text: "(PAU modelo) Sean A=[[1,0],[2,1]] y B=[[2,1],[0,3]]. Calcula A·B.", options: ["[[2,1],[4,5]]", "[[2,1],[2,4]]", "[[1,3],[4,3]]", "[[2,0],[4,3]]"], correct: 0, solution: "Solucion:\n1. Multiplicamos filas por columnas.\n2. Primera fila: [1,0]·columnas de B da 2 y 1.\n3. Segunda fila: [2,1]·columnas de B da 4 y 5.\nResultado final: [[2,1],[4,5]]." },
     { text: "(PAU modelo) Calcula la matriz inversa de A=[[1,2],[3,5]].", options: ["[[-5,2],[3,-1]]", "[[5,-2],[-3,1]]", "[[-5,3],[2,-1]]", "No tiene inversa"], correct: 0, solution: "Solucion:\n1. det(A)=1·5-2·3=-1.\n2. A^-1=(1/det(A))[[5,-2],[-3,1]].\n3. Multiplicamos por -1.\nResultado final: [[-5,2],[3,-1]]." },
-    { text: "(PAU modelo) Si A=[[1,m],[0,2]], Â¿para que valores de m tiene inversa?", options: ["Para todo m real", "Solo m=0", "Para mâ‰ 0", "Para mâ‰ 2"], correct: 0, solution: "Solucion:\n1. Una matriz cuadrada tiene inversa si det(A)â‰ 0.\n2. det(A)=1·2-0·m=2.\n3. Como 2â‰ 0, no depende de m.\nResultado final: para todo m real." },
+    { text: "(PAU modelo) Si A=[[1,m],[0,2]], ¿para que valores de m tiene inversa?", options: ["Para todo m real", "Solo m=0", "Para m≠0", "Para m≠2"], correct: 0, solution: "Solucion:\n1. Una matriz cuadrada tiene inversa si det(A)≠0.\n2. det(A)=1·2-0·m=2.\n3. Como 2≠0, no depende de m.\nResultado final: para todo m real." },
     { text: "(PAU modelo) En un problema de costes, la matriz P=[[3,5],[2,4]] recoge productos por lote y C=[[10],[6]] costes unitarios. Calcula P·C.", options: ["[[60],[44]]", "[[40],[32]]", "[[13],[8]]", "[[80],[56]]"], correct: 0, solution: "Solucion:\n1. Producto fila por columna.\n2. Primer lote: 3·10+5·6=60.\n3. Segundo lote: 2·10+4·6=44.\nResultado final: [[60],[44]]." },
     { text: "(PAU modelo) Dada A=[[2,1],[1,1]], calcula X si A·X=[[5],[3]].", options: ["X=[[2],[1]]", "X=[[1],[2]]", "X=[[3],[5]]", "X=[[-2],[7]]"], correct: 0, solution: "Solucion:\n1. Si X=[[x],[y]], el sistema es 2x+y=5, x+y=3.\n2. Restamos ecuaciones: x=2.\n3. Sustituimos: y=1.\nResultado final: X=[[2],[1]]." }
   ],
@@ -9035,7 +11152,7 @@ I=-frac{1}{6}·ln|x|-frac{2}{15}·ln|x+3|+frac{3}{10}·ln|x-2|+C.`
     { text: "(PAU modelo) Calcula det [[2,1],[3,4]].", options: ["5", "11", "-5", "8"], correct: 0, solution: "Solucion:\n1. En 2x2: det=ad-bc.\n2. det=2·4-1·3=8-3.\nResultado final: 5." },
     { text: "(PAU modelo) Calcula det [[1,2,0],[0,1,3],[2,0,1]].", options: ["13", "7", "-13", "0"], correct: 0, solution: "Solucion:\n1. Desarrollamos por la primera fila.\n2. 1·(1·1-3·0)-2·(0·1-3·2)+0=1-2·(-6).\nResultado final: 13." },
     { text: "(PAU modelo) Si det(A)=3 para una matriz 2x2, calcula det(2A).", options: ["12", "6", "3", "24"], correct: 0, solution: "Solucion:\n1. Si A es de orden 2, det(kA)=k^2 det(A).\n2. det(2A)=2^2·3=12.\nResultado final: 12." },
-    { text: "(PAU modelo) Para A=[[1,a],[2,4]], Â¿para que valor de a no tiene inversa?", options: ["a=2", "a=4", "a=1", "a=-2"], correct: 0, solution: "Solucion:\n1. No tiene inversa si det(A)=0.\n2. det(A)=1·4-a·2=4-2a.\n3. 4-2a=0 da a=2.\nResultado final: a=2." },
+    { text: "(PAU modelo) Para A=[[1,a],[2,4]], ¿para que valor de a no tiene inversa?", options: ["a=2", "a=4", "a=1", "a=-2"], correct: 0, solution: "Solucion:\n1. No tiene inversa si det(A)=0.\n2. det(A)=1·4-a·2=4-2a.\n3. 4-2a=0 da a=2.\nResultado final: a=2." },
     { text: "(PAU modelo) Si una matriz tiene dos filas proporcionales, su determinante es...", options: ["0", "1", "-1", "El producto de la diagonal"], correct: 0, solution: "Solucion:\n1. Dos filas proporcionales implican dependencia lineal.\n2. Con filas dependientes, el determinante se anula.\nResultado final: 0." },
     { text: "(PAU modelo) Calcula det [[3,0,0],[1,2,0],[4,-1,5]].", options: ["30", "10", "0", "-30"], correct: 0, solution: "Solucion:\n1. Es triangular inferior.\n2. El determinante es el producto de la diagonal.\nResultado final: 3·2·5=30." },
     { text: "(PAU modelo) Si det(A)=2 y det(B)=-3, calcula det(A·B).", options: ["-6", "6", "-1", "5"], correct: 0, solution: "Solucion:\n1. Usamos det(A·B)=det(A)·det(B).\n2. 2·(-3)=-6.\nResultado final: -6." },
@@ -9044,31 +11161,31 @@ I=-frac{1}{6}·ln|x|-frac{2}{15}·ln|x+3|+frac{3}{10}·ln|x-2|+C.`
   ccssIISistemas: [
     { text: "(PAU modelo) Resuelve por Cramer: x+y=5, 2x-y=1.", options: ["x=2, y=3", "x=3, y=2", "x=1, y=4", "x=5, y=0"], correct: 0, solution: "Solucion:\n1. Sumamos las ecuaciones: 3x=6.\n2. x=2.\n3. Sustituimos en x+y=5: y=3.\nResultado final: x=2, y=3." },
     { text: "(PAU modelo) El sistema x+y+z=6, x-y=0, z=2 tiene solucion...", options: ["x=2, y=2, z=2", "x=1, y=3, z=2", "x=3, y=3, z=0", "x=0, y=0, z=6"], correct: 0, solution: "Solucion:\n1. De z=2.\n2. x+y+2=6, luego x+y=4.\n3. x-y=0 implica x=y.\nResultado final: x=2, y=2, z=2." },
-    { text: "(PAU modelo) En una tienda se venden camisetas a 10 â‚¬, bufandas a 5 â‚¬ y gorras a 7 â‚¬. Si se venden 380 prendas, se recaudan 2980 â‚¬ y camisetas=2·gorras, Â¿cuántas camisetas hay?", options: ["180", "160", "140", "200"], correct: 0, solution: "Solucion:\n1. Sea c,b,g. c+b+g=380, 10c+5b+7g=2980, c=2g.\n2. Sustituimos c=2g: b=380-3g.\n3. 20g+5(380-3g)+7g=2980, 12g=1080, g=90.\n4. Entonces c=2g=180.\nResultado final: 180 camisetas." },
+    { text: "(PAU modelo) En una tienda se venden camisetas a 10 €, bufandas a 5 € y gorras a 7 €. Si se venden 380 prendas, se recaudan 2980 € y camisetas=2·gorras, ¿cuántas camisetas hay?", options: ["180", "160", "140", "200"], correct: 0, solution: "Solucion:\n1. Sea c,b,g. c+b+g=380, 10c+5b+7g=2980, c=2g.\n2. Sustituimos c=2g: b=380-3g.\n3. 20g+5(380-3g)+7g=2980, 12g=1080, g=90.\n4. Entonces c=2g=180.\nResultado final: 180 camisetas." },
     { text: "(PAU modelo) Resuelve 2x+y=7, x+3y=11.", options: ["x=2, y=3", "x=3, y=1", "x=1, y=5", "x=4, y=-1"], correct: 0, solution: "Solucion:\n1. De 2x+y=7 sale y=7-2x.\n2. Sustituimos: x+3(7-2x)=11.\n3. x+21-6x=11, -5x=-10, x=2.\n4. y=3.\nResultado final: x=2, y=3." },
-    { text: "(PAU modelo) Si el determinante de la matriz de coeficientes de un sistema 3x3 es distinto de cero, el sistema es...", options: ["Compatible determinado", "Compatible indeterminado", "Incompatible", "Sin ecuaciones"], correct: 0, solution: "Solucion:\n1. det(A)â‰ 0 implica que A tiene inversa.\n2. Entonces existe una unica solucion.\nResultado final: compatible determinado." },
+    { text: "(PAU modelo) Si el determinante de la matriz de coeficientes de un sistema 3x3 es distinto de cero, el sistema es...", options: ["Compatible determinado", "Compatible indeterminado", "Incompatible", "Sin ecuaciones"], correct: 0, solution: "Solucion:\n1. det(A)≠0 implica que A tiene inversa.\n2. Entonces existe una unica solucion.\nResultado final: compatible determinado." },
     { text: "(PAU modelo) Resuelve x+y=8, y+z=7, x+z=9.", options: ["x=5, y=3, z=4", "x=4, y=5, z=3", "x=3, y=4, z=5", "x=6, y=2, z=5"], correct: 0, solution: "Solucion:\n1. Sumamos las tres ecuaciones: 2x+2y+2z=24, luego x+y+z=12.\n2. Restando x+y=8 queda z=4.\n3. Restando y+z=7 queda x=5.\n4. Restando x+z=9 queda y=3.\nResultado final: (5,3,4)." },
-    { text: "(PAU modelo) Una empresa tiene 24 empleados en A, C y T. A=C+T y C=3T. Â¿Cuántos hay en Toledo?", options: ["3", "6", "9", "12"], correct: 0, solution: "Solucion:\n1. Sea T=t, C=3t y A=C+T=4t.\n2. Total: 4t+3t+t=8t=24.\nResultado final: t=3 empleados en Toledo." },
+    { text: "(PAU modelo) Una empresa tiene 24 empleados en A, C y T. A=C+T y C=3T. ¿Cuántos hay en Toledo?", options: ["3", "6", "9", "12"], correct: 0, solution: "Solucion:\n1. Sea T=t, C=3t y A=C+T=4t.\n2. Total: 4t+3t+t=8t=24.\nResultado final: t=3 empleados en Toledo." },
     { text: "(PAU modelo) Si un sistema tiene dos ecuaciones proporcionales y una contradictoria con ellas, es...", options: ["Incompatible", "Compatible determinado", "Compatible indeterminado", "Lineal homogeneo"], correct: 0, solution: "Solucion:\n1. Ecuaciones proporcionales dan la misma restriccion.\n2. Si otra ecuacion contradice esa restriccion, no hay punto comun.\nResultado final: sistema incompatible." }
   ],
   ccssIIProgramacionLineal: [
-    { text: "(PAU modelo) Maximiza F=50x+30y con 3x+5yâ‰¤160, 2x+yâ‰¤60, xâ‰¥0, yâ‰¥0. La solucion optima es...", options: ["(20,20), F=1600", "(0,32), F=960", "(30,0), F=1500", "(0,0), F=0"], correct: 0, solution: "Solucion:\n1. Vértices: (0,0), (30,0), (0,32) y corte de 3x+5y=160 con 2x+y=60.\n2. Del corte: y=60-2x; 3x+5(60-2x)=160, x=20, y=20.\n3. Evaluamos F: 1600, que es máximo.\nResultado final: (20,20)." },
+    { text: "(PAU modelo) Maximiza F=50x+30y con 3x+5y≤160, 2x+y≤60, x≥0, y≥0. La solucion optima es...", options: ["(20,20), F=1600", "(0,32), F=960", "(30,0), F=1500", "(0,0), F=0"], correct: 0, solution: "Solucion:\n1. Vértices: (0,0), (30,0), (0,32) y corte de 3x+5y=160 con 2x+y=60.\n2. Del corte: y=60-2x; 3x+5(60-2x)=160, x=20, y=20.\n3. Evaluamos F: 1600, que es máximo.\nResultado final: (20,20)." },
     { text: "(PAU modelo) En programacion lineal, la solucion optima de una funcion lineal sobre una region factible acotada se busca en...", options: ["Los vertices", "El centro siempre", "Cualquier punto interior", "Solo el eje X"], correct: 0, solution: "Solucion:\n1. Una funcion lineal alcanza maximo o minimo en algun vertice de la region factible.\nResultado final: se evaluan los vertices." },
-    { text: "(PAU modelo) La restriccion x+yâ‰¤15 representa...", options: ["El semiplano por debajo de la recta x+y=15", "La recta x+y=15 solamente", "El semiplano x<0", "Una parabola"], correct: 0, solution: "Solucion:\n1. La igualdad x+y=15 es la frontera.\n2. El signo â‰¤ indica el lado que contiene puntos como (0,0).\nResultado final: semiplano por debajo de la recta." },
-    { text: "(PAU modelo) Si en un problema se exige preparar lotes A y B, con xâ‰¥0 e yâ‰¥0, eso significa...", options: ["No se pueden preparar cantidades negativas", "Ambas cantidades son siempre cero", "x debe ser menor que y", "Solo se permite x=0"], correct: 0, solution: "Solucion:\n1. Las variables representan cantidades de lotes.\n2. Una cantidad negativa no tiene sentido en el contexto.\nResultado final: x e y deben ser no negativas." },
+    { text: "(PAU modelo) La restriccion x+y≤15 representa...", options: ["El semiplano por debajo de la recta x+y=15", "La recta x+y=15 solamente", "El semiplano x<0", "Una parabola"], correct: 0, solution: "Solucion:\n1. La igualdad x+y=15 es la frontera.\n2. El signo ≤ indica el lado que contiene puntos como (0,0).\nResultado final: semiplano por debajo de la recta." },
+    { text: "(PAU modelo) Si en un problema se exige preparar lotes A y B, con x≥0 e y≥0, eso significa...", options: ["No se pueden preparar cantidades negativas", "Ambas cantidades son siempre cero", "x debe ser menor que y", "Solo se permite x=0"], correct: 0, solution: "Solucion:\n1. Las variables representan cantidades de lotes.\n2. Una cantidad negativa no tiene sentido en el contexto.\nResultado final: x e y deben ser no negativas." },
     { text: "(PAU modelo) Maximiza F=x+2y en el triangulo de vertices (0,0), (4,0), (0,3).", options: ["(0,3), F=6", "(4,0), F=4", "(0,0), F=0", "(4,3), F=10"], correct: 0, solution: "Solucion:\n1. Evaluamos en vertices.\n2. F(0,0)=0, F(4,0)=4, F(0,3)=6.\nResultado final: maximo en (0,3)." },
     { text: "(PAU modelo) Minimiza F=2x+y en los vertices (1,1), (4,1), (2,5).", options: ["(1,1), F=3", "(4,1), F=9", "(2,5), F=9", "(0,0), F=0"], correct: 0, solution: "Solucion:\n1. Evaluamos solo vertices factibles.\n2. F(1,1)=3, F(4,1)=9, F(2,5)=9.\nResultado final: minimo en (1,1)." },
-    { text: "(PAU modelo) La region xâ‰¥0, yâ‰¥0, xâ‰¤10, yâ‰¤8, x+yâ‰¤15 es...", options: ["Acotada", "No acotada", "Vacia", "Una recta"], correct: 0, solution: "Solucion:\n1. Las restricciones xâ‰¤10, yâ‰¤8 y x+yâ‰¤15 cierran la region junto a los ejes.\nResultado final: region acotada." },
-    { text: "(PAU modelo) Una inversion A no puede superar 10000 â‚¬, B no puede superar 8000 â‚¬ y A+Bâ‰¤15000. Si se maximiza 0,01A+0,05B, conviene...", options: ["A=7000, B=8000", "A=10000, B=0", "A=0, B=0", "A=15000, B=8000"], correct: 0, solution: "Solucion:\n1. B da mas rentabilidad, por eso se toma su maximo: B=8000.\n2. Quedan 7000 hasta el limite A+Bâ‰¤15000.\nResultado final: A=7000, B=8000." }
+    { text: "(PAU modelo) La region x≥0, y≥0, x≤10, y≤8, x+y≤15 es...", options: ["Acotada", "No acotada", "Vacia", "Una recta"], correct: 0, solution: "Solucion:\n1. Las restricciones x≤10, y≤8 y x+y≤15 cierran la region junto a los ejes.\nResultado final: region acotada." },
+    { text: "(PAU modelo) Una inversion A no puede superar 10000 €, B no puede superar 8000 € y A+B≤15000. Si se maximiza 0,01A+0,05B, conviene...", options: ["A=7000, B=8000", "A=10000, B=0", "A=0, B=0", "A=15000, B=8000"], correct: 0, solution: "Solucion:\n1. B da mas rentabilidad, por eso se toma su maximo: B=8000.\n2. Quedan 7000 hasta el limite A+B≤15000.\nResultado final: A=7000, B=8000." }
   ],
   ccssIILimitesContinuidad: [
     { text: "(PAU modelo) Calcula lim x->2 (x^2-4)/(x-2).", options: ["4", "0", "2", "No existe"], correct: 0, solution: "Solución:\n1. Al sustituir x=2 aparece 0/0.\n2. Aplicamos la regla de L'Hôpital y derivamos por separado: (x²-4)'=2x y (x-2)'=1.\n3. El límite queda lim x→2 de 2x.\n4. Sustituimos x=2.\nResultado final: 4." },
-    { text: "(PAU modelo) Para que f(x)={x+1 si x<2; t si xâ‰¥2} sea continua en x=2, t debe valer...", options: ["3", "2", "1", "0"], correct: 0, solution: "Solucion:\n1. Limite por la izquierda: 2+1=3.\n2. Valor por la derecha y f(2) es t.\n3. Para continuidad: t=3.\nResultado final: t=3." },
-    { text: "(PAU modelo) lim x->âˆž (3x^2-1)/(x^2+5) vale...", options: ["3", "0", "âˆž", "-1/5"], correct: 0, solution: "Solución:\n1. Numerador y denominador tienden a +∞, por lo que aparece ∞/∞.\n2. Aplicamos la regla de L'Hôpital: (3x²-1)'=6x y (x²+5)'=2x.\n3. El límite queda lim x→∞ de 6x/(2x)=3.\nResultado final: 3." },
+    { text: "(PAU modelo) Para que f(x)={x+1 si x<2; t si x≥2} sea continua en x=2, t debe valer...", options: ["3", "2", "1", "0"], correct: 0, solution: "Solucion:\n1. Limite por la izquierda: 2+1=3.\n2. Valor por la derecha y f(2) es t.\n3. Para continuidad: t=3.\nResultado final: t=3." },
+    { text: "(PAU modelo) lim x->∞ (3x^2-1)/(x^2+5) vale...", options: ["3", "0", "∞", "-1/5"], correct: 0, solution: "Solución:\n1. Numerador y denominador tienden a +∞, por lo que aparece ∞/∞.\n2. Aplicamos la regla de L'Hôpital: (3x²-1)'=6x y (x²+5)'=2x.\n3. El límite queda lim x→∞ de 6x/(2x)=3.\nResultado final: 3." },
     { text: "(PAU modelo) La recta x=1 es asintota vertical de f(x)=1/(x-1) porque...", options: ["El denominador se anula en x=1", "f(1)=1", "La funcion es polinomica", "El limite vale 0"], correct: 0, solution: "Solucion:\n1. En x=1 el denominador vale 0.\n2. Al acercarnos a 1, la funcion se hace infinita.\nResultado final: x=1 es asintota vertical." },
-    { text: "(PAU modelo) Calcula lim x->0 sen(x)/x.", options: ["1", "0", "âˆž", "No existe"], correct: 0, solution: "Solución:\n1. Al sustituir x=0 aparece 0/0.\n2. Aplicamos la regla de L'Hôpital: (sen x)'=cos x y (x)'=1.\n3. El límite queda lim x→0 de cos(x).\n4. Sustituimos x=0: cos(0)=1.\nResultado final: 1." },
+    { text: "(PAU modelo) Calcula lim x->0 sen(x)/x.", options: ["1", "0", "∞", "No existe"], correct: 0, solution: "Solución:\n1. Al sustituir x=0 aparece 0/0.\n2. Aplicamos la regla de L'Hôpital: (sen x)'=cos x y (x)'=1.\n3. El límite queda lim x→0 de cos(x).\n4. Sustituimos x=0: cos(0)=1.\nResultado final: 1." },
     { text: "(PAU modelo) Si lim x->a- f(x)=4 y lim x->a+ f(x)=4, pero f(a)=1, entonces f en a es...", options: ["Discontinua evitable", "Continua", "Discontinua de salto", "No definida en ningun punto"], correct: 0, solution: "Solucion:\n1. El limite existe y vale 4.\n2. Pero no coincide con f(a), que vale 1.\nResultado final: discontinuidad evitable." },
-    { text: "(PAU modelo) lim x->âˆž (5x-3)/(2x+1) vale...", options: ["5/2", "5", "0", "2/5"], correct: 0, solution: "Solución:\n1. Numerador y denominador tienden a +∞, por lo que aparece ∞/∞.\n2. Aplicamos la regla de L'Hôpital: (5x-3)'=5 y (2x+1)'=2.\n3. El nuevo cociente es constante.\nResultado final: 5/2." },
+    { text: "(PAU modelo) lim x->∞ (5x-3)/(2x+1) vale...", options: ["5/2", "5", "0", "2/5"], correct: 0, solution: "Solución:\n1. Numerador y denominador tienden a +∞, por lo que aparece ∞/∞.\n2. Aplicamos la regla de L'Hôpital: (5x-3)'=5 y (2x+1)'=2.\n3. El nuevo cociente es constante.\nResultado final: 5/2." },
     { text: "(PAU modelo) Para que f sea continua en x=a debe cumplirse...", options: ["lim x->a- f(x)=f(a)=lim x->a+ f(x)", "f'(a)=0", "f(a)=0 siempre", "Los limites laterales sean opuestos"], correct: 0, solution: "Solucion:\n1. La continuidad exige que coincidan limite por la izquierda, valor de la funcion y limite por la derecha.\nResultado final: lim x->a- f(x)=f(a)=lim x->a+ f(x)." }
   ],
   ccssIIDerivadas: [
@@ -9077,7 +11194,7 @@ I=-frac{1}{6}·ln|x|-frac{2}{15}·ln|x+3|+frac{3}{10}·ln|x-2|+C.`
     { text: "(PAU modelo) Si f'(x)=3x^2-6x, los puntos criticos son...", options: ["x=0 y x=2", "x=1 y x=2", "x=-2 y x=0", "x=3"], correct: 0, solution: "Solucion:\n1. Igualamos f'(x)=0.\n2. 3x^2-6x=3x(x-2)=0.\nResultado final: x=0 y x=2." },
     { text: "(PAU modelo) Deriva f(x)=ln(x)+e^x.", options: ["1/x+e^x", "ln(x)+e^x", "x+e^x", "1/x+xe^(x-1)"], correct: 0, solution: "Solucion:\n1. (ln x)'=1/x.\n2. (e^x)'=e^x.\nResultado final: f'(x)=1/x+e^x." },
     { text: "(PAU modelo) Deriva f(x)=(x^2+1)^4.", options: ["8x(x^2+1)^3", "4(x^2+1)^3", "2x(x^2+1)^4", "x^8+1"], correct: 0, solution: "Solucion:\n1. Regla de la cadena: si u=x^2+1, f=u^4.\n2. f'=4u^3·u' y u'=2x.\nResultado final: 8x(x^2+1)^3." },
-    { text: "(PAU modelo) Si f'(x)>0 en (1,âˆž), la funcion en ese intervalo es...", options: ["Creciente", "Decreciente", "Constante", "Discontinua"], correct: 0, solution: "Solucion:\n1. Derivada positiva indica pendiente positiva.\nResultado final: la funcion es creciente." },
+    { text: "(PAU modelo) Si f'(x)>0 en (1,∞), la funcion en ese intervalo es...", options: ["Creciente", "Decreciente", "Constante", "Discontinua"], correct: 0, solution: "Solucion:\n1. Derivada positiva indica pendiente positiva.\nResultado final: la funcion es creciente." },
     { text: "(PAU modelo) Para f(x)=x^3-3x, f''(x) es...", options: ["6x", "3x^2-3", "6", "x^2-3"], correct: 0, solution: "Solucion:\n1. f'(x)=3x^2-3.\n2. Derivamos otra vez: f''(x)=6x.\nResultado final: 6x." },
     { text: "(PAU modelo) Recta tangente a f(x)=x^2 en x=1.", options: ["y=2x-1", "y=x+1", "y=2x+1", "y=x-1"], correct: 0, solution: "Solucion:\n1. Punto: f(1)=1.\n2. Pendiente: f'(x)=2x, f'(1)=2.\n3. y-1=2(x-1).\nResultado final: y=2x-1." }
   ],
@@ -9102,11 +11219,11 @@ I=-frac{1}{6}·ln|x|-frac{2}{15}·ln|x+3|+frac{3}{10}·ln|x-2|+C.`
     { text: "PAU - CCSS II - Integrales definidas\nCalcular\n∫₀² (4-x²) dx.", options: ["16/3", "8/3", "4", "32/3"], correct: 0, solution: "Resolución:\n1. Una primitiva de 4-x² es 4x-x³/3.\n2. Evaluamos entre 0 y 2:\n[4x-x³/3]₀² = 8-8/3.\n3. 8=24/3, luego 24/3-8/3=16/3.\nResultado final: 16/3." }
   ],
   ccssIIProbabilidad: [
-    { text: "(PAU junio 2014 modelo) P(TV)=0,40, P(Lee)=0,10 y P(TVâˆ©Lee)=0,01. Calcula P(TVâˆªLee).", options: ["0,49", "0,50", "0,04", "0,31"], correct: 0, solution: "Solucion:\n1. Usamos P(AâˆªB)=P(A)+P(B)-P(Aâˆ©B).\n2. 0,40+0,10-0,01=0,49.\nResultado final: 0,49." },
-    { text: "(PAU junio 2014 modelo) Con los datos P(TV)=0,40 y P(TVâˆ©Lee)=0,01, calcula P(Lee|TV).", options: ["0,025", "0,25", "0,04", "0,10"], correct: 0, solution: "Solucion:\n1. P(Lee|TV)=P(Leeâˆ©TV)/P(TV).\n2. 0,01/0,40=0,025.\nResultado final: 0,025." },
+    { text: "(PAU junio 2014 modelo) P(TV)=0,40, P(Lee)=0,10 y P(TV∩Lee)=0,01. Calcula P(TV∪Lee).", options: ["0,49", "0,50", "0,04", "0,31"], correct: 0, solution: "Solucion:\n1. Usamos P(A∪B)=P(A)+P(B)-P(A∩B).\n2. 0,40+0,10-0,01=0,49.\nResultado final: 0,49." },
+    { text: "(PAU junio 2014 modelo) Con los datos P(TV)=0,40 y P(TV∩Lee)=0,01, calcula P(Lee|TV).", options: ["0,025", "0,25", "0,04", "0,10"], correct: 0, solution: "Solucion:\n1. P(Lee|TV)=P(Lee∩TV)/P(TV).\n2. 0,01/0,40=0,025.\nResultado final: 0,025." },
     { text: "(PAU modelo Bayes) Robots A,B,C producen 15%,20%,65% con defectos 0,02;0,03;0,01. Calcula P(defecto).", options: ["0,0155", "0,06", "0,02", "0,0100"], correct: 0, solution: "Solucion:\n1. Probabilidad total: 0,15·0,02+0,20·0,03+0,65·0,01.\n2. 0,003+0,006+0,0065=0,0155.\nResultado final: 0,0155." },
     { text: "(PAU modelo) Si P(A)=0,2, P(B)=0,8, P(D|A)=0,02 y P(D|B)=0,1, calcula P(D).", options: ["0,084", "0,12", "0,08", "0,024"], correct: 0, solution: "Solucion:\n1. Aplicamos probabilidad total.\n2. P(D)=0,2·0,02+0,8·0,1=0,004+0,08.\nResultado final: 0,084." },
-    { text: "(PAU modelo) En una baraja española de 40 cartas se sacan dos sin reemplazo. P(dos oros) es...", options: ["3/52", "1/16", "1/4", "9/40"], correct: 0, solution: "Solucion:\n1. P(1Âª oro)=10/40.\n2. Sin reemplazo, P(2Âª oro|1Âª oro)=9/39.\n3. Producto: 10/40·9/39=90/1560=3/52.\nResultado final: 3/52." },
+    { text: "(PAU modelo) En una baraja española de 40 cartas se sacan dos sin reemplazo. P(dos oros) es...", options: ["3/52", "1/16", "1/4", "9/40"], correct: 0, solution: "Solucion:\n1. P(1ª oro)=10/40.\n2. Sin reemplazo, P(2ª oro|1ª oro)=9/39.\n3. Producto: 10/40·9/39=90/1560=3/52.\nResultado final: 3/52." },
     { text: "(PAU modelo) En una urna hay 8 rojas y 16 azules. Se extraen 3 sin reposicion. P(tres rojas) es...", options: ["(8/24)(7/23)(6/22)", "(8/24)^3", "(16/24)(15/23)(14/22)", "3·8/24"], correct: 0, solution: "Solucion:\n1. Sin reposicion cambian los totales.\n2. Multiplicamos probabilidades condicionadas.\nResultado final: (8/24)(7/23)(6/22)." },
     { text: "(PAU modelo) Si una maquina funciona bien con probabilidad 0,98 y P(accidente|bien)=0,1, P(accidente|falla)=0,6, calcula P(accidente).", options: ["0,11", "0,698", "0,098", "0,012"], correct: 0, solution: "Solucion:\n1. P(falla)=0,02.\n2. P(accidente)=0,98·0,1+0,02·0,6=0,098+0,012.\nResultado final: 0,11." },
     { text: "(PAU modelo) Si un candidato sabe 15 de 20 temas y salen 2 sin repeticion, P(saber los dos) es...", options: ["(15/20)(14/19)", "(15/20)^2", "(5/20)(4/19)", "15/20"], correct: 0, solution: "Solucion:\n1. Primera extraccion: 15/20.\n2. Segunda, si ya salio uno sabido: 14/19.\nResultado final: (15/20)(14/19)." }
@@ -9114,85 +11231,85 @@ I=-frac{1}{6}·ln|x|-frac{2}{15}·ln|x+3|+frac{3}{10}·ln|x-2|+C.`
   ccssIIDistribuciones: [
     { text: "(PAU septiembre 2014 modelo) Si aprobar una asignatura tiene probabilidad 0,9 y son 2 asignaturas independientes, P(aprueba las dos) es...", options: ["0,81", "0,18", "0,99", "0,90"], correct: 0, solution: "Solucion:\n1. Son sucesos independientes.\n2. P(dos aprobadas)=0,9·0,9=0,81.\nResultado final: 0,81." },
     { text: "(PAU modelo) Si X~B(2,0,9), calcula P(X=1).", options: ["0,18", "0,81", "0,01", "0,09"], correct: 0, solution: "Solucion:\n1. Formula binomial: P(X=1)=C(2,1)(0,9)^1(0,1)^1.\n2. 2·0,9·0,1=0,18.\nResultado final: 0,18." },
-    { text: "(PAU modelo) En X~B(n,p), la media y la desviacion tipica son...", options: ["Î¼=np, Ïƒ=sqrt(np(1-p))", "Î¼=p, Ïƒ=np", "Î¼=n+p, Ïƒ=sqrt(n)", "Î¼=np, Ïƒ=np(1-p)"], correct: 0, solution: "Solucion:\n1. En una binomial, media Î¼=np.\n2. Varianza=npq, con q=1-p.\n3. Desviacion tipica Ïƒ=sqrt(npq).\nResultado final: Î¼=np, Ïƒ=sqrt(np(1-p))." },
-    { text: "(PAU modelo) Si X~N(85,20), tipifica x=105.", options: ["z=1", "z=-1", "z=20", "z=0,25"], correct: 0, solution: "Solucion:\n1. z=(x-Î¼)/Ïƒ.\n2. z=(105-85)/20=1.\nResultado final: z=1." },
+    { text: "(PAU modelo) En X~B(n,p), la media y la desviacion tipica son...", options: ["μ=np, σ=sqrt(np(1-p))", "μ=p, σ=np", "μ=n+p, σ=sqrt(n)", "μ=np, σ=np(1-p)"], correct: 0, solution: "Solucion:\n1. En una binomial, media μ=np.\n2. Varianza=npq, con q=1-p.\n3. Desviacion tipica σ=sqrt(npq).\nResultado final: μ=np, σ=sqrt(np(1-p))." },
+    { text: "(PAU modelo) Si X~N(85,20), tipifica x=105.", options: ["z=1", "z=-1", "z=20", "z=0,25"], correct: 0, solution: "Solucion:\n1. z=(x-μ)/σ.\n2. z=(105-85)/20=1.\nResultado final: z=1." },
     { text: "(PAU modelo) Si Z~N(0,1), P(Z<0) vale...", options: ["0,5", "0", "1", "0,95"], correct: 0, solution: "Solucion:\n1. La normal tipica es simetrica respecto de 0.\n2. La mitad del area queda a la izquierda.\nResultado final: 0,5." },
-    { text: "(PAU modelo) Si X~N(100,15), P(X<100) es...", options: ["0,5", "0,15", "1", "0"], correct: 0, solution: "Solucion:\n1. La media parte la normal en dos zonas iguales.\nResultado final: P(X<Î¼)=0,5." },
+    { text: "(PAU modelo) Si X~N(100,15), P(X<100) es...", options: ["0,5", "0,15", "1", "0"], correct: 0, solution: "Solucion:\n1. La media parte la normal en dos zonas iguales.\nResultado final: P(X<μ)=0,5." },
     { text: "(PAU modelo) En B(10,0,3), la varianza es...", options: ["2,1", "3", "0,21", "7"], correct: 0, solution: "Solucion:\n1. Varianza=npq.\n2. q=1-0,3=0,7.\n3. 10·0,3·0,7=2,1.\nResultado final: 2,1." },
     { text: "(PAU modelo) Si una variable normal se tipifica, se transforma en...", options: ["Z~N(0,1)", "B(n,p)", "N(1,0)", "Una distribucion uniforme"], correct: 0, solution: "Solucion:\n1. Tipificar consiste en restar la media y dividir por la desviacion tipica.\nResultado final: Z~N(0,1)." }
   ],
   ccssIIMuestreoInferencia: [
     { text: "(PAU junio 2014 modelo) Un intervalo de confianza es (1076,08 , 1083,92). La media muestral es...", options: ["1080", "1076,08", "1083,92", "7,84"], correct: 0, solution: "Solucion:\n1. La media muestral es el centro del intervalo.\n2. (1076,08+1083,92)/2=2160/2.\nResultado final: 1080." },
-    { text: "(PAU modelo) Con Ïƒ=3, n=50, media 17 y confianza 95%, el intervalo para Î¼ usa z=1,96 y queda...", options: ["17 Â± 1,96·3/sqrt(50)", "17 Â± 3/sqrt(95)", "50 Â± 1,96·3/17", "17 Â± 1,96·sqrt(50)/3"], correct: 0, solution: "Solucion:\n1. Con Ïƒ conocida: IC = xbarra Â± z·Ïƒ/sqrt(n).\n2. Sustituimos xbarra=17, z=1,96, Ïƒ=3, n=50.\nResultado final: 17 Â± 1,96·3/sqrt(50)." },
-    { text: "(PAU modelo) Para disminuir la amplitud de un intervalo manteniendo el nivel de confianza, hay que...", options: ["Aumentar el tamaño muestral", "Disminuir el tamaño muestral", "Aumentar Ïƒ", "Cambiar la media"], correct: 0, solution: "Solucion:\n1. La amplitud depende del error z·Ïƒ/sqrt(n).\n2. Si n aumenta, sqrt(n) aumenta y el error disminuye.\nResultado final: aumentar n." },
+    { text: "(PAU modelo) Con σ=3, n=50, media 17 y confianza 95%, el intervalo para μ usa z=1,96 y queda...", options: ["17 Â± 1,96·3/sqrt(50)", "17 Â± 3/sqrt(95)", "50 Â± 1,96·3/17", "17 Â± 1,96·sqrt(50)/3"], correct: 0, solution: "Solucion:\n1. Con σ conocida: IC = xbarra Â± z·σ/sqrt(n).\n2. Sustituimos xbarra=17, z=1,96, σ=3, n=50.\nResultado final: 17 Â± 1,96·3/sqrt(50)." },
+    { text: "(PAU modelo) Para disminuir la amplitud de un intervalo manteniendo el nivel de confianza, hay que...", options: ["Aumentar el tamaño muestral", "Disminuir el tamaño muestral", "Aumentar σ", "Cambiar la media"], correct: 0, solution: "Solucion:\n1. La amplitud depende del error z·σ/sqrt(n).\n2. Si n aumenta, sqrt(n) aumenta y el error disminuye.\nResultado final: aumentar n." },
     { text: "(PAU modelo) Si el intervalo al 95% es (898,04 , 901,96), la media muestral es...", options: ["900", "898,04", "901,96", "3,92"], correct: 0, solution: "Solucion:\n1. Centro del intervalo: (898,04+901,96)/2.\n2. La suma es 1800.\nResultado final: 900." },
-    { text: "(PAU modelo) El error maximo de estimacion para media con Ïƒ conocida es...", options: ["E=z·Ïƒ/sqrt(n)", "E=Ïƒ/n", "E=xbarra/n", "E=z·sqrt(n)/Ïƒ"], correct: 0, solution: "Solucion:\n1. En intervalos para la media con Ïƒ conocida se usa la normal.\n2. El radio del intervalo es E=z·Ïƒ/sqrt(n).\nResultado final: E=z·Ïƒ/sqrt(n)." },
-    { text: "(PAU modelo) Si queremos error menor que 1 con Ïƒ=4 y confianza 95%, el tamaño n debe cumplir...", options: ["n>(1,96·4/1)^2", "n<1,96·4", "n=4/1,96", "n>1/(1,96·4)^2"], correct: 0, solution: "Solucion:\n1. Exigimos z·Ïƒ/sqrt(n)<E.\n2. Despejamos: sqrt(n)>zÏƒ/E, luego n>(zÏƒ/E)^2.\nResultado final: n>(1,96·4/1)^2." },
+    { text: "(PAU modelo) El error maximo de estimacion para media con σ conocida es...", options: ["E=z·σ/sqrt(n)", "E=σ/n", "E=xbarra/n", "E=z·sqrt(n)/σ"], correct: 0, solution: "Solucion:\n1. En intervalos para la media con σ conocida se usa la normal.\n2. El radio del intervalo es E=z·σ/sqrt(n).\nResultado final: E=z·σ/sqrt(n)." },
+    { text: "(PAU modelo) Si queremos error menor que 1 con σ=4 y confianza 95%, el tamaño n debe cumplir...", options: ["n>(1,96·4/1)^2", "n<1,96·4", "n=4/1,96", "n>1/(1,96·4)^2"], correct: 0, solution: "Solucion:\n1. Exigimos z·σ/sqrt(n)<E.\n2. Despejamos: sqrt(n)>zσ/E, luego n>(zσ/E)^2.\nResultado final: n>(1,96·4/1)^2." },
     { text: "(PAU modelo) Si aumenta el nivel de confianza y n no cambia, el intervalo...", options: ["Se hace mas amplio", "Se hace mas estrecho", "No cambia", "Desaparece"], correct: 0, solution: "Solucion:\n1. Mayor confianza implica mayor valor critico z.\n2. El error aumenta y el intervalo se ensancha.\nResultado final: se hace mas amplio." },
     { text: "(PAU modelo) Para que un intervalo de confianza sea valido, la muestra debe ser...", options: ["Aleatoria y representativa", "Elegida solo entre los mejores casos", "Siempre de tamaño 10", "No aleatoria"], correct: 0, solution: "Solucion:\n1. La inferencia pretende representar a la poblacion.\n2. Si la muestra esta sesgada, el intervalo no es fiable.\nResultado final: muestra aleatoria y representativa." }
   ],
   bachGeneral: [
-    { text: "Factoriza: x^2 - 9", options: ["(x - 3)(x + 3)", "(x - 9)(x + 1)", "x(x - 9)", "(x - 3)^2"], correct: 0, solution: "Es diferencia de cuadrados: x^2 - 3^2 = (x - 3)(x + 3)." },
-    { text: "Resuelve: log_10(1000)", options: ["3", "10", "100", "1/3"], correct: 0, solution: "10^3 = 1000, por tanto log_10(1000)=3." },
-    { text: "Si f(x)=x^2+2x, calcula f'(x).", options: ["2x + 2", "x + 2", "2x", "x^2"], correct: 0, solution: "Derivamos t?rmino a t?rmino: derivada de x^2 es 2x y derivada de 2x es 2." },
-    { text: "Calcula el l?mite de 1/x cuando x tiende a infinito.", options: ["0", "1", "infinito", "No existe"], correct: 0, solution: "Cuando x crece much?simo, 1/x se hace cada vez m?s peque?o. Tiende a 0." },
-    { text: "La integral de 2x es...", options: ["x^2 + C", "2 + C", "2x^2 + C", "x + C"], correct: 0, solution: "La funci?n cuya derivada es 2x es x^2. A?adimos la constante C." }
+    { text: "Factoriza: x²-9.", options: ["(x-3)(x+3)", "(x-9)(x+1)", "x(x-9)", "(x-3)²"], correct: 0, solution: "Resolución:\n1. Reconocemos una diferencia de cuadrados: x²-9=x²-3².\n2. Aplicamos a²-b²=(a-b)(a+b).\nResultado final: x²-9=(x-3)(x+3)." },
+    { text: "Calcula: log₁₀(1000).", options: ["3", "10", "100", "1/3"], correct: 0, solution: "Resolución:\n1. Buscamos el exponente al que hay que elevar 10 para obtener 1000.\n2. Como 10³=1000, se cumple log₁₀(1000)=3.\nResultado final: 3." },
+    { text: "Si f(x)=x²+2x, calcula f'(x).", options: ["2x+2", "x+2", "2x", "x²"], correct: 0, solution: "Resolución:\n1. Derivamos término a término.\n2. La derivada de x² es 2x y la derivada de 2x es 2.\nResultado final: f'(x)=2x+2." },
+    { text: "Calcula el límite de 1/x cuando x tiende a +∞.", options: ["0", "1", "+∞", "No existe"], correct: 0, solution: "Resolución:\n1. El numerador permanece constante y el denominador crece sin límite.\n2. Por ello, 1/x toma valores positivos cada vez más próximos a 0.\nResultado final: el límite es 0." },
+    { text: "Calcula ∫2x dx.", options: ["x²+C", "2+C", "2x²+C", "x+C"], correct: 0, solution: "Resolución:\n1. Aplicamos la regla de la potencia: ∫xⁿdx=xⁿ⁺¹/(n+1)+C.\n2. ∫2x dx=2·x²/2+C.\nResultado final: x²+C." }
   ],
   ecuacionesBach: [
-    { text: "Resuelve: x^2 - 4x + 3 = 0", options: ["x = 1 o x = 3", "x = -1 o x = -3", "x = 2", "x = 4"], correct: 0, solution: "Buscamos dos n?meros que multipliquen 3 y sumen -4: -1 y -3. Entonces ra?ces 1 y 3." },
-    { text: "Resuelve: e^x = 1", options: ["x = 0", "x = 1", "x = e", "No tiene soluci?n"], correct: 0, solution: "e^0 = 1. Por tanto x = 0." },
-    { text: "Resuelve: 2x + y = 5, x - y = 1", options: ["x = 2, y = 1", "x = 1, y = 3", "x = 3, y = -2", "x = 5, y = 1"], correct: 0, solution: "De x-y=1 sale y=x-1. Sustituimos: 2x+x-1=5, 3x=6, x=2, y=1." },
-    { text: "Resuelve: |x| = 6", options: ["x = 6 o x = -6", "x = 6", "x = -6", "x = 0"], correct: 0, solution: "El valor absoluto mide distancia a 0. Hay dos n?meros a distancia 6: 6 y -6." },
-    { text: "Resuelve: x^3 = 8", options: ["x = 2", "x = 4", "x = 8/3", "x = -2"], correct: 0, solution: "2^3 = 8, por tanto x = 2." }
+    { text: "Resuelve: x²-4x+3=0.", options: ["x=1 o x=3", "x=-1 o x=-3", "x=2", "x=4"], correct: 0, solution: "Resolución:\n1. Factorizamos buscando dos números cuyo producto sea 3 y cuya suma sea -4: -1 y -3.\n2. x²-4x+3=(x-1)(x-3).\n3. Igualamos cada factor a cero: x-1=0 o x-3=0.\nResultado final: x=1 o x=3." },
+    { text: "Resuelve: eˣ=1.", options: ["x=0", "x=1", "x=e", "No tiene solución"], correct: 0, solution: "Resolución:\n1. Escribimos 1 como potencia de base e: 1=e⁰.\n2. Igualamos los exponentes: x=0.\nResultado final: x=0." },
+    { text: "Resuelve el sistema: 2x+y=5, x-y=1.", options: ["x=2, y=1", "x=1, y=3", "x=3, y=-2", "x=5, y=1"], correct: 0, solution: "Resolución por sustitución:\n1. De x-y=1 despejamos y=x-1.\n2. Sustituimos en la primera ecuación: 2x+(x-1)=5.\n3. 3x-1=5 ⇒ 3x=6 ⇒ x=2.\n4. y=x-1=2-1=1.\nResultado final: x=2, y=1." },
+    { text: "Resuelve: |x|=6.", options: ["x=6 o x=-6", "x=6", "x=-6", "x=0"], correct: 0, solution: "Resolución:\n1. |x|=6 significa que la distancia de x a 0 es 6.\n2. Planteamos los dos casos: x=6 o x=-6.\nResultado final: x=6 o x=-6." },
+    { text: "Resuelve: x³=8.", options: ["x=2", "x=4", "x=8/3", "x=-2"], correct: 0, solution: "Resolución:\n1. Aplicamos la raíz cúbica en ambos miembros: x=∛8.\n2. Como 2³=8, ∛8=2.\nResultado final: x=2." }
   ],
   matrices: [
-    { text: "Si A = [[1,2],[3,4]], ?cu?l es la traza de A?", options: ["5", "10", "3", "4"], correct: 0, solution: "La traza es la suma de la diagonal principal: 1 + 4 = 5." },
-    { text: "Suma [[1,0],[2,3]] + [[4,1],[0,2]].", options: ["[[5,1],[2,5]]", "[[4,0],[0,6]]", "[[5,0],[2,3]]", "[[1,1],[2,5]]"], correct: 0, solution: "Se suman elementos de la misma posici?n: 1+4=5, 0+1=1, 2+0=2, 3+2=5." },
-    { text: "?Cu?ndo se pueden sumar dos matrices?", options: ["Cuando tienen la misma dimensi?n", "Cuando son cuadradas", "Cuando tienen determinante", "Siempre"], correct: 0, solution: "Para sumar matrices deben tener el mismo n?mero de filas y columnas." },
-    { text: "Multiplica por 2 la matriz [[1,-3],[0,4]].", options: ["[[2,-6],[0,8]]", "[[1,-6],[0,8]]", "[[2,-3],[0,4]]", "[[3,-1],[2,6]]"], correct: 0, solution: "Multiplicamos cada elemento por 2." },
-    { text: "La matriz identidad 2x2 tiene en la diagonal...", options: ["Unos", "Ceros", "Doses", "El determinante"], correct: 0, solution: "La identidad 2x2 es [[1,0],[0,1]], con unos en la diagonal y ceros fuera." }
+    { text: "Si A=((1,2),(3,4)), ¿cuál es la traza de A?", options: ["5", "10", "3", "4"], correct: 0, solution: "Resolución:\n1. La traza de una matriz cuadrada es la suma de los elementos de su diagonal principal.\n2. tr(A)=1+4=5.\nResultado final: 5." },
+    { text: "Suma las matrices ((1,0),(2,3)) y ((4,1),(0,2)).", options: ["((5,1),(2,5))", "((4,0),(0,6))", "((5,0),(2,3))", "((1,1),(2,5))"], correct: 0, solution: "Resolución:\n1. Las matrices tienen la misma dimensión, por lo que se suman elemento a elemento.\n2. Primera fila: 1+4=5 y 0+1=1.\n3. Segunda fila: 2+0=2 y 3+2=5.\nResultado final: ((5,1),(2,5))." },
+    { text: "¿Cuándo se pueden sumar dos matrices?", options: ["Cuando tienen la misma dimensión", "Cuando son cuadradas", "Cuando tienen determinante", "Siempre"], correct: 0, solution: "Resolución:\n1. Para sumar matrices debe existir una correspondencia entre todos sus elementos.\n2. Por ello han de tener el mismo número de filas y el mismo número de columnas.\nResultado final: cuando tienen la misma dimensión." },
+    { text: "Multiplica por 2 la matriz ((1,-3),(0,4)).", options: ["((2,-6),(0,8))", "((1,-6),(0,8))", "((2,-3),(0,4))", "((3,-1),(2,6))"], correct: 0, solution: "Resolución:\n1. Multiplicamos cada elemento de la matriz por 2.\n2. 2·1=2, 2·(-3)=-6, 2·0=0 y 2·4=8.\nResultado final: ((2,-6),(0,8))." },
+    { text: "La matriz identidad de orden 2 tiene en la diagonal principal...", options: ["Unos", "Ceros", "Doses", "El determinante"], correct: 0, solution: "Resolución:\n1. La identidad de orden 2 es I₂=((1,0),(0,1)).\n2. Tiene unos en la diagonal principal y ceros fuera de ella.\nResultado final: unos." }
   ],
   determinantes: [
-    { text: "Calcula det [[1,2],[3,4]].", options: ["-2", "10", "2", "-10"], correct: 0, solution: "Para 2x2: ad - bc = 1x4 - 2x3 = 4 - 6 = -2." },
-    { text: "Calcula det [[2,0],[0,5]].", options: ["10", "7", "0", "3"], correct: 0, solution: "Es diagonal, el determinante es producto de la diagonal: 2 x 5 = 10." },
-    { text: "Si dos filas de una matriz son iguales, su determinante es...", options: ["0", "1", "-1", "El doble"], correct: 0, solution: "Dos filas iguales hacen que el determinante sea 0." },
-    { text: "det [[0,1],[1,0]] vale...", options: ["-1", "1", "0", "2"], correct: 0, solution: "ad - bc = 0x0 - 1x1 = -1." },
-    { text: "Si det(A) distinto de 0, entonces A es...", options: ["Invertible", "Nula", "Diagonal siempre", "Sim?trica siempre"], correct: 0, solution: "Una matriz cuadrada tiene inversa si su determinante no es 0." }
+    { text: "Calcula el determinante |(1,2),(3,4)|.", options: ["-2", "10", "2", "-10"], correct: 0, solution: "Resolución:\n1. Para un determinante de orden 2 utilizamos |(a,b),(c,d)|=a·d-b·c.\n2. |(1,2),(3,4)|=1·4-2·3=4-6.\nResultado final: -2." },
+    { text: "Calcula el determinante |(2,0),(0,5)|.", options: ["10", "7", "0", "3"], correct: 0, solution: "Resolución:\n1. Es un determinante diagonal, por lo que multiplicamos los elementos de la diagonal principal.\n2. |(2,0),(0,5)|=2·5=10.\nResultado final: 10." },
+    { text: "Si dos filas de una matriz son iguales, su determinante es...", options: ["0", "1", "-1", "El doble"], correct: 0, solution: "Resolución:\n1. Intercambiar dos filas cambia el signo del determinante.\n2. Si las filas son iguales, el intercambio no modifica la matriz; por tanto, el determinante tendría que ser igual a su opuesto.\nResultado final: el determinante vale 0." },
+    { text: "Calcula el determinante |(0,1),(1,0)|.", options: ["-1", "1", "0", "2"], correct: 0, solution: "Resolución:\n1. Aplicamos |(a,b),(c,d)|=a·d-b·c.\n2. |(0,1),(1,0)|=0·0-1·1.\nResultado final: -1." },
+    { text: "Si det(A)≠0, entonces A es...", options: ["Invertible", "Nula", "Diagonal siempre", "Simétrica siempre"], correct: 0, solution: "Resolución:\n1. Una matriz cuadrada posee inversa exactamente cuando su determinante es distinto de cero.\n2. Como det(A)≠0, existe A⁻¹.\nResultado final: A es invertible." }
   ],
   limites: [
-    { text: "Calcula lim x->2 de (x + 3).", options: ["5", "3", "2", "0"], correct: 0, solution: "En una funci?n continua sustituimos x por 2: 2 + 3 = 5." },
-    { text: "Calcula lim x->1 de (x^2 - 1)/(x - 1).", options: ["2", "0", "1", "No existe"], correct: 0, solution: "Factorizamos x^2-1=(x-1)(x+1). Simplificamos y queda x+1. En x=1 vale 2." },
-    { text: "Una funci?n continua en x=a cumple que...", options: ["El l?mite coincide con f(a)", "No tiene l?mite", "Siempre vale 0", "Tiene salto"], correct: 0, solution: "Continuidad significa que el valor de la funci?n coincide con el l?mite en ese punto." },
-    { text: "lim x->infinito de 5/x es...", options: ["0", "5", "infinito", "1"], correct: 0, solution: "Al dividir 5 entre n?meros cada vez mayores, el resultado se acerca a 0." },
-    { text: "lim x->0 de sen(x)/x es...", options: ["1", "0", "infinito", "No existe"], correct: 0, solution: "Es un l?mite fundamental: sen(x)/x tiende a 1 cuando x tiende a 0." }
+    { text: "Calcula lim(x→2)(x+3).", options: ["5", "3", "2", "0"], correct: 0, solution: "Resolución:\n1. La función x+3 es continua en x=2.\n2. Sustituimos directamente: 2+3=5.\nResultado final: el límite vale 5." },
+    { text: "Calcula lim(x→1)((x²-1)/(x-1)).", options: ["2", "0", "1", "No existe"], correct: 0, solution: "Resolución:\n1. Al sustituir x=1 aparece la indeterminación 0/0.\n2. Factorizamos: x²-1=(x-1)(x+1).\n3. Para x≠1 simplificamos el factor x-1 y queda x+1.\n4. Sustituimos: 1+1=2.\nResultado final: el límite vale 2." },
+    { text: "Una función continua en x=a cumple que...", options: ["El límite coincide con f(a)", "No tiene límite", "Siempre vale 0", "Tiene salto"], correct: 0, solution: "Resolución:\n1. Deben existir los dos límites laterales y ser iguales.\n2. Además, ese límite común debe coincidir con el valor de la función.\nResultado final: lim(x→a)f(x)=f(a)." },
+    { text: "Calcula lim(x→+∞)(5/x).", options: ["0", "5", "+∞", "1"], correct: 0, solution: "Resolución:\n1. El numerador es constante y el denominador crece sin límite.\n2. El cociente toma valores positivos cada vez más pequeños.\nResultado final: el límite vale 0." },
+    { text: "Calcula lim(x→0)(sen x/x).", options: ["1", "0", "+∞", "No existe"], correct: 0, solution: "Resolución:\n1. Al sustituir x=0 aparece 0/0.\n2. Aplicamos la regla de L'Hôpital: lim(x→0)(cos x/1).\n3. Sustituimos x=0: cos 0=1.\nResultado final: el límite vale 1." }
   ],
   derivadas: [
-    { text: "Deriva f(x)=x^3.", options: ["3x^2", "x^2", "3x", "x^4/4"], correct: 0, solution: "Usamos la regla de la potencia: derivada de x^n es n x^(n-1)." },
-    { text: "Deriva f(x)=5x - 7.", options: ["5", "5x", "-7", "12"], correct: 0, solution: "La derivada de 5x es 5 y la derivada de una constante es 0." },
-    { text: "Deriva f(x)=x^2 + 4x.", options: ["2x + 4", "x + 4", "2x", "x^2 + 4"], correct: 0, solution: "Derivamos t?rmino a t?rmino: x^2 -> 2x y 4x -> 4." },
-    { text: "Si f'(a)=0, ese punto puede ser...", options: ["Un extremo relativo", "Una as?ntota vertical", "Un dominio vac?o", "Una ra?z siempre"], correct: 0, solution: "En muchos problemas, los candidatos a m?ximo o m?nimo cumplen f'(a)=0." },
-    { text: "Deriva f(x)=1/x.", options: ["-1/x^2", "1", "x", "1/x^2"], correct: 0, solution: "1/x = x^-1. Derivando: -1 x^-2 = -1/x^2." }
+    { text: "Deriva f(x)=x³.", options: ["3x²", "x²", "3x", "x⁴/4"], correct: 0, solution: "Resolución:\n1. Aplicamos la regla de la potencia: (xⁿ)'=n·xⁿ⁻¹.\n2. f'(x)=3x³⁻¹.\nResultado final: f'(x)=3x²." },
+    { text: "Deriva f(x)=5x-7.", options: ["5", "5x", "-7", "12"], correct: 0, solution: "Resolución:\n1. (5x)'=5.\n2. La derivada de la constante -7 es 0.\nResultado final: f'(x)=5." },
+    { text: "Deriva f(x)=x²+4x.", options: ["2x+4", "x+4", "2x", "x²+4"], correct: 0, solution: "Resolución:\n1. Derivamos término a término.\n2. (x²)'=2x y (4x)'=4.\nResultado final: f'(x)=2x+4." },
+    { text: "Si f'(a)=0, el punto de abscisa a puede ser...", options: ["Un extremo relativo", "Una asíntota vertical", "Un dominio vacío", "Una raíz siempre"], correct: 0, solution: "Resolución:\n1. Si una función derivable tiene un extremo relativo interior, su derivada se anula en ese punto.\n2. Por ello f'(a)=0 convierte a x=a en candidato a extremo, aunque después hay que estudiar el signo de f'.\nResultado final: puede ser un extremo relativo." },
+    { text: "Deriva f(x)=1/x.", options: ["-1/x²", "1", "x", "1/x²"], correct: 0, solution: "Resolución:\n1. Escribimos 1/x=x⁻¹.\n2. Aplicamos la regla de la potencia: (x⁻¹)'=-x⁻².\nResultado final: f'(x)=-1/x²." }
   ],
   integrales: [
     { text: "Calcula ∫ 3x² dx.", options: ["x³ + C", "6x + C", "3x³ + C", "x² + C"], correct: 0, solution: "Solución:\n1. Aplicamos la regla de la potencia.\n2. ∫3x²dx = 3·x³/3 = x³.\nResultado final: x³+C." },
-    { text: "Calcula integral de 5 dx.", options: ["5x + C", "5 + C", "x^5 + C", "0"], correct: 0, solution: "La integral de una constante k es kx + C." },
-    { text: "Calcula integral de 1/x dx.", options: ["ln|x| + C", "1/x^2 + C", "x + C", "-1/x + C"], correct: 0, solution: "La primitiva de 1/x es ln|x| + C." },
-    { text: "Una integral definida representa, geom?tricamente...", options: ["?rea con signo", "Pendiente", "Ra?z", "Moda"], correct: 0, solution: "La integral definida se interpreta como ?rea con signo bajo la curva." },
-    { text: "Calcula integral de 2x + 1 dx.", options: ["x^2 + x + C", "2 + C", "x^2 + C", "2x^2 + x + C"], correct: 0, solution: "Integramos t?rmino a t?rmino: integral de 2x es x^2; integral de 1 es x." }
+    { text: "Calcula ∫5 dx.", options: ["5x+C", "5+C", "x⁵+C", "0"], correct: 0, solution: "Resolución:\n1. La primitiva de una constante k es kx.\n2. Por tanto, ∫5dx=5x+C.\nResultado final: 5x+C." },
+    { text: "Calcula ∫(1/x) dx.", options: ["ln|x|+C", "1/x²+C", "x+C", "-1/x+C"], correct: 0, solution: "Resolución:\n1. Utilizamos la integral inmediata ∫(1/x)dx=ln|x|+C, válida para x≠0.\nResultado final: ln|x|+C." },
+    { text: "Una integral definida representa geométricamente...", options: ["Área con signo", "Pendiente", "Raíz", "Moda"], correct: 0, solution: "Resolución:\n1. La integral definida suma áreas infinitesimales entre la gráfica y el eje OX.\n2. Las zonas sobre el eje cuentan positivamente y las situadas debajo, negativamente.\nResultado final: representa un área con signo." },
+    { text: "Calcula ∫(2x+1) dx.", options: ["x²+x+C", "2+C", "x²+C", "2x²+x+C"], correct: 0, solution: "Resolución:\n1. Integramos término a término.\n2. ∫2x dx=x² y ∫1dx=x.\nResultado final: x²+x+C." }
   ],
   probabilidadBach: [
-    { text: "Si A y B son independientes, P(A?B) es...", options: ["P(A)P(B)", "P(A)+P(B)", "P(A)-P(B)", "1"], correct: 0, solution: "Para sucesos independientes, la probabilidad de la intersecci?n es el producto." },
-    { text: "Si P(A)=0,4 y P(B)=0,5 independientes, P(A?B)=...", options: ["0,2", "0,9", "0,1", "0,45"], correct: 0, solution: "Multiplicamos: 0,4 x 0,5 = 0,2." },
-    { text: "La probabilidad del suceso contrario de A es...", options: ["1 - P(A)", "P(A) - 1", "P(A)/2", "P(A)^2"], correct: 0, solution: "Entre un suceso y su contrario completan todo el espacio muestral: P(Ac)=1-P(A)." },
-    { text: "Si P(A)=0,7, entonces P(no A)=...", options: ["0,3", "0,7", "1,7", "-0,3"], correct: 0, solution: "P(no A)=1-0,7=0,3." },
-    { text: "La probabilidad condicionada P(A|B) se calcula como...", options: ["P(A?B)/P(B)", "P(A)/P(B)", "P(A)+P(B)", "P(B)/P(A)"], correct: 0, solution: "Por definici?n, P(A|B)=P(A?B)/P(B), siempre que P(B) no sea 0." }
+    { text: "Si A y B son independientes, P(A∩B) es...", options: ["P(A)·P(B)", "P(A)+P(B)", "P(A)-P(B)", "1"], correct: 0, solution: "Resolución:\n1. Por definición de independencia, la probabilidad de que ocurran ambos sucesos es el producto de sus probabilidades.\nResultado final: P(A∩B)=P(A)·P(B)." },
+    { text: "Si P(A)=0,4 y P(B)=0,5 son independientes, calcula P(A∩B).", options: ["0,2", "0,9", "0,1", "0,45"], correct: 0, solution: "Resolución:\n1. Al ser independientes, P(A∩B)=P(A)·P(B).\n2. P(A∩B)=0,4·0,5=0,2.\nResultado final: 0,2." },
+    { text: "La probabilidad del suceso contrario de A es...", options: ["1-P(A)", "P(A)-1", "P(A)/2", "P(A)²"], correct: 0, solution: "Resolución:\n1. A y su contrario Aᶜ son incompatibles y completan todo el espacio muestral.\n2. P(A)+P(Aᶜ)=1.\n3. Despejamos P(Aᶜ)=1-P(A).\nResultado final: 1-P(A)." },
+    { text: "Si P(A)=0,7, entonces P(Aᶜ)=...", options: ["0,3", "0,7", "1,7", "-0,3"], correct: 0, solution: "Resolución:\n1. Aplicamos P(Aᶜ)=1-P(A).\n2. P(Aᶜ)=1-0,7=0,3.\nResultado final: 0,3." },
+    { text: "La probabilidad condicionada P(A|B) se calcula como...", options: ["P(A∩B)/P(B)", "P(A)/P(B)", "P(A)+P(B)", "P(B)/P(A)"], correct: 0, solution: "Resolución:\n1. Restringimos el espacio muestral al suceso B.\n2. La parte favorable es la intersección A∩B.\nResultado final: P(A|B)=P(A∩B)/P(B), con P(B)≠0." }
   ],
   estadisticaBach: [
-    { text: "En una binomial B(n,p), la media es...", options: ["np", "n+p", "p/n", "n-p"], correct: 0, solution: "La esperanza de una binomial B(n,p) es n por p." },
-    { text: "En una normal t?pica N(0,1), la media es...", options: ["0", "1", "-1", "0,5"], correct: 0, solution: "La normal t?pica tiene media 0 y desviaci?n t?pica 1." },
-    { text: "Si X~B(10,0,5), la media es...", options: ["5", "10", "0,5", "2"], correct: 0, solution: "Media = np = 10 x 0,5 = 5." },
-    { text: "Un intervalo de confianza sirve para estimar...", options: ["Un par?metro poblacional", "Una derivada", "Un determinante", "Una ra?z exacta"], correct: 0, solution: "Los intervalos de confianza estiman par?metros de la poblaci?n, como una media o proporci?n." },
-    { text: "Si aumenta el tama?o muestral, el error t?pico normalmente...", options: ["Disminuye", "Aumenta", "No existe", "Se duplica siempre"], correct: 0, solution: "Al aumentar n, suele disminuir la variabilidad de la estimaci?n." }
+    { text: "En una binomial B(n,p), la media es...", options: ["n·p", "n+p", "p/n", "n-p"], correct: 0, solution: "Resolución:\n1. Una variable binomial cuenta éxitos en n ensayos independientes con probabilidad p.\n2. Su esperanza o media viene dada por μ=n·p.\nResultado final: n·p." },
+    { text: "En una normal típica N(0,1), la media es...", options: ["0", "1", "-1", "0,5"], correct: 0, solution: "Resolución:\n1. La notación N(μ,σ) identifica la media y la desviación típica.\n2. En N(0,1), μ=0 y σ=1.\nResultado final: la media es 0." },
+    { text: "Si X∼B(10; 0,5), la media es...", options: ["5", "10", "0,5", "2"], correct: 0, solution: "Resolución:\n1. En una distribución binomial, μ=n·p.\n2. Sustituimos n=10 y p=0,5: μ=10·0,5=5.\nResultado final: 5." },
+    { text: "Un intervalo de confianza sirve para estimar...", options: ["Un parámetro poblacional", "Una derivada", "Un determinante", "Una raíz exacta"], correct: 0, solution: "Resolución:\n1. Se calcula a partir de una muestra aleatoria.\n2. Proporciona un conjunto plausible de valores para una característica desconocida de la población.\nResultado final: estima un parámetro poblacional." },
+    { text: "Si aumenta el tamaño muestral, el error típico normalmente...", options: ["Disminuye", "Aumenta", "No existe", "Se duplica siempre"], correct: 0, solution: "Resolución:\n1. El error típico contiene el tamaño muestral en el denominador mediante √n.\n2. Al aumentar n, aumenta √n y disminuye el cociente.\nResultado final: el error típico disminuye." }
   ]
 };
 
@@ -9222,6 +11339,7 @@ function answerMultipartPart(partIndex, optionIndex) {
   if (state.multipartResponses.filter((response) => response !== undefined).length !== question.parts.length) return;
   clearQuestionTimer();
   state.answered = true;
+  markChallengeQuestionAnswered(question);
   const correctParts = state.multipartResponses.filter((response) => response.correct).length;
   state.score += correctParts * 100;
   state.streak = correctParts === question.parts.length ? state.streak + 1 : 0;
@@ -9254,6 +11372,7 @@ function answerQuestion(index) {
   const isCorrect = index === question.correct;
 
   state.answered = true;
+  markChallengeQuestionAnswered(question);
   state.score += isCorrect ? 100 + state.streak * 20 : 0;
   state.streak = isCorrect ? state.streak + 1 : 0;
   state.sessionAnswers.push({ question: question.text, correct: isCorrect, solution: question.solution || "" });
@@ -9284,6 +11403,7 @@ function completeOpenPauQuestion() {
   const questions = buildQuestions(theme, course);
   const question = questions[state.questionIndex];
   state.answered = true;
+  markChallengeQuestionAnswered(question);
   state.score += 100;
   state.streak += 1;
   state.sessionAnswers.push({ question: question.text, correct: true, solution: question.solution || "" });
@@ -9673,51 +11793,75 @@ function topicVideoVisual(scene) {
 }
 
 function currentTopicPodcast() {
-  return window.TOPIC_PODCASTS?.[state.courseId]?.[state.topicIndex] || null;
+  const podcasts = window.TOPIC_PODCASTS?.[state.courseId] || [];
+  if (!ESO_COURSE_IDS.includes(state.courseId)) return podcasts[state.topicIndex] || null;
+  const course = courseById(state.courseId);
+  const normalizedPodcastTitle = (value) => normalizeDisplayText(value)
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase();
+  const expectedTitle = normalizedPodcastTitle(course.themes[state.topicIndex] || "");
+  const semanticId = semanticTopicId(course, state.topicIndex);
+  const semanticTitleAliases = {
+    "1eso:fracciones-decimales": ["fracciones"]
+  };
+  const acceptedTitles = new Set([
+    expectedTitle,
+    ...(semanticTitleAliases[semanticId] || []).map(normalizedPodcastTitle)
+  ]);
+  return podcasts.find((podcast) => acceptedTitles.has(normalizedPodcastTitle(podcast?.title || ""))) || null;
+}
+
+function topicPodcastControlsHtml(course) {
+  const podcast = currentTopicPodcast();
+  const isBachillerato = course?.id?.includes("bach");
+  if (isBachillerato && !podcast?.master) {
+    return `
+      <section class="topic-podcast-inline is-pending" id="topic-podcast-inline" aria-label="Escuchar explicación">
+        <strong class="topic-podcast-inline-title">Escuchar explicación</strong>
+        <p class="topic-podcast-pending" role="status">Audio Master pendiente</p>
+      </section>`;
+  }
+  const versions = isBachillerato
+    ? [{ level: "master", icon: "★", label: "Master" }]
+    : [
+        { level: "express", icon: "⚡", label: "Express" },
+        { level: "master", icon: "★", label: "Master" }
+      ];
+  const versionButtons = versions.map(({ level, icon, label }) => {
+    const available = Boolean(podcast?.[level]);
+    const description = available
+      ? (level === "master" ? "Audio completo" : "Audio breve")
+      : "Próximamente";
+    return `
+      <button
+        type="button"
+        class="topic-podcast-inline-choice is-${level}"
+        data-podcast-level="${level}"
+        aria-pressed="false"
+        onclick="playTopicPodcast('${level}')"
+        ${available ? "" : "disabled"}
+      >
+        <span aria-hidden="true">${icon}</span>
+        <strong>${label}</strong>
+        <small>${description}</small>
+      </button>`;
+  }).join("");
+
+  return `
+    <section class="topic-podcast-inline" id="topic-podcast-inline" aria-label="Escuchar explicación">
+      <strong class="topic-podcast-inline-title">Escuchar explicación</strong>
+      <div class="topic-podcast-inline-options ${isBachillerato ? "is-master-only" : ""}" id="topic-podcast-intro">
+        ${versionButtons}
+      </div>
+      <div class="topic-podcast-inline-player" id="topic-podcast-player" hidden></div>
+    </section>`;
 }
 
 function openTopicPodcastSelector() {
-  closeTopicPodcast();
-  closeTopicVideo();
-  stopSummarySpeech();
-  const course = courseById(state.courseId);
-  const theme = course?.themes?.[state.topicIndex] || "Tema";
-  const podcast = currentTopicPodcast();
-  const modal = document.createElement("section");
-  modal.id = "topic-podcast-modal";
-  modal.className = "topic-podcast-modal";
-  modal.setAttribute("role", "dialog");
-  modal.setAttribute("aria-modal", "true");
-  modal.setAttribute("aria-label", `Pódcast del tema ${theme}`);
-  modal.innerHTML = `
-    <button class="topic-podcast-backdrop" onclick="closeTopicPodcast()" aria-label="Cerrar pódcast"></button>
-    <article class="topic-podcast-card">
-      <header class="topic-podcast-head">
-        <div>
-          <span>${escapeHtml(courseDisplayName(course))} · Pódcast del tema</span>
-          <h2>${escapeHtml(podcast?.title || theme)}</h2>
-        </div>
-        <button class="ghost compact-btn" onclick="closeTopicPodcast()">Cerrar</button>
-      </header>
-      <div class="topic-podcast-intro" id="topic-podcast-intro">
-        <p>Elige cómo quieres escuchar la explicación.</p>
-        <div class="topic-podcast-options">
-          <button class="topic-podcast-option is-express" onclick="playTopicPodcast('express')" ${podcast?.express ? "" : "disabled"}>
-            <span class="topic-podcast-icon" aria-hidden="true">⚡</span>
-            <strong>Express</strong>
-            <small>${podcast?.express ? "Resumen directo del tema" : "Próximamente"}</small>
-          </button>
-          <button class="topic-podcast-option is-master" onclick="playTopicPodcast('master')" ${podcast?.master ? "" : "disabled"}>
-            <span class="topic-podcast-icon" aria-hidden="true">★</span>
-            <strong>Master</strong>
-            <small>${podcast?.master ? "Explicación completa y avanzada" : "Próximamente"}</small>
-          </button>
-        </div>
-      </div>
-      <div class="topic-podcast-player" id="topic-podcast-player" hidden></div>
-    </article>`;
-  document.body.appendChild(modal);
-  document.body.classList.add("topic-podcast-open");
+  const controls = document.getElementById("topic-podcast-inline");
+  controls?.scrollIntoView({ behavior: "smooth", block: "nearest" });
+  controls?.querySelector("button:not(:disabled)")?.focus();
 }
 
 function playTopicPodcast(level) {
@@ -9731,31 +11875,54 @@ function playTopicPodcast(level) {
   const intro = document.getElementById("topic-podcast-intro");
   const player = document.getElementById("topic-podcast-player");
   if (!player) return;
-  if (intro) intro.hidden = true;
+  intro?.querySelectorAll("[data-podcast-level]").forEach((button) => {
+    const selected = button.dataset.podcastLevel === level;
+    button.classList.toggle("is-playing", selected);
+    button.setAttribute("aria-pressed", selected ? "true" : "false");
+  });
   player.hidden = false;
   player.innerHTML = `
     <div class="topic-podcast-now-playing">
       <span class="topic-podcast-cover" aria-hidden="true">${level === "master" ? "★" : "⚡"}</span>
       <div><small>Reproduciendo · ${level === "master" ? "Master" : "Express"}</small><strong>${escapeHtml(podcast.title)}</strong></div>
+      <button type="button" class="topic-podcast-stop" onclick="stopTopicPodcastPlayback()" aria-label="Parar el audio">
+        <span aria-hidden="true">■</span> Parar
+      </button>
     </div>
     <audio id="topic-podcast-audio" controls preload="metadata" src="${escapeHtml(src)}">
       Tu navegador no puede reproducir este archivo de audio.
-    </audio>
-    <div class="topic-podcast-player-actions">
-      <button class="ghost" onclick="showTopicPodcastOptions()">Elegir otra versión</button>
-      <button class="primary" onclick="closeTopicPodcast()">Volver al reto</button>
-    </div>`;
+    </audio>`;
   topicPodcastAudio = document.getElementById("topic-podcast-audio");
-  topicPodcastAudio?.play()?.catch(() => {
-    // Si el navegador bloquea el inicio automático, el alumno puede pulsar Reproducir.
-  });
+  topicPodcastAudio?.play().catch(() => {});
+}
+
+function stopTopicPodcastPlayback() {
+  if (topicPodcastAudio) {
+    topicPodcastAudio.pause();
+    topicPodcastAudio.currentTime = 0;
+  }
+  showTopicPodcastOptions();
+}
+
+function stopAllAppMedia() {
+  if (topicPodcastAudio) {
+    topicPodcastAudio.pause();
+    topicPodcastAudio.removeAttribute("src");
+    topicPodcastAudio.load?.();
+  }
+  topicPodcastAudio = null;
+  document.querySelectorAll("audio, video").forEach((media) => media.pause?.());
+  if ("speechSynthesis" in window) window.speechSynthesis.cancel();
 }
 
 function showTopicPodcastOptions() {
   if (topicPodcastAudio) topicPodcastAudio.pause();
   const intro = document.getElementById("topic-podcast-intro");
   const player = document.getElementById("topic-podcast-player");
-  if (intro) intro.hidden = false;
+  intro?.querySelectorAll("[data-podcast-level]").forEach((button) => {
+    button.classList.remove("is-playing");
+    button.setAttribute("aria-pressed", "false");
+  });
   if (player) {
     player.hidden = true;
     player.innerHTML = "";
@@ -9770,8 +11937,7 @@ function closeTopicPodcast() {
     topicPodcastAudio.load?.();
   }
   topicPodcastAudio = null;
-  document.getElementById("topic-podcast-modal")?.remove();
-  document.body?.classList.remove("topic-podcast-open");
+  showTopicPodcastOptions();
 }
 
 function openTopicVideo() {
@@ -10220,7 +12386,7 @@ function renderAdmin() {
         </div>
         <div class="topic-actions">
           <button class="secondary" onclick="downloadReports()">Descargar CSV</button>
-          <button class="ghost" onclick="renderLogin()">Salir</button>
+          <button class="ghost" onclick="publicLogout()">Salir</button>
         </div>
       </div>
       <div class="admin-toolbar">
@@ -10279,7 +12445,7 @@ function renderAdminGroupPanel(reports) {
       </div>
       <table class="admin-table">
         <thead>
-          <tr><th>Alumno</th><th>Grupo</th><th>Retos hechos</th><th>Mejor puntuación</th><th>Ãšltimo tema</th><th>Ãšltima sesión</th></tr>
+          <tr><th>Alumno</th><th>Grupo</th><th>Retos hechos</th><th>Mejor puntuación</th><th>Último tema</th><th>Última sesión</th></tr>
         </thead>
         <tbody>${rows}</tbody>
       </table>
@@ -10346,7 +12512,7 @@ function renderAdminAllPanel(reports) {
     <div class="admin-section">
       <table class="admin-table">
         <thead>
-          <tr><th>Alumno</th><th>Grupo</th><th>Retos hechos</th><th>Mejor puntuación</th><th>Ãšltimo tema</th><th>Ãšltima sesión</th></tr>
+          <tr><th>Alumno</th><th>Grupo</th><th>Retos hechos</th><th>Mejor puntuación</th><th>Último tema</th><th>Última sesión</th></tr>
         </thead>
         <tbody>${rows}</tbody>
       </table>
@@ -10498,7 +12664,10 @@ document.addEventListener("click", (event) => {
   if (!event.target.closest?.(".avatar-visual-select")) closeAvatarDropdowns();
 });
 
-renderLogin();
+window.addEventListener("pagehide", stopAllAppMedia);
+window.addEventListener("beforeunload", stopAllAppMedia);
+stopAllAppMedia();
+window.addEventListener("load", () => window.bootstrapPublicAuth?.());
 
 
 

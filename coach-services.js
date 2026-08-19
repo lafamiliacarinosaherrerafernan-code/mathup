@@ -5,6 +5,18 @@
   const ELIGIBLE_COURSES = new Set(["1eso", "2eso", "3eso", "4eso-a", "4eso-b", "1bach-mates", "1bach-ccss"]);
   const data = window.MARGARITA_COACH_DATA;
 
+  // Relación explícita entre los temas pedagógicos del entrenador y los
+  // índices reales del temario. No se infiere la pertenencia por palabras.
+  const COURSE_TOPIC_INDEXES = {
+    "1eso": { "hierarchy": [0], "mixed-operations": [0], "integers": [1], "powers-roots": [2], "fractions": [3], "algebra": [4], "proportionality": [5], "percentages": [5], "geometry": [6, 7, 8], "areas-volumes": [7, 8], "functions": [9] },
+    "2eso": { "mixed-operations": [0], "integers": [0], "powers-roots": [1], "fractions": [2], "proportionality": [3], "percentages": [3], "algebra": [4], "equations": [5], "systems": [5], "geometry": [6, 7], "areas-volumes": [6, 7], "functions": [8] },
+    "3eso": { "real-numbers": [0], "powers-roots": [1], "algebra": [2], "equations-systems-3eso": [3], "proportionality": [4], "sequences": [5], "geometry-3eso": [6], "functions": [7], "statistics": [8], "probability": [9] },
+    "4eso-a": { "real-numbers": [0], "mixed-operations": [0], "powers-roots": [1], "radicals": [1], "proportionality": [2], "algebra": [3], "equations": [4], "systems": [5], "geometry": [6, 7], "trigonometry": [6], "areas-volumes": [7], "functions": [8] },
+    "4eso-b": { "real-numbers": [0], "mixed-operations": [0], "powers-roots": [1], "radicals": [1], "algebra": [2], "equations": [3, 4], "systems": [3, 4], "proportionality": [5], "geometry": [6, 8], "trigonometry": [7], "analytic-geometry": [8], "functions": [9], "limits": [10, 12], "derivatives": [11], "combinatorics": [13] },
+    "1bach-mates": { "real-numbers": [0], "complex-numbers": [1], "algebra": [2], "equations": [2], "systems": [2], "trigonometry": [3], "analytic-geometry": [4], "geometry": [4], "conics": [5], "functions": [6], "limits": [7], "continuity": [7], "derivatives": [8, 9], "statistics-probability": [10] },
+    "1bach-ccss": { "statistics": [0], "probability": [1], "binomial": [2], "normal-distribution": [3], "statistics-probability": [0, 1, 2, 3], "real-numbers": [4], "complex-numbers": [5], "algebra": [6, 7], "equations": [6], "systems": [6], "inequalities": [7], "functions": [8], "ccss-derivatives": [9], "derivative-applications": [10], "combinatorics": [11] }
+  };
+
   function clone(value) {
     return JSON.parse(JSON.stringify(value));
   }
@@ -91,8 +103,15 @@
     return data.topics[topicId]?.label || topicId;
   }
 
-  function inferTopicId(theme) {
+  function inferTopicId(theme, courseId = "") {
     const lower = normalizeDisplayText(theme || "").toLowerCase();
+    if (courseId === "3eso") {
+      if (/ecuacion.*sistema|sistema.*ecuacion/.test(lower)) return "equations-systems-3eso";
+      if (/sucesion/.test(lower)) return "sequences";
+      if (/cuerpo.*geometr/.test(lower)) return "geometry-3eso";
+      if (/estad/.test(lower)) return "statistics";
+      if (/probab/.test(lower)) return "probability";
+    }
     if (/primo/.test(lower)) return "primes";
     if (/divis/.test(lower)) return "divisibility";
     if (/mcd|mcm|multiplo|factor/.test(lower)) return "mcd-mcm";
@@ -104,10 +123,13 @@
     if (/sistema/.test(lower)) return "systems";
     if (/algebra|expresion/.test(lower)) return "algebra";
     if (/trigono/.test(lower)) return "trigonometry";
+    if (/conica/.test(lower)) return "conics";
+    if (/combinatoria/.test(lower)) return "combinatorics";
     if (/geometr|area|volumen|cuerpo|figura|semejanza/.test(lower)) return "geometry";
     if (/funcion/.test(lower)) return "functions";
     if (/limite/.test(lower)) return "limits";
     if (/continui/.test(lower)) return "continuity";
+    if (/aplicacion.*deriv|deriv.*aplicacion/.test(lower)) return "derivative-applications";
     if (/deriv/.test(lower)) return "derivatives";
     if (/complejo/.test(lower)) return "complex-numbers";
     if (/estad|probab|distribu/.test(lower)) return "statistics-probability";
@@ -119,7 +141,8 @@
     if (!question?.options?.length || question.options.length !== 4) return null;
     const topic = topicOverride || inferTopicId(theme);
     return {
-      id: question.id || `adapted-${course.id}-${topic}-${index}-${Math.abs(hashText(question.text || ""))}`,
+      ...question,
+      id: question.exerciseId || question.id || `adapted-${course.id}-${topic}-${index}-${Math.abs(hashText(question.text || ""))}`,
       course: course.id,
       topic,
       subtopic: theme || topicLabel(topic),
@@ -173,6 +196,13 @@
   function courseDiagnostic(course) {
     if (course.id === "1eso") {
       return distributeCorrectAnswerPositions(data.firstEsoDiagnostic.map(firstEsoQuestion));
+    }
+    if (course.id === "3eso") {
+      const priorities = data.coursePriorities[course.id] || [];
+      const questions = priorities
+        .map((topic) => poolForRecommendedDifficulty(questionsForTopic(course, topic), 1)[0])
+        .filter(Boolean);
+      return distributeCorrectAnswerPositions(questions.slice(0, 10));
     }
     const questions = [];
     course.themes.forEach((theme, themeIndex) => {
@@ -250,7 +280,9 @@
       if (mastery[topic]?.attempts && accuracy < 0.70) {
         (data.topics[topic]?.prerequisites || []).forEach((prerequisite) => {
           const required = data.topics[topic]?.minimumMasteryRequired || 0.70;
-          if ((mastery[prerequisite]?.accuracy || 0) < required) gaps.add(prerequisite);
+          const hasCourseRoute = priorities.includes(prerequisite)
+            && (COURSE_TOPIC_INDEXES[state.courseId]?.[prerequisite] || []).length > 0;
+          if (hasCourseRoute && (mastery[prerequisite]?.accuracy || 0) < required) gaps.add(prerequisite);
         });
       }
     });
@@ -312,18 +344,102 @@
   };
 
   function questionsForTopic(course, topic) {
-    const special = course.id === "1eso" ? (criticalPractice[topic] || []).map(firstEsoQuestion) : [];
-    const matchingThemes = course.themes.filter((theme) => inferTopicId(theme) === topic || normalizeDisplayText(theme).toLowerCase().includes(normalizeDisplayText(topicLabel(topic)).toLowerCase().split(" ")[0]));
-    const adapted = matchingThemes.flatMap((theme) => pickExerciseBank(theme.toLowerCase(), course.id)
-      .map((question, index) => adaptQuestion(question, course, theme, index, topic))
-      .filter(Boolean));
-    return [...special, ...adapted];
+    const special = course.id === "1eso"
+      ? (criticalPractice[topic] || [])
+        .map(firstEsoQuestion)
+        .map((question) => window.MargaritaExerciseSelector.decorateExerciseForTopic(question, course, 0, "coach-diagnostic-bank"))
+        .filter(Boolean)
+      : [];
+    const firstEsoMicroTopic = course.id === "1eso" && ["primes", "divisibility", "factors", "mcd-mcm"].includes(topic);
+    const allowedIndexes = firstEsoMicroTopic ? [] : (COURSE_TOPIC_INDEXES[course.id]?.[topic] || []);
+    const matchingThemes = allowedIndexes
+      .filter((themeIndex) => course.themes[themeIndex])
+      .map((themeIndex) => ({ theme: course.themes[themeIndex], themeIndex }));
+    const adapted = matchingThemes.flatMap(({ theme, themeIndex }) => {
+      const lower = theme.toLowerCase();
+      const sourcePool = course.id === "1bach-mates" || course.id === "1bach-ccss"
+        ? [...firstBachBankByTopic(course.id, themeIndex), ...firstBachExtensionBankByTopic(course.id, themeIndex)]
+        : [...(window.MargaritaEsoExamVerified?.build?.(course.id, theme) || [])];
+      if (course.id === "3eso") {
+        // El entrenador debe poder trabajar con el banco real completo de
+        // 3.º ESO: práctica original, ejercicios verificados y ampliación A/B.
+        sourcePool.push(...(window.MargaritaEsoOriginalPractice?.all?.(course.id, theme) || []));
+        sourcePool.push(...(window.MargaritaEso3ApprovedABPractice?.all?.(course.id, theme) || []));
+      }
+      sourcePool.push(...(window.MargaritaFirstBachVariety?.build?.(course.id, theme) || []));
+      sourcePool.push(...(window.MargaritaCombinatoricsSupplied?.build?.(course.id, theme) || []));
+      if (isEsoCourseId(course.id)) {
+        for (let seed = 0; seed < 40; seed += 1) {
+          const progression = seed % 10;
+          const difficulty = seed < 12 ? "easy" : seed < 28 ? "medium" : "hard";
+          sourcePool.push(generatedEsoDifficultyQuestion(
+            lower,
+            course.id,
+            difficulty,
+            themeIndex * 100003 + seed * 7919,
+            progression,
+            progression
+          ));
+        }
+      }
+      const decoratedPool = sourcePool
+        .map((question) => window.MargaritaExerciseSelector.decorateExerciseForTopic(question, course, themeIndex, "coach-bank"))
+        .filter((question) => window.MargaritaExerciseSelector.exerciseMatchesTopic(question, course.id, themeIndex));
+      return window.MargaritaExerciseSelector.availableTopicQuestions({
+        course,
+        topicIndex: themeIndex,
+        questions: decoratedPool,
+        sourceType: "coach-bank",
+        historyMode: "coach"
+      })
+        .map((question, index) => adaptQuestion(question, course, theme, index, topic))
+        .filter(Boolean);
+    });
+    const seen = new Set();
+    return [...special, ...adapted].filter((question) => {
+      const identity = question.id || `${question.topic}|${question.text}`;
+      if (!identity || seen.has(identity)) return false;
+      seen.add(identity);
+      return true;
+    });
+  }
+
+  function previouslyUsedCoachQuestionIds(studentData) {
+    const ids = new Set();
+    (studentData.studySessions || []).forEach((session) => {
+      (session.activities || []).forEach((activity) => {
+        if (activity?.id) ids.add(activity.id);
+      });
+    });
+    (studentData.activityResults || []).forEach((result) => {
+      if (result?.questionId) ids.add(result.questionId);
+    });
+    return ids;
+  }
+
+  function questionDifficultyRank(question) {
+    const value = String(question?.challengeLevel || question?.difficulty || "").toLowerCase();
+    if (value === "master" || value === "hard" || value === "3") return 3;
+    if (value === "medium" || value === "2") return 2;
+    if (value === "apprentice" || value === "easy" || value === "1") return 1;
+    const numeric = Number(question?.difficulty);
+    return Number.isFinite(numeric) ? Math.max(1, Math.min(3, Math.round(numeric))) : 2;
+  }
+
+  function poolForRecommendedDifficulty(pool, recommendedDifficulty) {
+    const target = Math.max(1, Math.min(3, Number(recommendedDifficulty) || 1));
+    const exact = pool.filter((question) => questionDifficultyRank(question) === target);
+    if (exact.length) return exact;
+    return [...pool].sort((left, right) => (
+      Math.abs(questionDifficultyRank(left) - target) - Math.abs(questionDifficultyRank(right) - target)
+    ));
   }
 
   function selectSessionTopics(studentData) {
     const priorities = data.coursePriorities[state.courseId] || [];
     const profile = studentData.learningProfile;
-    const gap = profile.prerequisiteGaps[0];
+    const gap = profile.prerequisiteGaps.find((topic) => priorities.includes(topic)
+      && (COURSE_TOPIC_INDEXES[state.courseId]?.[topic] || []).length > 0);
     const weak = gap || profile.priorityTopics[0] || priorities.find((topic) => !profile.masteredTopics.includes(topic)) || priorities[0];
     const consolidation = profile.reviewTopics.find((topic) => topic !== weak)
       || priorities.find((topic) => topic !== weak && profile.topicMastery[topic]?.attempts)
@@ -357,11 +473,17 @@
     const selected = selectSessionTopics(studentData);
     const layout = sessionLayout(duration, selected);
     const used = new Set();
+    const previouslyUsed = previouslyUsedCoachQuestionIds(studentData);
     const diagnosticFallback = courseDiagnostic(course);
     const activities = layout.map((slot, index) => {
       const pool = questionsForTopic(course, slot.topic);
-      const available = pool.find((question) => !used.has(question.id))
-        || pool[index % Math.max(1, pool.length)]
+      const difficultyPool = poolForRecommendedDifficulty(pool, studentData.learningProfile.recommendedDifficulty);
+      const notUsedBefore = difficultyPool.filter((question) => !previouslyUsed.has(question.id));
+      const activePool = notUsedBefore.length ? notUsedBefore : difficultyPool;
+      const available = activePool.find((question) => !used.has(question.id))
+        || difficultyPool.find((question) => !used.has(question.id))
+        || difficultyPool[index % Math.max(1, difficultyPool.length)]
+        || pool.find((question) => !used.has(question.id))
         || diagnosticFallback[index % Math.max(1, diagnosticFallback.length)]
         || firstEsoQuestion(data.firstEsoDiagnostic[index % data.firstEsoDiagnostic.length]);
       used.add(available.id);
@@ -387,6 +509,7 @@
     return updateStudentData((studentData) => {
       const activityResults = answers.map((answer, index) => ({
         id: `activity-${Date.now()}-${index}`,
+        questionId: answer.question.id,
         sessionId: session.id,
         topic: answer.question.topic,
         subtopic: answer.question.subtopic,
@@ -479,4 +602,14 @@
       FutureAiCoachProvider
     }
   };
+  if (window.__MARGARITA_ENABLE_AUDIT__) {
+    window.MargaritaCoach.__audit = {
+      questionsForTopic,
+      previouslyUsedCoachQuestionIds,
+      questionDifficultyRank,
+      poolForRecommendedDifficulty,
+      selectSessionTopics,
+      inferTopicId
+    };
+  }
 }());

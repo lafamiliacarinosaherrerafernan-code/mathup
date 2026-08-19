@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prueba de Resolver a mano</title>
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="../math-notation.css">
+  <link rel="stylesheet" href="../handwriting-board.css">
+</head>
+<body>
+  <main>
+    <section class="app-grid">
+      <aside class="screen-panel">
+        <button class="ghost">Volver a temas</button>
+        <section class="challenge-student-card" aria-label="Datos del alumno y del curso">
+          <div class="challenge-student-top">
+            <div class="challenge-course-summary"><small>Curso</small><strong>2.º Bachillerato CCSS II</strong></div>
+            <div class="challenge-student-identity">
+              <div class="challenge-student-avatar" aria-hidden="true"></div>
+              <strong>Alumna de prueba</strong>
+              <button class="challenge-edit-avatar">Editar avatar</button>
+            </div>
+          </div>
+          <div class="challenge-score-row">
+            <span><small>Puntuación</small><strong>40</strong></span>
+            <span><small>Racha</small><strong>3</strong></span>
+            <span><small>Progreso</small><strong>3/8</strong></span>
+          </div>
+        </section>
+        <div class="progress challenge-sidebar-progress"><span style="width:38%"></span></div>
+        <div class="sidebar-actions">
+          <button class="secondary">Leer explicación del tema</button>
+          <section class="topic-podcast-inline" aria-label="Escuchar explicación">
+            <strong class="topic-podcast-inline-title">Escuchar explicación</strong>
+            <div class="topic-podcast-inline-options">
+              <button class="topic-podcast-inline-choice"><span>⚡</span><strong>Express</strong><small>Audio breve</small></button>
+              <button class="topic-podcast-inline-choice"><span>★</span><strong>Master</strong><small>Audio completo</small></button>
+            </div>
+          </section>
+        </div>
+        <div class="resource-note">Material complementario del tema.</div>
+      </aside>
+      <section class="study-layout challenge-only">
+        <div class="screen-panel game-panel">
+          <div class="question-box">
+            <div class="question-meta"><span>Pregunta 3 de 8</span></div>
+            <div class="official-source">Enunciado original · PAU Matemáticas II · Convocatoria: Junio 2025</div>
+            <div class="question-text">
+              <p>Calcula el área limitada por la función y el eje de abscisas:</p>
+              <p><math display="block"><mrow><mi>f</mi><mo>(</mo><mi>x</mi><mo>)</mo><mo>=</mo><mfrac><mrow><msup><mi>x</mi><mn>2</mn></msup><mo>−</mo><mn>1</mn></mrow><mrow><mi>x</mi><mo>+</mo><mn>2</mn></mrow></mfrac></mrow></math></p>
+              <svg viewBox="0 0 360 100" role="img" aria-label="Gráfica incluida en el enunciado" style="width:min(100%,360px);height:100px">
+                <line x1="15" y1="72" x2="345" y2="72" stroke="#234" stroke-width="2"/>
+                <path d="M25 65 Q110 15 180 72 Q255 118 335 30" fill="none" stroke="#155fbd" stroke-width="4"/>
+              </svg>
+              <p>a) Determina los puntos de corte. &nbsp; b) Calcula el área exacta.</p>
+            </div>
+            <div id="handwriting-mount"></div>
+          </div>
+        </div>
+      </section>
+    </section>
+  </main>
+  <script src="../handwriting-ink.js"></script>
+  <script src="../handwriting-board.js"></script>
+  <script>
+    document.getElementById("handwriting-mount").innerHTML = MargaritaHandwriting.render({ exerciseKey: "audit-handwriting-exercise" });
+  </script>
+</body>
+</html>
