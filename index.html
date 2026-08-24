@@ -4,26 +4,28 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>+MathUp · Aula de retos, estudio y aventuras</title>
-    <link rel="icon" type="image/png" href="assets/mathup-icon.png" />
+    <link rel="icon" type="image/png" href="assets/mathup-mark.png" />
+    <link rel="manifest" href="manifest.webmanifest" />
+    <meta name="theme-color" content="#102353" />
     <link rel="stylesheet" href="styles.css?v=20260818-mathup-brand-3" />
     <link rel="stylesheet" href="avatar-modern.css?v=20260719-pelos-manchas-62" />
     <link rel="stylesheet" href="avatar-species.css?v=20260719-caras-buho-gato-63" />
     <link rel="stylesheet" href="topic-illustrations.css?v=20260715-bloques-ordenados-38" />
     <link rel="stylesheet" href="math-notation.css?v=20260813-funciones-trozos-70" />
     <link rel="stylesheet" href="coach.css?v=20260721-diagnostico-compacto-2" />
-    <link rel="stylesheet" href="public-auth.css?v=20260819-centros-toledo-1" />
-    <link rel="stylesheet" href="developer-mode.css?v=20260722-indice-pruebas-2" />
+    <link rel="stylesheet" href="public-auth.css?v=20260820-owner-mfa-3" />
+    <link rel="stylesheet" href="developer-mode.css?v=20260820-owner-filters-1" />
     <link rel="stylesheet" href="handwriting-board.css?v=20260813-superindices-clasificacion-5" />
     <link rel="stylesheet" href="myscript-evaluation.css?v=20260813-fase2d-1" />
     <link rel="stylesheet" href="mathup-brand.css?v=20260818-brand-5" />
   </head>
   <body>
-    <div id="app"></div>
+    <div id="app"><main style="min-height:100vh;display:grid;place-items:center;padding:32px;color:#102353;font:700 22px system-ui,sans-serif">Cargando +MathUp…</main></div>
     <div id="sparkles" aria-hidden="true"></div>
   <script src="config.public.js"></script>
   <script src="config.local.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-    <script src="supabase-client.js?v=20260819-centros-toledo-1"></script>
+    <script src="assets/supabase-2.57.4.min.js?v=20260820-local-1"></script>
+    <script src="supabase-client.js?v=20260820-owner-filters-1"></script>
     <script src="data/topic-explanations.js?v=20260715-bloques-ordenados-38"></script>
     <script src="data/ccss-i-topic-remap.js?v=20260809-temas-10-12-1"></script>
     <script src="data/ccss-i-progress-migration.js?v=20260809-progreso-temas-2"></script>
@@ -158,13 +160,14 @@
     <script src="math-renderer.js?v=20260813-funciones-trozos-29"></script>
     <script src="data/madrid-pau-bank.js?v=20260818-madrid-pau-2"></script>
     <script src="data/madrid-pau-authored.js?v=20260818-madrid-authored-1"></script>
-    <script src="app.js?v=20260818-madrid-pau-1"></script>
+    <script src="app.js?v=20260820-mathup-brand-1"></script>
     <script src="bach-exam.js?v=20260818-madrid-pau-1"></script>
     <script src="first-bach-exam.js?v=20260818-preguntas-4-8-2"></script>
     <script src="eso-exam.js?v=20260818-layout-compacto-1"></script>
     <script src="coach-services.js?v=20260809-p0-eso-1"></script>
     <script src="coach-ui.js?v=20260818-examen-4-8-1"></script>
-    <script src="public-auth.js?v=20260819-centros-toledo-1"></script>
-    <script src="developer-mode.js?v=20260722-indice-pruebas-2"></script>
+    <script src="pwa.js?v=20260820-install-1"></script>
+    <script src="public-auth.js?v=20260820-owner-mfa-4"></script>
+    <script src="developer-mode.js?v=20260820-owner-filters-1"></script>
   </body>
 </html>

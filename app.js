@@ -1499,7 +1499,7 @@ function formatMathText(value) {
 
 const mathNotationRenderer = window.MargaritaMathRenderer;
 if (!mathNotationRenderer) {
-  throw new Error("No se ha cargado el renderizador matemático común de Margarita Salas.");
+  throw new Error("No se ha cargado el renderizador matemático común de +MathUp.");
 }
 
 normalizeMathNotation = function normalizeMathNotationWithCommonRenderer(value, options = {}) {
@@ -12667,7 +12667,6 @@ document.addEventListener("click", (event) => {
 window.addEventListener("pagehide", stopAllAppMedia);
 window.addEventListener("beforeunload", stopAllAppMedia);
 stopAllAppMedia();
-window.addEventListener("load", () => window.bootstrapPublicAuth?.());
 
 
 

@@ -391,6 +391,32 @@ as $$
   select role from public.platform_admins where user_id = auth.uid();
 $$;
 
+create or replace function public.require_admin_access(
+  p_allowed_roles text[] default array['owner', 'developer']::text[]
+)
+returns text
+language plpgsql
+stable
+security definer
+set search_path = ''
+as $$
+declare
+  admin_role text;
+  requires_mfa boolean;
+begin
+  select role, mfa_required into admin_role, requires_mfa
+    from public.platform_admins
+   where user_id = auth.uid() and role = any(p_allowed_roles);
+  if not found then
+    raise exception 'Acceso administrativo no autorizado' using errcode = '42501';
+  end if;
+  if requires_mfa and coalesce(auth.jwt()->>'aal', 'aal1') <> 'aal2' then
+    raise exception 'Se requiere doble factor para la administración' using errcode = '42501';
+  end if;
+  return admin_role;
+end;
+$$;
+
 create or replace function public.admin_dashboard_stats()
 returns jsonb
 language plpgsql
@@ -400,12 +426,7 @@ set search_path = ''
 as $$
 declare result jsonb;
 begin
-  if not exists (
-    select 1 from public.platform_admins
-     where user_id = auth.uid() and role in ('owner', 'developer')
-  ) then
-    raise exception 'Acceso administrativo no autorizado' using errcode = '42501';
-  end if;
+  perform public.require_admin_access(array['owner', 'developer']::text[]);
 
   select jsonb_build_object(
     'registeredUsers', (select count(*) from public.profiles where is_demo = false),
@@ -431,6 +452,7 @@ revoke all on function public.claim_app_session(uuid) from public, anon;
 revoke all on function public.heartbeat_app_session(uuid) from public, anon;
 revoke all on function public.release_app_session(uuid) from public, anon;
 revoke all on function public.get_my_admin_role() from public, anon;
+revoke all on function public.require_admin_access(text[]) from public, anon, authenticated;
 revoke all on function public.admin_dashboard_stats() from public, anon;
 grant execute on function public.claim_app_session(uuid) to authenticated;
 grant execute on function public.heartbeat_app_session(uuid) to authenticated;

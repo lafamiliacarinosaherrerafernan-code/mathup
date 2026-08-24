@@ -10,23 +10,228 @@ let developerChecklist = new Set();
 let developerSupabaseCheckId = 0;
 let developerSupabaseConnectionState = "idle";
 let developerSelectedCourseId = "1eso";
+let ownerDashboardStats = null;
+let ownerExplorerData = { students: [], activityByDay: [], recentErrors: [], periodDays: 30 };
+let ownerFilters = { days: 30, student: "", course: "", province: "", municipality: "" };
 
 function canUseDeveloperTools() {
   return DEVELOPER_MODE || ["owner", "developer"].includes(window.MATHUP_VERIFIED_ADMIN_ROLE);
 }
 
+function formatOwnerDuration(totalSeconds) {
+  const seconds = Math.max(0, Number(totalSeconds) || 0);
+  if (seconds < 60) return `${Math.round(seconds)} s`;
+  const hours = Math.floor(seconds / 3600);
+  const minutes = Math.round((seconds % 3600) / 60);
+  return hours ? `${hours} h ${minutes} min` : `${minutes} min`;
+}
+
+function ownerStatList(items, emptyText = "Aún no hay datos suficientes.") {
+  if (!items?.length) return `<p class="owner-empty-state">${escapeHtml(emptyText)}</p>`;
+  return `<ul class="owner-stat-list">${items.map((item) => `<li><span>${escapeHtml(item.label)}</span><strong>${Number(item.count) || 0}</strong></li>`).join("")}</ul>`;
+}
+
+function ownerCourseName(courseCode) {
+  const course = courses.find((item) => item.id === courseCode);
+  return course ? courseDisplayName(course) : courseCode;
+}
+
+function ownerSelectOptions(values, placeholder, selected = "") {
+  const clean=[...new Set(values.filter(Boolean))].sort((a,b)=>String(a).localeCompare(String(b),"es",{sensitivity:"base"}));
+  return `<option value="">${escapeHtml(placeholder)}</option>${clean.map(value=>`<option value="${escapeHtml(value)}" ${value===selected?"selected":""}>${escapeHtml(value)}</option>`).join("")}`;
+}
+
+function ownerFilteredStudents() {
+  return (ownerExplorerData.students||[]).filter(student=>(
+    (!ownerFilters.student||student.userId===ownerFilters.student)&&
+    (!ownerFilters.course||student.courseCode===ownerFilters.course)&&
+    (!ownerFilters.province||student.province===ownerFilters.province)&&
+    (!ownerFilters.municipality||student.municipality===ownerFilters.municipality)
+  ));
+}
+
+function ownerPopulateFilterControls() {
+  const students=ownerExplorerData.students||[];
+  const studentSelect=document.getElementById("owner-filter-student");
+  const courseSelect=document.getElementById("owner-filter-course");
+  const provinceSelect=document.getElementById("owner-filter-province");
+  if(studentSelect)studentSelect.innerHTML=`<option value="">Todo el alumnado</option>${students.map(student=>`<option value="${escapeHtml(student.userId)}" ${student.userId===ownerFilters.student?"selected":""}>${escapeHtml(student.displayName||student.email||"Sin nombre")} · ${escapeHtml(student.email||"")}</option>`).join("")}`;
+  if(courseSelect)courseSelect.innerHTML=ownerSelectOptions(students.map(student=>student.courseCode),"Todos los cursos",ownerFilters.course).replaceAll(/>([^<]+)</g,(match,label)=>label&&label!=="Todos los cursos"?`>${escapeHtml(ownerCourseName(label))}<`:match);
+  if(provinceSelect)provinceSelect.innerHTML=ownerSelectOptions(students.map(student=>student.province),"Todas las provincias",ownerFilters.province);
+  ownerUpdateMunicipalityOptions(false);
+}
+
+function ownerUpdateMunicipalityOptions(render = true) {
+  const select=document.getElementById("owner-filter-municipality");
+  if(!select)return;
+  const students=(ownerExplorerData.students||[]).filter(student=>!ownerFilters.province||student.province===ownerFilters.province);
+  if(ownerFilters.municipality&&!students.some(student=>student.municipality===ownerFilters.municipality))ownerFilters.municipality="";
+  select.innerHTML=ownerSelectOptions(students.map(student=>student.municipality),"Todos los municipios",ownerFilters.municipality);
+  if(render)ownerRenderFilteredDashboard();
+}
+
+function ownerReadFilters() {
+  ownerFilters.student=document.getElementById("owner-filter-student")?.value||"";
+  ownerFilters.course=document.getElementById("owner-filter-course")?.value||"";
+  ownerFilters.province=document.getElementById("owner-filter-province")?.value||"";
+  ownerFilters.municipality=document.getElementById("owner-filter-municipality")?.value||"";
+}
+
+function ownerApplyFilters(changed = "") {
+  ownerReadFilters();
+  if(changed==="province")ownerUpdateMunicipalityOptions(false);
+  ownerRenderFilteredDashboard();
+}
+
+function ownerResetFilters() {
+  ownerFilters={...ownerFilters,student:"",course:"",province:"",municipality:""};
+  ownerPopulateFilterControls();
+  ownerRenderFilteredDashboard();
+}
+
+async function ownerChangePeriod() {
+  ownerFilters.days=Number(document.getElementById("owner-filter-days")?.value)||30;
+  const summary=document.getElementById("owner-filter-summary");
+  if(summary)summary.textContent="Actualizando el periodo seleccionado…";
+  try{
+    ownerExplorerData=await window.APP_SUPABASE.getAdminExplorer(ownerFilters.days);
+    ownerPopulateFilterControls();
+    ownerRenderFilteredDashboard();
+  }catch(error){if(summary){summary.textContent=error.message||"No se pudo actualizar el periodo.";summary.classList.add("error");}}
+}
+
+function ownerCountBy(items,key,labelTransform=value=>value) {
+  const counts=new Map();
+  items.forEach(item=>{const value=item[key];if(value)counts.set(value,(counts.get(value)||0)+1);});
+  return [...counts.entries()].sort((a,b)=>b[1]-a[1]).map(([label,count])=>({label:labelTransform(label),count}));
+}
+
+function ownerRenderFilteredDashboard() {
+  const students=ownerFilteredStudents();
+  const ids=new Set(students.map(student=>student.userId));
+  const totalUsage=students.reduce((sum,student)=>sum+(Number(student.usageSeconds)||0),0);
+  const sessions=students.reduce((sum,student)=>sum+(Number(student.sessions)||0),0);
+  const attempts=students.reduce((sum,student)=>sum+(Number(student.attempts)||0),0);
+  const errors=students.reduce((sum,student)=>sum+(Number(student.errors)||0),0);
+  const online=students.filter(student=>student.isOnline).length;
+  const active=students.filter(student=>(Number(student.sessions)||0)>0).length;
+  const summary=document.getElementById("owner-filter-summary");
+  if(summary){summary.classList.remove("error");summary.textContent=`${students.length} alumno${students.length===1?"":"s"} en la selección · periodo de ${ownerExplorerData.periodDays||ownerFilters.days} días. Estos filtros también actualizan la facturación.`;}
+
+  const selected=students.length===1?students[0]:null;
+  const detail=document.getElementById("owner-selection-detail");
+  if(detail)detail.innerHTML=selected?`<strong>${escapeHtml(selected.displayName||"Alumno/a")}</strong><span>${escapeHtml(selected.email||"")} · ${escapeHtml(ownerCourseName(selected.courseCode))} · ${escapeHtml([selected.municipality,selected.province].filter(Boolean).join(", ")||"Ubicación no indicada")}</span><small>${escapeHtml(selected.centerName||"Centro no indicado")}</small>`:"";
+
+  const cards=document.getElementById("owner-stat-cards");
+  if(cards)cards.innerHTML=`
+    <article class="developer-status-card is-ready"><span>${students.length}</span><div><strong>Alumnado seleccionado</strong><small>${online} conectado${online===1?"":"s"} ahora</small></div></article>
+    <article class="developer-status-card is-ready"><span>${active}</span><div><strong>Con actividad</strong><small>En el periodo elegido</small></div></article>
+    <article class="developer-status-card is-ready"><span>⏱</span><div><strong>${formatOwnerDuration(totalUsage)}</strong><small>Tiempo de uso</small></div></article>
+    <article class="developer-status-card is-ready"><span>${sessions}</span><div><strong>Sesiones</strong><small>Accesos registrados</small></div></article>
+    <article class="developer-status-card is-ready"><span>${attempts}</span><div><strong>Actividades</strong><small>Completadas</small></div></article>
+    <article class="developer-status-card ${errors>0?"is-error":"is-ready"}"><span>${errors}</span><div><strong>Errores</strong><small>En la selección</small></div></article>`;
+
+  const dailyRows=(ownerExplorerData.activityByDay||[]).filter(item=>ids.has(item.userId));
+  const dailyMap=new Map();
+  dailyRows.forEach(item=>{const saved=dailyMap.get(item.date)||{label:item.label,sessions:0,seconds:0};saved.sessions+=Number(item.sessions)||0;saved.seconds+=Number(item.seconds)||0;dailyMap.set(item.date,saved);});
+  const daily=[...dailyMap.entries()].sort((a,b)=>a[0].localeCompare(b[0])).slice(-14).map(([,value])=>value);
+  const dailyMax=Math.max(1,...daily.map(item=>item.seconds||item.sessions||0));
+  const activity=document.getElementById("owner-daily-activity");
+  if(activity)activity.innerHTML=daily.length?`<div class="owner-activity-bars">${daily.map(item=>`<div><span>${escapeHtml(item.label)}</span><i><b style="width:${Math.max(4,Math.round(((item.seconds||item.sessions||0)/dailyMax)*100))}%"></b></i><strong>${formatOwnerDuration(item.seconds)} · ${item.sessions} ses.</strong></div>`).join("")}</div>`:`<p class="owner-empty-state">No hay actividad para esta selección y periodo.</p>`;
+
+  const courseStats=document.getElementById("owner-course-stats");
+  if(courseStats)courseStats.innerHTML=ownerStatList(ownerCountBy(students,"courseCode",ownerCourseName),"No hay alumnado para estos filtros.");
+  const locationStats=document.getElementById("owner-location-stats");
+  if(locationStats)locationStats.innerHTML=`<h4>Provincias</h4>${ownerStatList(ownerCountBy(students,"province"))}<h4>Municipios</h4>${ownerStatList(ownerCountBy(students,"municipality"))}`;
+
+  const recentErrors=(ownerExplorerData.recentErrors||[]).filter(item=>ids.has(item.userId));
+  const errorStats=document.getElementById("owner-error-stats");
+  if(errorStats)errorStats.innerHTML=recentErrors.length?`<ul class="owner-error-list">${recentErrors.slice(0,12).map(item=>`<li><span>${escapeHtml(item.displayName||"Usuario")} · ${escapeHtml(item.area)} · ${escapeHtml(item.status)}</span><strong>${escapeHtml(item.message)}</strong><small>${new Date(item.createdAt).toLocaleString("es-ES")}</small></li>`).join("")}</ul>`:`<p class="owner-empty-state">No hay errores para esta selección.</p>`;
+
+  const billing={activeEnrollments:students.filter(student=>student.billingMode).length,pilotFree:students.filter(student=>student.billingMode==="pilot_free").length,fullCourse:students.filter(student=>student.billingMode==="full_course").length,prorated:students.filter(student=>student.billingMode==="prorated").length,revenueCents:students.reduce((sum,student)=>sum+(Number(student.revenueCents)||0),0)};
+  const billingStats=document.getElementById("owner-billing-stats");
+  if(billingStats)billingStats.innerHTML=`<article><strong>${billing.activeEnrollments}</strong><span>Matrículas seleccionadas</span></article><article><strong>${billing.pilotFree}</strong><span>Piloto gratuito</span></article><article><strong>${billing.fullCourse}</strong><span>Curso completo</span></article><article><strong>${billing.prorated}</strong><span>Prorrateadas</span></article><article class="is-disabled"><strong>${(billing.revenueCents/100).toLocaleString("es-ES",{style:"currency",currency:"EUR"})}</strong><span>Ingresos · cobros desactivados</span></article>`;
+  const billingBreakdown=document.getElementById("owner-billing-breakdown");
+  if(billingBreakdown)billingBreakdown.innerHTML=`<article><h3>Facturación por provincia</h3>${ownerStatList(ownerCountBy(students,"province"),"Sin datos provinciales.")}</article><article><h3>Facturación por municipio</h3>${ownerStatList(ownerCountBy(students,"municipality"),"Sin datos municipales.")}</article><p>Mientras los cobros estén desactivados, el desglose muestra matrículas; al activar precios mostrará también importes e ingresos.</p>`;
+}
+
+function openOwnerStudentProfile() {
+  const courseId = document.getElementById("owner-course-select")?.value || "1eso";
+  openDeveloperCourseHome(courseId);
+}
+
+function openOwnerCourseIndex() {
+  const courseId = document.getElementById("owner-course-select")?.value || "1eso";
+  renderDeveloperCourseCatalog(courseId);
+}
+
+function mountOwnerAccessButton() {
+  document.getElementById("owner-access-button")?.remove();
+  if (!["owner", "developer"].includes(window.MATHUP_VERIFIED_ADMIN_ROLE)) return;
+  const button = document.createElement("button");
+  button.id = "owner-access-button";
+  button.className = "owner-access-button";
+  button.type = "button";
+  button.textContent = "Administración";
+  button.addEventListener("click", () => {
+    const url = new URL(location.href);
+    url.search = "?owner=1";
+    url.hash = "";
+    location.href = url.toString();
+  });
+  document.body.appendChild(button);
+}
+
+window.mountOwnerAccessButton = mountOwnerAccessButton;
+
 async function renderOwnerDashboard() {
   if (!["owner", "developer"].includes(window.MATHUP_VERIFIED_ADMIN_ROLE)) return renderPublicAccess("Acceso no autorizado.", true);
   clearQuestionTimer();
-  renderShell(`<section class="developer-hub"><header class="developer-hub-header"><div><span class="developer-local-badge">Panel privado · acceso verificado</span><h1>Administración de +MathUp</h1><p>Datos agregados del piloto y acceso de comprobación a todos los cursos.</p></div><button class="ghost" onclick="publicLogout()">Cerrar sesión</button></header>
-    <div id="owner-stat-cards" class="developer-status-row"><article class="developer-status-card is-pending"><span>…</span><div><strong>Cargando estadísticas</strong><small>Consultando datos agregados</small></div></article></div>
-    <div class="developer-hub-grid"><section class="developer-action-panel"><div class="developer-section-heading"><span>Pruebas</span><h2>Ver la aplicación como alumno</h2></div><p>El índice privado permite abrir cualquier curso, tema, bloque o examen con datos ficticios, sin modificar matrículas reales.</p><button class="primary" onclick="renderDeveloperCourseCatalog('1eso')">Abrir todos los cursos</button></section><aside class="developer-checklist-panel"><div class="developer-section-heading"><span>Distribución</span><h2>Alumnado por zona</h2></div><div id="owner-location-stats"><p>Cargando…</p></div></aside></div></section>`,false);
+  const courseOptions=orderedCourses().map(course=>`<option value="${course.id}">${escapeHtml(courseDisplayName(course))}</option>`).join("");
+  renderShell(`<section class="developer-hub owner-dashboard"><header class="developer-hub-header"><div><span class="developer-local-badge">Panel privado · acceso owner verificado</span><h1>Administración de +MathUp</h1><p>Revisión completa de la aplicación, actividad agregada y preparación de la futura gestión económica.</p></div><button class="ghost" onclick="publicLogout()">Cerrar sesión</button></header>
+    <div class="owner-dashboard-blocks">
+      <section class="owner-dashboard-block owner-student-block">
+        <div class="owner-block-number">01</div>
+        <div class="owner-block-content"><div class="developer-section-heading"><span>Perfil alumno</span><h2>Recorrer la aplicación por cursos</h2></div>
+          <p>Abre un perfil ficticio para revisar diseño, estructura y contenidos sin modificar los datos de ningún alumno real.</p>
+          <label class="owner-course-picker" for="owner-course-select"><span>Curso que quieres comprobar</span><select id="owner-course-select">${courseOptions}</select></label>
+          <div class="owner-block-actions"><button class="primary" onclick="openOwnerStudentProfile()">Entrar como alumno</button><button class="secondary" onclick="openOwnerCourseIndex()">Ver índice completo</button></div>
+          <small class="owner-privacy-note">Los recorridos de prueba se marcan como ficticios y no cuentan en las estadísticas reales.</small>
+        </div>
+      </section>
+      <section class="owner-dashboard-block owner-analytics-block">
+        <div class="owner-block-number">02</div>
+        <div class="owner-block-content"><div class="developer-section-heading"><span>Estadísticas</span><h2>Uso, actividad y errores</h2></div>
+          <div class="owner-filter-panel"><div><strong>Explorar datos</strong><span>Combina los filtros para analizar una persona, un curso o una zona concreta.</span></div>
+            <div class="owner-filter-grid">
+              <label><span>Periodo</span><select id="owner-filter-days" onchange="ownerChangePeriod()"><option value="7">7 días</option><option value="30" selected>30 días</option><option value="90">90 días</option><option value="365">12 meses</option></select></label>
+              <label><span>Alumno/a</span><select id="owner-filter-student" onchange="ownerApplyFilters()"><option value="">Todo el alumnado</option></select></label>
+              <label><span>Curso</span><select id="owner-filter-course" onchange="ownerApplyFilters()"><option value="">Todos los cursos</option></select></label>
+              <label><span>Provincia</span><select id="owner-filter-province" onchange="ownerApplyFilters('province')"><option value="">Todas las provincias</option></select></label>
+              <label><span>Municipio</span><select id="owner-filter-municipality" onchange="ownerApplyFilters()"><option value="">Todos los municipios</option></select></label>
+              <button class="secondary" type="button" onclick="ownerResetFilters()">Limpiar filtros</button>
+            </div>
+            <p id="owner-filter-summary" class="owner-filter-summary">Cargando datos detallados…</p><div id="owner-selection-detail" class="owner-selection-detail"></div>
+          </div>
+          <div id="owner-stat-cards" class="owner-kpi-grid"><article class="developer-status-card is-pending"><span>…</span><div><strong>Cargando estadísticas</strong><small>Consultando datos agregados</small></div></article></div>
+          <div class="owner-analytics-grid"><article><h3>Actividad de los últimos 7 días</h3><div id="owner-daily-activity"><p>Cargando…</p></div></article><article><h3>Alumnado por curso</h3><div id="owner-course-stats"><p>Cargando…</p></div></article><article><h3>Distribución geográfica</h3><div id="owner-location-stats"><p>Cargando…</p></div></article><article><h3>Errores técnicos</h3><div id="owner-error-stats"><p>Cargando…</p></div></article></div>
+        </div>
+      </section>
+      <section class="owner-dashboard-block owner-billing-block">
+        <div class="owner-block-number">03</div>
+        <div class="owner-block-content"><div class="developer-section-heading"><span>Pagos e ingresos</span><h2>Preparación de la futura facturación</h2></div>
+          <div id="owner-billing-stats" class="owner-billing-grid"><article><strong>Cobros desactivados</strong><span>El piloto continúa siendo gratuito.</span></article></div>
+          <div id="owner-billing-breakdown" class="owner-billing-breakdown"><p>El desglose por provincia y municipio se actualizará con los filtros de estadísticas.</p></div>
+          <div class="owner-billing-actions"><button disabled>Gestionar pagos</button><button disabled>Exportar ingresos</button><small>Se activará cuando definamos precios, condiciones y proveedor de pago seguro.</small></div>
+        </div>
+      </section>
+    </div></section>`,false);
   try {
-    const stats=await window.APP_SUPABASE.getAdminStats();
-    const courses=(stats.byCourse||[]).map(x=>`<span>${escapeHtml(x.label)}: <strong>${x.count}</strong></span>`).join(" · ")||"Sin matrículas";
-    document.getElementById("owner-stat-cards").innerHTML=`<article class="developer-status-card is-ready"><span>${stats.registeredUsers||0}</span><div><strong>Personas registradas</strong><small>Total del piloto</small></div></article><article class="developer-status-card is-ready"><span>${stats.onlineUsers||0}</span><div><strong>En la aplicación ahora</strong><small>Actividad en los últimos 2 minutos</small></div></article><article class="developer-status-card is-ready"><span>✓</span><div><strong>Por curso</strong><small>${courses}</small></div></article>`;
-    const list=(items)=>items?.length?`<ul class="owner-stat-list">${items.map(x=>`<li><span>${escapeHtml(x.label)}</span><strong>${x.count}</strong></li>`).join("")}</ul>`:"<p>Aún no hay datos suficientes.</p>";
-    document.getElementById("owner-location-stats").innerHTML=`<h3>Provincias</h3>${list(stats.byProvince)}<h3>Municipios</h3>${list(stats.byMunicipality)}`;
+    const [stats,explorer]=await Promise.all([window.APP_SUPABASE.getAdminStats(),window.APP_SUPABASE.getAdminExplorer(ownerFilters.days)]);
+    ownerDashboardStats=stats;
+    ownerExplorerData=explorer;
+    ownerPopulateFilterControls();
+    ownerRenderFilteredDashboard();
   } catch (error) {
     document.getElementById("owner-stat-cards").innerHTML=`<p class="error">${escapeHtml(error.message||"No se pudieron cargar las estadísticas.")}</p>`;
   }
@@ -202,8 +407,9 @@ function openDeveloperTestArea(id) {
 function prepareDeveloperStudent(courseId) {
   const course = courses.find((item) => item.id === courseId);
   const student = students.find((item) => item.academicYear === DEFAULT_ACADEMIC_YEAR && item.courseId === courseId)
-    || students.find((item) => item.courseId === courseId);
-  if (!course || !student) return false;
+    || students.find((item) => item.courseId === courseId)
+    || { id:`owner-demo-${courseId}`, name:"Perfil de prueba", academicYear:DEFAULT_ACADEMIC_YEAR, courseId, group:"Revisión", groupLabel:"Revisión", isDemo:true };
+  if (!course) return false;
   state = {
     ...state,
     view: "home",

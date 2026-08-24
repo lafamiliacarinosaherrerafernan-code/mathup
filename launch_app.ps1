@@ -1,11 +1,12 @@
 $ErrorActionPreference = "Stop"
 
 $root = Split-Path -Parent $MyInvocation.MyCommand.Path
-$serverScript = Join-Path $root "serve_app.ps1"
+$serverScript = Join-Path $root "serve_app_http.ps1"
 $port = 8799
 $healthUrl = "http://127.0.0.1:$port/index.html"
-$appUrl = "${healthUrl}?nocache=$([DateTimeOffset]::Now.ToUnixTimeMilliseconds())"
+$appUrl = "${healthUrl}?owner=1&nocache=$([DateTimeOffset]::Now.ToUnixTimeMilliseconds())"
 $logPath = Join-Path $root "launcher.log"
+$browserProfile = Join-Path $env:LOCALAPPDATA "MathUp\ChromeAppProfileV5"
 
 function Write-LauncherLog([string]$message) {
     $timestamp = Get-Date -Format "yyyy-MM-dd HH:mm:ss.fff"
@@ -21,7 +22,7 @@ function Test-AppServer {
             -Headers @{ "Cache-Control" = "no-cache" }
 
         return $response.StatusCode -eq 200 -and
-            $response.Content -match '<div id="app"></div>'
+            $response.Content -match '<div id="app"'
     }
     catch {
         return $false
@@ -39,7 +40,13 @@ function Open-AppBrowser {
     foreach ($browserPath in $browserCandidates) {
         if ($browserPath -and (Test-Path -LiteralPath $browserPath)) {
             Start-Process -FilePath $browserPath `
-                -ArgumentList @("--new-window", $appUrl)
+                -ArgumentList @(
+                    "--user-data-dir=`"$browserProfile`"",
+                    "--no-first-run",
+                    "--no-default-browser-check",
+                    "--start-maximized",
+                    "--app=$appUrl"
+                )
             return
         }
     }
@@ -74,7 +81,7 @@ try {
             -WindowStyle Hidden
 
         $ready = $false
-        for ($attempt = 0; $attempt -lt 50; $attempt += 1) {
+        for ($attempt = 0; $attempt -lt 150; $attempt += 1) {
             Start-Sleep -Milliseconds 200
             if (Test-AppServer) {
                 $ready = $true
@@ -83,7 +90,7 @@ try {
         }
 
         if (-not $ready) {
-            throw "El servidor no respondio despues de 10 segundos."
+            throw "El servidor no respondio despues de 30 segundos."
         }
     }
 
@@ -94,8 +101,8 @@ catch {
     Write-LauncherLog "ERROR: $($_.Exception.Message)"
     Add-Type -AssemblyName PresentationFramework
     [System.Windows.MessageBox]::Show(
-        "No se pudo abrir Aula Matematica Margarita Salas.`n`n$($_.Exception.Message)",
-        "Aula Matematica Margarita Salas",
+        "No se pudo abrir +MathUp.`n`n$($_.Exception.Message)",
+        "+MathUp",
         "OK",
         "Error"
     ) | Out-Null

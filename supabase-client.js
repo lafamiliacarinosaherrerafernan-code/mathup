@@ -95,6 +95,45 @@
     return data.session;
   }
 
+  async function getMfaAssuranceLevel() {
+    const { data, error } = await getClient().auth.mfa.getAuthenticatorAssuranceLevel();
+    if (error) throw error;
+    return data;
+  }
+
+  async function listMfaFactors() {
+    const { data, error } = await getClient().auth.mfa.listFactors();
+    if (error) throw error;
+    return data;
+  }
+
+  async function enrollTotpFactor(friendlyName = "MathUp owner") {
+    const { data, error } = await getClient().auth.mfa.enroll({
+      factorType: "totp",
+      friendlyName
+    });
+    if (error) throw error;
+    return data;
+  }
+
+  async function unenrollMfaFactor(factorId) {
+    const { data, error } = await getClient().auth.mfa.unenroll({ factorId });
+    if (error) throw error;
+    return data;
+  }
+
+  async function verifyTotpFactor(factorId, code) {
+    const { data: challenge, error: challengeError } = await getClient().auth.mfa.challenge({ factorId });
+    if (challengeError) throw challengeError;
+    const { data, error } = await getClient().auth.mfa.verify({
+      factorId,
+      challengeId: challenge.id,
+      code
+    });
+    if (error) throw error;
+    return data;
+  }
+
   async function updateUserMetadata(metadata) {
     const { data, error } = await getClient().auth.updateUser({ data: metadata });
     if (error) throw error;
@@ -177,14 +216,23 @@
     return { user, profile, enrollment };
   }
 
+  async function authenticatedRpc(functionName, parameters) {
+    let result = await getClient().rpc(functionName, parameters);
+    if (result.error && /permission denied for function/i.test(String(result.error.message || ""))) {
+      const { data: refreshed, error: refreshError } = await getClient().auth.refreshSession();
+      if (!refreshError && refreshed.session) result = await getClient().rpc(functionName, parameters);
+    }
+    return result;
+  }
+
   async function claimSession() {
-    const { data, error } = await getClient().rpc("claim_app_session", { p_session_token: sessionToken() });
+    const { data, error } = await authenticatedRpc("claim_app_session", { p_session_token: sessionToken() });
     if (error) throw error;
     return data === true;
   }
 
   async function heartbeat() {
-    const { data, error } = await getClient().rpc("heartbeat_app_session", { p_session_token: sessionToken() });
+    const { data, error } = await authenticatedRpc("heartbeat_app_session", { p_session_token: sessionToken() });
     if (error) throw error;
     return data === true;
   }
@@ -212,13 +260,32 @@
   }
 
   async function getAdminRole() {
-    const { data, error } = await getClient().rpc("get_my_admin_role");
+    const { data, error } = await authenticatedRpc("get_my_admin_role", {});
     if (error) throw error;
     return data || null;
   }
 
   async function getAdminStats() {
-    const { data, error } = await getClient().rpc("admin_dashboard_stats");
+    const { data, error } = await authenticatedRpc("admin_dashboard_stats", {});
+    if (error) throw error;
+    return data;
+  }
+
+  async function getAdminExplorer(days = 30) {
+    const { data, error } = await authenticatedRpc("admin_dashboard_explorer", { p_days: days });
+    if (error) throw error;
+    return data;
+  }
+
+  async function reportError({ area, code = null, message, context = {}, appVersion = null, isDemoSession = false }) {
+    const { data, error } = await getClient().rpc("report_app_error", {
+      p_area: area || "general",
+      p_error_code: code,
+      p_message: message || "Error sin mensaje",
+      p_context_data: context,
+      p_app_version: appVersion,
+      p_is_demo_session: Boolean(isDemoSession)
+    });
     if (error) throw error;
     return data;
   }
@@ -232,6 +299,11 @@
     signUp,
     signOut,
     getSession,
+    getMfaAssuranceLevel,
+    listMfaFactors,
+    enrollTotpFactor,
+    unenrollMfaFactor,
+    verifyTotpFactor,
     updateUserMetadata,
     completeOnboarding,
     loadStudentContext,
@@ -239,6 +311,8 @@
     heartbeat,
     searchCenters,
     getAdminRole,
-    getAdminStats
+    getAdminStats,
+    getAdminExplorer,
+    reportError
   });
 })();
