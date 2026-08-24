@@ -1,0 +1,14 @@
+{
+  "trialVersion": "mathup.fase2.rollback-trial.v1",
+  "safeTargetVerified": true,
+  "trialArtifactsCreated": [
+    "artifacts/fase2/rollback-trial-sandbox/nested/generated-artifact.json",
+    "artifacts/fase2/rollback-trial-sandbox/rollback-manifest.json"
+  ],
+  "trialRootRemoved": true,
+  "protectedFilesChecked": 145,
+  "protectedFilesUnchanged": true,
+  "externalWrites": [],
+  "supabaseWrites": false,
+  "passed": true
+}

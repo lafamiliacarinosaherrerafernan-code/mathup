@@ -1,0 +1,11 @@
+courseId,subjectId,originalExercises,candidates,PASSED,REVIEW_REQUIRED,BLOCKED,notConverted
+"1bach-ccss","matematicas-ccss-i","212","212","0","53","159","0"
+"1bach-mates","matematicas-i","76","76","0","4","72","0"
+"1eso","matematicas","967","967","502","256","209","0"
+"2bach-ccss","matematicas-ccss-ii","1360","1360","0","0","1360","0"
+"2bach-mates","matematicas-ii","1921","1921","0","0","1921","0"
+"2eso","matematicas","521","521","294","181","46","0"
+"3eso","matematicas","673","673","354","266","53","0"
+"4eso-a","matematicas","388","388","198","137","53","0"
+"4eso-b","matematicas","562","562","291","209","62","0"
+"sin-determinar","sin-materia","32","0","0","0","0","32"

@@ -1,0 +1,945 @@
+[
+  {
+    "candidateIds": [
+      "cand-4dd5a5d4-95ab-5edf-8104-748fe8e9f806"
+    ],
+    "occurrences": 3,
+    "sourceRecordIds": [
+      "src-85a9de66-944d-5f66-8a97-0b34c6a76195",
+      "src-91d972ba-bb3b-5296-a10e-18c91cfbd1e9",
+      "src-8a3e6780-a2d4-5273-a776-1eeeedccb20f"
+    ],
+    "statementHash": "039e0f43177c3a0e",
+    "status": "REVIEW_REQUIRED",
+    "type": "EXACT_DUPLICATE"
+  },
+  {
+    "candidateIds": [
+      "cand-4dd5a5d4-95ab-5edf-8104-748fe8e9f806"
+    ],
+    "occurrences": 5,
+    "sourceRecordIds": [
+      "src-10814d36-8d36-5b9f-960f-2219d1e0cbe0",
+      "src-71a998c5-5709-5547-87af-c8141355d04b",
+      "src-8536e070-eccf-54f0-8e1d-e55d0464a467",
+      "src-a68fa29b-5f31-53e0-b0b4-d7adbb89f83c",
+      "src-10b5aaef-ea30-5c12-b972-7eda518c4a51"
+    ],
+    "statementHash": "06bc097a0f9412ce",
+    "status": "REVIEW_REQUIRED",
+    "type": "EXACT_DUPLICATE"
+  },
+  {
+    "candidateIds": [
+      "cand-4dd5a5d4-95ab-5edf-8104-748fe8e9f806"
+    ],
+    "occurrences": 3,
+    "sourceRecordIds": [
+      "src-f3a7722a-093e-587e-a847-2fb08347f7b9",
+      "src-5a71f69b-d1c0-5c88-9972-2029c02296b2",
+      "src-ea3e41fb-cd78-5ddb-92bb-f0528a398ae9"
+    ],
+    "statementHash": "07709184c6b70625",
+    "status": "REVIEW_REQUIRED",
+    "type": "EXACT_DUPLICATE"
+  },
+  {
+    "candidateIds": [
+      "cand-76713052-f071-52f9-9d62-7193a3bea394",
+      "cand-ab957928-24fc-531b-92ff-e0ba2f7027dc"
+    ],
+    "occurrences": 2,
+    "sourceRecordIds": [
+      "src-e11f4ac4-4788-5c49-ab5c-23f8f3d832be",
+      "src-a0b3df49-9b72-53bc-a257-6c45bffe76a0"
+    ],
+    "statementHash": "09505d19c877d29e",
+    "status": "REVIEW_REQUIRED",
+    "type": "EXACT_DUPLICATE"
+  },
+  {
+    "candidateIds": [
+      "cand-4dd5a5d4-95ab-5edf-8104-748fe8e9f806"
+    ],
+    "occurrences": 2,
+    "sourceRecordIds": [
+      "src-cf3916fc-19ac-50ab-ad9a-185707762a94",
+      "src-f2690f98-8da5-5dc0-a286-5f8ed5648036"
+    ],
+    "statementHash": "0b1369827dec0c59",
+    "status": "REVIEW_REQUIRED",
+    "type": "EXACT_DUPLICATE"
+  },
+  {
+    "candidateIds": [
+      "cand-0b7d8f24-5cd3-5103-a89b-d8bf83358327",
+      "cand-e219c76d-2014-5560-becd-5a39842c2874"
+    ],
+    "occurrences": 2,
+    "sourceRecordIds": [
+      "src-95860cbc-745d-5e50-803b-5d2891b71d88",
+      "src-29ff2cf9-01fb-5046-ab2b-bbffbc87edf2"
+    ],
+    "statementHash": "0d32f92820a7a741",
+    "status": "REVIEW_REQUIRED",
+    "type": "EXACT_DUPLICATE"
+  },
+  {
+    "candidateIds": [
+      "cand-4dd5a5d4-95ab-5edf-8104-748fe8e9f806"
+    ],
+    "occurrences": 2,
+    "sourceRecordIds": [
+      "src-064c2723-2eb1-5c39-b683-84b5c8e6d9cc",
+      "src-3ce4fbeb-a64b-5040-9ee3-861709c1856c"
+    ],
+    "statementHash": "1701f5284736e180",
+    "status": "REVIEW_REQUIRED",
+    "type": "EXACT_DUPLICATE"
+  },
+  {
+    "candidateIds": [
+      "cand-4dd5a5d4-95ab-5edf-8104-748fe8e9f806"
+    ],
+    "occurrences": 2,
+    "sourceRecordIds": [
+      "src-ab3ea042-a595-55d5-aeb0-7e7ef0521049",
+      "src-464f4fc4-79c9-5c45-b35b-c55cd815a5ac"
+    ],
+    "statementHash": "203bbeb8fac4e9d5",
+    "status": "REVIEW_REQUIRED",
+    "type": "EXACT_DUPLICATE"
+  },
+  {
+    "candidateIds": [
+      "cand-7a3c6615-1df0-5a03-8343-871076b028d5",
+      "cand-8a6a0c68-8d28-563e-86f2-4dbe7efa25b9"
+    ],
+    "occurrences": 2,
+    "sourceRecordIds": [
+      "src-616aa8aa-e8a2-5297-ba09-8bb4a3a41dc1",
+      "src-16a1027a-25ea-5e72-8d64-58c4afca9eda"
+    ],
+    "statementHash": "233c563a5e2db7bf",
+    "status": "REVIEW_REQUIRED",
+    "type": "EXACT_DUPLICATE"
+  },
+  {
+    "candidateIds": [
+      "cand-8a6a0c68-8d28-563e-86f2-4dbe7efa25b9"
+    ],
+    "occurrences": 2,
+    "sourceRecordIds": [
+      "src-4136c32c-e464-5710-83c2-5be909c4882a",
+      "src-3bd018a0-1c3b-5b8d-b66b-40df94e8dbc6"
+    ],
+    "statementHash": "24a75b21f2b32ab0",
+    "status": "REVIEW_REQUIRED",
+    "type": "EXACT_DUPLICATE"
+  },
+  {
+    "candidateIds": [
+      "cand-4e90b127-fac4-5dcb-8250-1ded1cccd06b",
+      "cand-659148bf-c062-5377-9090-d58716d7b8d8"
+    ],
+    "occurrences": 2,
+    "sourceRecordIds": [
+      "src-8597689b-6070-563f-9a43-0274047edf47",
+      "src-09b696ad-17f3-5e0a-9077-bf9cc58e99bd"
+    ],
+    "statementHash": "2d20846ddd7dd5ba",
+    "status": "REVIEW_REQUIRED",
+    "type": "EXACT_DUPLICATE"
+  },
+  {
+    "candidateIds": [
+      "cand-4dd5a5d4-95ab-5edf-8104-748fe8e9f806"
+    ],
+    "occurrences": 2,
+    "sourceRecordIds": [
+      "src-a48f2d73-30c1-5efe-b518-847246e6b10c",
+      "src-1337b7dc-baa3-5e3e-8d91-5b354fe87755"
+    ],
+    "statementHash": "38f3ba62a47748d0",
+    "status": "REVIEW_REQUIRED",
+    "type": "EXACT_DUPLICATE"
+  },
+  {
+    "candidateIds": [
+      "cand-3369ebec-eed4-596e-8dac-c74c43ba2106",
+      "cand-4805a982-eb6c-5c21-8a3a-b22ebe7fef4d",
+      "cand-6d41c878-74f1-5c61-8012-c413379068a8",
+      "cand-82f8831d-150e-5729-a279-08eb1b3e9a1b",
+      "cand-af0f98e5-cabc-5ffc-ba20-262f0abb04b9",
+      "cand-bb37883c-39eb-528f-8c9a-f54a0ea0b6f0",
+      "cand-eb5ea548-7fbb-51fb-b878-107577477dee",
+      "cand-efddfd5b-be21-55c4-84c2-06b6b475d169"
+    ],
+    "occurrences": 8,
+    "sourceRecordIds": [
+      "src-a422d482-4896-5ad8-b48e-df1d69e6d2ea",
+      "src-83617ce9-01b7-5f11-8a89-be3056fd4f86",
+      "src-f1d6fc12-de8e-5fc7-8e4e-a3b8626cefed",
+      "src-4249f8f3-6707-5273-a947-4acc5db97068",
+      "src-63cc3504-670e-5716-9bdb-f6f63bb0826d",
+      "src-e13007e2-d77a-55e1-b2e5-6f305d86ad06",
+      "src-5c70fa45-7ea1-588b-91fe-acb873fff81d",
+      "src-80dce323-93e7-5f79-8470-afff324388fb"
+    ],
+    "statementHash": "3baddd7c9a17a6de",
+    "status": "REVIEW_REQUIRED",
+    "type": "EXACT_DUPLICATE"
+  },
+  {
+    "candidateIds": [
+      "cand-8a6a0c68-8d28-563e-86f2-4dbe7efa25b9"
+    ],
+    "occurrences": 2,
+    "sourceRecordIds": [
+      "src-073f5ef5-0117-5941-a210-ed1b4b123674",
+      "src-0b02f126-9a66-52bb-b6b9-bf410629e131"
+    ],
+    "statementHash": "3da7ac6f16f670c8",
+    "status": "REVIEW_REQUIRED",
+    "type": "EXACT_DUPLICATE"
+  },
+  {
+    "candidateIds": [
+      "cand-9b168011-bde1-5af9-a37c-92ebf7154617",
+      "cand-e27f026c-232c-5d4d-8e47-0724a1ce40a0"
+    ],
+    "occurrences": 2,
+    "sourceRecordIds": [
+      "src-9836a226-b974-509a-ba05-0254dd6cb849",
+      "src-281979e7-3d40-5868-b781-ab7a531432c5"
+    ],
+    "statementHash": "4aba33eec75c9828",
+    "status": "REVIEW_REQUIRED",
+    "type": "EXACT_DUPLICATE"
+  },
+  {
+    "candidateIds": [
+      "cand-52141903-85f5-5c9d-ad3f-7311b5f4e753",
+      "cand-fb4a95ab-d127-5ea6-afcb-d8109cb85e0d"
+    ],
+    "occurrences": 2,
+    "sourceRecordIds": [
+      "src-2c273e9d-0996-5295-8520-20c603fe0b20",
+      "src-1f97c51a-f31d-53bf-8091-9151d168303a"
+    ],
+    "statementHash": "51395d3438ea935f",
+    "status": "REVIEW_REQUIRED",
+    "type": "EXACT_DUPLICATE"
+  },
+  {
+    "candidateIds": [
+      "cand-8a6a0c68-8d28-563e-86f2-4dbe7efa25b9"
+    ],
+    "occurrences": 2,
+    "sourceRecordIds": [
+      "src-7a3bf928-b212-5440-a39f-9f73cebb284f",
+      "src-0510fa3f-6a87-57d9-818c-7ae04891103e"
+    ],
+    "statementHash": "5359a756e2292dcd",
+    "status": "REVIEW_REQUIRED",
+    "type": "EXACT_DUPLICATE"
+  },
+  {
+    "candidateIds": [
+      "cand-abec6ef8-b59d-572e-bb1d-df5aec27f6a2",
+      "cand-bbd235cc-f3b7-5cfa-8726-6f302a1b641f",
+      "cand-fe36eea9-2447-52b0-b5d2-2c42e18072d8"
+    ],
+    "occurrences": 3,
+    "sourceRecordIds": [
+      "src-3108c6cd-6619-5092-828a-ef32fa267e0c",
+      "src-b57ad67d-9057-5412-9de5-cc45473baaef",
+      "src-a40d9513-2652-5701-8df8-65bdb151fb97"
+    ],
+    "statementHash": "53ad86c73756a436",
+    "status": "REVIEW_REQUIRED",
+    "type": "EXACT_DUPLICATE"
+  },
+  {
+    "candidateIds": [
+      "cand-7a3c6615-1df0-5a03-8343-871076b028d5"
+    ],
+    "occurrences": 2,
+    "sourceRecordIds": [
+      "src-7e04b01a-93d4-5c50-8bb9-1acf4ed359eb",
+      "src-b02c5fa0-edcb-5b4a-98ec-5ff4a1f7b677"
+    ],
+    "statementHash": "553028497fa2d055",
+    "status": "REVIEW_REQUIRED",
+    "type": "EXACT_DUPLICATE"
+  },
+  {
+    "candidateIds": [
+      "cand-9c0c7e8e-232f-519f-8e27-25b013469227",
+      "cand-c8e71f2f-140c-5efa-9573-526b461d0261"
+    ],
+    "occurrences": 2,
+    "sourceRecordIds": [
+      "src-c392ad45-0eeb-57c2-8ebb-11a4accf903d",
+      "src-9b312b71-7fcb-5561-95a7-984d45545ee7"
+    ],
+    "statementHash": "55d12f4d62e6f0d9",
+    "status": "REVIEW_REQUIRED",
+    "type": "EXACT_DUPLICATE"
+  },
+  {
+    "candidateIds": [
+      "cand-3e40bea9-1f43-5afc-83ed-ce30173183e2",
+      "cand-9692b22b-4c11-5eb7-8c58-0daa1076e6ca"
+    ],
+    "occurrences": 2,
+    "sourceRecordIds": [
+      "src-b0e33e33-65f0-5f2f-b421-f53cfc04c9b7",
+      "src-02bfda07-94db-5416-9fed-563fd075c2b1"
+    ],
+    "statementHash": "593e7288eb7ab4d5",
+    "status": "REVIEW_REQUIRED",
+    "type": "EXACT_DUPLICATE"
+  },
+  {
+    "candidateIds": [
+      "cand-4dd5a5d4-95ab-5edf-8104-748fe8e9f806"
+    ],
+    "occurrences": 6,
+    "sourceRecordIds": [
+      "src-5014f05b-bd5f-50f8-810d-5c48fc0b8cce",
+      "src-68b0179d-200b-551e-8875-c36516923f6f",
+      "src-d318e744-11db-537b-9e23-989cab99283a",
+      "src-eda10b29-0bad-5a8c-99be-74c43638473c",
+      "src-e42500c5-3f94-54a4-9c3d-7fe017338fc6",
+      "src-89b6c709-8fba-5f12-9ca8-9d8f9a57f3f0"
+    ],
+    "statementHash": "59c087559f2f7232",
+    "status": "REVIEW_REQUIRED",
+    "type": "EXACT_DUPLICATE"
+  },
+  {
+    "candidateIds": [
+      "cand-05bf6040-7a18-5369-bc19-941b86bf332c",
+      "cand-f0044f65-f17f-5a79-a21a-963f8c5502c5"
+    ],
+    "occurrences": 2,
+    "sourceRecordIds": [
+      "src-56dc207c-caf7-5c24-8808-8b4c84ee280a",
+      "src-8ef9c170-37dd-5506-b4d6-fa9b2c92422b"
+    ],
+    "statementHash": "5e204c1fa04430df",
+    "status": "REVIEW_REQUIRED",
+    "type": "EXACT_DUPLICATE"
+  },
+  {
+    "candidateIds": [
+      "cand-296f5a3c-f172-5322-b150-8a3157918f9a",
+      "cand-fa9c6406-64ce-540f-9feb-212d849455fa"
+    ],
+    "occurrences": 2,
+    "sourceRecordIds": [
+      "src-d0570ca0-278c-50ce-b01b-0af303ca18e7",
+      "src-6ca1ced7-874b-52b7-a48e-dd1fac39eb9a"
+    ],
+    "statementHash": "65afc6856716d239",
+    "status": "REVIEW_REQUIRED",
+    "type": "EXACT_DUPLICATE"
+  },
+  {
+    "candidateIds": [
+      "cand-4dd5a5d4-95ab-5edf-8104-748fe8e9f806"
+    ],
+    "occurrences": 2,
+    "sourceRecordIds": [
+      "src-1d3ce2dc-2e9d-5d57-a1b8-798b35c45572",
+      "src-ec99229d-1ef8-5881-a994-5d7f068ffe56"
+    ],
+    "statementHash": "670e30b83ad86c7a",
+    "status": "REVIEW_REQUIRED",
+    "type": "EXACT_DUPLICATE"
+  },
+  {
+    "candidateIds": [
+      "cand-47bb95f4-6acb-5eea-be5c-86f4aade20d9",
+      "cand-906bc0bc-9c2a-5d03-8fb3-1470467d62e8"
+    ],
+    "occurrences": 2,
+    "sourceRecordIds": [
+      "src-3be157a9-5df7-583a-b915-a967a6659f7e",
+      "src-4f54b331-adf9-5bc9-91f4-7fba4eb650b5"
+    ],
+    "statementHash": "6714875f9dd71a63",
+    "status": "REVIEW_REQUIRED",
+    "type": "EXACT_DUPLICATE"
+  },
+  {
+    "candidateIds": [
+      "cand-8a6a0c68-8d28-563e-86f2-4dbe7efa25b9"
+    ],
+    "occurrences": 11,
+    "sourceRecordIds": [
+      "src-50ff5a86-e16f-5e23-8b7b-1ed06458e8d2",
+      "src-b7052cde-6267-5308-a92a-e94abbc3d363",
+      "src-c768c8eb-81c6-537a-bfaa-8f42189698a5",
+      "src-1c14ce40-acc2-5a6c-a3b6-d5e938efc729",
+      "src-dba94422-32f3-5073-8d35-538de2d745c6",
+      "src-a5b3039b-e08e-5dd4-b0ce-dcb9fe6fe59f",
+      "src-57bb055e-5cba-50e9-a682-5758bbab8410",
+      "src-1207a449-b57e-5a98-844a-9044261444ac",
+      "src-77a48663-b409-505b-93ba-f8c29e3c200a",
+      "src-e3b23705-85bf-59b5-b32f-e622cd17c120",
+      "src-6a278d53-8de7-5f6d-8e0d-cd467b881131"
+    ],
+    "statementHash": "6a61a8c93e6d6c24",
+    "status": "REVIEW_REQUIRED",
+    "type": "EXACT_DUPLICATE"
+  },
+  {
+    "candidateIds": [
+      "cand-7a3c6615-1df0-5a03-8343-871076b028d5",
+      "cand-8a6a0c68-8d28-563e-86f2-4dbe7efa25b9"
+    ],
+    "occurrences": 2,
+    "sourceRecordIds": [
+      "src-84bb7ff3-6ffc-5d7e-b873-af2c1abc8874",
+      "src-6e4f5a6e-231e-5836-bc4e-a21a355631a7"
+    ],
+    "statementHash": "6c8d7f29f965e0e5",
+    "status": "REVIEW_REQUIRED",
+    "type": "EXACT_DUPLICATE"
+  },
+  {
+    "candidateIds": [
+      "cand-ad714f4f-b096-54e6-b11a-496f8353a07f",
+      "cand-eb20fa0e-eb8b-580c-a1e5-f7a65080a202"
+    ],
+    "occurrences": 2,
+    "sourceRecordIds": [
+      "src-49d4735c-d3e3-5e4d-9161-cd0d126c3872",
+      "src-a527aef4-4a74-5d8d-ba45-21321ca5381b"
+    ],
+    "statementHash": "6e9fbb518b0f032c",
+    "status": "REVIEW_REQUIRED",
+    "type": "EXACT_DUPLICATE"
+  },
+  {
+    "candidateIds": [
+      "cand-353a57b5-5ba4-53c0-9bcc-7b07da31ab34",
+      "cand-667c71ea-696a-5187-8c3b-faf030a74b83"
+    ],
+    "occurrences": 2,
+    "sourceRecordIds": [
+      "src-3d3e2085-45ed-5111-9405-a9038b26cb0c",
+      "src-a8c05ac2-7138-5ff1-9e7d-6c7c5b39e6bd"
+    ],
+    "statementHash": "6ff53cd28a98ecc0",
+    "status": "REVIEW_REQUIRED",
+    "type": "EXACT_DUPLICATE"
+  },
+  {
+    "candidateIds": [
+      "cand-8a6a0c68-8d28-563e-86f2-4dbe7efa25b9"
+    ],
+    "occurrences": 2,
+    "sourceRecordIds": [
+      "src-357788d6-df37-576d-9972-88276d39808e",
+      "src-5f2da614-2c84-5fcf-8f8a-ff6f07df6116"
+    ],
+    "statementHash": "707fc37ba58dc9b4",
+    "status": "REVIEW_REQUIRED",
+    "type": "EXACT_DUPLICATE"
+  },
+  {
+    "candidateIds": [
+      "cand-8a14f697-a762-5fc3-800a-d979f65305ca",
+      "cand-d033cd76-35be-53b7-a490-072af8f1694b"
+    ],
+    "occurrences": 2,
+    "sourceRecordIds": [
+      "src-a3ab3539-b9a6-5162-a73a-cc64b68a4a12",
+      "src-dc3b1fd3-298e-59cd-a9d1-8fbd508b51b2"
+    ],
+    "statementHash": "72c13dcf13cdae9c",
+    "status": "REVIEW_REQUIRED",
+    "type": "EXACT_DUPLICATE"
+  },
+  {
+    "candidateIds": [
+      "cand-7959b187-de99-5641-a6d8-daf27ccb1f85",
+      "cand-7be3ea4b-6c92-5944-9d8f-653d1451b324"
+    ],
+    "occurrences": 2,
+    "sourceRecordIds": [
+      "src-a1a95c0e-15a0-5048-b5db-b4b2aac69c55",
+      "src-9bd5bc00-0330-54c4-a0e3-7378c05cf313"
+    ],
+    "statementHash": "77d3bcc88622318d",
+    "status": "REVIEW_REQUIRED",
+    "type": "EXACT_DUPLICATE"
+  },
+  {
+    "candidateIds": [
+      "cand-4dd5a5d4-95ab-5edf-8104-748fe8e9f806"
+    ],
+    "occurrences": 2,
+    "sourceRecordIds": [
+      "src-23d6cd27-0513-5104-a670-e66eff699aea",
+      "src-0d233c48-555a-5b0f-83ec-77f3a6087286"
+    ],
+    "statementHash": "78f638ab7d202ea9",
+    "status": "REVIEW_REQUIRED",
+    "type": "EXACT_DUPLICATE"
+  },
+  {
+    "candidateIds": [
+      "cand-8a6a0c68-8d28-563e-86f2-4dbe7efa25b9"
+    ],
+    "occurrences": 2,
+    "sourceRecordIds": [
+      "src-c1b5e159-85e4-54f8-9b69-1f9a6d511500",
+      "src-04f7a712-6bea-5f78-89dd-0a5fe10e2f84"
+    ],
+    "statementHash": "7974bad0d3ca6f33",
+    "status": "REVIEW_REQUIRED",
+    "type": "EXACT_DUPLICATE"
+  },
+  {
+    "candidateIds": [
+      "cand-7a3c6615-1df0-5a03-8343-871076b028d5",
+      "cand-bc05b67a-0a56-5b8f-b716-a3c91c826fa5"
+    ],
+    "occurrences": 2,
+    "sourceRecordIds": [
+      "src-8049974a-b399-5416-b529-f51ada030402",
+      "src-d7582550-ec62-5bd8-89b8-781e3878ee04"
+    ],
+    "statementHash": "7a33b2e61b72e7d3",
+    "status": "REVIEW_REQUIRED",
+    "type": "EXACT_DUPLICATE"
+  },
+  {
+    "candidateIds": [
+      "cand-4dd5a5d4-95ab-5edf-8104-748fe8e9f806"
+    ],
+    "occurrences": 2,
+    "sourceRecordIds": [
+      "src-e6d5f75a-8a46-53dd-8b2a-2db209b23458",
+      "src-b489583e-b2e6-5521-9bcd-ad8f6cde9565"
+    ],
+    "statementHash": "87c4c6dede65f59a",
+    "status": "REVIEW_REQUIRED",
+    "type": "EXACT_DUPLICATE"
+  },
+  {
+    "candidateIds": [
+      "cand-9692b22b-4c11-5eb7-8c58-0daa1076e6ca",
+      "cand-f49e1543-15b7-56a3-8568-95adce50d3d3"
+    ],
+    "occurrences": 2,
+    "sourceRecordIds": [
+      "src-384836fa-7075-51ef-b8a5-9a519b96beab",
+      "src-753128cd-4870-57e1-a0ad-3cfac64b95b7"
+    ],
+    "statementHash": "886694be280ddf5f",
+    "status": "REVIEW_REQUIRED",
+    "type": "EXACT_DUPLICATE"
+  },
+  {
+    "candidateIds": [
+      "cand-2c1f5755-e27d-51d6-9076-7eb242d747a5",
+      "cand-a6dd5915-1dfa-5428-aa91-9e1e80c443fc"
+    ],
+    "occurrences": 2,
+    "sourceRecordIds": [
+      "src-7b2d01a3-a58f-5151-8fce-df4b6948f6bb",
+      "src-7d8aa189-52ed-5ef4-bd26-8e834d8e9947"
+    ],
+    "statementHash": "8e0e864f4e5d7df3",
+    "status": "REVIEW_REQUIRED",
+    "type": "EXACT_DUPLICATE"
+  },
+  {
+    "candidateIds": [
+      "cand-0fa78603-c281-5713-9903-a7db1419a7b1",
+      "cand-fad59f73-e533-5eb1-b9b2-edd676c5809b"
+    ],
+    "occurrences": 2,
+    "sourceRecordIds": [
+      "src-ca142dc6-cc35-52c7-80dc-46ebef7d3d00",
+      "src-16a8102f-4a63-5aeb-88b6-afe1ba2a81fe"
+    ],
+    "statementHash": "8e3f3291e70bd94c",
+    "status": "REVIEW_REQUIRED",
+    "type": "EXACT_DUPLICATE"
+  },
+  {
+    "candidateIds": [
+      "cand-20bcbcfd-64b8-542f-85b8-b6fe8cc0d93f",
+      "cand-77e56c8a-896c-5f27-b56f-060f74d4e0e4"
+    ],
+    "occurrences": 2,
+    "sourceRecordIds": [
+      "src-75a11a32-1fca-5e7c-8294-c83d700dad4f",
+      "src-60f14f59-a628-50c8-95d8-f05f7b6a2099"
+    ],
+    "statementHash": "9763b3f71ecd9dcc",
+    "status": "REVIEW_REQUIRED",
+    "type": "EXACT_DUPLICATE"
+  },
+  {
+    "candidateIds": [
+      "cand-4dd5a5d4-95ab-5edf-8104-748fe8e9f806"
+    ],
+    "occurrences": 2,
+    "sourceRecordIds": [
+      "src-07bdcd12-1814-5393-8939-81a8270563b9",
+      "src-8ccb22e8-e96a-5df9-9fe5-e548e421e2ea"
+    ],
+    "statementHash": "99101d5a908925f8",
+    "status": "REVIEW_REQUIRED",
+    "type": "EXACT_DUPLICATE"
+  },
+  {
+    "candidateIds": [
+      "cand-12f47196-8be7-5145-88a8-02bdb2782918",
+      "cand-9692b22b-4c11-5eb7-8c58-0daa1076e6ca"
+    ],
+    "occurrences": 2,
+    "sourceRecordIds": [
+      "src-805cb2ea-bc09-5dd7-9367-0bf488df6044",
+      "src-1adb0aeb-23eb-514c-a132-3dc9ba90b640"
+    ],
+    "statementHash": "994657cf908dbd35",
+    "status": "REVIEW_REQUIRED",
+    "type": "EXACT_DUPLICATE"
+  },
+  {
+    "candidateIds": [
+      "cand-0227caea-78fc-53ed-aaa4-d115d271ac9d",
+      "cand-94f1ef7e-ef83-557a-87a7-194fa9985fac"
+    ],
+    "occurrences": 2,
+    "sourceRecordIds": [
+      "src-fb79b2c1-67d7-5f51-b1f2-cbc0e45416a8",
+      "src-4a7da5d9-b72c-5606-94cc-7c4135a3d83b"
+    ],
+    "statementHash": "999f36717fd740aa",
+    "status": "REVIEW_REQUIRED",
+    "type": "EXACT_DUPLICATE"
+  },
+  {
+    "candidateIds": [
+      "cand-05aad0bf-f9a3-545b-a268-3ccd2b70a9f8",
+      "cand-07f02e90-843b-53e8-bfbd-1025ab7b6fa9",
+      "cand-16efa2b1-3ab9-5ea0-bd2f-a8117c060d1b",
+      "cand-1c14d78a-4f51-5173-9acd-9901a63773a9",
+      "cand-21a903f5-1722-5dbd-b1c9-58bc552230f0",
+      "cand-29593215-2aba-583c-8e52-b0c03b45aeba",
+      "cand-2d5267c8-40fe-521f-a557-0e99febaa3ec",
+      "cand-3ca5179a-2c8f-5407-b9c8-1445b2320846",
+      "cand-605b0246-99d7-5ef6-99c4-0aeddedcd1d3",
+      "cand-8413784a-a29e-58da-a552-8f57b85a79f1",
+      "cand-879839df-7e87-5077-9eb6-08ad9bdf71d6",
+      "cand-b25028a9-80cb-50ab-8d89-b05bb0184853",
+      "cand-ba96272e-32a0-5c34-aec4-0687beb030df",
+      "cand-bbda354a-eed9-5269-bea2-6bfa1e02c752",
+      "cand-d645a832-13e7-5b1a-91c0-9028f76ed953",
+      "cand-f0ac1033-6415-5386-988e-0585f6276feb"
+    ],
+    "occurrences": 16,
+    "sourceRecordIds": [
+      "src-ac39868b-f2d6-5a89-89ad-8f4436b1b9f7",
+      "src-6e52c0f3-80e8-55ef-a726-b9fbfb565edb",
+      "src-83047d90-c965-5506-affd-b56159f9ccbc",
+      "src-6d7dd8ab-f9cb-5a89-872c-1201c835cfe3",
+      "src-a971558f-b5a8-51ca-8373-ba61d8a280c8",
+      "src-55acc3ea-2bad-5851-950a-a9deaab0674a",
+      "src-bc691649-abd4-5592-bc13-77319a0aca0a",
+      "src-cd45bce1-6368-5de2-a01f-ded009175b64",
+      "src-70d0737a-5063-5b37-8c6a-c2f610234c95",
+      "src-0937f255-d353-5986-8a59-c29ddc2f78c8",
+      "src-b7e30c75-de1a-5731-b202-d859226bcefc",
+      "src-b13f7a68-fe65-5763-b46d-b34a84aedf7a",
+      "src-f698705d-3018-5055-a3c2-1f7ed515c8cf",
+      "src-487b751a-0091-5dd6-9cea-c9d399c563d7",
+      "src-fe9755b8-819d-56cf-8cb4-9fa469b73632",
+      "src-99ad16c9-07c9-5d7c-90f6-62029c7e21c8"
+    ],
+    "statementHash": "a1754390faa6caba",
+    "status": "REVIEW_REQUIRED",
+    "type": "EXACT_DUPLICATE"
+  },
+  {
+    "candidateIds": [
+      "cand-4dd5a5d4-95ab-5edf-8104-748fe8e9f806"
+    ],
+    "occurrences": 2,
+    "sourceRecordIds": [
+      "src-d7dd9b0b-eeea-57e5-9eeb-838febf13029",
+      "src-045dae6c-1bc3-5289-a295-acc37059cc14"
+    ],
+    "statementHash": "a7155d478c32d1d7",
+    "status": "REVIEW_REQUIRED",
+    "type": "EXACT_DUPLICATE"
+  },
+  {
+    "candidateIds": [
+      "cand-4dd5a5d4-95ab-5edf-8104-748fe8e9f806"
+    ],
+    "occurrences": 4,
+    "sourceRecordIds": [
+      "src-b00f15d6-69ce-53eb-99e1-69c786b969fb",
+      "src-03911b99-77c5-5fa3-82ce-fcef7e6c2752",
+      "src-2cfa3318-cfc7-584d-9576-ed0fed6004d8",
+      "src-84cbaf14-4518-5b04-8b2f-bf4e036aadcb"
+    ],
+    "statementHash": "a8c7ced688ff1d6c",
+    "status": "REVIEW_REQUIRED",
+    "type": "EXACT_DUPLICATE"
+  },
+  {
+    "candidateIds": [
+      "cand-4dd5a5d4-95ab-5edf-8104-748fe8e9f806"
+    ],
+    "occurrences": 2,
+    "sourceRecordIds": [
+      "src-b5dc7d98-dcee-5118-bd9e-3ab503a2eaee",
+      "src-a7449646-af7a-5f43-9b80-37d8bb26569c"
+    ],
+    "statementHash": "aa27cdbd9f085840",
+    "status": "REVIEW_REQUIRED",
+    "type": "EXACT_DUPLICATE"
+  },
+  {
+    "candidateIds": [
+      "cand-4dd5a5d4-95ab-5edf-8104-748fe8e9f806"
+    ],
+    "occurrences": 5,
+    "sourceRecordIds": [
+      "src-f8bb620d-96df-5f1a-bf76-73baada50ed4",
+      "src-0c28b848-f525-523c-b230-f287e7d9cb55",
+      "src-d173b012-4c62-52f6-a58c-749f7ff30dd3",
+      "src-df7a07c8-e340-5404-810e-944cec631e6a",
+      "src-3f65e7c0-f7ac-5d78-96d3-8d9ddc47490e"
+    ],
+    "statementHash": "b4977a7ddb69e1e7",
+    "status": "REVIEW_REQUIRED",
+    "type": "EXACT_DUPLICATE"
+  },
+  {
+    "candidateIds": [
+      "cand-b485d58c-b82b-5495-bf6f-c3d52e3aa591",
+      "cand-e6378586-2139-5f8d-9685-a837232b4998"
+    ],
+    "occurrences": 2,
+    "sourceRecordIds": [
+      "src-b56f9bea-4e28-5450-82e4-451b4e135415",
+      "src-8227f3fd-4753-54ba-ac5b-849a598233b2"
+    ],
+    "statementHash": "c02ffe341860ccf1",
+    "status": "REVIEW_REQUIRED",
+    "type": "EXACT_DUPLICATE"
+  },
+  {
+    "candidateIds": [
+      "cand-4dd5a5d4-95ab-5edf-8104-748fe8e9f806"
+    ],
+    "occurrences": 8,
+    "sourceRecordIds": [
+      "src-ba0ebce4-1ca1-5872-9ec2-51bfccf8f4a6",
+      "src-8e864f24-5106-5651-b4bc-383cba751026",
+      "src-466e4199-f94c-5639-867c-200fb38432b1",
+      "src-b0296178-f9ba-57b5-8190-256bc4ef165f",
+      "src-a70b36ad-acdb-5b1c-b7e2-64ffe6ebe4c4",
+      "src-d5d62949-7d98-522f-9722-ceaf2156feed",
+      "src-51346936-90cf-5a9c-b253-f8200b3a9af1",
+      "src-9de7e37b-919c-5582-807c-ff6bcd45adbd"
+    ],
+    "statementHash": "c8e596829a5da6bc",
+    "status": "REVIEW_REQUIRED",
+    "type": "EXACT_DUPLICATE"
+  },
+  {
+    "candidateIds": [
+      "cand-9692b22b-4c11-5eb7-8c58-0daa1076e6ca",
+      "cand-bc05b67a-0a56-5b8f-b716-a3c91c826fa5"
+    ],
+    "occurrences": 2,
+    "sourceRecordIds": [
+      "src-8e17b661-25b2-50dc-9395-50c9f76dec0a",
+      "src-bc2c064a-e09d-5040-91be-b9c2452145a8"
+    ],
+    "statementHash": "ccb9f943fc26a2d2",
+    "status": "REVIEW_REQUIRED",
+    "type": "EXACT_DUPLICATE"
+  },
+  {
+    "candidateIds": [
+      "cand-8d669439-ae9b-5186-8edd-16b4f40e4b32",
+      "cand-bcb4d267-a8a7-569f-8d6b-2ba3b8b324e7"
+    ],
+    "occurrences": 2,
+    "sourceRecordIds": [
+      "src-a00cb490-e852-558d-9713-5b313fee0d3a",
+      "src-a8602f62-c92c-5094-8a93-1ee784f0c4f6"
+    ],
+    "statementHash": "d14c0006ff2af75c",
+    "status": "REVIEW_REQUIRED",
+    "type": "EXACT_DUPLICATE"
+  },
+  {
+    "candidateIds": [
+      "cand-9c2943d7-e91a-5b0e-a24b-1da47fef491e",
+      "cand-e763380c-97f8-5a8e-9038-4e3c2a89630b"
+    ],
+    "occurrences": 2,
+    "sourceRecordIds": [
+      "src-0d56b20c-47d6-5ed5-98bb-be0adad8244c",
+      "src-b5e1f9e5-5aea-59cb-8cdf-07fcebc6ee1c"
+    ],
+    "statementHash": "d3c591f688f33cbb",
+    "status": "REVIEW_REQUIRED",
+    "type": "EXACT_DUPLICATE"
+  },
+  {
+    "candidateIds": [
+      "cand-586381f5-bad1-5844-a7a4-9c56831210d0",
+      "cand-cfa405e4-e642-5e84-8ed3-63797f7c1e1b"
+    ],
+    "occurrences": 2,
+    "sourceRecordIds": [
+      "src-e283184d-f938-52c7-8711-c70ab9a97921",
+      "src-6ac40966-ad31-5c85-ba88-9bc807aff365"
+    ],
+    "statementHash": "d7de89f29f90e766",
+    "status": "REVIEW_REQUIRED",
+    "type": "EXACT_DUPLICATE"
+  },
+  {
+    "candidateIds": [
+      "cand-4dd5a5d4-95ab-5edf-8104-748fe8e9f806"
+    ],
+    "occurrences": 2,
+    "sourceRecordIds": [
+      "src-da8d39de-56e4-5acf-91c1-d280a92e2322",
+      "src-83003787-bdc1-5c97-8256-63390e4d3d7d"
+    ],
+    "statementHash": "dace323c23f345be",
+    "status": "REVIEW_REQUIRED",
+    "type": "EXACT_DUPLICATE"
+  },
+  {
+    "candidateIds": [
+      "cand-7a3c6615-1df0-5a03-8343-871076b028d5",
+      "cand-8a6a0c68-8d28-563e-86f2-4dbe7efa25b9"
+    ],
+    "occurrences": 2,
+    "sourceRecordIds": [
+      "src-19da24ab-1a27-5779-ac29-8128e8276933",
+      "src-e45f780e-0c2a-560f-8af6-02982ab8bb8f"
+    ],
+    "statementHash": "db6c3e2a89cfeac1",
+    "status": "REVIEW_REQUIRED",
+    "type": "EXACT_DUPLICATE"
+  },
+  {
+    "candidateIds": [
+      "cand-4dd5a5d4-95ab-5edf-8104-748fe8e9f806"
+    ],
+    "occurrences": 3,
+    "sourceRecordIds": [
+      "src-d9f2c0f4-1faf-567d-848e-cffd4eac7366",
+      "src-4c2fec32-3775-5c0b-a683-5edf4fca3fd1",
+      "src-6d84c58a-5082-5da9-8dc5-17e25f5178b0"
+    ],
+    "statementHash": "de591aa13f632640",
+    "status": "REVIEW_REQUIRED",
+    "type": "EXACT_DUPLICATE"
+  },
+  {
+    "candidateIds": [
+      "cand-0c5521aa-1508-5860-b6dd-bad0983159e3",
+      "cand-15678231-4aba-5c98-b742-90c1dd37628f",
+      "cand-182b00c1-934f-50b3-8f16-f2a64874049c",
+      "cand-1f1a7818-05d7-52ff-a5e2-3cf00149be47",
+      "cand-8b254a6d-bc58-5840-b34b-489a30b3ffbe",
+      "cand-965767e8-f57b-5480-bc2a-70b30d2009c1",
+      "cand-a5d70689-b171-504c-aa2c-5348bfd19979",
+      "cand-dbb1501e-d255-578f-8df6-7307660afa57"
+    ],
+    "occurrences": 8,
+    "sourceRecordIds": [
+      "src-bd16a5e0-4e8f-596c-9f3e-6abae8093d8b",
+      "src-db070b39-258b-56bd-8871-28bc9f0d34dc",
+      "src-85a5ae5e-28d8-5338-a36f-36ad5700be85",
+      "src-0ca308ec-bdad-5a1b-9bb7-e59e74acf91e",
+      "src-243a33db-703c-5866-821c-b3c3668afcf0",
+      "src-d16fc147-22c8-5c47-a7cb-ab445ff95768",
+      "src-3e709e8b-2f32-52e3-85ac-80388cb9a9fa",
+      "src-1f6722fa-4ab8-5c7d-b9f0-03eebce47de9"
+    ],
+    "statementHash": "e98e4a4cb61317e0",
+    "status": "REVIEW_REQUIRED",
+    "type": "EXACT_DUPLICATE"
+  },
+  {
+    "candidateIds": [
+      "cand-8a6a0c68-8d28-563e-86f2-4dbe7efa25b9",
+      "cand-93ec61fe-3e54-5821-98d8-5f5eda928647"
+    ],
+    "occurrences": 2,
+    "sourceRecordIds": [
+      "src-73e6e87f-ec01-54f2-9301-9a7567305efe",
+      "src-f3ae46f5-d995-55f2-bc6e-fbeb6693424b"
+    ],
+    "statementHash": "ea284bf5ad213b32",
+    "status": "REVIEW_REQUIRED",
+    "type": "EXACT_DUPLICATE"
+  },
+  {
+    "candidateIds": [
+      "cand-108394d3-707e-57d1-914b-fffb9348904e",
+      "cand-220fb867-ff7b-5fca-b6d4-23ad0e31f760",
+      "cand-3cef94ff-9f2d-569d-b2dc-4773f530a65f",
+      "cand-7551c4e2-0bef-5210-8cca-2987391885c8"
+    ],
+    "occurrences": 4,
+    "sourceRecordIds": [
+      "src-ea2f7ec0-3b59-57a0-8dfd-c250c29a5f30",
+      "src-30e696d9-a6fe-5de4-8ce4-5fd1a0f19ce2",
+      "src-2e8608c8-31ad-57f5-81ba-dc814791914b",
+      "src-09b06988-9ccd-5878-84bd-68ce48424b90"
+    ],
+    "statementHash": "ecdc0ac660ee269b",
+    "status": "REVIEW_REQUIRED",
+    "type": "EXACT_DUPLICATE"
+  },
+  {
+    "candidateIds": [
+      "cand-93ec61fe-3e54-5821-98d8-5f5eda928647"
+    ],
+    "occurrences": 2,
+    "sourceRecordIds": [
+      "src-e374df2c-bd5f-5ff8-bef8-71b0b0768433",
+      "src-febd9b46-e698-5eeb-a09d-9ebd9992f661"
+    ],
+    "statementHash": "efe396ce192b0eb9",
+    "status": "REVIEW_REQUIRED",
+    "type": "EXACT_DUPLICATE"
+  },
+  {
+    "candidateIds": [
+      "cand-24001b86-659a-5298-aba6-de915c5bac2c",
+      "cand-866dc0f8-e357-5372-b54c-87b7333c820c"
+    ],
+    "occurrences": 2,
+    "sourceRecordIds": [
+      "src-73d3d9a7-6057-5884-a751-a328acc172ac",
+      "src-54b98842-be15-54f8-99e4-c05eeb5215cc"
+    ],
+    "statementHash": "fe59af62890312b5",
+    "status": "REVIEW_REQUIRED",
+    "type": "EXACT_DUPLICATE"
+  }
+]

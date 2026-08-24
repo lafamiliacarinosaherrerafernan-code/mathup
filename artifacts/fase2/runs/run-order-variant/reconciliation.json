@@ -1,0 +1,142 @@
+{
+  "coverage": [
+    {
+      "BLOCKED": 159,
+      "PASSED": 0,
+      "REVIEW_REQUIRED": 53,
+      "candidates": 212,
+      "courseId": "1bach-ccss",
+      "notConverted": 0,
+      "originalExercises": 212,
+      "subjectId": "matematicas-ccss-i"
+    },
+    {
+      "BLOCKED": 72,
+      "PASSED": 0,
+      "REVIEW_REQUIRED": 4,
+      "candidates": 76,
+      "courseId": "1bach-mates",
+      "notConverted": 0,
+      "originalExercises": 76,
+      "subjectId": "matematicas-i"
+    },
+    {
+      "BLOCKED": 209,
+      "PASSED": 502,
+      "REVIEW_REQUIRED": 256,
+      "candidates": 967,
+      "courseId": "1eso",
+      "notConverted": 0,
+      "originalExercises": 967,
+      "subjectId": "matematicas"
+    },
+    {
+      "BLOCKED": 1360,
+      "PASSED": 0,
+      "REVIEW_REQUIRED": 0,
+      "candidates": 1360,
+      "courseId": "2bach-ccss",
+      "notConverted": 0,
+      "originalExercises": 1360,
+      "subjectId": "matematicas-ccss-ii"
+    },
+    {
+      "BLOCKED": 1921,
+      "PASSED": 0,
+      "REVIEW_REQUIRED": 0,
+      "candidates": 1921,
+      "courseId": "2bach-mates",
+      "notConverted": 0,
+      "originalExercises": 1921,
+      "subjectId": "matematicas-ii"
+    },
+    {
+      "BLOCKED": 46,
+      "PASSED": 294,
+      "REVIEW_REQUIRED": 181,
+      "candidates": 521,
+      "courseId": "2eso",
+      "notConverted": 0,
+      "originalExercises": 521,
+      "subjectId": "matematicas"
+    },
+    {
+      "BLOCKED": 53,
+      "PASSED": 354,
+      "REVIEW_REQUIRED": 266,
+      "candidates": 673,
+      "courseId": "3eso",
+      "notConverted": 0,
+      "originalExercises": 673,
+      "subjectId": "matematicas"
+    },
+    {
+      "BLOCKED": 53,
+      "PASSED": 198,
+      "REVIEW_REQUIRED": 137,
+      "candidates": 388,
+      "courseId": "4eso-a",
+      "notConverted": 0,
+      "originalExercises": 388,
+      "subjectId": "matematicas"
+    },
+    {
+      "BLOCKED": 62,
+      "PASSED": 291,
+      "REVIEW_REQUIRED": 209,
+      "candidates": 562,
+      "courseId": "4eso-b",
+      "notConverted": 0,
+      "originalExercises": 562,
+      "subjectId": "matematicas"
+    },
+    {
+      "BLOCKED": 0,
+      "PASSED": 0,
+      "REVIEW_REQUIRED": 0,
+      "candidates": 0,
+      "courseId": "sin-determinar",
+      "notConverted": 32,
+      "originalExercises": 32,
+      "subjectId": "sin-materia"
+    }
+  ],
+  "inaccessibleSummary": [
+    {
+      "cause": "LOADED_NOT_MATERIALIZED_BY_CURRENT_ROUTES",
+      "count": 572
+    },
+    {
+      "cause": "AUXILIARY_HISTORICAL",
+      "count": 32
+    },
+    {
+      "cause": "EXACT_DUPLICATE_ACCESSIBLE_ELSEWHERE",
+      "count": 3
+    }
+  ],
+  "notConvertedSummary": [
+    {
+      "count": 32,
+      "reason": "AUXILIARY_RECORD"
+    }
+  ],
+  "summary": {
+    "BLOCKED": 3935,
+    "PASSED": 1639,
+    "REVIEW_REQUIRED": 1106,
+    "baseline": {
+      "accessible": 6105,
+      "inaccessible": 607,
+      "originalExercises": 6712,
+      "records": 15527
+    },
+    "canonicalCandidates": 6680,
+    "inaccessibleReconciled": 607,
+    "notConverted": 32,
+    "originalExercisesReconciled": 6712,
+    "recordsProcessed": 15527,
+    "runtimeObservations": 5061,
+    "sourceRecords": 10466
+  }
+}
