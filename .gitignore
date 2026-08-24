@@ -11,6 +11,8 @@ book-resources/full-books/
 *.zip
 
 # Archivos generados o temporales
+/_diag_claim.png
+/_diag_claim.ps1
 _codex_temporal/
 _extracted/
 _preview/
