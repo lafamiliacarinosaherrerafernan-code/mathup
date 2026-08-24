@@ -1,0 +1,202 @@
+{
+  "statementsAudited": 7485,
+  "answersAudited": 4649,
+  "solutionsAudited": 4649,
+  "totalEntitiesAudited": 16783,
+  "diagnosisCounts": {
+    "CANONICAL_STRUCTURE_ERROR": 3756,
+    "DISPLAY_CONFIRMED": 4619,
+    "RENDERING_RISK": 7525,
+    "SOURCE_CORRUPTION": 883
+  },
+  "diagnosisByEntity": {
+    "statement": {
+      "CANONICAL_STRUCTURE_ERROR": 600,
+      "DISPLAY_CONFIRMED": 2807,
+      "RENDERING_RISK": 3777,
+      "SOURCE_CORRUPTION": 301
+    },
+    "answer": {
+      "DISPLAY_CONFIRMED": 1812,
+      "RENDERING_RISK": 2669,
+      "SOURCE_CORRUPTION": 168
+    },
+    "solution": {
+      "CANONICAL_STRUCTURE_ERROR": 3156,
+      "RENDERING_RISK": 1079,
+      "SOURCE_CORRUPTION": 414
+    }
+  },
+  "issueCounts": {
+    "ADVANCED_MATH_WITHOUT_STRUCTURED_REPRESENTATION": 11859,
+    "CANONICAL_IMAGE_FORMAT_WITHOUT_IMAGE_REFERENCE": 106,
+    "CANONICAL_MATHML_FORMAT_WITHOUT_MATHML": 494,
+    "CANONICAL_SOLUTION_NOT_FOUND_IN_DECODED_PARTS": 129,
+    "RAW_JSON_IN_TEXT_FIELD": 3295,
+    "SOURCE_FLAG_CORRUPTED_CHARACTERS": 6,
+    "SOURCE_FLAG_NOTATION_PROBLEM": 6,
+    "SOURCE_FLATTENED_MATH_PATTERN": 129,
+    "SOURCE_MATH_COMMAND_MISSING_BACKSLASH": 760
+  },
+  "familyCounts": {
+    "complex-fraction": 385,
+    "fraction": 2071,
+    "power-root": 4930,
+    "subscript": 674,
+    "absolute-value": 479,
+    "equation": 8748,
+    "system": 1198,
+    "matrix": 638,
+    "determinant": 376,
+    "limit": 204,
+    "derivative": 434,
+    "defined-integral": 15,
+    "indefinite-integral": 353,
+    "sum-product": 0,
+    "log-exp": 68,
+    "vector": 318,
+    "coordinates": 1597,
+    "interval-set": 4290,
+    "piecewise": 3,
+    "multiline": 1601,
+    "probability-combinatorics": 358,
+    "greek": 1217,
+    "inequality": 1142,
+    "implication-approximation": 834,
+    "units": 3689
+  },
+  "familyByDiagnosis": {
+    "complex-fraction": {
+      "CANONICAL_STRUCTURE_ERROR": 82,
+      "RENDERING_RISK": 296,
+      "SOURCE_CORRUPTION": 7
+    },
+    "fraction": {
+      "CANONICAL_STRUCTURE_ERROR": 637,
+      "RENDERING_RISK": 1376,
+      "SOURCE_CORRUPTION": 58
+    },
+    "power-root": {
+      "CANONICAL_STRUCTURE_ERROR": 1389,
+      "RENDERING_RISK": 3261,
+      "SOURCE_CORRUPTION": 280
+    },
+    "subscript": {
+      "CANONICAL_STRUCTURE_ERROR": 132,
+      "RENDERING_RISK": 441,
+      "SOURCE_CORRUPTION": 101
+    },
+    "absolute-value": {
+      "CANONICAL_STRUCTURE_ERROR": 40,
+      "DISPLAY_CONFIRMED": 1,
+      "RENDERING_RISK": 340,
+      "SOURCE_CORRUPTION": 98
+    },
+    "equation": {
+      "CANONICAL_STRUCTURE_ERROR": 3020,
+      "DISPLAY_CONFIRMED": 3,
+      "RENDERING_RISK": 5082,
+      "SOURCE_CORRUPTION": 643
+    },
+    "system": {
+      "CANONICAL_STRUCTURE_ERROR": 510,
+      "DISPLAY_CONFIRMED": 4,
+      "RENDERING_RISK": 568,
+      "SOURCE_CORRUPTION": 116
+    },
+    "matrix": {
+      "CANONICAL_STRUCTURE_ERROR": 95,
+      "DISPLAY_CONFIRMED": 1,
+      "RENDERING_RISK": 496,
+      "SOURCE_CORRUPTION": 46
+    },
+    "determinant": {
+      "CANONICAL_STRUCTURE_ERROR": 29,
+      "RENDERING_RISK": 270,
+      "SOURCE_CORRUPTION": 77
+    },
+    "limit": {
+      "CANONICAL_STRUCTURE_ERROR": 38,
+      "RENDERING_RISK": 127,
+      "SOURCE_CORRUPTION": 39
+    },
+    "derivative": {
+      "CANONICAL_STRUCTURE_ERROR": 55,
+      "RENDERING_RISK": 328,
+      "SOURCE_CORRUPTION": 51
+    },
+    "defined-integral": {
+      "CANONICAL_STRUCTURE_ERROR": 3,
+      "RENDERING_RISK": 6,
+      "SOURCE_CORRUPTION": 6
+    },
+    "indefinite-integral": {
+      "CANONICAL_STRUCTURE_ERROR": 45,
+      "DISPLAY_CONFIRMED": 1,
+      "RENDERING_RISK": 275,
+      "SOURCE_CORRUPTION": 32
+    },
+    "sum-product": {},
+    "log-exp": {
+      "CANONICAL_STRUCTURE_ERROR": 43,
+      "RENDERING_RISK": 23,
+      "SOURCE_CORRUPTION": 2
+    },
+    "vector": {
+      "CANONICAL_STRUCTURE_ERROR": 20,
+      "DISPLAY_CONFIRMED": 2,
+      "RENDERING_RISK": 266,
+      "SOURCE_CORRUPTION": 30
+    },
+    "coordinates": {
+      "CANONICAL_STRUCTURE_ERROR": 246,
+      "DISPLAY_CONFIRMED": 217,
+      "RENDERING_RISK": 1015,
+      "SOURCE_CORRUPTION": 119
+    },
+    "interval-set": {
+      "CANONICAL_STRUCTURE_ERROR": 3168,
+      "DISPLAY_CONFIRMED": 2,
+      "RENDERING_RISK": 768,
+      "SOURCE_CORRUPTION": 352
+    },
+    "piecewise": {
+      "RENDERING_RISK": 3
+    },
+    "multiline": {
+      "CANONICAL_STRUCTURE_ERROR": 5,
+      "RENDERING_RISK": 1441,
+      "SOURCE_CORRUPTION": 155
+    },
+    "probability-combinatorics": {
+      "CANONICAL_STRUCTURE_ERROR": 27,
+      "DISPLAY_CONFIRMED": 208,
+      "RENDERING_RISK": 78,
+      "SOURCE_CORRUPTION": 45
+    },
+    "greek": {
+      "CANONICAL_STRUCTURE_ERROR": 244,
+      "RENDERING_RISK": 896,
+      "SOURCE_CORRUPTION": 77
+    },
+    "inequality": {
+      "CANONICAL_STRUCTURE_ERROR": 142,
+      "RENDERING_RISK": 848,
+      "SOURCE_CORRUPTION": 152
+    },
+    "implication-approximation": {
+      "CANONICAL_STRUCTURE_ERROR": 160,
+      "RENDERING_RISK": 575,
+      "SOURCE_CORRUPTION": 99
+    },
+    "units": {
+      "CANONICAL_STRUCTURE_ERROR": 1069,
+      "DISPLAY_CONFIRMED": 1018,
+      "RENDERING_RISK": 1438,
+      "SOURCE_CORRUPTION": 164
+    }
+  },
+  "corpusSamples": 12,
+  "visualVerificationPerformed": false,
+  "visualRiskStatement": "No se modificó ni ejecutó el renderizador público; RENDERING_RISK exige validación visual aislada posterior."
+}

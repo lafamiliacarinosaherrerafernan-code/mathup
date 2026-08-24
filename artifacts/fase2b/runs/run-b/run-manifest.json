@@ -1,0 +1,33 @@
+{
+  "orderVariant": "normal",
+  "outputDir": "artifacts/fase2b/runs/run-b",
+  "runId": "run-b",
+  "semanticDigest": "4a14a37a606344da4885767c4312498513a8505f88adf03bf9a38d678244c65b",
+  "semanticFiles": [
+    "contract-manifest.json",
+    "input-manifest.json",
+    "exercise-v2.jsonl",
+    "answer-records.jsonl",
+    "solution-records.jsonl",
+    "v1-candidate-reference.jsonl",
+    "delivery-templates.jsonl",
+    "distractor-sets.jsonl",
+    "identity-redirects.jsonl",
+    "v1-to-v2-migration.jsonl",
+    "pau-recovery-decisions.jsonl",
+    "queue-possible-match.jsonl",
+    "queue-conflict.jsonl",
+    "queue-not-found.jsonl",
+    "queue-mathematical-review.jsonl",
+    "source-reconciliation.jsonl",
+    "educational-content-reconciliation.jsonl",
+    "validation-results.jsonl",
+    "validation-summary.json",
+    "identity-registry.json",
+    "coverage-by-course-subject.json",
+    "pau-coverage-by-provenance.json",
+    "before-after-comparison.json",
+    "reconciliation-summary.json",
+    "rollback-manifest.json"
+  ]
+}

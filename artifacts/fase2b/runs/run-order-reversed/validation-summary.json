@@ -1,0 +1,22 @@
+{
+  "entityCounts": {
+    "answers": 4649,
+    "distractorSets": 3423,
+    "exercises": 7485,
+    "redirects": 6680,
+    "solutions": 4649,
+    "templates": 9531
+  },
+  "gates": {
+    "CONTENT_BLOCKED": 2836,
+    "CORE_PASSED": 7485,
+    "DELIVERY_BLOCKED": 1324,
+    "DELIVERY_PASSED": 6161,
+    "NOT_PUBLISHED": 7485,
+    "REVIEW_REQUIRED": 4649
+  },
+  "states": {
+    "BLOCKED": 2836,
+    "REVIEW_REQUIRED": 4649
+  }
+}

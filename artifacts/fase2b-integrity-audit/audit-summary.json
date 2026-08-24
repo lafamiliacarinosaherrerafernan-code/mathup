@@ -1,0 +1,342 @@
+{
+  "schemaVersion": "mathup.fase2b-integrity-audit.v1",
+  "generatedFrom": "artifacts/fase2b/runs/run-a",
+  "identity": {
+    "candidatesV1": 6680,
+    "exercisesV2": 7485,
+    "increase": 805,
+    "mappings": 6680,
+    "oneToOne": 6650,
+    "splitJustified": 27,
+    "duplicateRelation": 3,
+    "unexplainedExpansionCases": 0,
+    "unexplainedExpansionEntities": 0,
+    "splitTargets": 835,
+    "distinctStatementsWithinSplits": 818,
+    "distinctStatementExpansion": 788,
+    "exactDuplicateSurplus": 17,
+    "arithmetic": "6680 + 788 + 17 + 0 = 7485",
+    "closureDecision": "IDENTITY_EXPLAINED_BUT_DUPLICATE_RELATIONS_REQUIRE_REVIEW"
+  },
+  "courseReconciliation": [
+    {
+      "courseId": "1bach-ccss",
+      "originals": 212,
+      "candidatesV1": 212,
+      "exercisesV2": 349,
+      "increment": 137,
+      "splitTargetCount": 137,
+      "splitBaselineCandidates": 0,
+      "distinctStatementExpansion": 135,
+      "duplicateRelations": 2,
+      "unexplainedExpansion": 0
+    },
+    {
+      "courseId": "1bach-mates",
+      "originals": 76,
+      "candidatesV1": 76,
+      "exercisesV2": 531,
+      "increment": 455,
+      "splitTargetCount": 485,
+      "splitBaselineCandidates": 30,
+      "distinctStatementExpansion": 452,
+      "duplicateRelations": 3,
+      "unexplainedExpansion": 0
+    },
+    {
+      "courseId": "1eso",
+      "originals": 967,
+      "candidatesV1": 967,
+      "exercisesV2": 967,
+      "increment": 0,
+      "splitTargetCount": 0,
+      "splitBaselineCandidates": 0,
+      "distinctStatementExpansion": 0,
+      "duplicateRelations": 0,
+      "unexplainedExpansion": 0
+    },
+    {
+      "courseId": "2bach-ccss",
+      "originals": 1360,
+      "candidatesV1": 1360,
+      "exercisesV2": 1480,
+      "increment": 120,
+      "splitTargetCount": 120,
+      "splitBaselineCandidates": 0,
+      "distinctStatementExpansion": 120,
+      "duplicateRelations": 0,
+      "unexplainedExpansion": 0
+    },
+    {
+      "courseId": "2bach-mates",
+      "originals": 1921,
+      "candidatesV1": 1921,
+      "exercisesV2": 2011,
+      "increment": 90,
+      "splitTargetCount": 90,
+      "splitBaselineCandidates": 0,
+      "distinctStatementExpansion": 78,
+      "duplicateRelations": 12,
+      "unexplainedExpansion": 0
+    },
+    {
+      "courseId": "2eso",
+      "originals": 521,
+      "candidatesV1": 521,
+      "exercisesV2": 521,
+      "increment": 0,
+      "splitTargetCount": 0,
+      "splitBaselineCandidates": 0,
+      "distinctStatementExpansion": 0,
+      "duplicateRelations": 0,
+      "unexplainedExpansion": 0
+    },
+    {
+      "courseId": "3eso",
+      "originals": 673,
+      "candidatesV1": 673,
+      "exercisesV2": 675,
+      "increment": 2,
+      "splitTargetCount": 2,
+      "splitBaselineCandidates": 0,
+      "distinctStatementExpansion": 2,
+      "duplicateRelations": 0,
+      "unexplainedExpansion": 0
+    },
+    {
+      "courseId": "4eso-a",
+      "originals": 388,
+      "candidatesV1": 388,
+      "exercisesV2": 388,
+      "increment": 0,
+      "splitTargetCount": 0,
+      "splitBaselineCandidates": 0,
+      "distinctStatementExpansion": 0,
+      "duplicateRelations": 0,
+      "unexplainedExpansion": 0
+    },
+    {
+      "courseId": "4eso-b",
+      "originals": 562,
+      "candidatesV1": 562,
+      "exercisesV2": 563,
+      "increment": 1,
+      "splitTargetCount": 1,
+      "splitBaselineCandidates": 0,
+      "distinctStatementExpansion": 1,
+      "duplicateRelations": 0,
+      "unexplainedExpansion": 0
+    }
+  ],
+  "notation": {
+    "statementsAudited": 7485,
+    "answersAudited": 4649,
+    "solutionsAudited": 4649,
+    "totalEntitiesAudited": 16783,
+    "diagnosisCounts": {
+      "CANONICAL_STRUCTURE_ERROR": 3756,
+      "DISPLAY_CONFIRMED": 4619,
+      "RENDERING_RISK": 7525,
+      "SOURCE_CORRUPTION": 883
+    },
+    "diagnosisByEntity": {
+      "statement": {
+        "CANONICAL_STRUCTURE_ERROR": 600,
+        "DISPLAY_CONFIRMED": 2807,
+        "RENDERING_RISK": 3777,
+        "SOURCE_CORRUPTION": 301
+      },
+      "answer": {
+        "DISPLAY_CONFIRMED": 1812,
+        "RENDERING_RISK": 2669,
+        "SOURCE_CORRUPTION": 168
+      },
+      "solution": {
+        "CANONICAL_STRUCTURE_ERROR": 3156,
+        "RENDERING_RISK": 1079,
+        "SOURCE_CORRUPTION": 414
+      }
+    },
+    "issueCounts": {
+      "ADVANCED_MATH_WITHOUT_STRUCTURED_REPRESENTATION": 11859,
+      "CANONICAL_IMAGE_FORMAT_WITHOUT_IMAGE_REFERENCE": 106,
+      "CANONICAL_MATHML_FORMAT_WITHOUT_MATHML": 494,
+      "CANONICAL_SOLUTION_NOT_FOUND_IN_DECODED_PARTS": 129,
+      "RAW_JSON_IN_TEXT_FIELD": 3295,
+      "SOURCE_FLAG_CORRUPTED_CHARACTERS": 6,
+      "SOURCE_FLAG_NOTATION_PROBLEM": 6,
+      "SOURCE_FLATTENED_MATH_PATTERN": 129,
+      "SOURCE_MATH_COMMAND_MISSING_BACKSLASH": 760
+    },
+    "familyCounts": {
+      "complex-fraction": 385,
+      "fraction": 2071,
+      "power-root": 4930,
+      "subscript": 674,
+      "absolute-value": 479,
+      "equation": 8748,
+      "system": 1198,
+      "matrix": 638,
+      "determinant": 376,
+      "limit": 204,
+      "derivative": 434,
+      "defined-integral": 15,
+      "indefinite-integral": 353,
+      "sum-product": 0,
+      "log-exp": 68,
+      "vector": 318,
+      "coordinates": 1597,
+      "interval-set": 4290,
+      "piecewise": 3,
+      "multiline": 1601,
+      "probability-combinatorics": 358,
+      "greek": 1217,
+      "inequality": 1142,
+      "implication-approximation": 834,
+      "units": 3689
+    },
+    "familyByDiagnosis": {
+      "complex-fraction": {
+        "CANONICAL_STRUCTURE_ERROR": 82,
+        "RENDERING_RISK": 296,
+        "SOURCE_CORRUPTION": 7
+      },
+      "fraction": {
+        "CANONICAL_STRUCTURE_ERROR": 637,
+        "RENDERING_RISK": 1376,
+        "SOURCE_CORRUPTION": 58
+      },
+      "power-root": {
+        "CANONICAL_STRUCTURE_ERROR": 1389,
+        "RENDERING_RISK": 3261,
+        "SOURCE_CORRUPTION": 280
+      },
+      "subscript": {
+        "CANONICAL_STRUCTURE_ERROR": 132,
+        "RENDERING_RISK": 441,
+        "SOURCE_CORRUPTION": 101
+      },
+      "absolute-value": {
+        "CANONICAL_STRUCTURE_ERROR": 40,
+        "DISPLAY_CONFIRMED": 1,
+        "RENDERING_RISK": 340,
+        "SOURCE_CORRUPTION": 98
+      },
+      "equation": {
+        "CANONICAL_STRUCTURE_ERROR": 3020,
+        "DISPLAY_CONFIRMED": 3,
+        "RENDERING_RISK": 5082,
+        "SOURCE_CORRUPTION": 643
+      },
+      "system": {
+        "CANONICAL_STRUCTURE_ERROR": 510,
+        "DISPLAY_CONFIRMED": 4,
+        "RENDERING_RISK": 568,
+        "SOURCE_CORRUPTION": 116
+      },
+      "matrix": {
+        "CANONICAL_STRUCTURE_ERROR": 95,
+        "DISPLAY_CONFIRMED": 1,
+        "RENDERING_RISK": 496,
+        "SOURCE_CORRUPTION": 46
+      },
+      "determinant": {
+        "CANONICAL_STRUCTURE_ERROR": 29,
+        "RENDERING_RISK": 270,
+        "SOURCE_CORRUPTION": 77
+      },
+      "limit": {
+        "CANONICAL_STRUCTURE_ERROR": 38,
+        "RENDERING_RISK": 127,
+        "SOURCE_CORRUPTION": 39
+      },
+      "derivative": {
+        "CANONICAL_STRUCTURE_ERROR": 55,
+        "RENDERING_RISK": 328,
+        "SOURCE_CORRUPTION": 51
+      },
+      "defined-integral": {
+        "CANONICAL_STRUCTURE_ERROR": 3,
+        "RENDERING_RISK": 6,
+        "SOURCE_CORRUPTION": 6
+      },
+      "indefinite-integral": {
+        "CANONICAL_STRUCTURE_ERROR": 45,
+        "DISPLAY_CONFIRMED": 1,
+        "RENDERING_RISK": 275,
+        "SOURCE_CORRUPTION": 32
+      },
+      "sum-product": {},
+      "log-exp": {
+        "CANONICAL_STRUCTURE_ERROR": 43,
+        "RENDERING_RISK": 23,
+        "SOURCE_CORRUPTION": 2
+      },
+      "vector": {
+        "CANONICAL_STRUCTURE_ERROR": 20,
+        "DISPLAY_CONFIRMED": 2,
+        "RENDERING_RISK": 266,
+        "SOURCE_CORRUPTION": 30
+      },
+      "coordinates": {
+        "CANONICAL_STRUCTURE_ERROR": 246,
+        "DISPLAY_CONFIRMED": 217,
+        "RENDERING_RISK": 1015,
+        "SOURCE_CORRUPTION": 119
+      },
+      "interval-set": {
+        "CANONICAL_STRUCTURE_ERROR": 3168,
+        "DISPLAY_CONFIRMED": 2,
+        "RENDERING_RISK": 768,
+        "SOURCE_CORRUPTION": 352
+      },
+      "piecewise": {
+        "RENDERING_RISK": 3
+      },
+      "multiline": {
+        "CANONICAL_STRUCTURE_ERROR": 5,
+        "RENDERING_RISK": 1441,
+        "SOURCE_CORRUPTION": 155
+      },
+      "probability-combinatorics": {
+        "CANONICAL_STRUCTURE_ERROR": 27,
+        "DISPLAY_CONFIRMED": 208,
+        "RENDERING_RISK": 78,
+        "SOURCE_CORRUPTION": 45
+      },
+      "greek": {
+        "CANONICAL_STRUCTURE_ERROR": 244,
+        "RENDERING_RISK": 896,
+        "SOURCE_CORRUPTION": 77
+      },
+      "inequality": {
+        "CANONICAL_STRUCTURE_ERROR": 142,
+        "RENDERING_RISK": 848,
+        "SOURCE_CORRUPTION": 152
+      },
+      "implication-approximation": {
+        "CANONICAL_STRUCTURE_ERROR": 160,
+        "RENDERING_RISK": 575,
+        "SOURCE_CORRUPTION": 99
+      },
+      "units": {
+        "CANONICAL_STRUCTURE_ERROR": 1069,
+        "DISPLAY_CONFIRMED": 1018,
+        "RENDERING_RISK": 1438,
+        "SOURCE_CORRUPTION": 164
+      }
+    },
+    "corpusSamples": 12,
+    "visualVerificationPerformed": false,
+    "visualRiskStatement": "No se modificó ni ejecutó el renderizador público; RENDERING_RISK exige validación visual aislada posterior."
+  },
+  "solutionIntegrity": {
+    "total": 4649,
+    "rawJsonInTextField": 3295,
+    "emptyParts": 0,
+    "duplicatedPartLabels": 0,
+    "orderedAsStored": 4649,
+    "finalAnswerExplicit": 4649,
+    "caveat": "El orden almacenado se conserva, pero no se afirma completitud ni corrección matemática sin comparación humana con el documento original."
+  }
+}

@@ -1,0 +1,122 @@
+[
+  {
+    "BLOCKED": 0,
+    "PASSED": 0,
+    "REVIEW_REQUIRED": 212,
+    "accessible": 206,
+    "courseId": "1bach-ccss",
+    "inaccessible": 6,
+    "notConverted": 0,
+    "originals": 212,
+    "subjectId": "matematicas-ccss-i",
+    "v2Exercises": 212
+  },
+  {
+    "BLOCKED": 835,
+    "PASSED": 0,
+    "REVIEW_REQUIRED": 46,
+    "accessible": 76,
+    "courseId": "1bach-mates",
+    "inaccessible": 0,
+    "notConverted": 0,
+    "originals": 76,
+    "subjectId": "matematicas-i",
+    "v2Exercises": 881
+  },
+  {
+    "BLOCKED": 0,
+    "PASSED": 0,
+    "REVIEW_REQUIRED": 967,
+    "accessible": 967,
+    "courseId": "1eso",
+    "inaccessible": 0,
+    "notConverted": 0,
+    "originals": 967,
+    "subjectId": "matematicas",
+    "v2Exercises": 967
+  },
+  {
+    "BLOCKED": 1156,
+    "PASSED": 0,
+    "REVIEW_REQUIRED": 204,
+    "accessible": 1325,
+    "courseId": "2bach-ccss",
+    "inaccessible": 35,
+    "notConverted": 0,
+    "originals": 1360,
+    "subjectId": "matematicas-ccss-ii",
+    "v2Exercises": 1360
+  },
+  {
+    "BLOCKED": 845,
+    "PASSED": 0,
+    "REVIEW_REQUIRED": 1076,
+    "accessible": 1387,
+    "courseId": "2bach-mates",
+    "inaccessible": 534,
+    "notConverted": 0,
+    "originals": 1921,
+    "subjectId": "matematicas-ii",
+    "v2Exercises": 1921
+  },
+  {
+    "BLOCKED": 0,
+    "PASSED": 0,
+    "REVIEW_REQUIRED": 521,
+    "accessible": 521,
+    "courseId": "2eso",
+    "inaccessible": 0,
+    "notConverted": 0,
+    "originals": 521,
+    "subjectId": "matematicas",
+    "v2Exercises": 521
+  },
+  {
+    "BLOCKED": 0,
+    "PASSED": 0,
+    "REVIEW_REQUIRED": 673,
+    "accessible": 673,
+    "courseId": "3eso",
+    "inaccessible": 0,
+    "notConverted": 0,
+    "originals": 673,
+    "subjectId": "matematicas",
+    "v2Exercises": 673
+  },
+  {
+    "BLOCKED": 0,
+    "PASSED": 0,
+    "REVIEW_REQUIRED": 388,
+    "accessible": 388,
+    "courseId": "4eso-a",
+    "inaccessible": 0,
+    "notConverted": 0,
+    "originals": 388,
+    "subjectId": "matematicas",
+    "v2Exercises": 388
+  },
+  {
+    "BLOCKED": 0,
+    "PASSED": 0,
+    "REVIEW_REQUIRED": 562,
+    "accessible": 562,
+    "courseId": "4eso-b",
+    "inaccessible": 0,
+    "notConverted": 0,
+    "originals": 562,
+    "subjectId": "matematicas",
+    "v2Exercises": 562
+  },
+  {
+    "BLOCKED": 0,
+    "PASSED": 0,
+    "REVIEW_REQUIRED": 0,
+    "accessible": 0,
+    "courseId": "sin-determinar",
+    "inaccessible": 32,
+    "notConverted": 32,
+    "originals": 32,
+    "subjectId": null,
+    "v2Exercises": 0
+  }
+]

@@ -1,0 +1,13 @@
+{
+  "aggregateDigest": "422f403875f5feb63a6048bd2d3f213ac4add5adbe58852ad39aa49fe7db4c52",
+  "comparedSemanticFiles": 25,
+  "differences": [],
+  "doubleExecutionIdentical": true,
+  "orderInvariant": true,
+  "runs": [
+    "run-a",
+    "run-b",
+    "run-order-reversed"
+  ],
+  "schemaVersion": "mathup.fase2b-reproducibility.v1"
+}

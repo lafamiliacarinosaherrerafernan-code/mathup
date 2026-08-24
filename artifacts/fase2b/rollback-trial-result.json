@@ -1,0 +1,42 @@
+{
+  "after": {
+    "app.js": "7d3ccc9dc3590c2b32f0e95ea2865f9c692c9f465d8abfbd4f72d9408f72757c",
+    "artifacts/fase2/runs/run-a/reconciliation.json": "037b571ace55a41b3b7d3ce51054c270c316d9d053331d72b5899b5bec4806ad",
+    "artifacts/fase2a/pau-recovery-summary.json": "32c70ab400e3b322588dafcc03c12ff118c17e493b89669034f8f24f7066a913",
+    "catalog/canonical-exercise.mjs": "7a2989a0318532a144950f33d64b64802e4fabc62b27172e6a6ea23211496918",
+    "catalog/canonical-exercise.schema.json": "34d99c9a7f9764c6a8a55b6c7f3cc53c8ac1acdff6a3f704dd819db18cfe2678",
+    "catalog/validate-canonical-exercise.mjs": "13658e74efdeda3c55b9f4bf29fa5ab0871a5af48cf4d4ff1589745bdccfcaa5",
+    "index.html": "45af3746e63e336a133baab830296ec797f5d68059e38122ebca0936bac89080",
+    "scripts/fase1-validate-catalog-sample.mjs": "de9687e3287a4ac7dfcfa1aa85b5efd10af55387ed8fdf780cbb1d6f568db4d8",
+    "tests/canonical-exercise-validator.test.mjs": "390c5d53d608255d5821a6b1fc5783f5e4f6811b068040df8f778fca377c2ddf"
+  },
+  "before": {
+    "app.js": "7d3ccc9dc3590c2b32f0e95ea2865f9c692c9f465d8abfbd4f72d9408f72757c",
+    "artifacts/fase2/runs/run-a/reconciliation.json": "037b571ace55a41b3b7d3ce51054c270c316d9d053331d72b5899b5bec4806ad",
+    "artifacts/fase2a/pau-recovery-summary.json": "32c70ab400e3b322588dafcc03c12ff118c17e493b89669034f8f24f7066a913",
+    "catalog/canonical-exercise.mjs": "7a2989a0318532a144950f33d64b64802e4fabc62b27172e6a6ea23211496918",
+    "catalog/canonical-exercise.schema.json": "34d99c9a7f9764c6a8a55b6c7f3cc53c8ac1acdff6a3f704dd819db18cfe2678",
+    "catalog/validate-canonical-exercise.mjs": "13658e74efdeda3c55b9f4bf29fa5ab0871a5af48cf4d4ff1589745bdccfcaa5",
+    "index.html": "45af3746e63e336a133baab830296ec797f5d68059e38122ebca0936bac89080",
+    "scripts/fase1-validate-catalog-sample.mjs": "de9687e3287a4ac7dfcfa1aa85b5efd10af55387ed8fdf780cbb1d6f568db4d8",
+    "tests/canonical-exercise-validator.test.mjs": "390c5d53d608255d5821a6b1fc5783f5e4f6811b068040df8f778fca377c2ddf"
+  },
+  "priorArtifactWrites": 0,
+  "productionWrites": 0,
+  "protectedHashesUnchanged": true,
+  "protectedPaths": [
+    "catalog/canonical-exercise.schema.json",
+    "catalog/canonical-exercise.mjs",
+    "catalog/validate-canonical-exercise.mjs",
+    "tests/canonical-exercise-validator.test.mjs",
+    "scripts/fase1-validate-catalog-sample.mjs",
+    "artifacts/fase2/runs/run-a/reconciliation.json",
+    "artifacts/fase2a/pau-recovery-summary.json",
+    "index.html",
+    "app.js"
+  ],
+  "schemaVersion": "mathup.fase2b-rollback-trial.v1",
+  "scope": "temporary isolated Fase 2B tree",
+  "supabaseWrites": 0,
+  "trialDirectoryRemoved": true
+}

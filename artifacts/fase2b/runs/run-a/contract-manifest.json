@@ -1,0 +1,13 @@
+{
+  "contracts": {
+    "answer": "mathup.answer.v1",
+    "deliveryTemplate": "mathup.delivery-template.v1",
+    "distractorSet": "mathup.distractor-set.v1",
+    "exercise": "mathup.exercise.v2",
+    "identityRedirect": "mathup.identity-redirect.v1",
+    "sessionExercise": "mathup.session-exercise.v1",
+    "solution": "mathup.solution.v1"
+  },
+  "recoveryRuleVersion": "mathup.pau-legacy-exact-key-and-part.v1",
+  "shuffleAlgorithmVersion": "mathup.shuffle.sha256-sort.v1"
+}
