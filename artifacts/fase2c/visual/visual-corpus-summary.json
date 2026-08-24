@@ -1,0 +1,45 @@
+{
+  "fixtures": 28,
+  "families": [
+    "power",
+    "subscript",
+    "fraction",
+    "root",
+    "absolute-value",
+    "equation",
+    "system",
+    "inequality",
+    "matrix",
+    "determinant",
+    "limit",
+    "derivative",
+    "defined-integral",
+    "indefinite-integral",
+    "summation",
+    "product",
+    "logarithm",
+    "exponential",
+    "vector",
+    "coordinates",
+    "interval",
+    "set",
+    "piecewise",
+    "multiline",
+    "probability",
+    "combinatorics",
+    "greek",
+    "units"
+  ],
+  "resolutions": [
+    320,
+    375,
+    768,
+    1280
+  ],
+  "contextsPerFixture": [
+    "statement",
+    "answer",
+    "solution"
+  ],
+  "realSamplesLinked": 12
+}

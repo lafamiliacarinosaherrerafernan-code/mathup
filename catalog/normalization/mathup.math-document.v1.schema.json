@@ -1,0 +1,141 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://mathup.es/contracts/normalization/mathup.math-document.v1.schema.json",
+  "title": "MathUp mixed mathematical document v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "documentId", "target", "source", "blocks", "families", "normalization"],
+  "properties": {
+    "schemaVersion": { "const": "mathup.math-document.v1" },
+    "documentId": { "type": "string", "pattern": "^mdoc-[0-9a-f]{64}$" },
+    "target": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["entityType", "entityId", "exerciseId", "fieldPath"],
+      "properties": {
+        "entityType": { "enum": ["statement", "answer", "solution"] },
+        "entityId": { "type": "string", "minLength": 1 },
+        "exerciseId": { "type": "string", "pattern": "^ex-[0-9a-f-]{36}$" },
+        "fieldPath": { "type": "string", "minLength": 1 }
+      }
+    },
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["literal", "literalHash", "sourceRecordIds", "provenance"],
+      "properties": {
+        "literal": { "type": "string" },
+        "literalHash": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+        "sourceRecordIds": { "type": "array", "items": { "type": "string" }, "uniqueItems": true },
+        "provenance": { "type": "object" }
+      }
+    },
+    "blocks": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/block" }
+    },
+    "families": { "type": "array", "items": { "type": "string" }, "uniqueItems": true },
+    "normalization": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["ruleVersion", "lossless", "reversible", "operations"],
+      "properties": {
+        "ruleVersion": { "type": "string", "minLength": 1 },
+        "lossless": { "type": "boolean" },
+        "reversible": { "type": "boolean" },
+        "operations": { "type": "array", "items": { "type": "string" } }
+      }
+    }
+  },
+  "$defs": {
+    "block": {
+      "oneOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["blockId", "type", "literal", "literalHash"],
+          "properties": {
+            "blockId": { "type": "string" },
+            "type": { "enum": ["text", "paragraph", "step", "literal-evidence"] },
+            "literal": { "type": "string" },
+            "literalHash": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+            "metadata": { "type": "object" }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["blockId", "type", "literal", "literalHash", "math"],
+          "properties": {
+            "blockId": { "type": "string" },
+            "type": { "enum": ["math-inline", "math-display"] },
+            "literal": { "type": "string" },
+            "literalHash": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+            "math": { "$ref": "#/$defs/mathNode" },
+            "metadata": { "type": "object" }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["blockId", "type", "items"],
+          "properties": {
+            "blockId": { "type": "string" },
+            "type": { "enum": ["list", "aligned-group"] },
+            "items": { "type": "array", "items": { "$ref": "#/$defs/block" } },
+            "metadata": { "type": "object" }
+          }
+        }
+      ]
+    },
+    "mathNode": {
+      "type": "object",
+      "required": ["type"],
+      "properties": {
+        "type": {
+          "enum": [
+            "number", "identifier", "greek", "operator", "unary", "binary", "relation",
+            "group", "fraction", "power", "subscript", "radical", "absolute", "function-call",
+            "equation", "inequality", "system", "matrix", "determinant", "limit", "derivative",
+            "integral", "sum", "product", "vector", "coordinate", "interval", "set", "piecewise",
+            "aligned", "probability", "combinatorial", "unit", "sequence", "raw-verified"
+          ]
+        },
+        "value": { "type": ["string", "number", "null"] },
+        "name": { "type": ["string", "null"] },
+        "operator": { "type": ["string", "null"] },
+        "children": { "type": "array", "items": { "$ref": "#/$defs/mathNode" } },
+        "base": { "$ref": "#/$defs/mathNode" },
+        "exponent": { "$ref": "#/$defs/mathNode" },
+        "index": { "$ref": "#/$defs/mathNode" },
+        "numerator": { "$ref": "#/$defs/mathNode" },
+        "denominator": { "$ref": "#/$defs/mathNode" },
+        "radicand": { "$ref": "#/$defs/mathNode" },
+        "left": { "$ref": "#/$defs/mathNode" },
+        "right": { "$ref": "#/$defs/mathNode" },
+        "body": { "$ref": "#/$defs/mathNode" },
+        "variable": { "$ref": "#/$defs/mathNode" },
+        "lower": { "$ref": "#/$defs/mathNode" },
+        "upper": { "$ref": "#/$defs/mathNode" },
+        "rows": { "type": "array", "items": { "type": "array", "items": { "$ref": "#/$defs/mathNode" } } },
+        "branches": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["expression", "condition"],
+            "properties": {
+              "expression": { "$ref": "#/$defs/mathNode" },
+              "condition": { "$ref": "#/$defs/mathNode" }
+            },
+            "additionalProperties": false
+          }
+        },
+        "openLeft": { "type": "boolean" },
+        "openRight": { "type": "boolean" },
+        "syntax": { "type": "string" },
+        "literal": { "type": "string" }
+      },
+      "additionalProperties": false
+    }
+  }
+}

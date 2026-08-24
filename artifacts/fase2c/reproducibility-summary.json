@@ -1,0 +1,10 @@
+{
+  "schemaVersion": "mathup.fase2c.reproducibility.v1",
+  "doubleRunEqual": true,
+  "reverseOrderInvariant": true,
+  "semanticDigests": {
+    "repeatA": "da4448d154738494d9e4ad1e51a04c9c0d608098a8255bc6a097b7dfa8847259",
+    "repeatB": "da4448d154738494d9e4ad1e51a04c9c0d608098a8255bc6a097b7dfa8847259",
+    "reverseOrder": "da4448d154738494d9e4ad1e51a04c9c0d608098a8255bc6a097b7dfa8847259"
+  }
+}

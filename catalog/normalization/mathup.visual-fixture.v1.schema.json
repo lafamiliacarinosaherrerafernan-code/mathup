@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://mathup.es/contracts/normalization/mathup.visual-fixture.v1.schema.json",
+  "title": "MathUp isolated visual fixture v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "fixtureId", "family", "profile", "entityContext", "source", "math", "resolutions", "expectations"],
+  "properties": {
+    "schemaVersion": { "const": "mathup.visual-fixture.v1" },
+    "fixtureId": { "type": "string" },
+    "family": { "type": "string" },
+    "profile": { "enum": ["ESO", "BACH1", "BACH2_PAU", "SYNTHETIC_CONTROL"] },
+    "entityContext": { "enum": ["statement", "answer", "solution", "control"] },
+    "source": { "type": "object" },
+    "math": { "$ref": "mathup.math-document.v1.schema.json#/$defs/mathNode" },
+    "resolutions": { "type": "array", "items": { "enum": [320, 375, 768, 1280] }, "uniqueItems": true },
+    "expectations": { "type": "array", "items": { "type": "string" }, "uniqueItems": true }
+  }
+}

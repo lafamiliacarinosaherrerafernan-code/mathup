@@ -1,0 +1,8 @@
+{
+  "schemaVersion": "mathup.fase2c.rollback-trial.v1",
+  "isolatedArtifactsCreated": true,
+  "isolatedArtifactsRemoved": true,
+  "protectedFilesUnchanged": true,
+  "productionDependencies": [],
+  "passed": true
+}
