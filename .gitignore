@@ -38,6 +38,9 @@ _bach_pdf_jobs.json
 /artifacts/fase2d/runs/*/contact-sheets/
 /artifacts/fase2d/runs/*/screenshots/contact-sheets/
 
+# Estado local de revisión humana (incluye identificador y decisiones del revisor)
+/artifacts/fase2d-human-review/local-state/
+
 # Configuracion de herramientas locales
 .agents/
 .impeccable/

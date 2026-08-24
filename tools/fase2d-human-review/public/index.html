@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>+MathUp · Revisión humana visual Fase 2D</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <div><span class="eyebrow">HERRAMIENTA LOCAL AISLADA</span><h1>Revisión visual · +MathUp</h1></div>
+    <div class="reviewer"><label for="reviewer">Revisor</label><input id="reviewer" autocomplete="off" placeholder="Identificador del revisor"></div>
+  </header>
+  <section id="progress" class="progress" aria-label="Progreso"></section>
+  <details class="coverage-panel"><summary>Cobertura por curso, materia y familia</summary><table><thead><tr><th>Estrato</th><th>Revisados</th><th>Pendientes</th><th>Total</th></tr></thead><tbody id="coverage"></tbody></table></details>
+  <main class="layout">
+    <aside class="sidebar">
+      <h2>Filtros</h2><div id="filters" class="filters"></div>
+      <label class="search">Buscar<input id="search" type="search" placeholder="ID, literal, tema…"></label>
+      <div class="case-list-head"><strong>Cola</strong><span id="case-count"></span></div><div id="case-list" class="case-list"></div>
+    </aside>
+    <section class="workspace">
+      <div id="empty" class="empty">Cargando cola de revisión…</div>
+      <article id="case" class="case" hidden>
+        <div class="case-header"><div><span id="priority" class="badge"></span><h2 id="case-title"></h2><p id="case-meta"></p></div><div class="nav"><button id="previous">← Anterior</button><button id="next">Siguiente →</button></div></div>
+        <div id="details" class="details"></div>
+        <section class="expression"><h3>Expresión y contexto real</h3><pre id="literal"></pre></section>
+        <div class="views"><section><h3>Móvil · 320 px</h3><iframe id="view-320" title="Vista de 320 píxeles"></iframe></section><section><h3>Escritorio · 1280 px</h3><iframe id="view-1280" title="Vista de 1280 píxeles"></iframe></section></div>
+        <details class="secondary"><summary>Mostrar también 375 y 768 px</summary><div class="views"><section><h3>375 px</h3><iframe id="view-375" title="Vista de 375 píxeles"></iframe></section><section><h3>768 px</h3><iframe id="view-768" title="Vista de 768 píxeles"></iframe></section></div></details>
+        <section class="decision-panel">
+          <label>Comentario opcional (obligatorio para fallo o fuente dudosa)<textarea id="comment" rows="3"></textarea></label>
+          <div class="actions"><button class="approve" data-decision="APROBAR">✓ APROBAR</button><button class="fail" data-decision="REVISAR/FALLO">× REVISAR/FALLO</button><button class="source" data-decision="FUENTE DUDOSA">? FUENTE DUDOSA</button></div>
+          <p id="decision-status" role="status"></p>
+        </section>
+      </article>
+    </section>
+  </main>
+  <script type="module" src="/app.js"></script>
+</body>
+</html>
