@@ -1,0 +1,339 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://mathup.es/schemas/canonical-exercise-v1.json",
+  "title": "Ejercicio canónico de +MathUp",
+  "description": "Contrato editorial aislado. No implica publicación ni sustituye los bancos actuales.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "identity",
+    "classification",
+    "difficulty",
+    "modalities",
+    "provenance",
+    "content",
+    "answer",
+    "solution",
+    "choices",
+    "review",
+    "traceability",
+    "publication"
+  ],
+  "allOf": [
+    {
+      "if": { "properties": { "classification": { "properties": { "courseId": { "enum": ["1eso", "2eso", "3eso", "4eso-a", "4eso-b"] } } } } },
+      "then": {
+        "properties": {
+          "classification": { "properties": { "stage": { "const": "ESO" } } },
+          "solution": { "properties": { "pedagogicalProfile": { "const": "ESO" } } },
+          "modalities": { "items": { "enum": ["practice", "challenge", "adventure", "topic-exam", "open-response"] } }
+        }
+      }
+    },
+    {
+      "if": { "properties": { "classification": { "properties": { "courseId": { "enum": ["1bach-mates", "1bach-ccss"] } } } } },
+      "then": {
+        "properties": {
+          "classification": { "properties": { "stage": { "const": "BACHILLERATO" } } },
+          "solution": { "properties": { "pedagogicalProfile": { "const": "BACH1" } } },
+          "modalities": { "items": { "enum": ["practice", "challenge", "topic-exam", "open-response"] } }
+        }
+      }
+    },
+    {
+      "if": { "properties": { "classification": { "properties": { "courseId": { "enum": ["2bach-mates", "2bach-ccss"] } } } } },
+      "then": {
+        "properties": {
+          "classification": { "properties": { "stage": { "const": "PAU" } } },
+          "solution": { "properties": { "pedagogicalProfile": { "const": "BACH2_PAU" } } },
+          "modalities": { "items": { "enum": ["practice", "challenge", "topic-exam", "block-exam", "pau-simulation", "open-response"] } },
+          "provenance": {
+            "properties": {
+              "kind": { "const": "official-pau" },
+              "community": { "type": "object" },
+              "pau": { "type": "object" }
+            }
+          }
+        }
+      }
+    }
+  ],
+  "properties": {
+    "schemaVersion": { "const": "mathup.exercise.v1" },
+    "identity": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["exerciseId", "revisionId", "revisionNumber", "legacyIds"],
+      "properties": {
+        "exerciseId": { "type": "string", "minLength": 1 },
+        "revisionId": { "type": "string", "minLength": 1 },
+        "revisionNumber": { "type": "integer", "minimum": 1 },
+        "legacyIds": { "type": "array", "items": { "type": "string", "minLength": 1 }, "uniqueItems": true },
+        "contentHash": { "type": ["string", "null"] }
+      }
+    },
+    "classification": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["stage", "courseId", "subjectId", "topic", "block"],
+      "properties": {
+        "stage": { "enum": ["ESO", "BACHILLERATO", "PAU"] },
+        "courseId": { "enum": ["1eso", "2eso", "3eso", "4eso-a", "4eso-b", "1bach-mates", "1bach-ccss", "2bach-mates", "2bach-ccss"] },
+        "subjectId": { "enum": ["matematicas", "matematicas-i", "matematicas-ii", "matematicas-ccss-i", "matematicas-ccss-ii"] },
+        "topic": { "$ref": "#/$defs/taxonomyRef" },
+        "block": { "anyOf": [{ "$ref": "#/$defs/taxonomyRef" }, { "type": "null" }] },
+        "curriculumVersion": { "type": ["string", "null"] }
+      }
+    },
+    "difficulty": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["level", "basis"],
+      "properties": {
+        "level": { "enum": ["easy", "medium", "hard", "unclassified"] },
+        "basis": { "enum": ["author", "review", "empirical", "legacy", "unclassified"] },
+        "confidence": { "type": ["number", "null"], "minimum": 0, "maximum": 1 }
+      }
+    },
+    "modalities": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": { "enum": ["practice", "challenge", "adventure", "topic-exam", "block-exam", "pau-simulation", "open-response"] }
+    },
+    "provenance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["kind", "community", "pau", "source"],
+      "properties": {
+        "kind": { "enum": ["official-pau", "original-document", "internal-bank", "official-source", "teacher-authored", "generated", "adapted", "legacy", "other", "unknown"] },
+        "community": {
+          "anyOf": [
+            { "type": "null" },
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["code", "name"],
+              "properties": {
+                "code": { "type": "string", "pattern": "^[A-Z]{2,8}$" },
+                "name": { "type": "string", "minLength": 2 }
+              }
+            }
+          ]
+        },
+        "pau": {
+          "anyOf": [
+            { "type": "null" },
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["year", "sitting"],
+              "properties": {
+                "year": { "type": ["integer", "null"], "minimum": 1990, "maximum": 2100 },
+                "sitting": { "type": ["string", "null"], "minLength": 2 },
+                "examOption": { "type": ["string", "null"] },
+                "exerciseLabel": { "type": ["string", "null"] },
+                "block": { "type": ["string", "null"] },
+                "exercise": { "type": ["string", "null"] },
+                "part": { "type": ["string", "null"] },
+                "otherMetadata": {
+                  "type": "object",
+                  "additionalProperties": { "type": ["string", "number", "boolean", "null"] }
+                }
+              }
+            }
+          ]
+        },
+        "source": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["sourceId", "sourceType", "sourceFile", "sourcePath"],
+          "properties": {
+            "sourceId": { "type": "string", "minLength": 1 },
+            "sourceType": { "enum": ["script", "pdf", "docx", "image", "runtime-materialization", "manual", "unknown"] },
+            "sourceFile": { "type": "string", "minLength": 1 },
+            "sourcePath": { "type": "string", "minLength": 1 },
+            "page": { "type": ["integer", "null"], "minimum": 1 },
+            "originalAssetHash": { "type": ["string", "null"] }
+          }
+        }
+      }
+    },
+    "content": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["language", "statement", "mathRepresentations", "assets"],
+      "properties": {
+        "language": { "const": "es" },
+        "statement": { "$ref": "#/$defs/document" },
+        "mathRepresentations": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["format", "value", "role"],
+            "properties": {
+              "format": { "enum": ["plain", "unicode", "latex", "mathml", "mathjson", "legacy-macro", "matrix-array", "image"] },
+              "value": { "type": "string", "minLength": 1 },
+              "role": { "enum": ["source", "canonical", "derived", "fallback"] },
+              "sourceBlockId": { "type": ["string", "null"] }
+            }
+          }
+        },
+        "assets": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["assetId", "kind", "uri", "alt"],
+            "properties": {
+              "assetId": { "type": "string", "minLength": 1 },
+              "kind": { "enum": ["image", "diagram", "table", "graph"] },
+              "uri": { "type": "string", "minLength": 1 },
+              "alt": { "type": "string", "minLength": 1 },
+              "sourceHash": { "type": ["string", "null"] }
+            }
+          }
+        }
+      }
+    },
+    "answer": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["kind", "canonicalValue", "acceptedValues", "units", "tolerance"],
+      "properties": {
+        "kind": { "enum": ["choice", "number", "expression", "set", "interval", "matrix", "multipart", "open"] },
+        "canonicalValue": {},
+        "acceptedValues": { "type": "array" },
+        "units": { "type": ["string", "null"] },
+        "tolerance": { "type": ["number", "null"], "minimum": 0 }
+      }
+    },
+    "solution": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["kind", "pedagogicalProfile", "steps", "finalAnswer", "verification"],
+      "properties": {
+        "kind": { "enum": ["developed", "final-only", "missing"] },
+        "pedagogicalProfile": { "enum": ["ESO", "BACH1", "BACH2_PAU"] },
+        "steps": { "type": "array", "items": { "$ref": "#/$defs/solutionStep" } },
+        "finalAnswer": {},
+        "verification": { "anyOf": [{ "$ref": "#/$defs/document" }, { "type": "null" }] },
+        "methodConstraints": { "type": "array", "items": { "type": "string", "minLength": 1 } }
+      }
+    },
+    "choices": {
+      "anyOf": [
+        { "type": "null" },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["correct", "distractors", "shufflePolicy", "equivalencePolicy"],
+          "properties": {
+            "correct": { "$ref": "#/$defs/choiceValue" },
+            "distractors": { "type": "array", "minItems": 3, "maxItems": 3, "items": { "$ref": "#/$defs/choiceValue" } },
+            "shufflePolicy": { "const": "seeded-per-attempt" },
+            "equivalencePolicy": { "const": "safe-normalization-v1" }
+          }
+        }
+      ]
+    },
+    "review": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status", "solutionNeedsReview", "findings"],
+      "properties": {
+        "status": { "enum": ["DRAFT", "REVIEW", "APPROVED", "PUBLISHED", "REJECTED", "RETIRED"] },
+        "solutionNeedsReview": { "type": "boolean" },
+        "findings": { "type": "array", "items": { "type": "string", "minLength": 1 } },
+        "reviewedBy": { "type": ["string", "null"] },
+        "reviewedAt": { "type": ["string", "null"], "format": "date-time" }
+      }
+    },
+    "traceability": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["inventoryRecordIds", "originalIdentity", "transformations"],
+      "properties": {
+        "inventoryRecordIds": { "type": "array", "minItems": 1, "items": { "type": "string", "minLength": 1 }, "uniqueItems": true },
+        "originalIdentity": { "type": "string", "minLength": 1 },
+        "transformations": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["kind", "description", "at"],
+            "properties": {
+              "kind": { "enum": ["import", "normalization", "editorial", "mathematical-review", "format-conversion"] },
+              "description": { "type": "string", "minLength": 1 },
+              "at": { "type": "string", "format": "date-time" },
+              "by": { "type": ["string", "null"] }
+            }
+          }
+        }
+      }
+    },
+    "publication": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status", "eligibleModalities", "exclusionReasons"],
+      "properties": {
+        "status": { "enum": ["DRAFT", "REVIEW", "APPROVED", "PUBLISHED", "REJECTED", "RETIRED"] },
+        "eligibleModalities": { "type": "array", "uniqueItems": true, "items": { "enum": ["practice", "challenge", "adventure", "topic-exam", "block-exam", "pau-simulation", "open-response"] } },
+        "exclusionReasons": { "type": "array", "items": { "type": "string", "minLength": 1 } }
+      }
+    }
+  },
+  "$defs": {
+    "taxonomyRef": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "label"],
+      "properties": {
+        "id": { "type": "string", "minLength": 1 },
+        "label": { "type": "string", "minLength": 1 }
+      }
+    },
+    "document": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["plainText", "blocks"],
+      "properties": {
+        "plainText": { "type": "string" },
+        "blocks": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/contentBlock" } }
+      }
+    },
+    "contentBlock": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["blockId", "type", "value"],
+      "properties": {
+        "blockId": { "type": "string", "minLength": 1 },
+        "type": { "enum": ["text", "math-inline", "math-display", "image", "table", "list"] },
+        "value": {},
+        "sourceLiteral": { "type": ["string", "null"] }
+      }
+    },
+    "solutionStep": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["stepId", "explanation", "work"],
+      "properties": {
+        "stepId": { "type": "string", "minLength": 1 },
+        "explanation": { "type": "string", "minLength": 1 },
+        "work": { "$ref": "#/$defs/document" }
+      }
+    },
+    "choiceValue": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["choiceId", "value"],
+      "properties": {
+        "choiceId": { "type": "string", "minLength": 1 },
+        "value": {},
+        "rationale": { "type": ["string", "null"] }
+      }
+    }
+  }
+}
