@@ -1,0 +1,1 @@
+{"orderInvariant":{"groups":true,"population":true,"sampling":true},"passed":true,"repeated":{"geometry-results.jsonl":true,"population.jsonl":true,"render-groups.jsonl":true,"sampling-plan.json":true,"visual-decisions.jsonl":true},"schemaVersion":"mathup.fase2d.reproducibility-summary.v1"}

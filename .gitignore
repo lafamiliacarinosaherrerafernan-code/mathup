@@ -25,6 +25,19 @@ __pycache__/
 _bach_pdf_jobs.json
 ~$*
 
+# Fase 2D: artefactos visuales pesados y reproducibles
+/artifacts/fase2d/reproducibility/
+/artifacts/fase2d/runs/*/geometry-*.jsonl
+/artifacts/fase2d/runs/*/geometry-results.jsonl
+/artifacts/fase2d/runs/*/population.jsonl
+/artifacts/fase2d/runs/*/render-manifest.jsonl
+/artifacts/fase2d/runs/*/visual-decisions.jsonl
+/artifacts/fase2d/runs/*/persistent-evidence-plan.json
+/artifacts/fase2d/runs/*/review-queues/
+/artifacts/fase2d/runs/*/diffs/
+/artifacts/fase2d/runs/*/contact-sheets/
+/artifacts/fase2d/runs/*/screenshots/contact-sheets/
+
 # Configuracion de herramientas locales
 .agents/
 .impeccable/
