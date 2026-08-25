@@ -1,0 +1,22 @@
+{
+  "schemaVersion": "mathup.pau-community-profiles.v1",
+  "profiles": {
+    "Castilla-La Mancha": {
+      "code": "CLM",
+      "specificMetadata": ["questionKey", "alternativeKey"],
+      "inheritOtherCommunityRules": false
+    },
+    "Madrid": {
+      "code": "MADRID",
+      "specificMetadata": ["option", "model"],
+      "inheritOtherCommunityRules": false
+    },
+    "Andalucía": {
+      "code": "ANDALUCIA",
+      "specificMetadata": ["andaluciaRole", "variant", "model"],
+      "allowedRoles": ["Titular", "Reserva", "Suplente 1", "Suplente 2", "No verificable"],
+      "unverifiedSittingPolicy": "PRESERVE_AS_UNVERIFIED_NEVER_INFER",
+      "inheritOtherCommunityRules": false
+    }
+  }
+}

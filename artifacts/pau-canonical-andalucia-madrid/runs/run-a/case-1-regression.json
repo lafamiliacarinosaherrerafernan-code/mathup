@@ -1,0 +1,16 @@
+{
+    "visualEntityId":  "vent-421552a489e688ce586b07f0c1870560",
+    "evidenceAvailable":  true,
+    "expectedAlternatives":  [
+                                 "4.1",
+                                 "4.2"
+                             ],
+    "expectedSubparts":  [
+                             "a",
+                             "b"
+                         ],
+    "editorialInstructionSeparated":  true,
+    "redirectKind":  "SPLIT",
+    "priorEvidenceHash":  "e391914bff8bbf4c0cfac00b7e6446bc885580ec04949de911329f933893670a",
+    "status":  "REGRESSION_PRESERVED"
+}

@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://mathup.es/schemas/mathup.pau-historical-reconciliation.v1.schema.json",
+  "title": "MathUp PAU historical-to-official reconciliation",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "reconciliationId", "historicalRecordId", "sourceRecordIds", "community", "subject", "historicalLiteral", "classification", "differenceFlags", "candidateOfficialExerciseIds", "statusFlags"],
+  "properties": {
+    "schemaVersion": { "const": "mathup.pau-historical-reconciliation.v1" },
+    "reconciliationId": { "type": "string", "pattern": "^pau-hist-[0-9a-f]{32}$" },
+    "historicalRecordId": { "type": "string" },
+    "sourceRecordIds": { "type": "array", "items": { "type": "string" }, "uniqueItems": true },
+    "community": { "const": "Madrid" },
+    "subject": { "enum": ["Matemáticas II", "Matemáticas Aplicadas a las CCSS II"] },
+    "year": { "type": ["integer", "null"] },
+    "sitting": { "type": ["string", "null"] },
+    "option": { "type": ["string", "null"] },
+    "historicalLiteral": { "type": "string" },
+    "historicalLiteralHash": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+    "classification": { "enum": ["DOCUMENT_MATCH_EXACT", "DOCUMENT_MATCH_STRUCTURAL", "AMBIGUOUS", "NOT_FOUND", "HUMAN_REVIEW_REQUIRED"] },
+    "differenceFlags": { "type": "array", "items": { "enum": ["TRANSCRIPTION_DIFFERENCE", "SEGMENTATION_DIFFERENCE", "MATH_NOTATION_DIFFERENCE"] }, "uniqueItems": true },
+    "candidateOfficialExerciseIds": { "type": "array", "items": { "type": "string" }, "uniqueItems": true },
+    "selectedOfficialExerciseId": { "type": ["string", "null"] },
+    "score": { "type": "number", "minimum": 0, "maximum": 1 },
+    "statusFlags": { "type": "array", "items": { "type": "string" }, "uniqueItems": true }
+  }
+}

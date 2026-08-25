@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://mathup.es/schemas/mathup.pau-exam-session.v1.schema.json",
+  "title": "MathUp PAU official exam session",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "sessionId", "documentId", "documentHash", "community", "subject", "year", "officialSource", "documentRole", "verificationFlags"],
+  "properties": {
+    "schemaVersion": { "const": "mathup.pau-exam-session.v1" },
+    "sessionId": { "type": "string", "pattern": "^pau-session-[0-9a-f]{32}$" },
+    "documentId": { "type": "string", "minLength": 1 },
+    "documentHash": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+    "community": { "enum": ["Castilla-La Mancha", "Madrid", "Andalucía"] },
+    "subject": { "enum": ["Matemáticas II", "Matemáticas Aplicadas a las CCSS II"] },
+    "year": { "type": ["integer", "null"], "minimum": 1900, "maximum": 2100 },
+    "sitting": { "type": ["string", "null"] },
+    "andaluciaRole": { "type": ["string", "null"], "enum": ["Titular", "Reserva", "Suplente 1", "Suplente 2", "No verificable", null] },
+    "variant": { "type": ["string", "null"] },
+    "model": { "type": ["string", "null"] },
+    "officialSource": { "type": "object", "required": ["authority", "localPath", "pageCount"] },
+    "documentRole": { "const": "exam" },
+    "verificationFlags": { "type": "array", "items": { "type": "string" }, "uniqueItems": true }
+  }
+}

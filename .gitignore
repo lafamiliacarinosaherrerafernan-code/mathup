@@ -58,6 +58,11 @@ _bach_pdf_jobs.json
 /artifacts/pau-documentary-reconciliation/runs/run-a/document-subparts.jsonl
 /artifacts/pau-documentary-reconciliation/runs/run-a/notation-differences.jsonl
 
+# Artefactos regenerables de la construcción canónica PAU Andalucía-Madrid
+/artifacts/pau-canonical-andalucia-madrid/.text-cache/
+/artifacts/pau-canonical-andalucia-madrid/runs/run-b/
+/artifacts/pau-canonical-andalucia-madrid/runs/run-order-reversed/
+
 # Configuracion de herramientas locales
 .agents/
 .impeccable/

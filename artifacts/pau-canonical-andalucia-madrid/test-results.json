@@ -1,0 +1,12 @@
+{
+  "schemaVersion": "mathup.pau-canonical-test-results.v1",
+  "generatedOn": "2026-08-25",
+  "phaseTests": { "passed": 33, "failed": 0 },
+  "officialCoverageTests": { "passed": 13, "failed": 0 },
+  "officialLibraryAssertions": { "passed": 1453, "failed": 0 },
+  "javascriptRegression": { "testFilesPassed": 16, "testFilesFailed": 0, "fase1OriginalTests": { "passed": 22, "failed": 0 } },
+  "reproducibility": { "semanticFiles": 10, "identicalFiles": 10, "passed": true },
+  "orderInvariance": { "passed": true },
+  "rollbackDryRun": { "passed": true },
+  "productionFilesModified": 0
+}

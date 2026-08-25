@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://mathup.es/schemas/mathup.pau-official-criterion-link.v1.schema.json",
+  "title": "MathUp PAU official criterion relationship",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "criterionLinkId", "criterionDocumentId", "examDocumentIds", "classification", "scope", "promotionPolicy", "provenance"],
+  "properties": {
+    "schemaVersion": { "const": "mathup.pau-official-criterion-link.v1" },
+    "criterionLinkId": { "type": "string", "pattern": "^pau-criterion-[0-9a-f]{32}$" },
+    "criterionDocumentId": { "type": "string" },
+    "examDocumentIds": { "type": "array", "items": { "type": "string" }, "minItems": 1, "uniqueItems": true },
+    "classification": { "enum": ["CRITERIA_MATCH_EXACT", "CRITERIA_MATCH_STRUCTURAL", "CRITERIA_MATCH_AMBIGUOUS", "CRITERIA_NOT_FOUND"] },
+    "scope": { "enum": ["EXAM_DOCUMENT", "EXERCISE", "SUBPART"] },
+    "targetId": { "type": ["string", "null"] },
+    "promotionPolicy": { "enum": ["DOCUMENTARY_CONTRAST_ONLY", "HUMAN_SCOPE_VERIFICATION_REQUIRED"] },
+    "provenance": { "type": "object", "required": ["authority", "criterionHash", "examHashes", "officialUrl"] }
+  }
+}

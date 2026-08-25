@@ -1,0 +1,98 @@
+[
+    {
+        "community":  "Andalucía",
+        "subject":  "Matemáticas Aplicadas a las CCSS II",
+        "years2010_2026":  [
+                               2010,
+                               2011,
+                               2012,
+                               2013,
+                               2014,
+                               2015,
+                               2016,
+                               2017,
+                               2018,
+                               2019,
+                               2020,
+                               2021,
+                               2022,
+                               2023,
+                               2024,
+                               2025,
+                               2026
+                           ],
+        "unverifiedSessions":  19
+    },
+    {
+        "community":  "Andalucía",
+        "subject":  "Matemáticas II",
+        "years2010_2026":  [
+                               2010,
+                               2011,
+                               2012,
+                               2013,
+                               2014,
+                               2015,
+                               2016,
+                               2017,
+                               2018,
+                               2019,
+                               2020,
+                               2021,
+                               2022,
+                               2023,
+                               2024,
+                               2025,
+                               2026
+                           ],
+        "unverifiedSessions":  18
+    },
+    {
+        "community":  "Madrid",
+        "subject":  "Matemáticas Aplicadas a las CCSS II",
+        "years2010_2026":  [
+                               2010,
+                               2011,
+                               2012,
+                               2013,
+                               2014,
+                               2015,
+                               2016,
+                               2017,
+                               2018,
+                               2019,
+                               2020,
+                               2021,
+                               2022,
+                               2023,
+                               2024,
+                               2025,
+                               2026
+                           ],
+        "unverifiedSessions":  1
+    },
+    {
+        "community":  "Madrid",
+        "subject":  "Matemáticas II",
+        "years2010_2026":  [
+                               2010,
+                               2011,
+                               2012,
+                               2013,
+                               2014,
+                               2015,
+                               2016,
+                               2017,
+                               2018,
+                               2019,
+                               2020,
+                               2021,
+                               2022,
+                               2023,
+                               2024,
+                               2025,
+                               2026
+                           ],
+        "unverifiedSessions":  0
+    }
+]

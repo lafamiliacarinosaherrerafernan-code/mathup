@@ -1,0 +1,37 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://mathup.es/schemas/mathup.pau-canonical-exercise.v1.schema.json",
+  "title": "MathUp PAU canonical documentary exercise",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "exerciseId", "sessionId", "documentId", "documentHash", "community", "subject", "questionKey", "alternativeKey", "officialPrompt", "subparts", "sourceRange", "provenance", "statusFlags"],
+  "properties": {
+    "schemaVersion": { "const": "mathup.pau-canonical-exercise.v1" },
+    "exerciseId": { "type": "string", "pattern": "^pau-can-ex-[0-9a-f]{32}$" },
+    "sessionId": { "type": "string", "pattern": "^pau-session-[0-9a-f]{32}$" },
+    "documentId": { "type": "string", "minLength": 1 },
+    "documentHash": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+    "community": { "enum": ["Castilla-La Mancha", "Madrid", "Andalucía"] },
+    "subject": { "enum": ["Matemáticas II", "Matemáticas Aplicadas a las CCSS II"] },
+    "year": { "type": ["integer", "null"] },
+    "sitting": { "type": ["string", "null"] },
+    "andaluciaRole": { "type": ["string", "null"] },
+    "variant": { "type": ["string", "null"] },
+    "questionKey": { "type": "string", "minLength": 1 },
+    "alternativeKey": { "type": "string", "minLength": 1 },
+    "officialPrompt": { "type": "string" },
+    "promptHash": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+    "scoreEvidence": { "$ref": "#/$defs/nullableScoreEvidence" },
+    "editorialInstructions": { "type": "array", "items": { "type": "object" } },
+    "subparts": { "type": "array", "items": { "$ref": "#/$defs/subpart" } },
+    "sourceRange": { "$ref": "#/$defs/sourceRange" },
+    "provenance": { "type": "object", "required": ["authority", "localPath", "officialUrls"] },
+    "statusFlags": { "type": "array", "items": { "enum": ["DOCUMENT_VERIFIED", "STRUCTURE_VERIFIED", "NOTATION_REVIEW_REQUIRED", "ANSWER_REVIEW_REQUIRED", "SOLUTION_REVIEW_REQUIRED", "DOCUMENT_REVIEW_REQUIRED", "BLOCKED"] }, "uniqueItems": true }
+  },
+  "$defs": {
+    "sourceRange": { "type": "object", "required": ["page", "startOffset", "endOffset"], "properties": { "page": { "type": "integer", "minimum": 1 }, "startOffset": { "type": "integer", "minimum": 0 }, "endOffset": { "type": "integer", "minimum": 0 } } },
+    "scoreEvidence": { "type": "object", "additionalProperties": false, "required": ["literal", "sourceRange", "classification"], "properties": { "literal": { "type": "string", "minLength": 1 }, "sourceRange": { "$ref": "#/$defs/sourceRange" }, "classification": { "const": "EDITORIAL_ASSESSMENT_METADATA" } } },
+    "nullableScoreEvidence": { "oneOf": [{ "$ref": "#/$defs/scoreEvidence" }, { "type": "null" }] },
+    "subpart": { "type": "object", "additionalProperties": false, "required": ["subpartId", "label", "ordinal", "officialPrompt", "promptHash", "sourceRange", "statusFlags"], "properties": { "subpartId": { "type": "string", "pattern": "^pau-can-sub-[0-9a-f]{32}$" }, "label": { "type": "string", "minLength": 1 }, "ordinal": { "type": "integer", "minimum": 1 }, "officialPrompt": { "type": "string" }, "promptHash": { "type": "string", "pattern": "^[0-9a-f]{64}$" }, "scoreEvidence": { "$ref": "#/$defs/nullableScoreEvidence" }, "sourceRange": { "$ref": "#/$defs/sourceRange" }, "statusFlags": { "type": "array", "items": { "type": "string" }, "uniqueItems": true } } }
+  }
+}

@@ -1,0 +1,42 @@
+[
+    {
+        "path":  "exam-sessions.jsonl",
+        "sha256":  "c2f33f3eb0997f5aa56919cd3de20e66b4a7694974dfbf5b68b08b6ad0d50408"
+    },
+    {
+        "path":  "andalucia-canonical-exercises.jsonl",
+        "sha256":  "78ca10a13b91530785ee49b80d1ab1d34ff642414323a802fc29954067c593ba"
+    },
+    {
+        "path":  "madrid-official-exercises.jsonl",
+        "sha256":  "956b1710780eacce1e2ed391ed3f4392a500a800356d7d99c54b41e305048f15"
+    },
+    {
+        "path":  "andalucia-criterion-links.jsonl",
+        "sha256":  "36ff1b86eff75ebf6b8e6d5fc17bfc48275ba340cefeddbc11225645921b4bc2"
+    },
+    {
+        "path":  "madrid-historical-reconciliation.jsonl",
+        "sha256":  "500142a55133ad3dc2a1aaf8b1339b5c6099baabbc83847bd12f54aaa261f9c4"
+    },
+    {
+        "path":  "madrid-duplicate-aliases.jsonl",
+        "sha256":  "86e76b4509c0aa17a86e50935e373be9f308b03eb31656281d88c90f3c55f603"
+    },
+    {
+        "path":  "unmaterialized-document-units.jsonl",
+        "sha256":  "c5d8b3ca500d9f1e322cd13a1dcfc9ae2921696cafda249a33b5c5c74f5c1b8a"
+    },
+    {
+        "path":  "source-record-preservation.json",
+        "sha256":  "d244fca825417b4762228d5989f1afc1177a31cb8a207d6d092778e7b8a4657a"
+    },
+    {
+        "path":  "case-1-regression.json",
+        "sha256":  "48404243fbf77aa64f274db53412539319d06746419f4eb96d67b536693ff7b4"
+    },
+    {
+        "path":  "coverage-summary.json",
+        "sha256":  "44887a2f05fa7cc3642e82f4782389f7e40393e1221bbe892464930e08fa5a07"
+    }
+]
