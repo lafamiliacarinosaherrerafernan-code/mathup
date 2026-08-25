@@ -63,6 +63,24 @@ _bach_pdf_jobs.json
 /artifacts/pau-canonical-andalucia-madrid/runs/run-b/
 /artifacts/pau-canonical-andalucia-madrid/runs/run-order-reversed/
 
+# Artefactos regenerables de la recuperación DOC Andalucía CCSS II 2012
+/artifacts/andalucia-ccssii-2012-doc/runs/run-b/
+/artifacts/andalucia-ccssii-2012-doc/runs/run-order-reversed/
+/artifacts/andalucia-ccssii-2012-doc/comparison-corpus/
+
+/artifacts/andalucia-ccssii-2012-doc/document-objects/*
+!/artifacts/andalucia-ccssii-2012-doc/document-objects/adobj-a5dfff58dac253bf-001.*
+!/artifacts/andalucia-ccssii-2012-doc/document-objects/adobj-bcec57ae525fa5e2-006.*
+!/artifacts/andalucia-ccssii-2012-doc/document-objects/adobj-c8688a19515dfeb3-001.*
+!/artifacts/andalucia-ccssii-2012-doc/document-objects/adobj-8446c5da6b4b7cfc-003.*
+!/artifacts/andalucia-ccssii-2012-doc/document-objects/adobj-87b729cdd4632386-007.*
+!/artifacts/andalucia-ccssii-2012-doc/document-objects/adobj-61f8d5d809881c49-001.*
+!/artifacts/andalucia-ccssii-2012-doc/document-objects/adobj-8446c5da6b4b7cfc-006.*
+!/artifacts/andalucia-ccssii-2012-doc/document-objects/adobj-61f8d5d809881c49-008.*
+
+/artifacts/equation3-andalucia-2012/native-evidence/*/
+/artifacts/equation3-andalucia-2012/runs/run-a/visual-comparison.html
+
 # Configuracion de herramientas locales
 .agents/
 .impeccable/

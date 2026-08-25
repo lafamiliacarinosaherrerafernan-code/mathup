@@ -1,0 +1,40 @@
+{
+  "schemaVersion": "mathup.equation3-recovery-summary.v1",
+  "objectsTotal": 55,
+  "classifications": {
+    "NATIVE_STRUCTURE_RECOVERED": 55
+  },
+  "constructions": {
+    "delimited": 14,
+    "equation-expression": 55,
+    "fraction": 7,
+    "identifier": 267,
+    "matrix": 16,
+    "number": 197,
+    "operator": 280,
+    "power": 29,
+    "sequence": 114,
+    "space": 90,
+    "subscript": 5
+  },
+  "nativeStructureRecovered": 55,
+  "deterministicConversionRecovered": 0,
+  "visualTranscriptionRequired": 0,
+  "ambiguous": 0,
+  "unrecoverable": 0,
+  "visualComparison": {
+    "identicalCertified": 0,
+    "differencesConfirmed": 0,
+    "humanComparisonPending": 55
+  },
+  "exercises": {
+    "total": 48,
+    "withoutEquation3Objects": 21,
+    "withEquation3Objects": 27,
+    "structurallyRecovered": 27,
+    "fullyPreparedForIntegrationNow": 21,
+    "stillBlockedPendingVisualComparison": 27,
+    "potentialAfterHumanVisualApproval": 48
+  },
+  "semanticHash": "3540c953e06c9bf34301f5928e90ed8eef1ed5f780bdf9dbd4a837eb01329073"
+}

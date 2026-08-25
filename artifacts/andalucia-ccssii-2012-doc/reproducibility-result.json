@@ -1,0 +1,36 @@
+{
+    "phase":  "ANDALUCIA_CCSSII_2012_DOC_RECOVERY",
+    "runs":  [
+                 {
+                     "runName":  "run-a",
+                     "semanticSha256":  "61d2a28a669a565e9823315efbd96d1a737fba543797d929cb2f0cc1bad5425a",
+                     "fileHashes":  {
+                                        "documents.jsonl":  "ce80a982a1d1a6eacd994fddcf2ee09c4dc57a676863eb422efabe4c53cb9c48",
+                                        "document-objects.jsonl":  "586c8f958c07b4902241d7d89cb71b6fda89c93f1c4c002203e5ea69cbb077fe",
+                                        "recovered-exercises.jsonl":  "7ff61095484d57ba0f1f37bbf20b807ae68cbd48993a14da090a7668a3a7c03a"
+                                    }
+                 },
+                 {
+                     "runName":  "run-b",
+                     "semanticSha256":  "61d2a28a669a565e9823315efbd96d1a737fba543797d929cb2f0cc1bad5425a",
+                     "fileHashes":  {
+                                        "documents.jsonl":  "ce80a982a1d1a6eacd994fddcf2ee09c4dc57a676863eb422efabe4c53cb9c48",
+                                        "document-objects.jsonl":  "586c8f958c07b4902241d7d89cb71b6fda89c93f1c4c002203e5ea69cbb077fe",
+                                        "recovered-exercises.jsonl":  "7ff61095484d57ba0f1f37bbf20b807ae68cbd48993a14da090a7668a3a7c03a"
+                                    }
+                 },
+                 {
+                     "runName":  "run-order-reversed",
+                     "semanticSha256":  "61d2a28a669a565e9823315efbd96d1a737fba543797d929cb2f0cc1bad5425a",
+                     "fileHashes":  {
+                                        "documents.jsonl":  "ce80a982a1d1a6eacd994fddcf2ee09c4dc57a676863eb422efabe4c53cb9c48",
+                                        "document-objects.jsonl":  "586c8f958c07b4902241d7d89cb71b6fda89c93f1c4c002203e5ea69cbb077fe",
+                                        "recovered-exercises.jsonl":  "7ff61095484d57ba0f1f37bbf20b807ae68cbd48993a14da090a7668a3a7c03a"
+                                    }
+                 }
+             ],
+    "doubleRunReproducible":  true,
+    "orderInvariant":  true,
+    "semanticFilesByteIdentical":  true,
+    "result":  "PASS"
+}

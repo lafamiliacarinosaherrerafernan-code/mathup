@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://mathup.es/schemas/pau/andalucia-ccssii-2012-recovered-exercise.v1.json",
+  "title": "Andalucía CCSS II 2012 recovered documentary exercise",
+  "type": "object",
+  "required": [
+    "schemaVersion", "documentExerciseId", "documentId", "sourceDocumentSha256",
+    "community", "subject", "year", "model", "option", "exerciseNumber",
+    "rawBlocks", "learnerBlocks", "subparts", "scoreEvidence", "criteriaEvidence",
+    "documentObjects", "materializationStatus", "traceability"
+  ],
+  "properties": {
+    "schemaVersion": { "const": "mathup.pau-document-recovered-exercise.v1" },
+    "documentExerciseId": { "type": "string", "pattern": "^ade2012-" },
+    "documentId": { "type": "string", "minLength": 1 },
+    "sourceDocumentSha256": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+    "community": { "const": "Andalucía" },
+    "subject": { "const": "Matemáticas Aplicadas a las CCSS II" },
+    "year": { "const": 2012 },
+    "model": { "type": "integer", "minimum": 1, "maximum": 6 },
+    "option": { "enum": ["A", "B"] },
+    "exerciseNumber": { "type": "integer", "minimum": 1, "maximum": 4 },
+    "rawBlocks": { "$ref": "#/$defs/blocks" },
+    "learnerBlocks": { "$ref": "#/$defs/blocks" },
+    "subparts": { "type": "array", "items": { "type": "object", "required": ["label"] } },
+    "scoreEvidence": { "type": "array", "items": { "type": "object", "required": ["literal", "points"] } },
+    "criteriaEvidence": { "type": "array", "items": { "type": "object", "required": ["criteriaDocumentId", "match", "scope"] } },
+    "documentObjects": { "type": "array", "items": { "type": "string", "pattern": "^adobj-" } },
+    "materializationStatus": { "enum": ["MATERIALIZABLE", "DOCUMENT_OBJECT_REVIEW_REQUIRED"] },
+    "traceability": { "type": "object", "required": ["sourcePath", "rangeStart", "rangeEnd"] }
+  },
+  "$defs": {
+    "blocks": {
+      "type": "array",
+      "items": {
+        "oneOf": [
+          { "type": "object", "required": ["type", "text"], "properties": { "type": { "const": "text" }, "text": { "type": "string" } } },
+          { "type": "object", "required": ["type", "objectId"], "properties": { "type": { "const": "document-object" }, "objectId": { "type": "string" } } }
+        ]
+      }
+    }
+  }
+}

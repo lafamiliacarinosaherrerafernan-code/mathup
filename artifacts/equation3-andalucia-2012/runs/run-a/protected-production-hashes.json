@@ -1,0 +1,8 @@
+{
+  "schemaVersion": "mathup.protected-production-hashes.v1",
+  "hashes": {
+    "index.html": "45af3746e63e336a133baab830296ec797f5d68059e38122ebca0936bac89080",
+    "app.js": "7d3ccc9dc3590c2b32f0e95ea2865f9c692c9f465d8abfbd4f72d9408f72757c",
+    "math-renderer.js": "fbe21999db03802cf48941ce84cfd4d77c0850df4bd968c577d7670d3039062d"
+  }
+}

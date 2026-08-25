@@ -1,0 +1,60 @@
+{
+  "schemaVersion": "mathup.equation3-doc-object-map-summary.v1",
+  "documents": 6,
+  "objects": 55,
+  "uniqueObjectIds": 55,
+  "uniqueOleStoragesPerDocument": true,
+  "allRangesMatched": true,
+  "semanticHash": "13d7649b4b46c77921278a0c3be8a11990cb42a918bccc7f1719527da2a090e1",
+  "registryPath": "artifacts/equation3-andalucia-2012/doc-object-map/doc-object-ole-map.jsonl",
+  "documentsAudit": [
+    {
+      "documentId": "ade2012-exam-m1-a5dfff58dac253bf",
+      "sourcePath": "sources/pau-official/andalucia/ccss-ii/2012/official-doc/exam-modelo-1.doc",
+      "sourceDocumentSha256": "a5dfff58dac253bf021b0d2b9409d68987e9ce6e97cfa4abbaf840019a7a18e2",
+      "equationFields": 11,
+      "uniqueOleStorages": 11,
+      "allRangesMatched": true
+    },
+    {
+      "documentId": "ade2012-exam-m2-bcec57ae525fa5e2",
+      "sourcePath": "sources/pau-official/andalucia/ccss-ii/2012/official-doc/exam-modelo-2.doc",
+      "sourceDocumentSha256": "bcec57ae525fa5e23ce74631274a2abda0b5b16ac47ce6108ba8b5572d4aa634",
+      "equationFields": 6,
+      "uniqueOleStorages": 6,
+      "allRangesMatched": true
+    },
+    {
+      "documentId": "ade2012-exam-m3-c8688a19515dfeb3",
+      "sourcePath": "sources/pau-official/andalucia/ccss-ii/2012/official-doc/exam-modelo-3.doc",
+      "sourceDocumentSha256": "c8688a19515dfeb348e8f8817d3f4a6c0a967723c270f2ec42e7f365d001e555",
+      "equationFields": 7,
+      "uniqueOleStorages": 7,
+      "allRangesMatched": true
+    },
+    {
+      "documentId": "ade2012-exam-m4-8446c5da6b4b7cfc",
+      "sourcePath": "sources/pau-official/andalucia/ccss-ii/2012/official-doc/exam-modelo-4.doc",
+      "sourceDocumentSha256": "8446c5da6b4b7cfc0f48b89d1b2d052ae0c8a1c4b5bc0b86b7e63399ce8656f8",
+      "equationFields": 10,
+      "uniqueOleStorages": 10,
+      "allRangesMatched": true
+    },
+    {
+      "documentId": "ade2012-exam-m5-87b729cdd4632386",
+      "sourcePath": "sources/pau-official/andalucia/ccss-ii/2012/official-doc/exam-modelo-5.doc",
+      "sourceDocumentSha256": "87b729cdd4632386690a9390bdfa17dd7d5c902a2cf7e5801feea45e2b181969",
+      "equationFields": 7,
+      "uniqueOleStorages": 7,
+      "allRangesMatched": true
+    },
+    {
+      "documentId": "ade2012-exam-m6-61f8d5d809881c49",
+      "sourcePath": "sources/pau-official/andalucia/ccss-ii/2012/official-doc/exam-modelo-6.doc",
+      "sourceDocumentSha256": "61f8d5d809881c49e9e9212281f7028516338e026524e55d572ab691ec5f416d",
+      "equationFields": 14,
+      "uniqueOleStorages": 14,
+      "allRangesMatched": true
+    }
+  ]
+}

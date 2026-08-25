@@ -1,0 +1,9 @@
+{
+  "schemaVersion": "mathup.equation3-reproducibility.v1",
+  "objects": 55,
+  "runA": "3540c953e06c9bf34301f5928e90ed8eef1ed5f780bdf9dbd4a837eb01329073",
+  "runB": "3540c953e06c9bf34301f5928e90ed8eef1ed5f780bdf9dbd4a837eb01329073",
+  "orderReversed": "3540c953e06c9bf34301f5928e90ed8eef1ed5f780bdf9dbd4a837eb01329073",
+  "repeatedRunEqual": true,
+  "orderInvariant": true
+}
