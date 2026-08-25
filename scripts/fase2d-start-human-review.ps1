@@ -1,6 +1,7 @@
 param(
   [ValidateRange(1024, 65535)]
-  [int]$Port = 8824
+  [int]$Port = 8824,
+  [string]$Pilot = ''
 )
 
 $ErrorActionPreference = 'Stop'
@@ -20,6 +21,11 @@ if (-not (Test-Path -LiteralPath $queuePath)) {
   & $nodePath (Join-Path $projectRoot 'scripts\fase2d-build-human-review-queue.mjs')
   if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
 }
+$pilotPath = Join-Path $projectRoot 'artifacts\fase2d-human-review\pilots\pilot-24.json'
+if ($Pilot -eq 'pilot-24' -and -not (Test-Path -LiteralPath $pilotPath)) {
+  & $nodePath (Join-Path $projectRoot 'scripts\fase2d-build-human-review-pilot.mjs')
+  if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+}
 $serverScript = Join-Path $projectRoot 'tools\fase2d-human-review\server.mjs'
 $localUrl = "http://127.0.0.1:$Port/"
 $serverProcess = Start-Process -FilePath $nodePath -ArgumentList @($serverScript, "--port=$Port") -WorkingDirectory $projectRoot -WindowStyle Hidden -PassThru
@@ -37,4 +43,5 @@ if (-not $ready) {
   Stop-Process -Id $serverProcess.Id -ErrorAction SilentlyContinue
   throw "El servidor local no respondió en $localUrl. Prueba otro puerto con -Port 8899."
 }
-Start-Process $localUrl
+$openUrl = if ($Pilot) { "$localUrl`?pilot=$([uri]::EscapeDataString($Pilot))" } else { $localUrl }
+Start-Process $openUrl

@@ -5,12 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>+MathUp · Revisión humana visual Fase 2D</title>
   <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="/exercise-review.css">
 </head>
 <body>
   <header class="topbar">
     <div><span class="eyebrow">HERRAMIENTA LOCAL AISLADA</span><h1>Revisión visual · +MathUp</h1></div>
     <div class="reviewer"><label for="reviewer">Revisor</label><input id="reviewer" autocomplete="off" placeholder="Identificador del revisor"></div>
   </header>
+  <section id="pilot-banner" class="pilot-banner" hidden><strong id="pilot-title"></strong><span id="inspection-message">Este filtro no contiene decisiones preasignadas.</span><a href="/">Volver a la cola general</a></section>
   <section id="progress" class="progress" aria-label="Progreso"></section>
   <details class="coverage-panel"><summary>Cobertura por curso, materia y familia</summary><table><thead><tr><th>Estrato</th><th>Revisados</th><th>Pendientes</th><th>Total</th></tr></thead><tbody id="coverage"></tbody></table></details>
   <main class="layout">
@@ -23,12 +25,23 @@
       <div id="empty" class="empty">Cargando cola de revisión…</div>
       <article id="case" class="case" hidden>
         <div class="case-header"><div><span id="priority" class="badge"></span><h2 id="case-title"></h2><p id="case-meta"></p></div><div class="nav"><button id="previous">← Anterior</button><button id="next">Siguiente →</button></div></div>
-        <div id="details" class="details"></div>
-        <section class="expression"><h3>Expresión y contexto real</h3><pre id="literal"></pre></section>
-        <div class="views"><section><h3>Móvil · 320 px</h3><iframe id="view-320" title="Vista de 320 píxeles"></iframe></section><section><h3>Escritorio · 1280 px</h3><iframe id="view-1280" title="Vista de 1280 píxeles"></iframe></section></div>
-        <details class="secondary"><summary>Mostrar también 375 y 768 px</summary><div class="views"><section><h3>375 px</h3><iframe id="view-375" title="Vista de 375 píxeles"></iframe></section><section><h3>768 px</h3><iframe id="view-768" title="Vista de 768 píxeles"></iframe></section></div></details>
+        <section class="student-main-view" aria-labelledby="student-view-title">
+          <div class="student-view-heading"><div><span class="eyebrow dark">VISTA PRINCIPAL</span><h3 id="student-view-title">Así lo verá el alumno</h3></div><span class="runtime-badge">Motor y estilos reales de +MathUp</span></div>
+          <div class="views primary-views">
+            <section><h4>Móvil · 320 px</h4><iframe id="view-320" title="Tarjeta de alumno a 320 píxeles"></iframe></section>
+            <section><h4>Escritorio · 1280 px</h4><iframe id="view-1280" title="Tarjeta de alumno a 1280 píxeles"></iframe></section>
+          </div>
+          <details class="secondary"><summary>Comparar también 375 y 768 px</summary><div class="views"><section><h4>375 px</h4><iframe id="view-375" title="Tarjeta de alumno a 375 píxeles"></iframe></section><section><h4>768 px</h4><iframe id="view-768" title="Tarjeta de alumno a 768 píxeles"></iframe></section></div></details>
+        </section>
+        <details class="technical-panel">
+          <summary>Información técnica</summary>
+          <div id="details" class="details"></div>
+          <section class="expression"><h3>Literal original (solo diagnóstico)</h3><pre id="literal"></pre></section>
+        </details>
         <section class="decision-panel">
-          <label>Comentario opcional (obligatorio para fallo o fuente dudosa)<textarea id="comment" rows="3"></textarea></label>
+          <label>Comentario del ejercicio (opcional; obligatorio para fallo o fuente dudosa)<textarea id="comment" rows="3"></textarea></label>
+          <fieldset id="affected-part"><legend>Parte afectada, si procede</legend><label><input type="radio" name="affected-part" value="general" checked> General</label><label><input type="radio" name="affected-part" value="statement"> Enunciado</label><label><input type="radio" name="affected-part" value="options"> Opciones</label><label><input type="radio" name="affected-part" value="solution"> Solución</label></fieldset>
+          <fieldset id="failure-aspects"><legend>Aspectos del fallo, si procede</legend><label><input type="checkbox" value="statement"> Enunciado</label><label><input type="checkbox" value="options"> Opciones</label><label><input type="checkbox" value="solution"> Solución</label><label><input type="checkbox" value="math-notation"> Notación matemática</label><label><input type="checkbox" value="layout"> Maquetación</label></fieldset>
           <div class="actions"><button class="approve" data-decision="APROBAR">✓ APROBAR</button><button class="fail" data-decision="REVISAR/FALLO">× REVISAR/FALLO</button><button class="source" data-decision="FUENTE DUDOSA">? FUENTE DUDOSA</button></div>
           <p id="decision-status" role="status"></p>
         </section>

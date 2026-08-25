@@ -100,3 +100,64 @@ test('la herramienta permanece aislada y los ficheros públicos protegidos no ca
   const combined = ['server.mjs', 'public/app.js', 'public/index.html'].map((file) => fs.readFileSync(path.join(root, 'tools/fase2d-human-review', file), 'utf8')).join('\n');
   assert.doesNotMatch(combined, /supabase|https?:\/\/(?!127\.0\.0\.1)/i);
 });
+
+test('el piloto contiene 24 casos reales sin decisiones y no altera la cola principal', () => {
+  const pilotPath = path.join(root, 'artifacts/fase2d-human-review/pilots/pilot-24.json');
+  const mainQueue = readJsonl(path.join(artifactRoot, 'review-queue.jsonl'));
+  assert.ok(fs.existsSync(pilotPath));
+  const pilot = JSON.parse(fs.readFileSync(pilotPath, 'utf8'));
+  assert.equal(pilot.caseCount, 24);
+  assert.equal(pilot.sourceQueueCount, 5722);
+  assert.equal(pilot.sourceCoverageCount, 7064);
+  assert.equal(new Set(pilot.cases.map((item) => item.visualEntityId)).size, 24);
+  assert.ok(pilot.cases.every((item) => mainQueue.some((reviewCase) => reviewCase.visualEntityId === item.visualEntityId)));
+  assert.doesNotMatch(JSON.stringify(pilot), /humanAction|HUMAN_VISUAL_PASS|"decision"\s*:/);
+  assert.ok(!fs.existsSync(path.join(root, 'artifacts/fase2d-human-review/local-state/review-state.json')));
+});
+
+test('el piloto reconstruye 24 fichas completas sin alterar el censo ni la cola principal', () => {
+  const pilotPath = path.join(root, 'artifacts/fase2d-human-review/pilots/pilot-24-exercises.json');
+  const workloadPath = path.join(root, 'artifacts/fase2d-human-review/pilots/exercise-workload-summary.json');
+  const mainQueue = readJsonl(path.join(artifactRoot, 'review-queue.jsonl'));
+  const pilot = JSON.parse(fs.readFileSync(pilotPath, 'utf8'));
+  const workload = JSON.parse(fs.readFileSync(workloadPath, 'utf8'));
+  assert.equal(pilot.schemaVersion, 'mathup.fase2d.human-review-exercise-pilot.v1');
+  assert.equal(pilot.cardCount, 24);
+  assert.equal(new Set(pilot.cases.map((item) => item.exerciseId)).size, 24);
+  assert.equal(pilot.sourceQueueCount, 5722);
+  assert.equal(pilot.sourceCoverageCount, 7064);
+  assert.ok(pilot.cases.every((item) => item.visualEntityIds.length >= 1));
+  assert.ok(pilot.cases.every((item) => mainQueue.some((row) => row.visualEntityId === item.selectedVisualEntityId)));
+  assert.deepEqual({
+    entities: workload.sourceAutomatedVisualPassEntities,
+    previous: workload.previousDirectObservations,
+    cards: workload.proposedFullExerciseCards,
+    reduction: workload.reductionAgainstPreviousObservations,
+  }, { entities: 7064, previous: 5722, cards: 4981, reduction: 741 });
+  assert.doesNotMatch(JSON.stringify(pilot), /humanAction|HUMAN_VISUAL_PASS|"decision"\s*:/);
+});
+
+test('la vista principal reutiliza el motor, estilos y clases reales de alumno de +MathUp', () => {
+  const server = fs.readFileSync(path.join(root, 'tools/fase2d-human-review/server.mjs'), 'utf8');
+  const app = fs.readFileSync(path.join(root, 'tools/fase2d-human-review/public/app.js'), 'utf8');
+  const html = fs.readFileSync(path.join(root, 'tools/fase2d-human-review/public/index.html'), 'utf8');
+  assert.match(server, /\/runtime\/math-renderer\.js/);
+  assert.match(server, /\/runtime\/styles\.css/);
+  assert.match(server, /\/runtime\/math-notation\.css/);
+  assert.match(server, /MargaritaMathRenderer/);
+  assert.match(server, /question-text pau-open-statement/);
+  assert.match(server, /answer-btn correct/);
+  assert.match(server, /solution-help-body/);
+  assert.match(server, /solution-step-label[^]*Paso/);
+  assert.match(server, /solution-final-title[^]*Resultado final/);
+  assert.match(server, /materializeSessionExercise/);
+  assert.match(server, /fase2d-human-review:\$\{pilotId\}:\$\{pilotCase\.exerciseId\}/);
+  assert.match(server, /options: session\.options\.map\(\(\{ position, value, optionInstanceId \}\)/);
+  assert.match(server, /OPCIONES NO DISPONIBLES \/ PENDIENTES/);
+  assert.match(server, /Ver soluci/);
+  assert.doesNotMatch(server, /options: session\.options\.map\(\(\{[^}]*correct/);
+  assert.match(html, /Así lo verá el alumno/);
+  assert.match(html, /Información técnica/);
+  assert.doesNotMatch(app, /api\/resume/);
+  assert.match(app, /inspectionOnly/);
+});
