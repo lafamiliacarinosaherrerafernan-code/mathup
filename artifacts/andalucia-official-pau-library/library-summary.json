@@ -1,0 +1,18 @@
+{
+    "generatedAt":  "2026-08-25T11:02:07.5154806+02:00",
+    "projectRootReference":  "APP MARGARITA SALAS",
+    "authority":  "Junta de Andalucía / Distrito Único Andaluz",
+    "indexUrl":  "https://www.juntadeandalucia.es/economiaconocimientoempresasyuniversidad/sguit/?q=grados\u0026d=g_b_examenes_anteriores.php",
+    "plannedPackages":  36,
+    "verifiedPackages":  36,
+    "failedPackages":  0,
+    "officialPdfs":  397,
+    "examPdfs":  204,
+    "criteriaPdfs":  178,
+    "auxiliaryPdfs":  15,
+    "verifiedMetadata":  113,
+    "partialMetadata":  284,
+    "detectedExercises":  1616,
+    "totalPdfBytes":  58069613,
+    "mandatory2010to2026Missing":  1
+}

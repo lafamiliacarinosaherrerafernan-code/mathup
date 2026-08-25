@@ -9,6 +9,14 @@ supabase/functions/.env
 documentos/
 book-resources/full-books/
 *.zip
+/sources/pau-official/**/*.pdf
+/sources/pau-official/**/*.doc
+/sources/pau-official/**/*.zip
+
+# Artefactos regenerables de la biblioteca oficial PAU Madrid-Andalucía
+/artifacts/official-pau-madrid-andalucia/andalucia-exam-structures.jsonl
+/artifacts/official-pau-madrid-andalucia/impact-on-prior-madrid-not-found.json
+/artifacts/official-pau-madrid-andalucia/madrid-historical-reconciliation.jsonl
 
 # Archivos generados o temporales
 /_diag_claim.png

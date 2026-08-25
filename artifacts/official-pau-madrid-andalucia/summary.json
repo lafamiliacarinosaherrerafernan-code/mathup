@@ -1,0 +1,63 @@
+{
+    "generatedAt":  "2026-08-25T11:17:53.0132677+02:00",
+    "projectRootReference":  "APP MARGARITA SALAS",
+    "madridHistoricRecords":  1728,
+    "madridEstimatedUnique":  1723,
+    "madridDuplicateGroups":  5,
+    "madridDuplicateRecords":  10,
+    "madridHistoricalRecordsWithCanonicalSourceIds":  1679,
+    "madridCanonicalSourceRecordIds":  1679,
+    "madridReconciliation":  [
+                                 {
+                                     "classification":  "NOT_FOUND",
+                                     "count":  1219
+                                 },
+                                 {
+                                     "classification":  "HUMAN_REVIEW_REQUIRED",
+                                     "count":  469
+                                 },
+                                 {
+                                     "classification":  "DOCUMENT_MATCH_STRUCTURAL",
+                                     "count":  37
+                                 },
+                                 {
+                                     "classification":  "AMBIGUOUS",
+                                     "count":  3
+                                 }
+                             ],
+    "impactOnPriorMadridNotFound":  {
+                                        "priorMadridNotFoundDeclared":  1687,
+                                        "priorMadridNotFoundSourceIdsMapped":  1679,
+                                        "historicalRecordsAffected":  1679,
+                                        "sourceRecordIdsWithExactOrStructural":  37,
+                                        "sourceRecordIdsStillNotFound":  1188,
+                                        "distribution":  [
+                                                             {
+                                                                 "classification":  "NOT_FOUND",
+                                                                 "historicalRecords":  1188,
+                                                                 "sourceRecordIds":  1188
+                                                             },
+                                                             {
+                                                                 "classification":  "HUMAN_REVIEW_REQUIRED",
+                                                                 "historicalRecords":  451,
+                                                                 "sourceRecordIds":  451
+                                                             },
+                                                             {
+                                                                 "classification":  "DOCUMENT_MATCH_STRUCTURAL",
+                                                                 "historicalRecords":  37,
+                                                                 "sourceRecordIds":  37
+                                                             },
+                                                             {
+                                                                 "classification":  "AMBIGUOUS",
+                                                                 "historicalRecords":  3,
+                                                                 "sourceRecordIds":  3
+                                                             }
+                                                         ]
+                                    },
+    "madridOfficialPdfs":  79,
+    "andaluciaOfficialPdfs":  397,
+    "andaluciaExamPdfs":  204,
+    "andaluciaDetectedExercises":  1616,
+    "combinedCoverageRows":  191,
+    "mandatoryMissingRows":  17
+}

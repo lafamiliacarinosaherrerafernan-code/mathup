@@ -1,0 +1,3719 @@
+[
+    {
+        "community":  "Madrid",
+        "subject":  "Matemáticas II",
+        "year":  2000,
+        "sittingModel":  "Ordinaria",
+        "yearCovered":  false,
+        "sessionCovered":  false,
+        "officialPdfCensused":  false,
+        "officialNonPdfCensused":  false,
+        "documentIds":  [
+
+                        ],
+        "authorities":  [
+
+                        ],
+        "status":  "NOT_FOUND_SECONDARY_OBJECTIVE"
+    },
+    {
+        "community":  "Madrid",
+        "subject":  "Matemáticas II",
+        "year":  2000,
+        "sittingModel":  "Extraordinaria",
+        "yearCovered":  false,
+        "sessionCovered":  false,
+        "officialPdfCensused":  false,
+        "officialNonPdfCensused":  false,
+        "documentIds":  [
+
+                        ],
+        "authorities":  [
+
+                        ],
+        "status":  "NOT_FOUND_SECONDARY_OBJECTIVE"
+    },
+    {
+        "community":  "Madrid",
+        "subject":  "Matemáticas II",
+        "year":  2001,
+        "sittingModel":  "Ordinaria",
+        "yearCovered":  false,
+        "sessionCovered":  false,
+        "officialPdfCensused":  false,
+        "officialNonPdfCensused":  false,
+        "documentIds":  [
+
+                        ],
+        "authorities":  [
+
+                        ],
+        "status":  "NOT_FOUND_SECONDARY_OBJECTIVE"
+    },
+    {
+        "community":  "Madrid",
+        "subject":  "Matemáticas II",
+        "year":  2001,
+        "sittingModel":  "Extraordinaria",
+        "yearCovered":  false,
+        "sessionCovered":  false,
+        "officialPdfCensused":  false,
+        "officialNonPdfCensused":  false,
+        "documentIds":  [
+
+                        ],
+        "authorities":  [
+
+                        ],
+        "status":  "NOT_FOUND_SECONDARY_OBJECTIVE"
+    },
+    {
+        "community":  "Madrid",
+        "subject":  "Matemáticas II",
+        "year":  2002,
+        "sittingModel":  "Ordinaria",
+        "yearCovered":  false,
+        "sessionCovered":  false,
+        "officialPdfCensused":  false,
+        "officialNonPdfCensused":  false,
+        "documentIds":  [
+
+                        ],
+        "authorities":  [
+
+                        ],
+        "status":  "NOT_FOUND_SECONDARY_OBJECTIVE"
+    },
+    {
+        "community":  "Madrid",
+        "subject":  "Matemáticas II",
+        "year":  2002,
+        "sittingModel":  "Extraordinaria",
+        "yearCovered":  false,
+        "sessionCovered":  false,
+        "officialPdfCensused":  false,
+        "officialNonPdfCensused":  false,
+        "documentIds":  [
+
+                        ],
+        "authorities":  [
+
+                        ],
+        "status":  "NOT_FOUND_SECONDARY_OBJECTIVE"
+    },
+    {
+        "community":  "Madrid",
+        "subject":  "Matemáticas II",
+        "year":  2003,
+        "sittingModel":  "Ordinaria",
+        "yearCovered":  false,
+        "sessionCovered":  false,
+        "officialPdfCensused":  false,
+        "officialNonPdfCensused":  false,
+        "documentIds":  [
+
+                        ],
+        "authorities":  [
+
+                        ],
+        "status":  "NOT_FOUND_SECONDARY_OBJECTIVE"
+    },
+    {
+        "community":  "Madrid",
+        "subject":  "Matemáticas II",
+        "year":  2003,
+        "sittingModel":  "Extraordinaria",
+        "yearCovered":  false,
+        "sessionCovered":  false,
+        "officialPdfCensused":  false,
+        "officialNonPdfCensused":  false,
+        "documentIds":  [
+
+                        ],
+        "authorities":  [
+
+                        ],
+        "status":  "NOT_FOUND_SECONDARY_OBJECTIVE"
+    },
+    {
+        "community":  "Madrid",
+        "subject":  "Matemáticas II",
+        "year":  2004,
+        "sittingModel":  "Ordinaria",
+        "yearCovered":  false,
+        "sessionCovered":  false,
+        "officialPdfCensused":  false,
+        "officialNonPdfCensused":  false,
+        "documentIds":  [
+
+                        ],
+        "authorities":  [
+
+                        ],
+        "status":  "NOT_FOUND_SECONDARY_OBJECTIVE"
+    },
+    {
+        "community":  "Madrid",
+        "subject":  "Matemáticas II",
+        "year":  2004,
+        "sittingModel":  "Extraordinaria",
+        "yearCovered":  false,
+        "sessionCovered":  false,
+        "officialPdfCensused":  false,
+        "officialNonPdfCensused":  false,
+        "documentIds":  [
+
+                        ],
+        "authorities":  [
+
+                        ],
+        "status":  "NOT_FOUND_SECONDARY_OBJECTIVE"
+    },
+    {
+        "community":  "Madrid",
+        "subject":  "Matemáticas II",
+        "year":  2005,
+        "sittingModel":  "Ordinaria",
+        "yearCovered":  true,
+        "sessionCovered":  true,
+        "officialPdfCensused":  true,
+        "officialNonPdfCensused":  false,
+        "documentIds":  [
+                            "madrid-official-0c8de7c0d17d598511101290"
+                        ],
+        "authorities":  [
+                            "UPM"
+                        ],
+        "status":  "SESSION_OFFICIAL_PDF_CENSUSED"
+    },
+    {
+        "community":  "Madrid",
+        "subject":  "Matemáticas II",
+        "year":  2005,
+        "sittingModel":  "Extraordinaria",
+        "yearCovered":  true,
+        "sessionCovered":  true,
+        "officialPdfCensused":  true,
+        "officialNonPdfCensused":  false,
+        "documentIds":  [
+                            "madrid-official-b22636f31e9400e917af20e2"
+                        ],
+        "authorities":  [
+                            "UPM"
+                        ],
+        "status":  "SESSION_OFFICIAL_PDF_CENSUSED"
+    },
+    {
+        "community":  "Madrid",
+        "subject":  "Matemáticas II",
+        "year":  2006,
+        "sittingModel":  "Ordinaria",
+        "yearCovered":  true,
+        "sessionCovered":  true,
+        "officialPdfCensused":  true,
+        "officialNonPdfCensused":  false,
+        "documentIds":  [
+                            "madrid-official-8baf359df60786a9e80554d8"
+                        ],
+        "authorities":  [
+                            "UPM"
+                        ],
+        "status":  "SESSION_OFFICIAL_PDF_CENSUSED"
+    },
+    {
+        "community":  "Madrid",
+        "subject":  "Matemáticas II",
+        "year":  2006,
+        "sittingModel":  "Extraordinaria",
+        "yearCovered":  true,
+        "sessionCovered":  true,
+        "officialPdfCensused":  true,
+        "officialNonPdfCensused":  false,
+        "documentIds":  [
+                            "madrid-official-d3bf3d77112a36a5190dbd8c"
+                        ],
+        "authorities":  [
+                            "UPM"
+                        ],
+        "status":  "SESSION_OFFICIAL_PDF_CENSUSED"
+    },
+    {
+        "community":  "Madrid",
+        "subject":  "Matemáticas II",
+        "year":  2007,
+        "sittingModel":  "Ordinaria",
+        "yearCovered":  true,
+        "sessionCovered":  true,
+        "officialPdfCensused":  true,
+        "officialNonPdfCensused":  false,
+        "documentIds":  [
+                            "madrid-official-93b4627e2b8f5bcba464ff76"
+                        ],
+        "authorities":  [
+                            "UPM"
+                        ],
+        "status":  "SESSION_OFFICIAL_PDF_CENSUSED"
+    },
+    {
+        "community":  "Madrid",
+        "subject":  "Matemáticas II",
+        "year":  2007,
+        "sittingModel":  "Extraordinaria",
+        "yearCovered":  true,
+        "sessionCovered":  true,
+        "officialPdfCensused":  true,
+        "officialNonPdfCensused":  false,
+        "documentIds":  [
+                            "madrid-official-93014bdfbd8305d9aad6043b"
+                        ],
+        "authorities":  [
+                            "UPM"
+                        ],
+        "status":  "SESSION_OFFICIAL_PDF_CENSUSED"
+    },
+    {
+        "community":  "Madrid",
+        "subject":  "Matemáticas II",
+        "year":  2008,
+        "sittingModel":  "Ordinaria",
+        "yearCovered":  true,
+        "sessionCovered":  true,
+        "officialPdfCensused":  true,
+        "officialNonPdfCensused":  false,
+        "documentIds":  [
+                            "madrid-official-ad11d64d735784fe33a0e207"
+                        ],
+        "authorities":  [
+                            "UPM"
+                        ],
+        "status":  "SESSION_OFFICIAL_PDF_CENSUSED"
+    },
+    {
+        "community":  "Madrid",
+        "subject":  "Matemáticas II",
+        "year":  2008,
+        "sittingModel":  "Extraordinaria",
+        "yearCovered":  true,
+        "sessionCovered":  true,
+        "officialPdfCensused":  true,
+        "officialNonPdfCensused":  false,
+        "documentIds":  [
+                            "madrid-official-f094704c18eb74e4faf07167"
+                        ],
+        "authorities":  [
+                            "UPM"
+                        ],
+        "status":  "SESSION_OFFICIAL_PDF_CENSUSED"
+    },
+    {
+        "community":  "Madrid",
+        "subject":  "Matemáticas II",
+        "year":  2009,
+        "sittingModel":  "Ordinaria",
+        "yearCovered":  true,
+        "sessionCovered":  true,
+        "officialPdfCensused":  true,
+        "officialNonPdfCensused":  false,
+        "documentIds":  [
+                            "madrid-official-2a578da78e1357c53045982c"
+                        ],
+        "authorities":  [
+                            "UPM"
+                        ],
+        "status":  "SESSION_OFFICIAL_PDF_CENSUSED"
+    },
+    {
+        "community":  "Madrid",
+        "subject":  "Matemáticas II",
+        "year":  2009,
+        "sittingModel":  "Extraordinaria",
+        "yearCovered":  true,
+        "sessionCovered":  true,
+        "officialPdfCensused":  true,
+        "officialNonPdfCensused":  false,
+        "documentIds":  [
+                            "madrid-official-8e1bbaded327f59ab19dc232"
+                        ],
+        "authorities":  [
+                            "UPM"
+                        ],
+        "status":  "SESSION_OFFICIAL_PDF_CENSUSED"
+    },
+    {
+        "community":  "Madrid",
+        "subject":  "Matemáticas II",
+        "year":  2010,
+        "sittingModel":  "Ordinaria",
+        "yearCovered":  true,
+        "sessionCovered":  true,
+        "officialPdfCensused":  true,
+        "officialNonPdfCensused":  false,
+        "documentIds":  [
+                            "madrid-official-f996b22352940d0c8a4c065d",
+                            "madrid-official-dc141b522de2c789e3373ed2"
+                        ],
+        "authorities":  [
+                            "UPM"
+                        ],
+        "status":  "SESSION_OFFICIAL_PDF_CENSUSED"
+    },
+    {
+        "community":  "Madrid",
+        "subject":  "Matemáticas II",
+        "year":  2010,
+        "sittingModel":  "Extraordinaria",
+        "yearCovered":  true,
+        "sessionCovered":  true,
+        "officialPdfCensused":  true,
+        "officialNonPdfCensused":  false,
+        "documentIds":  [
+                            "madrid-uah-7152180bcc489bf31494c234",
+                            "madrid-uah-43eb7fbe818f41337624a312"
+                        ],
+        "authorities":  [
+                            "Universidad de Alcalá (UAH)"
+                        ],
+        "status":  "SESSION_OFFICIAL_PDF_CENSUSED"
+    },
+    {
+        "community":  "Madrid",
+        "subject":  "Matemáticas II",
+        "year":  2011,
+        "sittingModel":  "Ordinaria",
+        "yearCovered":  true,
+        "sessionCovered":  true,
+        "officialPdfCensused":  true,
+        "officialNonPdfCensused":  false,
+        "documentIds":  [
+                            "madrid-uah-6a36c4c1268da8035711290f",
+                            "madrid-uah-6a36c4c1268da8035711290f",
+                            "madrid-uah-ca60f5d639a6bcc83b61f0c2"
+                        ],
+        "authorities":  [
+                            "Universidad de Alcalá (UAH)"
+                        ],
+        "status":  "SESSION_OFFICIAL_PDF_CENSUSED"
+    },
+    {
+        "community":  "Madrid",
+        "subject":  "Matemáticas II",
+        "year":  2011,
+        "sittingModel":  "Extraordinaria",
+        "yearCovered":  true,
+        "sessionCovered":  true,
+        "officialPdfCensused":  true,
+        "officialNonPdfCensused":  false,
+        "documentIds":  [
+                            "madrid-official-94889a678013a51c7e02dd27"
+                        ],
+        "authorities":  [
+                            "UCM"
+                        ],
+        "status":  "SESSION_OFFICIAL_PDF_CENSUSED"
+    },
+    {
+        "community":  "Madrid",
+        "subject":  "Matemáticas II",
+        "year":  2012,
+        "sittingModel":  "Ordinaria",
+        "yearCovered":  true,
+        "sessionCovered":  true,
+        "officialPdfCensused":  true,
+        "officialNonPdfCensused":  false,
+        "documentIds":  [
+                            "madrid-official-1e41ed69bbb55ec60ddba075"
+                        ],
+        "authorities":  [
+                            "UPM"
+                        ],
+        "status":  "SESSION_OFFICIAL_PDF_CENSUSED"
+    },
+    {
+        "community":  "Madrid",
+        "subject":  "Matemáticas II",
+        "year":  2012,
+        "sittingModel":  "Extraordinaria",
+        "yearCovered":  true,
+        "sessionCovered":  true,
+        "officialPdfCensused":  true,
+        "officialNonPdfCensused":  false,
+        "documentIds":  [
+                            "madrid-uah-e5a0647736f085e1d88aa501"
+                        ],
+        "authorities":  [
+                            "Universidad de Alcalá (UAH)"
+                        ],
+        "status":  "SESSION_OFFICIAL_PDF_CENSUSED"
+    },
+    {
+        "community":  "Madrid",
+        "subject":  "Matemáticas II",
+        "year":  2013,
+        "sittingModel":  "Ordinaria",
+        "yearCovered":  true,
+        "sessionCovered":  true,
+        "officialPdfCensused":  true,
+        "officialNonPdfCensused":  false,
+        "documentIds":  [
+                            "madrid-uah-ad4b4c15c5f53a8299a38d5a"
+                        ],
+        "authorities":  [
+                            "Universidad de Alcalá (UAH)"
+                        ],
+        "status":  "SESSION_OFFICIAL_PDF_CENSUSED"
+    },
+    {
+        "community":  "Madrid",
+        "subject":  "Matemáticas II",
+        "year":  2013,
+        "sittingModel":  "Extraordinaria",
+        "yearCovered":  true,
+        "sessionCovered":  true,
+        "officialPdfCensused":  true,
+        "officialNonPdfCensused":  false,
+        "documentIds":  [
+                            "madrid-uah-43ab3e8748c928bc0518eb5e"
+                        ],
+        "authorities":  [
+                            "Universidad de Alcalá (UAH)"
+                        ],
+        "status":  "SESSION_OFFICIAL_PDF_CENSUSED"
+    },
+    {
+        "community":  "Madrid",
+        "subject":  "Matemáticas II",
+        "year":  2014,
+        "sittingModel":  "Ordinaria",
+        "yearCovered":  true,
+        "sessionCovered":  true,
+        "officialPdfCensused":  true,
+        "officialNonPdfCensused":  false,
+        "documentIds":  [
+                            "madrid-official-4b452e7d26efd448d2911cca"
+                        ],
+        "authorities":  [
+                            "UCM"
+                        ],
+        "status":  "SESSION_OFFICIAL_PDF_CENSUSED"
+    },
+    {
+        "community":  "Madrid",
+        "subject":  "Matemáticas II",
+        "year":  2014,
+        "sittingModel":  "Extraordinaria",
+        "yearCovered":  true,
+        "sessionCovered":  true,
+        "officialPdfCensused":  true,
+        "officialNonPdfCensused":  false,
+        "documentIds":  [
+                            "madrid-official-f50562e1c077bdd670cd5f77"
+                        ],
+        "authorities":  [
+                            "UCM"
+                        ],
+        "status":  "SESSION_OFFICIAL_PDF_CENSUSED"
+    },
+    {
+        "community":  "Madrid",
+        "subject":  "Matemáticas II",
+        "year":  2015,
+        "sittingModel":  "Ordinaria",
+        "yearCovered":  true,
+        "sessionCovered":  true,
+        "officialPdfCensused":  true,
+        "officialNonPdfCensused":  false,
+        "documentIds":  [
+                            "madrid-uah-a8643671f4c2df3ef0556b27",
+                            "madrid-uah-d7e7ac88399f1e2260dd660c"
+                        ],
+        "authorities":  [
+                            "Universidad de Alcalá (UAH)"
+                        ],
+        "status":  "SESSION_OFFICIAL_PDF_CENSUSED"
+    },
+    {
+        "community":  "Madrid",
+        "subject":  "Matemáticas II",
+        "year":  2015,
+        "sittingModel":  "Extraordinaria",
+        "yearCovered":  true,
+        "sessionCovered":  true,
+        "officialPdfCensused":  true,
+        "officialNonPdfCensused":  false,
+        "documentIds":  [
+                            "madrid-uah-b1019ea282261f1fb5ebff40",
+                            "madrid-uah-deba76e7230f234f24676793"
+                        ],
+        "authorities":  [
+                            "Universidad de Alcalá (UAH)"
+                        ],
+        "status":  "SESSION_OFFICIAL_PDF_CENSUSED"
+    },
+    {
+        "community":  "Madrid",
+        "subject":  "Matemáticas II",
+        "year":  2016,
+        "sittingModel":  "Ordinaria",
+        "yearCovered":  true,
+        "sessionCovered":  true,
+        "officialPdfCensused":  true,
+        "officialNonPdfCensused":  false,
+        "documentIds":  [
+                            "madrid-official-df6dbcf38d3a3079aeaadd77",
+                            "madrid-official-61dddf45b186d80f066539af"
+                        ],
+        "authorities":  [
+                            "UCM"
+                        ],
+        "status":  "SESSION_OFFICIAL_PDF_CENSUSED"
+    },
+    {
+        "community":  "Madrid",
+        "subject":  "Matemáticas II",
+        "year":  2016,
+        "sittingModel":  "Extraordinaria",
+        "yearCovered":  true,
+        "sessionCovered":  true,
+        "officialPdfCensused":  true,
+        "officialNonPdfCensused":  false,
+        "documentIds":  [
+                            "madrid-uah-6bb742eef890661d6c58407e"
+                        ],
+        "authorities":  [
+                            "Universidad de Alcalá (UAH)"
+                        ],
+        "status":  "SESSION_OFFICIAL_PDF_CENSUSED"
+    },
+    {
+        "community":  "Madrid",
+        "subject":  "Matemáticas II",
+        "year":  2017,
+        "sittingModel":  "Ordinaria",
+        "yearCovered":  true,
+        "sessionCovered":  true,
+        "officialPdfCensused":  true,
+        "officialNonPdfCensused":  false,
+        "documentIds":  [
+                            "madrid-uah-a02fdd5df6273abafab91e12"
+                        ],
+        "authorities":  [
+                            "Universidad de Alcalá (UAH)"
+                        ],
+        "status":  "SESSION_OFFICIAL_PDF_CENSUSED"
+    },
+    {
+        "community":  "Madrid",
+        "subject":  "Matemáticas II",
+        "year":  2017,
+        "sittingModel":  "Extraordinaria",
+        "yearCovered":  true,
+        "sessionCovered":  true,
+        "officialPdfCensused":  true,
+        "officialNonPdfCensused":  false,
+        "documentIds":  [
+                            "madrid-official-c3a032e70d4d791d3d359abf"
+                        ],
+        "authorities":  [
+                            "UPM"
+                        ],
+        "status":  "SESSION_OFFICIAL_PDF_CENSUSED"
+    },
+    {
+        "community":  "Madrid",
+        "subject":  "Matemáticas II",
+        "year":  2018,
+        "sittingModel":  "Ordinaria",
+        "yearCovered":  true,
+        "sessionCovered":  true,
+        "officialPdfCensused":  true,
+        "officialNonPdfCensused":  false,
+        "documentIds":  [
+                            "madrid-official-3cbf1be89ab66129b427f5ec"
+                        ],
+        "authorities":  [
+                            "UPM"
+                        ],
+        "status":  "SESSION_OFFICIAL_PDF_CENSUSED"
+    },
+    {
+        "community":  "Madrid",
+        "subject":  "Matemáticas II",
+        "year":  2018,
+        "sittingModel":  "Extraordinaria",
+        "yearCovered":  true,
+        "sessionCovered":  true,
+        "officialPdfCensused":  true,
+        "officialNonPdfCensused":  false,
+        "documentIds":  [
+                            "madrid-official-415af7856c7c204ef05c0d8c"
+                        ],
+        "authorities":  [
+                            "UPM"
+                        ],
+        "status":  "SESSION_OFFICIAL_PDF_CENSUSED"
+    },
+    {
+        "community":  "Madrid",
+        "subject":  "Matemáticas II",
+        "year":  2019,
+        "sittingModel":  "Ordinaria",
+        "yearCovered":  true,
+        "sessionCovered":  true,
+        "officialPdfCensused":  true,
+        "officialNonPdfCensused":  false,
+        "documentIds":  [
+                            "madrid-uah-872e27dffb264c1fb5f5a08d"
+                        ],
+        "authorities":  [
+                            "Universidad de Alcalá (UAH)"
+                        ],
+        "status":  "SESSION_OFFICIAL_PDF_CENSUSED"
+    },
+    {
+        "community":  "Madrid",
+        "subject":  "Matemáticas II",
+        "year":  2019,
+        "sittingModel":  "Extraordinaria",
+        "yearCovered":  true,
+        "sessionCovered":  true,
+        "officialPdfCensused":  true,
+        "officialNonPdfCensused":  false,
+        "documentIds":  [
+                            "madrid-official-2fed643210918758332fb1e9"
+                        ],
+        "authorities":  [
+                            "UPM"
+                        ],
+        "status":  "SESSION_OFFICIAL_PDF_CENSUSED"
+    },
+    {
+        "community":  "Madrid",
+        "subject":  "Matemáticas II",
+        "year":  2020,
+        "sittingModel":  "Ordinaria",
+        "yearCovered":  true,
+        "sessionCovered":  true,
+        "officialPdfCensused":  true,
+        "officialNonPdfCensused":  false,
+        "documentIds":  [
+                            "madrid-official-c8ffe3f4275b3ba454c3ccbe"
+                        ],
+        "authorities":  [
+                            "Comunidad de Madrid"
+                        ],
+        "status":  "SESSION_OFFICIAL_PDF_CENSUSED"
+    },
+    {
+        "community":  "Madrid",
+        "subject":  "Matemáticas II",
+        "year":  2020,
+        "sittingModel":  "Extraordinaria",
+        "yearCovered":  true,
+        "sessionCovered":  true,
+        "officialPdfCensused":  true,
+        "officialNonPdfCensused":  false,
+        "documentIds":  [
+                            "madrid-official-e87f8b9559aa92bee12cfaf4"
+                        ],
+        "authorities":  [
+                            "Comunidad de Madrid"
+                        ],
+        "status":  "SESSION_OFFICIAL_PDF_CENSUSED"
+    },
+    {
+        "community":  "Madrid",
+        "subject":  "Matemáticas II",
+        "year":  2021,
+        "sittingModel":  "Ordinaria",
+        "yearCovered":  true,
+        "sessionCovered":  true,
+        "officialPdfCensused":  true,
+        "officialNonPdfCensused":  false,
+        "documentIds":  [
+                            "madrid-official-d54598196aa4dd32bd64db6c"
+                        ],
+        "authorities":  [
+                            "Comunidad de Madrid"
+                        ],
+        "status":  "SESSION_OFFICIAL_PDF_CENSUSED"
+    },
+    {
+        "community":  "Madrid",
+        "subject":  "Matemáticas II",
+        "year":  2021,
+        "sittingModel":  "Extraordinaria",
+        "yearCovered":  true,
+        "sessionCovered":  true,
+        "officialPdfCensused":  true,
+        "officialNonPdfCensused":  false,
+        "documentIds":  [
+                            "madrid-official-b0a68a2e0764c657e191510e"
+                        ],
+        "authorities":  [
+                            "Comunidad de Madrid"
+                        ],
+        "status":  "SESSION_OFFICIAL_PDF_CENSUSED"
+    },
+    {
+        "community":  "Madrid",
+        "subject":  "Matemáticas II",
+        "year":  2022,
+        "sittingModel":  "Ordinaria",
+        "yearCovered":  true,
+        "sessionCovered":  true,
+        "officialPdfCensused":  true,
+        "officialNonPdfCensused":  false,
+        "documentIds":  [
+                            "madrid-official-aade685742f8e3c27fb492c9"
+                        ],
+        "authorities":  [
+                            "Comunidad de Madrid"
+                        ],
+        "status":  "SESSION_OFFICIAL_PDF_CENSUSED"
+    },
+    {
+        "community":  "Madrid",
+        "subject":  "Matemáticas II",
+        "year":  2022,
+        "sittingModel":  "Extraordinaria",
+        "yearCovered":  true,
+        "sessionCovered":  true,
+        "officialPdfCensused":  true,
+        "officialNonPdfCensused":  false,
+        "documentIds":  [
+                            "madrid-official-733b07ef44bf4f612e2245dd"
+                        ],
+        "authorities":  [
+                            "Comunidad de Madrid"
+                        ],
+        "status":  "SESSION_OFFICIAL_PDF_CENSUSED"
+    },
+    {
+        "community":  "Madrid",
+        "subject":  "Matemáticas II",
+        "year":  2023,
+        "sittingModel":  "Ordinaria",
+        "yearCovered":  true,
+        "sessionCovered":  true,
+        "officialPdfCensused":  true,
+        "officialNonPdfCensused":  false,
+        "documentIds":  [
+                            "madrid-official-dba26f0da739bf03a829c513"
+                        ],
+        "authorities":  [
+                            "Comunidad de Madrid"
+                        ],
+        "status":  "SESSION_OFFICIAL_PDF_CENSUSED"
+    },
+    {
+        "community":  "Madrid",
+        "subject":  "Matemáticas II",
+        "year":  2023,
+        "sittingModel":  "Extraordinaria",
+        "yearCovered":  true,
+        "sessionCovered":  true,
+        "officialPdfCensused":  true,
+        "officialNonPdfCensused":  false,
+        "documentIds":  [
+                            "madrid-official-1560a75e52b04c98ebc81c59"
+                        ],
+        "authorities":  [
+                            "Comunidad de Madrid"
+                        ],
+        "status":  "SESSION_OFFICIAL_PDF_CENSUSED"
+    },
+    {
+        "community":  "Madrid",
+        "subject":  "Matemáticas II",
+        "year":  2024,
+        "sittingModel":  "Ordinaria",
+        "yearCovered":  true,
+        "sessionCovered":  true,
+        "officialPdfCensused":  true,
+        "officialNonPdfCensused":  false,
+        "documentIds":  [
+                            "madrid-official-3545d6365ca4d1471fe0be06"
+                        ],
+        "authorities":  [
+                            "Comunidad de Madrid"
+                        ],
+        "status":  "SESSION_OFFICIAL_PDF_CENSUSED"
+    },
+    {
+        "community":  "Madrid",
+        "subject":  "Matemáticas II",
+        "year":  2024,
+        "sittingModel":  "Extraordinaria",
+        "yearCovered":  true,
+        "sessionCovered":  true,
+        "officialPdfCensused":  true,
+        "officialNonPdfCensused":  false,
+        "documentIds":  [
+                            "madrid-official-953213fc28d2d59ca4526a01"
+                        ],
+        "authorities":  [
+                            "Comunidad de Madrid"
+                        ],
+        "status":  "SESSION_OFFICIAL_PDF_CENSUSED"
+    },
+    {
+        "community":  "Madrid",
+        "subject":  "Matemáticas II",
+        "year":  2025,
+        "sittingModel":  "Ordinaria",
+        "yearCovered":  true,
+        "sessionCovered":  true,
+        "officialPdfCensused":  true,
+        "officialNonPdfCensused":  false,
+        "documentIds":  [
+                            "madrid-official-637d1b9c36d094089b3c68b8",
+                            "madrid-official-3bc36ae4071f869be35f7418"
+                        ],
+        "authorities":  [
+                            "UCM"
+                        ],
+        "status":  "SESSION_OFFICIAL_PDF_CENSUSED"
+    },
+    {
+        "community":  "Madrid",
+        "subject":  "Matemáticas II",
+        "year":  2025,
+        "sittingModel":  "Extraordinaria",
+        "yearCovered":  true,
+        "sessionCovered":  true,
+        "officialPdfCensused":  true,
+        "officialNonPdfCensused":  false,
+        "documentIds":  [
+                            "madrid-official-3452f8b5fc20de00b69c2cec"
+                        ],
+        "authorities":  [
+                            "UCM"
+                        ],
+        "status":  "SESSION_OFFICIAL_PDF_CENSUSED"
+    },
+    {
+        "community":  "Madrid",
+        "subject":  "Matemáticas II",
+        "year":  2026,
+        "sittingModel":  "Ordinaria",
+        "yearCovered":  true,
+        "sessionCovered":  true,
+        "officialPdfCensused":  true,
+        "officialNonPdfCensused":  false,
+        "documentIds":  [
+                            "madrid-official-27c7decfebed0f12c76a8630",
+                            "madrid-official-82f1431be61cb25a6f967e08"
+                        ],
+        "authorities":  [
+                            "UCM"
+                        ],
+        "status":  "SESSION_OFFICIAL_PDF_CENSUSED"
+    },
+    {
+        "community":  "Madrid",
+        "subject":  "Matemáticas II",
+        "year":  2026,
+        "sittingModel":  "Extraordinaria",
+        "yearCovered":  true,
+        "sessionCovered":  true,
+        "officialPdfCensused":  true,
+        "officialNonPdfCensused":  false,
+        "documentIds":  [
+                            "madrid-official-6579b04398a1da2d35cfdb92",
+                            "madrid-official-73374d41dc8f0940039a8812"
+                        ],
+        "authorities":  [
+                            "UCM"
+                        ],
+        "status":  "SESSION_OFFICIAL_PDF_CENSUSED"
+    },
+    {
+        "community":  "Madrid",
+        "subject":  "Matemáticas Aplicadas a las CCSS II",
+        "year":  2000,
+        "sittingModel":  "Ordinaria",
+        "yearCovered":  false,
+        "sessionCovered":  false,
+        "officialPdfCensused":  false,
+        "officialNonPdfCensused":  false,
+        "documentIds":  [
+
+                        ],
+        "authorities":  [
+
+                        ],
+        "status":  "NOT_FOUND_SECONDARY_OBJECTIVE"
+    },
+    {
+        "community":  "Madrid",
+        "subject":  "Matemáticas Aplicadas a las CCSS II",
+        "year":  2000,
+        "sittingModel":  "Extraordinaria",
+        "yearCovered":  false,
+        "sessionCovered":  false,
+        "officialPdfCensused":  false,
+        "officialNonPdfCensused":  false,
+        "documentIds":  [
+
+                        ],
+        "authorities":  [
+
+                        ],
+        "status":  "NOT_FOUND_SECONDARY_OBJECTIVE"
+    },
+    {
+        "community":  "Madrid",
+        "subject":  "Matemáticas Aplicadas a las CCSS II",
+        "year":  2001,
+        "sittingModel":  "Ordinaria",
+        "yearCovered":  false,
+        "sessionCovered":  false,
+        "officialPdfCensused":  false,
+        "officialNonPdfCensused":  false,
+        "documentIds":  [
+
+                        ],
+        "authorities":  [
+
+                        ],
+        "status":  "NOT_FOUND_SECONDARY_OBJECTIVE"
+    },
+    {
+        "community":  "Madrid",
+        "subject":  "Matemáticas Aplicadas a las CCSS II",
+        "year":  2001,
+        "sittingModel":  "Extraordinaria",
+        "yearCovered":  false,
+        "sessionCovered":  false,
+        "officialPdfCensused":  false,
+        "officialNonPdfCensused":  false,
+        "documentIds":  [
+
+                        ],
+        "authorities":  [
+
+                        ],
+        "status":  "NOT_FOUND_SECONDARY_OBJECTIVE"
+    },
+    {
+        "community":  "Madrid",
+        "subject":  "Matemáticas Aplicadas a las CCSS II",
+        "year":  2002,
+        "sittingModel":  "Ordinaria",
+        "yearCovered":  false,
+        "sessionCovered":  false,
+        "officialPdfCensused":  false,
+        "officialNonPdfCensused":  false,
+        "documentIds":  [
+
+                        ],
+        "authorities":  [
+
+                        ],
+        "status":  "NOT_FOUND_SECONDARY_OBJECTIVE"
+    },
+    {
+        "community":  "Madrid",
+        "subject":  "Matemáticas Aplicadas a las CCSS II",
+        "year":  2002,
+        "sittingModel":  "Extraordinaria",
+        "yearCovered":  false,
+        "sessionCovered":  false,
+        "officialPdfCensused":  false,
+        "officialNonPdfCensused":  false,
+        "documentIds":  [
+
+                        ],
+        "authorities":  [
+
+                        ],
+        "status":  "NOT_FOUND_SECONDARY_OBJECTIVE"
+    },
+    {
+        "community":  "Madrid",
+        "subject":  "Matemáticas Aplicadas a las CCSS II",
+        "year":  2003,
+        "sittingModel":  "Ordinaria",
+        "yearCovered":  false,
+        "sessionCovered":  false,
+        "officialPdfCensused":  false,
+        "officialNonPdfCensused":  false,
+        "documentIds":  [
+
+                        ],
+        "authorities":  [
+
+                        ],
+        "status":  "NOT_FOUND_SECONDARY_OBJECTIVE"
+    },
+    {
+        "community":  "Madrid",
+        "subject":  "Matemáticas Aplicadas a las CCSS II",
+        "year":  2003,
+        "sittingModel":  "Extraordinaria",
+        "yearCovered":  false,
+        "sessionCovered":  false,
+        "officialPdfCensused":  false,
+        "officialNonPdfCensused":  false,
+        "documentIds":  [
+
+                        ],
+        "authorities":  [
+
+                        ],
+        "status":  "NOT_FOUND_SECONDARY_OBJECTIVE"
+    },
+    {
+        "community":  "Madrid",
+        "subject":  "Matemáticas Aplicadas a las CCSS II",
+        "year":  2004,
+        "sittingModel":  "Ordinaria",
+        "yearCovered":  false,
+        "sessionCovered":  false,
+        "officialPdfCensused":  false,
+        "officialNonPdfCensused":  false,
+        "documentIds":  [
+
+                        ],
+        "authorities":  [
+
+                        ],
+        "status":  "NOT_FOUND_SECONDARY_OBJECTIVE"
+    },
+    {
+        "community":  "Madrid",
+        "subject":  "Matemáticas Aplicadas a las CCSS II",
+        "year":  2004,
+        "sittingModel":  "Extraordinaria",
+        "yearCovered":  false,
+        "sessionCovered":  false,
+        "officialPdfCensused":  false,
+        "officialNonPdfCensused":  false,
+        "documentIds":  [
+
+                        ],
+        "authorities":  [
+
+                        ],
+        "status":  "NOT_FOUND_SECONDARY_OBJECTIVE"
+    },
+    {
+        "community":  "Madrid",
+        "subject":  "Matemáticas Aplicadas a las CCSS II",
+        "year":  2005,
+        "sittingModel":  "Ordinaria",
+        "yearCovered":  true,
+        "sessionCovered":  true,
+        "officialPdfCensused":  true,
+        "officialNonPdfCensused":  false,
+        "documentIds":  [
+                            "madrid-official-baf6c7f0a5fe09970443c77e"
+                        ],
+        "authorities":  [
+                            "UPM"
+                        ],
+        "status":  "SESSION_OFFICIAL_PDF_CENSUSED"
+    },
+    {
+        "community":  "Madrid",
+        "subject":  "Matemáticas Aplicadas a las CCSS II",
+        "year":  2005,
+        "sittingModel":  "Extraordinaria",
+        "yearCovered":  true,
+        "sessionCovered":  true,
+        "officialPdfCensused":  true,
+        "officialNonPdfCensused":  false,
+        "documentIds":  [
+                            "madrid-official-e51684e5afa1453004745ecf"
+                        ],
+        "authorities":  [
+                            "UPM"
+                        ],
+        "status":  "SESSION_OFFICIAL_PDF_CENSUSED"
+    },
+    {
+        "community":  "Madrid",
+        "subject":  "Matemáticas Aplicadas a las CCSS II",
+        "year":  2006,
+        "sittingModel":  "Ordinaria",
+        "yearCovered":  true,
+        "sessionCovered":  true,
+        "officialPdfCensused":  true,
+        "officialNonPdfCensused":  false,
+        "documentIds":  [
+                            "madrid-official-5fb3dc49e4a10ea7ba09258b"
+                        ],
+        "authorities":  [
+                            "UPM"
+                        ],
+        "status":  "SESSION_OFFICIAL_PDF_CENSUSED"
+    },
+    {
+        "community":  "Madrid",
+        "subject":  "Matemáticas Aplicadas a las CCSS II",
+        "year":  2006,
+        "sittingModel":  "Extraordinaria",
+        "yearCovered":  true,
+        "sessionCovered":  true,
+        "officialPdfCensused":  true,
+        "officialNonPdfCensused":  false,
+        "documentIds":  [
+                            "madrid-official-27a9058962909c80d02dc8b9"
+                        ],
+        "authorities":  [
+                            "UPM"
+                        ],
+        "status":  "SESSION_OFFICIAL_PDF_CENSUSED"
+    },
+    {
+        "community":  "Madrid",
+        "subject":  "Matemáticas Aplicadas a las CCSS II",
+        "year":  2007,
+        "sittingModel":  "Ordinaria",
+        "yearCovered":  true,
+        "sessionCovered":  true,
+        "officialPdfCensused":  true,
+        "officialNonPdfCensused":  false,
+        "documentIds":  [
+                            "madrid-official-bf1d4fa6239c9b0426f8cbbc"
+                        ],
+        "authorities":  [
+                            "UPM"
+                        ],
+        "status":  "SESSION_OFFICIAL_PDF_CENSUSED"
+    },
+    {
+        "community":  "Madrid",
+        "subject":  "Matemáticas Aplicadas a las CCSS II",
+        "year":  2007,
+        "sittingModel":  "Extraordinaria",
+        "yearCovered":  true,
+        "sessionCovered":  true,
+        "officialPdfCensused":  true,
+        "officialNonPdfCensused":  false,
+        "documentIds":  [
+                            "madrid-official-028b050d1a9ac162f7477eb9"
+                        ],
+        "authorities":  [
+                            "UPM"
+                        ],
+        "status":  "SESSION_OFFICIAL_PDF_CENSUSED"
+    },
+    {
+        "community":  "Madrid",
+        "subject":  "Matemáticas Aplicadas a las CCSS II",
+        "year":  2008,
+        "sittingModel":  "Ordinaria",
+        "yearCovered":  true,
+        "sessionCovered":  true,
+        "officialPdfCensused":  true,
+        "officialNonPdfCensused":  false,
+        "documentIds":  [
+                            "madrid-official-52995a087ded9b21ee20a6e5"
+                        ],
+        "authorities":  [
+                            "UPM"
+                        ],
+        "status":  "SESSION_OFFICIAL_PDF_CENSUSED"
+    },
+    {
+        "community":  "Madrid",
+        "subject":  "Matemáticas Aplicadas a las CCSS II",
+        "year":  2008,
+        "sittingModel":  "Extraordinaria",
+        "yearCovered":  true,
+        "sessionCovered":  true,
+        "officialPdfCensused":  true,
+        "officialNonPdfCensused":  false,
+        "documentIds":  [
+                            "madrid-official-e5374f07ab6ffadb4848caea"
+                        ],
+        "authorities":  [
+                            "UPM"
+                        ],
+        "status":  "SESSION_OFFICIAL_PDF_CENSUSED"
+    },
+    {
+        "community":  "Madrid",
+        "subject":  "Matemáticas Aplicadas a las CCSS II",
+        "year":  2009,
+        "sittingModel":  "Ordinaria",
+        "yearCovered":  false,
+        "sessionCovered":  false,
+        "officialPdfCensused":  false,
+        "officialNonPdfCensused":  false,
+        "documentIds":  [
+
+                        ],
+        "authorities":  [
+
+                        ],
+        "status":  "NOT_FOUND_SECONDARY_OBJECTIVE"
+    },
+    {
+        "community":  "Madrid",
+        "subject":  "Matemáticas Aplicadas a las CCSS II",
+        "year":  2009,
+        "sittingModel":  "Extraordinaria",
+        "yearCovered":  false,
+        "sessionCovered":  false,
+        "officialPdfCensused":  false,
+        "officialNonPdfCensused":  false,
+        "documentIds":  [
+
+                        ],
+        "authorities":  [
+
+                        ],
+        "status":  "NOT_FOUND_SECONDARY_OBJECTIVE"
+    },
+    {
+        "community":  "Madrid",
+        "subject":  "Matemáticas Aplicadas a las CCSS II",
+        "year":  2010,
+        "sittingModel":  "Ordinaria",
+        "yearCovered":  true,
+        "sessionCovered":  true,
+        "officialPdfCensused":  true,
+        "officialNonPdfCensused":  false,
+        "documentIds":  [
+                            "madrid-official-2bd791bd3722033d24465c87",
+                            "madrid-official-5fb933bbd94c61d1ae78064b"
+                        ],
+        "authorities":  [
+                            "UPM"
+                        ],
+        "status":  "SESSION_OFFICIAL_PDF_CENSUSED"
+    },
+    {
+        "community":  "Madrid",
+        "subject":  "Matemáticas Aplicadas a las CCSS II",
+        "year":  2010,
+        "sittingModel":  "Extraordinaria",
+        "yearCovered":  true,
+        "sessionCovered":  true,
+        "officialPdfCensused":  true,
+        "officialNonPdfCensused":  false,
+        "documentIds":  [
+                            "madrid-uah-fba5d7465e21133e828b22d6",
+                            "madrid-uah-6c8c542487574e4cf4fdfd2d",
+                            "madrid-uah-1770f075b1fc5987f91fbdb3"
+                        ],
+        "authorities":  [
+                            "Universidad de Alcalá (UAH)"
+                        ],
+        "status":  "SESSION_OFFICIAL_PDF_CENSUSED"
+    },
+    {
+        "community":  "Madrid",
+        "subject":  "Matemáticas Aplicadas a las CCSS II",
+        "year":  2011,
+        "sittingModel":  "Ordinaria",
+        "yearCovered":  true,
+        "sessionCovered":  true,
+        "officialPdfCensused":  true,
+        "officialNonPdfCensused":  false,
+        "documentIds":  [
+                            "madrid-uah-917053850fd91775526b5173",
+                            "madrid-uah-917053850fd91775526b5173",
+                            "madrid-uah-8d8970c42b4c7a8b7e4ec2af"
+                        ],
+        "authorities":  [
+                            "Universidad de Alcalá (UAH)"
+                        ],
+        "status":  "SESSION_OFFICIAL_PDF_CENSUSED"
+    },
+    {
+        "community":  "Madrid",
+        "subject":  "Matemáticas Aplicadas a las CCSS II",
+        "year":  2011,
+        "sittingModel":  "Extraordinaria",
+        "yearCovered":  true,
+        "sessionCovered":  false,
+        "officialPdfCensused":  false,
+        "officialNonPdfCensused":  false,
+        "documentIds":  [
+
+                        ],
+        "authorities":  [
+
+                        ],
+        "status":  "NOT_FOUND_AFTER_DIRECTED_INSTITUTIONAL_SEARCH"
+    },
+    {
+        "community":  "Madrid",
+        "subject":  "Matemáticas Aplicadas a las CCSS II",
+        "year":  2012,
+        "sittingModel":  "Ordinaria",
+        "yearCovered":  true,
+        "sessionCovered":  true,
+        "officialPdfCensused":  true,
+        "officialNonPdfCensused":  false,
+        "documentIds":  [
+                            "madrid-official-53bb41d05a8b04715041aa1b"
+                        ],
+        "authorities":  [
+                            "UPM"
+                        ],
+        "status":  "SESSION_OFFICIAL_PDF_CENSUSED"
+    },
+    {
+        "community":  "Madrid",
+        "subject":  "Matemáticas Aplicadas a las CCSS II",
+        "year":  2012,
+        "sittingModel":  "Extraordinaria",
+        "yearCovered":  true,
+        "sessionCovered":  true,
+        "officialPdfCensused":  true,
+        "officialNonPdfCensused":  false,
+        "documentIds":  [
+                            "madrid-official-6a607afe9755ea89d7fbe151"
+                        ],
+        "authorities":  [
+                            "UPM"
+                        ],
+        "status":  "SESSION_OFFICIAL_PDF_CENSUSED"
+    },
+    {
+        "community":  "Madrid",
+        "subject":  "Matemáticas Aplicadas a las CCSS II",
+        "year":  2013,
+        "sittingModel":  "Ordinaria",
+        "yearCovered":  true,
+        "sessionCovered":  true,
+        "officialPdfCensused":  true,
+        "officialNonPdfCensused":  false,
+        "documentIds":  [
+                            "madrid-official-22f81b7ba157391ce6597840"
+                        ],
+        "authorities":  [
+                            "UCM"
+                        ],
+        "status":  "SESSION_OFFICIAL_PDF_CENSUSED"
+    },
+    {
+        "community":  "Madrid",
+        "subject":  "Matemáticas Aplicadas a las CCSS II",
+        "year":  2013,
+        "sittingModel":  "Extraordinaria",
+        "yearCovered":  true,
+        "sessionCovered":  true,
+        "officialPdfCensused":  true,
+        "officialNonPdfCensused":  false,
+        "documentIds":  [
+                            "madrid-official-3e10d7556fbf9ef55e0165b4"
+                        ],
+        "authorities":  [
+                            "UCM"
+                        ],
+        "status":  "SESSION_OFFICIAL_PDF_CENSUSED"
+    },
+    {
+        "community":  "Madrid",
+        "subject":  "Matemáticas Aplicadas a las CCSS II",
+        "year":  2014,
+        "sittingModel":  "Ordinaria",
+        "yearCovered":  true,
+        "sessionCovered":  true,
+        "officialPdfCensused":  true,
+        "officialNonPdfCensused":  false,
+        "documentIds":  [
+                            "madrid-uah-852f7f6b5eb72a11ca5613d1"
+                        ],
+        "authorities":  [
+                            "Universidad de Alcalá (UAH)"
+                        ],
+        "status":  "SESSION_OFFICIAL_PDF_CENSUSED"
+    },
+    {
+        "community":  "Madrid",
+        "subject":  "Matemáticas Aplicadas a las CCSS II",
+        "year":  2014,
+        "sittingModel":  "Extraordinaria",
+        "yearCovered":  true,
+        "sessionCovered":  true,
+        "officialPdfCensused":  true,
+        "officialNonPdfCensused":  false,
+        "documentIds":  [
+                            "madrid-uah-df31d09b1075e7b48425daa7"
+                        ],
+        "authorities":  [
+                            "Universidad de Alcalá (UAH)"
+                        ],
+        "status":  "SESSION_OFFICIAL_PDF_CENSUSED"
+    },
+    {
+        "community":  "Madrid",
+        "subject":  "Matemáticas Aplicadas a las CCSS II",
+        "year":  2015,
+        "sittingModel":  "Ordinaria",
+        "yearCovered":  true,
+        "sessionCovered":  true,
+        "officialPdfCensused":  true,
+        "officialNonPdfCensused":  false,
+        "documentIds":  [
+                            "madrid-official-e03c174ad6bb0a9a2acb5b6d"
+                        ],
+        "authorities":  [
+                            "UCM"
+                        ],
+        "status":  "SESSION_OFFICIAL_PDF_CENSUSED"
+    },
+    {
+        "community":  "Madrid",
+        "subject":  "Matemáticas Aplicadas a las CCSS II",
+        "year":  2015,
+        "sittingModel":  "Extraordinaria",
+        "yearCovered":  true,
+        "sessionCovered":  true,
+        "officialPdfCensused":  true,
+        "officialNonPdfCensused":  false,
+        "documentIds":  [
+                            "madrid-official-ebf844f95bf459e336a5afbe"
+                        ],
+        "authorities":  [
+                            "UCM"
+                        ],
+        "status":  "SESSION_OFFICIAL_PDF_CENSUSED"
+    },
+    {
+        "community":  "Madrid",
+        "subject":  "Matemáticas Aplicadas a las CCSS II",
+        "year":  2016,
+        "sittingModel":  "Ordinaria",
+        "yearCovered":  true,
+        "sessionCovered":  true,
+        "officialPdfCensused":  true,
+        "officialNonPdfCensused":  false,
+        "documentIds":  [
+                            "madrid-official-50720b36dba8aff0ed823bd0"
+                        ],
+        "authorities":  [
+                            "UCM"
+                        ],
+        "status":  "SESSION_OFFICIAL_PDF_CENSUSED"
+    },
+    {
+        "community":  "Madrid",
+        "subject":  "Matemáticas Aplicadas a las CCSS II",
+        "year":  2016,
+        "sittingModel":  "Extraordinaria",
+        "yearCovered":  true,
+        "sessionCovered":  true,
+        "officialPdfCensused":  true,
+        "officialNonPdfCensused":  false,
+        "documentIds":  [
+                            "madrid-official-7c6fedf22ee0d9d4928fb863"
+                        ],
+        "authorities":  [
+                            "UCM"
+                        ],
+        "status":  "SESSION_OFFICIAL_PDF_CENSUSED"
+    },
+    {
+        "community":  "Madrid",
+        "subject":  "Matemáticas Aplicadas a las CCSS II",
+        "year":  2017,
+        "sittingModel":  "Ordinaria",
+        "yearCovered":  true,
+        "sessionCovered":  true,
+        "officialPdfCensused":  true,
+        "officialNonPdfCensused":  false,
+        "documentIds":  [
+                            "madrid-uah-61e936e34d47419b196f6d1d"
+                        ],
+        "authorities":  [
+                            "Universidad de Alcalá (UAH)"
+                        ],
+        "status":  "SESSION_OFFICIAL_PDF_CENSUSED"
+    },
+    {
+        "community":  "Madrid",
+        "subject":  "Matemáticas Aplicadas a las CCSS II",
+        "year":  2017,
+        "sittingModel":  "Extraordinaria",
+        "yearCovered":  true,
+        "sessionCovered":  true,
+        "officialPdfCensused":  true,
+        "officialNonPdfCensused":  false,
+        "documentIds":  [
+                            "madrid-official-d5959bb1ae46c1769a23748f"
+                        ],
+        "authorities":  [
+                            "UPM"
+                        ],
+        "status":  "SESSION_OFFICIAL_PDF_CENSUSED"
+    },
+    {
+        "community":  "Madrid",
+        "subject":  "Matemáticas Aplicadas a las CCSS II",
+        "year":  2018,
+        "sittingModel":  "Ordinaria",
+        "yearCovered":  true,
+        "sessionCovered":  true,
+        "officialPdfCensused":  true,
+        "officialNonPdfCensused":  false,
+        "documentIds":  [
+                            "madrid-official-e2897a6619f98d919ec73527"
+                        ],
+        "authorities":  [
+                            "UPM"
+                        ],
+        "status":  "SESSION_OFFICIAL_PDF_CENSUSED"
+    },
+    {
+        "community":  "Madrid",
+        "subject":  "Matemáticas Aplicadas a las CCSS II",
+        "year":  2018,
+        "sittingModel":  "Extraordinaria",
+        "yearCovered":  true,
+        "sessionCovered":  true,
+        "officialPdfCensused":  true,
+        "officialNonPdfCensused":  false,
+        "documentIds":  [
+                            "madrid-official-363592b14c749aee1843bb3f"
+                        ],
+        "authorities":  [
+                            "UPM"
+                        ],
+        "status":  "SESSION_OFFICIAL_PDF_CENSUSED"
+    },
+    {
+        "community":  "Madrid",
+        "subject":  "Matemáticas Aplicadas a las CCSS II",
+        "year":  2019,
+        "sittingModel":  "Ordinaria",
+        "yearCovered":  true,
+        "sessionCovered":  true,
+        "officialPdfCensused":  true,
+        "officialNonPdfCensused":  false,
+        "documentIds":  [
+                            "madrid-official-7ecc8e4240c4f6b8529dea96"
+                        ],
+        "authorities":  [
+                            "UCM"
+                        ],
+        "status":  "SESSION_OFFICIAL_PDF_CENSUSED"
+    },
+    {
+        "community":  "Madrid",
+        "subject":  "Matemáticas Aplicadas a las CCSS II",
+        "year":  2019,
+        "sittingModel":  "Extraordinaria",
+        "yearCovered":  true,
+        "sessionCovered":  true,
+        "officialPdfCensused":  true,
+        "officialNonPdfCensused":  false,
+        "documentIds":  [
+                            "madrid-official-fdb453ff8d21f94b194eda6d"
+                        ],
+        "authorities":  [
+                            "UPM"
+                        ],
+        "status":  "SESSION_OFFICIAL_PDF_CENSUSED"
+    },
+    {
+        "community":  "Madrid",
+        "subject":  "Matemáticas Aplicadas a las CCSS II",
+        "year":  2020,
+        "sittingModel":  "Ordinaria",
+        "yearCovered":  true,
+        "sessionCovered":  true,
+        "officialPdfCensused":  true,
+        "officialNonPdfCensused":  false,
+        "documentIds":  [
+                            "madrid-official-dee7899e65a2bfbc4c696f07"
+                        ],
+        "authorities":  [
+                            "Comunidad de Madrid"
+                        ],
+        "status":  "SESSION_OFFICIAL_PDF_CENSUSED"
+    },
+    {
+        "community":  "Madrid",
+        "subject":  "Matemáticas Aplicadas a las CCSS II",
+        "year":  2020,
+        "sittingModel":  "Extraordinaria",
+        "yearCovered":  true,
+        "sessionCovered":  true,
+        "officialPdfCensused":  true,
+        "officialNonPdfCensused":  false,
+        "documentIds":  [
+                            "madrid-official-699fc1c4330a2e8faf542e29"
+                        ],
+        "authorities":  [
+                            "Comunidad de Madrid"
+                        ],
+        "status":  "SESSION_OFFICIAL_PDF_CENSUSED"
+    },
+    {
+        "community":  "Madrid",
+        "subject":  "Matemáticas Aplicadas a las CCSS II",
+        "year":  2021,
+        "sittingModel":  "Ordinaria",
+        "yearCovered":  true,
+        "sessionCovered":  true,
+        "officialPdfCensused":  true,
+        "officialNonPdfCensused":  false,
+        "documentIds":  [
+                            "madrid-official-dc6d4f00d01a5a6f5186db10"
+                        ],
+        "authorities":  [
+                            "Comunidad de Madrid"
+                        ],
+        "status":  "SESSION_OFFICIAL_PDF_CENSUSED"
+    },
+    {
+        "community":  "Madrid",
+        "subject":  "Matemáticas Aplicadas a las CCSS II",
+        "year":  2021,
+        "sittingModel":  "Extraordinaria",
+        "yearCovered":  true,
+        "sessionCovered":  true,
+        "officialPdfCensused":  true,
+        "officialNonPdfCensused":  false,
+        "documentIds":  [
+                            "madrid-official-c2c7c81093c10f0dee430808"
+                        ],
+        "authorities":  [
+                            "Comunidad de Madrid"
+                        ],
+        "status":  "SESSION_OFFICIAL_PDF_CENSUSED"
+    },
+    {
+        "community":  "Madrid",
+        "subject":  "Matemáticas Aplicadas a las CCSS II",
+        "year":  2022,
+        "sittingModel":  "Ordinaria",
+        "yearCovered":  true,
+        "sessionCovered":  true,
+        "officialPdfCensused":  true,
+        "officialNonPdfCensused":  false,
+        "documentIds":  [
+                            "madrid-official-6d96a3933e506a066a1dae5d"
+                        ],
+        "authorities":  [
+                            "Comunidad de Madrid"
+                        ],
+        "status":  "SESSION_OFFICIAL_PDF_CENSUSED"
+    },
+    {
+        "community":  "Madrid",
+        "subject":  "Matemáticas Aplicadas a las CCSS II",
+        "year":  2022,
+        "sittingModel":  "Extraordinaria",
+        "yearCovered":  true,
+        "sessionCovered":  true,
+        "officialPdfCensused":  true,
+        "officialNonPdfCensused":  false,
+        "documentIds":  [
+                            "madrid-official-896e6a0c73229b277316b8c7"
+                        ],
+        "authorities":  [
+                            "Comunidad de Madrid"
+                        ],
+        "status":  "SESSION_OFFICIAL_PDF_CENSUSED"
+    },
+    {
+        "community":  "Madrid",
+        "subject":  "Matemáticas Aplicadas a las CCSS II",
+        "year":  2023,
+        "sittingModel":  "Ordinaria",
+        "yearCovered":  true,
+        "sessionCovered":  true,
+        "officialPdfCensused":  true,
+        "officialNonPdfCensused":  false,
+        "documentIds":  [
+                            "madrid-official-a6ce805177b1b9430eee8536"
+                        ],
+        "authorities":  [
+                            "Comunidad de Madrid"
+                        ],
+        "status":  "SESSION_OFFICIAL_PDF_CENSUSED"
+    },
+    {
+        "community":  "Madrid",
+        "subject":  "Matemáticas Aplicadas a las CCSS II",
+        "year":  2023,
+        "sittingModel":  "Extraordinaria",
+        "yearCovered":  true,
+        "sessionCovered":  true,
+        "officialPdfCensused":  true,
+        "officialNonPdfCensused":  false,
+        "documentIds":  [
+                            "madrid-official-a9ad197daa3986acefb523a6"
+                        ],
+        "authorities":  [
+                            "Comunidad de Madrid"
+                        ],
+        "status":  "SESSION_OFFICIAL_PDF_CENSUSED"
+    },
+    {
+        "community":  "Madrid",
+        "subject":  "Matemáticas Aplicadas a las CCSS II",
+        "year":  2024,
+        "sittingModel":  "Ordinaria",
+        "yearCovered":  true,
+        "sessionCovered":  true,
+        "officialPdfCensused":  true,
+        "officialNonPdfCensused":  false,
+        "documentIds":  [
+                            "madrid-official-fe27840b9494caa878dd4452"
+                        ],
+        "authorities":  [
+                            "Comunidad de Madrid"
+                        ],
+        "status":  "SESSION_OFFICIAL_PDF_CENSUSED"
+    },
+    {
+        "community":  "Madrid",
+        "subject":  "Matemáticas Aplicadas a las CCSS II",
+        "year":  2024,
+        "sittingModel":  "Extraordinaria",
+        "yearCovered":  true,
+        "sessionCovered":  true,
+        "officialPdfCensused":  true,
+        "officialNonPdfCensused":  false,
+        "documentIds":  [
+                            "madrid-official-3a8521ce6d7b692ad51b8a98"
+                        ],
+        "authorities":  [
+                            "Comunidad de Madrid"
+                        ],
+        "status":  "SESSION_OFFICIAL_PDF_CENSUSED"
+    },
+    {
+        "community":  "Madrid",
+        "subject":  "Matemáticas Aplicadas a las CCSS II",
+        "year":  2025,
+        "sittingModel":  "Ordinaria",
+        "yearCovered":  true,
+        "sessionCovered":  true,
+        "officialPdfCensused":  true,
+        "officialNonPdfCensused":  false,
+        "documentIds":  [
+                            "madrid-official-85dbe5e07a8cbb34accb28a5",
+                            "madrid-official-41ad0d5809f696e7f821a77f"
+                        ],
+        "authorities":  [
+                            "UCM"
+                        ],
+        "status":  "SESSION_OFFICIAL_PDF_CENSUSED"
+    },
+    {
+        "community":  "Madrid",
+        "subject":  "Matemáticas Aplicadas a las CCSS II",
+        "year":  2025,
+        "sittingModel":  "Extraordinaria",
+        "yearCovered":  true,
+        "sessionCovered":  true,
+        "officialPdfCensused":  true,
+        "officialNonPdfCensused":  false,
+        "documentIds":  [
+                            "madrid-official-0d8ac3f13de89b7ff46d8dda"
+                        ],
+        "authorities":  [
+                            "UCM"
+                        ],
+        "status":  "SESSION_OFFICIAL_PDF_CENSUSED"
+    },
+    {
+        "community":  "Madrid",
+        "subject":  "Matemáticas Aplicadas a las CCSS II",
+        "year":  2026,
+        "sittingModel":  "Ordinaria",
+        "yearCovered":  true,
+        "sessionCovered":  true,
+        "officialPdfCensused":  true,
+        "officialNonPdfCensused":  false,
+        "documentIds":  [
+                            "madrid-official-dae983b107b6a6917f000f06",
+                            "madrid-official-d58dfecab1fa43184364ba6e"
+                        ],
+        "authorities":  [
+                            "UCM"
+                        ],
+        "status":  "SESSION_OFFICIAL_PDF_CENSUSED"
+    },
+    {
+        "community":  "Madrid",
+        "subject":  "Matemáticas Aplicadas a las CCSS II",
+        "year":  2026,
+        "sittingModel":  "Extraordinaria",
+        "yearCovered":  true,
+        "sessionCovered":  true,
+        "officialPdfCensused":  true,
+        "officialNonPdfCensused":  false,
+        "documentIds":  [
+                            "madrid-official-5c1f599ef705c2b610a45a2d",
+                            "madrid-official-5c7e614c4a449909e63c0f5c"
+                        ],
+        "authorities":  [
+                            "UCM"
+                        ],
+        "status":  "SESSION_OFFICIAL_PDF_CENSUSED"
+    },
+    {
+        "community":  "Andalucía",
+        "subject":  "Matemáticas II",
+        "year":  2000,
+        "sittingModel":  "Ordinaria",
+        "yearCovered":  false,
+        "sessionCovered":  false,
+        "officialPdfCensused":  false,
+        "officialNonPdfCensused":  false,
+        "documentIds":  [
+
+                        ],
+        "authorities":  [
+
+                        ],
+        "status":  "NOT_FOUND_SECONDARY_OBJECTIVE"
+    },
+    {
+        "community":  "Andalucía",
+        "subject":  "Matemáticas II",
+        "year":  2000,
+        "sittingModel":  "Extraordinaria",
+        "yearCovered":  false,
+        "sessionCovered":  false,
+        "officialPdfCensused":  false,
+        "officialNonPdfCensused":  false,
+        "documentIds":  [
+
+                        ],
+        "authorities":  [
+
+                        ],
+        "status":  "NOT_FOUND_SECONDARY_OBJECTIVE"
+    },
+    {
+        "community":  "Andalucía",
+        "subject":  "Matemáticas II",
+        "year":  2001,
+        "sittingModel":  "Ordinaria",
+        "yearCovered":  false,
+        "sessionCovered":  false,
+        "officialPdfCensused":  false,
+        "officialNonPdfCensused":  false,
+        "documentIds":  [
+
+                        ],
+        "authorities":  [
+
+                        ],
+        "status":  "NOT_FOUND_SECONDARY_OBJECTIVE"
+    },
+    {
+        "community":  "Andalucía",
+        "subject":  "Matemáticas II",
+        "year":  2001,
+        "sittingModel":  "Extraordinaria",
+        "yearCovered":  false,
+        "sessionCovered":  false,
+        "officialPdfCensused":  false,
+        "officialNonPdfCensused":  false,
+        "documentIds":  [
+
+                        ],
+        "authorities":  [
+
+                        ],
+        "status":  "NOT_FOUND_SECONDARY_OBJECTIVE"
+    },
+    {
+        "community":  "Andalucía",
+        "subject":  "Matemáticas II",
+        "year":  2002,
+        "sittingModel":  "Ordinaria",
+        "yearCovered":  false,
+        "sessionCovered":  false,
+        "officialPdfCensused":  false,
+        "officialNonPdfCensused":  false,
+        "documentIds":  [
+
+                        ],
+        "authorities":  [
+
+                        ],
+        "status":  "NOT_FOUND_SECONDARY_OBJECTIVE"
+    },
+    {
+        "community":  "Andalucía",
+        "subject":  "Matemáticas II",
+        "year":  2002,
+        "sittingModel":  "Extraordinaria",
+        "yearCovered":  false,
+        "sessionCovered":  false,
+        "officialPdfCensused":  false,
+        "officialNonPdfCensused":  false,
+        "documentIds":  [
+
+                        ],
+        "authorities":  [
+
+                        ],
+        "status":  "NOT_FOUND_SECONDARY_OBJECTIVE"
+    },
+    {
+        "community":  "Andalucía",
+        "subject":  "Matemáticas II",
+        "year":  2003,
+        "sittingModel":  "Ordinaria",
+        "yearCovered":  false,
+        "sessionCovered":  false,
+        "officialPdfCensused":  false,
+        "officialNonPdfCensused":  false,
+        "documentIds":  [
+
+                        ],
+        "authorities":  [
+
+                        ],
+        "status":  "NOT_FOUND_SECONDARY_OBJECTIVE"
+    },
+    {
+        "community":  "Andalucía",
+        "subject":  "Matemáticas II",
+        "year":  2003,
+        "sittingModel":  "Extraordinaria",
+        "yearCovered":  false,
+        "sessionCovered":  false,
+        "officialPdfCensused":  false,
+        "officialNonPdfCensused":  false,
+        "documentIds":  [
+
+                        ],
+        "authorities":  [
+
+                        ],
+        "status":  "NOT_FOUND_SECONDARY_OBJECTIVE"
+    },
+    {
+        "community":  "Andalucía",
+        "subject":  "Matemáticas II",
+        "year":  2004,
+        "sittingModel":  "Ordinaria",
+        "yearCovered":  false,
+        "sessionCovered":  false,
+        "officialPdfCensused":  false,
+        "officialNonPdfCensused":  false,
+        "documentIds":  [
+
+                        ],
+        "authorities":  [
+
+                        ],
+        "status":  "NOT_FOUND_SECONDARY_OBJECTIVE"
+    },
+    {
+        "community":  "Andalucía",
+        "subject":  "Matemáticas II",
+        "year":  2004,
+        "sittingModel":  "Extraordinaria",
+        "yearCovered":  false,
+        "sessionCovered":  false,
+        "officialPdfCensused":  false,
+        "officialNonPdfCensused":  false,
+        "documentIds":  [
+
+                        ],
+        "authorities":  [
+
+                        ],
+        "status":  "NOT_FOUND_SECONDARY_OBJECTIVE"
+    },
+    {
+        "community":  "Andalucía",
+        "subject":  "Matemáticas II",
+        "year":  2005,
+        "sittingModel":  "Ordinaria",
+        "yearCovered":  false,
+        "sessionCovered":  false,
+        "officialPdfCensused":  false,
+        "officialNonPdfCensused":  false,
+        "documentIds":  [
+
+                        ],
+        "authorities":  [
+
+                        ],
+        "status":  "NOT_FOUND_SECONDARY_OBJECTIVE"
+    },
+    {
+        "community":  "Andalucía",
+        "subject":  "Matemáticas II",
+        "year":  2005,
+        "sittingModel":  "Extraordinaria",
+        "yearCovered":  false,
+        "sessionCovered":  false,
+        "officialPdfCensused":  false,
+        "officialNonPdfCensused":  false,
+        "documentIds":  [
+
+                        ],
+        "authorities":  [
+
+                        ],
+        "status":  "NOT_FOUND_SECONDARY_OBJECTIVE"
+    },
+    {
+        "community":  "Andalucía",
+        "subject":  "Matemáticas II",
+        "year":  2006,
+        "sittingModel":  "Ordinaria",
+        "yearCovered":  false,
+        "sessionCovered":  false,
+        "officialPdfCensused":  false,
+        "officialNonPdfCensused":  false,
+        "documentIds":  [
+
+                        ],
+        "authorities":  [
+
+                        ],
+        "status":  "NOT_FOUND_SECONDARY_OBJECTIVE"
+    },
+    {
+        "community":  "Andalucía",
+        "subject":  "Matemáticas II",
+        "year":  2006,
+        "sittingModel":  "Extraordinaria",
+        "yearCovered":  false,
+        "sessionCovered":  false,
+        "officialPdfCensused":  false,
+        "officialNonPdfCensused":  false,
+        "documentIds":  [
+
+                        ],
+        "authorities":  [
+
+                        ],
+        "status":  "NOT_FOUND_SECONDARY_OBJECTIVE"
+    },
+    {
+        "community":  "Andalucía",
+        "subject":  "Matemáticas II",
+        "year":  2007,
+        "sittingModel":  "Ordinaria",
+        "yearCovered":  false,
+        "sessionCovered":  false,
+        "officialPdfCensused":  false,
+        "officialNonPdfCensused":  false,
+        "documentIds":  [
+
+                        ],
+        "authorities":  [
+
+                        ],
+        "status":  "NOT_FOUND_SECONDARY_OBJECTIVE"
+    },
+    {
+        "community":  "Andalucía",
+        "subject":  "Matemáticas II",
+        "year":  2007,
+        "sittingModel":  "Extraordinaria",
+        "yearCovered":  false,
+        "sessionCovered":  false,
+        "officialPdfCensused":  false,
+        "officialNonPdfCensused":  false,
+        "documentIds":  [
+
+                        ],
+        "authorities":  [
+
+                        ],
+        "status":  "NOT_FOUND_SECONDARY_OBJECTIVE"
+    },
+    {
+        "community":  "Andalucía",
+        "subject":  "Matemáticas II",
+        "year":  2008,
+        "sittingModel":  "Ordinaria",
+        "yearCovered":  false,
+        "sessionCovered":  false,
+        "officialPdfCensused":  false,
+        "officialNonPdfCensused":  false,
+        "documentIds":  [
+
+                        ],
+        "authorities":  [
+
+                        ],
+        "status":  "NOT_FOUND_SECONDARY_OBJECTIVE"
+    },
+    {
+        "community":  "Andalucía",
+        "subject":  "Matemáticas II",
+        "year":  2008,
+        "sittingModel":  "Extraordinaria",
+        "yearCovered":  false,
+        "sessionCovered":  false,
+        "officialPdfCensused":  false,
+        "officialNonPdfCensused":  false,
+        "documentIds":  [
+
+                        ],
+        "authorities":  [
+
+                        ],
+        "status":  "NOT_FOUND_SECONDARY_OBJECTIVE"
+    },
+    {
+        "community":  "Andalucía",
+        "subject":  "Matemáticas II",
+        "year":  2009,
+        "sittingModel":  "Ordinaria",
+        "yearCovered":  false,
+        "sessionCovered":  false,
+        "officialPdfCensused":  false,
+        "officialNonPdfCensused":  false,
+        "documentIds":  [
+
+                        ],
+        "authorities":  [
+
+                        ],
+        "status":  "NOT_FOUND_SECONDARY_OBJECTIVE"
+    },
+    {
+        "community":  "Andalucía",
+        "subject":  "Matemáticas II",
+        "year":  2009,
+        "sittingModel":  "Extraordinaria",
+        "yearCovered":  false,
+        "sessionCovered":  false,
+        "officialPdfCensused":  false,
+        "officialNonPdfCensused":  false,
+        "documentIds":  [
+
+                        ],
+        "authorities":  [
+
+                        ],
+        "status":  "NOT_FOUND_SECONDARY_OBJECTIVE"
+    },
+    {
+        "community":  "Andalucía",
+        "subject":  "Matemáticas II",
+        "year":  2010,
+        "sittingModel":  "Ordinaria",
+        "yearCovered":  true,
+        "sessionCovered":  true,
+        "officialPdfCensused":  true,
+        "officialNonPdfCensused":  false,
+        "documentIds":  [
+                            "andalucia-official-a54a5b52abe3cf59c81e26ba",
+                            "andalucia-official-85795e32721a21a3eb278bd0",
+                            "andalucia-official-faa99db49ea6996077e64bcc"
+                        ],
+        "authorities":  [
+                            "Junta de Andalucía / Distrito Único Andaluz"
+                        ],
+        "status":  "SESSION_OFFICIAL_PDF_CENSUSED"
+    },
+    {
+        "community":  "Andalucía",
+        "subject":  "Matemáticas II",
+        "year":  2010,
+        "sittingModel":  "Extraordinaria",
+        "yearCovered":  true,
+        "sessionCovered":  false,
+        "officialPdfCensused":  false,
+        "officialNonPdfCensused":  false,
+        "documentIds":  [
+
+                        ],
+        "authorities":  [
+
+                        ],
+        "status":  "YEAR_COVERED_SESSION_NOT_VERIFIABLE"
+    },
+    {
+        "community":  "Andalucía",
+        "subject":  "Matemáticas II",
+        "year":  2011,
+        "sittingModel":  "Ordinaria",
+        "yearCovered":  true,
+        "sessionCovered":  false,
+        "officialPdfCensused":  false,
+        "officialNonPdfCensused":  false,
+        "documentIds":  [
+
+                        ],
+        "authorities":  [
+
+                        ],
+        "status":  "YEAR_COVERED_SESSION_NOT_VERIFIABLE"
+    },
+    {
+        "community":  "Andalucía",
+        "subject":  "Matemáticas II",
+        "year":  2011,
+        "sittingModel":  "Extraordinaria",
+        "yearCovered":  true,
+        "sessionCovered":  false,
+        "officialPdfCensused":  false,
+        "officialNonPdfCensused":  false,
+        "documentIds":  [
+
+                        ],
+        "authorities":  [
+
+                        ],
+        "status":  "YEAR_COVERED_SESSION_NOT_VERIFIABLE"
+    },
+    {
+        "community":  "Andalucía",
+        "subject":  "Matemáticas II",
+        "year":  2012,
+        "sittingModel":  "Ordinaria",
+        "yearCovered":  true,
+        "sessionCovered":  false,
+        "officialPdfCensused":  false,
+        "officialNonPdfCensused":  false,
+        "documentIds":  [
+
+                        ],
+        "authorities":  [
+
+                        ],
+        "status":  "YEAR_COVERED_SESSION_NOT_VERIFIABLE"
+    },
+    {
+        "community":  "Andalucía",
+        "subject":  "Matemáticas II",
+        "year":  2012,
+        "sittingModel":  "Extraordinaria",
+        "yearCovered":  true,
+        "sessionCovered":  false,
+        "officialPdfCensused":  false,
+        "officialNonPdfCensused":  false,
+        "documentIds":  [
+
+                        ],
+        "authorities":  [
+
+                        ],
+        "status":  "YEAR_COVERED_SESSION_NOT_VERIFIABLE"
+    },
+    {
+        "community":  "Andalucía",
+        "subject":  "Matemáticas II",
+        "year":  2013,
+        "sittingModel":  "Ordinaria",
+        "yearCovered":  true,
+        "sessionCovered":  true,
+        "officialPdfCensused":  true,
+        "officialNonPdfCensused":  false,
+        "documentIds":  [
+                            "andalucia-official-709f067c52eb7587dd9e7ca8",
+                            "andalucia-official-d178e5a4f53fdde351fb047b",
+                            "andalucia-official-8a4fbdb778e76f41bc69fd26"
+                        ],
+        "authorities":  [
+                            "Junta de Andalucía / Distrito Único Andaluz"
+                        ],
+        "status":  "SESSION_OFFICIAL_PDF_CENSUSED"
+    },
+    {
+        "community":  "Andalucía",
+        "subject":  "Matemáticas II",
+        "year":  2013,
+        "sittingModel":  "Extraordinaria",
+        "yearCovered":  true,
+        "sessionCovered":  true,
+        "officialPdfCensused":  true,
+        "officialNonPdfCensused":  false,
+        "documentIds":  [
+                            "andalucia-official-274813eec3b9f750ba009903",
+                            "andalucia-official-757725a20faff347660e0d61",
+                            "andalucia-official-8948619c3f97deb0787e4492"
+                        ],
+        "authorities":  [
+                            "Junta de Andalucía / Distrito Único Andaluz"
+                        ],
+        "status":  "SESSION_OFFICIAL_PDF_CENSUSED"
+    },
+    {
+        "community":  "Andalucía",
+        "subject":  "Matemáticas II",
+        "year":  2014,
+        "sittingModel":  "Ordinaria",
+        "yearCovered":  true,
+        "sessionCovered":  false,
+        "officialPdfCensused":  false,
+        "officialNonPdfCensused":  false,
+        "documentIds":  [
+
+                        ],
+        "authorities":  [
+
+                        ],
+        "status":  "YEAR_COVERED_SESSION_NOT_VERIFIABLE"
+    },
+    {
+        "community":  "Andalucía",
+        "subject":  "Matemáticas II",
+        "year":  2014,
+        "sittingModel":  "Extraordinaria",
+        "yearCovered":  true,
+        "sessionCovered":  false,
+        "officialPdfCensused":  false,
+        "officialNonPdfCensused":  false,
+        "documentIds":  [
+
+                        ],
+        "authorities":  [
+
+                        ],
+        "status":  "YEAR_COVERED_SESSION_NOT_VERIFIABLE"
+    },
+    {
+        "community":  "Andalucía",
+        "subject":  "Matemáticas II",
+        "year":  2015,
+        "sittingModel":  "Ordinaria",
+        "yearCovered":  true,
+        "sessionCovered":  false,
+        "officialPdfCensused":  false,
+        "officialNonPdfCensused":  false,
+        "documentIds":  [
+
+                        ],
+        "authorities":  [
+
+                        ],
+        "status":  "YEAR_COVERED_SESSION_NOT_VERIFIABLE"
+    },
+    {
+        "community":  "Andalucía",
+        "subject":  "Matemáticas II",
+        "year":  2015,
+        "sittingModel":  "Extraordinaria",
+        "yearCovered":  true,
+        "sessionCovered":  false,
+        "officialPdfCensused":  false,
+        "officialNonPdfCensused":  false,
+        "documentIds":  [
+
+                        ],
+        "authorities":  [
+
+                        ],
+        "status":  "YEAR_COVERED_SESSION_NOT_VERIFIABLE"
+    },
+    {
+        "community":  "Andalucía",
+        "subject":  "Matemáticas II",
+        "year":  2016,
+        "sittingModel":  "Ordinaria",
+        "yearCovered":  true,
+        "sessionCovered":  true,
+        "officialPdfCensused":  true,
+        "officialNonPdfCensused":  false,
+        "documentIds":  [
+                            "andalucia-official-9e05f4d8647530063d69251c"
+                        ],
+        "authorities":  [
+                            "Junta de Andalucía / Distrito Único Andaluz"
+                        ],
+        "status":  "SESSION_OFFICIAL_PDF_CENSUSED"
+    },
+    {
+        "community":  "Andalucía",
+        "subject":  "Matemáticas II",
+        "year":  2016,
+        "sittingModel":  "Extraordinaria",
+        "yearCovered":  true,
+        "sessionCovered":  true,
+        "officialPdfCensused":  true,
+        "officialNonPdfCensused":  false,
+        "documentIds":  [
+                            "andalucia-official-638c1decf68db7761653ce62"
+                        ],
+        "authorities":  [
+                            "Junta de Andalucía / Distrito Único Andaluz"
+                        ],
+        "status":  "SESSION_OFFICIAL_PDF_CENSUSED"
+    },
+    {
+        "community":  "Andalucía",
+        "subject":  "Matemáticas II",
+        "year":  2017,
+        "sittingModel":  "Ordinaria",
+        "yearCovered":  true,
+        "sessionCovered":  true,
+        "officialPdfCensused":  true,
+        "officialNonPdfCensused":  false,
+        "documentIds":  [
+                            "andalucia-official-62a1d9074de55299d71cdeb9",
+                            "andalucia-official-2bdbfb6be1200bf23a70ed00"
+                        ],
+        "authorities":  [
+                            "Junta de Andalucía / Distrito Único Andaluz"
+                        ],
+        "status":  "SESSION_OFFICIAL_PDF_CENSUSED"
+    },
+    {
+        "community":  "Andalucía",
+        "subject":  "Matemáticas II",
+        "year":  2017,
+        "sittingModel":  "Extraordinaria",
+        "yearCovered":  true,
+        "sessionCovered":  true,
+        "officialPdfCensused":  true,
+        "officialNonPdfCensused":  false,
+        "documentIds":  [
+                            "andalucia-official-12862714b2e47a390cc175a5",
+                            "andalucia-official-ffc7b024ef2abe93472bbafd"
+                        ],
+        "authorities":  [
+                            "Junta de Andalucía / Distrito Único Andaluz"
+                        ],
+        "status":  "SESSION_OFFICIAL_PDF_CENSUSED"
+    },
+    {
+        "community":  "Andalucía",
+        "subject":  "Matemáticas II",
+        "year":  2018,
+        "sittingModel":  "Ordinaria",
+        "yearCovered":  true,
+        "sessionCovered":  true,
+        "officialPdfCensused":  true,
+        "officialNonPdfCensused":  false,
+        "documentIds":  [
+                            "andalucia-official-05fb83365c2d5a2e7fded533",
+                            "andalucia-official-bcc0f5d10e7ba4afb5526c30"
+                        ],
+        "authorities":  [
+                            "Junta de Andalucía / Distrito Único Andaluz"
+                        ],
+        "status":  "SESSION_OFFICIAL_PDF_CENSUSED"
+    },
+    {
+        "community":  "Andalucía",
+        "subject":  "Matemáticas II",
+        "year":  2018,
+        "sittingModel":  "Extraordinaria",
+        "yearCovered":  true,
+        "sessionCovered":  true,
+        "officialPdfCensused":  true,
+        "officialNonPdfCensused":  false,
+        "documentIds":  [
+                            "andalucia-official-6897f4f853125d94016aa7c2",
+                            "andalucia-official-7552fbca6211612f8e7009b2"
+                        ],
+        "authorities":  [
+                            "Junta de Andalucía / Distrito Único Andaluz"
+                        ],
+        "status":  "SESSION_OFFICIAL_PDF_CENSUSED"
+    },
+    {
+        "community":  "Andalucía",
+        "subject":  "Matemáticas II",
+        "year":  2019,
+        "sittingModel":  "Ordinaria",
+        "yearCovered":  true,
+        "sessionCovered":  true,
+        "officialPdfCensused":  true,
+        "officialNonPdfCensused":  false,
+        "documentIds":  [
+                            "andalucia-official-83fb1553a0210c1a82e5760e",
+                            "andalucia-official-7eefda3ec50d664d578b46fd"
+                        ],
+        "authorities":  [
+                            "Junta de Andalucía / Distrito Único Andaluz"
+                        ],
+        "status":  "SESSION_OFFICIAL_PDF_CENSUSED"
+    },
+    {
+        "community":  "Andalucía",
+        "subject":  "Matemáticas II",
+        "year":  2019,
+        "sittingModel":  "Extraordinaria",
+        "yearCovered":  true,
+        "sessionCovered":  true,
+        "officialPdfCensused":  true,
+        "officialNonPdfCensused":  false,
+        "documentIds":  [
+                            "andalucia-official-85f493d821b1af6654edb4d5",
+                            "andalucia-official-3e3680996f6975a212fbb2b3"
+                        ],
+        "authorities":  [
+                            "Junta de Andalucía / Distrito Único Andaluz"
+                        ],
+        "status":  "SESSION_OFFICIAL_PDF_CENSUSED"
+    },
+    {
+        "community":  "Andalucía",
+        "subject":  "Matemáticas II",
+        "year":  2020,
+        "sittingModel":  "Ordinaria",
+        "yearCovered":  true,
+        "sessionCovered":  false,
+        "officialPdfCensused":  false,
+        "officialNonPdfCensused":  false,
+        "documentIds":  [
+
+                        ],
+        "authorities":  [
+
+                        ],
+        "status":  "YEAR_COVERED_SESSION_NOT_VERIFIABLE"
+    },
+    {
+        "community":  "Andalucía",
+        "subject":  "Matemáticas II",
+        "year":  2020,
+        "sittingModel":  "Extraordinaria",
+        "yearCovered":  true,
+        "sessionCovered":  false,
+        "officialPdfCensused":  false,
+        "officialNonPdfCensused":  false,
+        "documentIds":  [
+
+                        ],
+        "authorities":  [
+
+                        ],
+        "status":  "YEAR_COVERED_SESSION_NOT_VERIFIABLE"
+    },
+    {
+        "community":  "Andalucía",
+        "subject":  "Matemáticas II",
+        "year":  2021,
+        "sittingModel":  "Ordinaria",
+        "yearCovered":  true,
+        "sessionCovered":  true,
+        "officialPdfCensused":  true,
+        "officialNonPdfCensused":  false,
+        "documentIds":  [
+                            "andalucia-official-c8b05a337bf20174030e53cf"
+                        ],
+        "authorities":  [
+                            "Junta de Andalucía / Distrito Único Andaluz"
+                        ],
+        "status":  "SESSION_OFFICIAL_PDF_CENSUSED"
+    },
+    {
+        "community":  "Andalucía",
+        "subject":  "Matemáticas II",
+        "year":  2021,
+        "sittingModel":  "Extraordinaria",
+        "yearCovered":  true,
+        "sessionCovered":  true,
+        "officialPdfCensused":  true,
+        "officialNonPdfCensused":  false,
+        "documentIds":  [
+                            "andalucia-official-9a4a3ac92abc26f1ca18a7fc"
+                        ],
+        "authorities":  [
+                            "Junta de Andalucía / Distrito Único Andaluz"
+                        ],
+        "status":  "SESSION_OFFICIAL_PDF_CENSUSED"
+    },
+    {
+        "community":  "Andalucía",
+        "subject":  "Matemáticas II",
+        "year":  2022,
+        "sittingModel":  "Ordinaria",
+        "yearCovered":  true,
+        "sessionCovered":  true,
+        "officialPdfCensused":  true,
+        "officialNonPdfCensused":  false,
+        "documentIds":  [
+                            "andalucia-official-01d8125cc8b9c2606f5fc4ff",
+                            "andalucia-official-e9cdab8c67f3149fd8325f98"
+                        ],
+        "authorities":  [
+                            "Junta de Andalucía / Distrito Único Andaluz"
+                        ],
+        "status":  "SESSION_OFFICIAL_PDF_CENSUSED"
+    },
+    {
+        "community":  "Andalucía",
+        "subject":  "Matemáticas II",
+        "year":  2022,
+        "sittingModel":  "Extraordinaria",
+        "yearCovered":  true,
+        "sessionCovered":  true,
+        "officialPdfCensused":  true,
+        "officialNonPdfCensused":  false,
+        "documentIds":  [
+                            "andalucia-official-05f1dff88f530745b48de59f"
+                        ],
+        "authorities":  [
+                            "Junta de Andalucía / Distrito Único Andaluz"
+                        ],
+        "status":  "SESSION_OFFICIAL_PDF_CENSUSED"
+    },
+    {
+        "community":  "Andalucía",
+        "subject":  "Matemáticas II",
+        "year":  2023,
+        "sittingModel":  "Ordinaria",
+        "yearCovered":  true,
+        "sessionCovered":  false,
+        "officialPdfCensused":  false,
+        "officialNonPdfCensused":  false,
+        "documentIds":  [
+
+                        ],
+        "authorities":  [
+
+                        ],
+        "status":  "YEAR_COVERED_SESSION_NOT_VERIFIABLE"
+    },
+    {
+        "community":  "Andalucía",
+        "subject":  "Matemáticas II",
+        "year":  2023,
+        "sittingModel":  "Extraordinaria",
+        "yearCovered":  true,
+        "sessionCovered":  false,
+        "officialPdfCensused":  false,
+        "officialNonPdfCensused":  false,
+        "documentIds":  [
+
+                        ],
+        "authorities":  [
+
+                        ],
+        "status":  "YEAR_COVERED_SESSION_NOT_VERIFIABLE"
+    },
+    {
+        "community":  "Andalucía",
+        "subject":  "Matemáticas II",
+        "year":  2024,
+        "sittingModel":  "Ordinaria",
+        "yearCovered":  true,
+        "sessionCovered":  false,
+        "officialPdfCensused":  false,
+        "officialNonPdfCensused":  false,
+        "documentIds":  [
+
+                        ],
+        "authorities":  [
+
+                        ],
+        "status":  "YEAR_COVERED_SESSION_NOT_VERIFIABLE"
+    },
+    {
+        "community":  "Andalucía",
+        "subject":  "Matemáticas II",
+        "year":  2024,
+        "sittingModel":  "Extraordinaria",
+        "yearCovered":  true,
+        "sessionCovered":  false,
+        "officialPdfCensused":  false,
+        "officialNonPdfCensused":  false,
+        "documentIds":  [
+
+                        ],
+        "authorities":  [
+
+                        ],
+        "status":  "YEAR_COVERED_SESSION_NOT_VERIFIABLE"
+    },
+    {
+        "community":  "Andalucía",
+        "subject":  "Matemáticas II",
+        "year":  2025,
+        "sittingModel":  "Ordinaria",
+        "yearCovered":  true,
+        "sessionCovered":  false,
+        "officialPdfCensused":  false,
+        "officialNonPdfCensused":  false,
+        "documentIds":  [
+
+                        ],
+        "authorities":  [
+
+                        ],
+        "status":  "YEAR_COVERED_SESSION_NOT_VERIFIABLE"
+    },
+    {
+        "community":  "Andalucía",
+        "subject":  "Matemáticas II",
+        "year":  2025,
+        "sittingModel":  "Extraordinaria",
+        "yearCovered":  true,
+        "sessionCovered":  true,
+        "officialPdfCensused":  true,
+        "officialNonPdfCensused":  false,
+        "documentIds":  [
+                            "andalucia-official-2e7f18e72d9070431873805b"
+                        ],
+        "authorities":  [
+                            "Junta de Andalucía / Distrito Único Andaluz"
+                        ],
+        "status":  "SESSION_OFFICIAL_PDF_CENSUSED"
+    },
+    {
+        "community":  "Andalucía",
+        "subject":  "Matemáticas II",
+        "year":  2026,
+        "sittingModel":  "Ordinaria",
+        "yearCovered":  true,
+        "sessionCovered":  false,
+        "officialPdfCensused":  false,
+        "officialNonPdfCensused":  false,
+        "documentIds":  [
+
+                        ],
+        "authorities":  [
+
+                        ],
+        "status":  "YEAR_COVERED_SESSION_NOT_VERIFIABLE"
+    },
+    {
+        "community":  "Andalucía",
+        "subject":  "Matemáticas II",
+        "year":  2026,
+        "sittingModel":  "Extraordinaria",
+        "yearCovered":  true,
+        "sessionCovered":  false,
+        "officialPdfCensused":  false,
+        "officialNonPdfCensused":  false,
+        "documentIds":  [
+
+                        ],
+        "authorities":  [
+
+                        ],
+        "status":  "YEAR_COVERED_SESSION_NOT_VERIFIABLE"
+    },
+    {
+        "community":  "Andalucía",
+        "subject":  "Matemáticas Aplicadas a las CCSS II",
+        "year":  2000,
+        "sittingModel":  "Ordinaria",
+        "yearCovered":  false,
+        "sessionCovered":  false,
+        "officialPdfCensused":  false,
+        "officialNonPdfCensused":  false,
+        "documentIds":  [
+
+                        ],
+        "authorities":  [
+
+                        ],
+        "status":  "NOT_FOUND_SECONDARY_OBJECTIVE"
+    },
+    {
+        "community":  "Andalucía",
+        "subject":  "Matemáticas Aplicadas a las CCSS II",
+        "year":  2000,
+        "sittingModel":  "Extraordinaria",
+        "yearCovered":  false,
+        "sessionCovered":  false,
+        "officialPdfCensused":  false,
+        "officialNonPdfCensused":  false,
+        "documentIds":  [
+
+                        ],
+        "authorities":  [
+
+                        ],
+        "status":  "NOT_FOUND_SECONDARY_OBJECTIVE"
+    },
+    {
+        "community":  "Andalucía",
+        "subject":  "Matemáticas Aplicadas a las CCSS II",
+        "year":  2001,
+        "sittingModel":  "Ordinaria",
+        "yearCovered":  false,
+        "sessionCovered":  false,
+        "officialPdfCensused":  false,
+        "officialNonPdfCensused":  false,
+        "documentIds":  [
+
+                        ],
+        "authorities":  [
+
+                        ],
+        "status":  "NOT_FOUND_SECONDARY_OBJECTIVE"
+    },
+    {
+        "community":  "Andalucía",
+        "subject":  "Matemáticas Aplicadas a las CCSS II",
+        "year":  2001,
+        "sittingModel":  "Extraordinaria",
+        "yearCovered":  false,
+        "sessionCovered":  false,
+        "officialPdfCensused":  false,
+        "officialNonPdfCensused":  false,
+        "documentIds":  [
+
+                        ],
+        "authorities":  [
+
+                        ],
+        "status":  "NOT_FOUND_SECONDARY_OBJECTIVE"
+    },
+    {
+        "community":  "Andalucía",
+        "subject":  "Matemáticas Aplicadas a las CCSS II",
+        "year":  2002,
+        "sittingModel":  "Ordinaria",
+        "yearCovered":  false,
+        "sessionCovered":  false,
+        "officialPdfCensused":  false,
+        "officialNonPdfCensused":  false,
+        "documentIds":  [
+
+                        ],
+        "authorities":  [
+
+                        ],
+        "status":  "NOT_FOUND_SECONDARY_OBJECTIVE"
+    },
+    {
+        "community":  "Andalucía",
+        "subject":  "Matemáticas Aplicadas a las CCSS II",
+        "year":  2002,
+        "sittingModel":  "Extraordinaria",
+        "yearCovered":  false,
+        "sessionCovered":  false,
+        "officialPdfCensused":  false,
+        "officialNonPdfCensused":  false,
+        "documentIds":  [
+
+                        ],
+        "authorities":  [
+
+                        ],
+        "status":  "NOT_FOUND_SECONDARY_OBJECTIVE"
+    },
+    {
+        "community":  "Andalucía",
+        "subject":  "Matemáticas Aplicadas a las CCSS II",
+        "year":  2003,
+        "sittingModel":  "Ordinaria",
+        "yearCovered":  false,
+        "sessionCovered":  false,
+        "officialPdfCensused":  false,
+        "officialNonPdfCensused":  false,
+        "documentIds":  [
+
+                        ],
+        "authorities":  [
+
+                        ],
+        "status":  "NOT_FOUND_SECONDARY_OBJECTIVE"
+    },
+    {
+        "community":  "Andalucía",
+        "subject":  "Matemáticas Aplicadas a las CCSS II",
+        "year":  2003,
+        "sittingModel":  "Extraordinaria",
+        "yearCovered":  false,
+        "sessionCovered":  false,
+        "officialPdfCensused":  false,
+        "officialNonPdfCensused":  false,
+        "documentIds":  [
+
+                        ],
+        "authorities":  [
+
+                        ],
+        "status":  "NOT_FOUND_SECONDARY_OBJECTIVE"
+    },
+    {
+        "community":  "Andalucía",
+        "subject":  "Matemáticas Aplicadas a las CCSS II",
+        "year":  2004,
+        "sittingModel":  "Ordinaria",
+        "yearCovered":  false,
+        "sessionCovered":  false,
+        "officialPdfCensused":  false,
+        "officialNonPdfCensused":  false,
+        "documentIds":  [
+
+                        ],
+        "authorities":  [
+
+                        ],
+        "status":  "NOT_FOUND_SECONDARY_OBJECTIVE"
+    },
+    {
+        "community":  "Andalucía",
+        "subject":  "Matemáticas Aplicadas a las CCSS II",
+        "year":  2004,
+        "sittingModel":  "Extraordinaria",
+        "yearCovered":  false,
+        "sessionCovered":  false,
+        "officialPdfCensused":  false,
+        "officialNonPdfCensused":  false,
+        "documentIds":  [
+
+                        ],
+        "authorities":  [
+
+                        ],
+        "status":  "NOT_FOUND_SECONDARY_OBJECTIVE"
+    },
+    {
+        "community":  "Andalucía",
+        "subject":  "Matemáticas Aplicadas a las CCSS II",
+        "year":  2005,
+        "sittingModel":  "Ordinaria",
+        "yearCovered":  false,
+        "sessionCovered":  false,
+        "officialPdfCensused":  false,
+        "officialNonPdfCensused":  false,
+        "documentIds":  [
+
+                        ],
+        "authorities":  [
+
+                        ],
+        "status":  "NOT_FOUND_SECONDARY_OBJECTIVE"
+    },
+    {
+        "community":  "Andalucía",
+        "subject":  "Matemáticas Aplicadas a las CCSS II",
+        "year":  2005,
+        "sittingModel":  "Extraordinaria",
+        "yearCovered":  false,
+        "sessionCovered":  false,
+        "officialPdfCensused":  false,
+        "officialNonPdfCensused":  false,
+        "documentIds":  [
+
+                        ],
+        "authorities":  [
+
+                        ],
+        "status":  "NOT_FOUND_SECONDARY_OBJECTIVE"
+    },
+    {
+        "community":  "Andalucía",
+        "subject":  "Matemáticas Aplicadas a las CCSS II",
+        "year":  2006,
+        "sittingModel":  "Ordinaria",
+        "yearCovered":  false,
+        "sessionCovered":  false,
+        "officialPdfCensused":  false,
+        "officialNonPdfCensused":  false,
+        "documentIds":  [
+
+                        ],
+        "authorities":  [
+
+                        ],
+        "status":  "NOT_FOUND_SECONDARY_OBJECTIVE"
+    },
+    {
+        "community":  "Andalucía",
+        "subject":  "Matemáticas Aplicadas a las CCSS II",
+        "year":  2006,
+        "sittingModel":  "Extraordinaria",
+        "yearCovered":  false,
+        "sessionCovered":  false,
+        "officialPdfCensused":  false,
+        "officialNonPdfCensused":  false,
+        "documentIds":  [
+
+                        ],
+        "authorities":  [
+
+                        ],
+        "status":  "NOT_FOUND_SECONDARY_OBJECTIVE"
+    },
+    {
+        "community":  "Andalucía",
+        "subject":  "Matemáticas Aplicadas a las CCSS II",
+        "year":  2007,
+        "sittingModel":  "Ordinaria",
+        "yearCovered":  false,
+        "sessionCovered":  false,
+        "officialPdfCensused":  false,
+        "officialNonPdfCensused":  false,
+        "documentIds":  [
+
+                        ],
+        "authorities":  [
+
+                        ],
+        "status":  "NOT_FOUND_SECONDARY_OBJECTIVE"
+    },
+    {
+        "community":  "Andalucía",
+        "subject":  "Matemáticas Aplicadas a las CCSS II",
+        "year":  2007,
+        "sittingModel":  "Extraordinaria",
+        "yearCovered":  false,
+        "sessionCovered":  false,
+        "officialPdfCensused":  false,
+        "officialNonPdfCensused":  false,
+        "documentIds":  [
+
+                        ],
+        "authorities":  [
+
+                        ],
+        "status":  "NOT_FOUND_SECONDARY_OBJECTIVE"
+    },
+    {
+        "community":  "Andalucía",
+        "subject":  "Matemáticas Aplicadas a las CCSS II",
+        "year":  2008,
+        "sittingModel":  "Ordinaria",
+        "yearCovered":  false,
+        "sessionCovered":  false,
+        "officialPdfCensused":  false,
+        "officialNonPdfCensused":  false,
+        "documentIds":  [
+
+                        ],
+        "authorities":  [
+
+                        ],
+        "status":  "NOT_FOUND_SECONDARY_OBJECTIVE"
+    },
+    {
+        "community":  "Andalucía",
+        "subject":  "Matemáticas Aplicadas a las CCSS II",
+        "year":  2008,
+        "sittingModel":  "Extraordinaria",
+        "yearCovered":  false,
+        "sessionCovered":  false,
+        "officialPdfCensused":  false,
+        "officialNonPdfCensused":  false,
+        "documentIds":  [
+
+                        ],
+        "authorities":  [
+
+                        ],
+        "status":  "NOT_FOUND_SECONDARY_OBJECTIVE"
+    },
+    {
+        "community":  "Andalucía",
+        "subject":  "Matemáticas Aplicadas a las CCSS II",
+        "year":  2009,
+        "sittingModel":  "Ordinaria",
+        "yearCovered":  false,
+        "sessionCovered":  false,
+        "officialPdfCensused":  false,
+        "officialNonPdfCensused":  false,
+        "documentIds":  [
+
+                        ],
+        "authorities":  [
+
+                        ],
+        "status":  "NOT_FOUND_SECONDARY_OBJECTIVE"
+    },
+    {
+        "community":  "Andalucía",
+        "subject":  "Matemáticas Aplicadas a las CCSS II",
+        "year":  2009,
+        "sittingModel":  "Extraordinaria",
+        "yearCovered":  false,
+        "sessionCovered":  false,
+        "officialPdfCensused":  false,
+        "officialNonPdfCensused":  false,
+        "documentIds":  [
+
+                        ],
+        "authorities":  [
+
+                        ],
+        "status":  "NOT_FOUND_SECONDARY_OBJECTIVE"
+    },
+    {
+        "community":  "Andalucía",
+        "subject":  "Matemáticas Aplicadas a las CCSS II",
+        "year":  2010,
+        "sittingModel":  "Ordinaria",
+        "yearCovered":  true,
+        "sessionCovered":  true,
+        "officialPdfCensused":  true,
+        "officialNonPdfCensused":  false,
+        "documentIds":  [
+                            "andalucia-official-5ea9fab18d8185843726e089",
+                            "andalucia-official-0de2f7d077a3b5d5c0dbca88",
+                            "andalucia-official-4e10e40d60aebdab7570fa77"
+                        ],
+        "authorities":  [
+                            "Junta de Andalucía / Distrito Único Andaluz"
+                        ],
+        "status":  "SESSION_OFFICIAL_PDF_CENSUSED"
+    },
+    {
+        "community":  "Andalucía",
+        "subject":  "Matemáticas Aplicadas a las CCSS II",
+        "year":  2010,
+        "sittingModel":  "Extraordinaria",
+        "yearCovered":  true,
+        "sessionCovered":  false,
+        "officialPdfCensused":  false,
+        "officialNonPdfCensused":  false,
+        "documentIds":  [
+
+                        ],
+        "authorities":  [
+
+                        ],
+        "status":  "YEAR_COVERED_SESSION_NOT_VERIFIABLE"
+    },
+    {
+        "community":  "Andalucía",
+        "subject":  "Matemáticas Aplicadas a las CCSS II",
+        "year":  2011,
+        "sittingModel":  "Ordinaria",
+        "yearCovered":  true,
+        "sessionCovered":  false,
+        "officialPdfCensused":  false,
+        "officialNonPdfCensused":  false,
+        "documentIds":  [
+
+                        ],
+        "authorities":  [
+
+                        ],
+        "status":  "YEAR_COVERED_SESSION_NOT_VERIFIABLE"
+    },
+    {
+        "community":  "Andalucía",
+        "subject":  "Matemáticas Aplicadas a las CCSS II",
+        "year":  2011,
+        "sittingModel":  "Extraordinaria",
+        "yearCovered":  true,
+        "sessionCovered":  false,
+        "officialPdfCensused":  false,
+        "officialNonPdfCensused":  false,
+        "documentIds":  [
+
+                        ],
+        "authorities":  [
+
+                        ],
+        "status":  "YEAR_COVERED_SESSION_NOT_VERIFIABLE"
+    },
+    {
+        "community":  "Andalucía",
+        "subject":  "Matemáticas Aplicadas a las CCSS II",
+        "year":  2012,
+        "sittingModel":  "Ordinaria",
+        "yearCovered":  true,
+        "sessionCovered":  false,
+        "officialPdfCensused":  false,
+        "officialNonPdfCensused":  false,
+        "documentIds":  [
+
+                        ],
+        "authorities":  [
+
+                        ],
+        "status":  "YEAR_COVERED_SESSION_NOT_VERIFIABLE"
+    },
+    {
+        "community":  "Andalucía",
+        "subject":  "Matemáticas Aplicadas a las CCSS II",
+        "year":  2012,
+        "sittingModel":  "Extraordinaria",
+        "yearCovered":  true,
+        "sessionCovered":  false,
+        "officialPdfCensused":  false,
+        "officialNonPdfCensused":  false,
+        "documentIds":  [
+
+                        ],
+        "authorities":  [
+
+                        ],
+        "status":  "YEAR_COVERED_SESSION_NOT_VERIFIABLE"
+    },
+    {
+        "community":  "Andalucía",
+        "subject":  "Matemáticas Aplicadas a las CCSS II",
+        "year":  2013,
+        "sittingModel":  "Ordinaria",
+        "yearCovered":  true,
+        "sessionCovered":  true,
+        "officialPdfCensused":  true,
+        "officialNonPdfCensused":  false,
+        "documentIds":  [
+                            "andalucia-official-76b6f6a138ec0917a2e3b3a2",
+                            "andalucia-official-ec6fd00d0daee547aa6128f3",
+                            "andalucia-official-1f0983e351b8435c5b6c7b68"
+                        ],
+        "authorities":  [
+                            "Junta de Andalucía / Distrito Único Andaluz"
+                        ],
+        "status":  "SESSION_OFFICIAL_PDF_CENSUSED"
+    },
+    {
+        "community":  "Andalucía",
+        "subject":  "Matemáticas Aplicadas a las CCSS II",
+        "year":  2013,
+        "sittingModel":  "Extraordinaria",
+        "yearCovered":  true,
+        "sessionCovered":  true,
+        "officialPdfCensused":  true,
+        "officialNonPdfCensused":  false,
+        "documentIds":  [
+                            "andalucia-official-35f960392892cf4aa4b4a3e5",
+                            "andalucia-official-6201aa5a68f0d1302cfd6977",
+                            "andalucia-official-f8633bbd91d33bee02c2cc58"
+                        ],
+        "authorities":  [
+                            "Junta de Andalucía / Distrito Único Andaluz"
+                        ],
+        "status":  "SESSION_OFFICIAL_PDF_CENSUSED"
+    },
+    {
+        "community":  "Andalucía",
+        "subject":  "Matemáticas Aplicadas a las CCSS II",
+        "year":  2014,
+        "sittingModel":  "Ordinaria",
+        "yearCovered":  true,
+        "sessionCovered":  false,
+        "officialPdfCensused":  false,
+        "officialNonPdfCensused":  false,
+        "documentIds":  [
+
+                        ],
+        "authorities":  [
+
+                        ],
+        "status":  "YEAR_COVERED_SESSION_NOT_VERIFIABLE"
+    },
+    {
+        "community":  "Andalucía",
+        "subject":  "Matemáticas Aplicadas a las CCSS II",
+        "year":  2014,
+        "sittingModel":  "Extraordinaria",
+        "yearCovered":  true,
+        "sessionCovered":  false,
+        "officialPdfCensused":  false,
+        "officialNonPdfCensused":  false,
+        "documentIds":  [
+
+                        ],
+        "authorities":  [
+
+                        ],
+        "status":  "YEAR_COVERED_SESSION_NOT_VERIFIABLE"
+    },
+    {
+        "community":  "Andalucía",
+        "subject":  "Matemáticas Aplicadas a las CCSS II",
+        "year":  2015,
+        "sittingModel":  "Ordinaria",
+        "yearCovered":  true,
+        "sessionCovered":  false,
+        "officialPdfCensused":  false,
+        "officialNonPdfCensused":  false,
+        "documentIds":  [
+
+                        ],
+        "authorities":  [
+
+                        ],
+        "status":  "YEAR_COVERED_SESSION_NOT_VERIFIABLE"
+    },
+    {
+        "community":  "Andalucía",
+        "subject":  "Matemáticas Aplicadas a las CCSS II",
+        "year":  2015,
+        "sittingModel":  "Extraordinaria",
+        "yearCovered":  true,
+        "sessionCovered":  false,
+        "officialPdfCensused":  false,
+        "officialNonPdfCensused":  false,
+        "documentIds":  [
+
+                        ],
+        "authorities":  [
+
+                        ],
+        "status":  "YEAR_COVERED_SESSION_NOT_VERIFIABLE"
+    },
+    {
+        "community":  "Andalucía",
+        "subject":  "Matemáticas Aplicadas a las CCSS II",
+        "year":  2016,
+        "sittingModel":  "Ordinaria",
+        "yearCovered":  true,
+        "sessionCovered":  true,
+        "officialPdfCensused":  true,
+        "officialNonPdfCensused":  false,
+        "documentIds":  [
+                            "andalucia-official-bebc339cfd8f69c7c4fae160"
+                        ],
+        "authorities":  [
+                            "Junta de Andalucía / Distrito Único Andaluz"
+                        ],
+        "status":  "SESSION_OFFICIAL_PDF_CENSUSED"
+    },
+    {
+        "community":  "Andalucía",
+        "subject":  "Matemáticas Aplicadas a las CCSS II",
+        "year":  2016,
+        "sittingModel":  "Extraordinaria",
+        "yearCovered":  true,
+        "sessionCovered":  true,
+        "officialPdfCensused":  true,
+        "officialNonPdfCensused":  false,
+        "documentIds":  [
+                            "andalucia-official-c41ea8ffe46f2de3a4d7f82e",
+                            "andalucia-official-c637bbde5c26c0b35b59202b"
+                        ],
+        "authorities":  [
+                            "Junta de Andalucía / Distrito Único Andaluz"
+                        ],
+        "status":  "SESSION_OFFICIAL_PDF_CENSUSED"
+    },
+    {
+        "community":  "Andalucía",
+        "subject":  "Matemáticas Aplicadas a las CCSS II",
+        "year":  2017,
+        "sittingModel":  "Ordinaria",
+        "yearCovered":  true,
+        "sessionCovered":  true,
+        "officialPdfCensused":  true,
+        "officialNonPdfCensused":  false,
+        "documentIds":  [
+                            "andalucia-official-c1a3a7a37d38b04359115c64",
+                            "andalucia-official-5f24b200fb6cf34f6d72016e"
+                        ],
+        "authorities":  [
+                            "Junta de Andalucía / Distrito Único Andaluz"
+                        ],
+        "status":  "SESSION_OFFICIAL_PDF_CENSUSED"
+    },
+    {
+        "community":  "Andalucía",
+        "subject":  "Matemáticas Aplicadas a las CCSS II",
+        "year":  2017,
+        "sittingModel":  "Extraordinaria",
+        "yearCovered":  true,
+        "sessionCovered":  true,
+        "officialPdfCensused":  true,
+        "officialNonPdfCensused":  false,
+        "documentIds":  [
+                            "andalucia-official-601fd1292e7d6b21ceecde28",
+                            "andalucia-official-7a09a02641ea8de345b94f49"
+                        ],
+        "authorities":  [
+                            "Junta de Andalucía / Distrito Único Andaluz"
+                        ],
+        "status":  "SESSION_OFFICIAL_PDF_CENSUSED"
+    },
+    {
+        "community":  "Andalucía",
+        "subject":  "Matemáticas Aplicadas a las CCSS II",
+        "year":  2018,
+        "sittingModel":  "Ordinaria",
+        "yearCovered":  true,
+        "sessionCovered":  true,
+        "officialPdfCensused":  true,
+        "officialNonPdfCensused":  false,
+        "documentIds":  [
+                            "andalucia-official-a10146fce64a17e21450973c",
+                            "andalucia-official-5bd7838829b9f65374631990"
+                        ],
+        "authorities":  [
+                            "Junta de Andalucía / Distrito Único Andaluz"
+                        ],
+        "status":  "SESSION_OFFICIAL_PDF_CENSUSED"
+    },
+    {
+        "community":  "Andalucía",
+        "subject":  "Matemáticas Aplicadas a las CCSS II",
+        "year":  2018,
+        "sittingModel":  "Extraordinaria",
+        "yearCovered":  true,
+        "sessionCovered":  true,
+        "officialPdfCensused":  true,
+        "officialNonPdfCensused":  false,
+        "documentIds":  [
+                            "andalucia-official-4b8884e307df4f5ddaf079e0",
+                            "andalucia-official-0f95b6aefa78f1a13e2115b2"
+                        ],
+        "authorities":  [
+                            "Junta de Andalucía / Distrito Único Andaluz"
+                        ],
+        "status":  "SESSION_OFFICIAL_PDF_CENSUSED"
+    },
+    {
+        "community":  "Andalucía",
+        "subject":  "Matemáticas Aplicadas a las CCSS II",
+        "year":  2019,
+        "sittingModel":  "Ordinaria",
+        "yearCovered":  true,
+        "sessionCovered":  true,
+        "officialPdfCensused":  true,
+        "officialNonPdfCensused":  false,
+        "documentIds":  [
+                            "andalucia-official-a59474e6895bd41034da53b7",
+                            "andalucia-official-fa0cbbddfdf34b1f9fcf8d10"
+                        ],
+        "authorities":  [
+                            "Junta de Andalucía / Distrito Único Andaluz"
+                        ],
+        "status":  "SESSION_OFFICIAL_PDF_CENSUSED"
+    },
+    {
+        "community":  "Andalucía",
+        "subject":  "Matemáticas Aplicadas a las CCSS II",
+        "year":  2019,
+        "sittingModel":  "Extraordinaria",
+        "yearCovered":  true,
+        "sessionCovered":  true,
+        "officialPdfCensused":  true,
+        "officialNonPdfCensused":  false,
+        "documentIds":  [
+                            "andalucia-official-eecad753694b3d8cb2d427ef",
+                            "andalucia-official-31fb46947e141f5c8da8f7b3"
+                        ],
+        "authorities":  [
+                            "Junta de Andalucía / Distrito Único Andaluz"
+                        ],
+        "status":  "SESSION_OFFICIAL_PDF_CENSUSED"
+    },
+    {
+        "community":  "Andalucía",
+        "subject":  "Matemáticas Aplicadas a las CCSS II",
+        "year":  2020,
+        "sittingModel":  "Ordinaria",
+        "yearCovered":  true,
+        "sessionCovered":  false,
+        "officialPdfCensused":  false,
+        "officialNonPdfCensused":  false,
+        "documentIds":  [
+
+                        ],
+        "authorities":  [
+
+                        ],
+        "status":  "YEAR_COVERED_SESSION_NOT_VERIFIABLE"
+    },
+    {
+        "community":  "Andalucía",
+        "subject":  "Matemáticas Aplicadas a las CCSS II",
+        "year":  2020,
+        "sittingModel":  "Extraordinaria",
+        "yearCovered":  true,
+        "sessionCovered":  false,
+        "officialPdfCensused":  false,
+        "officialNonPdfCensused":  false,
+        "documentIds":  [
+
+                        ],
+        "authorities":  [
+
+                        ],
+        "status":  "YEAR_COVERED_SESSION_NOT_VERIFIABLE"
+    },
+    {
+        "community":  "Andalucía",
+        "subject":  "Matemáticas Aplicadas a las CCSS II",
+        "year":  2021,
+        "sittingModel":  "Ordinaria",
+        "yearCovered":  true,
+        "sessionCovered":  true,
+        "officialPdfCensused":  true,
+        "officialNonPdfCensused":  false,
+        "documentIds":  [
+                            "andalucia-official-c42a605501a277fe7194b964"
+                        ],
+        "authorities":  [
+                            "Junta de Andalucía / Distrito Único Andaluz"
+                        ],
+        "status":  "SESSION_OFFICIAL_PDF_CENSUSED"
+    },
+    {
+        "community":  "Andalucía",
+        "subject":  "Matemáticas Aplicadas a las CCSS II",
+        "year":  2021,
+        "sittingModel":  "Extraordinaria",
+        "yearCovered":  true,
+        "sessionCovered":  true,
+        "officialPdfCensused":  true,
+        "officialNonPdfCensused":  false,
+        "documentIds":  [
+                            "andalucia-official-548f60ee334516c7fa918dba"
+                        ],
+        "authorities":  [
+                            "Junta de Andalucía / Distrito Único Andaluz"
+                        ],
+        "status":  "SESSION_OFFICIAL_PDF_CENSUSED"
+    },
+    {
+        "community":  "Andalucía",
+        "subject":  "Matemáticas Aplicadas a las CCSS II",
+        "year":  2022,
+        "sittingModel":  "Ordinaria",
+        "yearCovered":  true,
+        "sessionCovered":  true,
+        "officialPdfCensused":  true,
+        "officialNonPdfCensused":  false,
+        "documentIds":  [
+                            "andalucia-official-8b1971b90e1195617d7664a4"
+                        ],
+        "authorities":  [
+                            "Junta de Andalucía / Distrito Único Andaluz"
+                        ],
+        "status":  "SESSION_OFFICIAL_PDF_CENSUSED"
+    },
+    {
+        "community":  "Andalucía",
+        "subject":  "Matemáticas Aplicadas a las CCSS II",
+        "year":  2022,
+        "sittingModel":  "Extraordinaria",
+        "yearCovered":  true,
+        "sessionCovered":  true,
+        "officialPdfCensused":  true,
+        "officialNonPdfCensused":  false,
+        "documentIds":  [
+                            "andalucia-official-91ec66a95c7a0df235817276",
+                            "andalucia-official-0ec47068f398394bba4901a0"
+                        ],
+        "authorities":  [
+                            "Junta de Andalucía / Distrito Único Andaluz"
+                        ],
+        "status":  "SESSION_OFFICIAL_PDF_CENSUSED"
+    },
+    {
+        "community":  "Andalucía",
+        "subject":  "Matemáticas Aplicadas a las CCSS II",
+        "year":  2023,
+        "sittingModel":  "Ordinaria",
+        "yearCovered":  true,
+        "sessionCovered":  false,
+        "officialPdfCensused":  false,
+        "officialNonPdfCensused":  false,
+        "documentIds":  [
+
+                        ],
+        "authorities":  [
+
+                        ],
+        "status":  "YEAR_COVERED_SESSION_NOT_VERIFIABLE"
+    },
+    {
+        "community":  "Andalucía",
+        "subject":  "Matemáticas Aplicadas a las CCSS II",
+        "year":  2023,
+        "sittingModel":  "Extraordinaria",
+        "yearCovered":  true,
+        "sessionCovered":  false,
+        "officialPdfCensused":  false,
+        "officialNonPdfCensused":  false,
+        "documentIds":  [
+
+                        ],
+        "authorities":  [
+
+                        ],
+        "status":  "YEAR_COVERED_SESSION_NOT_VERIFIABLE"
+    },
+    {
+        "community":  "Andalucía",
+        "subject":  "Matemáticas Aplicadas a las CCSS II",
+        "year":  2024,
+        "sittingModel":  "Ordinaria",
+        "yearCovered":  true,
+        "sessionCovered":  false,
+        "officialPdfCensused":  false,
+        "officialNonPdfCensused":  false,
+        "documentIds":  [
+
+                        ],
+        "authorities":  [
+
+                        ],
+        "status":  "YEAR_COVERED_SESSION_NOT_VERIFIABLE"
+    },
+    {
+        "community":  "Andalucía",
+        "subject":  "Matemáticas Aplicadas a las CCSS II",
+        "year":  2024,
+        "sittingModel":  "Extraordinaria",
+        "yearCovered":  true,
+        "sessionCovered":  false,
+        "officialPdfCensused":  false,
+        "officialNonPdfCensused":  false,
+        "documentIds":  [
+
+                        ],
+        "authorities":  [
+
+                        ],
+        "status":  "YEAR_COVERED_SESSION_NOT_VERIFIABLE"
+    },
+    {
+        "community":  "Andalucía",
+        "subject":  "Matemáticas Aplicadas a las CCSS II",
+        "year":  2025,
+        "sittingModel":  "Ordinaria",
+        "yearCovered":  true,
+        "sessionCovered":  false,
+        "officialPdfCensused":  false,
+        "officialNonPdfCensused":  false,
+        "documentIds":  [
+
+                        ],
+        "authorities":  [
+
+                        ],
+        "status":  "YEAR_COVERED_SESSION_NOT_VERIFIABLE"
+    },
+    {
+        "community":  "Andalucía",
+        "subject":  "Matemáticas Aplicadas a las CCSS II",
+        "year":  2025,
+        "sittingModel":  "Extraordinaria",
+        "yearCovered":  true,
+        "sessionCovered":  false,
+        "officialPdfCensused":  false,
+        "officialNonPdfCensused":  false,
+        "documentIds":  [
+
+                        ],
+        "authorities":  [
+
+                        ],
+        "status":  "YEAR_COVERED_SESSION_NOT_VERIFIABLE"
+    },
+    {
+        "community":  "Andalucía",
+        "subject":  "Matemáticas Aplicadas a las CCSS II",
+        "year":  2026,
+        "sittingModel":  "Ordinaria",
+        "yearCovered":  true,
+        "sessionCovered":  false,
+        "officialPdfCensused":  false,
+        "officialNonPdfCensused":  false,
+        "documentIds":  [
+
+                        ],
+        "authorities":  [
+
+                        ],
+        "status":  "YEAR_COVERED_SESSION_NOT_VERIFIABLE"
+    },
+    {
+        "community":  "Andalucía",
+        "subject":  "Matemáticas Aplicadas a las CCSS II",
+        "year":  2026,
+        "sittingModel":  "Extraordinaria",
+        "yearCovered":  true,
+        "sessionCovered":  false,
+        "officialPdfCensused":  false,
+        "officialNonPdfCensused":  false,
+        "documentIds":  [
+
+                        ],
+        "authorities":  [
+
+                        ],
+        "status":  "YEAR_COVERED_SESSION_NOT_VERIFIABLE"
+    }
+]

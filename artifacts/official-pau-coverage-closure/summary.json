@@ -1,0 +1,142 @@
+{
+    "generatedAt":  "2026-08-25T11:47:49.7604005+02:00",
+    "projectRootReference":  "APP MARGARITA SALAS",
+    "targetedAnnualGapsResolved":  5,
+    "targetedAnnualGapsTotal":  5,
+    "madridNewOfficialPdfs":  24,
+    "andaluciaNewOfficialDocs":  12,
+    "criteriaTotal":  184,
+    "criteriaMatches":  [
+                            {
+                                "classification":  "CRITERIA_MATCH_AMBIGUOUS",
+                                "count":  9
+                            },
+                            {
+                                "classification":  "CRITERIA_MATCH_EXACT",
+                                "count":  171
+                            },
+                            {
+                                "classification":  "CRITERIA_MATCH_STRUCTURAL",
+                                "count":  4
+                            }
+                        ],
+    "criteriaPreviousTotal":  178,
+    "criteriaPreviousMatches":  [
+                                    {
+                                        "classification":  "CRITERIA_MATCH_AMBIGUOUS",
+                                        "count":  9
+                                    },
+                                    {
+                                        "classification":  "CRITERIA_MATCH_EXACT",
+                                        "count":  165
+                                    },
+                                    {
+                                        "classification":  "CRITERIA_MATCH_STRUCTURAL",
+                                        "count":  4
+                                    }
+                                ],
+    "criteriaAdded2012Total":  6,
+    "criteriaAdded2012Matches":  [
+                                     {
+                                         "classification":  "CRITERIA_MATCH_EXACT",
+                                         "count":  6
+                                     }
+                                 ],
+    "annualCoverage2010_2026":  [
+                                    {
+                                        "community":  "Madrid",
+                                        "subject":  "Matemáticas II",
+                                        "annualCovered":  17,
+                                        "annualTotal":  17,
+                                        "annualOfficialPdfCovered":  17,
+                                        "sessionsCovered":  34,
+                                        "sessionsTotal":  34,
+                                        "missingYears":  [
+
+                                                         ]
+                                    },
+                                    {
+                                        "community":  "Madrid",
+                                        "subject":  "Matemáticas Aplicadas a las CCSS II",
+                                        "annualCovered":  17,
+                                        "annualTotal":  17,
+                                        "annualOfficialPdfCovered":  17,
+                                        "sessionsCovered":  33,
+                                        "sessionsTotal":  34,
+                                        "missingYears":  [
+
+                                                         ]
+                                    },
+                                    {
+                                        "community":  "Andalucía",
+                                        "subject":  "Matemáticas II",
+                                        "annualCovered":  17,
+                                        "annualTotal":  17,
+                                        "annualOfficialPdfCovered":  9,
+                                        "sessionsCovered":  16,
+                                        "sessionsTotal":  34,
+                                        "missingYears":  [
+
+                                                         ]
+                                    },
+                                    {
+                                        "community":  "Andalucía",
+                                        "subject":  "Matemáticas Aplicadas a las CCSS II",
+                                        "annualCovered":  17,
+                                        "annualTotal":  17,
+                                        "annualOfficialPdfCovered":  8,
+                                        "sessionsCovered":  15,
+                                        "sessionsTotal":  34,
+                                        "missingYears":  [
+
+                                                         ]
+                                    }
+                                ],
+    "coverage2000_2009":  [
+                              {
+                                  "community":  "Madrid",
+                                  "subject":  "Matemáticas II",
+                                  "coveredYears":  [
+                                                       2005,
+                                                       2006,
+                                                       2007,
+                                                       2008,
+                                                       2009
+                                                   ],
+                                  "covered":  5,
+                                  "total":  10
+                              },
+                              {
+                                  "community":  "Madrid",
+                                  "subject":  "Matemáticas Aplicadas a las CCSS II",
+                                  "coveredYears":  [
+                                                       2005,
+                                                       2006,
+                                                       2007,
+                                                       2008
+                                                   ],
+                                  "covered":  4,
+                                  "total":  10
+                              },
+                              {
+                                  "community":  "Andalucía",
+                                  "subject":  "Matemáticas II",
+                                  "coveredYears":  [
+
+                                                   ],
+                                  "covered":  0,
+                                  "total":  10
+                              },
+                              {
+                                  "community":  "Andalucía",
+                                  "subject":  "Matemáticas Aplicadas a las CCSS II",
+                                  "coveredYears":  [
+
+                                                   ],
+                                  "covered":  0,
+                                  "total":  10
+                              }
+                          ],
+    "missingSessions2010_2026":  38,
+    "strictDistinction":  "La cobertura anual documental no equivale a cobertura de todas las convocatorias ni a disponibilidad en PDF."
+}

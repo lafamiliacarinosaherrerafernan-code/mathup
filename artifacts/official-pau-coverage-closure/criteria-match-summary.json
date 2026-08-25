@@ -1,0 +1,14 @@
+[
+    {
+        "classification":  "CRITERIA_MATCH_AMBIGUOUS",
+        "count":  9
+    },
+    {
+        "classification":  "CRITERIA_MATCH_EXACT",
+        "count":  171
+    },
+    {
+        "classification":  "CRITERIA_MATCH_STRUCTURAL",
+        "count":  4
+    }
+]
