@@ -1,0 +1,14 @@
+{
+  "schemaVersion": "mathup.pau-editorial-patterns.v1",
+  "community": "Madrid",
+  "questionPatterns": ["Ejercicio <n>", "Pregunta <n>"],
+  "alternativePatterns": ["Opción A", "Opción B", "A", "B"],
+  "subpartPatterns": ["a)", "b)", "c)"],
+  "instructionPatterns": ["Elija una opción", "Responda una de las dos opciones"],
+  "rules": {
+    "instructionsAreEditorial": true,
+    "letteredAlternativesAreIndependentExercises": true,
+    "letteredSubpartsRemainInsideExercise": true,
+    "automaticUseRequiresOfficialDocumentEvidence": true
+  }
+}

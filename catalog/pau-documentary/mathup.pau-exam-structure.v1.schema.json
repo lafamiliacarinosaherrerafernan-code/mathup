@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://mathup.es/schemas/mathup.pau-exam-structure.v1.schema.json",
+  "title": "MathUp PAU exam editorial structure",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "documentId", "documentHash", "generalInstructions", "blocks", "questions"],
+  "properties": {
+    "schemaVersion": { "const": "mathup.pau-exam-structure.v1" },
+    "documentId": { "type": "string" },
+    "documentHash": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+    "generalInstructions": { "type": "array", "items": { "$ref": "#/$defs/segment" } },
+    "blocks": { "type": "array", "items": { "$ref": "#/$defs/node" } },
+    "questions": { "type": "array", "items": { "$ref": "#/$defs/node" } }
+  },
+  "$defs": {
+    "segment": {
+      "type": "object",
+      "required": ["literal", "literalHash", "page", "startOffset", "endOffset"],
+      "properties": {
+        "literal": { "type": "string" },
+        "literalHash": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+        "page": { "type": "integer", "minimum": 1 },
+        "startOffset": { "type": "integer", "minimum": 0 },
+        "endOffset": { "type": "integer", "minimum": 0 }
+      }
+    },
+    "node": {
+      "allOf": [
+        { "$ref": "#/$defs/segment" },
+        {
+          "type": "object",
+          "required": ["key", "kind"],
+          "properties": {
+            "key": { "type": "string" },
+            "kind": { "enum": ["BLOCK", "QUESTION", "ALTERNATIVE"] },
+            "instruction": { "type": ["object", "null"] }
+          }
+        }
+      ]
+    }
+  }
+}

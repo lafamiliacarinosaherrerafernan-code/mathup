@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://mathup.es/schemas/mathup.pau-segmentation-redirect.v1.schema.json",
+  "title": "MathUp PAU segmentation redirect",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "redirectId", "kind", "fromExerciseId", "toDocumentExerciseIds", "evidence", "preservedSourceRecordIds"],
+  "properties": {
+    "schemaVersion": { "const": "mathup.pau-segmentation-redirect.v1" },
+    "redirectId": { "type": "string", "pattern": "^pau-red-[0-9a-f]{32}$" },
+    "kind": { "enum": ["ONE_TO_ONE", "ALIAS", "SPLIT", "REVIEW_REQUIRED"] },
+    "fromExerciseId": { "type": "string" },
+    "toDocumentExerciseIds": { "type": "array", "items": { "type": "string" }, "minItems": 1 },
+    "evidence": { "type": "array", "items": { "type": "object" } },
+    "preservedSourceRecordIds": { "type": "array", "items": { "type": "string" } }
+  }
+}

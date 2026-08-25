@@ -41,6 +41,15 @@ _bach_pdf_jobs.json
 # Estado local de revisión humana (incluye identificador y decisiones del revisor)
 /artifacts/fase2d-human-review/local-state/
 
+# Artefactos regenerables de la reconciliación documental PAU
+/artifacts/pau-documentary-reconciliation/runs/run-b/
+/artifacts/pau-documentary-reconciliation/runs/run-order-reversed/
+/artifacts/pau-documentary-reconciliation/runs/run-a/review-queue.jsonl
+/artifacts/pau-documentary-reconciliation/runs/run-a/exam-structures.jsonl
+/artifacts/pau-documentary-reconciliation/runs/run-a/document-exercises.jsonl
+/artifacts/pau-documentary-reconciliation/runs/run-a/document-subparts.jsonl
+/artifacts/pau-documentary-reconciliation/runs/run-a/notation-differences.jsonl
+
 # Configuracion de herramientas locales
 .agents/
 .impeccable/

@@ -1,0 +1,16 @@
+{
+  "schemaVersion": "mathup.pau-editorial-patterns.v1",
+  "community": "Castilla-La Mancha",
+  "questionPatterns": ["Pregunta <n>"],
+  "alternativePatterns": ["<n>.1", "<n>.2"],
+  "subpartPatterns": ["a)", "b)", "c)"],
+  "instructionPatterns": [
+    "Conteste solo UNA de las siguientes preguntas",
+    "Responda solo UNA de las siguientes preguntas"
+  ],
+  "rules": {
+    "instructionsAreEditorial": true,
+    "numberedAlternativesAreIndependentExercises": true,
+    "letteredSubpartsRemainInsideExercise": true
+  }
+}
