@@ -1,0 +1,11 @@
+{
+  "schemaVersion": "mathup.equation3-public-human-state-proof.v1",
+  "publicDecisionSetSha256": "bd412eee4c7ebe87d4ab5a298d55ed1024c1a3bbee80d7260d808522866d9847",
+  "decisionCounts": {
+    "total": 55,
+    "COINCIDE": 45,
+    "NO_COINCIDE": 10,
+    "DUDOSO": 0
+  },
+  "immutable": true
+}

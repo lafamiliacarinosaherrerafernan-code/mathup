@@ -1,0 +1,35 @@
+{
+  "schemaVersion": "mathup.equation3-human-review-result-manifest.v1",
+  "publicDecisionSetSha256": "bd412eee4c7ebe87d4ab5a298d55ed1024c1a3bbee80d7260d808522866d9847",
+  "semanticSha256": "a66eedf18d8d4804b4452ef503631ea36188a6d4eca642c1a240b2af0e807543",
+  "files": [
+    {
+      "path": "artifacts/equation3-human-review-result/exercise-consequences.json",
+      "sha256": "95c1acce49a7743f8311e03a13d7f080065a38a3b195c3f98f598d4a64943a19"
+    },
+    {
+      "path": "artifacts/equation3-human-review-result/failure-classification.jsonl",
+      "sha256": "246e732962062dac0a9f76f06b485d1fdf6d8d7e3d2977aefaef193219414edd"
+    },
+    {
+      "path": "artifacts/equation3-human-review-result/human-decisions-audit.jsonl",
+      "sha256": "ce44cab77e3142858c9b55af57be49a9e63bc40c6a99ee914776a4c79be729d1"
+    },
+    {
+      "path": "artifacts/equation3-human-review-result/manifest.json",
+      "sha256": "2d41b46d777924cc09c1da0006e3965560f3b61b99fc37b8ddfac2bcae23d7c3"
+    },
+    {
+      "path": "artifacts/equation3-human-review-result/spatial-layout-audit.json",
+      "sha256": "3aaf74a19a759daeff57b1381e6480f34e9c35772e277913c526f2acb33caad7"
+    },
+    {
+      "path": "artifacts/equation3-human-review-result/spatial-layout-incidents.jsonl",
+      "sha256": "aa9d8b5b2afc3bf83dff4e3b8c76b53d431a0b5b17c69be656dc089dacbd18fa"
+    },
+    {
+      "path": "artifacts/equation3-human-review-result/summary.json",
+      "sha256": "5280dcc0844c6450c461107a342d0dbd56b0350867c8f98355fa3c3e46ffb91e"
+    }
+  ]
+}

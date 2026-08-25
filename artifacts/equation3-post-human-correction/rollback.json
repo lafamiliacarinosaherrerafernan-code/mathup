@@ -1,0 +1,6 @@
+{
+  "schemaVersion": "mathup.equation3-post-human-rollback.v1",
+  "sourceArtifactsUntouched": true,
+  "publicDecisionSetSha256": "bd412eee4c7ebe87d4ab5a298d55ed1024c1a3bbee80d7260d808522866d9847",
+  "rollbackProcedure": "Descartar exclusivamente catalog/equation3-andalucia-2012/post-human-correction.mjs y artifacts/equation3-post-human-correction; los artefactos anteriores permanecen inmutables."
+}

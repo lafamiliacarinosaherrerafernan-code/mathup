@@ -1,0 +1,45 @@
+{
+  "schemaVersion": "mathup.equation3-human-validation-summary.v1",
+  "firstReview": {
+    "total": 55,
+    "COINCIDE": 45,
+    "NO_COINCIDE": 10,
+    "DUDOSO": 0,
+    "reviewer": "reviewer-1",
+    "reviewDate": "2026-08-25",
+    "publicDecisionSetSha256": "bd412eee4c7ebe87d4ab5a298d55ed1024c1a3bbee80d7260d808522866d9847"
+  },
+  "secondReview": {
+    "total": 10,
+    "COINCIDE": 10,
+    "NO_COINCIDE": 0,
+    "DUDOSO": 0,
+    "reviewer": "reviewer-1",
+    "reviewDate": "2026-08-25",
+    "publicDecisionSetSha256": "10a64a94ed91aa40d2cb3fe74702acb57f2a00ebd525f66c0206150618634965"
+  },
+  "final": {
+    "validatedObjects": 55,
+    "validatedDependentExercises": 27,
+    "independentExercises": 21,
+    "totalExercises": 48,
+    "unaffectedExercises": 47,
+    "integrationAuthorized": false
+  },
+  "abcabc": {
+    "status": "DOCUMENT_LAYOUT_HUMAN_VALIDATED",
+    "documentExerciseId": "ade2012-m6-a-e1-61f8d5d80988",
+    "reconstructionSha256": "f152e84ef8985c54ad42b77818407b9038fdbc25d6b2fbae6a6e6c75a21beac7",
+    "decision": "COINCIDE",
+    "reviewer": "reviewer-1",
+    "reviewDate": "2026-08-25",
+    "reviewSequence": 1,
+    "explicitHumanAction": true,
+    "integrationAuthorized": false
+  },
+  "sourceArtifacts": {
+    "recoveredExercisesSha256": "7ff61095484d57ba0f1f37bbf20b807ae68cbd48993a14da090a7668a3a7c03a",
+    "correctedEquations55Sha256": "1a01a431a6ff1ca761850d463583e60f742fc0cf5a10c5040f5770c7ade6219f",
+    "regression45Sha256": "d5fb1b478e0d6f4dac769d454179c3a5cb4a4dfa7b9e577b9bead4e786bb87e9"
+  }
+}

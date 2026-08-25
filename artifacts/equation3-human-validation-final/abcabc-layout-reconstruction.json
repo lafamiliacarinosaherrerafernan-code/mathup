@@ -1,0 +1,165 @@
+{
+  "schemaVersion": "mathup.document-layout-reconstruction.v1",
+  "layoutType": "paired-labeled-matrices",
+  "status": "DOCUMENT_LAYOUT_HUMAN_VALIDATED",
+  "documentExerciseId": "ade2012-m6-a-e1-61f8d5d80988",
+  "documentId": "ade2012-exam-m6-61f8d5d809881c49",
+  "sourceObjectId": "adobj-61f8d5d809881c49-001",
+  "historicalEvidence": {
+    "literal": "A B C A B C",
+    "exactLine": "                                A        B       C                                            A   B  C",
+    "exactLineSha256": "8982ae367118b0efc7590ce79f64b96ae2a9202060f3f1b963247c374e6b2ba5",
+    "tokenPositions": [
+      {
+        "token": "A",
+        "column": 32
+      },
+      {
+        "token": "B",
+        "column": 41
+      },
+      {
+        "token": "C",
+        "column": 49
+      },
+      {
+        "token": "A",
+        "column": 94
+      },
+      {
+        "token": "B",
+        "column": 98
+      },
+      {
+        "token": "C",
+        "column": 101
+      }
+    ],
+    "rootCause": "Word codifica las cabeceras como texto espaciado previo al objeto Equation.3; el modelo lineal de bloques conserva caracteres y orden, pero no coordenadas ni anclaje a columnas."
+  },
+  "sourceAuthority": {
+    "documentPath": "sources/pau-official/andalucia/ccss-ii/2012/official-doc/exam-modelo-6.doc",
+    "documentSha256": "61f8d5d809881c49e9e9212281f7028516338e026524e55d572ab691ec5f416d",
+    "officialPngPath": "artifacts/andalucia-ccssii-2012-doc/document-objects/adobj-61f8d5d809881c49-001.png",
+    "officialPngSha256": "f8800fb36468616a63a20677a963a713e4309082390f9e7d49563f4a89c865c0",
+    "officialEmfPath": "artifacts/andalucia-ccssii-2012-doc/document-objects/adobj-61f8d5d809881c49-001.emf",
+    "officialEmfSha256": "f7ffd114c49b4dad167c97323f07855a6590b84a0a9ac19c6f82ea7982d566a3",
+    "sourceRange": {
+      "endCp": 543,
+      "separatorCp": 540,
+      "startCp": 521
+    }
+  },
+  "items": [
+    {
+      "matrixLabel": "F",
+      "columnHeaders": [
+        "A",
+        "B",
+        "C"
+      ],
+      "matrix": [
+        [
+          "100",
+          "150",
+          "80"
+        ],
+        [
+          "200",
+          "250",
+          "140"
+        ]
+      ],
+      "rowLabels": [
+        "←grande",
+        "←normal"
+      ],
+      "delimiter": "parentheses",
+      "matrixAstSha256": "e60bbab6af4bf3c328b5ddf20b2c39caf70b496a7d429b2bb7ed471077aadc87",
+      "sourceObjectId": "adobj-61f8d5d809881c49-001",
+      "sourceMatrixSegment": 0
+    },
+    {
+      "matrixLabel": "G",
+      "columnHeaders": [
+        "A",
+        "B",
+        "C"
+      ],
+      "matrix": [
+        [
+          "6",
+          "8",
+          "5"
+        ],
+        [
+          "4",
+          "5",
+          "3"
+        ]
+      ],
+      "rowLabels": [
+        "←grande",
+        "←normal"
+      ],
+      "delimiter": "parentheses",
+      "matrixAstSha256": "dbed2cf14e2314a700585830aff46a98bda4d7264a474bc25689e4ca446b7318",
+      "sourceObjectId": "adobj-61f8d5d809881c49-001",
+      "sourceMatrixSegment": 1
+    }
+  ],
+  "learnerView": {
+    "introText": "EJERCICIO 1\nUna empresa vende tres artículos diferentes  A, B y C, cada uno de ellos en dos formatos, grande y normal. En la matriz F se indican las cantidades de los tres artículos, en cada uno de los dos formatos, que ha vendido la empresa en un mes. En la matriz G se indican las ganancias, en euros, que obtiene la empresa por cada unidad que ha vendido de cada artículo en cada formato",
+    "remainingBlocks": [
+      {
+        "type": "text",
+        "text": "\na)  Efectúe los productos "
+      },
+      {
+        "type": "document-object",
+        "objectId": "adobj-61f8d5d809881c49-002",
+        "mathml": "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\"><mrow><msup><mi>F</mi><mi>t</mi></msup><mo>⋅</mo><mi>G</mi><mo> </mo><mo> </mo><mo> </mo><mi>y</mi><mo> </mo><mo> </mo><mi>F</mi><mo>⋅</mo><msup><mi>G</mi><mi>t</mi></msup><mo>.</mo></mrow></math>",
+        "mathmlSha256": "11248fb65ff9edf1ba4ae949577288ee46752295b62db7ae54ba2802b4218d91"
+      },
+      {
+        "type": "text",
+        "text": "\nb)  Indique en qué matriz se pueden encontrar las ganancias que ha recibido la empresa en ese mes por el total de las unidades vendidas de cada uno de los tres artículos y especifique cuáles son esas ganancias.\nc) Indique en qué matriz se pueden encontrar las ganancias que ha recibido la empresa en ese mes por el total de las unidades vendidas en cada uno de los dos formatos, especifique cuáles son esas ganancias y halle la ganancia total.\n\n"
+      }
+    ],
+    "scoreEvidencePreserved": [
+      {
+        "literal": "(1 punto)",
+        "points": 1,
+        "characterOffset": 561
+      },
+      {
+        "literal": "(0.75 puntos)",
+        "points": 0.75,
+        "characterOffset": 644
+      },
+      {
+        "literal": "(0.75 puntos)",
+        "points": 0.75,
+        "characterOffset": 869
+      }
+    ]
+  },
+  "guarantees": {
+    "noManualSpacing": true,
+    "noAbsolutePositioning": true,
+    "responsivePolicy": "SIDE_BY_SIDE_THEN_STACK",
+    "mathAstUnmodified": true
+  },
+  "reconstructionSha256": "f152e84ef8985c54ad42b77818407b9038fdbc25d6b2fbae6a6e6c75a21beac7",
+  "humanDecision": {
+    "schemaVersion": "mathup.document-layout-human-decision.public.v1",
+    "documentExerciseId": "ade2012-m6-a-e1-61f8d5d80988",
+    "reconstructionSha256": "f152e84ef8985c54ad42b77818407b9038fdbc25d6b2fbae6a6e6c75a21beac7",
+    "explicitHumanConfirmation": true,
+    "explicitHumanAction": true,
+    "decision": "COINCIDE",
+    "reviewerId": "reviewer-1",
+    "reviewDate": "2026-08-25",
+    "reviewSequence": 1
+  }
+}

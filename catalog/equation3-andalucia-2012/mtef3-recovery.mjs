@@ -220,10 +220,15 @@ export function toLatex(node) {
   if (node.type === "fraction") return `\\frac${group(node.numerator)}${group(node.denominator)}`;
   if (node.type === "radical") return node.index ? `\\sqrt[${toLatex(node.index)}]${group(node.radicand)}` : `\\sqrt${group(node.radicand)}`;
   if (node.type === "power") return `${toLatex(node.base)}^${group(node.exponent)}`;
+  if (node.type === "group") return `(${toLatex(node.body)})`;
   if (node.type === "subscript") return `${toLatex(node.base)}_${group(node.index)}`;
   if (node.type === "subsup") return `${toLatex(node.base)}_${group(node.index)}^${group(node.upper)}`;
   if (node.type === "absolute") return `\\left${node.double ? "\\|" : "|"}${toLatex(node.body)}\\right${node.double ? "\\|" : "|"}`;
-  if (node.type === "delimited") { const pair = { parentheses: ["(", ")"], braces: ["\\{", "\\}"], brackets: ["[", "]"], angle: ["\\langle", "\\rangle"], floor: ["\\lfloor", "\\rfloor"], ceiling: ["\\lceil", "\\rceil"], interval: ["(", ")"] }[node.delimiter]; return `\\left${pair[0]}${toLatex(node.body)}\\right${pair[1]}`; }
+  if (node.type === "delimited") {
+    const pair = { parentheses: ["(", ")"], braces: ["\\{", "\\}"], brackets: ["[", "]"], angle: ["\\langle", "\\rangle"], floor: ["\\lfloor", "\\rfloor"], ceiling: ["\\lceil", "\\rceil"], interval: ["(", ")"] }[node.delimiter];
+    const sides = node.delimiterSides ?? { left: true, right: true };
+    return `${sides.left ? `\\left${pair[0]}` : "\\left."}${toLatex(node.body)}${sides.right ? `\\right${pair[1]}` : "\\right."}`;
+  }
   if (node.type === "matrix") return `\\begin{matrix}${node.rows.map((row) => row.map(toLatex).join(" & ")).join(" \\\\ ")}\\end{matrix}`;
   if (node.type === "aligned") return `\\begin{aligned}${node.children.map(toLatex).join(" \\\\ ")}\\end{aligned}`;
   if (node.type === "vector") return `\\vec${group(node.body)}`;
@@ -251,7 +256,7 @@ function mathMlBody(node) {
   if (node.type === "equation-expression") return mathMlBody(node.body);
   if (node.type === "number") return `<mn>${xml(node.value)}</mn>`;
   if (node.type === "identifier") return `<mi>${xml(node.value)}</mi>`;
-  if (node.type === "operator") return `<mo>${xml(node.value)}</mo>`;
+  if (node.type === "operator") return `<mo${node.stretchy === false ? ' stretchy="false"' : ''}>${xml(node.value)}</mo>`;
   if (node.type === "space") return '<mspace width="0.35em"></mspace>';
   if (node.type === "sequence") return `<mrow>${node.children.map(mathMlBody).join("")}</mrow>`;
   if (node.type === "fraction") return `<mfrac>${mathMlBody(node.numerator)}${mathMlBody(node.denominator)}</mfrac>`;
@@ -259,6 +264,7 @@ function mathMlBody(node) {
     ? `<mroot>${mathMlBody(node.radicand)}${mathMlBody(node.index)}</mroot>`
     : `<msqrt>${mathMlBody(node.radicand)}</msqrt>`;
   if (node.type === "power") return `<msup>${mathMlBody(node.base)}${mathMlBody(node.exponent)}</msup>`;
+  if (node.type === "group") return `<mrow><mo stretchy="false">(</mo>${mathMlBody(node.body)}<mo stretchy="false">)</mo></mrow>`;
   if (node.type === "subscript") return `<msub>${mathMlBody(node.base)}${mathMlBody(node.index)}</msub>`;
   if (node.type === "subsup") return `<msubsup>${mathMlBody(node.base)}${mathMlBody(node.index)}${mathMlBody(node.upper)}</msubsup>`;
   if (node.type === "absolute") return `<mrow><mo stretchy="true">${node.double ? "‖" : "|"}</mo>${mathMlBody(node.body)}<mo stretchy="true">${node.double ? "‖" : "|"}</mo></mrow>`;
@@ -267,7 +273,8 @@ function mathMlBody(node) {
       parentheses: ["(", ")"], braces: ["{", "}"], brackets: ["[", "]"],
       angle: ["⟨", "⟩"], floor: ["⌊", "⌋"], ceiling: ["⌈", "⌉"], interval: ["(", ")"]
     }[node.delimiter] ?? ["(", ")"];
-    return `<mrow><mo stretchy="true">${xml(pair[0])}</mo>${mathMlBody(node.body)}<mo stretchy="true">${xml(pair[1])}</mo></mrow>`;
+    const sides = node.delimiterSides ?? { left: true, right: true };
+    return `<mrow>${sides.left ? `<mo stretchy="true">${xml(pair[0])}</mo>` : ''}${mathMlBody(node.body)}${sides.right ? `<mo stretchy="true">${xml(pair[1])}</mo>` : ''}</mrow>`;
   }
   if (node.type === "matrix") {
     return `<mtable>${node.rows.map((row) => `<mtr>${row.map((cell) => `<mtd>${mathMlBody(cell)}</mtd>`).join("")}</mtr>`).join("")}</mtable>`;

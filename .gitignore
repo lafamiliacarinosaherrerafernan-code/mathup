@@ -81,6 +81,19 @@ _bach_pdf_jobs.json
 /artifacts/equation3-andalucia-2012/native-evidence/*/
 /artifacts/equation3-andalucia-2012/runs/run-a/visual-comparison.html
 
+# Estado local de la comparacion humana Equation.3 (decisiones del revisor)
+/artifacts/equation3-human-comparison/local-state/
+
+# Artefactos regenerables del cierre humano Equation.3
+/artifacts/equation3-human-comparison/pilot-*.json
+/artifacts/equation3-human-comparison/review-queue.jsonl
+/artifacts/equation3-post-human-correction/corrected-equations-55.jsonl
+/artifacts/equation3-post-human-correction/recheck-10.jsonl
+/artifacts/equation3-post-human-correction/regression-45.jsonl
+
+# Evidencia humana privada original (identidad y marcas temporales exactas)
+/private/equation3-human-evidence-original/
+
 # Configuracion de herramientas locales
 .agents/
 .impeccable/

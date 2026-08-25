@@ -1,0 +1,11 @@
+{
+  "schemaVersion": "mathup.document-layout-human-decision.public.v1",
+  "documentExerciseId": "ade2012-m6-a-e1-61f8d5d80988",
+  "reconstructionSha256": "f152e84ef8985c54ad42b77818407b9038fdbc25d6b2fbae6a6e6c75a21beac7",
+  "explicitHumanConfirmation": true,
+  "explicitHumanAction": true,
+  "decision": "COINCIDE",
+  "reviewerId": "reviewer-1",
+  "reviewDate": "2026-08-25",
+  "reviewSequence": 1
+}
