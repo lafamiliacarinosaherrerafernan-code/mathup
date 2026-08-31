@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Regresión geométrica de cotas MathML</title>
+    <link rel="stylesheet" href="../math-notation.css">
+  </head>
+  <body>
+    <main id="fixture" style="font:32px/1.5 'Cambria Math','Times New Roman',serif"></main>
+    <output id="geometry-status">PENDING</output>
+    <pre id="geometry-result" hidden></pre>
+    <script src="../math-renderer.js"></script>
+    <script src="./math-native-bounds-geometry.browser.js"></script>
+    <script>
+      fixture.innerHTML = MargaritaMathRenderer.fragment('A=∫_{0}^{2}frac{(x−2)^2}{2}dx=[frac{(x−2)^3}{6}]_{0}^{2}');
+      document.fonts.ready.then(() => {
+        window.mathNativeBoundsGeometryResult = runMathNativeBoundsGeometryRegression(fixture);
+        document.body.dataset.geometryPass = String(window.mathNativeBoundsGeometryResult.pass);
+        document.getElementById('geometry-status').textContent = window.mathNativeBoundsGeometryResult.pass ? 'PASS' : 'FAIL';
+        document.getElementById('geometry-result').textContent = JSON.stringify(window.mathNativeBoundsGeometryResult);
+      });
+    </script>
+  </body>
+</html>

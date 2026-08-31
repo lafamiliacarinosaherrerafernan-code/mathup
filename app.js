@@ -1909,6 +1909,50 @@ function renderParabolaLineAreaGraph() {
     </figure>`;
 }
 
+function renderTangentParabolasAreaGraph() {
+  const plotX = (x) => 80 + x * 230;
+  const plotY = (y) => 330 - y * 70;
+  const curve = (fn) => Array.from({ length: 61 }, (_, index) => {
+    const x = -0.25 + (2.75 * index) / 60;
+    return `${plotX(x).toFixed(1)},${plotY(fn(x)).toFixed(1)}`;
+  }).join(" ");
+  const region = [];
+  for (let index = 0; index <= 48; index += 1) {
+    const x = 2 * index / 48;
+    region.push(`${index ? "L" : "M"} ${plotX(x).toFixed(1)} ${plotY(x * x - 2 * x + 3).toFixed(1)}`);
+  }
+  for (let index = 48; index >= 0; index -= 1) {
+    const x = 2 * index / 48;
+    region.push(`L ${plotX(x).toFixed(1)} ${plotY(x * x / 2 + 1).toFixed(1)}`);
+  }
+  region.push("Z");
+  return `<figure class="defined-area-diagram"><svg viewBox="0 0 720 390" role="img" aria-label="Área entre las parábolas f y g, el eje vertical y el punto de tangencia dos coma tres"><rect class="area-graph-background" x="18" y="14" width="684" height="360" rx="18"></rect><line class="area-graph-axis" x1="44" y1="330" x2="688" y2="330"></line><line class="area-graph-axis" x1="80" y1="365" x2="80" y2="24"></line><path class="area-region-fill parabola-area-region" d="${region.join(" ")}"></path><polyline class="area-curve area-curve-parabola" points="${curve((x) => x * x - 2 * x + 3)}"></polyline><polyline class="area-curve area-curve-line" points="${curve((x) => x * x / 2 + 1)}"></polyline><circle cx="${plotX(2)}" cy="${plotY(3)}" r="7"></circle><text class="area-curve-label" x="92" y="92">f(x)=x²−2x+3</text><text class="area-curve-label" x="105" y="235">g(x)=x²/2+1</text><text class="area-region-label" x="315" y="190">Área</text><text x="${plotX(2) - 30}" y="360">x=2</text><text x="${plotX(2) + 12}" y="${plotY(3) - 12}">(2,3)</text></svg><figcaption>Las curvas se cortan y son tangentes en (2,3). En 0≤x≤2, f es el techo y g el suelo; el eje y cierra el recinto por la izquierda.</figcaption></figure>`;
+}
+
+function renderHorizontalParabolaEqualAreasGraph() {
+  const a = 1 / 3;
+  const x0 = Math.sqrt(a);
+  const plotX = (x) => 78 + x * 530;
+  const plotY = (y) => 330 - y * 255;
+  const parabola = Array.from({ length: 65 }, (_, index) => {
+    const x = 1.08 * index / 64;
+    return `${plotX(x).toFixed(1)},${plotY(x * x).toFixed(1)}`;
+  }).join(" ");
+  const left = [`M ${plotX(0)} ${plotY(a)}`, `L ${plotX(x0)} ${plotY(a)}`];
+  for (let index = 48; index >= 0; index -= 1) {
+    const x = x0 * index / 48;
+    left.push(`L ${plotX(x).toFixed(1)} ${plotY(x * x).toFixed(1)}`);
+  }
+  left.push("Z");
+  const right = [`M ${plotX(x0)} ${plotY(a)}`];
+  for (let index = 0; index <= 48; index += 1) {
+    const x = x0 + (1 - x0) * index / 48;
+    right.push(`L ${plotX(x).toFixed(1)} ${plotY(x * x).toFixed(1)}`);
+  }
+  right.push(`L ${plotX(1)} ${plotY(a)}`, "Z");
+  return `<figure class="defined-area-diagram"><svg viewBox="0 0 720 390" role="img" aria-label="Parábola y igual a x al cuadrado y recta horizontal y igual a un tercio, con dos regiones de igual área"><rect class="area-graph-background" x="18" y="14" width="684" height="360" rx="18"></rect><line class="area-graph-axis" x1="50" y1="330" x2="688" y2="330"></line><line class="area-graph-axis" x1="78" y1="365" x2="78" y2="24"></line><path class="area-region-fill parabola-area-region" d="${left.join(" ")}"></path><path class="area-region-fill line-area-region" d="${right.join(" ")}"></path><line class="area-boundary-line" x1="${plotX(0)}" y1="${plotY(a)}" x2="${plotX(1)}" y2="${plotY(a)}"></line><polyline class="area-curve area-curve-parabola" points="${parabola}"></polyline><circle cx="${plotX(x0)}" cy="${plotY(a)}" r="7"></circle><text class="area-curve-label" x="505" y="92">y=x²</text><text class="area-curve-label" x="435" y="230">y=a=1/3</text><text x="${plotX(x0) - 34}" y="360">x₀=√a</text><text class="area-region-label" x="205" y="285">Área 1</text><text class="area-region-label" x="485" y="190">Área 2</text></svg><figcaption>El corte positivo es x₀=√a. A la izquierda la recta es el techo; a la derecha la parábola es el techo. Las dos regiones coloreadas tienen la misma área.</figcaption></figure>`;
+}
+
 function renderDerivativeCycle2008() {
   const columns = [
     {
@@ -1955,6 +1999,14 @@ function formatSolutionText(value, mathOptions = {}) {
   const derivativeCycles = [];
   const proportionTables = [];
   const source = String(value || "Lee el enunciado, ordena los datos y comprueba la opcion elegida.")
+    // Las soluciones son texto canónico, no HTML libre. Eliminar aquí una
+    // etiqueta residual evita que tokens internos como `class=` lleguen al
+    // alumno sin habilitar la inyección de marcado arbitrario.
+    // Exige una etiqueta HTML sintácticamente completa. La expresión anterior
+    // aceptaba cualquier `<` seguido de una letra y podía interpretar una
+    // desigualdad matemática como `2<x<4` como si iniciase una etiqueta,
+    // eliminando todo hasta el siguiente `>` junto con fracciones legítimas.
+    .replace(/<\/?[A-Za-z][A-Za-z0-9:-]*(?:\s[^<>]*?)?\/?>/g, "")
     .replace(/\[\[official-solution-image\s+src="([^"]+)"\s*\]\]/gi, (_, rawSource) => {
       const imageIndex = officialSolutionImages.length;
       officialSolutionImages.push(`
@@ -1999,6 +2051,16 @@ function formatSolutionText(value, mathOptions = {}) {
     .replace(/\[\[area-graph-reciprocal\]\]/gi, () => {
       const graphIndex = areaGraphs.length;
       areaGraphs.push(renderReciprocalAreaGraph());
+      return `@@AG${graphIndex}@@`;
+    })
+    .replace(/\[\[area-graph-tangent-parabolas\]\]/gi, () => {
+      const graphIndex = areaGraphs.length;
+      areaGraphs.push(renderTangentParabolasAreaGraph());
+      return `@@AG${graphIndex}@@`;
+    })
+    .replace(/\[\[area-graph-horizontal-parabola-equal\]\]/gi, () => {
+      const graphIndex = areaGraphs.length;
+      areaGraphs.push(renderHorizontalParabolaEqualAreasGraph());
       return `@@AG${graphIndex}@@`;
     })
     .replace(/\[\[area-equation-abs-parabola\]\]/gi, () => {
@@ -4209,11 +4271,32 @@ function officialQuestionStatementHtml(question, courseId = state.courseId) {
   }
   if (question.statementHtml) {
     const statement = String(question.statementHtml).replace(/^\s*<div class="official-source">[\s\S]*?<\/div>\s*/i, "");
+    const authoredDsl = statement.match(/\b(?:frac|sqrt|matrix|det|system|piecewise)\s*\{/i);
+    const containsRichOfficialMarkup = /<(?:math|img|svg|table|figure)\b/i.test(statement);
+    if (authoredDsl && !containsRichOfficialMarkup) {
+      const authoredPlain = statement
+        .replace(/<br\s*\/?>/gi, "\n")
+        .replace(/<\/p\s*>/gi, "\n")
+        .replace(/<[^>]+>/g, " ")
+        .replace(/&nbsp;/gi, " ")
+        .replace(/&minus;/gi, "−")
+        .replace(/&lambda;/gi, "λ")
+        .replace(/&lt;/gi, "<")
+        .replace(/&gt;/gi, ">")
+        .replace(/&amp;/gi, "&")
+        .replace(/\s*\n\s*/g, "\n")
+        .trim();
+      return formatMathText(authoredPlain, { preserveTrigNotation: true });
+    }
+    if (/\b(?:frac|sqrt|matrix|det|system|piecewise)\s*\{/i.test(statement) && !/<[A-Za-z][^>]*>/i.test(statement)) {
+      return formatMathText(statement, { preserveTrigNotation: true });
+    }
     // Official matrix cells can contain typographic tags such as <i>. Those
     // tags split [[...]] across several text nodes, so the HTML renderer can
     // no longer see a complete matrix. Render the equivalent plain source in
     // those cases; the stored corpus and its mathematical meaning stay intact.
-    if ((statement.includes("[[") || /\b(?:frac|sqrt|matrix|det|system|piecewise)\s*\{/i.test(statement)) && question.text) {
+    const plainMathNeedsWholeNode = /(?:\[\[|\(\(\s*[^()]+\)\s*,\s*\([^()]+\)\s*\)|\b(?:frac|sqrt|matrix|det|system|piecewise)\s*\{|\blim\s*(?:\(|_?|\s)[A-Za-z]\s*→|∫|\([^()]+\)\s*\/\s*\([^()]+\)|\b\w+\s*\/\s*\w+\b)/i.test(String(question.text || ""));
+    if ((statement.includes("[[") || /\b(?:frac|sqrt|matrix|det|system|piecewise)\s*\{/i.test(statement) || plainMathNeedsWholeNode) && question.text) {
       return formatMathText(question.text, { preserveTrigNotation: true });
     }
     // Algunas importaciones antiguas conservaron las llaves visuales de una
@@ -8699,12 +8782,11 @@ function buildQuestions(theme, course = courseById(state.courseId), requestedCou
   if (!state.blockKey && BACH_II_COURSE_IDS.includes(course.id) && window.MargaritaBachExam?.buildTopicQuestions) {
     const availabilityRule = window.MargaritaContentAvailability?.get?.(course.id, state.topicIndex);
     if (availabilityRule?.availableForTopicPractice === false) return [];
-    // En PAU Andalucía el banco canónico reconciliado es la única fuente de
-    // ejercicios para alumnos. Los bancos temáticos auxiliares se conservan
-    // para las comunidades cuya política los necesita, pero no se mezclan con
-    // el censo oficial andaluz.
+    // En PAU Andalucía y Madrid el banco canónico reconciliado de la comunidad
+    // es la única fuente de ejercicios para alumnos. El banco temático auxiliar
+    // se conserva exclusivamente para Castilla-La Mancha hasta su auditoría.
     if (availabilityRule?.practiceBank
-      && currentBachPauCommunity() !== "andalucia"
+      && currentBachPauCommunity() === "clm"
       && window.MargaritaTopicPracticeBanks?.build) {
       const practiceQuestions = window.MargaritaTopicPracticeBanks.build(availabilityRule.practiceBank);
       return strictTopicSelection({
@@ -8967,6 +9049,13 @@ function officialQuestionDedupKey(question) {
   // comparten convocatoria y enunciado base.
   if (/\bextra\b/i.test(String(question?.id || ""))) {
     return challengeQuestionIdentity(question);
+  }
+  // El corpus reconciliado de Madrid ya dispone de un ID canónico estable.
+  // Debe prevalecer sobre un enunciado genérico como «Calcular los siguientes
+  // límites», que puede encabezar ejercicios oficiales distintos.
+  const madridCanonicalId = String(question?.id || "").match(/^madrid-(?:mates|ccss)-\d+\.\d+\.\d+$/)?.[0];
+  if (currentBachPauCommunity() === "madrid" && madridCanonicalId) {
+    return `oficial-id:${madridCanonicalId}`;
   }
   // Los bancos oficiales completos ya asignan un identificador estable a cada
   // ejercicio. Lo usamos para no confundir ejercicios distintos de una misma

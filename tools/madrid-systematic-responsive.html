@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Madrid · comprobación responsive</title>
+  <style>
+    *{box-sizing:border-box}body{margin:0;background:#dde7f6;font-family:system-ui,sans-serif}
+    #status{position:sticky;top:0;z-index:2;padding:6px 10px;background:#0d2d69;color:white;font-weight:700}
+    #viewport{overflow:auto;padding:8px}iframe{display:block;border:2px solid #0d2d69;background:white;height:900px;max-width:none}
+  </style>
+</head>
+<body>
+  <div id="status"></div><div id="viewport"><iframe id="app" title="+MathUp Madrid responsive"></iframe></div>
+  <script>
+    const params=new URLSearchParams(location.search);
+    const width=Math.max(320,Number(params.get('width'))||1280);
+    const exercise=params.get('exercise')||'madrid-mates-1.1.2';
+    const course=params.get('course')||'2bach-mates';
+    const frame=document.getElementById('app');frame.width=String(width);
+    frame.addEventListener('load',()=>{
+      let attempts=0;const timer=setInterval(()=>{const bridge=frame.contentWindow?.MargaritaMultipartE2E;if(bridge){bridge.openExercise('madrid',course,exercise,{includeSingle:true});clearInterval(timer);if(params.get('solutions')==='1')setTimeout(async()=>{const doc=frame.contentDocument;const count=doc.querySelectorAll('[id^="part-grade-"]').length;const requested=params.has('solution-index')?[Number(params.get('solution-index'))]:Array.from({length:count},(_,i)=>i);for(const index of requested){doc.querySelector(`#part-${index}-answer-0`)?.click();await new Promise(r=>setTimeout(r,120));doc.querySelector(`#part-grade-${index}`)?.click();await new Promise(r=>setTimeout(r,120));doc.querySelector(`#part-help-${index}`)?.click();await new Promise(r=>setTimeout(r,120))}},250)}else if(++attempts>30)clearInterval(timer)},100);
+    });
+    frame.src=`../?multipart-e2e=1&community=madrid&visual-exercise=${encodeURIComponent(exercise)}&visual-course=${encodeURIComponent(course)}`;
+    document.getElementById('status').textContent=`${exercise} · ${width}px`;
+  </script>
+</body>
+</html>

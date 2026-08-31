@@ -1,0 +1,138 @@
+[
+  {
+    "community": "madrid",
+    "communityLabel": "Madrid",
+    "courseId": "2bach-mates",
+    "subject": "Matemáticas II",
+    "family": "probabilidad-general",
+    "canonicalExerciseCount": 39,
+    "interactiveSubpartCount": 98,
+    "exercisesRequiringTable": 0,
+    "subpartsRequiringTable": 0,
+    "resources": {
+      "NONE_OR_NOT_EXPLICIT": 39
+    }
+  },
+  {
+    "community": "madrid",
+    "communityLabel": "Madrid",
+    "courseId": "2bach-mates",
+    "subject": "Matemáticas II",
+    "family": "probabilidad-condicional-bayes-total",
+    "canonicalExerciseCount": 12,
+    "interactiveSubpartCount": 35,
+    "exercisesRequiringTable": 0,
+    "subpartsRequiringTable": 0,
+    "resources": {
+      "NONE_OR_NOT_EXPLICIT": 12
+    }
+  },
+  {
+    "community": "madrid",
+    "communityLabel": "Madrid",
+    "courseId": "2bach-mates",
+    "subject": "Matemáticas II",
+    "family": "binomial",
+    "canonicalExerciseCount": 19,
+    "interactiveSubpartCount": 47,
+    "exercisesRequiringTable": 0,
+    "subpartsRequiringTable": 0,
+    "resources": {
+      "NONE_OR_NOT_EXPLICIT": 19
+    }
+  },
+  {
+    "community": "madrid",
+    "communityLabel": "Madrid",
+    "courseId": "2bach-mates",
+    "subject": "Matemáticas II",
+    "family": "normal",
+    "canonicalExerciseCount": 10,
+    "interactiveSubpartCount": 27,
+    "exercisesRequiringTable": 10,
+    "subpartsRequiringTable": 27,
+    "resources": {
+      "NORMAL_STANDARD_TABLE": 10
+    }
+  },
+  {
+    "community": "madrid",
+    "communityLabel": "Madrid",
+    "courseId": "2bach-mates",
+    "subject": "Matemáticas II",
+    "family": "inferencia",
+    "canonicalExerciseCount": 0,
+    "interactiveSubpartCount": 0,
+    "exercisesRequiringTable": 0,
+    "subpartsRequiringTable": 0,
+    "resources": {}
+  },
+  {
+    "community": "madrid",
+    "communityLabel": "Madrid",
+    "courseId": "2bach-ccss",
+    "subject": "CCSS II",
+    "family": "probabilidad-general",
+    "canonicalExerciseCount": 193,
+    "interactiveSubpartCount": 427,
+    "exercisesRequiringTable": 0,
+    "subpartsRequiringTable": 0,
+    "resources": {
+      "NONE_OR_NOT_EXPLICIT": 193
+    }
+  },
+  {
+    "community": "madrid",
+    "communityLabel": "Madrid",
+    "courseId": "2bach-ccss",
+    "subject": "CCSS II",
+    "family": "probabilidad-condicional-bayes-total",
+    "canonicalExerciseCount": 4,
+    "interactiveSubpartCount": 7,
+    "exercisesRequiringTable": 0,
+    "subpartsRequiringTable": 0,
+    "resources": {
+      "NONE_OR_NOT_EXPLICIT": 4
+    }
+  },
+  {
+    "community": "madrid",
+    "communityLabel": "Madrid",
+    "courseId": "2bach-ccss",
+    "subject": "CCSS II",
+    "family": "binomial",
+    "canonicalExerciseCount": 0,
+    "interactiveSubpartCount": 0,
+    "exercisesRequiringTable": 0,
+    "subpartsRequiringTable": 0,
+    "resources": {}
+  },
+  {
+    "community": "madrid",
+    "communityLabel": "Madrid",
+    "courseId": "2bach-ccss",
+    "subject": "CCSS II",
+    "family": "normal",
+    "canonicalExerciseCount": 175,
+    "interactiveSubpartCount": 345,
+    "exercisesRequiringTable": 175,
+    "subpartsRequiringTable": 345,
+    "resources": {
+      "NORMAL_STANDARD_TABLE": 175
+    }
+  },
+  {
+    "community": "madrid",
+    "communityLabel": "Madrid",
+    "courseId": "2bach-ccss",
+    "subject": "CCSS II",
+    "family": "inferencia",
+    "canonicalExerciseCount": 18,
+    "interactiveSubpartCount": 34,
+    "exercisesRequiringTable": 0,
+    "subpartsRequiringTable": 0,
+    "resources": {
+      "NONE_OR_NOT_EXPLICIT": 18
+    }
+  }
+]

@@ -48,7 +48,7 @@ test('todo ejercicio habilitado conserva paridad y contrato interactivo', () => 
 });
 
 test('Andalucía no mezcla bancos temáticos auxiliares con su corpus PAU oficial', () => {
-  assert.match(appSource, /currentBachPauCommunity\(\) !== "andalucia"/);
+  assert.match(appSource, /availabilityRule\?\.practiceBank[\s\S]*?currentBachPauCommunity\(\) === "clm"[\s\S]*?MargaritaTopicPracticeBanks\?\.build/);
   assert.equal(runtime.challengeRecords('2bach-mates').length, 817);
   assert.equal(runtime.challengeRecords('2bach-ccss').length, 823);
 });

@@ -446,6 +446,11 @@
       availableForExam: true,
       referenceTable: raw.referenceTable || "",
       topicIndexes: Array.isArray(raw.topicIndexes) ? [...raw.topicIndexes] : [],
+      primaryTopicIndex: Number.isInteger(raw.primaryTopicIndex)
+        ? raw.primaryTopicIndex
+        : Array.isArray(raw.topicIndexes) && Number.isInteger(raw.topicIndexes[0])
+          ? raw.topicIndexes[0]
+          : null,
       blockId,
       text: joinExerciseParagraphs(raw.statement),
       statementHtml: joinExerciseParagraphs(raw.statement, true),

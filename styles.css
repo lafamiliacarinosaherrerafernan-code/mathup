@@ -5793,6 +5793,21 @@ body::before {
   overflow-y: hidden;
 }
 
+.official-matrix-pair-line {
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 0.35em;
+  max-width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  white-space: nowrap;
+}
+
+.official-matrix-pair-line > .native-math {
+  flex: 0 0 auto;
+}
+
 .official-display-formula {
   display: flex;
   align-items: center;

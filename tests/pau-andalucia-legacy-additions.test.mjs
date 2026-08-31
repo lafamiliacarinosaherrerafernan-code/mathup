@@ -4,11 +4,13 @@ import fs from 'node:fs';
 import vm from 'node:vm';
 import { additionsLegacy } from '../data/andalucia-pau-additions-legacy.mjs';
 
-test('the 23 pending 2008-2009 documents contribute exactly 162 exercises', () => {
+test('the 23 pending 2008-2009 documents contribute 162 exercises and 327 unique response units', () => {
   assert.equal(additionsLegacy.length, 162);
   assert.equal(new Set(additionsLegacy.map((row) => row.exerciseId)).size, 162);
   assert.equal(new Set(additionsLegacy.map((row) => row.documentHash)).size, 23);
-  assert.equal(additionsLegacy.reduce((sum, row) => sum + row.parts.length, 0), 328);
+  const responseUnitIds = additionsLegacy.flatMap((row) => row.parts.map((part) => part.id));
+  assert.equal(responseUnitIds.length, 327);
+  assert.equal(new Set(responseUnitIds).size, 327);
 });
 
 test('every legacy response unit has four distinct choices and a checked development', () => {

@@ -172,7 +172,7 @@
 
     let opened;
     try {
-      opened = bridge.openExercise(community, courseId, item.exerciseId);
+      opened = bridge.openExercise(community, courseId, item.exerciseId, { includeSingle: item.runtimePartCount === 1 });
       await nextFrame();
     } catch (error) {
       document.body.dataset.multipartE2ELastError = String(error?.stack || error?.message || error);
@@ -320,7 +320,7 @@
     const startedAt = new Date().toISOString();
     const onlyExercise = url.searchParams.get("exercise");
     const subjects = courseIds.map((courseId) => {
-      const census = bridge.census(community, courseId);
+      const census = bridge.census(community, courseId, { includeSingle: Boolean(onlyExercise) });
       return onlyExercise ? { ...census, exercises: census.exercises.filter((item) => item.exerciseId === onlyExercise) } : census;
     });
     const total = subjects.reduce((sum, subject) => sum + subject.exercises.length, 0);
@@ -369,7 +369,7 @@
     document.getElementById("multipart-e2e-open-visual")?.addEventListener("click", () => {
       const community = (url.searchParams.get("community") || "andalucia").toLowerCase();
       const courseId = url.searchParams.get("visual-course") || "2bach-mates";
-      const opened = window.MargaritaMultipartE2E.openExercise(community, courseId, visualExercise);
+      const opened = window.MargaritaMultipartE2E.openExercise(community, courseId, visualExercise, { includeSingle: true });
       document.getElementById("multipart-e2e-status").textContent = `Caso visual abierto: ${opened.exerciseId}`;
     });
     if (url.searchParams.get("run-all") === "1") document.getElementById("multipart-e2e-start").click();

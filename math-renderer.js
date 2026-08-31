@@ -765,16 +765,16 @@
   function nativeIntegral(lower, upper) {
     const lowerText = nativeMathText(lower);
     const upperText = nativeMathText(upper);
-    return `<span class="math-integral math-native-operator" data-math-native="integral"><math xmlns="http://www.w3.org/1998/Math/MathML" display="inline" aria-label="integral de ${lowerText} a ${upperText}"><mstyle displaystyle="true" scriptlevel="0"><munderover><mo largeop="true">∫</mo><mrow><mtext>${lowerText}</mtext></mrow><mrow><mtext>${upperText}</mtext></mrow></munderover></mstyle></math></span>`;
+    return `<span class="math-integral math-native-operator" data-math-native="integral"><math xmlns="http://www.w3.org/1998/Math/MathML" display="inline" aria-label="integral de ${lowerText} a ${upperText}"><mstyle displaystyle="true" scriptlevel="0"><msubsup><mrow><mo largeop="true" movablelimits="false">∫</mo><mspace width="0.12em"/></mrow><mrow><mtext>${lowerText}</mtext></mrow><mrow><mtext>${upperText}</mtext></mrow></msubsup></mstyle></math></span>`;
   }
 
   function nativeEvaluation(bracket, lower, upper = "") {
     const lowerText = nativeMathText(lower);
     const upperText = nativeMathText(upper);
     const operator = upperText
-      ? `<msubsup><mo stretchy="true">${escapeHtml(bracket)}</mo><mrow><mtext>${lowerText}</mtext></mrow><mrow><mtext>${upperText}</mtext></mrow></msubsup>`
-      : `<msub><mo stretchy="true">${escapeHtml(bracket)}</mo><mrow><mtext>${lowerText}</mtext></mrow></msub>`;
-    return `<span class="math-evaluation math-native-operator" data-math-native="evaluation"><math xmlns="http://www.w3.org/1998/Math/MathML" display="inline"><mstyle displaystyle="true" scriptlevel="0">${operator}</mstyle></math></span>`;
+      ? `<msubsup><mo fence="true" stretchy="false">${escapeHtml(bracket)}</mo><mrow><mtext>${lowerText}</mtext></mrow><mrow><mtext>${upperText}</mtext></mrow></msubsup>`
+      : `<msub><mo fence="true" stretchy="false">${escapeHtml(bracket)}</mo><mrow><mtext>${lowerText}</mtext></mrow></msub>`;
+    return `<math xmlns="http://www.w3.org/1998/Math/MathML" class="math-native-evaluation" display="inline" data-math-native="evaluation" aria-label="evaluación de ${lowerText}${upperText ? ` a ${upperText}` : ''}"><mstyle displaystyle="true" scriptlevel="0">${operator}</mstyle></math>`;
   }
 
   // Las cotas pueden contener grupos, raíces o fracciones y el integrando
@@ -803,6 +803,37 @@
         continue;
       }
       result += `${nativeIntegral(lower.content, upper.content)} `;
+      cursor = upper.end;
+    }
+    return result;
+  }
+
+  // La evaluación de una primitiva puede tener raíces, fracciones u otras
+  // estructuras en sus cotas. Debe componerse antes que esas estructuras se
+  // conviertan en HTML; de lo contrario sus etiquetas acabarían escapadas y
+  // visibles dentro del operador de evaluación.
+  function replaceBoundedEvaluations(value) {
+    const text = String(value);
+    let result = "";
+    let cursor = 0;
+    const marker = /[)\]|]_/g;
+    while (cursor < text.length) {
+      marker.lastIndex = cursor;
+      const match = marker.exec(text);
+      if (!match) return result + text.slice(cursor);
+      const lower = readIntegralBound(text, marker.lastIndex, true);
+      if (!lower || text[lower.end] !== "^") {
+        result += text.slice(cursor, marker.lastIndex);
+        cursor = marker.lastIndex;
+        continue;
+      }
+      const upper = readIntegralBound(text, lower.end + 1, false);
+      if (!upper) {
+        result += text.slice(cursor, lower.end + 1);
+        cursor = lower.end + 1;
+        continue;
+      }
+      result += text.slice(cursor, match.index) + nativeEvaluation(match[0][0], lower.content, upper.content);
       cursor = upper.end;
     }
     return result;
@@ -877,6 +908,7 @@
       .replace(/\\quad\b/g, '<span class="math-space" aria-hidden="true"></span>')
       .replace(/\\[;,!]\s*/g, " ");
     output = replaceBoundedIntegrals(output, options);
+    output = replaceBoundedEvaluations(output);
     output = replaceLatexRoots(output);
     output = replaceBalancedFractions(replaceBalancedDelimiters(output));
     output = replaceIndexedRoots(output);
@@ -1047,7 +1079,7 @@
   }
 
   function looksMathematical(value) {
-    return /(?:\\(?:sqrt|dfrac|tfrac|frac|mathbb|vec|overrightarrow)|\b(?:matrix|frac|sqrt|raiz|root|cuberoot|vector|vec|lim|sen|sin|cos|tg|tan|log|det)\b|\[\[|→|∞|∫|∀|∈|ℝ|∪|∩|[A-Za-z0-9)\]}][\^_]|\([^()]+\)\s*\/\s*\([^()]+\)|\b\w+\s*\/\s*\w+\b)/i.test(String(value));
+    return /(?:\\(?:sqrt|dfrac|tfrac|frac|mathbb|vec|overrightarrow)|\b(?:matrix|frac|sqrt|raiz|root|cuberoot|vector|vec|lim|sen|sin|cos|tg|tan|log|det)\b|\[\[|\(\(\s*[^()]+\)\s*,\s*\([^()]+\)\s*\)|→|∞|∫|∀|∈|ℝ|∪|∩|[A-Za-z0-9)\]}][\^_]|\([^()]+\)\s*\/\s*\([^()]+\)|\b\w+\s*\/\s*\w+\b)/i.test(String(value));
   }
 
   function shouldSkipTextNode(node) {

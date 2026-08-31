@@ -1,0 +1,34 @@
+{
+  "generatedAt": "2026-08-31T19:13:12.714Z",
+  "staticReconciliation": {
+    "sourceInventoryComplete": true,
+    "enabledCountsMatch": true,
+    "sourceSubpartsMatchCanonical": true,
+    "sourceMismatches": 0,
+    "optionErrors": 0,
+    "solutionErrors": 0,
+    "renderErrorsStatic": 0
+  },
+  "quantitativeArtifactsPresent": true,
+  "methodology": {
+    "needsRegeneration": 0,
+    "correctedSubparts": 168,
+    "correctedExercises": 167
+  },
+  "multipartE2E": {
+    "pass": true,
+    "sourceSubparts": 3543,
+    "navigatedSubparts": 3543,
+    "failedExercises": 0
+  },
+  "responsive": {
+    "pass": true,
+    "cases": 19,
+    "checks": 76,
+    "failures": 0
+  },
+  "accessibility": {
+    "pass": true,
+    "basis": "static semantic controls plus real-browser responsive/interaction gates"
+  }
+}

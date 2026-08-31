@@ -1,0 +1,278 @@
+[
+  {
+    "community": "madrid",
+    "communityLabel": "Madrid",
+    "courseId": "2bach-mates",
+    "subject": "Matemáticas II",
+    "blockId": "algebra",
+    "block": "Bloque de álgebra",
+    "topicIndexes": [
+      0,
+      1,
+      2
+    ],
+    "topics": [
+      "Matrices",
+      "Determinantes",
+      "Resolución de sistemas con determinantes"
+    ],
+    "canonicalExerciseCount": 246,
+    "interactiveSubpartCount": 526,
+    "rawBankDistribution": {
+      "Matrices": 246,
+      "Determinantes": 67,
+      "Resolución de sistemas con determinantes": 121
+    },
+    "selectionDistribution": {
+      "0": 20,
+      "1": 0,
+      "2": 20
+    },
+    "percentageOfEnabledCatalog": 29.82,
+    "theoreticalFullChallenges": 49,
+    "balancedFullChallengesObserved": 8,
+    "limitingFamily": "Determinantes"
+  },
+  {
+    "community": "madrid",
+    "communityLabel": "Madrid",
+    "courseId": "2bach-mates",
+    "subject": "Matemáticas II",
+    "blockId": "analisis",
+    "block": "Bloque de análisis",
+    "topicIndexes": [
+      6,
+      7,
+      8,
+      9,
+      10,
+      11
+    ],
+    "topics": [
+      "Límite de sucesiones y funciones",
+      "Continuidad",
+      "Derivadas",
+      "Aplicación de derivadas",
+      "Integrales indefinidas",
+      "Integrales definidas"
+    ],
+    "canonicalExerciseCount": 255,
+    "interactiveSubpartCount": 604,
+    "rawBankDistribution": {
+      "Límite de sucesiones y funciones": 107,
+      "Continuidad": 71,
+      "Derivadas": 65,
+      "Aplicación de derivadas": 126,
+      "Integrales indefinidas": 118,
+      "Integrales definidas": 98
+    },
+    "selectionDistribution": {
+      "6": 8,
+      "7": 8,
+      "8": 8,
+      "9": 8,
+      "10": 8,
+      "11": 0
+    },
+    "percentageOfEnabledCatalog": 30.91,
+    "theoreticalFullChallenges": 51,
+    "balancedFullChallengesObserved": 8,
+    "limitingFamily": "Derivadas"
+  },
+  {
+    "community": "madrid",
+    "communityLabel": "Madrid",
+    "courseId": "2bach-mates",
+    "subject": "Matemáticas II",
+    "blockId": "geometria",
+    "block": "Bloque de geometría",
+    "topicIndexes": [
+      3,
+      4,
+      5
+    ],
+    "topics": [
+      "Vectores en el espacio",
+      "Planos y rectas en el espacio",
+      "Propiedades métricas"
+    ],
+    "canonicalExerciseCount": 244,
+    "interactiveSubpartCount": 588,
+    "rawBankDistribution": {
+      "Vectores en el espacio": 40,
+      "Planos y rectas en el espacio": 230,
+      "Propiedades métricas": 216
+    },
+    "selectionDistribution": {
+      "3": 16,
+      "4": 16,
+      "5": 8
+    },
+    "percentageOfEnabledCatalog": 29.58,
+    "theoreticalFullChallenges": 48,
+    "balancedFullChallengesObserved": 8,
+    "limitingFamily": "Vectores en el espacio"
+  },
+  {
+    "community": "madrid",
+    "communityLabel": "Madrid",
+    "courseId": "2bach-mates",
+    "subject": "Matemáticas II",
+    "blockId": "probabilidad-estadistica",
+    "block": "Bloque de probabilidad y estadística",
+    "topicIndexes": [
+      12,
+      13
+    ],
+    "topics": [
+      "Probabilidad",
+      "Distribución binomial y normal"
+    ],
+    "canonicalExerciseCount": 80,
+    "interactiveSubpartCount": 207,
+    "rawBankDistribution": {
+      "Probabilidad": 51,
+      "Distribución binomial y normal": 40
+    },
+    "selectionDistribution": {
+      "12": 20,
+      "13": 20
+    },
+    "percentageOfEnabledCatalog": 9.7,
+    "theoreticalFullChallenges": 16,
+    "balancedFullChallengesObserved": 8,
+    "limitingFamily": "Distribución binomial y normal"
+  },
+  {
+    "community": "madrid",
+    "communityLabel": "Madrid",
+    "courseId": "2bach-ccss",
+    "subject": "CCSS II",
+    "blockId": "algebra",
+    "block": "Bloque de álgebra",
+    "topicIndexes": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "topics": [
+      "Matrices",
+      "Determinantes",
+      "Sistemas con determinantes",
+      "Programación lineal"
+    ],
+    "canonicalExerciseCount": 261,
+    "interactiveSubpartCount": 489,
+    "rawBankDistribution": {
+      "Matrices": 84,
+      "Determinantes": 40,
+      "Sistemas con determinantes": 104,
+      "Programación lineal": 89
+    },
+    "selectionDistribution": {
+      "0": 11,
+      "1": 0,
+      "2": 11,
+      "3": 10
+    },
+    "percentageOfEnabledCatalog": 28.9,
+    "theoreticalFullChallenges": 65,
+    "balancedFullChallengesObserved": 8,
+    "limitingFamily": "Determinantes"
+  },
+  {
+    "community": "madrid",
+    "communityLabel": "Madrid",
+    "courseId": "2bach-ccss",
+    "subject": "CCSS II",
+    "blockId": "analisis",
+    "block": "Bloque de análisis",
+    "topicIndexes": [
+      4,
+      5,
+      6,
+      7
+    ],
+    "topics": [
+      "Límites y continuidad",
+      "Derivadas y aplicaciones",
+      "Integrales indefinidas",
+      "Integrales definidas"
+    ],
+    "canonicalExerciseCount": 252,
+    "interactiveSubpartCount": 551,
+    "rawBankDistribution": {
+      "Límites y continuidad": 128,
+      "Derivadas y aplicaciones": 183,
+      "Integrales indefinidas": 61,
+      "Integrales definidas": 53
+    },
+    "selectionDistribution": {
+      "4": 14,
+      "5": 14,
+      "6": 4,
+      "7": 0
+    },
+    "percentageOfEnabledCatalog": 27.91,
+    "theoreticalFullChallenges": 63,
+    "balancedFullChallengesObserved": 8,
+    "limitingFamily": "Integrales definidas"
+  },
+  {
+    "community": "madrid",
+    "communityLabel": "Madrid",
+    "courseId": "2bach-ccss",
+    "subject": "CCSS II",
+    "blockId": "probabilidad",
+    "block": "Bloque de probabilidad",
+    "topicIndexes": [
+      8
+    ],
+    "topics": [
+      "Probabilidad"
+    ],
+    "canonicalExerciseCount": 197,
+    "interactiveSubpartCount": 434,
+    "rawBankDistribution": {
+      "Probabilidad": 197
+    },
+    "selectionDistribution": {
+      "8": 32
+    },
+    "percentageOfEnabledCatalog": 21.82,
+    "theoreticalFullChallenges": 49,
+    "balancedFullChallengesObserved": 8,
+    "limitingFamily": "Probabilidad"
+  },
+  {
+    "community": "madrid",
+    "communityLabel": "Madrid",
+    "courseId": "2bach-ccss",
+    "subject": "CCSS II",
+    "blockId": "estadistica",
+    "block": "Bloque de estadística",
+    "topicIndexes": [
+      9,
+      10
+    ],
+    "topics": [
+      "Distribución binomial y normal",
+      "Muestreo e inferencia estadística"
+    ],
+    "canonicalExerciseCount": 193,
+    "interactiveSubpartCount": 379,
+    "rawBankDistribution": {
+      "Distribución binomial y normal": 175,
+      "Muestreo e inferencia estadística": 188
+    },
+    "selectionDistribution": {
+      "9": 16,
+      "10": 16
+    },
+    "percentageOfEnabledCatalog": 21.37,
+    "theoreticalFullChallenges": 48,
+    "balancedFullChallengesObserved": 8,
+    "limitingFamily": "Distribución binomial y normal"
+  }
+]

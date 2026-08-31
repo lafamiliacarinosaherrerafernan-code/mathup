@@ -6,21 +6,25 @@ import {separateEditorialScores,isNumericMatrix,renderCandidateValue,nativeRelat
 
 test('two bounded integrals preserve two independent bound pairs',()=>{
  const html=renderCandidateValue(globalThis.MargaritaMathRenderer,'A=∫_{0}^{2} (f−g)dx + ∫_{2}^{4} (f−g)dx');
- assert.equal((html.match(/class="math-integral"/g)||[]).length,2);
- assert.ok(!html.includes('∫_'));assert.ok(html.includes('<sup>2</sup><sub>0</sub>'));assert.ok(html.includes('<sup>4</sup><sub>2</sub>'));
+ assert.equal((html.match(/data-math-native="integral"/g)||[]).length,2);
+ assert.equal((html.match(/<msubsup>/g)||[]).length,2);
+ assert.match(html,/aria-label="integral de 0 a 2"/);
+ assert.match(html,/aria-label="integral de 2 a 4"/);
+ assert.ok(!html.includes('∫_'));
 });
 
 test('bounded integrals preserve nested and adjacent bounds without leaking raw HTML',()=>{
  const samples=[
-  ['∫_8^{10}frac{1}{x} dx','<sup>10</sup><sub>8</sub>'],
-  ['∫_0^{root{3}{3}}frac{1}{x} dx','math-indexed-root'],
-  ['∫_0^(√a/2)(x+1) dx','radicand">a</span></span>/2'],
-  ['∫_0^2(√(2x)−1) dx','<sup>2</sup><sub>0</sub>'],
+  ['∫_8^{10}frac{1}{x} dx','integral de 8 a 10'],
+  ['∫_0^{root{3}{3}}frac{1}{x} dx','integral de 0 a &#8731;3'],
+  ['∫_0^(√a/2)(x+1) dx','integral de 0 a &#8730;a/2'],
+  ['∫_0^2(√(2x)−1) dx','integral de 0 a 2'],
  ];
  for(const [literal,evidence] of samples){
   const html=globalThis.MargaritaMathRenderer.fragment(literal);
-  assert.equal((html.match(/class="math-integral"/g)||[]).length,1,literal);
-  assert.ok(html.includes(evidence),literal);
+  assert.equal((html.match(/data-math-native="integral"/g)||[]).length,1,literal);
+  assert.equal((html.match(/<msubsup>/g)||[]).length,1,literal);
+  assert.ok(html.includes(`aria-label="${evidence}"`),literal);
   assert.ok(!html.includes('∫_'),literal);
   assert.ok(!/<span(?:<|&lt;)/.test(html),literal);
  }

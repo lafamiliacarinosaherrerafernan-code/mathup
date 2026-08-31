@@ -363,7 +363,6 @@ math.native-math mtext {
 .math-evaluation.math-native-operator {
   display: inline-block;
   margin: 0 0.08em;
-  vertical-align: -0.32em;
   font-size: 1em;
   line-height: 1;
 }
@@ -490,6 +489,19 @@ math.native-math mtext {
   .math-system { gap: 4px; margin-left: 2px; }
   .math-system-brace { font-size: 2.65em; }
   .math-system-lines { white-space: normal; }
+}
+
+@media (max-width: 360px) {
+  .official-exercise-statement .math-piecewise {
+    gap: 3px;
+    margin-right: 0;
+    margin-left: 0;
+  }
+
+  .official-exercise-statement .math-piecewise-lines > span {
+    grid-template-columns: minmax(76px, auto) minmax(96px, auto);
+    gap: 8px;
+  }
 }
 
 .derivative-sign-chart {

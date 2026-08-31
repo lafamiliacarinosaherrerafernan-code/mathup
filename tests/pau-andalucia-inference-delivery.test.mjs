@@ -191,7 +191,9 @@ test('linear programming reaches historical topic 3 and slot 2 with a verified d
  for(const c of positions.reverse())restored=restored.slice(0,c.at)+c.before+restored.slice(c.at+c.after.length);
  assert.equal(restored,literal);assert.match(projection.text,/no ℝ/);
  candidate.value='Resultado final: 3 y 7.';candidate.opts=r.parts[1].solutionMathOptions;
- const html=vm.runInContext('formatSolutionText(value,opts)',candidate);assert.match(html,/derived-solution-graph/);assert.match(html,/Ver gráfica ampliada/);
+ const html=vm.runInContext('formatSolutionText(value,opts)',candidate);assert.match(html,/derived-solution-graph/);assert.match(html,/aria-label="Abrir gráfica ampliada"/);assert.match(html,/Gráfica derivada de las restricciones/);
+ assert.match(svg,/x = 3y; región a la derecha/);assert.match(svg,/x = 5; a la izquierda/);assert.match(svg,/y = 1; por encima/);
+ assert.match(svg,/Triángulo A \(3,1\), B \(5,1\), C \(5,5 tercios\)/);assert.match(svg,/A = \(3; 1\)/);assert.match(svg,/B = \(5; 1\)/);assert.match(svg,/<polygon /);
  candidate.opts={solutionGraph:{src:'https://example.invalid/graph.svg'}};assert.doesNotMatch(vm.runInContext('formatSolutionText(value,opts)',candidate),/derived-solution-graph|example.invalid/);
 });
 test('distinct quadrilateral graphs follow their own official constraints and LP prose remains prose',()=>{
@@ -263,9 +265,13 @@ test('rendered solution keeps prose and genuine fractions without modifying the 
  for(const r of prepared.records)for(const p of r.parts){const d=runtime.materializePart(p,'prose');candidate.solution=d.solution;candidate.opts=p.solutionMathOptions;
   const html=vm.runInContext('formatSolutionText(didacticSolutionText({solution}),opts)',candidate);
   assert.doesNotMatch(html,/\btgto\b|\bsen embargo\b|frac\s*\{|undefined|\\(?:frac|sqrt)/);
-  if(d.solution.includes('frac{'))assert.match(html,/math-frac/);
+  if(d.solution.includes('frac{'))assert.match(html,/<mfrac\b|class="math-fraction"/);
   assert.match(html,/Resultado final/);assert.ok(p.html&&p.html!=='undefined');
  }
+ const inequality='Resolución:\n1. Si 2<x<4, entonces f′=−frac{4}{x²}<0.\nResultado final: f es decreciente.';
+ candidate.solution=inequality;candidate.opts={};
+ const inequalityHtml=vm.runInContext('formatSolutionText(didacticSolutionText({solution}),opts)',candidate);
+ assert.match(inequalityHtml,/2&lt;x&lt;4/);assert.match(inequalityHtml,/<mfrac\b|class="math-fraction"/);assert.match(inequalityHtml,/>4</);assert.match(inequalityHtml,/x²/);assert.match(inequalityHtml,/decreciente/);
 });
 
 test('structured final answers start on their own line and retain every pre-existing identity',()=>{

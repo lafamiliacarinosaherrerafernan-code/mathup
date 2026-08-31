@@ -682,7 +682,6 @@ export const additionsLegacy = [
     ],
     "publicationState": "LOCAL_ENABLED_AFTER_SOURCE_BOUND_SOLUTION_AND_CHECKS",
     "parts": [
-      /* Duplicado histórico de b): la copia canónica se conserva después de a).
       {
         "id": "pau-user-and-fc24350dc009dd373a61feb93871:b",
         "label": "b)",
@@ -719,7 +718,6 @@ export const additionsLegacy = [
           }
         }
       },
-      */
       {
         "id": "pau-user-and-fc24350dc009dd373a61feb93871:a",
         "label": "a)",
@@ -744,42 +742,6 @@ export const additionsLegacy = [
         ],
         "finalAnswer": "0 2) ( a b ) ( a b ) ( 0 2) (12 2 ) ( 3b 2a ) A·B = B· A⇒ · = · ⇒ = ⇒ a =1; b= 4 ( 3 0 ) ( 6 1 ) ( 6 1 ) ( 3 0 ) ( 3a 3b ) ( 3 12 )",
         "canonicalFinalAnswer": "0 2) ( a b ) ( a b ) ( 0 2) (12 2 ) ( 3b 2a ) A·B = B· A⇒ · = · ⇒ = ⇒ a =1; b= 4 ( 3 0 ) ( 6 1 ) ( 6 1 ) ( 3 0 ) ( 3a 3b ) ( 3 12 )",
-        "verification": {
-          "verified": true,
-          "method": "SOURCE_SOLUTION_REFERENCE_AND_MUTATION_INVARIANTS",
-          "detail": "Resolución temática contrastada con el apartado oficial y distractores rechazados por invariantes de signo, valor o condición.",
-          "numericalEvidence": {
-            "sourceReferenceIds": [
-              "andalucia-solution-ref-37e961f6926dd97bc00c09cfdbcb66c1"
-            ],
-            "distractorsDistinct": true
-          }
-        }
-      },
-      {
-        "id": "pau-user-and-fc24350dc009dd373a61feb93871:b",
-        "label": "b)",
-        "text": "Para a = 1 y b = 0, resuelva la ecuación matricial X ⋅ B − A = I2.",
-        "semanticAnswer": "X=[[-11,2],[-3,1]].",
-        "canonicalSemanticAnswer": "X=[[-11,2],[-3,1]].",
-        "distractors": [
-          "X=[[-10,2],[-3,1]].",
-          "No existe ningún valor o configuración que satisfaga simultáneamente las condiciones.",
-          "Todos los valores reales satisfacen las condiciones sin restricciones."
-        ],
-        "distractorEvidence": [
-          "Se altera un dato numérico de la conclusión y deja de satisfacer la comprobación.",
-          "Se intercambia un signo u orientación y se contradice el desarrollo.",
-          "Se invierte una desigualdad, variación u óptimo y falla la condición oficial."
-        ],
-        "solutionSteps": [
-          "Se identifican los datos y las condiciones del apartado.\nPara a = 1 y b = 0, resuelva la ecuación matricial X ⋅ B − A = I2.",
-          "Se aplica el procedimiento correspondiente a Matrices y determinantes, conservando signos, denominadores y restricciones.\nLos cálculos se realizan de forma exacta antes de redondear.",
-          "La simplificación conduce al resultado.\nX=[[-11,2],[-3,1]].",
-          "Se sustituye el resultado en las condiciones iniciales y se descartan las tres alternativas por error de valor, signo o condición.\nComprobación satisfactoria."
-        ],
-        "finalAnswer": "X=[[-11,2],[-3,1]].",
-        "canonicalFinalAnswer": "X=[[-11,2],[-3,1]].",
         "verification": {
           "verified": true,
           "method": "SOURCE_SOLUTION_REFERENCE_AND_MUTATION_INVARIANTS",

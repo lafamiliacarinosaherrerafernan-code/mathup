@@ -1,0 +1,609 @@
+{
+  "staticErrors": [],
+  "runtimeChecksRequired": [
+    {
+      "exerciseId": "madrid-mates-1.1.1",
+      "category": "STRUCTURED_TOKEN_REQUIRES_RUNTIME_RENDER_CHECK"
+    },
+    {
+      "exerciseId": "madrid-mates-1.1.4",
+      "category": "STRUCTURED_TOKEN_REQUIRES_RUNTIME_RENDER_CHECK"
+    },
+    {
+      "exerciseId": "madrid-mates-1.1.5",
+      "category": "STRUCTURED_TOKEN_REQUIRES_RUNTIME_RENDER_CHECK"
+    },
+    {
+      "exerciseId": "madrid-mates-1.2.3",
+      "category": "STRUCTURED_TOKEN_REQUIRES_RUNTIME_RENDER_CHECK"
+    },
+    {
+      "exerciseId": "madrid-mates-1.2.4",
+      "category": "STRUCTURED_TOKEN_REQUIRES_RUNTIME_RENDER_CHECK"
+    },
+    {
+      "exerciseId": "madrid-mates-1.2.6",
+      "category": "STRUCTURED_TOKEN_REQUIRES_RUNTIME_RENDER_CHECK"
+    },
+    {
+      "exerciseId": "madrid-mates-1.2.7",
+      "category": "STRUCTURED_TOKEN_REQUIRES_RUNTIME_RENDER_CHECK"
+    },
+    {
+      "exerciseId": "madrid-mates-1.3.6",
+      "category": "STRUCTURED_TOKEN_REQUIRES_RUNTIME_RENDER_CHECK"
+    },
+    {
+      "exerciseId": "madrid-mates-1.3.7",
+      "category": "STRUCTURED_TOKEN_REQUIRES_RUNTIME_RENDER_CHECK"
+    },
+    {
+      "exerciseId": "madrid-mates-1.4.3",
+      "category": "STRUCTURED_TOKEN_REQUIRES_RUNTIME_RENDER_CHECK"
+    },
+    {
+      "exerciseId": "madrid-mates-1.4.4",
+      "category": "STRUCTURED_TOKEN_REQUIRES_RUNTIME_RENDER_CHECK"
+    },
+    {
+      "exerciseId": "madrid-mates-1.4.7",
+      "category": "STRUCTURED_TOKEN_REQUIRES_RUNTIME_RENDER_CHECK"
+    },
+    {
+      "exerciseId": "madrid-mates-1.5.1",
+      "category": "STRUCTURED_TOKEN_REQUIRES_RUNTIME_RENDER_CHECK"
+    },
+    {
+      "exerciseId": "madrid-mates-1.5.2",
+      "category": "STRUCTURED_TOKEN_REQUIRES_RUNTIME_RENDER_CHECK"
+    },
+    {
+      "exerciseId": "madrid-mates-1.5.3",
+      "category": "STRUCTURED_TOKEN_REQUIRES_RUNTIME_RENDER_CHECK"
+    },
+    {
+      "exerciseId": "madrid-mates-1.5.8",
+      "category": "STRUCTURED_TOKEN_REQUIRES_RUNTIME_RENDER_CHECK"
+    },
+    {
+      "exerciseId": "madrid-mates-1.6.1",
+      "category": "STRUCTURED_TOKEN_REQUIRES_RUNTIME_RENDER_CHECK"
+    },
+    {
+      "exerciseId": "madrid-mates-1.6.2",
+      "category": "STRUCTURED_TOKEN_REQUIRES_RUNTIME_RENDER_CHECK"
+    },
+    {
+      "exerciseId": "madrid-mates-1.6.4",
+      "category": "STRUCTURED_TOKEN_REQUIRES_RUNTIME_RENDER_CHECK"
+    },
+    {
+      "exerciseId": "madrid-mates-1.6.5",
+      "category": "STRUCTURED_TOKEN_REQUIRES_RUNTIME_RENDER_CHECK"
+    },
+    {
+      "exerciseId": "madrid-mates-1.7.1",
+      "category": "STRUCTURED_TOKEN_REQUIRES_RUNTIME_RENDER_CHECK"
+    },
+    {
+      "exerciseId": "madrid-mates-1.7.3",
+      "category": "STRUCTURED_TOKEN_REQUIRES_RUNTIME_RENDER_CHECK"
+    },
+    {
+      "exerciseId": "madrid-mates-1.7.7",
+      "category": "STRUCTURED_TOKEN_REQUIRES_RUNTIME_RENDER_CHECK"
+    },
+    {
+      "exerciseId": "madrid-mates-1.8.1",
+      "category": "STRUCTURED_TOKEN_REQUIRES_RUNTIME_RENDER_CHECK"
+    },
+    {
+      "exerciseId": "madrid-mates-1.8.6",
+      "category": "STRUCTURED_TOKEN_REQUIRES_RUNTIME_RENDER_CHECK"
+    },
+    {
+      "exerciseId": "madrid-mates-1.8.8",
+      "category": "STRUCTURED_TOKEN_REQUIRES_RUNTIME_RENDER_CHECK"
+    },
+    {
+      "exerciseId": "madrid-mates-1.9.1",
+      "category": "STRUCTURED_TOKEN_REQUIRES_RUNTIME_RENDER_CHECK"
+    },
+    {
+      "exerciseId": "madrid-mates-1.9.3",
+      "category": "STRUCTURED_TOKEN_REQUIRES_RUNTIME_RENDER_CHECK"
+    },
+    {
+      "exerciseId": "madrid-mates-1.9.6",
+      "category": "STRUCTURED_TOKEN_REQUIRES_RUNTIME_RENDER_CHECK"
+    },
+    {
+      "exerciseId": "madrid-mates-1.10.1",
+      "category": "STRUCTURED_TOKEN_REQUIRES_RUNTIME_RENDER_CHECK"
+    },
+    {
+      "exerciseId": "madrid-mates-1.10.4",
+      "category": "STRUCTURED_TOKEN_REQUIRES_RUNTIME_RENDER_CHECK"
+    },
+    {
+      "exerciseId": "madrid-mates-1.10.5",
+      "category": "STRUCTURED_TOKEN_REQUIRES_RUNTIME_RENDER_CHECK"
+    },
+    {
+      "exerciseId": "madrid-mates-1.10.8",
+      "category": "STRUCTURED_TOKEN_REQUIRES_RUNTIME_RENDER_CHECK"
+    },
+    {
+      "exerciseId": "madrid-mates-1.10.12",
+      "category": "STRUCTURED_TOKEN_REQUIRES_RUNTIME_RENDER_CHECK"
+    },
+    {
+      "exerciseId": "madrid-mates-1.11.2",
+      "category": "STRUCTURED_TOKEN_REQUIRES_RUNTIME_RENDER_CHECK"
+    },
+    {
+      "exerciseId": "madrid-mates-1.11.3",
+      "category": "STRUCTURED_TOKEN_REQUIRES_RUNTIME_RENDER_CHECK"
+    },
+    {
+      "exerciseId": "madrid-mates-1.11.4",
+      "category": "STRUCTURED_TOKEN_REQUIRES_RUNTIME_RENDER_CHECK"
+    },
+    {
+      "exerciseId": "madrid-mates-1.11.6",
+      "category": "STRUCTURED_TOKEN_REQUIRES_RUNTIME_RENDER_CHECK"
+    },
+    {
+      "exerciseId": "madrid-mates-1.11.8",
+      "category": "STRUCTURED_TOKEN_REQUIRES_RUNTIME_RENDER_CHECK"
+    },
+    {
+      "exerciseId": "madrid-mates-1.11.11",
+      "category": "STRUCTURED_TOKEN_REQUIRES_RUNTIME_RENDER_CHECK"
+    },
+    {
+      "exerciseId": "madrid-mates-1.11.14",
+      "category": "STRUCTURED_TOKEN_REQUIRES_RUNTIME_RENDER_CHECK"
+    },
+    {
+      "exerciseId": "madrid-mates-1.12.1",
+      "category": "STRUCTURED_TOKEN_REQUIRES_RUNTIME_RENDER_CHECK"
+    },
+    {
+      "exerciseId": "madrid-mates-1.12.7",
+      "category": "STRUCTURED_TOKEN_REQUIRES_RUNTIME_RENDER_CHECK"
+    },
+    {
+      "exerciseId": "madrid-mates-1.13.1",
+      "category": "STRUCTURED_TOKEN_REQUIRES_RUNTIME_RENDER_CHECK"
+    },
+    {
+      "exerciseId": "madrid-mates-1.13.2",
+      "category": "STRUCTURED_TOKEN_REQUIRES_RUNTIME_RENDER_CHECK"
+    },
+    {
+      "exerciseId": "madrid-mates-1.13.6",
+      "category": "STRUCTURED_TOKEN_REQUIRES_RUNTIME_RENDER_CHECK"
+    },
+    {
+      "exerciseId": "madrid-mates-1.13.8",
+      "category": "STRUCTURED_TOKEN_REQUIRES_RUNTIME_RENDER_CHECK"
+    },
+    {
+      "exerciseId": "madrid-mates-1.13.9",
+      "category": "STRUCTURED_TOKEN_REQUIRES_RUNTIME_RENDER_CHECK"
+    },
+    {
+      "exerciseId": "madrid-mates-1.14.1",
+      "category": "STRUCTURED_TOKEN_REQUIRES_RUNTIME_RENDER_CHECK"
+    },
+    {
+      "exerciseId": "madrid-mates-1.14.4",
+      "category": "STRUCTURED_TOKEN_REQUIRES_RUNTIME_RENDER_CHECK"
+    },
+    {
+      "exerciseId": "madrid-mates-1.14.6",
+      "category": "STRUCTURED_TOKEN_REQUIRES_RUNTIME_RENDER_CHECK"
+    },
+    {
+      "exerciseId": "madrid-mates-1.14.10",
+      "category": "STRUCTURED_TOKEN_REQUIRES_RUNTIME_RENDER_CHECK"
+    },
+    {
+      "exerciseId": "madrid-mates-1.14.13",
+      "category": "STRUCTURED_TOKEN_REQUIRES_RUNTIME_RENDER_CHECK"
+    },
+    {
+      "exerciseId": "madrid-mates-1.15.2",
+      "category": "STRUCTURED_TOKEN_REQUIRES_RUNTIME_RENDER_CHECK"
+    },
+    {
+      "exerciseId": "madrid-mates-1.15.7",
+      "category": "STRUCTURED_TOKEN_REQUIRES_RUNTIME_RENDER_CHECK"
+    },
+    {
+      "exerciseId": "madrid-mates-1.16.3",
+      "category": "STRUCTURED_TOKEN_REQUIRES_RUNTIME_RENDER_CHECK"
+    },
+    {
+      "exerciseId": "madrid-mates-1.16.4",
+      "category": "STRUCTURED_TOKEN_REQUIRES_RUNTIME_RENDER_CHECK"
+    },
+    {
+      "exerciseId": "madrid-mates-1.16.10",
+      "category": "STRUCTURED_TOKEN_REQUIRES_RUNTIME_RENDER_CHECK"
+    },
+    {
+      "exerciseId": "madrid-mates-1.16.14",
+      "category": "STRUCTURED_TOKEN_REQUIRES_RUNTIME_RENDER_CHECK"
+    },
+    {
+      "exerciseId": "madrid-mates-1.17.1",
+      "category": "STRUCTURED_TOKEN_REQUIRES_RUNTIME_RENDER_CHECK"
+    },
+    {
+      "exerciseId": "madrid-mates-1.21.3",
+      "category": "STRUCTURED_TOKEN_REQUIRES_RUNTIME_RENDER_CHECK"
+    },
+    {
+      "exerciseId": "madrid-mates-1.22.4",
+      "category": "STRUCTURED_TOKEN_REQUIRES_RUNTIME_RENDER_CHECK"
+    },
+    {
+      "exerciseId": "madrid-mates-1.23.3",
+      "category": "STRUCTURED_TOKEN_REQUIRES_RUNTIME_RENDER_CHECK"
+    },
+    {
+      "exerciseId": "madrid-mates-1.23.5",
+      "category": "STRUCTURED_TOKEN_REQUIRES_RUNTIME_RENDER_CHECK"
+    },
+    {
+      "exerciseId": "madrid-mates-1.24.4",
+      "category": "STRUCTURED_TOKEN_REQUIRES_RUNTIME_RENDER_CHECK"
+    },
+    {
+      "exerciseId": "madrid-mates-1.24.8",
+      "category": "STRUCTURED_TOKEN_REQUIRES_RUNTIME_RENDER_CHECK"
+    },
+    {
+      "exerciseId": "madrid-mates-1.25.9",
+      "category": "STRUCTURED_TOKEN_REQUIRES_RUNTIME_RENDER_CHECK"
+    },
+    {
+      "exerciseId": "madrid-mates-1.26.5",
+      "category": "STRUCTURED_TOKEN_REQUIRES_RUNTIME_RENDER_CHECK"
+    },
+    {
+      "exerciseId": "madrid-mates-1.27.1",
+      "category": "STRUCTURED_TOKEN_REQUIRES_RUNTIME_RENDER_CHECK"
+    },
+    {
+      "exerciseId": "madrid-mates-2.1.2",
+      "category": "STRUCTURED_TOKEN_REQUIRES_RUNTIME_RENDER_CHECK"
+    },
+    {
+      "exerciseId": "madrid-mates-3.1.1",
+      "category": "STRUCTURED_TOKEN_REQUIRES_RUNTIME_RENDER_CHECK"
+    },
+    {
+      "exerciseId": "madrid-mates-3.2.2",
+      "category": "STRUCTURED_TOKEN_REQUIRES_RUNTIME_RENDER_CHECK"
+    },
+    {
+      "exerciseId": "madrid-mates-3.3.7",
+      "category": "STRUCTURED_TOKEN_REQUIRES_RUNTIME_RENDER_CHECK"
+    },
+    {
+      "exerciseId": "madrid-ccss-1.1.1",
+      "category": "STRUCTURED_TOKEN_REQUIRES_RUNTIME_RENDER_CHECK"
+    },
+    {
+      "exerciseId": "madrid-ccss-1.1.2",
+      "category": "STRUCTURED_TOKEN_REQUIRES_RUNTIME_RENDER_CHECK"
+    },
+    {
+      "exerciseId": "madrid-ccss-1.2.2",
+      "category": "STRUCTURED_TOKEN_REQUIRES_RUNTIME_RENDER_CHECK"
+    },
+    {
+      "exerciseId": "madrid-ccss-1.2.3",
+      "category": "STRUCTURED_TOKEN_REQUIRES_RUNTIME_RENDER_CHECK"
+    },
+    {
+      "exerciseId": "madrid-ccss-1.3.1",
+      "category": "STRUCTURED_TOKEN_REQUIRES_RUNTIME_RENDER_CHECK"
+    },
+    {
+      "exerciseId": "madrid-ccss-1.4.1",
+      "category": "STRUCTURED_TOKEN_REQUIRES_RUNTIME_RENDER_CHECK"
+    },
+    {
+      "exerciseId": "madrid-ccss-1.5.1",
+      "category": "STRUCTURED_TOKEN_REQUIRES_RUNTIME_RENDER_CHECK"
+    },
+    {
+      "exerciseId": "madrid-ccss-1.5.3",
+      "category": "STRUCTURED_TOKEN_REQUIRES_RUNTIME_RENDER_CHECK"
+    },
+    {
+      "exerciseId": "madrid-ccss-1.6.3",
+      "category": "STRUCTURED_TOKEN_REQUIRES_RUNTIME_RENDER_CHECK"
+    },
+    {
+      "exerciseId": "madrid-ccss-1.6.2",
+      "category": "STRUCTURED_TOKEN_REQUIRES_RUNTIME_RENDER_CHECK"
+    },
+    {
+      "exerciseId": "madrid-ccss-1.7.1",
+      "category": "STRUCTURED_TOKEN_REQUIRES_RUNTIME_RENDER_CHECK"
+    },
+    {
+      "exerciseId": "madrid-ccss-1.7.3",
+      "category": "STRUCTURED_TOKEN_REQUIRES_RUNTIME_RENDER_CHECK"
+    },
+    {
+      "exerciseId": "madrid-ccss-1.8.1",
+      "category": "STRUCTURED_TOKEN_REQUIRES_RUNTIME_RENDER_CHECK"
+    },
+    {
+      "exerciseId": "madrid-ccss-1.8.2",
+      "category": "STRUCTURED_TOKEN_REQUIRES_RUNTIME_RENDER_CHECK"
+    },
+    {
+      "exerciseId": "madrid-ccss-1.10.3",
+      "category": "STRUCTURED_TOKEN_REQUIRES_RUNTIME_RENDER_CHECK"
+    },
+    {
+      "exerciseId": "madrid-ccss-1.10.4",
+      "category": "STRUCTURED_TOKEN_REQUIRES_RUNTIME_RENDER_CHECK"
+    },
+    {
+      "exerciseId": "madrid-ccss-1.11.1",
+      "category": "STRUCTURED_TOKEN_REQUIRES_RUNTIME_RENDER_CHECK"
+    },
+    {
+      "exerciseId": "madrid-ccss-1.11.2",
+      "category": "STRUCTURED_TOKEN_REQUIRES_RUNTIME_RENDER_CHECK"
+    },
+    {
+      "exerciseId": "madrid-ccss-1.11.3",
+      "category": "STRUCTURED_TOKEN_REQUIRES_RUNTIME_RENDER_CHECK"
+    },
+    {
+      "exerciseId": "madrid-ccss-1.12.3",
+      "category": "STRUCTURED_TOKEN_REQUIRES_RUNTIME_RENDER_CHECK"
+    },
+    {
+      "exerciseId": "madrid-ccss-1.12.6",
+      "category": "STRUCTURED_TOKEN_REQUIRES_RUNTIME_RENDER_CHECK"
+    },
+    {
+      "exerciseId": "madrid-ccss-1.13.1",
+      "category": "STRUCTURED_TOKEN_REQUIRES_RUNTIME_RENDER_CHECK"
+    },
+    {
+      "exerciseId": "madrid-ccss-1.13.3",
+      "category": "STRUCTURED_TOKEN_REQUIRES_RUNTIME_RENDER_CHECK"
+    },
+    {
+      "exerciseId": "madrid-ccss-1.13.6",
+      "category": "STRUCTURED_TOKEN_REQUIRES_RUNTIME_RENDER_CHECK"
+    },
+    {
+      "exerciseId": "madrid-ccss-1.14.1",
+      "category": "STRUCTURED_TOKEN_REQUIRES_RUNTIME_RENDER_CHECK"
+    },
+    {
+      "exerciseId": "madrid-ccss-1.14.4",
+      "category": "STRUCTURED_TOKEN_REQUIRES_RUNTIME_RENDER_CHECK"
+    },
+    {
+      "exerciseId": "madrid-ccss-1.14.5",
+      "category": "STRUCTURED_TOKEN_REQUIRES_RUNTIME_RENDER_CHECK"
+    },
+    {
+      "exerciseId": "madrid-ccss-1.14.10",
+      "category": "STRUCTURED_TOKEN_REQUIRES_RUNTIME_RENDER_CHECK"
+    },
+    {
+      "exerciseId": "madrid-ccss-1.14.8",
+      "category": "STRUCTURED_TOKEN_REQUIRES_RUNTIME_RENDER_CHECK"
+    },
+    {
+      "exerciseId": "madrid-ccss-1.15.2",
+      "category": "STRUCTURED_TOKEN_REQUIRES_RUNTIME_RENDER_CHECK"
+    },
+    {
+      "exerciseId": "madrid-ccss-1.15.4",
+      "category": "STRUCTURED_TOKEN_REQUIRES_RUNTIME_RENDER_CHECK"
+    },
+    {
+      "exerciseId": "madrid-ccss-1.15.6",
+      "category": "STRUCTURED_TOKEN_REQUIRES_RUNTIME_RENDER_CHECK"
+    },
+    {
+      "exerciseId": "madrid-ccss-1.15.7",
+      "category": "STRUCTURED_TOKEN_REQUIRES_RUNTIME_RENDER_CHECK"
+    },
+    {
+      "exerciseId": "madrid-ccss-1.15.10",
+      "category": "STRUCTURED_TOKEN_REQUIRES_RUNTIME_RENDER_CHECK"
+    },
+    {
+      "exerciseId": "madrid-ccss-1.16.2",
+      "category": "STRUCTURED_TOKEN_REQUIRES_RUNTIME_RENDER_CHECK"
+    },
+    {
+      "exerciseId": "madrid-ccss-1.16.3",
+      "category": "STRUCTURED_TOKEN_REQUIRES_RUNTIME_RENDER_CHECK"
+    },
+    {
+      "exerciseId": "madrid-ccss-1.16.5",
+      "category": "STRUCTURED_TOKEN_REQUIRES_RUNTIME_RENDER_CHECK"
+    },
+    {
+      "exerciseId": "madrid-ccss-1.16.8",
+      "category": "STRUCTURED_TOKEN_REQUIRES_RUNTIME_RENDER_CHECK"
+    },
+    {
+      "exerciseId": "madrid-ccss-1.16.10",
+      "category": "STRUCTURED_TOKEN_REQUIRES_RUNTIME_RENDER_CHECK"
+    },
+    {
+      "exerciseId": "madrid-ccss-1.17.3",
+      "category": "STRUCTURED_TOKEN_REQUIRES_RUNTIME_RENDER_CHECK"
+    },
+    {
+      "exerciseId": "madrid-ccss-1.17.5",
+      "category": "STRUCTURED_TOKEN_REQUIRES_RUNTIME_RENDER_CHECK"
+    },
+    {
+      "exerciseId": "madrid-ccss-1.17.6",
+      "category": "STRUCTURED_TOKEN_REQUIRES_RUNTIME_RENDER_CHECK"
+    },
+    {
+      "exerciseId": "madrid-ccss-1.17.9",
+      "category": "STRUCTURED_TOKEN_REQUIRES_RUNTIME_RENDER_CHECK"
+    },
+    {
+      "exerciseId": "madrid-ccss-1.18.2",
+      "category": "STRUCTURED_TOKEN_REQUIRES_RUNTIME_RENDER_CHECK"
+    },
+    {
+      "exerciseId": "madrid-ccss-1.18.4",
+      "category": "STRUCTURED_TOKEN_REQUIRES_RUNTIME_RENDER_CHECK"
+    },
+    {
+      "exerciseId": "madrid-ccss-1.18.5",
+      "category": "STRUCTURED_TOKEN_REQUIRES_RUNTIME_RENDER_CHECK"
+    },
+    {
+      "exerciseId": "madrid-ccss-1.18.8",
+      "category": "STRUCTURED_TOKEN_REQUIRES_RUNTIME_RENDER_CHECK"
+    },
+    {
+      "exerciseId": "madrid-ccss-1.19.2",
+      "category": "STRUCTURED_TOKEN_REQUIRES_RUNTIME_RENDER_CHECK"
+    },
+    {
+      "exerciseId": "madrid-ccss-1.19.4",
+      "category": "STRUCTURED_TOKEN_REQUIRES_RUNTIME_RENDER_CHECK"
+    },
+    {
+      "exerciseId": "madrid-ccss-1.19.6",
+      "category": "STRUCTURED_TOKEN_REQUIRES_RUNTIME_RENDER_CHECK"
+    },
+    {
+      "exerciseId": "madrid-ccss-1.19.8",
+      "category": "STRUCTURED_TOKEN_REQUIRES_RUNTIME_RENDER_CHECK"
+    },
+    {
+      "exerciseId": "madrid-ccss-1.20.2",
+      "category": "STRUCTURED_TOKEN_REQUIRES_RUNTIME_RENDER_CHECK"
+    },
+    {
+      "exerciseId": "madrid-ccss-1.20.4",
+      "category": "STRUCTURED_TOKEN_REQUIRES_RUNTIME_RENDER_CHECK"
+    },
+    {
+      "exerciseId": "madrid-ccss-1.20.5",
+      "category": "STRUCTURED_TOKEN_REQUIRES_RUNTIME_RENDER_CHECK"
+    },
+    {
+      "exerciseId": "madrid-ccss-1.20.10",
+      "category": "STRUCTURED_TOKEN_REQUIRES_RUNTIME_RENDER_CHECK"
+    },
+    {
+      "exerciseId": "madrid-ccss-1.21.3",
+      "category": "STRUCTURED_TOKEN_REQUIRES_RUNTIME_RENDER_CHECK"
+    },
+    {
+      "exerciseId": "madrid-ccss-1.21.4",
+      "category": "STRUCTURED_TOKEN_REQUIRES_RUNTIME_RENDER_CHECK"
+    },
+    {
+      "exerciseId": "madrid-ccss-1.21.7",
+      "category": "STRUCTURED_TOKEN_REQUIRES_RUNTIME_RENDER_CHECK"
+    },
+    {
+      "exerciseId": "madrid-ccss-1.21.9",
+      "category": "STRUCTURED_TOKEN_REQUIRES_RUNTIME_RENDER_CHECK"
+    },
+    {
+      "exerciseId": "madrid-ccss-1.22.2",
+      "category": "STRUCTURED_TOKEN_REQUIRES_RUNTIME_RENDER_CHECK"
+    },
+    {
+      "exerciseId": "madrid-ccss-1.22.4",
+      "category": "STRUCTURED_TOKEN_REQUIRES_RUNTIME_RENDER_CHECK"
+    },
+    {
+      "exerciseId": "madrid-ccss-1.23.2",
+      "category": "STRUCTURED_TOKEN_REQUIRES_RUNTIME_RENDER_CHECK"
+    },
+    {
+      "exerciseId": "madrid-ccss-1.22.8",
+      "category": "STRUCTURED_TOKEN_REQUIRES_RUNTIME_RENDER_CHECK"
+    },
+    {
+      "exerciseId": "madrid-ccss-1.23.4",
+      "category": "STRUCTURED_TOKEN_REQUIRES_RUNTIME_RENDER_CHECK"
+    },
+    {
+      "exerciseId": "madrid-ccss-1.23.6",
+      "category": "STRUCTURED_TOKEN_REQUIRES_RUNTIME_RENDER_CHECK"
+    },
+    {
+      "exerciseId": "madrid-ccss-1.23.8",
+      "category": "STRUCTURED_TOKEN_REQUIRES_RUNTIME_RENDER_CHECK"
+    },
+    {
+      "exerciseId": "madrid-ccss-1.23.10",
+      "category": "STRUCTURED_TOKEN_REQUIRES_RUNTIME_RENDER_CHECK"
+    },
+    {
+      "exerciseId": "madrid-ccss-1.24.2",
+      "category": "STRUCTURED_TOKEN_REQUIRES_RUNTIME_RENDER_CHECK"
+    },
+    {
+      "exerciseId": "madrid-ccss-1.24.6",
+      "category": "STRUCTURED_TOKEN_REQUIRES_RUNTIME_RENDER_CHECK"
+    },
+    {
+      "exerciseId": "madrid-ccss-1.24.8",
+      "category": "STRUCTURED_TOKEN_REQUIRES_RUNTIME_RENDER_CHECK"
+    },
+    {
+      "exerciseId": "madrid-ccss-1.24.10",
+      "category": "STRUCTURED_TOKEN_REQUIRES_RUNTIME_RENDER_CHECK"
+    },
+    {
+      "exerciseId": "madrid-ccss-1.25.3",
+      "category": "STRUCTURED_TOKEN_REQUIRES_RUNTIME_RENDER_CHECK"
+    },
+    {
+      "exerciseId": "madrid-ccss-1.25.6",
+      "category": "STRUCTURED_TOKEN_REQUIRES_RUNTIME_RENDER_CHECK"
+    },
+    {
+      "exerciseId": "madrid-ccss-1.25.9",
+      "category": "STRUCTURED_TOKEN_REQUIRES_RUNTIME_RENDER_CHECK"
+    },
+    {
+      "exerciseId": "madrid-ccss-1.25.12",
+      "category": "STRUCTURED_TOKEN_REQUIRES_RUNTIME_RENDER_CHECK"
+    },
+    {
+      "exerciseId": "madrid-ccss-1.25.15",
+      "category": "STRUCTURED_TOKEN_REQUIRES_RUNTIME_RENDER_CHECK"
+    },
+    {
+      "exerciseId": "madrid-ccss-1.26.1",
+      "category": "STRUCTURED_TOKEN_REQUIRES_RUNTIME_RENDER_CHECK"
+    },
+    {
+      "exerciseId": "madrid-ccss-1.26.5",
+      "category": "STRUCTURED_TOKEN_REQUIRES_RUNTIME_RENDER_CHECK"
+    }
+  ]
+}

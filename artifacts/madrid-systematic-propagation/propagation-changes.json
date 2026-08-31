@@ -1,0 +1,51 @@
+{
+  "generatedAt": "2026-08-31T17:51:59.174Z",
+  "changes": 6,
+  "exercises": 4,
+  "byCategory": {
+    "CANONICAL_MATH_STRUCTURE": [
+      {
+        "courseId": "2bach-ccss",
+        "exerciseId": "madrid-ccss-1.2.1",
+        "category": "CANONICAL_MATH_STRUCTURE",
+        "detail": "statement"
+      }
+    ],
+    "SEMANTIC_RECOVERY": [
+      {
+        "courseId": "2bach-ccss",
+        "exerciseId": "madrid-ccss-1.2.1",
+        "category": "SEMANTIC_RECOVERY",
+        "detail": "restored Modelo-Opción A-2001 with three parts"
+      },
+      {
+        "courseId": "2bach-ccss",
+        "exerciseId": "madrid-ccss-3.27.1",
+        "category": "SEMANTIC_RECOVERY",
+        "detail": "restored four answers from verified checkpoint"
+      }
+    ],
+    "FRACTION_RENDER": [
+      {
+        "courseId": "2bach-mates",
+        "exerciseId": "madrid-mates-1.1.1",
+        "category": "FRACTION_RENDER",
+        "detail": "c) options"
+      },
+      {
+        "courseId": "2bach-mates",
+        "exerciseId": "madrid-mates-2.1.2",
+        "category": "FRACTION_RENDER",
+        "detail": "options"
+      }
+    ],
+    "INTERNAL_TOKEN_VISIBLE": [
+      {
+        "courseId": "2bach-ccss",
+        "exerciseId": "madrid-ccss-3.27.1",
+        "category": "INTERNAL_TOKEN_VISIBLE",
+        "detail": "solution tags removed"
+      }
+    ]
+  }
+}

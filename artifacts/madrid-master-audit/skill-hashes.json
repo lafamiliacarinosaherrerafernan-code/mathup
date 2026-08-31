@@ -1,0 +1,29 @@
+{
+  "changedDuringMadridAudit": true,
+  "files": [
+    {
+      "path": ".agents/skills/skill-editor-enunciados/SKILL.md",
+      "sha256": "160728a851e207d5536f9ffb98c6d7d7b960060cc7df7294d5d8aa5a4e37dc49"
+    },
+    {
+      "path": ".agents/skills/skill-editor-enunciados/references/clasificacion.md",
+      "sha256": "f02ec6bea405f61197cf3b4f88e7c9e0796e140b4d5b709dc9c73bd0b2e1c6f3"
+    },
+    {
+      "path": ".agents/skills/skill-editor-enunciados/references/control-calidad.md",
+      "sha256": "7f06b4b446913d65fac0c2bf7313a3ec35cc958ffccea35b11cb3903f0fac8d8"
+    },
+    {
+      "path": ".agents/skills/solucion-de-ejercicios/SKILL.md",
+      "sha256": "c563f5db9543b170f19e41882bb0c7ce4c65afb60365e8b85c487468e3f15e39"
+    },
+    {
+      "path": ".agents/skills/solucion-de-ejercicios/references/CONTRATO-MAESTRO-SOLUCIONES.md",
+      "sha256": "e44c8082fb284b7d0b22331d58e721ee4c19c18fe8ce862ab8d0b603f06605f9"
+    },
+    {
+      "path": ".agents/skills/solucion-de-ejercicios/references/policy-matrix.json",
+      "sha256": "ba24ddb6a0088b1ce721a73c38523ad9312c918195c09c51fc46eab80a5b686d"
+    }
+  ]
+}

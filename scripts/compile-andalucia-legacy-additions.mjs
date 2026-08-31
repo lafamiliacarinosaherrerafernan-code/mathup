@@ -171,6 +171,20 @@ const splitLabeled = (value) => {
   })).filter((part) => part.text);
 };
 const stripScore = (value) => clean(value).replace(/^(?:\(?\[?\s*\d+(?:[.,'’]\d+)?\s*puntos?\s*\]?\)?\s*)+/i, '').trim();
+const deduplicateEquivalentParts = (parts, context) => {
+  const unique = [];
+  const byId = new Map();
+  for (const part of parts) {
+    const previous = byId.get(part.id);
+    if (!previous) {
+      byId.set(part.id, part);
+      unique.push(part);
+      continue;
+    }
+    if (JSON.stringify(previous) !== JSON.stringify(part)) throw new Error(`${context}: apartados con el mismo id y contenido distinto: ${part.id}`);
+  }
+  parts.splice(0, parts.length, ...unique);
+};
 const compileParts = (exerciseId, group, topic) => {
   const compiled = [];
   for (const [referenceIndex, reference] of group.entries()) {
@@ -250,6 +264,7 @@ for (const doc of oldDocs) {
         }
       } else if (parts.length === 1) parts[0].text = prompt;
     }
+    deduplicateEquivalentParts(parts, `${doc.fileName} ${first.option}${first.exerciseNumber}`);
     if (parts.some((part) => part.distractors.length !== 3)) throw new Error(`${doc.fileName} ${first.option}${first.exerciseNumber}: no se generaron tres distractores distintos`);
     const requiresNormal = /normal|intervalo de confianza|tamaño muestral|tamano muestral|inferenc/i.test(`${prompt} ${classification.topic}`);
     records.push({

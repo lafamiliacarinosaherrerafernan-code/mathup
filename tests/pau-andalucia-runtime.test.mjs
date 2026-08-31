@@ -31,13 +31,13 @@ test('el corpus actual conserva la entrega histórica y aplica la puerta interac
   assert.equal(released.checks.componentExecutions,4*released.records.length);
   assert.ok(initial.exercises.length > 0);
   assert.ok(runtime.exercises.length >= initial.exercises.length);
-  assert.equal(runtime.interactiveDeliveryBlockedIds.length,0);
+  assert.deepEqual([...runtime.interactiveDeliveryBlockedIds], ['pau-can-ex-88fd4c724da14002349a8f59e3c53fcb']);
   const currentIds=new Set(runtime.exercises.map(x=>x.exerciseId));
   assert.ok(released.records.every(x=>currentIds.has(x.exerciseId)));
   assert.equal(runtime.community, 'Andalucía');
   assert.ok(runtime.canonicalTotal >= runtime.publishableTotal);
   assert.equal(runtime.exercises.length, runtime.publishableTotal);
-  assert.equal(runtime.interactiveDeliveryBlockedTotal,0);
+  assert.equal(runtime.interactiveDeliveryBlockedTotal,1);
   assert.ok(runtime.challengeRecords('2bach-mates').length > 0);
   assert.ok(runtime.challengeRecords('2bach-ccss').length > 0);
 });

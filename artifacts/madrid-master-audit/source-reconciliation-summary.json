@@ -1,0 +1,54 @@
+{
+  "generatedAt": "2026-08-31T19:13:12.671Z",
+  "status": "MADRID_AUDIT_EXECUTED",
+  "checkpoint": "004b9a53aeeabb77b15be97549fe296a44f5c0ed",
+  "sourceFiles": 81,
+  "expectedSourceFiles": 81,
+  "courses": {
+    "2bach-mates": {
+      "subject": "Matemáticas II",
+      "sourceRecords": 831,
+      "excludedOtherCommunity": 6,
+      "enabledExercises": 825,
+      "expectedEnabledExercises": 825,
+      "sourceSubparts": 1925,
+      "canonicalSubparts": 1925,
+      "legacyOcrDetectedSubparts": 1881,
+      "legacyOcrCountDisagreements": 44,
+      "sourceMismatches": 0,
+      "optionErrors": 0,
+      "solutionErrors": 0,
+      "methodologyNeedsRegeneration": 0,
+      "methodologyAmbiguous": 50,
+      "renderErrors": 0
+    },
+    "2bach-ccss": {
+      "subject": "CCSS II",
+      "sourceRecords": 903,
+      "excludedOtherCommunity": 0,
+      "enabledExercises": 903,
+      "expectedEnabledExercises": 903,
+      "sourceSubparts": 1853,
+      "canonicalSubparts": 1853,
+      "legacyOcrDetectedSubparts": 1758,
+      "legacyOcrCountDisagreements": 71,
+      "sourceMismatches": 0,
+      "optionErrors": 0,
+      "solutionErrors": 0,
+      "methodologyNeedsRegeneration": 0,
+      "methodologyAmbiguous": 29,
+      "renderErrors": 0
+    }
+  },
+  "gates": {
+    "sourceInventoryComplete": true,
+    "enabledCountsMatch": true,
+    "sourceSubpartsMatchCanonical": true,
+    "sourceMismatches": 0,
+    "optionErrors": 0,
+    "solutionErrors": 0,
+    "renderErrorsStatic": 0
+  },
+  "authority": "USER_PROVIDED_MADRID_DOCUMENTS_ONLY",
+  "oldInternetSources": "NOT_USED_FOR_MADRID_AUTHORITY"
+}

@@ -1,0 +1,676 @@
+{
+  "generatedAt": "2026-08-31T19:13:12.034Z",
+  "authorityRule": "USER_PROVIDED_MADRID_DOCUMENTS_ONLY",
+  "totalFiles": 81,
+  "expectedTotalFiles": 81,
+  "files": [
+    {
+      "path": "documentos/PAU Comunidades/MADRID/EXAMENES CCSS II/2017-2018 Extraordinaria Matemáticas aplicadas a las Ciencias Sociales.pdf",
+      "bytes": 403476,
+      "sha256": "1338c70dd7348c6a022e11d8085eacdeb6afe75791f219ae52d1b330a0679a4d",
+      "subject": "CCSS II",
+      "documentType": "EXAM",
+      "authority": true
+    },
+    {
+      "path": "documentos/PAU Comunidades/MADRID/EXAMENES CCSS II/2017-2018 Ordinaria Matemáticas aplicadas a las Ciencias Sociales.pdf",
+      "bytes": 392993,
+      "sha256": "51254142f6eca4c4bdce50602c2d37065b361a99e806b9deca7ea89951c66452",
+      "subject": "CCSS II",
+      "documentType": "EXAM",
+      "authority": true
+    },
+    {
+      "path": "documentos/PAU Comunidades/MADRID/EXAMENES CCSS II/2018-2019 Extraordinaria Matemáticas aplicadas Ciencias Sociales.pdf",
+      "bytes": 132226,
+      "sha256": "5e197907a72a1d986fbfc44fd7ec385e5f756828b3ea15b438d69d34450e3fd6",
+      "subject": "CCSS II",
+      "documentType": "EXAM",
+      "authority": true
+    },
+    {
+      "path": "documentos/PAU Comunidades/MADRID/EXAMENES CCSS II/2018-2019 Ordinaria Matemáticas aplicadas Ciencias Sociales.pdf",
+      "bytes": 134368,
+      "sha256": "a097ce6ec1596e0c5e7b66e2de9f86fb81a1b7d728460e2d8c176c1357fff07c",
+      "subject": "CCSS II",
+      "documentType": "EXAM",
+      "authority": true
+    },
+    {
+      "path": "documentos/PAU Comunidades/MADRID/EXAMENES CCSS II/2019-2020 Extraordinaria Matemáticas aplicadas a las Ciencias Sociales.pdf",
+      "bytes": 583433,
+      "sha256": "410eb6e7e32ca2f85a936e26608cddd2fb2e15ef75a69b32440981ef4369094a",
+      "subject": "CCSS II",
+      "documentType": "EXAM",
+      "authority": true
+    },
+    {
+      "path": "documentos/PAU Comunidades/MADRID/EXAMENES CCSS II/2019-2020 Ordinaria Matemáticas Aplicadas a las Ciencias Sociales (coincidencias).pdf",
+      "bytes": 254411,
+      "sha256": "9d3af0feedcc2870814553dd58185441e967aec5748e7a182fdfc2b48aef2507",
+      "subject": "CCSS II",
+      "documentType": "EXAM",
+      "authority": true
+    },
+    {
+      "path": "documentos/PAU Comunidades/MADRID/EXAMENES CCSS II/2019-2020 Ordinaria Matemáticas Aplicadas a las Ciencias Sociales.pdf",
+      "bytes": 766644,
+      "sha256": "bed745f0e9e34b9d5c41311b1deef57059caaaacf32a818d480d9328d2a0ae99",
+      "subject": "CCSS II",
+      "documentType": "EXAM",
+      "authority": true
+    },
+    {
+      "path": "documentos/PAU Comunidades/MADRID/EXAMENES CCSS II/2020-2021 Extraordinaria Matemáticas aplicadas Ciencias Sociales coincidencias.pdf",
+      "bytes": 243436,
+      "sha256": "6c6341a54a51b2ca14cb03317d655fbc6b7e6d219a2c65732cfab3946893946b",
+      "subject": "CCSS II",
+      "documentType": "EXAM",
+      "authority": true
+    },
+    {
+      "path": "documentos/PAU Comunidades/MADRID/EXAMENES CCSS II/2020-2021 Extraordinaria Soluciones Matemáticas aplicadas Ciencias Sociales.pdf",
+      "bytes": 429296,
+      "sha256": "b5ba833f52460e79216904b0ccede832480a14f6575a36987a22dc323fc856f5",
+      "subject": "CCSS II",
+      "documentType": "SOLUTIONS",
+      "authority": true
+    },
+    {
+      "path": "documentos/PAU Comunidades/MADRID/EXAMENES CCSS II/2020-2021 Ordinaria Soluciones Matemáticas aplicadas a las Ciencias Sociales.pdf",
+      "bytes": 406955,
+      "sha256": "293ed80d4452343cbf48a1cd8468a9f0c78c8441803936704f085f8403e1aad9",
+      "subject": "CCSS II",
+      "documentType": "SOLUTIONS",
+      "authority": true
+    },
+    {
+      "path": "documentos/PAU Comunidades/MADRID/EXAMENES CCSS II/2020-2021 Ordinaria Soluciones Matemáticas aplicadas Ciencias Sociales coincidencias.pdf",
+      "bytes": 340988,
+      "sha256": "79d86f9f4faabc8cbce92aa3f00f94c4d653f1db660ab1775c6c01dd350d4a80",
+      "subject": "CCSS II",
+      "documentType": "SOLUTIONS",
+      "authority": true
+    },
+    {
+      "path": "documentos/PAU Comunidades/MADRID/EXAMENES CCSS II/2021-2022 Extraordinaria Soluciones Matemáticas Aplicadas a las Ciencias Sociales II coincidencias.pdf",
+      "bytes": 744984,
+      "sha256": "8efb636f95fad061edb796adc44a4486177e3bc5c1e78012e35711b5a5fc394c",
+      "subject": "CCSS II",
+      "documentType": "SOLUTIONS",
+      "authority": true
+    },
+    {
+      "path": "documentos/PAU Comunidades/MADRID/EXAMENES CCSS II/2021-2022 Extraordinaria Soluciones Matemáticas Aplicadas a las Ciencias Sociales II.pdf",
+      "bytes": 631645,
+      "sha256": "561accfa0c573c57b6664f5443bbc04bc314384c1a4ff9c496d33f71f03d916a",
+      "subject": "CCSS II",
+      "documentType": "SOLUTIONS",
+      "authority": true
+    },
+    {
+      "path": "documentos/PAU Comunidades/MADRID/EXAMENES CCSS II/2021-2022 Ordinaria Soluciones Matemáticas aplicadas Ciencias Sociales coincidencias.pdf",
+      "bytes": 701294,
+      "sha256": "df121fc5593aa379cf6afc9f18cd263e52e0d7f913f4a4cb4aa51b48593b4a8e",
+      "subject": "CCSS II",
+      "documentType": "SOLUTIONS",
+      "authority": true
+    },
+    {
+      "path": "documentos/PAU Comunidades/MADRID/EXAMENES CCSS II/2021-2022 Ordinaria Soluciones Matemáticas aplicadas Ciencias Sociales.pdf",
+      "bytes": 799452,
+      "sha256": "d631c45f31074d16e5db6df247e808bbc609835dc015c5638ef6861be07a3e9c",
+      "subject": "CCSS II",
+      "documentType": "SOLUTIONS",
+      "authority": true
+    },
+    {
+      "path": "documentos/PAU Comunidades/MADRID/EXAMENES CCSS II/2022-2023 Extraordinaria Soluciones Matemáticas Aplicadas a las Ciencias Sociales II coincidencias.pdf",
+      "bytes": 251190,
+      "sha256": "adcf4cce7ab182b248d196f8b5f00211610b7d507cbc1ee8df83df1c98ce46d8",
+      "subject": "CCSS II",
+      "documentType": "SOLUTIONS",
+      "authority": true
+    },
+    {
+      "path": "documentos/PAU Comunidades/MADRID/EXAMENES CCSS II/2022-2023 Extraordinaria Soluciones Matemáticas Aplicadas a las Ciencias Sociales II.pdf",
+      "bytes": 435029,
+      "sha256": "950402179b3c818b1e411d700ddad3b675f50adcb2e363567f8092d610ab32cb",
+      "subject": "CCSS II",
+      "documentType": "SOLUTIONS",
+      "authority": true
+    },
+    {
+      "path": "documentos/PAU Comunidades/MADRID/EXAMENES CCSS II/2022-2023 Ordinaria Soluciones Matemáticas Aplicadas a las Ciencias Sociales II coincidencias.pdf",
+      "bytes": 237141,
+      "sha256": "4903ce9453e1542690df6cc6907e80b3428b6fa25dc0372cc04a85e67e92c9a7",
+      "subject": "CCSS II",
+      "documentType": "SOLUTIONS",
+      "authority": true
+    },
+    {
+      "path": "documentos/PAU Comunidades/MADRID/EXAMENES CCSS II/2022-2023 Ordinaria Soluciones Matemáticas Aplicadas a las Ciencias Sociales II.pdf",
+      "bytes": 763080,
+      "sha256": "1a2aa25a8b1e0ee3f585e76d4b07ed7cd03d0194ca9859564dfac2d6417d2c66",
+      "subject": "CCSS II",
+      "documentType": "SOLUTIONS",
+      "authority": true
+    },
+    {
+      "path": "documentos/PAU Comunidades/MADRID/EXAMENES CCSS II/2023-2024 Extraordinaria Soluciones Matemáticas Aplicadas a las Ciencias Sociales II coincidencias.pdf",
+      "bytes": 677967,
+      "sha256": "aedce0fb260e02046e72427220c4a6fc7ac505e1f93032741d24996b44d9b4fa",
+      "subject": "CCSS II",
+      "documentType": "SOLUTIONS",
+      "authority": true
+    },
+    {
+      "path": "documentos/PAU Comunidades/MADRID/EXAMENES CCSS II/2023-2024 Extraordinaria Soluciones Matemáticas Aplicadas a las Ciencias Sociales II.pdf",
+      "bytes": 789999,
+      "sha256": "c513f169e3f756ec82dbe01a28da0433786c6f8bdbc2be5ce418599e68d595d1",
+      "subject": "CCSS II",
+      "documentType": "SOLUTIONS",
+      "authority": true
+    },
+    {
+      "path": "documentos/PAU Comunidades/MADRID/EXAMENES CCSS II/2023-2024 Ordinaria Soluciones Matemáticas Aplicadas a las Ciencias Sociales II coincidencias.pdf",
+      "bytes": 827792,
+      "sha256": "52352e2afa98f55c7ea9c1a190c617cc4206da1fd447cf9d20e419ab5c61653e",
+      "subject": "CCSS II",
+      "documentType": "SOLUTIONS",
+      "authority": true
+    },
+    {
+      "path": "documentos/PAU Comunidades/MADRID/EXAMENES CCSS II/2023-2024 Ordinaria Soluciones Matemáticas Aplicadas a las Ciencias Sociales II.pdf",
+      "bytes": 630217,
+      "sha256": "940a4f473b498810494345f029141539a746d65f7cfc51967cd71cfcf88ca95e",
+      "subject": "CCSS II",
+      "documentType": "SOLUTIONS",
+      "authority": true
+    },
+    {
+      "path": "documentos/PAU Comunidades/MADRID/EXAMENES CCSS II/2024-2025 Extraordinaria Soluciones Matemáticas Aplicadas a las Ciencias Sociales II coincidencias.pdf",
+      "bytes": 706561,
+      "sha256": "b866bc71252d11f2f3d26247e28fa901dab947ef004aaec81e751f7237e80ca6",
+      "subject": "CCSS II",
+      "documentType": "SOLUTIONS",
+      "authority": true
+    },
+    {
+      "path": "documentos/PAU Comunidades/MADRID/EXAMENES CCSS II/2024-2025 Extraordinaria Soluciones Matemáticas Aplicadas a las Ciencias Sociales II.pdf",
+      "bytes": 917126,
+      "sha256": "adb5bb1ba9d7634070988f79da73a3142d29e3208974112e9b2664c44df26c4c",
+      "subject": "CCSS II",
+      "documentType": "SOLUTIONS",
+      "authority": true
+    },
+    {
+      "path": "documentos/PAU Comunidades/MADRID/EXAMENES CCSS II/2024-2025 Ordinaria Soluciones Matemáticas Aplicadas a las Ciencias Sociales II coincidencias.pdf",
+      "bytes": 930924,
+      "sha256": "be49a8608a78bec270af34e4a8b88aee879971fe4d7e18ee027cf9ca9586cf6f",
+      "subject": "CCSS II",
+      "documentType": "SOLUTIONS",
+      "authority": true
+    },
+    {
+      "path": "documentos/PAU Comunidades/MADRID/EXAMENES CCSS II/2024-2025 Ordinaria Soluciones Matemáticas Aplicadas a las Ciencias Sociales II.pdf",
+      "bytes": 594427,
+      "sha256": "d13f41b59b574ea5f769c5fa7e33c12f6c781eb7b68018c5c93ae323ee5b4e00",
+      "subject": "CCSS II",
+      "documentType": "SOLUTIONS",
+      "authority": true
+    },
+    {
+      "path": "documentos/PAU Comunidades/MADRID/EXAMENES CCSS II/2025-2026 Ordinaria Soluciones Matemáticas Aplicadas a las Ciencias Sociales II (3).pdf",
+      "bytes": 701231,
+      "sha256": "b7ba0c1201c5a627e906e162961573be09526c6c258212cb6b1fcccfd17afc44",
+      "subject": "CCSS II",
+      "documentType": "SOLUTIONS",
+      "authority": true
+    },
+    {
+      "path": "documentos/PAU Comunidades/MADRID/EXAMENES MATES II/2Bach.Mates_II.Selectividad.04-05.Junio.pdf",
+      "bytes": 103112,
+      "sha256": "8d649329de8f75919ea95cb9b6c966a8b18e2200854a6c1e527612a421bab15a",
+      "subject": "Matemáticas II",
+      "documentType": "EXAM",
+      "authority": true
+    },
+    {
+      "path": "documentos/PAU Comunidades/MADRID/EXAMENES MATES II/2Bach.Mates_II.Selectividad.04-05.Septiembre.pdf",
+      "bytes": 257026,
+      "sha256": "b22636f31e9400e917af20e226fc2e61fa1152bac4a2d873af6606b8779ffb82",
+      "subject": "Matemáticas II",
+      "documentType": "EXAM",
+      "authority": true
+    },
+    {
+      "path": "documentos/PAU Comunidades/MADRID/EXAMENES MATES II/2Bach.Mates_II.Selectividad.05-06.Junio.pdf",
+      "bytes": 60193,
+      "sha256": "8baf359df60786a9e80554d82ef92be7b10a280c1075821723874dff73441299",
+      "subject": "Matemáticas II",
+      "documentType": "EXAM",
+      "authority": true
+    },
+    {
+      "path": "documentos/PAU Comunidades/MADRID/EXAMENES MATES II/2Bach.Mates_II.Selectividad.05-06.Septiembre.pdf",
+      "bytes": 73565,
+      "sha256": "d3bf3d77112a36a5190dbd8c8f70090a1836b50e2c7aa06690499c56a5124147",
+      "subject": "Matemáticas II",
+      "documentType": "EXAM",
+      "authority": true
+    },
+    {
+      "path": "documentos/PAU Comunidades/MADRID/EXAMENES MATES II/2Bach.Mates_II.Selectividad.06-07.Junio.pdf",
+      "bytes": 34570,
+      "sha256": "93b4627e2b8f5bcba464ff76665401135b27181be3f7dc0c529f917215f0eb7e",
+      "subject": "Matemáticas II",
+      "documentType": "EXAM",
+      "authority": true
+    },
+    {
+      "path": "documentos/PAU Comunidades/MADRID/EXAMENES MATES II/2Bach.Mates_II.Selectividad.06-07.Septiembre.pdf",
+      "bytes": 102240,
+      "sha256": "af1fc95ee8f8da82c43794b80fb0faf57e1aefc75c61d90a4162768e75bb720b",
+      "subject": "Matemáticas II",
+      "documentType": "EXAM",
+      "authority": true
+    },
+    {
+      "path": "documentos/PAU Comunidades/MADRID/EXAMENES MATES II/2Bach.Mates_II.Selectividad.07-08.Junio.pdf",
+      "bytes": 494439,
+      "sha256": "ee79e6d4696bc0fa6c7586e365c238f1be1e463451780cba516c9eb4c6ec7feb",
+      "subject": "Matemáticas II",
+      "documentType": "EXAM",
+      "authority": true
+    },
+    {
+      "path": "documentos/PAU Comunidades/MADRID/EXAMENES MATES II/2Bach.Mates_II.Selectividad.07-08.Septiembre.pdf",
+      "bytes": 742212,
+      "sha256": "5843d297d768a6edb645ff0548a20f8be6b7caa44dba827190357570da254c0a",
+      "subject": "Matemáticas II",
+      "documentType": "EXAM",
+      "authority": true
+    },
+    {
+      "path": "documentos/PAU Comunidades/MADRID/EXAMENES MATES II/2Bach.Mates_II.Selectividad.08-09.Junio.pdf",
+      "bytes": 77536,
+      "sha256": "15b7e99767e24cdbd7ca7efcabc1bc4e63d4a13477f1a682f6ad659b4177734f",
+      "subject": "Matemáticas II",
+      "documentType": "EXAM",
+      "authority": true
+    },
+    {
+      "path": "documentos/PAU Comunidades/MADRID/EXAMENES MATES II/2Bach.Mates_II.Selectividad.08-09.Septiembre.pdf",
+      "bytes": 72152,
+      "sha256": "bc26dffef2f481fbf946a9c3f395009b3252b438cf7cc5f2f477944426fb0c3b",
+      "subject": "Matemáticas II",
+      "documentType": "EXAM",
+      "authority": true
+    },
+    {
+      "path": "documentos/PAU Comunidades/MADRID/EXAMENES MATES II/2Bach.Mates_II.Selectividad.09-10.Junio.Especifica.pdf",
+      "bytes": 124740,
+      "sha256": "c9abf8fa527a105ae72aa1894c88341d1dec3e05eb664998c84f13a88671c3f1",
+      "subject": "Matemáticas II",
+      "documentType": "EXAM",
+      "authority": true
+    },
+    {
+      "path": "documentos/PAU Comunidades/MADRID/EXAMENES MATES II/2Bach.Mates_II.Selectividad.09-10.Septiembre.Especifica.pdf",
+      "bytes": 125392,
+      "sha256": "916bb00a425fb1913291d2678c51c3d1d20db5241ed94a1e3d54bab347ac775d",
+      "subject": "Matemáticas II",
+      "documentType": "EXAM",
+      "authority": true
+    },
+    {
+      "path": "documentos/PAU Comunidades/MADRID/EXAMENES MATES II/2Bach.Mates_II.Selectividad.10-11.Junio.pdf",
+      "bytes": 613452,
+      "sha256": "5d45ceaf3b825d29d0129eca07d97115fb839f7fa172d34858758d7172679853",
+      "subject": "Matemáticas II",
+      "documentType": "EXAM",
+      "authority": true
+    },
+    {
+      "path": "documentos/PAU Comunidades/MADRID/EXAMENES MATES II/2Bach.Mates_II.Selectividad.10-11.Septiembre.pdf",
+      "bytes": 119167,
+      "sha256": "94889a678013a51c7e02dd27a6f6bcc96369d552a2abba7ded7098347ce47eb5",
+      "subject": "Matemáticas II",
+      "documentType": "EXAM",
+      "authority": true
+    },
+    {
+      "path": "documentos/PAU Comunidades/MADRID/EXAMENES MATES II/2Bach.Mates_II.Selectividad.11-12.Junio.pdf",
+      "bytes": 536283,
+      "sha256": "64a6155dad7af6a7101c6af994e20494b835fff9adb5be9b2cad174092b2708f",
+      "subject": "Matemáticas II",
+      "documentType": "EXAM",
+      "authority": true
+    },
+    {
+      "path": "documentos/PAU Comunidades/MADRID/EXAMENES MATES II/2Bach.Mates_II.Selectividad.11-12.Septiembre.pdf",
+      "bytes": 37829,
+      "sha256": "f448e6d39a66a93ff0d53611d4ad47a4f0d434bb9de0c1702ee0e3f858b03300",
+      "subject": "Matemáticas II",
+      "documentType": "EXAM",
+      "authority": true
+    },
+    {
+      "path": "documentos/PAU Comunidades/MADRID/EXAMENES MATES II/2Bach.Mates_II.Selectividad.12-13.Junio.pdf",
+      "bytes": 31581,
+      "sha256": "4f74dc5aea5b9045342985b4f46fd0307cc0572a7052659b202db37dfd762df0",
+      "subject": "Matemáticas II",
+      "documentType": "EXAM",
+      "authority": true
+    },
+    {
+      "path": "documentos/PAU Comunidades/MADRID/EXAMENES MATES II/2Bach.Mates_II.Selectividad.12-13.Septiembre.pdf",
+      "bytes": 34479,
+      "sha256": "883aa1c5e7026ad5f49c7c696c1da77b1a338ce454b4a0a39c809b1a1b180968",
+      "subject": "Matemáticas II",
+      "documentType": "EXAM",
+      "authority": true
+    },
+    {
+      "path": "documentos/PAU Comunidades/MADRID/EXAMENES MATES II/2Bach.Mates_II.Selectividad.13-14.Junio.pdf",
+      "bytes": 35071,
+      "sha256": "9117305d0616c837b32b5d1f230e60d51c38e1f2251369a04da7f2cfe6c0f716",
+      "subject": "Matemáticas II",
+      "documentType": "EXAM",
+      "authority": true
+    },
+    {
+      "path": "documentos/PAU Comunidades/MADRID/EXAMENES MATES II/2Bach.Mates_II.Selectividad.13-14.Septiembre.pdf",
+      "bytes": 53301,
+      "sha256": "610029042badd633066ab328f07b71c9d9fa370423a726c7bf8f13d4359f6d5b",
+      "subject": "Matemáticas II",
+      "documentType": "EXAM",
+      "authority": true
+    },
+    {
+      "path": "documentos/PAU Comunidades/MADRID/EXAMENES MATES II/2Bach.Mates_II.Selectividad.14-15.Junio.pdf",
+      "bytes": 122171,
+      "sha256": "8b393174b0b96f0921c2d01b4072b8ebc44e487009e0794ee9a145f45fa313ba",
+      "subject": "Matemáticas II",
+      "documentType": "EXAM",
+      "authority": true
+    },
+    {
+      "path": "documentos/PAU Comunidades/MADRID/EXAMENES MATES II/2Bach.Mates_II.Selectividad.14-15.Septiembre.pdf",
+      "bytes": 123608,
+      "sha256": "35845c2f2d2398fa09c6305c304114b80a7ad5c8a0ea4c21e3c410674ffc607d",
+      "subject": "Matemáticas II",
+      "documentType": "EXAM",
+      "authority": true
+    },
+    {
+      "path": "documentos/PAU Comunidades/MADRID/EXAMENES MATES II/2Bach.Mates_II.Selectividad.15-16.Junio.pdf",
+      "bytes": 120658,
+      "sha256": "2a00cf18d9265225312d725a3f3fa43e5f45c8f17b5af2c414d216b4b5943a75",
+      "subject": "Matemáticas II",
+      "documentType": "EXAM",
+      "authority": true
+    },
+    {
+      "path": "documentos/PAU Comunidades/MADRID/EXAMENES MATES II/2Bach.Mates_II.Selectividad.15-16.Septiembre.pdf",
+      "bytes": 195103,
+      "sha256": "3ae71eaf7421595dd56c9b26857222f12cc85b5c198a5f850221338f4cc931e9",
+      "subject": "Matemáticas II",
+      "documentType": "EXAM",
+      "authority": true
+    },
+    {
+      "path": "documentos/PAU Comunidades/MADRID/EXAMENES MATES II/2Bach.Mates_II.Selectividad.16-17.Junio.pdf",
+      "bytes": 138860,
+      "sha256": "6fa35ad6d24cc3e5b33f3fa350398a92185d396a8093205ed559398fcc5d6a8b",
+      "subject": "Matemáticas II",
+      "documentType": "EXAM",
+      "authority": true
+    },
+    {
+      "path": "documentos/PAU Comunidades/MADRID/EXAMENES MATES II/2Bach.Mates_II.Selectividad.16-17.Septiembre.pdf",
+      "bytes": 125606,
+      "sha256": "dc551370d82b5894e628bf6d8616a34945dff8f1fe42964a3aae3bf4d358f319",
+      "subject": "Matemáticas II",
+      "documentType": "EXAM",
+      "authority": true
+    },
+    {
+      "path": "documentos/PAU Comunidades/MADRID/EXAMENES MATES II/2Bach.Mates_II.Selectividad.17-18.Julio.pdf",
+      "bytes": 482500,
+      "sha256": "3ef4c593ef7195a4f8c40a5eb54acd1cefa3397a60a17fbdac5558e3c608e6e9",
+      "subject": "Matemáticas II",
+      "documentType": "EXAM",
+      "authority": true
+    },
+    {
+      "path": "documentos/PAU Comunidades/MADRID/EXAMENES MATES II/2Bach.Mates_II.Selectividad.17-18.Junio.pdf",
+      "bytes": 478854,
+      "sha256": "aad7d2c5d287f4420e6fc7e2a5e523e422806805658547664003b96565a3b235",
+      "subject": "Matemáticas II",
+      "documentType": "EXAM",
+      "authority": true
+    },
+    {
+      "path": "documentos/PAU Comunidades/MADRID/EXAMENES MATES II/2Bach.Mates_II.Selectividad.18-19.Junio.pdf",
+      "bytes": 196475,
+      "sha256": "7957bb19f5198fd403dcf2ae973e88ad3fa7c1b27ad6ea511e5ac23346fa1eee",
+      "subject": "Matemáticas II",
+      "documentType": "EXAM",
+      "authority": true
+    },
+    {
+      "path": "documentos/PAU Comunidades/MADRID/EXAMENES MATES II/2Bach.Mates_II.Selectividad.19-20.Junio.pdf",
+      "bytes": 227567,
+      "sha256": "e90297d877b294c19015e1073dd5c8f542b1f02abb0abf37302d512e8328699e",
+      "subject": "Matemáticas II",
+      "documentType": "EXAM",
+      "authority": true
+    },
+    {
+      "path": "documentos/PAU Comunidades/MADRID/EXAMENES MATES II/2Bach.Mates_II.Selectividad.19-20.Septiembre.pdf",
+      "bytes": 150294,
+      "sha256": "a0cdb06b5b9aef21879dc9322e7d55d6d46c83797140948e3eca806d93608300",
+      "subject": "Matemáticas II",
+      "documentType": "EXAM",
+      "authority": true
+    },
+    {
+      "path": "documentos/PAU Comunidades/MADRID/EXAMENES MATES II/2Bach.Mates_II.Selectividad.20-21.Julio.pdf",
+      "bytes": 211138,
+      "sha256": "674a582d7d231cbce64808c0763d7f9ed906d2315037b618dd6c90d5884e0cd4",
+      "subject": "Matemáticas II",
+      "documentType": "EXAM",
+      "authority": true
+    },
+    {
+      "path": "documentos/PAU Comunidades/MADRID/EXAMENES MATES II/2Bach.Mates_II.Selectividad.20-21.Junio.pdf",
+      "bytes": 250905,
+      "sha256": "e30da5e0e6c71e851dc10e4fc65d14cb16060be1c596400488e72ba17c91fc20",
+      "subject": "Matemáticas II",
+      "documentType": "EXAM",
+      "authority": true
+    },
+    {
+      "path": "documentos/PAU Comunidades/MADRID/EXAMENES MATES II/2Bach.Mates_II.Selectividad.21-22.Julio.pdf",
+      "bytes": 235277,
+      "sha256": "81177113d5908cb3165274818dd05bb6637d1376125272a6aca9364764df45db",
+      "subject": "Matemáticas II",
+      "documentType": "EXAM",
+      "authority": true
+    },
+    {
+      "path": "documentos/PAU Comunidades/MADRID/EXAMENES MATES II/2Bach.Mates_II.Selectividad.21-22.Junio.pdf",
+      "bytes": 225380,
+      "sha256": "9922537d9f56a0d81d47e1437450c2e73391c6a420fbaae0a97f1186c803785c",
+      "subject": "Matemáticas II",
+      "documentType": "EXAM",
+      "authority": true
+    },
+    {
+      "path": "documentos/PAU Comunidades/MADRID/EXAMENES MATES II/2Bach.Mates_II.Selectividad.22-23.Julio.pdf",
+      "bytes": 231717,
+      "sha256": "ecb78d09608bd850aaa0de06eed7ef84133787f707c39e5119451003aeaf1b45",
+      "subject": "Matemáticas II",
+      "documentType": "EXAM",
+      "authority": true
+    },
+    {
+      "path": "documentos/PAU Comunidades/MADRID/EXAMENES MATES II/2Bach.Mates_II.Selectividad.22-23.Junio.pdf",
+      "bytes": 242490,
+      "sha256": "a04bd8f1adcfccfef7ed051138431ff52cfa1e81dfdda66a320c8b414f8575d7",
+      "subject": "Matemáticas II",
+      "documentType": "EXAM",
+      "authority": true
+    },
+    {
+      "path": "documentos/PAU Comunidades/MADRID/EXAMENES MATES II/2Bach.Mates_II.Selectividad.23-24.Julio.pdf",
+      "bytes": 549834,
+      "sha256": "6009a73763975ec9d6ee7a8b6913c9c3872e35ba769b2e795b2e8d3eff0448d6",
+      "subject": "Matemáticas II",
+      "documentType": "EXAM",
+      "authority": true
+    },
+    {
+      "path": "documentos/PAU Comunidades/MADRID/EXAMENES MATES II/2Bach.Mates_II.Selectividad.23-24.Junio.pdf",
+      "bytes": 520791,
+      "sha256": "ea81fc2d09fd22995f00f26bcc1c0f2b34b9ed51436abfcc67891ca33c873cdf",
+      "subject": "Matemáticas II",
+      "documentType": "EXAM",
+      "authority": true
+    },
+    {
+      "path": "documentos/PAU Comunidades/MADRID/EXAMENES MATES II/2Bach.Mates_II.Selectividad.24-25.Junio.pdf",
+      "bytes": 453551,
+      "sha256": "59c609663abab69caa6b10d7c6932b66324bb4bed249c7e507c548538ee65e29",
+      "subject": "Matemáticas II",
+      "documentType": "EXAM",
+      "authority": true
+    },
+    {
+      "path": "documentos/PAU Comunidades/MADRID/EXAMENES MATES II/CCSS II_ORD_2026.pdf",
+      "bytes": 701231,
+      "sha256": "b7ba0c1201c5a627e906e162961573be09526c6c258212cb6b1fcccfd17afc44",
+      "subject": "CCSS II",
+      "documentType": "EXAM",
+      "authority": true
+    },
+    {
+      "path": "documentos/PAU Comunidades/MADRID/EXAMENES MATES II/Criterios_MAACCSSII EXTRA 2026.pdf",
+      "bytes": 554056,
+      "sha256": "202359335d44b9abafeaad9049e6816fc628c2f50627779454a94ae0acf3c383",
+      "subject": "CCSS II",
+      "documentType": "MARKING_CRITERIA",
+      "authority": true
+    },
+    {
+      "path": "documentos/PAU Comunidades/MADRID/EXAMENES MATES II/Criterios_Matemáticas+II EXTRA 2026.pdf",
+      "bytes": 500440,
+      "sha256": "2afc8fee10008cbf93318045c5d3ca95d18dda03c4b39abe7251bd5ad45ed2dc",
+      "subject": "Matemáticas II",
+      "documentType": "MARKING_CRITERIA",
+      "authority": true
+    },
+    {
+      "path": "documentos/PAU Comunidades/MADRID/EXAMENES MATES II/madrid CCSS II examenes 2000-2026.pdf",
+      "bytes": 1595747,
+      "sha256": "7f8639c3b0503aad0ac234847af8255c5e17ce7bc5f350c023fd61150743d758",
+      "subject": "CCSS II",
+      "documentType": "EXAM",
+      "authority": true
+    },
+    {
+      "path": "documentos/PAU Comunidades/MADRID/EXAMENES MATES II/MAT II_ORD_2026.pdf",
+      "bytes": 555053,
+      "sha256": "6cde24eb42ab87d1394ec6a40a26c936b4a222da8cd23710715fdd665d756dbe",
+      "subject": "Matemáticas II",
+      "documentType": "EXAM",
+      "authority": true
+    },
+    {
+      "path": "documentos/PAU Comunidades/MADRID/EXAMENES MATES II/matematicas II.pdf",
+      "bytes": 478561,
+      "sha256": "e20c57a7ca121b1f206ebcb88515fb01be68912d354c748364c2f99eab63f513",
+      "subject": "Matemáticas II",
+      "documentType": "EXAM",
+      "authority": true
+    },
+    {
+      "path": "documentos/PAU Comunidades/MADRID/madrid CCSS II examenes 2000-2026.pdf",
+      "bytes": 1595747,
+      "sha256": "7f8639c3b0503aad0ac234847af8255c5e17ce7bc5f350c023fd61150743d758",
+      "subject": "CCSS II",
+      "documentType": "EXAM",
+      "authority": true
+    },
+    {
+      "path": "documentos/PAU Comunidades/MADRID/Madrid matematicas II exámenes 200-2026.pdf",
+      "bytes": 2492454,
+      "sha256": "9b6ef0268222848bd8457bc392b70f573f98dc956362a6dd863de10043be8b4f",
+      "subject": "Matemáticas II",
+      "documentType": "EXAM",
+      "authority": true
+    },
+    {
+      "path": "documentos/PAU Comunidades/MADRID/Selectividad CCSS II Madrid 2026-2000 Ejercicios.pdf",
+      "bytes": 1661166,
+      "sha256": "e4774e4583ee33907ee8220d231ca7abd0458725c17b825f38172257f8c93e7e",
+      "subject": "CCSS II",
+      "documentType": "STATEMENTS_COLLECTION",
+      "authority": true
+    },
+    {
+      "path": "documentos/PAU Comunidades/MADRID/Selectividad CCSS II Madrid 2026-2000 Soluciones.pdf",
+      "bytes": 16076904,
+      "sha256": "cf184feefb03b4a72411a278b9ecd7466e04306cce3c896fd729a1d6826b2ae8",
+      "subject": "CCSS II",
+      "documentType": "SOLUTIONS",
+      "authority": true
+    },
+    {
+      "path": "documentos/PAU Comunidades/MADRID/Selectividad Mat II 2026-200 Ejercicios.pdf",
+      "bytes": 2535731,
+      "sha256": "bf0ebee5cb84a70c13b839c67e272edaf089090e2ae16ce59f8a5d0893146c02",
+      "subject": "Matemáticas II",
+      "documentType": "STATEMENTS_COLLECTION",
+      "authority": true
+    },
+    {
+      "path": "documentos/PAU Comunidades/MADRID/Selectividad Mates II madrid 2026-2000 soluciones.pdf",
+      "bytes": 10503159,
+      "sha256": "f4a47ba61b31de02d6c2b657312bd0ca36454d9bdcc0cf575c876a60a4f0d9f2",
+      "subject": "Matemáticas II",
+      "documentType": "SOLUTIONS",
+      "authority": true
+    },
+    {
+      "path": "documentos/PAU Comunidades/MADRID/Tablas de la distribución binomial y normal.pdf",
+      "bytes": 121484,
+      "sha256": "718e579f7642c0adbd84098a8a2538867d4710cb13966a2d686c43fbc439ae49",
+      "subject": "RECURSO_COMÚN",
+      "documentType": "REFERENCE_TABLE",
+      "authority": true
+    }
+  ],
+  "manuallyLocatedCorpusRecords": {
+    "madrid-ccss-4.14.6": {
+      "source": "Selectividad CCSS II Madrid 2026-2000 Ejercicios.pdf",
+      "pdfPage": 173
+    },
+    "madrid-ccss-4.15.6": {
+      "source": "Selectividad CCSS II Madrid 2026-2000 Ejercicios.pdf",
+      "pdfPage": 175
+    },
+    "madrid-ccss-4.20.2": {
+      "source": "Selectividad CCSS II Madrid 2026-2000 Ejercicios.pdf",
+      "pdfPage": 185
+    }
+  },
+  "excludedHistoricalInternetSources": [
+    {
+      "path": "sources/pau-official/madrid",
+      "status": "NOT_USED_FOR_MADRID_AUTHORITY"
+    }
+  ]
+}

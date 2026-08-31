@@ -4,6 +4,12 @@ import '../math-renderer.js';
 
 const render = (value) => globalThis.MargaritaMathRenderer.fragment(value);
 
+test('las cotas con raíces en una evaluación no exponen HTML interno', () => {
+  const html = render('[ax−frac{x³}{3}]_{0}^{√a}');
+  assert.match(html, /class="math-native-evaluation"/);
+  assert.doesNotMatch(html, /&lt;span|<mtext>[^<]*<span|class=&quot;/);
+});
+
 test('compone las variantes históricas de límites con subíndice entre paréntesis', () => {
   const html = render('lim_(x → 0−) f(x)=0; lim_(x → 0+) f(x)=+∞');
   assert.equal((html.match(/class="math-limit"/g) || []).length, 2);
@@ -29,21 +35,20 @@ test('repara tildes separadas y Unicode descompuesto antes de renderizar', () =>
 
 test('compone evaluaciones e integrales con cotas históricas en Unicode', () => {
   const html = render('A=∫_0² f(x)dx=[F(x)]_0²; det(A)|_(m=1)=−1');
-  assert.match(html, /class="math-integral/);
+  assert.match(html, /class="math-integral math-native-operator/);
   assert.match(html, /data-math-native="integral"/);
-  assert.match(html, /<munderover>/);
-  assert.match(html, /<mtext>0<\/mtext>[\s\S]*<mtext>2<\/mtext>/);
-  assert.match(html, /class="math-evaluation/);
+  assert.match(html, /<msubsup><mrow><mo largeop="true" movablelimits="false">∫<\/mo><mspace width="0\.12em"\/><\/mrow>[\s\S]*<mtext>0<\/mtext>[\s\S]*<mtext>2<\/mtext>[\s\S]*<\/msubsup>/);
+  assert.match(html, /class="math-native-evaluation"/);
   assert.match(html, /data-math-native="evaluation"/);
   assert.match(html, /<mtext>m=1<\/mtext>/);
   assert.doesNotMatch(html, /∫_|\]_|\|_/);
 });
 
-test('las cotas definidas usan composición MathML nativa, no columnas HTML', () => {
+test('las cotas definidas pertenecen a operadores MathML nativos', () => {
   const html = render('A=∫_{0}^{2}(x−x²+2)dx=[−frac{x³}{3}+x²+2x]_{0}^{2}');
-  assert.match(html, /<math[^>]*>[\s\S]*<mstyle displaystyle="true"[\s\S]*<munderover>/);
-  assert.match(html, /<msubsup>/);
-  assert.doesNotMatch(html, /integral-sign|integral-bounds|<sup>2<\/sup><sub>0<\/sub>/);
+  assert.match(html, /<msubsup><mrow><mo largeop="true" movablelimits="false">∫<\/mo><mspace width="0\.12em"\/><\/mrow>/);
+  assert.match(html, /<msubsup><mo fence="true" stretchy="false">]<\/mo>/);
+  assert.doesNotMatch(html, /math-bounded-integral|math-barrow-evaluation|position:absolute|<sup>2<\/sup><sub>0<\/sub>/);
 });
 
 test('los subíndices simples terminan antes de signos de operación', () => {

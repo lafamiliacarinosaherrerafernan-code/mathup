@@ -1,0 +1,64 @@
+{
+  "checkpointInspected": "c1be2d6a4ab41aa95bb34b39cb8a440765a8c178",
+  "tagInspected": "pau-madrid-auditada-2026-08-31",
+  "skill": ".agents/skills/solucion-de-ejercicios/SKILL.md",
+  "before": {
+    "sha256": "06365855af382c4daa6a952e79042edcc2955684dd9ee0a2e933b29bf988b7e7",
+    "gitBlob": "1153280b53a01e4df718d0de1207a2672207f2ad",
+    "copy": "artifacts/madrid-master-audit/skill-finalization/solucion-de-ejercicios.before-final-learning.md"
+  },
+  "after": {
+    "sha256": "c563f5db9543b170f19e41882bb0c7ce4c65afb60365e8b85c487468e3f15e39",
+    "gitBlob": "ca692ffcf27b9191d9ed4df8aff1666c6c9c21ed",
+    "diff": "artifacts/madrid-master-audit/skill-finalization/solucion-de-ejercicios.diff"
+  },
+  "permanentTests": {
+    "focused": { "passed": 8, "failed": 0 },
+    "skillSuite": { "passed": 36, "failed": 0 },
+    "nativeMathAndMultipartContracts": { "passed": 7, "failed": 0 }
+  },
+  "madrid": {
+    "masterAudit": "PASS",
+    "officialCombinedGate": { "passed": 1453, "failed": 0 },
+    "enabledMates": 825,
+    "subpartsMates": 1925,
+    "enabledCcss": 903,
+    "subpartsCcss": 1853,
+    "blockingFailures": 0
+  },
+  "andalucia": {
+    "powershellGates": {
+      "officialCombined": { "passed": 1453, "failed": 0 },
+      "ccss2012Recovery": { "passed": 24, "failed": 0 },
+      "canonicalMadridAndalucia": { "passed": 34, "failed": 0 },
+      "ccss2012Integration": { "passed": 18, "failed": 0 }
+    },
+    "broadNodeSuite": {
+      "initialPass": { "passed": 2102, "failed": 2 },
+      "isolatedRetry": { "passed": 10, "failed": 0 },
+      "status": "PASS_AFTER_TRANSIENT_ONEDRIVE_WRITE_LOCK_RETRY",
+      "remainingFailures": []
+    },
+    "inheritedFailureInvestigation": {
+      "realRegressions": 1,
+      "obsoleteTestExpectations": 4,
+      "resolved": 5,
+      "details": [
+        "Two bounded-integral adapter assertions expected legacy sup/sub spans instead of native MathML msubsup.",
+        "The legacy census expected 328 textual IDs; one ID was duplicated inside a block comment, while the executable and unique censuses were already 327.",
+        "The linear-programming assertion depended on obsolete caption wording instead of graph semantics.",
+        "The sanitizer incorrectly treated a mathematical inequality such as 2<x<4 as HTML and removed the following structured fraction."
+      ]
+    },
+    "browserGate": {
+      "widths": [1280, 768, 375, 320],
+      "fractionAndInequality": "PASS",
+      "linearProgrammingGraph": "PASS",
+      "nativeIntegralAndBarrowGeometry": "PASS",
+      "remainingOverflow": 0
+    }
+  },
+  "amendPerformed": false,
+  "tagMoved": false,
+  "pushPerformed": false
+}

@@ -63,6 +63,7 @@ No adaptar la explicación para hacer coincidir una opción predeterminada. Si e
 - La fuente documental aportada por el usuario prevalece sobre catálogos derivados, OCR, solucionarios y versiones históricas. Antes de publicar, comparar `documento → ejercicio canónico → ejercicio mostrado`, incluidos todos los apartados, números, signos, exponentes, matrices, sistemas, integrales, unidades, tablas y gráficos.
 - El número y orden de apartados del ejercicio mostrado debe coincidir con el original. Cada apartado evaluable conserva su enunciado, respuesta comprobada, cuatro opciones cuando proceda, solución y navegación. Un apartado que no admita cuatro opciones se conserva y se marca para revisión; nunca se elimina silenciosamente.
 - `etiqueta + signo igual + objeto matemático` constituye un bloque visual atómico. `A=`, `B=`, `X=`, `f(x)=`, `g(x)=`, `r=` o `s=` no pueden separarse de su matriz, vector, fracción, función, recta, plano o sistema. En pantallas estrechas puede saltar el bloque completo, pero no romperse por dentro.
+- Si el documento muestra varios bloques etiquetados en la misma línea, por ejemplo `A=matriz, B=matriz`, conservar esa fila conjunta sin solapar los signos iguales. Cada bloque sigue siendo indivisible; en ancho insuficiente, la fila puede desplazarse horizontalmente, pero no apilarse de forma que parezca que una etiqueta pertenece a la matriz anterior.
 - Matrices, determinantes, sistemas, funciones a trozos, fracciones, raíces, límites e integrales son estructuras atómicas. Ninguna ruta de la interfaz puede mostrar `matrix{}`, `system{}`, `piecewise{}`, `frac{}`, `sqrt{}`, delimitadores TeX ni una serialización lineal equivalente.
 - Una integral definida debe conservar como unidad el signo `∫`, el límite inferior, el superior, el integrando y el diferencial. El signo será proporcionado al texto y los límites legibles y asociados inequívocamente al signo, también en opciones y soluciones.
 - La clasificación temática depende de la tarea matemática principal del enunciado, no de una herramienta incidental usada en la solución. Registrar `primaryTopic` y, cuando proceda, `secondaryTopics[]`; la tarjeta y el banco principal dependen únicamente de `primaryTopic`.
@@ -2566,6 +2567,7 @@ Si la matriz es cuadrada y `det(A)≠0`, concluir que tiene rango máximo. Permi
 - Preferir Laplace o cofactores si existe una fila o columna con varios ceros, si pueden generarse ceros fácilmente, si el ejercicio está diseñado para cofactores o si se necesita un menor concreto.
 - Cuando se intercambien filas, se multiplique una fila por un escalar, se sume a una fila un múltiplo de otra o se utilicen propiedades de producto, potencia o trasposición, explicar expresamente el efecto sobre el determinante.
 - No imponer Sarrus cuando otro procedimiento sea claramente más eficiente.
+- En determinantes de orden superior con una estructura que permite crear ceros mediante operaciones elementales, usar preferentemente operaciones de filas o columnas que no alteren el determinante y, después, desarrollar por la fila o columna con más ceros. Mostrar cada operación, la matriz resultante y la expansión `elemento × menor complementario`. No sustituir este desarrollo didáctico por el lema del determinante, descomposiciones como `D+uuᵀ` u otras fórmulas avanzadas, salvo que el enunciado las pida expresamente.
 
 #### Desarrollo por una fila o columna
 
@@ -2808,6 +2810,19 @@ Cuando se use una sustitución, no saltar de la integral original a la integral 
 6. Integrar y, en una integral indefinida, volver a la variable original antes del resultado final.
 7. Comprobar por derivación cuando sea razonable.
 
+## Integración por partes en Matemáticas II
+
+Cuando una integral de Matemáticas II se resuelva por partes, el desarrollo debe conservar completa y en este orden la secuencia docente:
+
+1. Escribir primero la fórmula general `∫u\,dv=u·v−∫v\,du`.
+2. Identificar expresamente la elección de `u` y `dv` en el integrando original.
+3. Calcular y mostrar `du` y obtener `v` integrando `dv`.
+4. Sustituir `u`, `v`, `du` y `dv` en la fórmula general antes de simplificar.
+5. Desarrollar por completo la integral resultante, repitiendo el procedimiento si vuelve a ser necesaria una integración por partes.
+6. Simplificar el resultado y, cuando proceda, comprobarlo por derivación. En integrales definidas, aplicar además los límites y Barrow con la composición matemática nativa establecida.
+
+No abreviar el método con frases como «integramos por partes» si no quedan visibles la fórmula, las cuatro identificaciones y el desarrollo posterior.
+
 ## Integrales racionales mediante fracciones simples
 
 Cuando el denominador se pueda factorizar y la integral se resuelva mediante fracciones simples:
@@ -2851,6 +2866,19 @@ La cadena pedagógica debe permanecer completa y no usar `Φ`, `Φ⁻¹`, `invNo
 - Media o desviación desconocida: conservar la probabilidad completa durante la tipificación, obtener de la tabla la ecuación en `μ` o `σ`, despejar y comprobar el sentido y la positividad de `σ`.
 
 No escribir un valor aislado `z=(a−μ)/σ` y reutilizarlo después si con ello desaparece de la vista el suceso que se está calculando.
+
+## Aproximación binomial por normal en Matemáticas II
+
+Cuando en Matemáticas II se aproxime una variable binomial mediante una normal, mostrar la cadena completa sin heredarla implícitamente de otra materia:
+
+1. Definir la variable binomial e identificar `n`, `p` y `q=1−p`.
+2. Comprobar que procede la aproximación normal con el criterio adoptado en el curso y calcular, sustituyendo los datos, `μ=np` y `σ=√(npq)`.
+3. Escribir primero el suceso binomial original y justificar la corrección de continuidad como el paso de una variable discreta a una continua. Aplicarla según la desigualdad: por ejemplo, «al menos `k`» transforma el umbral en `k−0,5`, «como máximo `k`» en `k+0,5` y un intervalo corrige ambos extremos de acuerdo con su inclusión.
+4. Escribir el suceso ya corregido con la normal aproximante y tipificar dentro de esa misma probabilidad mediante `Z=(Y−μ)/σ`; no calcular valores `z` aislados.
+5. Transformar el resultado en una probabilidad acumulada `P(Z≤z)` consultable, indicar literalmente qué valor se busca en la tabla y escribir el valor leído. No usar `Φ`, `Φ⁻¹`, `invNorm` ni otra abreviatura opaca como sustituto de la tabla.
+6. Completar el cálculo, comprobar que la probabilidad pertenece a `[0,1]` e interpretar el resultado en el contexto cuando corresponda.
+
+La explicación de la corrección de continuidad es obligatoria: no basta con sustituir `k` por `k±0,5` sin relacionar el límite entero del recuento con la frontera continua correspondiente.
 
 ## Áreas mediante integrales definidas
 

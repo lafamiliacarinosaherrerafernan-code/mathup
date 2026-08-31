@@ -1,0 +1,1182 @@
+{
+  "correctedSubparts": 168,
+  "correctedExercises": 167,
+  "fixes": [
+    {
+      "courseId": "2bach-mates",
+      "exerciseId": "madrid-mates-1.1.1",
+      "subpartLabel": "a)",
+      "method": "PARAMETRIC_SYSTEM_ROUCHE_FROBENIUS",
+      "status": "CORRECTED"
+    },
+    {
+      "courseId": "2bach-mates",
+      "exerciseId": "madrid-mates-1.1.2",
+      "subpartLabel": "a)",
+      "method": "DETERMINANT_COMPLEMENTARY_MINORS",
+      "status": "CORRECTED"
+    },
+    {
+      "courseId": "2bach-mates",
+      "exerciseId": "madrid-mates-1.1.5",
+      "subpartLabel": "a)",
+      "method": "PARAMETRIC_SYSTEM_ROUCHE_FROBENIUS",
+      "status": "CORRECTED"
+    },
+    {
+      "courseId": "2bach-mates",
+      "exerciseId": "madrid-mates-1.1.6",
+      "subpartLabel": "a)",
+      "method": "PARAMETRIC_SYSTEM_ROUCHE_FROBENIUS",
+      "status": "CORRECTED"
+    },
+    {
+      "courseId": "2bach-mates",
+      "exerciseId": "madrid-mates-1.1.6",
+      "subpartLabel": "b)",
+      "method": "PARAMETRIC_SYSTEM_ROUCHE_FROBENIUS",
+      "status": "CORRECTED"
+    },
+    {
+      "courseId": "2bach-mates",
+      "exerciseId": "madrid-mates-1.2.1",
+      "subpartLabel": "Resultado",
+      "method": "DETERMINANT_ZERO_CREATION_AND_LAPLACE",
+      "status": "CORRECTED"
+    },
+    {
+      "courseId": "2bach-mates",
+      "exerciseId": "madrid-mates-1.2.3",
+      "subpartLabel": "a)",
+      "method": "PARAMETRIC_SYSTEM_ROUCHE_FROBENIUS",
+      "status": "CORRECTED"
+    },
+    {
+      "courseId": "2bach-mates",
+      "exerciseId": "madrid-mates-1.2.4",
+      "subpartLabel": "a)",
+      "method": "PARAMETRIC_SYSTEM_ROUCHE_FROBENIUS",
+      "status": "CORRECTED"
+    },
+    {
+      "courseId": "2bach-mates",
+      "exerciseId": "madrid-mates-1.2.6",
+      "subpartLabel": "a)",
+      "method": "PARAMETRIC_SYSTEM_ROUCHE_FROBENIUS",
+      "status": "CORRECTED"
+    },
+    {
+      "courseId": "2bach-mates",
+      "exerciseId": "madrid-mates-1.2.7",
+      "subpartLabel": "a)",
+      "method": "PARAMETRIC_SYSTEM_ROUCHE_FROBENIUS",
+      "status": "CORRECTED"
+    },
+    {
+      "courseId": "2bach-mates",
+      "exerciseId": "madrid-mates-1.3.6",
+      "subpartLabel": "a)",
+      "method": "PARAMETRIC_SYSTEM_ROUCHE_FROBENIUS",
+      "status": "CORRECTED"
+    },
+    {
+      "courseId": "2bach-mates",
+      "exerciseId": "madrid-mates-1.3.7",
+      "subpartLabel": "a)",
+      "method": "PARAMETRIC_SYSTEM_ROUCHE_FROBENIUS",
+      "status": "CORRECTED"
+    },
+    {
+      "courseId": "2bach-mates",
+      "exerciseId": "madrid-mates-1.4.3",
+      "subpartLabel": "a)",
+      "method": "PARAMETRIC_SYSTEM_ROUCHE_FROBENIUS",
+      "status": "CORRECTED"
+    },
+    {
+      "courseId": "2bach-mates",
+      "exerciseId": "madrid-mates-1.4.4",
+      "subpartLabel": "b)",
+      "method": "PARAMETRIC_SYSTEM_ROUCHE_FROBENIUS",
+      "status": "CORRECTED"
+    },
+    {
+      "courseId": "2bach-mates",
+      "exerciseId": "madrid-mates-1.4.5",
+      "subpartLabel": "Resultado",
+      "method": "DETERMINANT_COMPLEMENTARY_MINORS",
+      "status": "CORRECTED"
+    },
+    {
+      "courseId": "2bach-mates",
+      "exerciseId": "madrid-mates-1.5.1",
+      "subpartLabel": "Resultado",
+      "method": "PARAMETRIC_SYSTEM_ROUCHE_FROBENIUS",
+      "status": "CORRECTED"
+    },
+    {
+      "courseId": "2bach-mates",
+      "exerciseId": "madrid-mates-1.5.2",
+      "subpartLabel": "a)",
+      "method": "PARAMETRIC_SYSTEM_ROUCHE_FROBENIUS",
+      "status": "CORRECTED"
+    },
+    {
+      "courseId": "2bach-mates",
+      "exerciseId": "madrid-mates-1.5.3",
+      "subpartLabel": "a)",
+      "method": "PARAMETRIC_SYSTEM_ROUCHE_FROBENIUS",
+      "status": "CORRECTED"
+    },
+    {
+      "courseId": "2bach-mates",
+      "exerciseId": "madrid-mates-1.5.8",
+      "subpartLabel": "a)",
+      "method": "PARAMETRIC_SYSTEM_ROUCHE_FROBENIUS",
+      "status": "CORRECTED"
+    },
+    {
+      "courseId": "2bach-mates",
+      "exerciseId": "madrid-mates-1.6.1",
+      "subpartLabel": "a)",
+      "method": "PARAMETRIC_SYSTEM_ROUCHE_FROBENIUS",
+      "status": "CORRECTED"
+    },
+    {
+      "courseId": "2bach-mates",
+      "exerciseId": "madrid-mates-1.6.2",
+      "subpartLabel": "a)",
+      "method": "PARAMETRIC_SYSTEM_ROUCHE_FROBENIUS",
+      "status": "CORRECTED"
+    },
+    {
+      "courseId": "2bach-mates",
+      "exerciseId": "madrid-mates-1.6.4",
+      "subpartLabel": "a)",
+      "method": "PARAMETRIC_SYSTEM_ROUCHE_FROBENIUS",
+      "status": "CORRECTED"
+    },
+    {
+      "courseId": "2bach-mates",
+      "exerciseId": "madrid-mates-1.7.1",
+      "subpartLabel": "a)",
+      "method": "PARAMETRIC_SYSTEM_ROUCHE_FROBENIUS",
+      "status": "CORRECTED"
+    },
+    {
+      "courseId": "2bach-mates",
+      "exerciseId": "madrid-mates-1.8.1",
+      "subpartLabel": "a)",
+      "method": "PARAMETRIC_SYSTEM_ROUCHE_FROBENIUS",
+      "status": "CORRECTED"
+    },
+    {
+      "courseId": "2bach-mates",
+      "exerciseId": "madrid-mates-1.9.3",
+      "subpartLabel": "a)",
+      "method": "PARAMETRIC_SYSTEM_ROUCHE_FROBENIUS",
+      "status": "CORRECTED"
+    },
+    {
+      "courseId": "2bach-mates",
+      "exerciseId": "madrid-mates-1.10.1",
+      "subpartLabel": "a)",
+      "method": "PARAMETRIC_SYSTEM_ROUCHE_FROBENIUS",
+      "status": "CORRECTED"
+    },
+    {
+      "courseId": "2bach-mates",
+      "exerciseId": "madrid-mates-1.10.4",
+      "subpartLabel": "a)",
+      "method": "PARAMETRIC_SYSTEM_ROUCHE_FROBENIUS",
+      "status": "CORRECTED"
+    },
+    {
+      "courseId": "2bach-mates",
+      "exerciseId": "madrid-mates-1.10.5",
+      "subpartLabel": "a)",
+      "method": "PARAMETRIC_SYSTEM_ROUCHE_FROBENIUS",
+      "status": "CORRECTED"
+    },
+    {
+      "courseId": "2bach-mates",
+      "exerciseId": "madrid-mates-1.11.3",
+      "subpartLabel": "a)",
+      "method": "PARAMETRIC_SYSTEM_ROUCHE_FROBENIUS",
+      "status": "CORRECTED"
+    },
+    {
+      "courseId": "2bach-mates",
+      "exerciseId": "madrid-mates-1.11.11",
+      "subpartLabel": "a)",
+      "method": "PARAMETRIC_SYSTEM_ROUCHE_FROBENIUS",
+      "status": "CORRECTED"
+    },
+    {
+      "courseId": "2bach-mates",
+      "exerciseId": "madrid-mates-1.12.3",
+      "subpartLabel": "b)",
+      "method": "PARAMETRIC_SYSTEM_ROUCHE_FROBENIUS",
+      "status": "CORRECTED"
+    },
+    {
+      "courseId": "2bach-mates",
+      "exerciseId": "madrid-mates-1.12.6",
+      "subpartLabel": "a)",
+      "method": "DETERMINANT_COMPLEMENTARY_MINORS",
+      "status": "CORRECTED"
+    },
+    {
+      "courseId": "2bach-mates",
+      "exerciseId": "madrid-mates-1.12.7",
+      "subpartLabel": "a)",
+      "method": "PARAMETRIC_SYSTEM_ROUCHE_FROBENIUS",
+      "status": "CORRECTED"
+    },
+    {
+      "courseId": "2bach-mates",
+      "exerciseId": "madrid-mates-1.13.1",
+      "subpartLabel": "a)",
+      "method": "PARAMETRIC_SYSTEM_ROUCHE_FROBENIUS",
+      "status": "CORRECTED"
+    },
+    {
+      "courseId": "2bach-mates",
+      "exerciseId": "madrid-mates-1.13.2",
+      "subpartLabel": "a)",
+      "method": "PARAMETRIC_SYSTEM_ROUCHE_FROBENIUS",
+      "status": "CORRECTED"
+    },
+    {
+      "courseId": "2bach-mates",
+      "exerciseId": "madrid-mates-1.13.6",
+      "subpartLabel": "a)",
+      "method": "PARAMETRIC_SYSTEM_ROUCHE_FROBENIUS",
+      "status": "CORRECTED"
+    },
+    {
+      "courseId": "2bach-mates",
+      "exerciseId": "madrid-mates-1.13.8",
+      "subpartLabel": "a)",
+      "method": "PARAMETRIC_SYSTEM_ROUCHE_FROBENIUS",
+      "status": "CORRECTED"
+    },
+    {
+      "courseId": "2bach-mates",
+      "exerciseId": "madrid-mates-1.13.9",
+      "subpartLabel": "a)",
+      "method": "PARAMETRIC_SYSTEM_ROUCHE_FROBENIUS",
+      "status": "CORRECTED"
+    },
+    {
+      "courseId": "2bach-mates",
+      "exerciseId": "madrid-mates-1.14.1",
+      "subpartLabel": "a)",
+      "method": "PARAMETRIC_SYSTEM_ROUCHE_FROBENIUS",
+      "status": "CORRECTED"
+    },
+    {
+      "courseId": "2bach-mates",
+      "exerciseId": "madrid-mates-1.14.4",
+      "subpartLabel": "a)",
+      "method": "PARAMETRIC_SYSTEM_ROUCHE_FROBENIUS",
+      "status": "CORRECTED"
+    },
+    {
+      "courseId": "2bach-mates",
+      "exerciseId": "madrid-mates-1.14.6",
+      "subpartLabel": "a)",
+      "method": "PARAMETRIC_SYSTEM_ROUCHE_FROBENIUS",
+      "status": "CORRECTED"
+    },
+    {
+      "courseId": "2bach-mates",
+      "exerciseId": "madrid-mates-1.14.10",
+      "subpartLabel": "a)",
+      "method": "PARAMETRIC_SYSTEM_ROUCHE_FROBENIUS",
+      "status": "CORRECTED"
+    },
+    {
+      "courseId": "2bach-mates",
+      "exerciseId": "madrid-mates-1.14.13",
+      "subpartLabel": "a)",
+      "method": "PARAMETRIC_SYSTEM_ROUCHE_FROBENIUS",
+      "status": "CORRECTED"
+    },
+    {
+      "courseId": "2bach-mates",
+      "exerciseId": "madrid-mates-1.15.2",
+      "subpartLabel": "a)",
+      "method": "PARAMETRIC_SYSTEM_ROUCHE_FROBENIUS",
+      "status": "CORRECTED"
+    },
+    {
+      "courseId": "2bach-mates",
+      "exerciseId": "madrid-mates-1.15.7",
+      "subpartLabel": "a)",
+      "method": "PARAMETRIC_SYSTEM_ROUCHE_FROBENIUS",
+      "status": "CORRECTED"
+    },
+    {
+      "courseId": "2bach-mates",
+      "exerciseId": "madrid-mates-1.16.3",
+      "subpartLabel": "a)",
+      "method": "PARAMETRIC_SYSTEM_ROUCHE_FROBENIUS",
+      "status": "CORRECTED"
+    },
+    {
+      "courseId": "2bach-mates",
+      "exerciseId": "madrid-mates-1.16.4",
+      "subpartLabel": "a)",
+      "method": "PARAMETRIC_SYSTEM_ROUCHE_FROBENIUS",
+      "status": "CORRECTED"
+    },
+    {
+      "courseId": "2bach-mates",
+      "exerciseId": "madrid-mates-1.16.9",
+      "subpartLabel": "a)",
+      "method": "PARAMETRIC_SYSTEM_ROUCHE_FROBENIUS",
+      "status": "CORRECTED"
+    },
+    {
+      "courseId": "2bach-mates",
+      "exerciseId": "madrid-mates-1.16.10",
+      "subpartLabel": "a)",
+      "method": "PARAMETRIC_SYSTEM_ROUCHE_FROBENIUS",
+      "status": "CORRECTED"
+    },
+    {
+      "courseId": "2bach-mates",
+      "exerciseId": "madrid-mates-1.16.14",
+      "subpartLabel": "a)",
+      "method": "PARAMETRIC_SYSTEM_ROUCHE_FROBENIUS",
+      "status": "CORRECTED"
+    },
+    {
+      "courseId": "2bach-mates",
+      "exerciseId": "madrid-mates-1.17.1",
+      "subpartLabel": "a)",
+      "method": "PARAMETRIC_SYSTEM_ROUCHE_FROBENIUS",
+      "status": "CORRECTED"
+    },
+    {
+      "courseId": "2bach-mates",
+      "exerciseId": "madrid-mates-1.17.5",
+      "subpartLabel": "a)",
+      "method": "PARAMETRIC_SYSTEM_ROUCHE_FROBENIUS",
+      "status": "CORRECTED"
+    },
+    {
+      "courseId": "2bach-mates",
+      "exerciseId": "madrid-mates-1.17.7",
+      "subpartLabel": "a)",
+      "method": "PARAMETRIC_SYSTEM_ROUCHE_FROBENIUS",
+      "status": "CORRECTED"
+    },
+    {
+      "courseId": "2bach-mates",
+      "exerciseId": "madrid-mates-1.17.10",
+      "subpartLabel": "a)",
+      "method": "PARAMETRIC_SYSTEM_ROUCHE_FROBENIUS",
+      "status": "CORRECTED"
+    },
+    {
+      "courseId": "2bach-mates",
+      "exerciseId": "madrid-mates-1.18.3",
+      "subpartLabel": "a)",
+      "method": "PARAMETRIC_SYSTEM_ROUCHE_FROBENIUS",
+      "status": "CORRECTED"
+    },
+    {
+      "courseId": "2bach-mates",
+      "exerciseId": "madrid-mates-1.18.7",
+      "subpartLabel": "a)",
+      "method": "PARAMETRIC_SYSTEM_ROUCHE_FROBENIUS",
+      "status": "CORRECTED"
+    },
+    {
+      "courseId": "2bach-mates",
+      "exerciseId": "madrid-mates-1.18.10",
+      "subpartLabel": "a)",
+      "method": "PARAMETRIC_SYSTEM_ROUCHE_FROBENIUS",
+      "status": "CORRECTED"
+    },
+    {
+      "courseId": "2bach-mates",
+      "exerciseId": "madrid-mates-1.19.2",
+      "subpartLabel": "a)",
+      "method": "PARAMETRIC_SYSTEM_ROUCHE_FROBENIUS",
+      "status": "CORRECTED"
+    },
+    {
+      "courseId": "2bach-mates",
+      "exerciseId": "madrid-mates-1.19.4",
+      "subpartLabel": "a)",
+      "method": "PARAMETRIC_SYSTEM_ROUCHE_FROBENIUS",
+      "status": "CORRECTED"
+    },
+    {
+      "courseId": "2bach-mates",
+      "exerciseId": "madrid-mates-1.19.6",
+      "subpartLabel": "a)",
+      "method": "PARAMETRIC_SYSTEM_ROUCHE_FROBENIUS",
+      "status": "CORRECTED"
+    },
+    {
+      "courseId": "2bach-mates",
+      "exerciseId": "madrid-mates-1.20.2",
+      "subpartLabel": "a)",
+      "method": "PARAMETRIC_SYSTEM_ROUCHE_FROBENIUS",
+      "status": "CORRECTED"
+    },
+    {
+      "courseId": "2bach-mates",
+      "exerciseId": "madrid-mates-1.20.9",
+      "subpartLabel": "a)",
+      "method": "PARAMETRIC_SYSTEM_ROUCHE_FROBENIUS",
+      "status": "CORRECTED"
+    },
+    {
+      "courseId": "2bach-mates",
+      "exerciseId": "madrid-mates-1.21.3",
+      "subpartLabel": "a)",
+      "method": "PARAMETRIC_SYSTEM_ROUCHE_FROBENIUS",
+      "status": "CORRECTED"
+    },
+    {
+      "courseId": "2bach-mates",
+      "exerciseId": "madrid-mates-1.21.5",
+      "subpartLabel": "a)",
+      "method": "PARAMETRIC_SYSTEM_ROUCHE_FROBENIUS",
+      "status": "CORRECTED"
+    },
+    {
+      "courseId": "2bach-mates",
+      "exerciseId": "madrid-mates-1.23.3",
+      "subpartLabel": "a)",
+      "method": "PARAMETRIC_SYSTEM_ROUCHE_FROBENIUS",
+      "status": "CORRECTED"
+    },
+    {
+      "courseId": "2bach-mates",
+      "exerciseId": "madrid-mates-1.23.5",
+      "subpartLabel": "a)",
+      "method": "PARAMETRIC_SYSTEM_ROUCHE_FROBENIUS",
+      "status": "CORRECTED"
+    },
+    {
+      "courseId": "2bach-mates",
+      "exerciseId": "madrid-mates-1.23.8",
+      "subpartLabel": "b)",
+      "method": "PARAMETRIC_SYSTEM_ROUCHE_FROBENIUS",
+      "status": "CORRECTED"
+    },
+    {
+      "courseId": "2bach-mates",
+      "exerciseId": "madrid-mates-1.23.9",
+      "subpartLabel": "c)",
+      "method": "PARAMETRIC_SYSTEM_ROUCHE_FROBENIUS",
+      "status": "CORRECTED"
+    },
+    {
+      "courseId": "2bach-mates",
+      "exerciseId": "madrid-mates-1.24.4",
+      "subpartLabel": "a)",
+      "method": "PARAMETRIC_SYSTEM_ROUCHE_FROBENIUS",
+      "status": "CORRECTED"
+    },
+    {
+      "courseId": "2bach-mates",
+      "exerciseId": "madrid-mates-1.24.8",
+      "subpartLabel": "a)",
+      "method": "PARAMETRIC_SYSTEM_ROUCHE_FROBENIUS",
+      "status": "CORRECTED"
+    },
+    {
+      "courseId": "2bach-mates",
+      "exerciseId": "madrid-mates-1.25.2",
+      "subpartLabel": "c)",
+      "method": "PARAMETRIC_SYSTEM_ROUCHE_FROBENIUS",
+      "status": "CORRECTED"
+    },
+    {
+      "courseId": "2bach-mates",
+      "exerciseId": "madrid-mates-1.25.7",
+      "subpartLabel": "a)",
+      "method": "PARAMETRIC_SYSTEM_ROUCHE_FROBENIUS",
+      "status": "CORRECTED"
+    },
+    {
+      "courseId": "2bach-mates",
+      "exerciseId": "madrid-mates-1.25.9",
+      "subpartLabel": "a)",
+      "method": "PARAMETRIC_SYSTEM_ROUCHE_FROBENIUS",
+      "status": "CORRECTED"
+    },
+    {
+      "courseId": "2bach-mates",
+      "exerciseId": "madrid-mates-1.26.1",
+      "subpartLabel": "c)",
+      "method": "PARAMETRIC_SYSTEM_ROUCHE_FROBENIUS",
+      "status": "CORRECTED"
+    },
+    {
+      "courseId": "2bach-mates",
+      "exerciseId": "madrid-mates-1.26.5",
+      "subpartLabel": "a)",
+      "method": "PARAMETRIC_SYSTEM_ROUCHE_FROBENIUS",
+      "status": "CORRECTED"
+    },
+    {
+      "courseId": "2bach-mates",
+      "exerciseId": "madrid-mates-1.26.7",
+      "subpartLabel": "a)",
+      "method": "PARAMETRIC_SYSTEM_ROUCHE_FROBENIUS",
+      "status": "CORRECTED"
+    },
+    {
+      "courseId": "2bach-mates",
+      "exerciseId": "madrid-mates-1.27.1",
+      "subpartLabel": "c)",
+      "method": "PARAMETRIC_SYSTEM_ROUCHE_FROBENIUS",
+      "status": "CORRECTED"
+    },
+    {
+      "courseId": "2bach-mates",
+      "exerciseId": "madrid-mates-1.27.2",
+      "subpartLabel": "a)",
+      "method": "PARAMETRIC_SYSTEM_ROUCHE_FROBENIUS",
+      "status": "CORRECTED"
+    },
+    {
+      "courseId": "2bach-mates",
+      "exerciseId": "madrid-mates-3.10.5",
+      "subpartLabel": "a)",
+      "method": "INTEGRATION_BY_PARTS_U_DU_DV_V",
+      "status": "CORRECTED"
+    },
+    {
+      "courseId": "2bach-mates",
+      "exerciseId": "madrid-mates-3.11.9",
+      "subpartLabel": "b)",
+      "method": "INTEGRATION_BY_PARTS_U_DU_DV_V",
+      "status": "CORRECTED"
+    },
+    {
+      "courseId": "2bach-mates",
+      "exerciseId": "madrid-mates-3.16.2",
+      "subpartLabel": "b)",
+      "method": "INTEGRATION_BY_PARTS_U_DU_DV_V",
+      "status": "CORRECTED"
+    },
+    {
+      "courseId": "2bach-mates",
+      "exerciseId": "madrid-mates-3.18.8",
+      "subpartLabel": "b.1)",
+      "method": "INTEGRATION_BY_PARTS_U_DU_DV_V",
+      "status": "CORRECTED"
+    },
+    {
+      "courseId": "2bach-mates",
+      "exerciseId": "madrid-mates-3.19.3",
+      "subpartLabel": "b)",
+      "method": "INTEGRATION_BY_PARTS_U_DU_DV_V",
+      "status": "CORRECTED"
+    },
+    {
+      "courseId": "2bach-mates",
+      "exerciseId": "madrid-mates-3.21.5",
+      "subpartLabel": "b)",
+      "method": "INTEGRATION_BY_PARTS_U_DU_DV_V",
+      "status": "CORRECTED"
+    },
+    {
+      "courseId": "2bach-mates",
+      "exerciseId": "madrid-mates-3.23.9",
+      "subpartLabel": "b)",
+      "method": "INTEGRATION_BY_PARTS_U_DU_DV_V",
+      "status": "CORRECTED"
+    },
+    {
+      "courseId": "2bach-mates",
+      "exerciseId": "madrid-mates-3.25.4",
+      "subpartLabel": "a)",
+      "method": "INTEGRATION_BY_PARTS_U_DU_DV_V",
+      "status": "CORRECTED"
+    },
+    {
+      "courseId": "2bach-mates",
+      "exerciseId": "madrid-mates-3.26.2",
+      "subpartLabel": "c)",
+      "method": "INTEGRATION_BY_PARTS_U_DU_DV_V",
+      "status": "CORRECTED"
+    },
+    {
+      "courseId": "2bach-ccss",
+      "exerciseId": "madrid-ccss-1.6.2",
+      "subpartLabel": "a)",
+      "method": "PARAMETRIC_SYSTEM_ROUCHE_FROBENIUS",
+      "status": "CORRECTED"
+    },
+    {
+      "courseId": "2bach-ccss",
+      "exerciseId": "madrid-ccss-1.7.1",
+      "subpartLabel": "a)",
+      "method": "PARAMETRIC_SYSTEM_ROUCHE_FROBENIUS",
+      "status": "CORRECTED"
+    },
+    {
+      "courseId": "2bach-ccss",
+      "exerciseId": "madrid-ccss-1.7.3",
+      "subpartLabel": "a)",
+      "method": "PARAMETRIC_SYSTEM_ROUCHE_FROBENIUS",
+      "status": "CORRECTED"
+    },
+    {
+      "courseId": "2bach-ccss",
+      "exerciseId": "madrid-ccss-1.8.1",
+      "subpartLabel": "a)",
+      "method": "PARAMETRIC_SYSTEM_ROUCHE_FROBENIUS",
+      "status": "CORRECTED"
+    },
+    {
+      "courseId": "2bach-ccss",
+      "exerciseId": "madrid-ccss-1.8.2",
+      "subpartLabel": "a)",
+      "method": "PARAMETRIC_SYSTEM_ROUCHE_FROBENIUS",
+      "status": "CORRECTED"
+    },
+    {
+      "courseId": "2bach-ccss",
+      "exerciseId": "madrid-ccss-1.10.3",
+      "subpartLabel": "a)",
+      "method": "PARAMETRIC_SYSTEM_ROUCHE_FROBENIUS",
+      "status": "CORRECTED"
+    },
+    {
+      "courseId": "2bach-ccss",
+      "exerciseId": "madrid-ccss-1.10.4",
+      "subpartLabel": "a)",
+      "method": "PARAMETRIC_SYSTEM_ROUCHE_FROBENIUS",
+      "status": "CORRECTED"
+    },
+    {
+      "courseId": "2bach-ccss",
+      "exerciseId": "madrid-ccss-1.11.1",
+      "subpartLabel": "a)",
+      "method": "PARAMETRIC_SYSTEM_ROUCHE_FROBENIUS",
+      "status": "CORRECTED"
+    },
+    {
+      "courseId": "2bach-ccss",
+      "exerciseId": "madrid-ccss-1.11.2",
+      "subpartLabel": "a)",
+      "method": "PARAMETRIC_SYSTEM_ROUCHE_FROBENIUS",
+      "status": "CORRECTED"
+    },
+    {
+      "courseId": "2bach-ccss",
+      "exerciseId": "madrid-ccss-1.11.3",
+      "subpartLabel": "a)",
+      "method": "PARAMETRIC_SYSTEM_ROUCHE_FROBENIUS",
+      "status": "CORRECTED"
+    },
+    {
+      "courseId": "2bach-ccss",
+      "exerciseId": "madrid-ccss-1.12.2",
+      "subpartLabel": "b)",
+      "method": "ADJUGATE_COMPLEMENTARY_MINORS",
+      "status": "CORRECTED"
+    },
+    {
+      "courseId": "2bach-ccss",
+      "exerciseId": "madrid-ccss-1.12.3",
+      "subpartLabel": "a)",
+      "method": "PARAMETRIC_SYSTEM_ROUCHE_FROBENIUS",
+      "status": "CORRECTED"
+    },
+    {
+      "courseId": "2bach-ccss",
+      "exerciseId": "madrid-ccss-1.12.6",
+      "subpartLabel": "b)",
+      "method": "PARAMETRIC_SYSTEM_ROUCHE_FROBENIUS",
+      "status": "CORRECTED"
+    },
+    {
+      "courseId": "2bach-ccss",
+      "exerciseId": "madrid-ccss-1.13.1",
+      "subpartLabel": "a)",
+      "method": "PARAMETRIC_SYSTEM_ROUCHE_FROBENIUS",
+      "status": "CORRECTED"
+    },
+    {
+      "courseId": "2bach-ccss",
+      "exerciseId": "madrid-ccss-1.13.3",
+      "subpartLabel": "a)",
+      "method": "PARAMETRIC_SYSTEM_ROUCHE_FROBENIUS",
+      "status": "CORRECTED"
+    },
+    {
+      "courseId": "2bach-ccss",
+      "exerciseId": "madrid-ccss-1.13.5",
+      "subpartLabel": "c)",
+      "method": "PARAMETRIC_SYSTEM_ROUCHE_FROBENIUS",
+      "status": "CORRECTED"
+    },
+    {
+      "courseId": "2bach-ccss",
+      "exerciseId": "madrid-ccss-1.13.6",
+      "subpartLabel": "a)",
+      "method": "PARAMETRIC_SYSTEM_ROUCHE_FROBENIUS",
+      "status": "CORRECTED"
+    },
+    {
+      "courseId": "2bach-ccss",
+      "exerciseId": "madrid-ccss-1.14.1",
+      "subpartLabel": "a)",
+      "method": "PARAMETRIC_SYSTEM_ROUCHE_FROBENIUS",
+      "status": "CORRECTED"
+    },
+    {
+      "courseId": "2bach-ccss",
+      "exerciseId": "madrid-ccss-1.14.4",
+      "subpartLabel": "a)",
+      "method": "PARAMETRIC_SYSTEM_ROUCHE_FROBENIUS",
+      "status": "CORRECTED"
+    },
+    {
+      "courseId": "2bach-ccss",
+      "exerciseId": "madrid-ccss-1.14.5",
+      "subpartLabel": "b)",
+      "method": "PARAMETRIC_SYSTEM_ROUCHE_FROBENIUS",
+      "status": "CORRECTED"
+    },
+    {
+      "courseId": "2bach-ccss",
+      "exerciseId": "madrid-ccss-1.14.8",
+      "subpartLabel": "a)",
+      "method": "PARAMETRIC_SYSTEM_ROUCHE_FROBENIUS",
+      "status": "CORRECTED"
+    },
+    {
+      "courseId": "2bach-ccss",
+      "exerciseId": "madrid-ccss-1.14.10",
+      "subpartLabel": "a)",
+      "method": "PARAMETRIC_SYSTEM_ROUCHE_FROBENIUS",
+      "status": "CORRECTED"
+    },
+    {
+      "courseId": "2bach-ccss",
+      "exerciseId": "madrid-ccss-1.15.2",
+      "subpartLabel": "a)",
+      "method": "PARAMETRIC_SYSTEM_ROUCHE_FROBENIUS",
+      "status": "CORRECTED"
+    },
+    {
+      "courseId": "2bach-ccss",
+      "exerciseId": "madrid-ccss-1.15.4",
+      "subpartLabel": "a)",
+      "method": "PARAMETRIC_SYSTEM_ROUCHE_FROBENIUS",
+      "status": "CORRECTED"
+    },
+    {
+      "courseId": "2bach-ccss",
+      "exerciseId": "madrid-ccss-1.15.6",
+      "subpartLabel": "a)",
+      "method": "PARAMETRIC_SYSTEM_ROUCHE_FROBENIUS",
+      "status": "CORRECTED"
+    },
+    {
+      "courseId": "2bach-ccss",
+      "exerciseId": "madrid-ccss-1.15.10",
+      "subpartLabel": "a)",
+      "method": "PARAMETRIC_SYSTEM_ROUCHE_FROBENIUS",
+      "status": "CORRECTED"
+    },
+    {
+      "courseId": "2bach-ccss",
+      "exerciseId": "madrid-ccss-1.16.2",
+      "subpartLabel": "a)",
+      "method": "PARAMETRIC_SYSTEM_ROUCHE_FROBENIUS",
+      "status": "CORRECTED"
+    },
+    {
+      "courseId": "2bach-ccss",
+      "exerciseId": "madrid-ccss-1.16.3",
+      "subpartLabel": "a)",
+      "method": "PARAMETRIC_SYSTEM_ROUCHE_FROBENIUS",
+      "status": "CORRECTED"
+    },
+    {
+      "courseId": "2bach-ccss",
+      "exerciseId": "madrid-ccss-1.16.5",
+      "subpartLabel": "a)",
+      "method": "PARAMETRIC_SYSTEM_ROUCHE_FROBENIUS",
+      "status": "CORRECTED"
+    },
+    {
+      "courseId": "2bach-ccss",
+      "exerciseId": "madrid-ccss-1.16.8",
+      "subpartLabel": "a)",
+      "method": "PARAMETRIC_SYSTEM_ROUCHE_FROBENIUS",
+      "status": "CORRECTED"
+    },
+    {
+      "courseId": "2bach-ccss",
+      "exerciseId": "madrid-ccss-1.16.10",
+      "subpartLabel": "a)",
+      "method": "PARAMETRIC_SYSTEM_ROUCHE_FROBENIUS",
+      "status": "CORRECTED"
+    },
+    {
+      "courseId": "2bach-ccss",
+      "exerciseId": "madrid-ccss-1.17.1",
+      "subpartLabel": "a)",
+      "method": "DETERMINANT_COMPLEMENTARY_MINORS",
+      "status": "CORRECTED"
+    },
+    {
+      "courseId": "2bach-ccss",
+      "exerciseId": "madrid-ccss-1.17.3",
+      "subpartLabel": "a)",
+      "method": "PARAMETRIC_SYSTEM_ROUCHE_FROBENIUS",
+      "status": "CORRECTED"
+    },
+    {
+      "courseId": "2bach-ccss",
+      "exerciseId": "madrid-ccss-1.17.5",
+      "subpartLabel": "a)",
+      "method": "PARAMETRIC_SYSTEM_ROUCHE_FROBENIUS",
+      "status": "CORRECTED"
+    },
+    {
+      "courseId": "2bach-ccss",
+      "exerciseId": "madrid-ccss-1.17.6",
+      "subpartLabel": "a)",
+      "method": "PARAMETRIC_SYSTEM_ROUCHE_FROBENIUS",
+      "status": "CORRECTED"
+    },
+    {
+      "courseId": "2bach-ccss",
+      "exerciseId": "madrid-ccss-1.17.9",
+      "subpartLabel": "a)",
+      "method": "PARAMETRIC_SYSTEM_ROUCHE_FROBENIUS",
+      "status": "CORRECTED"
+    },
+    {
+      "courseId": "2bach-ccss",
+      "exerciseId": "madrid-ccss-1.18.2",
+      "subpartLabel": "a)",
+      "method": "PARAMETRIC_SYSTEM_ROUCHE_FROBENIUS",
+      "status": "CORRECTED"
+    },
+    {
+      "courseId": "2bach-ccss",
+      "exerciseId": "madrid-ccss-1.18.4",
+      "subpartLabel": "a)",
+      "method": "PARAMETRIC_SYSTEM_ROUCHE_FROBENIUS",
+      "status": "CORRECTED"
+    },
+    {
+      "courseId": "2bach-ccss",
+      "exerciseId": "madrid-ccss-1.18.5",
+      "subpartLabel": "a)",
+      "method": "PARAMETRIC_SYSTEM_ROUCHE_FROBENIUS",
+      "status": "CORRECTED"
+    },
+    {
+      "courseId": "2bach-ccss",
+      "exerciseId": "madrid-ccss-1.18.8",
+      "subpartLabel": "a)",
+      "method": "PARAMETRIC_SYSTEM_ROUCHE_FROBENIUS",
+      "status": "CORRECTED"
+    },
+    {
+      "courseId": "2bach-ccss",
+      "exerciseId": "madrid-ccss-1.19.2",
+      "subpartLabel": "a)",
+      "method": "PARAMETRIC_SYSTEM_ROUCHE_FROBENIUS",
+      "status": "CORRECTED"
+    },
+    {
+      "courseId": "2bach-ccss",
+      "exerciseId": "madrid-ccss-1.19.4",
+      "subpartLabel": "a)",
+      "method": "PARAMETRIC_SYSTEM_ROUCHE_FROBENIUS",
+      "status": "CORRECTED"
+    },
+    {
+      "courseId": "2bach-ccss",
+      "exerciseId": "madrid-ccss-1.19.6",
+      "subpartLabel": "a)",
+      "method": "PARAMETRIC_SYSTEM_ROUCHE_FROBENIUS",
+      "status": "CORRECTED"
+    },
+    {
+      "courseId": "2bach-ccss",
+      "exerciseId": "madrid-ccss-1.19.8",
+      "subpartLabel": "a)",
+      "method": "PARAMETRIC_SYSTEM_ROUCHE_FROBENIUS",
+      "status": "CORRECTED"
+    },
+    {
+      "courseId": "2bach-ccss",
+      "exerciseId": "madrid-ccss-1.20.2",
+      "subpartLabel": "a)",
+      "method": "PARAMETRIC_SYSTEM_ROUCHE_FROBENIUS",
+      "status": "CORRECTED"
+    },
+    {
+      "courseId": "2bach-ccss",
+      "exerciseId": "madrid-ccss-1.20.5",
+      "subpartLabel": "a)",
+      "method": "PARAMETRIC_SYSTEM_ROUCHE_FROBENIUS",
+      "status": "CORRECTED"
+    },
+    {
+      "courseId": "2bach-ccss",
+      "exerciseId": "madrid-ccss-1.20.10",
+      "subpartLabel": "a)",
+      "method": "PARAMETRIC_SYSTEM_ROUCHE_FROBENIUS",
+      "status": "CORRECTED"
+    },
+    {
+      "courseId": "2bach-ccss",
+      "exerciseId": "madrid-ccss-1.21.3",
+      "subpartLabel": "a)",
+      "method": "PARAMETRIC_SYSTEM_ROUCHE_FROBENIUS",
+      "status": "CORRECTED"
+    },
+    {
+      "courseId": "2bach-ccss",
+      "exerciseId": "madrid-ccss-1.21.4",
+      "subpartLabel": "a)",
+      "method": "PARAMETRIC_SYSTEM_ROUCHE_FROBENIUS",
+      "status": "CORRECTED"
+    },
+    {
+      "courseId": "2bach-ccss",
+      "exerciseId": "madrid-ccss-1.21.7",
+      "subpartLabel": "a)",
+      "method": "PARAMETRIC_SYSTEM_ROUCHE_FROBENIUS",
+      "status": "CORRECTED"
+    },
+    {
+      "courseId": "2bach-ccss",
+      "exerciseId": "madrid-ccss-1.21.9",
+      "subpartLabel": "a)",
+      "method": "PARAMETRIC_SYSTEM_ROUCHE_FROBENIUS",
+      "status": "CORRECTED"
+    },
+    {
+      "courseId": "2bach-ccss",
+      "exerciseId": "madrid-ccss-1.22.2",
+      "subpartLabel": "a)",
+      "method": "PARAMETRIC_SYSTEM_ROUCHE_FROBENIUS",
+      "status": "CORRECTED"
+    },
+    {
+      "courseId": "2bach-ccss",
+      "exerciseId": "madrid-ccss-1.22.4",
+      "subpartLabel": "a)",
+      "method": "PARAMETRIC_SYSTEM_ROUCHE_FROBENIUS",
+      "status": "CORRECTED"
+    },
+    {
+      "courseId": "2bach-ccss",
+      "exerciseId": "madrid-ccss-1.22.8",
+      "subpartLabel": "a)",
+      "method": "PARAMETRIC_SYSTEM_ROUCHE_FROBENIUS",
+      "status": "CORRECTED"
+    },
+    {
+      "courseId": "2bach-ccss",
+      "exerciseId": "madrid-ccss-1.23.2",
+      "subpartLabel": "a)",
+      "method": "PARAMETRIC_SYSTEM_ROUCHE_FROBENIUS",
+      "status": "CORRECTED"
+    },
+    {
+      "courseId": "2bach-ccss",
+      "exerciseId": "madrid-ccss-1.23.4",
+      "subpartLabel": "a)",
+      "method": "PARAMETRIC_SYSTEM_ROUCHE_FROBENIUS",
+      "status": "CORRECTED"
+    },
+    {
+      "courseId": "2bach-ccss",
+      "exerciseId": "madrid-ccss-1.23.6",
+      "subpartLabel": "a)",
+      "method": "PARAMETRIC_SYSTEM_ROUCHE_FROBENIUS",
+      "status": "CORRECTED"
+    },
+    {
+      "courseId": "2bach-ccss",
+      "exerciseId": "madrid-ccss-1.23.8",
+      "subpartLabel": "a)",
+      "method": "PARAMETRIC_SYSTEM_ROUCHE_FROBENIUS",
+      "status": "CORRECTED"
+    },
+    {
+      "courseId": "2bach-ccss",
+      "exerciseId": "madrid-ccss-1.24.1",
+      "subpartLabel": "b)",
+      "method": "ADJUGATE_COMPLEMENTARY_MINORS",
+      "status": "CORRECTED"
+    },
+    {
+      "courseId": "2bach-ccss",
+      "exerciseId": "madrid-ccss-1.24.2",
+      "subpartLabel": "a)",
+      "method": "PARAMETRIC_SYSTEM_ROUCHE_FROBENIUS",
+      "status": "CORRECTED"
+    },
+    {
+      "courseId": "2bach-ccss",
+      "exerciseId": "madrid-ccss-1.24.6",
+      "subpartLabel": "a)",
+      "method": "PARAMETRIC_SYSTEM_ROUCHE_FROBENIUS",
+      "status": "CORRECTED"
+    },
+    {
+      "courseId": "2bach-ccss",
+      "exerciseId": "madrid-ccss-1.24.8",
+      "subpartLabel": "a)",
+      "method": "PARAMETRIC_SYSTEM_ROUCHE_FROBENIUS",
+      "status": "CORRECTED"
+    },
+    {
+      "courseId": "2bach-ccss",
+      "exerciseId": "madrid-ccss-1.24.10",
+      "subpartLabel": "a)",
+      "method": "PARAMETRIC_SYSTEM_ROUCHE_FROBENIUS",
+      "status": "CORRECTED"
+    },
+    {
+      "courseId": "2bach-ccss",
+      "exerciseId": "madrid-ccss-1.25.3",
+      "subpartLabel": "a)",
+      "method": "PARAMETRIC_SYSTEM_ROUCHE_FROBENIUS",
+      "status": "CORRECTED"
+    },
+    {
+      "courseId": "2bach-ccss",
+      "exerciseId": "madrid-ccss-1.25.6",
+      "subpartLabel": "a)",
+      "method": "PARAMETRIC_SYSTEM_ROUCHE_FROBENIUS",
+      "status": "CORRECTED"
+    },
+    {
+      "courseId": "2bach-ccss",
+      "exerciseId": "madrid-ccss-1.25.9",
+      "subpartLabel": "a)",
+      "method": "PARAMETRIC_SYSTEM_ROUCHE_FROBENIUS",
+      "status": "CORRECTED"
+    },
+    {
+      "courseId": "2bach-ccss",
+      "exerciseId": "madrid-ccss-1.25.12",
+      "subpartLabel": "a)",
+      "method": "PARAMETRIC_SYSTEM_ROUCHE_FROBENIUS",
+      "status": "CORRECTED"
+    },
+    {
+      "courseId": "2bach-ccss",
+      "exerciseId": "madrid-ccss-1.25.15",
+      "subpartLabel": "a)",
+      "method": "PARAMETRIC_SYSTEM_ROUCHE_FROBENIUS",
+      "status": "CORRECTED"
+    },
+    {
+      "courseId": "2bach-ccss",
+      "exerciseId": "madrid-ccss-1.26.1",
+      "subpartLabel": "c)",
+      "method": "PARAMETRIC_SYSTEM_ROUCHE_FROBENIUS",
+      "status": "CORRECTED"
+    },
+    {
+      "courseId": "2bach-ccss",
+      "exerciseId": "madrid-ccss-1.26.4",
+      "subpartLabel": "a)",
+      "method": "PARAMETRIC_SYSTEM_ROUCHE_FROBENIUS",
+      "status": "CORRECTED"
+    },
+    {
+      "courseId": "2bach-ccss",
+      "exerciseId": "madrid-ccss-1.26.5",
+      "subpartLabel": "c)",
+      "method": "PARAMETRIC_SYSTEM_ROUCHE_FROBENIUS",
+      "status": "CORRECTED"
+    },
+    {
+      "courseId": "2bach-ccss",
+      "exerciseId": "madrid-ccss-1.27.3",
+      "subpartLabel": "c)",
+      "method": "PARAMETRIC_SYSTEM_ROUCHE_FROBENIUS",
+      "status": "CORRECTED"
+    },
+    {
+      "courseId": "2bach-ccss",
+      "exerciseId": "madrid-ccss-2.3.2",
+      "subpartLabel": "a)",
+      "method": "PARAMETRIC_SYSTEM_ROUCHE_FROBENIUS",
+      "status": "CORRECTED"
+    },
+    {
+      "courseId": "2bach-ccss",
+      "exerciseId": "madrid-ccss-2.26.2",
+      "subpartLabel": "a)",
+      "method": "PARAMETRIC_SYSTEM_ROUCHE_FROBENIUS",
+      "status": "CORRECTED"
+    },
+    {
+      "courseId": "2bach-ccss",
+      "exerciseId": "madrid-ccss-1.5.3",
+      "subpartLabel": "a)",
+      "method": "PARAMETRIC_SYSTEM_ROUCHE_FROBENIUS",
+      "status": "CORRECTED"
+    },
+    {
+      "courseId": "2bach-ccss",
+      "exerciseId": "madrid-ccss-1.5.1",
+      "subpartLabel": "a)",
+      "method": "PARAMETRIC_SYSTEM_ROUCHE_FROBENIUS",
+      "status": "CORRECTED"
+    },
+    {
+      "courseId": "2bach-ccss",
+      "exerciseId": "madrid-ccss-1.3.1",
+      "subpartLabel": "a)",
+      "method": "PARAMETRIC_SYSTEM_ROUCHE_FROBENIUS",
+      "status": "CORRECTED"
+    },
+    {
+      "courseId": "2bach-ccss",
+      "exerciseId": "madrid-ccss-1.2.3",
+      "subpartLabel": "a)",
+      "method": "PARAMETRIC_SYSTEM_ROUCHE_FROBENIUS",
+      "status": "CORRECTED"
+    },
+    {
+      "courseId": "2bach-ccss",
+      "exerciseId": "madrid-ccss-1.2.2",
+      "subpartLabel": "a)",
+      "method": "PARAMETRIC_SYSTEM_ROUCHE_FROBENIUS",
+      "status": "CORRECTED"
+    },
+    {
+      "courseId": "2bach-ccss",
+      "exerciseId": "madrid-ccss-1.1.2",
+      "subpartLabel": "a)",
+      "method": "PARAMETRIC_SYSTEM_ROUCHE_FROBENIUS",
+      "status": "CORRECTED"
+    },
+    {
+      "courseId": "2bach-ccss",
+      "exerciseId": "madrid-ccss-1.1.1",
+      "subpartLabel": "a)",
+      "method": "PARAMETRIC_SYSTEM_ROUCHE_FROBENIUS",
+      "status": "CORRECTED"
+    }
+  ]
+}

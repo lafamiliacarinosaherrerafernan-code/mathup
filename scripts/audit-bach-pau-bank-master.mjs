@@ -6,11 +6,17 @@ import { fileURLToPath } from "node:url";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const ANDALUCIA_ONLY = process.argv.includes("--andalucia-only");
+const MADRID_ONLY = process.argv.includes("--madrid-only");
+if (ANDALUCIA_ONLY && MADRID_ONLY) throw new Error("Use only one community scope flag.");
 const REAL_EXAM_SIMULATION = process.argv.includes("--real-exam-simulation");
-const out = path.join(root, "artifacts", ANDALUCIA_ONLY ? "andalucia-selector-fase2.6" : "bach-pau-bank-audit");
+const out = path.join(root, "artifacts", ANDALUCIA_ONLY
+  ? "andalucia-selector-fase2.6"
+  : MADRID_ONLY
+    ? "madrid-master-audit"
+    : "bach-pau-bank-audit");
 const AUDIT_VERSION = "fase-2.6-v1";
 const SIMULATION_EXAMS = 1000;
-const COMMUNITIES = ANDALUCIA_ONLY ? ["andalucia"] : ["andalucia", "madrid", "clm"];
+const COMMUNITIES = ANDALUCIA_ONLY ? ["andalucia"] : MADRID_ONLY ? ["madrid"] : ["andalucia", "madrid", "clm"];
 const COURSES = ["2bach-mates", "2bach-ccss"];
 const COMMUNITY_LABELS = { andalucia: "Andalucía", madrid: "Madrid", clm: "Castilla-La Mancha" };
 const COURSE_LABELS = { "2bach-mates": "Matemáticas II", "2bach-ccss": "CCSS II" };
@@ -86,6 +92,13 @@ const { audit, storage, memory } = createRuntime();
 
 function identity(question) {
   return audit.officialQuestionDedupKey(question) || audit.challengeQuestionIdentity(question);
+}
+
+function canonicalIdentity(question) {
+  if (audit.currentBachPauCommunity() === "madrid" && /^madrid-(?:mates|ccss)-/.test(String(question?.id || ""))) {
+    return question.id;
+  }
+  return identity(question);
 }
 
 function normalizeText(value) {
@@ -208,7 +221,7 @@ function topicPools(course) {
     let pool = [];
     if (rule?.availableForTopicPractice !== false) {
       if (rule?.practiceBank
-        && audit.currentBachPauCommunity() !== "andalucia"
+        && audit.currentBachPauCommunity() === "clm"
         && audit.topicPractice?.build) {
         const practiceQuestions = audit.topicPractice.build(rule.practiceBank) || [];
         pool = audit.strictTopicSelection({
@@ -230,7 +243,7 @@ function topicPools(course) {
 function modeCatalog(course, topics, blocks, slots) {
   const catalog = new Map();
   const add = (question, mode, fallbackTopic = null) => {
-    const key = identity(question);
+    const key = canonicalIdentity(question);
     if (!key) return;
     if (!catalog.has(key)) catalog.set(key, {
       canonicalExerciseId: key, question, modes: new Set(), topicMembership: new Set(), blocks: new Set(), slots: new Set()
@@ -240,12 +253,15 @@ function modeCatalog(course, topics, blocks, slots) {
     if (Number.isInteger(fallbackTopic)) row.topicMembership.add(fallbackTopic);
   };
   topics.forEach(({ topicIndex, pool }) => pool.forEach((q) => add(q, "topic", topicIndex)));
-  blocks.forEach(({ block, pool }) => pool.forEach((q) => { add(q, "block"); catalog.get(identity(q))?.blocks.add(block.id); }));
-  slots.forEach(({ slot, pool }) => pool.forEach((q) => { add(q, "exam"); catalog.get(identity(q))?.slots.add(slot); }));
+  blocks.forEach(({ block, pool }) => pool.forEach((q) => { add(q, "block"); catalog.get(canonicalIdentity(q))?.blocks.add(block.id); }));
+  slots.forEach(({ slot, pool }) => pool.forEach((q) => { add(q, "exam"); catalog.get(canonicalIdentity(q))?.slots.add(slot); }));
   return catalog;
 }
 
 function canonicalPrimary(entry) {
+  if (audit.currentBachPauCommunity() === "madrid" && Array.isArray(entry.question?.topicIndexes) && Number.isInteger(entry.question.topicIndexes[0])) {
+    return entry.question.topicIndexes[0];
+  }
   const explicit = topicIndexOf(entry.question);
   if (Number.isInteger(explicit)) return explicit;
   if (entry.topicMembership.size === 1) return [...entry.topicMembership][0];
@@ -528,11 +544,14 @@ for (const community of COMMUNITIES) {
 
     const scopeTopicRows = [];
     for (const { topicIndex, theme, pool } of topics) {
-      const entries = primaryCounts.get(topicIndex) || [];
-      const years = [...new Set(entries.flatMap((entry) => yearsOf(entry.question)))].sort();
-      const sittings = new Set(entries.map((entry) => sittingKey(entry.question)));
-      const canonicalExerciseCount = entries.length;
-      const interactiveSubpartCount = entries.reduce((sum, entry) => sum + partCount(entry.question), 0);
+      // El censo de un tema debe reflejar el pool que la interfaz ofrece para
+      // ese tema. Un ejercicio multipartado puede pertenecer legítimamente a
+      // más de un tema; por eso no se fuerza aquí un primaryTopic artificial.
+      const entries = pool.map((question) => ({ question }));
+      const years = [...new Set(pool.flatMap(yearsOf))].sort();
+      const sittings = new Set(pool.map(sittingKey));
+      const canonicalExerciseCount = pool.length;
+      const interactiveSubpartCount = pool.reduce((sum, question) => sum + partCount(question), 0);
       // El selector por tema solo puede agotar su pool temático real. El censo
       // canónico global puede contener ejercicios habilitados únicamente para
       // bloque o examen; se auditan como alcanzables en esos modos, pero no se
@@ -560,7 +579,12 @@ for (const community of COMMUNITIES) {
     const scopeBlockRows = [];
     for (const { block, pool } of blocks) {
       const identities = new Set(pool.map(identity));
-      const distribution = Object.fromEntries(block.topics.map((topicIndex) => [course.themes[topicIndex], pool.filter((q) => topicIndexOf(q) === topicIndex).length]));
+      const distribution = Object.fromEntries(block.topics.map((topicIndex) => [
+        course.themes[topicIndex],
+        pool.filter((question) => Array.isArray(question?.topicIndexes)
+          ? question.topicIndexes.includes(topicIndex)
+          : topicIndexOf(question) === topicIndex).length
+      ]));
       const simulation = simulateBlock(course, block, pool, required);
       const row = {
         community, communityLabel: COMMUNITY_LABELS[community], courseId, subject: COURSE_LABELS[courseId],
@@ -645,9 +669,9 @@ for (const community of COMMUNITIES) {
     }
 
     const reached = new Set([
-      ...topics.flatMap(({ pool }) => pool.map(identity)),
-      ...blocks.flatMap(({ pool }) => pool.map(identity)),
-      ...slots.flatMap(({ pool }) => pool.map(identity))
+      ...topics.flatMap(({ pool }) => pool.map(canonicalIdentity)),
+      ...blocks.flatMap(({ pool }) => pool.map(canonicalIdentity)),
+      ...slots.flatMap(({ pool }) => pool.map(canonicalIdentity))
     ]);
     const enabledButUnreachable = [...catalog.keys()].filter((id) => !reached.has(id));
     const modeCoverage = [...catalog.values()].map((entry) => ({
@@ -683,7 +707,7 @@ for (const community of COMMUNITIES) {
     scopeReports.push({
       community, communityLabel: COMMUNITY_LABELS[community], courseId, subject: COURSE_LABELS[courseId],
       enabledCanonicalTotal: catalog.size,
-      classifiedCanonicalTotal: scopeTopicRows.reduce((sum, row) => sum + row.canonicalExerciseCount, 0),
+      classifiedCanonicalTotal: catalog.size - unclassified.length,
       interactiveSubpartTotal: [...catalog.values()].reduce((sum, entry) => sum + partCount(entry.question), 0),
       topics: scopeTopicRows.length, blocks: scopeBlockRows.length, examPositions: scopeSlotRows.length,
       theoreticalExamCombinations: scopeSlotRows.reduce((product, row) => product * BigInt(row.canonicalExerciseCount), 1n).toString(),

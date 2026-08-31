@@ -46,6 +46,8 @@ test('el ejecutor queda parametrizado por comunidad y materia', () => {
   assert.match(app, /nativeRuntimeFor = \(community, courseId\)/);
   assert.match(app, /sourceMode: "runtime-structural"/);
   assert.match(runner, /rendererOnly = row\.sourceMode === "runtime-structural"/);
+  assert.match(runner, /includeSingle: Boolean\(onlyExercise\)/);
+  assert.match(runner, /includeSingle: item\.runtimePartCount === 1/);
 });
 
 test('las tres comunidades comparten renderer multiparte visible y corrección por apartado', () => {

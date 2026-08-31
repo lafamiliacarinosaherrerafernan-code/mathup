@@ -1,0 +1,34 @@
+{
+  "generatedAt": "2026-08-31T19:13:12.671Z",
+  "exerciseId": "madrid-mates-3.2.6",
+  "scope": "all defined integrals and Barrow evaluations rendered by math-renderer.js",
+  "implementation": {
+    "integral": "MathML msubsup with native integral operator and structural mspace",
+    "barrow": "direct inline MathML msubsup with closing bracket as the base operator",
+    "manualPositioning": false,
+    "externalSupSub": false,
+    "exerciseSpecificRule": false
+  },
+  "geometryGate": {
+    "method": "getBoundingClientRect",
+    "viewports": [1280, 768, 375, 320],
+    "results": [
+      { "viewport": 1280, "pass": true, "integralUpperOverlapArea": 0, "integralLowerOverlapArea": 0, "barrowUpperOverlapArea": 0.0000993213, "barrowLowerOverlapArea": 0.0001495526 },
+      { "viewport": 768, "pass": true, "integralUpperOverlapArea": 0, "integralLowerOverlapArea": 0, "barrowUpperOverlapArea": 0, "barrowLowerOverlapArea": 0 },
+      { "viewport": 375, "pass": true, "integralUpperOverlapArea": 0, "integralLowerOverlapArea": 0, "barrowUpperOverlapArea": 0.0000039729, "barrowLowerOverlapArea": 0.0000059822 },
+      { "viewport": 320, "pass": true, "verification": "exact-width Chromium fixture" }
+    ],
+    "allPassed": true
+  },
+  "manualValidation": {
+    "status": "APPROVED_BY_USER",
+    "date": "2026-08-31",
+    "note": "Fallo de integrales definidas y Barrow cerrado; implementación mantenida como regresión permanente."
+  },
+  "regressionFiles": [
+    "tests/andalucia-rendering-regressions.test.mjs",
+    "tests/math-native-bounds-geometry.browser.js",
+    "tests/math-native-bounds-geometry.html",
+    "tests/math-native-bounds-geometry-contract.test.mjs"
+  ]
+}

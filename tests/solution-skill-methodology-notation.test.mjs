@@ -24,6 +24,29 @@ test('normal exige tipificación dentro del suceso y lectura explícita de tabla
   assert.match(skill, /no usar `Φ`, `Φ⁻¹`, `invNorm`/i);
 });
 
+test('Matemáticas II fija la secuencia operativa completa de integración por partes', () => {
+  const section = skill.match(/## Integración por partes en Matemáticas II([\s\S]*?)## Integrales racionales mediante fracciones simples/)?.[1] || '';
+  assert.match(section, /`∫u\\,dv=u·v−∫v\\,du`/);
+  assert.match(section, /Identificar expresamente[\s\S]*`u` y `dv`/);
+  assert.match(section, /Calcular y mostrar `du`[\s\S]*obtener `v`/);
+  assert.match(section, /Sustituir `u`, `v`, `du` y `dv`/);
+  assert.match(section, /Desarrollar por completo la integral resultante/);
+  assert.match(section, /comprobarlo por derivación/);
+  assert.doesNotMatch(section, /madrid-mates-|exerciseId/i);
+});
+
+test('Matemáticas II formaliza la aproximación binomial-normal con continuidad y tabla sin Φ', () => {
+  const section = skill.match(/## Aproximación binomial por normal en Matemáticas II([\s\S]*?)## Áreas mediante integrales definidas/)?.[1] || '';
+  assert.match(section, /identificar `n`, `p` y `q=1−p`/i);
+  assert.match(section, /`μ=np` y `σ=√\(npq\)`/);
+  assert.match(section, /corrección de continuidad[\s\S]*variable discreta a una continua/i);
+  assert.match(section, /«al menos `k`»[\s\S]*`k−0,5`/);
+  assert.match(section, /«como máximo `k`»[\s\S]*`k\+0,5`/);
+  assert.match(section, /tipificar dentro de esa misma probabilidad/);
+  assert.match(section, /`P\(Z≤z\)`[\s\S]*tabla[\s\S]*No usar `Φ`, `Φ⁻¹`, `invNorm`/i);
+  assert.doesNotMatch(section, /madrid-mates-|exerciseId/i);
+});
+
 test('áreas conservan la integral completa y el caso de control de Ordinaria 2017', () => {
   assert.equal(policy.courses.matematicas_ii.areaGraph, 'CUTS_LABELS_SHADE_AND_FULL_INTEGRAL_REQUIRED');
   assert.equal(policy.courses.ccss_ii.areaGraph, 'CUTS_LABELS_SHADE_AND_FULL_INTEGRAL_REQUIRED');
