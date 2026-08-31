@@ -1,0 +1,18 @@
+diff --git "a/artifacts\\andalucia-phase2x-systems-linear\\skill-before\\skill-editor-enunciados\\references\\clasificacion.md" "b/C:\\Users\\aherr\\.codex\\skills\\skill-editor-enunciados\\references\\clasificacion.md"
+index 5474a67..bb71495 100644
+--- "a/artifacts\\andalucia-phase2x-systems-linear\\skill-before\\skill-editor-enunciados\\references\\clasificacion.md"
++++ "b/C:\\Users\\aherr\\.codex\\skills\\skill-editor-enunciados\\references\\clasificacion.md"
+@@ -61,6 +61,13 @@ Asignar como `primaryTopic` la tarea matemática principal pedida en el enunciad
+ - **Probabilidad:** sucesos, probabilidad condicionada, independencia, total y Bayes.
+ - **Distribución binomial y normal:** identificación, cálculo, tipificación y aproximaciones de estas distribuciones.
+ 
++## Programación lineal en CCSS II
++
++- Asignar `primaryTopic: Programación lineal` cuando la tarea principal consista en definir variables de decisión, traducir restricciones, construir o estudiar una región factible y optimizar una función objetivo.
++- Los sistemas usados para calcular intersecciones o vértices son herramientas auxiliares y, en su caso, `secondaryTopics[]`; no convierten el ejercicio en Sistemas.
++- No clasificar como Programación lineal una mera región de inecuaciones si el enunciado no pide modelizar, optimizar o estudiar el recinto como tarea principal.
++- La validación estructural exige coherencia entre restricciones, rectas frontera, semiplanos, vértices, tabla de evaluación y gráfica. Una figura decorativa o con vértices distintos constituye un fallo.
++
+ ## Reglas de decisión
+ 
+ 1. Clasificar por lo que el alumno debe demostrar o calcular, no por una palabra incidental ni por una herramienta de comprobación.

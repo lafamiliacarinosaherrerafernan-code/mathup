@@ -1,0 +1,199 @@
+{
+  "schemaVersion": "mathup.andalucia-manual-review-correction.v1",
+  "generatedAt": "2026-08-29T22:40:05.198Z",
+  "scope": {
+    "documentsAuditedNow": 110,
+    "course": "2bach-mates",
+    "ccssII": "DEFERRED_BY_USER",
+    "excludedNormalTableDocumentsInThisCourse": 0,
+    "ccssNormalTable": "DEFERRED_AND_NOT_COUNTED_AS_EXAM"
+  },
+  "corpus": {
+    "exercises": 817,
+    "parts": 1429,
+    "interactiveEligible": 517,
+    "interactiveBlocked": 300
+  },
+  "partAudit": {
+    "MATCH": 787,
+    "DUPLICATED_OR_WRONG_EXERCISE_PARTS": 23,
+    "SOURCE_PART_COUNT_UNVERIFIED": 2,
+    "OMITTED_OR_FUSED_PARTS": 5
+  },
+  "classificationAudit": {
+    "DISAGREEMENT": 441,
+    "MATCH": 212,
+    "REVIEW_REQUIRED": 164
+  },
+  "classificationCorrectionsApplied": 524,
+  "census": {
+    "2bach-mates": {
+      "exercises": 517,
+      "challengeParts": 877,
+      "byCanonicalTopic": {
+        "Matrices": 68,
+        "Determinantes": 40,
+        "Sistemas de ecuaciones": 49,
+        "Vectores": 9,
+        "Rectas y planos": 39,
+        "Problemas metricos": 130,
+        "Limites": 25,
+        "Continuidad": 15,
+        "Derivadas": 48,
+        "Aplicaciones de las derivadas": 71,
+        "Integrales indefinidas": 38,
+        "Integrales definidas y areas": 74,
+        "Probabilidad": 6,
+        "Distribuciones binomial y normal": 2
+      },
+      "withoutCanonicalTopic": 0,
+      "withoutCanonicalTopicByPrimary": {},
+      "byPrimaryTopic": {
+        "Aplicación de derivadas": 36,
+        "Propiedades métricas": 94,
+        "Límites y asíntotas": 14,
+        "Matrices": 36,
+        "Integrales definidas y áreas": 65,
+        "Integrales indefinidas": 37,
+        "Continuidad": 7,
+        "Problemas métricos": 36,
+        "Integrales definidas": 9,
+        "Determinantes": 8,
+        "Sistemas con determinantes": 42,
+        "Aplicaciones de las derivadas": 9,
+        "Derivadas": 22,
+        "Planos y rectas en el espacio": 19,
+        "Matrices y determinantes": 23,
+        "Continuidad y derivabilidad": 7,
+        "Aplicaciones de derivadas": 22,
+        "Planos y rectas": 5,
+        "Probabilidad": 6,
+        "Sistemas de ecuaciones": 7,
+        "Asíntotas y rectas tangente y normal": 1,
+        "Límites": 5,
+        "Límite de sucesiones y funciones": 2,
+        "Geometría afín en el espacio": 1,
+        "Optimización": 1,
+        "Distribución normal": 2,
+        "Integrales": 1
+      },
+      "byBlock": {
+        "analisis": 237,
+        "geometria": 156,
+        "probabilidad-estadistica": 8,
+        "algebra": 116
+      },
+      "blockTopicVariety": {
+        "analisis": {
+          "topicIndexes": [
+            6,
+            7,
+            8,
+            9,
+            10,
+            11
+          ],
+          "topics": [
+            "Limites",
+            "Continuidad",
+            "Derivadas",
+            "Aplicaciones de las derivadas",
+            "Integrales indefinidas",
+            "Integrales definidas y areas"
+          ]
+        },
+        "geometria": {
+          "topicIndexes": [
+            3,
+            4,
+            5
+          ],
+          "topics": [
+            "Vectores",
+            "Rectas y planos",
+            "Problemas metricos"
+          ]
+        },
+        "probabilidad-estadistica": {
+          "topicIndexes": [
+            12,
+            13
+          ],
+          "topics": [
+            "Probabilidad",
+            "Distribuciones binomial y normal"
+          ]
+        },
+        "algebra": {
+          "topicIndexes": [
+            0,
+            1,
+            2
+          ],
+          "topics": [
+            "Matrices",
+            "Determinantes",
+            "Sistemas de ecuaciones"
+          ]
+        }
+      },
+      "byExamSlot": {
+        "1": 112,
+        "2": 132,
+        "3": 131,
+        "4": 139,
+        "5": 3
+      },
+      "exactExamCapacity": "807605568",
+      "statistical": {
+        "probabilidad": {
+          "exercises": 6,
+          "years": [
+            2010,
+            2011,
+            2015,
+            2020,
+            2025
+          ]
+        },
+        "binomial": {
+          "exercises": 0,
+          "years": []
+        },
+        "normal": {
+          "exercises": 2,
+          "years": [
+            2025
+          ]
+        },
+        "distribucionSinDesambiguar": {
+          "exercises": 0,
+          "years": []
+        }
+      }
+    }
+  },
+  "skillChanges": [
+    {
+      "id": "solucion-de-ejercicios",
+      "beforeSha256": "18d4ead04a7159af4882134535a7b15632a430118b0c7f6b24ef45806aab9444",
+      "afterSha256": "5eb5abe8afa7e81a4f0aa2527167da3e580bf338c4c1e2f25f34a403edc8dc5c",
+      "changed": true,
+      "diffFile": "solucion-de-ejercicios.diff"
+    },
+    {
+      "id": "skill-editor-enunciados",
+      "beforeSha256": "6a109761baf555cf841362392cf2066ce4b77f27f623b672d665970398b956dc",
+      "afterSha256": "5f2a076e551ef7f7e68415ff0f49c70d74d7bbb12fc7abaef5331cf2ea257566",
+      "changed": true,
+      "diffFile": "skill-editor-enunciados.diff"
+    },
+    {
+      "id": "skill-editor-enunciados-clasificacion",
+      "beforeSha256": "f67dbc811a99b2a9b15e7a499d71a647938538996720737e0473a408c5f4daae",
+      "afterSha256": "51d1315f283d6c87d346b8ebaf37c5b4d1c368de305b4cd04b3c962a4dcd58a9",
+      "changed": true,
+      "diffFile": "skill-editor-enunciados-clasificacion.diff"
+    }
+  ]
+}

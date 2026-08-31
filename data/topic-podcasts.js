@@ -127,7 +127,7 @@ window.TOPIC_PODCASTS = {
   "2bach-mates": [
     { title: "Matrices", master: "documentos/2º Bachillerato Mates II/Audios 2º Bach Mates II/1-Matrices Master.m4a" },
     { title: "Determinantes", master: "documentos/2º Bachillerato Mates II/Audios 2º Bach Mates II/2-Determinantes Master.m4a" },
-    { title: "Sistemas con determinantes", master: "documentos/2º Bachillerato Mates II/Audios 2º Bach Mates II/3- Resolución de sistemas mediante determinantes Master.m4a" },
+    { title: "Resolución de sistemas con determinantes", master: "documentos/2º Bachillerato Mates II/Audios 2º Bach Mates II/3- Resolución de sistemas mediante determinantes Master.m4a" },
     { title: "Vectores en el espacio", master: "documentos/2º Bachillerato Mates II/Audios 2º Bach Mates II/4-Vectores en el Espacio Master.m4a" },
     { title: "Planos y rectas en el espacio", master: "documentos/2º Bachillerato Mates II/Audios 2º Bach Mates II/5-Planos y rectas en el espacio Master.m4a" },
     { title: "Propiedades métricas", master: "documentos/2º Bachillerato Mates II/Audios 2º Bach Mates II/6-Propiedades métricas Master.m4a" },

@@ -15,7 +15,8 @@ const FIRST_BACH_COURSE_IDS = ["1bach-mates", "1bach-ccss"];
 const BACH_II_PAU_COMMUNITY_KEY = "margarita-bach-ii-pau-community-v1";
 const BACH_II_PAU_COMMUNITIES = {
   clm: "Castilla-La Mancha",
-  madrid: "Madrid"
+  madrid: "Madrid",
+  andalucia: "Andalucía"
 };
 
 const BACH_II_BLOCKS = {
@@ -435,7 +436,7 @@ const courses = [
     themes: [
       "Matrices",
       "Determinantes",
-      "Sistemas con determinantes",
+      "Resolución de sistemas con determinantes",
       "Vectores en el espacio",
       "Planos y rectas en el espacio",
       "Propiedades métricas",
@@ -664,8 +665,11 @@ let state = {
   topicChallengeLevel: "apprentice",
   blockKey: "",
   pauCommunity: "clm",
+  challengePauCommunity: null,
   trainingQuestionHistory: {},
   answered: false,
+  selectedAnswer: null,
+  multipartSelections: [],
   multipartResponses: [],
   blockChallengeSeed: 0,
   adminYear: DEFAULT_ACADEMIC_YEAR,
@@ -712,6 +716,16 @@ function fileUrl(path) {
 
 function topicKey(course, topicIndex = state.topicIndex) {
   return `${course.id}-${topicIndex}`;
+}
+
+function isMultipartBrowserE2EMode() {
+  try {
+    const url = new URL(window.location.href);
+    return ["127.0.0.1", "localhost"].includes(url.hostname)
+      && (url.searchParams.get("multipart-e2e") === "1" || url.searchParams.get("final-e2e") === "1");
+  } catch (_) {
+    return false;
+  }
 }
 
 function semanticTopicId(course, topicIndex = state.topicIndex) {
@@ -775,11 +789,20 @@ function readBachPauCommunity(courseId = state.courseId, student = state.student
 }
 
 function currentBachPauCommunity() {
+  return normalizeBachPauCommunity(
+    state.bachExam?.pauCommunity
+    || state.challengePauCommunity
+    || state.pauCommunity
+  );
+}
+
+function selectedBachPauCommunity() {
   return normalizeBachPauCommunity(state.pauCommunity);
 }
 
 function setBachPauCommunity(value) {
   if (!BACH_II_COURSE_IDS.includes(state.courseId)) return;
+  if (state.bachExam || state.challengePauCommunity) return;
   const community = normalizeBachPauCommunity(value);
   state.pauCommunity = community;
   state.blockKey = "";
@@ -793,22 +816,52 @@ function setBachPauCommunity(value) {
   } catch (_) {
     // La selección sigue activa durante la sesión aunque el almacenamiento local no esté disponible.
   }
-  renderBachIIHome();
 }
 
-function bachPauCommunityControl(label = "Elegir la comunidad autónoma") {
-  const selected = currentBachPauCommunity();
+function changeBachPauCommunity(value, destination = "home") {
+  if (state.bachExam || state.challengePauCommunity) return;
+  setBachPauCommunity(value);
+  if (destination === "topics") renderDashboard();
+  else renderBachIIHome();
+}
+
+function bachPauCommunityControl(destination = "home") {
+  const selected = selectedBachPauCommunity();
   return `
-    <label class="bach-pau-community-control">
-      <span>${escapeHtml(label)}</span>
-      <select onchange="setBachPauCommunity(this.value)" aria-label="${escapeHtml(label)}">
+    <label class="bach-pau-community-control bach-pau-global-selector">
+      <span class="bach-pau-selector-prefix" aria-hidden="true">PAU ·</span>
+      <span class="sr-only">Comunidad PAU activa</span>
+      <select onchange="changeBachPauCommunity(this.value, '${escapeHtml(destination)}')" aria-label="Comunidad PAU activa">
         ${Object.entries(BACH_II_PAU_COMMUNITIES).map(([value, name]) => `<option value="${value}" ${selected === value ? "selected" : ""}>${escapeHtml(name)}</option>`).join("")}
       </select>
     </label>
   `;
 }
 
+function bachPauCommunityBadge() {
+  return `<span class="badge bach-pau-community-badge">PAU · ${escapeHtml(BACH_II_PAU_COMMUNITIES[currentBachPauCommunity()])}</span>`;
+}
+
+function pauExerciseMatchesContext(exercise, courseId = state.courseId, region = currentBachPauCommunity()) {
+  if (!exercise || !BACH_II_COURSE_IDS.includes(courseId)) return false;
+  const declaredRegion = String(exercise.community || exercise.region || "clm").toLowerCase();
+  const exerciseRegion = /andaluc/.test(declaredRegion) ? "andalucia" : /madrid/.test(declaredRegion) ? "madrid" : "clm";
+  if (exerciseRegion !== normalizeBachPauCommunity(region)) return false;
+  const declaredSubject = String(exercise.courseId || exercise.subject || exercise.course || "").toLowerCase();
+  const exerciseCourseId = /ccss/.test(declaredSubject)
+    ? "2bach-ccss"
+    : /mates|matem/.test(declaredSubject)
+      ? "2bach-mates"
+      : null;
+  return !exerciseCourseId || exerciseCourseId === courseId;
+}
+
+window.pauExerciseMatchesContext = pauExerciseMatchesContext;
+
 function bachPauRawBanks(courseId = state.courseId) {
+  if (currentBachPauCommunity() === "andalucia") {
+    return window.ANDALUCIA_PAU_RUNTIME?.banks(courseId) || {};
+  }
   if (currentBachPauCommunity() === "madrid") {
     const excluded = window.MADRID_PAU_AUTHORED?.exclusions?.[courseId] || {};
     return (window.MADRID_PAU_BANK?.[courseId] || []).reduce((banks, exercise) => {
@@ -1220,7 +1273,7 @@ function normalizeMathNotation(value) {
     .replace(/\\(?:parallel)\b/g, "∥")
     .replace(/\\(?:perp)\b/g, "⟂")
     .replace(/\\(?:equiv)\b/g, "≡")
-    .replace(/\\(?:approx|simeq)\b/g, "≈")
+    .replace(/\\(?:approx|simeq)(?![A-Za-z])/g, "≈")
     .replace(/\\(?:propto)\b/g, "∝")
     .replace(/\\(?:pm)\b/g, "±")
     .replace(/\\(?:mp)\b/g, "∓")
@@ -1395,6 +1448,12 @@ function normalizeCoordinateFractionNotation(value) {
 }
 
 function formatMathFragment(value) {
+  // One renderer must own every mathematical fragment. This keeps native
+  // MathML integrals, roots and Barrow evaluations identical in statements,
+  // answers and solutions.
+  if (globalThis.MargaritaMathRenderer?.fragment) {
+    return globalThis.MargaritaMathRenderer.fragment(value);
+  }
   const exponent = String.raw`(?:-?\d+|\([^()]+\)|[A-Za-zα-ωΑ-Ω][A-Za-z0-9α-ωΑ-Ω]*|[²³⁴⁵⁶⁷⁸⁹⁰⁻]+)`;
   const fractionAtom = String.raw`(?:\b(?:sqrt|sqr|raiz)\([^()]+\)|√[A-Za-z0-9]+|\b(?:P|sen|cos|tg|ln|log)\([^()]+\)(?:\^${exponent})?|\([^()]+\)(?:\^${exponent})?|\b(?:\d+(?:[.,]\d+)?)?[A-Za-zπ]{1,4}(?:\^${exponent}|[²³⁴⁵⁶⁷⁸⁹⁰⁻]+)?(?![A-Za-z0-9])|\b\d+(?:[.,]\d+)?\b)`;
   const fractionPattern = new RegExp(`(${fractionAtom})\\s*\\/\\s*(-?${fractionAtom})`, "g");
@@ -1686,7 +1745,7 @@ function renderAbsParabolaAreaGraph() {
 }
 
 function renderDefiniteIntegral(lower, upper, integrand) {
-  return `<span class="math-integral area-integral" aria-label="integral desde ${escapeHtml(lower)} hasta ${escapeHtml(upper)}"><span class="integral-sign">∫</span><span class="integral-bounds"><sup>${escapeHtml(upper)}</sup><sub>${escapeHtml(lower)}</sub></span></span><span class="area-integrand">${integrand}</span><span class="area-differential">dx</span>`;
+  return `<span class="area-integral">${formatMathFragment(`∫_{${lower}}^{${upper}}`)}</span><span class="area-integrand">${integrand}</span><span class="area-differential">dx</span>`;
 }
 
 function renderAbsParabolaSymmetryEquation() {
@@ -1751,7 +1810,7 @@ function renderReciprocalAreaIntegral() {
   return `
     <div class="area-display-equation reciprocal-integral-equation" role="img" aria-label="A igual a la integral desde uno hasta dos de uno partido por x menos uno partido por x al cuadrado, diferencial de x">
       <span>A=</span>
-      <span class="display-integral"><span class="display-integral-sign">∫</span><span class="display-integral-upper">2</span><span class="display-integral-lower">1</span></span>
+      ${formatMathFragment("∫_{1}^{2}")}
       <span class="display-integrand">(${formatMathFragment("frac{1}{x}-frac{1}{x²}")})</span><span>dx</span>
     </div>`;
 }
@@ -1760,7 +1819,7 @@ function renderReciprocalBarrowEquation() {
   return `
     <div class="area-display-equation reciprocal-barrow-equation" role="img" aria-label="Aplicación de la regla de Barrow desde uno hasta dos">
       <span>A=</span>
-      <span class="barrow-evaluation"><span class="barrow-bracket">[</span><span class="barrow-expression">ln x+${formatMathFragment("frac{1}{x}")}</span><span class="barrow-bracket">]</span><span class="barrow-upper">2</span><span class="barrow-lower">1</span></span>
+      ${formatMathFragment("[ln x+frac{1}{x}]_{1}^{2}")}
       <span>=</span><span>(ln 2+${formatMathFragment("frac{1}{2}")})−(ln 1+1)</span><span>=ln 2−${formatMathFragment("frac{1}{2}")}.</span>
     </div>`;
 }
@@ -1768,7 +1827,7 @@ function renderReciprocalBarrowEquation() {
 function renderDisplayIntegralTerm(lower, upper, integrand, className = "") {
   return `
     <span class="display-integral-term ${className}">
-      <span class="display-integral"><span class="display-integral-sign">∫</span><span class="display-integral-upper">${upper}</span><span class="display-integral-lower">${lower}</span></span>
+      ${formatMathFragment(`∫_{${lower}}^{${upper}}`)}
       <span class="display-integrand">${formatMathFragment(integrand)}</span><span class="area-differential">dx</span>
     </span>`;
 }
@@ -1788,7 +1847,7 @@ function renderParabolaBarrowEquation() {
     <div class="area-display-equation parabola-line-barrow-equation" role="img" aria-label="Primera integral evaluada entre uno y tres mediante la regla de Barrow">
       ${renderDisplayIntegralTerm("1", "3", "(x²−1)", "parabola-integral-term")}
       <span>=</span>
-      <span class="barrow-evaluation"><span class="barrow-bracket">[</span><span class="barrow-expression">${formatMathFragment("frac{x³}{3}−x")}</span><span class="barrow-bracket">]</span><span class="barrow-upper">3</span><span class="barrow-lower">1</span></span>
+      ${formatMathFragment("[frac{x³}{3}−x]_{1}^{3}")}
       <span>=</span><span>(9−3)−(${formatMathFragment("frac{1}{3}−1")})</span>
       <span>=${formatMathFragment("frac{20}{3}")}.</span>
     </div>`;
@@ -1799,7 +1858,7 @@ function renderLineBarrowEquation() {
     <div class="area-display-equation parabola-line-barrow-equation" role="img" aria-label="Segunda integral evaluada entre tres y once mediante la regla de Barrow">
       ${renderDisplayIntegralTerm("3", "11", "(11−x)", "line-integral-term")}
       <span>=</span>
-      <span class="barrow-evaluation"><span class="barrow-bracket">[</span><span class="barrow-expression">${formatMathFragment("11x−frac{x²}{2}")}</span><span class="barrow-bracket">]</span><span class="barrow-upper">11</span><span class="barrow-lower">3</span></span>
+      ${formatMathFragment("[11x−frac{x²}{2}]_{3}^{11}")}
       <span>=${formatMathFragment("frac{121}{2}−frac{57}{2}=32")}.</span>
     </div>`;
 }
@@ -1883,7 +1942,7 @@ function renderDerivativeCycle2008() {
   `;
 }
 
-function formatSolutionText(value) {
+function formatSolutionText(value, mathOptions = {}) {
   const officialSolutionImages = [];
   const signCharts = [];
   const reflectionDiagrams = [];
@@ -2020,7 +2079,7 @@ function formatSolutionText(value) {
       `);
       return `@@SC${chartIndex}@@`;
     });
-  let rendered = formatMathText(source)
+  let rendered = formatMathText(source, mathOptions)
     .replace(/(Resolución|Planteamiento|Desarrollo paso a paso|Desarrollo|Resultado final|Comprobación|Conclusión):<br>/g, '<span class="solution-section-title">$1</span><br>');
   signCharts.forEach((chart, index) => {
     rendered = rendered.replace(`@@SC${index}@@`, chart);
@@ -2055,6 +2114,14 @@ function formatSolutionText(value) {
   officialSolutionImages.forEach((figure, index) => {
     rendered = rendered.replace(`@@OSI${index}@@`, figure);
   });
+  // Optional verified Andalucía solution graph. This is a derived diagram, not
+  // an official source image. Existing callers without this option are unchanged.
+  const solutionGraph = typeof mathOptions === 'object' ? mathOptions?.solutionGraph : null;
+  if (solutionGraph && /^(?:data:image\/svg\+xml;base64,[A-Za-z0-9+/]+=*|data:image\/svg\+xml;charset=utf-8,[A-Za-z0-9_.!~*'()%,-]+)$/.test(solutionGraph.src || "")) {
+    const graphSource = escapeHtml(solutionGraph.src);
+    const graphAlt = escapeHtml(solutionGraph.alt || 'Gráfica derivada de la resolución matemática');
+    rendered += `<figure class="derived-solution-graph" style="margin:12px 0;max-width:640px"><a href="${graphSource}" target="_blank" rel="noopener" aria-label="Abrir gráfica ampliada"><img src="${graphSource}" alt="${graphAlt}" style="display:block;width:100%;height:auto"></a><figcaption>Gráfica derivada de las restricciones. Selecciónala para ampliarla.</figcaption></figure>`;
+  }
   return rendered;
 }
 
@@ -2132,6 +2199,7 @@ function fitStudentScreen() {
   if (!shell || !viewport || !stage) return;
 
   stage.style.width = "100%";
+  stage.style.setProperty("--shell-fit-scale", "1");
   if (window.innerWidth < 821 || window.innerHeight < 501) {
     stage.style.transform = "none";
     viewport.style.overflowY = "visible";
@@ -2165,6 +2233,7 @@ function fitStudentScreen() {
     viewport.style.overflowY = "auto";
   }
   stage.style.width = `${100 / scale}%`;
+  stage.style.setProperty("--shell-fit-scale", String(scale));
   stage.style.transform = `translateX(-50%) scale(${scale})`;
 }
 
@@ -2318,8 +2387,12 @@ function login() {
     topicChallengeLevel: "apprentice",
     blockKey: "",
     pauCommunity: BACH_II_COURSE_IDS.includes(courseId) ? readBachPauCommunity(courseId, student) : "clm",
+    challengePauCommunity: null,
     trainingQuestionHistory: {},
     answered: false,
+    selectedAnswer: null,
+    multipartSelections: [],
+    multipartResponses: [],
     sessionAnswers: []
   };
   if (isEsoCourseId(courseId)) renderStudentGateway();
@@ -3732,23 +3805,29 @@ function renderStudentHome() {
 
 function renderBachIIHome() {
   clearQuestionTimer();
+  state.bachExam = null;
+  state.challengePauCommunity = null;
   state.blockKey = "";
   state.blockTopicIndexes = [];
   const course = courseById(state.courseId);
   const questionCount = questionsPerChallengeFor(course);
   const examQuestionCount = course.id === "2bach-ccss" ? 4 : 5;
-  const communityName = BACH_II_PAU_COMMUNITIES[currentBachPauCommunity()];
   renderShell(`
     <section class="student-dashboard">
       <section class="screen-panel home-panel">
         <div class="workspace-head">
           <div>
-            <h1>${escapeHtml(courseDisplayName(course))}: elige cómo estudiar</h1>
-            <div class="badge-row">
+            <h1>${escapeHtml(courseDisplayName(course))}</h1>
+            <div class="bach-context-row" aria-label="Contexto de estudio">
+              <span class="badge">${course.themes.length} temas</span>
+              <span class="badge">${questionCount} preguntas por reto</span>
+              <span class="badge">Modo estudio</span>
+              ${bachPauCommunityControl("home")}
+            </div>
+            <div class="badge-row bach-student-context">
               <span class="badge">${escapeHtml(state.academicYear)}</span>
               <span class="badge">${escapeHtml(state.student.groupLabel || state.student.group)}</span>
               <span class="badge">${escapeHtml(state.student.name)}</span>
-              <span class="badge bach-pau-community-badge">PAU · ${escapeHtml(communityName)}</span>
             </div>
           </div>
           <div class="dashboard-exit">
@@ -3760,28 +3839,19 @@ function renderBachIIHome() {
             <span class="path-icon">Temas</span>
             <h2>Estudiar temas y hacer retos</h2>
             <p>Accede a las infografías y a los retos PAU organizados por cada tema del curso.</p>
-            <div class="bach-pau-card-actions">
-              ${bachPauCommunityControl()}
-              <button class="primary" onclick="renderDashboard()">Entrar por temas</button>
-            </div>
+            <div class="bach-pau-card-actions"><button class="primary" onclick="renderDashboard()">Entrar por temas</button></div>
           </article>
           <article class="path-choice path-choice-adventure bach-home-blocks">
             <span class="path-icon">Bloques</span>
             <h2>Estudiar por bloques y hacer retos</h2>
             <p>Repasa los contenidos agrupados por bloques PAU, con ${questionCount} ejercicios por reto.</p>
-            <div class="bach-pau-card-actions">
-              ${bachPauCommunityControl()}
-              <button class="secondary" onclick="renderBachBlockSelector()">Ver bloques</button>
-            </div>
+            <div class="bach-pau-card-actions"><button class="secondary" onclick="renderBachBlockSelector()">Ver bloques</button></div>
           </article>
           <article class="path-choice path-choice-exam bach-home-exam">
             <span class="path-icon">Examen</span>
             <h2>Hacer examen</h2>
             <p>Realiza ${examQuestionCount} ejercicios elegidos de los bancos corregidos y consulta después su resolución completa.</p>
-            <div class="bach-pau-card-actions">
-              ${bachPauCommunityControl()}
-              <button class="secondary" onclick="startBachExam()">Comenzar examen</button>
-            </div>
+            <div class="bach-pau-card-actions"><button class="secondary" onclick="startBachExam()">Comenzar examen</button></div>
           </article>
         </div>
       </section>
@@ -3792,17 +3862,23 @@ function renderBachIIHome() {
 
 function renderBachBlockSelector() {
   clearQuestionTimer();
+  state.challengePauCommunity = null;
   const course = courseById(state.courseId);
   const blocks = BACH_II_BLOCKS[course.id] || [];
   const cards = blocks.map((block) => {
-    const pending = !(bachPauRawBanks(course.id)?.[block.id]?.length);
+    const andaluciaCount = currentBachPauCommunity() === "andalucia"
+      ? (window.ANDALUCIA_PAU_RUNTIME?.blockRecords?.(course.id, block.id)?.length || 0)
+      : null;
+    const pending = currentBachPauCommunity() === "andalucia"
+      ? andaluciaCount < questionsPerChallengeFor(course)
+      : !(bachPauRawBanks(course.id)?.[block.id]?.length);
     return `
     <article class="path-choice path-choice-adventure block-choice-card ${escapeHtml(block.slot)}">
       <div>
         <h2>${escapeHtml(block.label)}</h2>
       </div>
       <p>${escapeHtml(block.description)}</p>
-      <button class="secondary" ${pending ? "disabled" : `onclick="startBachBlockChallenge('${escapeHtml(block.id)}')"`}>${pending ? "Pendiente de ejercicios" : "Comenzar reto"}</button>
+      <button class="secondary" ${pending ? "disabled" : `onclick="startBachBlockChallenge('${escapeHtml(block.id)}')"`}>${pending ? "Pendiente de validación" : "Comenzar reto"}</button>
     </article>
   `;
   }).join("");
@@ -3813,7 +3889,7 @@ function renderBachBlockSelector() {
         <div class="workspace-head">
           <div>
             <h1>Estudiar por bloques y hacer retos</h1>
-            <div class="badge-row"><span class="badge">${escapeHtml(courseDisplayName(course))}</span><span class="badge">PAU · ${escapeHtml(BACH_II_PAU_COMMUNITIES[currentBachPauCommunity()])}</span></div>
+            <div class="badge-row"><span class="badge">${escapeHtml(courseDisplayName(course))}</span>${bachPauCommunityBadge()}</div>
           </div>
           <div class="dashboard-exit">
             <button class="ghost" onclick="renderBachIIHome()">Volver</button>
@@ -3838,6 +3914,15 @@ function startBachBlockChallenge(blockId, selectedTopicIndexes = null) {
     renderBachBlockSelector();
     return;
   }
+  if (currentBachPauCommunity() === "andalucia") {
+    const available = window.ANDALUCIA_PAU_RUNTIME?.blockRecords?.(course.id, block.id)?.length || 0;
+    const requested = questionsPerChallengeFor(course);
+    if (available < requested) {
+      alert(`Este bloque de Andalucía continúa pendiente de validación matemática. Hay ${available} ejercicios seguros y se necesitan ${requested}; no se completará con contenido de otra materia o comunidad.`);
+      renderBachBlockSelector();
+      return;
+    }
+  }
   const requestedTopics = Array.isArray(selectedTopicIndexes) ? selectedTopicIndexes : block.topics;
   const availability = window.MargaritaContentAvailability;
   const partition = availability?.partition
@@ -3850,6 +3935,7 @@ function startBachBlockChallenge(blockId, selectedTopicIndexes = null) {
     renderBachBlockSelector();
     return;
   }
+  state.challengePauCommunity = selectedBachPauCommunity();
   state.blockKey = block.id;
   state.blockTopicIndexes = partition.valid;
   state.topicIndex = partition.valid[0];
@@ -3858,13 +3944,15 @@ function startBachBlockChallenge(blockId, selectedTopicIndexes = null) {
   state.streak = 0;
   state.practiceRound = 0;
   state.answered = false;
+  state.selectedAnswer = null;
+  state.multipartSelections = [];
   state.multipartResponses = [];
   state.blockChallengeSeed = Date.now();
   state.challengeQuestionHistory = {};
   state.challengeRoundCache = {};
   state.timeLeft = questionSecondsFor(course);
   state.sessionAnswers = [];
-  if (course.id === "2bach-ccss") {
+  if (course.id === "2bach-ccss" && currentBachPauCommunity() !== "andalucia") {
     const preview = buildCcssIIBlockQuestions(block.id);
     const requestedCount = questionsPerChallengeFor(course);
     if (preview.length < requestedCount) {
@@ -3877,11 +3965,19 @@ function startBachBlockChallenge(blockId, selectedTopicIndexes = null) {
 function renderDashboard() {
   clearQuestionTimer();
   const course = courseById(state.courseId);
+  if (BACH_II_COURSE_IDS.includes(course?.id)) state.challengePauCommunity = null;
   const eso = isEsoCourse(course);
   const questionCount = questionsPerChallengeFor(course);
   const topics = course.themes
     .map((theme, index) => {
       const visualKey = topicVisualKey(theme);
+      const andaluciaPending = !eso
+        && BACH_II_COURSE_IDS.includes(course.id)
+        && currentBachPauCommunity() === "andalucia"
+        && (() => {
+          const available = window.ANDALUCIA_PAU_RUNTIME?.topicRecords?.(course.id, index)?.length || 0;
+          return course.id === "2bach-mates" ? available === 0 : available < questionCount;
+        })();
       return `
       <article class="topic-card topic-visual-${escapeHtml(visualKey)}">
         <div>
@@ -3904,7 +4000,7 @@ function renderDashboard() {
           </div>
         ` : `
           <div class="topic-actions">
-            <button class="secondary" onclick="startTopic(${index})">Estudiar y hacer reto</button>
+            <button class="secondary" ${andaluciaPending ? "disabled" : `onclick="startTopic(${index})"`}>${andaluciaPending ? "Pendiente de validación" : "Estudiar y hacer reto"}</button>
           </div>
         `}
       </article>
@@ -3921,10 +4017,10 @@ function renderDashboard() {
               <span class="badge">${course.themes.length} temas</span>
               <span class="badge">${questionCount} preguntas por reto</span>
               <span class="badge">Modo estudio</span>
+              ${BACH_II_COURSE_IDS.includes(course.id) ? bachPauCommunityBadge() : ""}
             </div>
           </div>
           <div class="dashboard-exit">
-            <div class="dashboard-student">${escapeHtml(state.student.name)}<span>${escapeHtml(state.academicYear)} · ${escapeHtml(state.student.groupLabel || state.student.group)}</span></div>
             ${eso ? `<button class="ghost" onclick="renderStudentGateway()">Inicio</button>` : ""}
             ${FIRST_BACH_COURSE_IDS.includes(course.id) ? `<button class="ghost" onclick="renderFirstBachGateway()">Inicio</button>` : ""}
             ${BACH_II_COURSE_IDS.includes(course.id) ? `<button class="ghost" onclick="renderBachIIHome()">Inicio</button>` : ""}
@@ -3992,6 +4088,16 @@ function topicVisualKey(theme) {
 function startTopic(index, challengeLevel = "apprentice") {
   clearQuestionTimer();
   const course = courseById(state.courseId);
+  if (BACH_II_COURSE_IDS.includes(course.id) && currentBachPauCommunity() === "andalucia") {
+    const available = window.ANDALUCIA_PAU_RUNTIME?.topicRecords?.(course.id, index)?.length || 0;
+    const requested = questionsPerChallengeFor(course);
+    if (available === 0 || (course.id !== "2bach-mates" && available < requested)) {
+      alert(`Este tema de Andalucía continúa pendiente de validación matemática. Hay ${available} ejercicios seguros y se necesitan ${requested}; no se completará con contenido de otra materia o comunidad.`);
+      renderDashboard();
+      return;
+    }
+  }
+  if (BACH_II_COURSE_IDS.includes(course.id)) state.challengePauCommunity = selectedBachPauCommunity();
   state.topicIndex = index;
   state.topicChallengeLevel = isEsoCourse(course) && challengeLevel === "master" ? "master" : "apprentice";
   state.questionIndex = 0;
@@ -4001,6 +4107,9 @@ function startTopic(index, challengeLevel = "apprentice") {
   state.challengeQuestionHistory = {};
   state.challengeRoundCache = {};
   state.answered = false;
+  state.selectedAnswer = null;
+  state.multipartSelections = [];
+  state.multipartResponses = [];
   state.timeLeft = questionSecondsFor(course);
   state.sessionAnswers = [];
   renderStudy();
@@ -4014,6 +4123,8 @@ function repeatTopic() {
   state.score = 0;
   state.streak = 0;
   state.answered = false;
+  state.selectedAnswer = null;
+  state.multipartSelections = [];
   state.multipartResponses = [];
   state.timeLeft = questionSecondsFor(course);
   state.sessionAnswers = [];
@@ -4064,15 +4175,20 @@ function renderOfficialSourceCallout(question, courseId = state.courseId) {
     : `<div class="official-source">Enunciado original · ${escapeHtml(origin)}Convocatoria: ${escapeHtml(label)}</div>`;
 }
 
-function renderPauReferenceTable(question) {
-  const table = String(question?.referenceTable || "").toLowerCase();
+function renderPauReferenceTable(question, part = null) {
+  const table = String(part?.referenceTable || question?.referenceTable || "").toLowerCase();
   if (table !== "binomial" && table !== "normal") return "";
-  const page = table === "binomial" ? 1 : 2;
   const label = table === "binomial" ? "Tabla de la distribución binomial" : "Tabla de la distribución normal";
-  const source = `documentos/PAU Comunidades/MADRID/Tablas de la distribución binomial y normal.pdf#page=${page}&view=FitH`;
+  const community = String(question?.community || currentBachPauCommunity() || "").toLowerCase();
+  if (community === "clm") return "";
+  const resource = table === "binomial"
+    ? window.PAU_STATISTICAL_RESOURCES?.BINOMIAL_TABLE
+    : window.PAU_STATISTICAL_RESOURCES?.NORMAL_STANDARD_TABLE;
+  if (!resource?.source) return "";
+  const source = `${resource.source}#page=${resource.page || 1}&view=FitH`;
   return `
-    <details class="pau-reference-table">
-      <summary>Consultar ${escapeHtml(label.toLowerCase())}</summary>
+    <details class="pau-reference-table" data-resource-id="${escapeHtml(resource.id)}">
+      <summary>${escapeHtml(`Consultar ${label.toLowerCase()}`)}</summary>
       <div class="pau-reference-table-frame">
         <object data="${encodeURI(source)}" type="application/pdf" aria-label="${escapeHtml(label)}">
           <a href="${encodeURI(source)}" target="_blank" rel="noopener">Abrir ${escapeHtml(label.toLowerCase())}</a>
@@ -4097,7 +4213,14 @@ function officialQuestionStatementHtml(question, courseId = state.courseId) {
     // tags split [[...]] across several text nodes, so the HTML renderer can
     // no longer see a complete matrix. Render the equivalent plain source in
     // those cases; the stored corpus and its mathematical meaning stay intact.
-    if (statement.includes("[[") && question.text) {
+    if ((statement.includes("[[") || /\b(?:frac|sqrt|matrix|det|system|piecewise)\s*\{/i.test(statement)) && question.text) {
+      return formatMathText(question.text, { preserveTrigNotation: true });
+    }
+    // Algunas importaciones antiguas conservaron las llaves visuales de una
+    // función a trozos, pero perdieron su estructura semántica. Si la fuente
+    // canónica incluye `piecewise{...}`, esa fuente completa vuelve a pasar
+    // por el renderizador general para reconstruir todas las ramas.
+    if (/\bpiecewise\s*\{/i.test(String(question.text || "")) && !/class=["']math-piecewise\b/i.test(statement)) {
       return formatMathText(question.text, { preserveTrigNotation: true });
     }
     return formatMathHtml(statement, { preserveTrigNotation: true });
@@ -4107,6 +4230,13 @@ function officialQuestionStatementHtml(question, courseId = state.courseId) {
     ? String(question.text || "").split(/\r?\n/).slice(1).join("\n").trim()
     : question.text;
   return formatMathText(text, { preserveTrigNotation: true });
+}
+
+function challengePartLabel(part, index = 0) {
+  const explicit = String(part?.label || "").trim();
+  if (explicit && explicit.toLowerCase() !== "undefined") return explicit;
+  const suffix = String(part?.id || "").match(/(?:^|[:_-])([a-e])$/i)?.[1];
+  return suffix ? `${suffix.toLowerCase()})` : `Apartado ${index + 1}`;
 }
 
 function renderStudy() {
@@ -4120,9 +4250,21 @@ function renderStudy() {
     ? (BACH_II_BLOCKS[course.id] || []).find((item) => item.id === state.blockKey)
     : null;
   const theme = activeBlock?.label || course.themes[state.topicIndex];
+  const challengeTitleTheme = activeBlock ? String(activeBlock.label || theme).replace(/^Bloque de\s+/i, "") : theme;
   const isBachCourse = course.id.includes("bach");
   const infographicUrl = infographicViewerUrl(course, state.topicIndex);
   const questions = buildQuestions(theme, course);
+  if (BACH_II_COURSE_IDS.includes(course.id) && questions.some((item) => !pauExerciseMatchesContext(item, course.id, currentBachPauCommunity()))) {
+    renderShell(`
+      <section class="student-dashboard"><section class="screen-panel empty-topic-bank">
+        <span class="topic-kicker">Actividad detenida por aislamiento PAU</span>
+        <h1>${escapeHtml(theme)}</h1>
+        <p>La actividad contenía un ejercicio ajeno a ${escapeHtml(BACH_II_PAU_COMMUNITIES[currentBachPauCommunity()])} o a la materia activa.</p>
+        <button class="primary" onclick="${backToTopicsAction}">Volver</button>
+      </section></section>
+    `);
+    return;
+  }
   const question = questions[state.questionIndex];
   if (!question) {
     renderShell(`
@@ -4154,32 +4296,43 @@ function renderStudy() {
   const isOpenPauQuestion = question.type === "pau-open";
   const isPauWithoutOptions = isOpenPauQuestion && !question.options?.length;
   const isMultipartQuestion = Array.isArray(question.parts) && question.parts.length > 0;
+  const displayedPartEntries = (question.parts || []).map((part, partIndex) => ({ part, partIndex }));
   const officialSourceHtml = renderOfficialSourceCallout(question, course.id);
   const displayedStatementHtml = officialQuestionStatementHtml(question, course.id);
-  const referenceTableHtml = renderPauReferenceTable(question);
+  const referenceTableParts = isMultipartQuestion
+    ? displayedPartEntries
+        .map(({ part }) => part)
+        .filter((part, index, parts) => part?.referenceTable
+          && parts.findIndex((candidate) => candidate?.referenceTable === part.referenceTable) === index)
+    : [displayedPartEntries[0]?.part];
+  const referenceTableHtml = referenceTableParts.map((part) => renderPauReferenceTable(question, part)).join("");
   const answersHtml = isMultipartQuestion ? `
     <div class="multipart-exercise-options">
-      ${question.parts.map((part, partIndex) => `
-        <section class="exercise-part" id="exercise-part-${partIndex}">
-          <div class="exercise-part-heading"><strong>${escapeHtml(part.label)}</strong><div class="exercise-part-prompt">${part.html ? formatMathHtml(part.html, { preserveTrigNotation: Boolean(officialExerciseSource(question)) }) : formatMathText(part.text, { preserveTrigNotation: Boolean(officialExerciseSource(question)) })}</div></div>
+      ${displayedPartEntries.map(({ part, partIndex }) => `
+        <section class="exercise-part" id="exercise-part-${partIndex}" data-exercise-id="${escapeHtml(question.exerciseId || question.parentExerciseId || question.id || "")}" data-subpart-id="${escapeHtml(part.id || part.label || String(partIndex))}" data-subpart-index="${partIndex}">
+          <div class="exercise-part-heading"><strong>${escapeHtml(challengePartLabel(part, partIndex))}</strong><div class="exercise-part-prompt">${part.html ? formatMathHtml(part.html, { preserveTrigNotation: Boolean(officialExerciseSource(question)) }) : formatMathText(part.text, { preserveTrigNotation: Boolean(officialExerciseSource(question)) })}</div></div>
           ${handwritingAnswerHtml(question, {
             answerSource: part,
             partId: part.id || part.label || partIndex,
             mode: activeBlock ? "blockChallenge" : "topicChallenge",
             resultChannel: "challengePart",
-            statementHtml: `${officialSourceHtml}<div class="question-text official-exercise-statement">${displayedStatementHtml}</div>${referenceTableHtml}<div class="exercise-part-heading"><strong>${escapeHtml(part.label)}</strong><div class="exercise-part-prompt">${part.html ? formatMathHtml(part.html, { preserveTrigNotation: Boolean(officialExerciseSource(question)) }) : formatMathText(part.text, { preserveTrigNotation: Boolean(officialExerciseSource(question)) })}</div></div>`
+            statementHtml: `${officialSourceHtml}<div class="question-text official-exercise-statement">${displayedStatementHtml}</div>${referenceTableHtml}<div class="exercise-part-heading"><strong>${escapeHtml(challengePartLabel(part, partIndex))}</strong><div class="exercise-part-prompt">${part.html ? formatMathHtml(part.html, { preserveTrigNotation: Boolean(officialExerciseSource(question)) }) : formatMathText(part.text, { preserveTrigNotation: Boolean(officialExerciseSource(question)) })}</div></div>`
           })}
           <div class="answers compact-part-answers">
             ${part.options.map((option, optionIndex) => `
-              <button class="answer-btn" id="part-${partIndex}-answer-${optionIndex}" onclick="answerMultipartPart(${partIndex},${optionIndex})"><span class="answer-letter">${String.fromCharCode(65 + optionIndex)}</span><span class="answer-content">${formatMathText(option)}</span></button>
+              <button class="answer-btn${state.multipartSelections[partIndex] === optionIndex ? " is-selected" : ""}" id="part-${partIndex}-answer-${optionIndex}" aria-pressed="${state.multipartSelections[partIndex] === optionIndex}" onclick="selectChallengePartAnswer(${partIndex},${optionIndex})"><span class="answer-letter">${String.fromCharCode(65 + optionIndex)}</span><span class="answer-content">${formatMathText(option)}</span></button>
             `).join("")}
           </div>
           <div class="part-feedback" id="part-feedback-${partIndex}"></div>
+          <div class="part-actions">
+            <button class="primary compact-btn" id="part-grade-${partIndex}" disabled onclick="gradeChallengePart(${partIndex})">Corregir apartado</button>
+            <button class="ghost compact-btn" id="part-help-${partIndex}" style="display:none" onclick="showChallengePartSolution(${partIndex})">Ver solución paso a paso</button>
+          </div>
+          <div class="part-solution-slot" id="part-solution-${partIndex}" hidden></div>
         </section>
       `).join("")}
     </div>
-    <button class="ghost" id="help-btn" style="display:none" onclick="showSolutionHelp()">Ver soluciones paso a paso</button>
-    <button class="primary" id="next-btn" style="display:none" onclick="nextQuestion()">Siguiente ejercicio</button>
+    <button class="primary multipart-next-exercise" id="next-btn" style="display:none" onclick="nextQuestion()">Siguiente ejercicio</button>
   ` : isPauWithoutOptions ? `
     <div class="pau-open-actions">
       <button class="secondary" id="help-btn" onclick="showSolutionHelp()">Ver resolución paso a paso</button>
@@ -4188,9 +4341,10 @@ function renderStudy() {
   ` : `
     <div class="answers">
       ${question.options.map((option, index) => `
-        <button class="answer-btn" id="answer-${index}" onclick="answerQuestion(${index})"><span class="answer-letter">${String.fromCharCode(65 + index)}</span><span class="answer-content">${formatMathText(option)}</span></button>
+        <button class="answer-btn${state.selectedAnswer === index ? " is-selected" : ""}" id="answer-${index}" aria-pressed="${state.selectedAnswer === index}" onclick="selectChallengeAnswer(${index})"><span class="answer-letter">${String.fromCharCode(65 + index)}</span><span class="answer-content">${formatMathText(option)}</span></button>
       `).join("")}
     </div>
+    <button class="primary" id="grade-btn" disabled onclick="gradeChallengeQuestion()">Corregir ejercicio</button>
     <button class="ghost" id="help-btn" style="display:none" onclick="showSolutionHelp()">Ver ayuda paso a paso</button>
     <button class="primary" id="next-btn" style="display:none" onclick="nextQuestion()">Siguiente</button>
   `;
@@ -4315,12 +4469,13 @@ function renderStudy() {
           <div class="challenge-titlebar">
             <h2>
               <span>${activeBlock ? "Reto del bloque" : "Reto del tema"}</span>
-              <span class="challenge-title-topic">· ${escapeHtml(theme)}</span>
+              <span class="challenge-title-topic">· ${escapeHtml(challengeTitleTheme)}</span>
               ${eso ? `<span class="challenge-title-level">· ${challengeLevel}</span>` : ""}
+              ${BACH_II_COURSE_IDS.includes(course.id) ? `<span class="challenge-title-pau">· PAU ${escapeHtml(BACH_II_PAU_COMMUNITIES[currentBachPauCommunity()])}</span>` : ""}
             </h2>
             <span class="stat timer-stat challenge-header-timer" id="timer">${formatTimer(questionSeconds)}</span>
           </div>
-          <p class="challenge-intro">${questions.length} preguntas ${activeBlock ? "del bloque seleccionado" : "del tema seleccionado"}.${eso ? ` Nivel ${challengeLevel}: ${state.topicChallengeLevel === "master" ? "ejercicios avanzados, cercanos al curso siguiente" : "ejercicios del curso ordenados de menor a mayor dificultad"}.` : ""} Tienes ${minutesPerQuestion} minutos por pregunta y solución paso a paso si la necesitas.</p>
+          <p class="challenge-intro">${questions.length} ${questions.length === 1 ? "pregunta" : "preguntas"} ${activeBlock ? "del bloque seleccionado" : "del tema seleccionado"}.${eso ? ` Nivel ${challengeLevel}: ${state.topicChallengeLevel === "master" ? "ejercicios avanzados, cercanos al curso siguiente" : "ejercicios del curso ordenados de menor a mayor dificultad"}.` : ""} Tienes ${minutesPerQuestion} minutos por pregunta y solución paso a paso si la necesitas.</p>
           <div class="question-box">
             <div class="question-meta">
               <span>Pregunta ${state.questionIndex + 1} de ${questions.length}</span>
@@ -8534,6 +8689,9 @@ function firstBachExtensionBankByTopic(courseId, topicIndex) {
 }
 
 function buildQuestions(theme, course = courseById(state.courseId), requestedCount = questionsPerChallengeFor(course)) {
+  if (isMultipartBrowserE2EMode() && Array.isArray(state.multipartE2EQuestions) && state.multipartE2EQuestions.length) {
+    return state.multipartE2EQuestions;
+  }
   const questionCount = Math.max(1, Number(requestedCount) || questionsPerChallengeFor(course));
   if (!state.blockKey && ESO_COURSE_IDS.includes(course.id)) {
     return buildEsoTopicLevelQuestions(theme, course, questionCount);
@@ -8541,7 +8699,13 @@ function buildQuestions(theme, course = courseById(state.courseId), requestedCou
   if (!state.blockKey && BACH_II_COURSE_IDS.includes(course.id) && window.MargaritaBachExam?.buildTopicQuestions) {
     const availabilityRule = window.MargaritaContentAvailability?.get?.(course.id, state.topicIndex);
     if (availabilityRule?.availableForTopicPractice === false) return [];
-    if (availabilityRule?.practiceBank && window.MargaritaTopicPracticeBanks?.build) {
+    // En PAU Andalucía el banco canónico reconciliado es la única fuente de
+    // ejercicios para alumnos. Los bancos temáticos auxiliares se conservan
+    // para las comunidades cuya política los necesita, pero no se mezclan con
+    // el censo oficial andaluz.
+    if (availabilityRule?.practiceBank
+      && currentBachPauCommunity() !== "andalucia"
+      && window.MargaritaTopicPracticeBanks?.build) {
       const practiceQuestions = window.MargaritaTopicPracticeBanks.build(availabilityRule.practiceBank);
       return strictTopicSelection({
         course,
@@ -8911,7 +9075,7 @@ function markChallengeQuestionShown(question) {
   markChallengeQuestionAnswered(question);
 }
 
-function selectNoRepeatQuestionRound(questions, target, scopeKey, roundToken = state.practiceRound) {
+function selectNoRepeatQuestionRound(questions, target, scopeKey, roundToken = state.practiceRound, selectionPolicy = {}) {
   const unique = [];
   const identities = new Set();
   const identityAliases = new Map();
@@ -8957,11 +9121,41 @@ function selectNoRepeatQuestionRound(questions, target, scopeKey, roundToken = s
     if (!templateBuckets.has(template)) templateBuckets.set(template, []);
     templateBuckets.get(template).push(question);
   });
-  const ordered = [];
+  let ordered = [];
   while (ordered.length < shuffled.length) {
     templateBuckets.forEach((bucket) => {
       if (bucket.length) ordered.push(bucket.shift());
     });
+  }
+  if (typeof selectionPolicy.groupOf === "function") {
+    const groupOf = selectionPolicy.groupOf;
+    const priorCounts = new Map();
+    [...used].forEach((usedIdentity) => {
+      const question = unique.find((candidate) => challengeHistoryIdentity(candidate) === usedIdentity);
+      const group = question ? groupOf(question) : null;
+      if (group !== null && group !== undefined) priorCounts.set(group, (priorCounts.get(group) || 0) + 1);
+    });
+    const queues = new Map();
+    ordered.forEach((question) => {
+      const group = groupOf(question);
+      if (!queues.has(group)) queues.set(group, []);
+      queues.get(group).push(question);
+    });
+    const balanced = [];
+    const selectedCounts = new Map();
+    while (balanced.length < ordered.length) {
+      const groups = [...queues.keys()].filter((group) => queues.get(group)?.length);
+      if (!groups.length) break;
+      groups.sort((left, right) => {
+        const leftCount = (priorCounts.get(left) || 0) + (selectedCounts.get(left) || 0);
+        const rightCount = (priorCounts.get(right) || 0) + (selectedCounts.get(right) || 0);
+        return leftCount - rightCount || String(left).localeCompare(String(right));
+      });
+      const group = groups[0];
+      balanced.push(queues.get(group).shift());
+      selectedCounts.set(group, (selectedCounts.get(group) || 0) + 1);
+    }
+    ordered = balanced;
   }
   const selected = ordered.slice(0, Math.min(target, ordered.length));
   let resetBeforeIdentity = "";
@@ -8973,7 +9167,27 @@ function selectNoRepeatQuestionRound(questions, target, scopeKey, roundToken = s
     const selectedIdentities = new Set(selected.map(challengeHistoryIdentity));
     used = new Set(selectedIdentities);
     const refillPool = unique.filter((question) => !selectedIdentities.has(challengeHistoryIdentity(question)));
-    const refill = seededShuffle(refillPool, `${seed}|nuevo-ciclo`).slice(0, target - selected.length);
+    let refillOrder = seededShuffle(refillPool, `${seed}|nuevo-ciclo`);
+    if (typeof selectionPolicy.groupOf === "function") {
+      const groupOf = selectionPolicy.groupOf;
+      const queues = new Map();
+      refillOrder.forEach((question) => {
+        const group = groupOf(question);
+        if (!queues.has(group)) queues.set(group, []);
+        queues.get(group).push(question);
+      });
+      const counts = new Map(selected.map((question) => [groupOf(question), 0]));
+      selected.forEach((question) => counts.set(groupOf(question), (counts.get(groupOf(question)) || 0) + 1));
+      refillOrder = [];
+      while ([...queues.values()].some((queue) => queue.length)) {
+        const groups = [...queues.keys()].filter((group) => queues.get(group)?.length)
+          .sort((left, right) => (counts.get(left) || 0) - (counts.get(right) || 0) || String(left).localeCompare(String(right)));
+        const group = groups[0];
+        refillOrder.push(queues.get(group).shift());
+        counts.set(group, (counts.get(group) || 0) + 1);
+      }
+    }
+    const refill = refillOrder.slice(0, target - selected.length);
     resetBeforeIdentity = refill.length ? challengeHistoryIdentity(refill[0]) : "";
     selected.push(...refill);
   }
@@ -9020,53 +9234,82 @@ function officialPartAnswer(authored, parts, part, partIndex) {
   return answer[occurrence] || null;
 }
 
+function ccssIIBlockQuestionMatchesScope(question, blockId, selectedTopics) {
+  if (!pauExerciseMatchesContext(question, "2bach-ccss", currentBachPauCommunity())) return false;
+  if (question?.blockId !== blockId) return false;
+  const topics = Array.isArray(question?.topicIndexes) ? question.topicIndexes : [];
+  if (!topics.some((topicIndex) => selectedTopics.includes(topicIndex))) return false;
+
+  // primaryTopicIndex es la fuente de verdad de clasificación. Las etiquetas
+  // secundarias pueden describir técnicas auxiliares (por ejemplo, una
+  // distribución dentro de un problema de probabilidad) y no deben expulsar
+  // el ejercicio de su bloque principal.
+  if (Number.isInteger(question?.primaryTopicIndex)) {
+    const primaryBlock = question.primaryTopicIndex <= 3
+      ? "algebra"
+      : question.primaryTopicIndex <= 7
+        ? "analisis"
+        : question.primaryTopicIndex === 8
+          ? "probabilidad"
+          : "estadistica";
+    return primaryBlock === blockId;
+  }
+
+  // Una corrección histórica puede contener una etiqueta secundaria que
+  // contradiga de forma inequívoca el bloque calculado (por ejemplo, sucesos
+  // de probabilidad reclasificados como sistemas al confundir P(A) con un
+  // parámetro). El selector no modifica el banco: impide que esa contradicción
+  // contamine un reto y completa después la cuota con otro registro válido.
+  const semanticLabels = normalizeDisplayText([
+    question?.primaryTopic || "",
+    ...(question?.secondaryTopics || []),
+    question?.examFamilyLabel || ""
+  ].join(" ")).toLowerCase();
+  const semanticBlock = /muestreo|inferenc|intervalo de confianza|contraste|distribuci[oó]n|binomial|normal t[ií]pica|estad[ií]st/.test(semanticLabels)
+    ? "estadistica"
+    : /probabil|sucesos?|bayes|condicionada|independencia/.test(semanticLabels)
+      ? "probabilidad"
+      : /matri|determin|sistemas?|programaci[oó]n lineal/.test(semanticLabels)
+        ? "algebra"
+        : /l[ií]mit|continuidad|derivad|integral|primitiv/.test(semanticLabels)
+          ? "analisis"
+          : null;
+  return !semanticBlock || semanticBlock === blockId;
+}
+
 function buildCcssIIBlockQuestions(blockId) {
   const course = courseById("2bach-ccss");
-  const correctedPool = window.MargaritaBachExam?.buildBlockQuestions?.(course, blockId) || [];
   const block = (BACH_II_BLOCKS[course.id] || []).find((item) => item.id === blockId);
   const selectedTopics = [...new Set(
     Array.isArray(state.blockTopicIndexes) && state.blockTopicIndexes.length
       ? state.blockTopicIndexes
       : block?.topics || []
   )];
+  const correctedPool = (window.MargaritaBachExam?.buildBlockQuestions?.(course, blockId) || [])
+    .filter((question) => ccssIIBlockQuestionMatchesScope(question, blockId, selectedTopics));
   if (!correctedPool.length || !selectedTopics.length) return [];
   const questionCount = questionsPerChallengeFor("2bach-ccss");
-  const baseQuota = Math.floor(questionCount / selectedTopics.length);
-  const remainder = questionCount % selectedTopics.length;
-  const bonusOrder = seededShuffle(
-    selectedTopics,
-    `${state.courseId}|bloque-${blockId}|reparto|${state.blockChallengeSeed || 0}|${state.practiceRound}`
-  );
-  const quotas = new Map(selectedTopics.map((topicIndex) => [topicIndex, baseQuota]));
-  bonusOrder.slice(0, remainder).forEach((topicIndex) => quotas.set(topicIndex, quotas.get(topicIndex) + 1));
-
-  const selected = [];
-  const selectedIdentities = new Set();
-  const poolsByTopic = new Map(selectedTopics.map((topicIndex) => [topicIndex, correctedPool.filter((question) => {
+  const groupOf = (question) => {
     const indexes = Array.isArray(question.topicIndexes) ? question.topicIndexes : [];
-    if (Number.isInteger(question.primaryTopicIndex)) return question.primaryTopicIndex === topicIndex;
-    return indexes.includes(topicIndex);
-  })]));
-  // Se asignan primero los temas con menos PAU disponibles. Así un ejercicio
-  // mixto Matrices/Determinantes se reserva para Determinantes cuando sea el
-  // único compatible, sin duplicarlo después como ejercicio de Matrices.
-  const topicOrder = [...selectedTopics].sort((left, right) =>
-    (poolsByTopic.get(left)?.length || 0) - (poolsByTopic.get(right)?.length || 0));
-  topicOrder.forEach((topicIndex) => {
-    const topicPool = (poolsByTopic.get(topicIndex) || [])
-      .filter((question) => !selectedIdentities.has(officialQuestionDedupKey(question)));
-    const topicSelection = selectNoRepeatQuestionRound(
-      topicPool,
-      quotas.get(topicIndex) || 0,
-      `${state.courseId}|bloque-${blockId}|tema-${topicIndex}`
-    ).map((question) => ({ ...question, selectedBlockTopicIndex: topicIndex }));
-    topicSelection.forEach((question) => selectedIdentities.add(officialQuestionDedupKey(question)));
-    selected.push(...topicSelection);
-  });
-  return seededShuffle(
-    selected,
-    `${state.courseId}|bloque-${blockId}|orden|${state.blockChallengeSeed || 0}|${state.practiceRound}`
-  );
+    if (Number.isInteger(question.primaryTopicIndex) && selectedTopics.includes(question.primaryTopicIndex)) {
+      return question.primaryTopicIndex;
+    }
+    return selectedTopics.find((topicIndex) => indexes.includes(topicIndex)) ?? "sin-tema";
+  };
+  // El ciclo pertenece al bloque completo. La familia solo ordena los ejercicios
+  // todavía inéditos; nunca mantiene un mazo independiente que pueda reiniciarse
+  // mientras queden ejercicios sin ver en otra familia del bloque.
+  const selected = selectNoRepeatQuestionRound(
+    correctedPool,
+    questionCount,
+    `${state.courseId}|bloque-${blockId}|global`,
+    state.practiceRound,
+    { groupOf }
+  ).map((question) => ({ ...question, selectedBlockTopicIndex: groupOf(question) }));
+  // selectNoRepeatQuestionRound ya devuelve un orden variado. Conservarlo es
+  // esencial cuando la ronda cruza el final del mazo: los últimos inéditos
+  // deben mostrarse antes que el primer ejercicio del ciclo nuevo.
+  return selected;
 }
 
 function splitCompositeSegments(value) {
@@ -9128,11 +9371,11 @@ function buildMatesIIBlockQuestions(course, blockId) {
   if (!block) return [];
 
   const correctedPool = window.MargaritaBachExam?.buildBlockQuestions?.(course, blockId) || [];
-  const madridOnly = currentBachPauCommunity() === "madrid";
-  const extraOfficialPool = madridOnly ? [] : window.MATES_II_EXTRA_BLOCK_QUESTIONS?.[blockId] || [];
+  const officialParallelOnly = ["madrid", "andalucia"].includes(currentBachPauCommunity());
+  const extraOfficialPool = officialParallelOnly ? [] : window.MATES_II_EXTRA_BLOCK_QUESTIONS?.[blockId] || [];
 
   const seen = new Set();
-  const pool = madridOnly ? [] : block.topics.flatMap((topicIndex) => {
+  const pool = officialParallelOnly ? [] : block.topics.flatMap((topicIndex) => {
     const theme = course.themes[topicIndex] || "";
     return pickExerciseBank(theme.toLowerCase(), course.id)
       .map((question) => question.options?.length ? question : withPauTestOptions(question))
@@ -9155,11 +9398,22 @@ function buildMatesIIBlockQuestions(course, blockId) {
     combinedPool.push(question);
   });
   const usablePool = combinedPool;
-  return selectNoRepeatQuestionRound(
+  const selectionSeed = `${course.id}|bloque-oficial-${blockId}`;
+  const groupOf = (question) => {
+    const indexes = Array.isArray(question.topicIndexes) ? question.topicIndexes : [];
+    if (Number.isInteger(question.primaryTopicIndex) && block.topics.includes(question.primaryTopicIndex)) {
+      return question.primaryTopicIndex;
+    }
+    return block.topics.find((topicIndex) => indexes.includes(topicIndex)) ?? "sin-tema";
+  };
+  const variedSelection = selectNoRepeatQuestionRound(
     usablePool,
     questionCount,
-    `${course.id}|bloque-oficial-${blockId}`
-  ).map((question, index) => {
+    `${selectionSeed}|global`,
+    state.practiceRound,
+    { groupOf }
+  ).map((question) => ({ ...question, selectedBlockTopicIndex: groupOf(question) }));
+  return variedSelection.map((question, index) => {
     if (question.parts?.length) return { ...question, blockId };
     // Los registros oficiales de Madrid se incorporan de forma progresiva.
     // Mientras un problema no tenga todavía cuatro alternativas validadas,
@@ -11317,82 +11571,162 @@ function rotate(items, amount) {
   return items.slice(amount).concat(items.slice(0, amount));
 }
 
-function answerMultipartPart(partIndex, optionIndex) {
-  if (state.answered || state.multipartResponses[partIndex] !== undefined) return;
+function updateChallengeGradeButton(question) {
+  if (Array.isArray(question?.parts) && question.parts.length) {
+    question.parts.forEach((_, partIndex) => {
+      const gradeButton = document.getElementById(`part-grade-${partIndex}`);
+      if (gradeButton) gradeButton.disabled = Boolean(state.multipartResponses[partIndex])
+        || !Number.isInteger(state.multipartSelections[partIndex]);
+    });
+    return;
+  }
+  const gradeButton = document.getElementById("grade-btn");
+  if (!gradeButton || state.answered) return;
+  gradeButton.disabled = !Number.isInteger(state.selectedAnswer);
+}
+
+function selectChallengePartAnswer(partIndex, optionIndex) {
+  if (state.answered || state.multipartResponses[partIndex]) return;
   const course = courseById(state.courseId);
   const theme = course.themes[state.topicIndex];
   const question = buildQuestions(theme, course)[state.questionIndex];
   const part = question?.parts?.[partIndex];
   if (!part) return;
-  const isCorrect = optionIndex === part.correct;
-  state.multipartResponses[partIndex] = { optionIndex, correct: isCorrect };
-
   part.options.forEach((_, index) => {
     const button = document.getElementById(`part-${partIndex}-answer-${index}`);
-    if (button) button.disabled = true;
+    if (!button) return;
+    const selected = index === optionIndex;
+    button.classList.toggle("is-selected", selected);
+    button.setAttribute("aria-pressed", String(selected));
   });
-  document.getElementById(`part-${partIndex}-answer-${part.correct}`)?.classList.add("correct");
-  if (!isCorrect) document.getElementById(`part-${partIndex}-answer-${optionIndex}`)?.classList.add("wrong");
-  const partFeedback = document.getElementById(`part-feedback-${partIndex}`);
-  if (partFeedback) partFeedback.textContent = isCorrect ? "Apartado correcto." : "Respuesta incorrecta. Al terminar podrás ver la resolución completa.";
+  state.multipartSelections[partIndex] = optionIndex;
+  updateChallengeGradeButton(question);
+}
 
-  if (state.multipartResponses.filter((response) => response !== undefined).length !== question.parts.length) return;
-  clearQuestionTimer();
-  state.answered = true;
-  markChallengeQuestionAnswered(question);
-  const correctParts = state.multipartResponses.filter((response) => response.correct).length;
-  state.score += correctParts * 100;
-  state.streak = correctParts === question.parts.length ? state.streak + 1 : 0;
-  question.parts.forEach((answeredPart, index) => {
-    state.sessionAnswers.push({
-      question: `${question.source || question.text} · ${answeredPart.label} ${answeredPart.text || ""}`,
-      correct: Boolean(state.multipartResponses[index]?.correct),
-      solution: answeredPart.solution || ""
-    });
+function selectChallengeAnswer(index) {
+  if (state.answered) return;
+  const course = courseById(state.courseId);
+  const theme = course.themes[state.topicIndex];
+  const question = buildQuestions(theme, course)[state.questionIndex];
+  if (!question || question.type === "pau-open" && !question.options?.length) return;
+  question.options.forEach((_, optionIndex) => {
+    const button = document.getElementById(`answer-${optionIndex}`);
+    if (!button) return;
+    const selected = optionIndex === index;
+    button.classList.toggle("is-selected", selected);
+    button.setAttribute("aria-pressed", String(selected));
   });
-  const feedback = document.getElementById("feedback");
-  if (feedback) feedback.textContent = correctParts === question.parts.length
-    ? "Todos los apartados son correctos."
-    : `Has acertado ${correctParts} de ${question.parts.length} apartados. Puedes consultar las soluciones paso a paso.`;
-  document.getElementById("help-btn").style.display = "block";
-  document.getElementById("next-btn").style.display = "block";
-  if (correctParts === question.parts.length) burstSparkles();
+  state.selectedAnswer = index;
+  updateChallengeGradeButton(question);
+}
+
+function showChallengePartSolution(partIndex) {
+  const course = courseById(state.courseId);
+  const theme = course.themes[state.topicIndex];
+  const question = buildQuestions(theme, course)[state.questionIndex];
+  const part = question?.parts?.[partIndex];
+  const slot = document.getElementById(`part-solution-${partIndex}`);
+  if (!part || !slot) return;
+  slot.innerHTML = `<section class="part-solution" data-solution-subpart-id="${escapeHtml(part.id || part.label || "")}"><h3>${escapeHtml(challengePartLabel(part, partIndex))}</h3><div class="solution-help-body">${formatSolutionText(part.solution, part.solutionMathOptions)}</div></section>`;
+  slot.hidden = false;
+  document.querySelector(".shell-student-fit")?.classList.add("shell-scroll-if-needed");
   scheduleFitStudentScreen();
 }
 
-function answerQuestion(index) {
-  if (state.answered) return;
-  clearQuestionTimer();
-
+function gradeChallengePart(partIndex) {
+  if (state.answered || state.multipartResponses[partIndex]) return;
   const course = courseById(state.courseId);
   const theme = course.themes[state.topicIndex];
-  const questions = buildQuestions(theme, course);
-  const question = questions[state.questionIndex];
-  if (question.type === "pau-open" && !question.options?.length) return;
-  const isCorrect = index === question.correct;
+  const question = buildQuestions(theme, course)[state.questionIndex];
+  const part = question?.parts?.[partIndex];
+  const selection = state.multipartSelections[partIndex];
+  if (!part || !Number.isInteger(selection)) return;
 
+  const correct = selection === part.correct;
+  state.multipartResponses[partIndex] = { optionIndex: selection, correct };
+  part.options.forEach((_, optionIndex) => {
+    const button = document.getElementById(`part-${partIndex}-answer-${optionIndex}`);
+    if (button) button.disabled = true;
+  });
+  document.getElementById(`part-${partIndex}-answer-${part.correct}`)?.classList.add("correct");
+  if (!correct) document.getElementById(`part-${partIndex}-answer-${selection}`)?.classList.add("wrong");
+
+  const partFeedback = document.getElementById(`part-feedback-${partIndex}`);
+  if (partFeedback) partFeedback.textContent = correct ? "Apartado correcto." : "Respuesta incorrecta.";
+  const gradeButton = document.getElementById(`part-grade-${partIndex}`);
+  if (gradeButton) gradeButton.style.display = "none";
+  const helpButton = document.getElementById(`part-help-${partIndex}`);
+  if (helpButton) helpButton.style.display = "inline-flex";
+
+  state.score += correct ? 100 : 0;
+  state.streak = correct ? state.streak + 1 : 0;
+  state.sessionAnswers.push({
+    question: `${question.source || question.text} · ${part.label} ${part.text || ""}`,
+    correct,
+    solution: part.solution || ""
+  });
+  showChallengePartSolution(partIndex);
+
+  const completedParts = state.multipartResponses.filter(Boolean).length;
+  const allCompleted = completedParts === question.parts.length;
+  const feedback = document.getElementById("feedback");
+  if (allCompleted) {
+    clearQuestionTimer();
+    state.answered = true;
+    markChallengeQuestionAnswered(question);
+    if (feedback) feedback.textContent = state.multipartResponses.every((response) => response?.correct)
+      ? "Todos los apartados son correctos."
+      : `Has corregido los ${question.parts.length} apartados. Revisa sus soluciones antes de continuar.`;
+    const nextButton = document.getElementById("next-btn");
+    if (nextButton) nextButton.style.display = "block";
+  } else if (feedback) {
+    feedback.textContent = `Apartado ${challengePartLabel(part, partIndex)} corregido. Quedan ${question.parts.length - completedParts} apartados.`;
+  }
+  if (correct) burstSparkles();
+  scheduleFitStudentScreen();
+}
+
+function gradeChallengeQuestion() {
+  if (state.answered) return;
+  const course = courseById(state.courseId);
+  const theme = course.themes[state.topicIndex];
+  const question = buildQuestions(theme, course)[state.questionIndex];
+  if (!question) return;
+
+  if (Array.isArray(question.parts) && question.parts.length) return;
+
+  if (!Number.isInteger(state.selectedAnswer)) return;
+  clearQuestionTimer();
+  const isCorrect = state.selectedAnswer === question.correct;
   state.answered = true;
   markChallengeQuestionAnswered(question);
   state.score += isCorrect ? 100 + state.streak * 20 : 0;
   state.streak = isCorrect ? state.streak + 1 : 0;
   state.sessionAnswers.push({ question: question.text, correct: isCorrect, solution: question.solution || "" });
-
-  document.getElementById(`answer-${question.correct}`).classList.add("correct");
-  if (!isCorrect) {
-    document.getElementById(`answer-${index}`).classList.add("wrong");
-  }
+  question.options.forEach((_, optionIndex) => {
+    const button = document.getElementById(`answer-${optionIndex}`);
+    if (button) button.disabled = true;
+  });
+  document.getElementById(`answer-${question.correct}`)?.classList.add("correct");
+  if (!isCorrect) document.getElementById(`answer-${state.selectedAnswer}`)?.classList.add("wrong");
+  document.getElementById("grade-btn").style.display = "none";
   document.getElementById("help-btn").style.display = "block";
+  document.getElementById("next-btn").style.display = "block";
   document.getElementById("feedback").textContent = isCorrect
     ? "Correcto. Muy buen ritmo."
-    : "Casi. Revisa la resolución y vuelve a intentarlo en la siguiente.";
-  document.getElementById("next-btn").style.display = "block";
-  if (question.type === "pau-open") {
-    document.getElementById("help-btn").style.display = "block";
-    showSolutionHelp();
-  }
-
+    : "Respuesta incorrecta. Revisa la resolución antes de continuar.";
+  showSolutionHelp();
   if (isCorrect) burstSparkles();
   scheduleFitStudentScreen();
+}
+
+// Compatibilidad con integraciones antiguas: seleccionar ya no corrige.
+function answerMultipartPart(partIndex, optionIndex) {
+  selectChallengePartAnswer(partIndex, optionIndex);
+}
+
+function answerQuestion(index) {
+  selectChallengeAnswer(index);
 }
 
 function completeOpenPauQuestion() {
@@ -11428,7 +11762,7 @@ function showSolutionHelp() {
   const help = document.getElementById("solution-help");
   if (Array.isArray(question.parts) && question.parts.length) {
     help.innerHTML = `<strong>Resoluciones paso a paso:</strong><div class="multipart-solutions">${question.parts.map((part) => `
-      <section class="part-solution"><h3>${escapeHtml(part.label)}</h3><div class="solution-help-body">${formatSolutionText(part.solution)}</div></section>
+      <section class="part-solution" data-solution-subpart-id="${escapeHtml(part.id || part.label || "")}"><h3>${escapeHtml(challengePartLabel(part))}</h3><div class="solution-help-body">${formatSolutionText(part.solution, part.solutionMathOptions)}</div></section>
     `).join("")}</div>`;
   } else {
     help.innerHTML = `<div class="solution-help-body">${formatSolutionText(didacticSolutionText(question))}</div>`;
@@ -11532,15 +11866,22 @@ function handleTimeUp() {
         const button = document.getElementById(`part-${partIndex}-answer-${optionIndex}`);
         if (button) button.disabled = true;
       });
-      state.sessionAnswers.push({
-        question: `${question.source || question.text} · ${part.label} ${part.text || ""}`,
-        correct: Boolean(response?.correct),
-        timedOut: !response,
-        solution: part.solution || ""
-      });
+      if (!response) {
+        state.sessionAnswers.push({
+          question: `${question.source || question.text} · ${part.label} ${part.text || ""}`,
+          correct: false,
+          timedOut: true,
+          solution: part.solution || ""
+        });
+      }
+      const gradeButton = document.getElementById(`part-grade-${partIndex}`);
+      if (gradeButton) gradeButton.style.display = "none";
+      const helpButton = document.getElementById(`part-help-${partIndex}`);
+      if (helpButton) helpButton.style.display = "inline-flex";
+      showChallengePartSolution(partIndex);
     });
+    markChallengeQuestionAnswered(question);
     document.getElementById("feedback").textContent = "Tiempo agotado. Puedes revisar todas las soluciones antes de continuar.";
-    document.getElementById("help-btn").style.display = "block";
     document.getElementById("next-btn").style.display = "block";
     scheduleFitStudentScreen();
     return;
@@ -11550,8 +11891,11 @@ function handleTimeUp() {
   state.sessionAnswers.push({ question: question.text, correct: false, timedOut: true, solution: question.solution || "" });
   if (question.type !== "pau-open") document.getElementById(`answer-${question.correct}`).classList.add("correct");
   document.getElementById("feedback").textContent = "Tiempo agotado. Mira la ayuda paso a paso y pasa al siguiente reto.";
+  const gradeButton = document.getElementById("grade-btn");
+  if (gradeButton) gradeButton.style.display = "none";
   document.getElementById("help-btn").style.display = "block";
   document.getElementById("next-btn").style.display = "block";
+  showSolutionHelp();
   scheduleFitStudentScreen();
 }
 
@@ -12222,6 +12566,8 @@ function nextQuestion() {
 
   state.questionIndex += 1;
   state.answered = false;
+  state.selectedAnswer = null;
+  state.multipartSelections = [];
   state.multipartResponses = [];
   state.timeLeft = questionSecondsFor(course);
   renderStudy();
@@ -12633,6 +12979,7 @@ function downloadReports() {
 }
 
 function burstSparkles(count = 22) {
+  if (isMultipartBrowserE2EMode()) return;
   const root = document.getElementById("sparkles");
   const centerX = window.innerWidth * 0.5;
   const centerY = window.innerHeight * 0.42;
@@ -12650,6 +12997,185 @@ function burstSparkles(count = 22) {
     setTimeout(() => spark.remove(), 820);
   }
 }
+
+function installMultipartBrowserE2EBridge() {
+  if (!isMultipartBrowserE2EMode()) return;
+  const providers = window.MargaritaMultipartE2EProviders || {};
+  if (window.ANDALUCIA_PAU_RUNTIME) providers.andalucia = window.ANDALUCIA_PAU_RUNTIME;
+  window.MargaritaMultipartE2EProviders = providers;
+
+  const nativeRuntimeCache = new Map();
+  const nativeRuntimeFor = (community, courseId) => {
+    const normalizedCommunity = normalizeBachPauCommunity(community);
+    const cacheKey = `${normalizedCommunity}|${courseId}`;
+    if (nativeRuntimeCache.has(cacheKey)) return nativeRuntimeCache.get(cacheKey);
+    if (normalizedCommunity === "andalucia" || !BACH_II_COURSE_IDS.includes(courseId)) return null;
+
+    const previousState = state;
+    let records = [];
+    try {
+      state = {
+        ...state,
+        courseId,
+        pauCommunity: normalizedCommunity,
+        challengePauCommunity: normalizedCommunity,
+        practiceRound: 0
+      };
+      const course = courseById(courseId);
+      const seen = new Set();
+      records = (BACH_II_BLOCKS[courseId] || []).flatMap((block) =>
+        window.MargaritaBachExam?.buildBlockQuestions?.(course, block.id) || []
+      ).map((record, index) => {
+        const exerciseId = record.exerciseId || record.id || record.rawBaseId
+          || `${normalizedCommunity}-${courseId}-multipart-${index}`;
+        return { ...record, exerciseId, community: normalizedCommunity };
+      }).filter((record) => {
+        if (seen.has(record.exerciseId)) return false;
+        seen.add(record.exerciseId);
+        return true;
+      });
+    } finally {
+      state = previousState;
+    }
+    const runtime = {
+      sourceMode: "runtime-structural",
+      exercises: records,
+      challengeRecords: (requestedCourseId) => requestedCourseId === courseId ? records : [],
+      materializePart: (part, seed = "") => {
+        const [, exerciseId = "multipart", partIndex = "0"] = String(seed).split("|");
+        return { ...part, id: part.id || `${exerciseId}:${partIndex}` };
+      }
+    };
+    nativeRuntimeCache.set(cacheKey, runtime);
+    return runtime;
+  };
+  const runtimeFor = (community, courseId) => providers[String(community || "").toLowerCase()]
+    || nativeRuntimeFor(community, courseId)
+    || null;
+  const courseSubject = (courseId) => courseId === "2bach-mates" ? "2_bach_mates_ii" : "2_bach_ccss_ii";
+  const firstNonblank = (...values) => values.find((value) => String(value || "").trim()) || "";
+  const preparedRecord = (runtime, record) => ({
+    ...record,
+    parts: (record.parts || []).map((part, index) => runtime.materializePart(
+      part,
+      `multipart-e2e|${record.exerciseId}|${index}`
+    ))
+  });
+  const publicExercise = (exercise) => ({
+    exerciseId: exercise.exerciseId,
+    subject: exercise.subject,
+    year: exercise.year ?? null,
+    sitting: exercise.sitting ?? null,
+    sourceText: firstNonblank(exercise.sourceProjection?.full, exercise.officialPromptLiteral, exercise.learnerStatement),
+    commonText: firstNonblank(exercise.sourceProjection?.common, exercise.learnerStatement),
+    canonicalParts: (exercise.parts || []).map((part, index) => ({
+      id: part.id || `${exercise.exerciseId}:${index}`,
+      label: part.label || String.fromCharCode(97 + index),
+      text: part.text || "",
+      solution: part.solution || part.solutionSteps?.join("\n") || ""
+    }))
+  });
+
+  window.MargaritaMultipartE2E = Object.freeze({
+    registerProvider(community, provider) {
+      if (!community || !provider?.challengeRecords) throw new Error("Proveedor PAU E2E no válido");
+      providers[String(community).toLowerCase()] = provider;
+    },
+    census(community, courseId, options = {}) {
+      const runtime = runtimeFor(community, courseId);
+      if (!runtime) throw new Error(`No existe proveedor E2E para ${community}`);
+      const rawRecords = runtime.challengeRecords(courseId);
+      const records = rawRecords.map((record) => preparedRecord(runtime, record));
+      const canonicalById = new Map(runtime.exercises
+        .filter((exercise) => exercise.subject === courseSubject(courseId))
+        .map((exercise) => [exercise.exerciseId, exercise]));
+      return {
+        community,
+        courseId,
+        sourceMode: runtime.sourceMode || "documentary-canonical",
+        totalEnabledExercises: records.length,
+        exercises: records
+          .filter((record) => Array.isArray(record.parts) && record.parts.length >= (options.includeSingle ? 1 : 2))
+          .map((record) => ({
+            exerciseId: record.exerciseId,
+            sourceMode: runtime.sourceMode || "documentary-canonical",
+            runtimePartCount: record.parts.length,
+            runtimeParts: record.parts.map((part, index) => ({
+              id: part.id || `${record.exerciseId}:${index}`,
+              label: part.label || String.fromCharCode(97 + index),
+              text: part.text || "",
+              solution: part.solution || "",
+              solutionGraph: part.solutionGraph || null,
+              referenceTable: part.referenceTable || record.referenceTable || "",
+              options: [...(part.options || [])],
+              correct: part.correct
+            })),
+            canonical: publicExercise(canonicalById.get(record.exerciseId) || record)
+          }))
+      };
+    },
+    openExercise(community, courseId, exerciseId, options = {}) {
+      const runtime = runtimeFor(community, courseId);
+      if (!runtime) throw new Error(`No existe proveedor E2E para ${community}`);
+      const rawRecords = runtime.challengeRecords(courseId);
+      const records = rawRecords.map((record) => preparedRecord(runtime, record));
+      const targetIndex = records.findIndex((record) => record.exerciseId === exerciseId);
+      if (targetIndex < 0) throw new Error(`Ejercicio no habilitado: ${exerciseId}`);
+      const target = records[targetIndex];
+      if (!Array.isArray(target.parts) || target.parts.length < (options.includeSingle ? 1 : 2)) throw new Error(`Ejercicio sin apartados interactivos: ${exerciseId}`);
+      // The sentinel is deliberately a second question identity in the same
+      // validated context. It isolates the final-button contract from selector
+      // filtering: a click must leave the current exercise and render index 0
+      // of another identity, never recycle part a) of the completed exercise.
+      const sentinelExerciseId = `${exerciseId}::multipart-e2e-next`;
+      const sentinel = {
+        ...target,
+        exerciseId: sentinelExerciseId,
+        parentExerciseId: null,
+        community,
+        parts: target.parts.map((part, index) => ({
+          ...part,
+          id: `${sentinelExerciseId}:${index}`
+        }))
+      };
+      const student = students.find((candidate) => candidate.courseId === courseId) || {
+        name: "Auditoría E2E",
+        group: "E2E",
+        groupLabel: "E2E",
+        academicYear: DEFAULT_ACADEMIC_YEAR,
+        courseId
+      };
+      state = {
+        ...state,
+        view: "study",
+        student,
+        academicYear: student.academicYear || DEFAULT_ACADEMIC_YEAR,
+        courseId,
+        topicIndex: Number.isInteger(target.primaryTopicIndex)
+          ? target.primaryTopicIndex
+          : Number.isInteger(target.topicIndexes?.[0]) ? target.topicIndexes[0] : 0,
+        questionIndex: 0,
+        score: 0,
+        streak: 0,
+        practiceRound: 0,
+        blockKey: "",
+        pauCommunity: community,
+        challengePauCommunity: community,
+        answered: false,
+        selectedAnswer: null,
+        multipartSelections: [],
+        multipartResponses: [],
+        sessionAnswers: [],
+        multipartE2EQuestions: [target, sentinel]
+      };
+      clearQuestionTimer();
+      renderStudy();
+      return { exerciseId, sentinelExerciseId: sentinel.exerciseId, partCount: target.parts.length };
+    }
+  });
+}
+
+installMultipartBrowserE2EBridge();
 
 function showAdminHint() {
   alert("Acceso profesor: escribe la contraseña de administrador en la pantalla inicial.");

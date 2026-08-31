@@ -1,0 +1,166 @@
+{
+  "schemaVersion": "mathup.andalucia-master-final-audit.v1",
+  "sourceDocuments": {
+    "total": 217,
+    "mates": 110,
+    "ccss": 107,
+    "excludedStatisticalResources": 1
+  },
+  "runtimeExercises": 1641,
+  "parity": {
+    "MATCH": 1541,
+    "MATCH_INTERACTIVE_DECOMPOSITION": 87,
+    "MATCH_INTERACTIVE_SUBDIVISION": 13
+  },
+  "enabledParityFailures": 0,
+  "enabledQualityFailures": 0,
+  "artificialSplitsMergeable": 87,
+  "census": {
+    "2_bach_mates_ii": {
+      "subject": "Matemáticas II",
+      "sourceDocuments": 110,
+      "originalExercises": 817,
+      "sourceParts": 1379,
+      "canonicalParts": 1439,
+      "enabledExercises": 817,
+      "enabledInteractiveParts": 1439,
+      "enabledPartParityFailures": 0,
+      "enabledQualityFailures": 0,
+      "blockedExercises": 0,
+      "documentaryBlocks": 0,
+      "technicalBlocks": 0,
+      "byTopic": {
+        "10:Integrales indefinidas": 73,
+        "8:Derivadas": 66,
+        "0:Matrices": 91,
+        "2:Resolución de sistemas con determinantes": 87,
+        "5:Propiedades métricas": 186,
+        "13:Distribución binomial y normal": 4,
+        "12:Probabilidad": 9,
+        "9:Aplicación de derivadas": 112,
+        "6:Límite de sucesiones y funciones": 30,
+        "11:Integrales definidas": 75,
+        "7:Continuidad": 12,
+        "1:Determinantes": 21,
+        "3:Vectores en el espacio": 8,
+        "4:Planos y rectas en el espacio": 43
+      },
+      "byBlock": {
+        "analisis": 368,
+        "algebra": 199,
+        "geometria": 237,
+        "probabilidad-estadistica": 13
+      },
+      "byYear": {
+        "2008": 48,
+        "2009": 48,
+        "2010": 46,
+        "2011": 46,
+        "2012": 44,
+        "2013": 43,
+        "2014": 45,
+        "2015": 44,
+        "2016": 38,
+        "2017": 42,
+        "2018": 46,
+        "2019": 45,
+        "2020": 44,
+        "2021": 45,
+        "2022": 44,
+        "2023": 48,
+        "2024": 44,
+        "2025": 40,
+        "2026": 17
+      },
+      "bySitting": {
+        "Reserva": 540,
+        "Ordinaria": 145,
+        "Extraordinaria": 132
+      },
+      "byExamSlot": {
+        "1": 198,
+        "2": 214,
+        "3": 193,
+        "4": 204,
+        "5": 8
+      },
+      "THEORETICAL_COMBINATIONS": "13346163072",
+      "PRACTICAL_NON_REPEATING_CAPACITY": 8,
+      "referenceTables": {
+        "none": 817
+      }
+    },
+    "2_bach_ccss_ii": {
+      "subject": "CCSS II",
+      "sourceDocuments": 107,
+      "originalExercises": 824,
+      "sourceParts": 1903,
+      "canonicalParts": 1990,
+      "enabledExercises": 824,
+      "enabledInteractiveParts": 1990,
+      "enabledPartParityFailures": 0,
+      "enabledQualityFailures": 0,
+      "blockedExercises": 0,
+      "documentaryBlocks": 0,
+      "technicalBlocks": 0,
+      "byTopic": {
+        "2:Sistemas con determinantes": 64,
+        "8:Probabilidad": 170,
+        "0:Matrices": 94,
+        "3:Programación lineal": 25,
+        "5:Derivadas y aplicaciones": 206,
+        "4:Límites y continuidad": 37,
+        "10:Muestreo e inferencia estadística": 190,
+        "9:Distribución binomial y normal": 15,
+        "7:Integrales definidas": 23
+      },
+      "byBlock": {
+        "algebra": 183,
+        "probabilidad": 170,
+        "analisis": 266,
+        "estadistica": 205
+      },
+      "byYear": {
+        "2008": 36,
+        "2009": 36,
+        "2010": 48,
+        "2011": 54,
+        "2012": 48,
+        "2013": 48,
+        "2014": 46,
+        "2015": 48,
+        "2016": 40,
+        "2017": 48,
+        "2018": 48,
+        "2019": 48,
+        "2020": 48,
+        "2021": 48,
+        "2022": 54,
+        "2023": 42,
+        "2024": 46,
+        "2025": 33,
+        "2026": 5
+      },
+      "bySitting": {
+        "Extraordinaria": 129,
+        "Reserva": 529,
+        "Ordinaria": 140,
+        "Extraordinaria Reserva": 1,
+        "Ordinaria Titular": 1,
+        "unknown": 24
+      },
+      "byExamSlot": {
+        "1": 118,
+        "2": 119,
+        "3": 152,
+        "4": 435
+      },
+      "THEORETICAL_COMBINATIONS": "928457040",
+      "PRACTICAL_NON_REPEATING_CAPACITY": 118,
+      "referenceTables": {
+        "none": 810,
+        "normal": 14
+      }
+    }
+  }
+}

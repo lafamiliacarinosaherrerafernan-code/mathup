@@ -1,0 +1,21 @@
+diff --git "a/artifacts\\andalucia-phase2x-systems-linear\\skill-before\\solucion-de-ejercicios\\SKILL.md" "b/.agents\\skills\\solucion-de-ejercicios\\SKILL.md"
+index 3679b71..fe8b7f3 100644
+--- "a/artifacts\\andalucia-phase2x-systems-linear\\skill-before\\solucion-de-ejercicios\\SKILL.md"
++++ "b/.agents\\skills\\solucion-de-ejercicios\\SKILL.md"
+@@ -3514,6 +3514,7 @@ Esta sección rige exclusivamente Matemáticas Aplicadas a las Ciencias Sociales
+ 
+ #### Sistemas lineales ordinarios
+ 
++- Presentar toda colección de ecuaciones simultáneas como un único sistema: una sola llave común, una fila alineada por ecuación y el mismo número de filas en la fuente, el canónico, el runtime y el DOM. Esta regla se aplica también a los sistemas auxiliares que aparecen al calcular intersecciones, combinaciones lineales o vértices. No convertir en sistema una mera sucesión narrativa de igualdades independientes.
+ - Para sistemas lineales ordinarios se permiten Gauss y Cramer. Elegir según la estructura, no de forma automática.
+ - Preferir Cramer en sistemas `3×3` con determinantes manejables y Gauss cuando la eliminación sea especialmente sencilla o los determinantes resulten innecesariamente complejos.
+ - En problemas contextualizados: definir las incógnitas con unidades, traducir el texto a tres ecuaciones, resolver, interpretar cada valor en el contexto y comprobar su coherencia.
+@@ -3544,6 +3545,8 @@ Esta sección rige exclusivamente Matemáticas Aplicadas a las Ciencias Sociales
+   14. Incluir las unidades.
+   15. Comprobar que la solución satisface las restricciones.
+ - La gráfica es didácticamente obligatoria y debe ser matemáticamente coherente: ejes, rectas frontera, semiplanos, región factible sombreada, vértices identificados y punto o segmento óptimo. No admitir una gráfica meramente decorativa.
++- La evaluación de la función objetivo debe aparecer como tabla explícita `vértice | valor`, con todos los vértices factibles. El cierre debe interpretar el óptimo en el contexto, incluir unidades, sobrantes u holguras pedidos y distinguir un punto óptimo único de un segmento completo de óptimos.
++- Clasificar en Programación lineal únicamente cuando el núcleo del enunciado sea modelizar u optimizar sobre una región factible. La aparición incidental de un sistema, una inecuación o un determinante no cambia el tema principal; a la inversa, los sistemas usados para hallar vértices son herramientas secundarias y no desplazan el ejercicio a Sistemas.
+ - Para una futura solución estructurada, registrar conceptualmente `visualRequired: true` y `visualType: "linear-programming-region"`. Esta regla expresa una necesidad didáctica y no presupone una implementación concreta.
+ 
+ ### Tema 5 · Límites y continuidad

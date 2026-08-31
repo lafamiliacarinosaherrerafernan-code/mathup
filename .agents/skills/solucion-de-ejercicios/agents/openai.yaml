@@ -1,0 +1,4 @@
+interface:
+  display_name: "Solución de ejercicios"
+  short_description: "Resuelve ejercicios con desarrollo didáctico"
+  default_prompt: "Usa $solucion-de-ejercicios para resolver el ejercicio paso a paso y comprobar el resultado."

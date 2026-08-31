@@ -1,0 +1,282 @@
+{
+  "counts": {
+    "VERIFICATION": 28,
+    "RAW_NOTATION": 28,
+    "RANK_DISCUSSION": 1
+  },
+  "blocked": 29,
+  "actualBlocked": 34,
+  "unexplainedActual": [
+    "pau-can-ex-1f0f73ea9308f06dcf01312d05f5ece2",
+    "pau-can-ex-2084499ad1ff83bf978215744ad5ddf1",
+    "pau-can-ex-21b78c0f8e1f37f8fb353e88498864ce",
+    "pau-can-ex-74559b00e17a0aa368868a77ec814551",
+    "pau-can-ex-afa7d894c71f8557e8e17cd3bc290d65"
+  ],
+  "bySubject": {
+    "2_bach_mates_ii": [
+      {
+        "id": "pau-can-ex-002b9ee21fe8aac4c66a0e275bf5bd6d",
+        "subject": "2_bach_mates_ii",
+        "reasons": [
+          "VERIFICATION",
+          "RAW_NOTATION"
+        ],
+        "globalSegmentation": false
+      },
+      {
+        "id": "pau-can-ex-110e3a73607178c880c680bbd96ec593",
+        "subject": "2_bach_mates_ii",
+        "reasons": [
+          "VERIFICATION",
+          "RAW_NOTATION"
+        ],
+        "globalSegmentation": false
+      },
+      {
+        "id": "pau-can-ex-194ea3344dd78499d26b1d8de3f70b1d",
+        "subject": "2_bach_mates_ii",
+        "reasons": [
+          "VERIFICATION",
+          "RAW_NOTATION"
+        ],
+        "globalSegmentation": false
+      },
+      {
+        "id": "pau-can-ex-1968c2edc2fd353d51d575534c5797ec",
+        "subject": "2_bach_mates_ii",
+        "reasons": [
+          "VERIFICATION",
+          "RAW_NOTATION"
+        ],
+        "globalSegmentation": false
+      },
+      {
+        "id": "pau-can-ex-a768607ceb090deebc12e76194d73a37",
+        "subject": "2_bach_mates_ii",
+        "reasons": [
+          "VERIFICATION",
+          "RAW_NOTATION"
+        ],
+        "globalSegmentation": false
+      },
+      {
+        "id": "pau-can-ex-0423e859a06af81ad3c06f08ff8901c5",
+        "subject": "2_bach_mates_ii",
+        "reasons": [
+          "VERIFICATION",
+          "RAW_NOTATION"
+        ],
+        "globalSegmentation": false
+      },
+      {
+        "id": "pau-can-ex-11d88f9e8bcc5dbd4ec7ec627e2662c0",
+        "subject": "2_bach_mates_ii",
+        "reasons": [
+          "VERIFICATION",
+          "RAW_NOTATION"
+        ],
+        "globalSegmentation": false
+      },
+      {
+        "id": "pau-can-ex-128d672af389c9e350804057214fc621",
+        "subject": "2_bach_mates_ii",
+        "reasons": [
+          "VERIFICATION",
+          "RAW_NOTATION"
+        ],
+        "globalSegmentation": false
+      },
+      {
+        "id": "pau-can-ex-04746a96651a7e4cdbe761eeef6af1ee",
+        "subject": "2_bach_mates_ii",
+        "reasons": [
+          "VERIFICATION",
+          "RAW_NOTATION"
+        ],
+        "globalSegmentation": false
+      },
+      {
+        "id": "pau-can-ex-891a7d21b9354de460f80c09bd024632",
+        "subject": "2_bach_mates_ii",
+        "reasons": [
+          "VERIFICATION",
+          "RAW_NOTATION"
+        ],
+        "globalSegmentation": false
+      },
+      {
+        "id": "pau-can-ex-29f1c935e0bad3cd2eaeb6ca8e83f9f4",
+        "subject": "2_bach_mates_ii",
+        "reasons": [
+          "VERIFICATION",
+          "RAW_NOTATION"
+        ],
+        "globalSegmentation": false
+      },
+      {
+        "id": "pau-can-ex-3c812c4df0b385fb7b61028e01b79cb9",
+        "subject": "2_bach_mates_ii",
+        "reasons": [
+          "VERIFICATION",
+          "RAW_NOTATION"
+        ],
+        "globalSegmentation": false
+      },
+      {
+        "id": "pau-can-ex-08732f15d03e8f650b3dd5870ef8cb66",
+        "subject": "2_bach_mates_ii",
+        "reasons": [
+          "VERIFICATION",
+          "RAW_NOTATION"
+        ],
+        "globalSegmentation": false
+      },
+      {
+        "id": "pau-can-ex-f519680d8b68e501f805e343923cb160",
+        "subject": "2_bach_mates_ii",
+        "reasons": [
+          "RANK_DISCUSSION"
+        ],
+        "globalSegmentation": false
+      }
+    ],
+    "2_bach_ccss_ii": [
+      {
+        "id": "pau-can-ex-0a2d0868c58cda97a2c6a3512118ed50",
+        "subject": "2_bach_ccss_ii",
+        "reasons": [
+          "VERIFICATION",
+          "RAW_NOTATION"
+        ],
+        "globalSegmentation": false
+      },
+      {
+        "id": "pau-can-ex-2551ef732349d23c86a038655c8c705b",
+        "subject": "2_bach_ccss_ii",
+        "reasons": [
+          "VERIFICATION",
+          "RAW_NOTATION"
+        ],
+        "globalSegmentation": false
+      },
+      {
+        "id": "pau-can-ex-45e2c88ea5317c290b6a275aaaf3638e",
+        "subject": "2_bach_ccss_ii",
+        "reasons": [
+          "VERIFICATION",
+          "RAW_NOTATION"
+        ],
+        "globalSegmentation": false
+      },
+      {
+        "id": "pau-can-ex-519fd6569ea7616c467c86177d6c8d97",
+        "subject": "2_bach_ccss_ii",
+        "reasons": [
+          "VERIFICATION",
+          "RAW_NOTATION"
+        ],
+        "globalSegmentation": false
+      },
+      {
+        "id": "pau-can-ex-75b2c4f2d79a4fb88dcef8736c477f3e",
+        "subject": "2_bach_ccss_ii",
+        "reasons": [
+          "VERIFICATION",
+          "RAW_NOTATION"
+        ],
+        "globalSegmentation": false
+      },
+      {
+        "id": "pau-can-ex-02dd1752f5ab97841522ace3d486664e",
+        "subject": "2_bach_ccss_ii",
+        "reasons": [
+          "VERIFICATION",
+          "RAW_NOTATION"
+        ],
+        "globalSegmentation": false
+      },
+      {
+        "id": "pau-can-ex-0431c1279da1862011e0d94da1d3ed5c",
+        "subject": "2_bach_ccss_ii",
+        "reasons": [
+          "VERIFICATION",
+          "RAW_NOTATION"
+        ],
+        "globalSegmentation": false
+      },
+      {
+        "id": "pau-can-ex-056d59e205f295a607a397dc19a815a8",
+        "subject": "2_bach_ccss_ii",
+        "reasons": [
+          "VERIFICATION",
+          "RAW_NOTATION"
+        ],
+        "globalSegmentation": false
+      },
+      {
+        "id": "pau-can-ex-129f0f92e5be8302cfeeb63e52b7c187",
+        "subject": "2_bach_ccss_ii",
+        "reasons": [
+          "VERIFICATION",
+          "RAW_NOTATION"
+        ],
+        "globalSegmentation": false
+      },
+      {
+        "id": "pau-can-ex-019a649709c222422a07392dc097b70e",
+        "subject": "2_bach_ccss_ii",
+        "reasons": [
+          "VERIFICATION",
+          "RAW_NOTATION"
+        ],
+        "globalSegmentation": false
+      },
+      {
+        "id": "pau-can-ex-1171b19b53489ded2bcc20c2972c4eb2",
+        "subject": "2_bach_ccss_ii",
+        "reasons": [
+          "VERIFICATION",
+          "RAW_NOTATION"
+        ],
+        "globalSegmentation": false
+      },
+      {
+        "id": "pau-can-ex-0bda550a14f54e9225570572d2bb6920",
+        "subject": "2_bach_ccss_ii",
+        "reasons": [
+          "VERIFICATION",
+          "RAW_NOTATION"
+        ],
+        "globalSegmentation": false
+      },
+      {
+        "id": "pau-can-ex-075898af1417059da05aa4fdc4e93472",
+        "subject": "2_bach_ccss_ii",
+        "reasons": [
+          "VERIFICATION",
+          "RAW_NOTATION"
+        ],
+        "globalSegmentation": false
+      },
+      {
+        "id": "pau-can-ex-20aee8274707c76267e45777fc185887",
+        "subject": "2_bach_ccss_ii",
+        "reasons": [
+          "VERIFICATION",
+          "RAW_NOTATION"
+        ],
+        "globalSegmentation": false
+      },
+      {
+        "id": "pau-can-ex-1d717acecc1187862c486c44c825943b",
+        "subject": "2_bach_ccss_ii",
+        "reasons": [
+          "VERIFICATION",
+          "RAW_NOTATION"
+        ],
+        "globalSegmentation": false
+      }
+    ]
+  }
+}

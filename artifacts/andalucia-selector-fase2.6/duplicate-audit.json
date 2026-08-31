@@ -1,0 +1,32 @@
+[
+  {
+    "community": "andalucia",
+    "courseId": "2bach-ccss",
+    "semanticHash": "f1570ceff1c0bbf761838e8eb966f7f2ebc627ebe0b0c1cbbb32f691c86bf43f",
+    "canonicalExerciseIds": [
+      "exercise:pau-can-ex-1865e15cd30a64ff8e1e4a471e1743bb",
+      "oficial:2011:reserva-:enunciado:en una primera bolsa se han colocado 4 bolas blancas y 3 negras, y en una segunda bolsa 3 blancas y 5 negras. se saca una bola de la primera y, sin verla, se introduce en la segunda. a continuación se saca una bola de la segunda. halle la probabilidad de que:"
+    ],
+    "classification": "SAME_MATHEMATICAL_EXERCISE_DIFFERENT_OFFICIAL_SOURCE"
+  },
+  {
+    "community": "andalucia",
+    "courseId": "2bach-ccss",
+    "semanticHash": "6067416fd410268dae4cae2f1eb74f5ca8ad5ebe809afc58b4beedfaecfdb3a6",
+    "canonicalExerciseIds": [
+      "oficial:2011:reserva-:enunciado:un libro tiene cuatro capítulos. el primer capítulo tiene 140 páginas, el segundo 100, el tercero 150 y el cuarto 50. el 5% de las páginas del primer capítulo, el 4% del segundo y el 2% del tercero tienen algún error. las páginas del cuarto capítulo no tienen errores.",
+      "exercise:pau-can-ex-30281cadbc848b9ffc698691757ee949"
+    ],
+    "classification": "SAME_MATHEMATICAL_EXERCISE_DIFFERENT_OFFICIAL_SOURCE"
+  },
+  {
+    "community": "andalucia",
+    "courseId": "2bach-ccss",
+    "semanticHash": "a1e89531478c8d74e10bfc1d6b68c7e00c0b210f009e57592c04a2d3ef8412bc",
+    "canonicalExerciseIds": [
+      "exercise:pau-can-ex-9759c7817a7932f4ccea319319648c43",
+      "exercise:pau-can-ex-b407902e7efb2a12d3addcb69c7204a6"
+    ],
+    "classification": "SAME_MATHEMATICAL_EXERCISE_DIFFERENT_OFFICIAL_SOURCE"
+  }
+]

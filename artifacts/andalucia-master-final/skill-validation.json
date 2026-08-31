@@ -1,0 +1,18 @@
+[
+  {
+    "file": ".agents\\skills\\solucion-de-ejercicios\\SKILL.md",
+    "valid": true,
+    "name": "solucion-de-ejercicios",
+    "descriptionLength": 378,
+    "unexpectedKeys": [],
+    "officialValidator": "BLOCKED_MISSING_PYYAML"
+  },
+  {
+    "file": "C:\\Users\\aherr\\.codex\\skills\\skill-editor-enunciados\\SKILL.md",
+    "valid": true,
+    "name": "skill-editor-enunciados",
+    "descriptionLength": 428,
+    "unexpectedKeys": [],
+    "officialValidator": "BLOCKED_MISSING_PYYAML"
+  }
+]

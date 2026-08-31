@@ -1,0 +1,39 @@
+{
+  "schemaVersion": "mathup.andalucia-subpart-dom-e2e.v1",
+  "testedAt": "2026-08-30",
+  "url": "http://127.0.0.1:8765/?andalucia-e2e=1",
+  "community": "Andalucía",
+  "results": {
+    "topicMode": {
+      "subjects": ["Matemáticas II", "CCSS II"],
+      "verifiedPartCounts": [1, 2, 3],
+      "fullOfficialStatementVisible": true,
+      "sequentialCorrection": true,
+      "solutionVisibleAfterGrading": true
+    },
+    "blockMode": {
+      "subject": "CCSS II",
+      "block": "Probabilidad",
+      "officialPartCount": 4,
+      "initialProgress": "Apartado 1 de 4",
+      "progressAfterGrading": "Apartado 2 de 4",
+      "fullOfficialStatementVisible": true,
+      "solutionVisibleAfterGrading": true
+    },
+    "examMode": {
+      "subject": "CCSS II",
+      "exercise": "Reserva 2025 · Matrices",
+      "officialPartCount": 2,
+      "initialProgress": "Apartado 1 de 2",
+      "progressAfterGrading": "Apartado 2 de 2",
+      "sameParentExerciseAfterAdvance": true,
+      "structuredMatricesVisible": true,
+      "solutionVisibleAfterGrading": true
+    },
+    "responsive": [
+      {"viewport": 375, "documentWidth": 360, "horizontalOverflow": false},
+      {"viewport": 768, "documentWidth": 753, "horizontalOverflow": false},
+      {"viewport": 1280, "documentWidth": 1280, "horizontalOverflow": false}
+    ]
+  }
+}

@@ -1,0 +1,22 @@
+diff --git "a/artifacts\\andalucia-master-final\\skill-before\\solucion-de-ejercicios\\SKILL.md" "b/artifacts\\andalucia-master-final\\skill-after\\solucion-de-ejercicios\\SKILL.md"
+index 66c5111..9449273 100644
+--- "a/artifacts\\andalucia-master-final\\skill-before\\solucion-de-ejercicios\\SKILL.md"
++++ "b/artifacts\\andalucia-master-final\\skill-after\\solucion-de-ejercicios\\SKILL.md"
+@@ -3656,6 +3656,17 @@ Antes de entregar o incorporar un ejercicio:
+ - Rehacer mentalmente las operaciones críticas y comprobar signos, dominios, unidades y redondeos.
+ - Verificar que la explicación conduce al resultado indicado y que no usa un método contrario a estas instrucciones.
+ 
++### Regresión común para bancos oficiales interactivos
++
++- Distinguir apartado oficial de subdivisión pedagógica. Se permite descomponer un apartado en ítems interactivos (`a.i`, `a.ii`, funciones `f` y `g`, etc.) únicamente si se conserva íntegro el literal común, el orden documental y cada pregunta exigida; registrar la relación padre–hijo. Nunca fusionar preguntas independientes.
++- Si el examen contiene `Parte I` y `Parte II`, conservar ese orden incluso cuando el solucionario o la importación lleguen invertidos. El identificador visible y el historial deben mantener la jerarquía (`I.a`, `I.b`, `II.a`...).
++- En CCSS II no utilizar L’Hôpital. Resolver límites por factorización, racionalización, división por la potencia dominante, límites fundamentales u otra técnica del temario. La frase «sin usar L’Hôpital» no constituye una infracción en las auditorías.
++- En distribución normal escribir primero la probabilidad pedida, tipificar después y usar `P(Z≤z)` o la desigualdad equivalente; no presentar `Φ(z)` como sustituto opaco de ese paso. En tamaños muestrales, comprobar el entero mínimo y redondear siempre hacia arriba.
++- Las cantidades con unidad forman un bloque indivisible (`64 kg`, `1,68 m`, `25 kg/m²`, `10 km²`). Mantener un espacio no separable y comprobar que valor y unidad no saltan a líneas distintas.
++- Andalucía y Madrid muestran solo el recurso estadístico exacto mediante un desplegable que no reinicia la respuesta. Castilla-La Mancha conserva la tabla local del propio ejercicio. Una tabla auxiliar independiente nunca se censará como examen.
++- Para áreas, el dibujo debe corresponder al desarrollo: ejes, puntos de corte, techo/suelo o signo por intervalos y región sombreada. Un esquema cualitativo debe declararse como tal y remitir a los valores exactos calculados; no puede sustituir una gráfica fuente imprescindible.
++- La comprobación automática debe cubrir enunciado, cuatro opciones distintas, corrección, solución, tabla auxiliar y gráfico a 375, 768 y 1280 px. Falla si aparece sintaxis interna, desbordamiento horizontal de página o pérdida de estado al abrir/cerrar recursos.
++
+ ## Archivos del proyecto
+ 
+ Cuando el trabajo requiera generar archivos, guardarlos únicamente dentro de la carpeta del proyecto Codex indicada por el usuario. Mantener los temporales en una carpeta específica del proyecto y eliminarlos cuando dejen de ser necesarios. Eliminar solo archivos creados durante el trabajo; no modificar ni borrar otros archivos de OneDrive.

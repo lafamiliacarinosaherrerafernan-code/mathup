@@ -4,11 +4,23 @@
   const SKIPPED_HTML_TAGS = new Set(["SCRIPT", "STYLE", "CODE", "PRE", "MATH", "SVG"]);
   const MATH_CLASS_PATTERN = /^(?:math-|matrix-|integral-|barrow-|cofactor-|gauss-|cramer-)/;
 
+  function repairImportedSpanishAccents(value) {
+    const accented = {
+      a: "á", e: "é", i: "í", o: "ó", u: "ú",
+      A: "Á", E: "É", I: "Í", O: "Ó", U: "Ú"
+    };
+    return String(value ?? "")
+      .normalize("NFC")
+      .replace(/[´`]([aeiouAEIOU])/g, (_, vowel) => accented[vowel])
+      .replace(/([aeiouAEIOU])[´`]/g, (_, vowel) => accented[vowel]);
+  }
+
   function displayText(value) {
     const text = String(value ?? "");
-    return typeof globalScope.normalizeDisplayText === "function"
+    const normalized = typeof globalScope.normalizeDisplayText === "function"
       ? globalScope.normalizeDisplayText(text)
       : text;
+    return repairImportedSpanishAccents(normalized);
   }
 
   function escapeHtml(value) {
@@ -41,13 +53,38 @@
 
   function normalizeLimitTargets(value) {
     return String(value)
-      .replace(/(→\s*)([A-Za-zα-ωΑ-Ω][A-Za-z0-9α-ωΑ-Ω]*)\s*([+-])(?=\s*(?:\)|\}|\s|$))/g, (_, arrow, target, side) => `${arrow}${target}${side === "+" ? "⁺" : "⁻"}`)
+      .replace(/(→\s*)([A-Za-zα-ωΑ-Ω0-9][A-Za-z0-9α-ωΑ-Ω]*)\s*([+−-])(?=\s*(?:\)|\}|\s|$))/g, (_, arrow, target, side) => `${arrow}${target}${side === "+" ? "⁺" : "⁻"}`)
       .replace(/([+−-]?)\s*(?:inf(?:inity)?|infinito)\b/gi, (_, sign) => `${sign === "-" ? "−" : sign}∞`);
+  }
+
+  function plainSuperscriptDigits(value) {
+    const map = { "⁰": "0", "¹": "1", "²": "2", "³": "3", "⁴": "4", "⁵": "5", "⁶": "6", "⁷": "7", "⁸": "8", "⁹": "9", "⁻": "−" };
+    return String(value).replace(/[⁰¹²³⁴⁵⁶⁷⁸⁹⁻]/g, (digit) => map[digit]);
   }
 
   function normalize(value, options = {}) {
     let text = displayText(value)
+      // Los delimitadores de modo matemático pertenecen a la fuente y no al
+      // contenido que debe leer el alumno.
+      .replace(/\\(?:\(|\)|\[|\])/g, "")
       .replace(/\\(?:left|right)\b\s*/g, "")
+      .replace(/\\(?:displaystyle|textstyle|scriptstyle|scriptscriptstyle)\b\s*/g, "")
+      // El transporte LaTeX puede proteger la coma decimal con llaves. Esas
+      // llaves no tienen significado matemático visible y deben desaparecer
+      // antes de componer cualquier campo de alumno.
+      .replace(/\{,\}/g, ",")
+      .replace(/\\text\{([^{}]*)\}/g, "$1")
+      .replace(/\\operatorname\{([^{}]*)\}/g, "$1")
+      .replace(/\\mid\b/g, "|")
+      .replace(/\\prime\b/g, "′")
+      .replace(/\\int\b/g, "∫")
+      // Algunos DOC históricos exportaron estructuras de Word sin separadores
+      // de filas como `\\begin{matrix}...\\end{matrix}`. No inventamos una
+      // matriz: retiramos únicamente los comandos internos y el registro queda
+      // señalado para contraste visual humano por el auditor de fuentes.
+      .replace(/\\begin\{matrix\}/gi, "")
+      .replace(/\\end\{matrix\}/gi, "")
+      .replace(/\\\{/g, "{")
       .replace(/\\[,;:!]\s*/g, " ")
       .replace(/\\mathbb\{([RNZQC])\}/g, (_, set) => ({ R: "ℝ", N: "ℕ", Z: "ℤ", Q: "ℚ", C: "ℂ" })[set])
       .replace(/\\emptyset\b|\\varnothing\b/g, "∅")
@@ -60,14 +97,15 @@
       .replace(/\\(?:parallel)\b/g, "∥")
       .replace(/\\(?:perp)\b/g, "⟂")
       .replace(/\\(?:equiv)\b/g, "≡")
-      .replace(/\\(?:approx|simeq)\b/g, "≈")
+      .replace(/\\(?:approx|simeq)(?![A-Za-z])/g, "≈")
       .replace(/\\(?:propto)\b/g, "∝")
       .replace(/\\(?:pm)\b/g, "±")
       .replace(/\\(?:mp)\b/g, "∓")
       // En la notación didáctica de Margarita Salas la multiplicación
       // ordinaria se escribe con punto centrado, como en el cuaderno.
       .replace(/\\(?:times)\b/g, "·")
-      .replace(/\\(?:cdot)\b/g, "·")
+      .replaceAll("\\\\cdot", "·")
+      .replaceAll("\\cdot", "·")
       .replace(/\\(?:div)\b/g, "÷")
       .replace(/\\(?:forall)\b/g, "∀")
       .replace(/\\(?:exists)\b/g, "∃")
@@ -97,6 +135,8 @@
       .replace(/\\(?:dfrac|tfrac|frac)\s*\{([^{}]+)\}\s*([A-Za-z0-9])/g, "\\frac{$1}{$2}")
       .replace(/\\(?:dfrac|tfrac|frac)\s*([A-Za-z0-9])\s*\{([^{}]+)\}/g, "\\frac{$1}{$2}")
       .replace(/\\(?:dfrac|tfrac|frac)\s*([A-Za-z0-9])\s*([A-Za-z0-9])/g, "\\frac{$1}{$2}")
+      .replace(/\\(?:dfrac|tfrac|frac)\b/g, "frac")
+      .replace(/\\sqrt\b/g, "sqrt")
       .replace(/\\(?:Longleftrightarrow|iff)\b/g, " ⇔ ")
       .replace(/\\(?:Leftrightarrow|leftrightarrow)\b/g, " ↔ ")
       .replace(/\\(?:Rightarrow|implies)\b/g, " ⇒ ")
@@ -129,18 +169,19 @@
       .replace(/(\d)\s+grados\b/gi, "$1°")
       .replace(/\b(Calcula(?:r)?)(?:\s+la)?\s+integral\s+de\s+/gi, "$1 ∫ ")
       .replace(/\bintegral\s+de\s+([^\s]+)\s+a\s+([^\s]+)\s+de\s+/gi, "∫_$1^$2 ")
+      .replace(/∫_([^\s^⁰¹²³⁴⁵⁶⁷⁸⁹⁻]+)([⁰¹²³⁴⁵⁶⁷⁸⁹⁻]+)/g, (_, lower, upper) => `∫_${lower}^${plainSuperscriptDigits(upper)}`)
       .replace(/([)\]])'''(?=\s*(?:=|,|\.|$))/g, "$1‴")
       .replace(/([)\]])''(?=\s*(?:=|,|\.|$))/g, "$1″")
       .replace(/([)\]])'(?=\s*(?:=|,|\.|$))/g, "$1′")
       .replace(/\b([A-Za-z])'''(?=\s*(?:=|\(|\)|,|\.|$))/g, "$1‴")
       .replace(/\b([A-Za-z])''(?=\s*(?:=|\(|\)|,|\.|$))/g, "$1″")
-      .replace(/\b([A-Za-z])'(?=\s*(?:=|\(|\)|,|\.|$))/g, "$1′")
+      .replace(/\b([A-Za-z])'(?=\s*(?:=|_|\(|\)|,|\.|$))/g, "$1′")
       .replace(/\bx\s*(?:->|→)\s*/gi, "x → ");
 
     text = normalizeLimitTargets(text);
     if (!options.preserveTrigNotation) {
       text = text.replace(/\bsin(?=\s*(?:\^|\(|[A-Za-zα-ωΑ-Ω]))/gi, "sen")
-        .replace(/\btan(?=\s*(?:\^|\(|[A-Za-zα-ωΑ-Ω]))/gi, "tg");
+        .replace(/\btan(?=\s*(?:\^|\())|\btan(?=\s+[A-Za-zα-ωΑ-Ω]\b)/gi, "tg");
     }
     return text;
   }
@@ -156,7 +197,129 @@
     return depth === 0 ? end : -1;
   }
 
-  function replaceBalancedCommand(value, pattern, render) {
+  function splitDelimitedTopLevel(value, separator = ";") {
+    const parts = [];
+    let current = "";
+    let braces = 0;
+    let parentheses = 0;
+    let brackets = 0;
+    for (const character of String(value ?? "")) {
+      if (character === "{") braces += 1;
+      else if (character === "}") braces = Math.max(0, braces - 1);
+      else if (character === "(") parentheses += 1;
+      else if (character === ")") parentheses = Math.max(0, parentheses - 1);
+      else if (character === "[") brackets += 1;
+      else if (character === "]") brackets = Math.max(0, brackets - 1);
+      if (character === separator && braces === 0 && parentheses === 0 && brackets === 0) {
+        parts.push(current.trim());
+        current = "";
+      } else {
+        current += character;
+      }
+    }
+    if (current.trim()) parts.push(current.trim());
+    return parts;
+  }
+
+  function splitPiecewiseBranch(value) {
+    const branch = String(value ?? "");
+    const aligned = branch.split(/\s*&\s*/).map((part) => part.trim()).filter(Boolean);
+    if (aligned.length === 2 && /(?:≤|≥|<|>|≠|=)/.test(aligned[1])) return aligned;
+    // La condición puede ir tras una coma y contener a su vez una coma
+    // decimal (`expresión, 0≤t≤2,5`). No podemos separar por la última coma:
+    // localizamos el primer sufijo que sea íntegramente una desigualdad.
+    for (let commaIndex = branch.indexOf(','); commaIndex > 0; commaIndex = branch.indexOf(',', commaIndex + 1)) {
+      const expression = branch.slice(0, commaIndex).trim();
+      const condition = branch.slice(commaIndex + 1).trim().replace(/^(?:si|if)\s+/i, '');
+      if (
+        expression
+        && /(?:≤|≥|<|>|≠|=)/.test(condition)
+        && /^(?:[A-Za-z0-9+−-]+(?:[.,]\d+)?)\s*(?:≤|≥|<|>|≠|=)\s*(?:[A-Za-z0-9+−-]+(?:[.,]\d+)?)(?:\s*(?:≤|≥|<|>|≠|=)\s*(?:[A-Za-z0-9+−-]+(?:[.,]\d+)?))?$/.test(condition)
+      ) return [expression, condition];
+    }
+    let braces = 0;
+    let parentheses = 0;
+    let brackets = 0;
+    for (let index = 0; index < branch.length; index += 1) {
+      const character = branch[index];
+      if (character === "{") braces += 1;
+      else if (character === "}") braces = Math.max(0, braces - 1);
+      else if (character === "(") parentheses += 1;
+      else if (character === ")") parentheses = Math.max(0, parentheses - 1);
+      else if (character === "[") brackets += 1;
+      else if (character === "]") brackets = Math.max(0, brackets - 1);
+      if (braces || parentheses || brackets) continue;
+      const condition = branch.slice(index).match(/^\s*,?\s*(?:si|if)\s+/i);
+      if (condition) {
+        return [branch.slice(0, index).trim(), branch.slice(index + condition[0].length).trim()];
+      }
+    }
+    // Algunos registros históricos usan `cases{expresión condición;...}` sin
+    // escribir la palabra «si». Solo se acepta como condición un tramo final
+    // separado por espacio y con una o dos desigualdades inequívocas.
+    const implicitCondition = branch.match(/^(.*?)\s+([A-Za-z0-9+−-]+\s*(?:≤|≥|<|>)\s*[A-Za-z0-9+−-]+(?:\s*(?:≤|≥|<|>)\s*[A-Za-z0-9+−-]+)?)\s*$/);
+    if (implicitCondition?.[1]?.trim()) return [implicitCondition[1].trim(), implicitCondition[2].trim()];
+    return null;
+  }
+
+  function replaceExplicitPiecewise(value, options = {}) {
+    const text = String(value ?? "");
+    let result = "";
+    let cursor = 0;
+    const marker = /\b(?:piecewise|cases)\s*\{/gi;
+    while (cursor < text.length) {
+      marker.lastIndex = cursor;
+      const match = marker.exec(text);
+      if (!match) return result + text.slice(cursor);
+      result += text.slice(cursor, match.index);
+      const contentStart = match.index + match[0].length;
+      const end = readBalanced(text, contentStart);
+      if (end < 0) {
+        result += text.slice(match.index);
+        return result;
+      }
+      const entries = splitDelimitedTopLevel(decodeMathEntities(text.slice(contentStart, end - 1)), ";");
+      const branches = entries.map(splitPiecewiseBranch);
+      if (branches.length < 2 || branches.some((branch) => !branch)) {
+        if (/^cases/i.test(match[0]) && entries.length >= 2 && entries.every(systemEquationLine)) {
+          result += renderSystem(entries, options);
+          cursor = end;
+          continue;
+        }
+        result += text.slice(match.index, end);
+        cursor = end;
+        continue;
+      }
+      const markup = branches.map(([expression, condition]) => (
+        `<span><span>${fragment(decodeMathEntities(expression), { ...options, allowMatrices: false })}</span><small>si ${fragment(decodeMathEntities(condition), { ...options, allowMatrices: false })}</small></span>`
+      )).join("");
+      result += `<span class="math-piecewise" role="img" aria-label="función definida a trozos"><span class="math-system-brace">{</span><span class="math-piecewise-lines">${markup}</span></span>`;
+      cursor = end;
+    }
+    return result;
+  }
+
+  function replaceExplicitSystems(value, options = {}) {
+    return replaceBalancedCommand(value, /\b(?:system|sistema)\{/gi, (content) => (
+      renderSystem(splitDelimitedTopLevel(decodeMathEntities(content), ";"), options)
+    ), "{", "}");
+  }
+
+  function replaceExplicitMatrices(value, options = {}) {
+    let rendered = replaceBalancedCommand(value, /\bmatrix\{/gi, (content) => {
+      const rows = splitDelimitedTopLevel(decodeMathEntities(content), ";");
+      return renderMatrix(rows.map((row) => `[${row}]`).join(","), false, options);
+    }, "{", "}");
+    rendered = replaceBalancedCommand(rendered, /\bmatrix\(/gi, (content) => {
+      const rows = splitDelimitedTopLevel(decodeMathEntities(content), ";");
+      return renderMatrix(rows.map((row) => `[${row}]`).join(","), false, options);
+    }, "(", ")");
+    // Historical imports also contain `matrix [[...]]`; the bracket payload is
+    // rendered by the standard matrix pass, so remove only the internal token.
+    return rendered.replace(/\bmatrix\s*(?=\[\[)/gi, "");
+  }
+
+  function replaceBalancedCommand(value, pattern, render, open = "(", close = ")") {
     const text = String(value);
     let result = "";
     let cursor = 0;
@@ -165,7 +328,7 @@
     while ((match = pattern.exec(text)) !== null) {
       result += text.slice(cursor, match.index);
       const contentStart = pattern.lastIndex;
-      const contentEnd = readBalanced(text, contentStart, "(", ")");
+      const contentEnd = readBalanced(text, contentStart, open, close);
       if (contentEnd < 0) {
         result += text.slice(match.index);
         return result;
@@ -179,20 +342,20 @@
 
   function replaceBalancedRoots(value) {
     let text = String(value);
-    text = replaceBalancedCommand(text, /(?:sqrt|sqr|raiz|√)\(/gi, (content) => `<span class="math-root"><span class="radicand">${replaceBalancedRoots(content)}</span></span>`);
-    text = replaceBalancedCommand(text, /(?:cuberoot|raiz3|∛)\(/gi, (content) => `<span class="math-root math-indexed-root"><sup>3</sup><span class="radicand">${replaceBalancedRoots(content)}</span></span>`);
+    text = replaceBalancedCommand(text, /(?:sqrt|sqr|ra[ií]z|√)\(/gi, (content) => `<span class="math-root"><span class="radicand">${replaceBalancedRoots(content)}</span></span>`);
+    text = replaceBalancedCommand(text, /(?:cuberoot|ra[ií]z3|∛)\(/gi, (content) => `<span class="math-root math-indexed-root"><sup>3</sup><span class="radicand">${replaceBalancedRoots(content)}</span></span>`);
     return text;
   }
 
   function replaceIndexedRoots(value) {
     return String(value)
-      .replace(/(?:sqrt|raiz)\[([^\]]+)\]\(([^()]*)\)/gi, '<span class="math-root math-indexed-root"><sup>$1</sup><span class="radicand">$2</span></span>')
-      .replace(/(?:root|raiz)\{([^{}]+)\}\{([^{}]+)\}/gi, '<span class="math-root math-indexed-root"><sup>$1</sup><span class="radicand">$2</span></span>');
+      .replace(/(?:sqrt|ra[ií]z)\[([^\]]+)\]\(([^()]*)\)/gi, '<span class="math-root math-indexed-root"><sup>$1</sup><span class="radicand">$2</span></span>')
+      .replace(/(?:root|ra[ií]z)\{([^{}]+)\}\{([^{}]+)\}/gi, '<span class="math-root math-indexed-root"><sup>$1</sup><span class="radicand">$2</span></span>');
   }
 
   function replaceLatexRoots(value) {
     const text = String(value);
-    const pattern = /\\sqrt(?:\[([^\]]+)\])?\{/g;
+    const pattern = /(?:\\?sqrt|√)(?:\[([^\]]+)\])?\{/g;
     let result = "";
     let cursor = 0;
     let match;
@@ -522,7 +685,10 @@
 
   function replaceInlineFractions(value) {
     const protectedText = [];
-    let text = String(value).replace(/(?:\bhttps?:\/\/[^\s<]+|\bwww\.[^\s<]+|\b(?:[A-Za-z]:\\[^\s<]+|(?:[\w.-]+\/)+[\w.-]+\.[A-Za-z0-9]{2,8}))/gi, (match) => {
+    // El renderizador ya ha producido etiquetas HTML para raíces, matrices y
+    // fracciones equilibradas. Una barra de cierre como `</span>` no es una
+    // división matemática y debe quedar fuera del detector de a/b.
+    let text = String(value).replace(/(?:<[^>]*>|\bhttps?:\/\/[^\s<]+|\bwww\.[^\s<]+|\b(?:[A-Za-z]:\\[^\s<]+|(?:[\w.-]+\/)+[\w.-]+\.[A-Za-z0-9]{2,8}))/gi, (match) => {
       const index = protectedText.push(match) - 1;
       return `@@PLAIN${index}@@`;
     });
@@ -536,10 +702,117 @@
     return text.replace(/@@PLAIN(\d+)@@/g, (_, index) => protectedText[Number(index)] || "");
   }
 
+  function readParenthesized(text, openIndex) {
+    if (text[openIndex] !== "(") return null;
+    let depth = 0;
+    for (let index = openIndex; index < text.length; index += 1) {
+      if (text[index] === "(") depth += 1;
+      if (text[index] === ")") depth -= 1;
+      if (depth === 0) return { content: text.slice(openIndex + 1, index), end: index + 1 };
+    }
+    return null;
+  }
+
+  function readIntegralBound(text, start, stopAtCaret = false) {
+    if (text[start] === "{") {
+      const end = readBalanced(text, start + 1);
+      return end < 0 ? null : { content: text.slice(start + 1, end - 1), end };
+    }
+    if (text[start] === "(") return readParenthesized(text, start);
+    if (text.startsWith("root{", start)) {
+      const indexStart = start + 5;
+      const indexEnd = readBalanced(text, indexStart);
+      if (indexEnd < 0 || text[indexEnd] !== "{") return null;
+      const radicandEnd = readBalanced(text, indexEnd + 1);
+      return radicandEnd < 0
+        ? null
+        : { content: text.slice(start, radicandEnd), end: radicandEnd };
+    }
+    if (text[start] === "√") {
+      if (text[start + 1] === "(") {
+        const group = readParenthesized(text, start + 1);
+        return group ? { content: `√(${group.content})`, end: group.end } : null;
+      }
+      const atom = text.slice(start + 1).match(/^[+−-]?(?:\d+(?:[.,]\d+)?|[A-Za-zα-ωΑ-Ωπ]+)(?:[²³⁴⁵⁶⁷⁸⁹⁰]+)?/);
+      return atom ? { content: `√${atom[0]}`, end: start + 1 + atom[0].length } : null;
+    }
+    const tail = text.slice(start);
+    const pattern = stopAtCaret
+      ? /^[^\s^]+/
+      : /^[+−-]?(?:\d+(?:[.,]\d+)?|[A-Za-zα-ωΑ-Ωπ∞]+)(?:[²³⁴⁵⁶⁷⁸⁹⁰]+)?/;
+    const atom = tail.match(pattern);
+    return atom ? { content: atom[0], end: start + atom[0].length } : null;
+  }
+
+  function nativeMathText(value) {
+    const plain = normalize(String(value ?? ""))
+      .replace(/root\{3\}\{([^{}]+)\}/gi, "∛$1")
+      .replace(/root\{([^{}]+)\}\{([^{}]+)\}/gi, "$1√$2")
+      .replace(/(?:sqrt|ra[ií]z)\(([^()]*)\)/gi, "√($1)")
+      .replace(/(?:\\?d?frac|frac)\s*\{([^{}]+)\}\s*\{([^{}]+)\}/gi, "($1)/($2)")
+      .replace(/(?:\\?sqrt|sqrt|root)\s*\{([^{}]+)\}/gi, "√($1)")
+      .replace(/\\(?:cdot|times)\b/gi, "·")
+      .replace(/\\(?:infty|infinity)\b/gi, "∞")
+      .replace(/\\pi\b/gi, "π")
+      .replace(/[{}]/g, "")
+      .replace(/\\[A-Za-z]+/g, "")
+      .trim();
+    // Encode radical glyphs so the later root pass cannot reinterpret text
+    // that already belongs inside the protected MathML operator.
+    return escapeHtml(plain).replace(/√/g, "&#8730;").replace(/∛/g, "&#8731;");
+  }
+
+  function nativeIntegral(lower, upper) {
+    const lowerText = nativeMathText(lower);
+    const upperText = nativeMathText(upper);
+    return `<span class="math-integral math-native-operator" data-math-native="integral"><math xmlns="http://www.w3.org/1998/Math/MathML" display="inline" aria-label="integral de ${lowerText} a ${upperText}"><mstyle displaystyle="true" scriptlevel="0"><munderover><mo largeop="true">∫</mo><mrow><mtext>${lowerText}</mtext></mrow><mrow><mtext>${upperText}</mtext></mrow></munderover></mstyle></math></span>`;
+  }
+
+  function nativeEvaluation(bracket, lower, upper = "") {
+    const lowerText = nativeMathText(lower);
+    const upperText = nativeMathText(upper);
+    const operator = upperText
+      ? `<msubsup><mo stretchy="true">${escapeHtml(bracket)}</mo><mrow><mtext>${lowerText}</mtext></mrow><mrow><mtext>${upperText}</mtext></mrow></msubsup>`
+      : `<msub><mo stretchy="true">${escapeHtml(bracket)}</mo><mrow><mtext>${lowerText}</mtext></mrow></msub>`;
+    return `<span class="math-evaluation math-native-operator" data-math-native="evaluation"><math xmlns="http://www.w3.org/1998/Math/MathML" display="inline"><mstyle displaystyle="true" scriptlevel="0">${operator}</mstyle></math></span>`;
+  }
+
+  // Las cotas pueden contener grupos, raíces o fracciones y el integrando
+  // puede empezar sin espacio (`∫_8^{10}frac{...}`). Las expresiones regulares
+  // simples consumían parte del integrando o del HTML ya compuesto. Esta
+  // lectura equilibrada conserva exactamente ambas cotas y deja el integrando
+  // para el resto del pipeline.
+  function replaceBoundedIntegrals(value, options = {}) {
+    const text = String(value);
+    let result = "";
+    let cursor = 0;
+    while (cursor < text.length) {
+      const start = text.indexOf("∫_", cursor);
+      if (start < 0) return result + text.slice(cursor);
+      result += text.slice(cursor, start);
+      const lower = readIntegralBound(text, start + 2, true);
+      if (!lower || text[lower.end] !== "^") {
+        result += text.slice(start, start + 2);
+        cursor = start + 2;
+        continue;
+      }
+      const upper = readIntegralBound(text, lower.end + 1, false);
+      if (!upper) {
+        result += text.slice(start, lower.end + 1);
+        cursor = lower.end + 1;
+        continue;
+      }
+      result += `${nativeIntegral(lower.content, upper.content)} `;
+      cursor = upper.end;
+    }
+    return result;
+  }
+
   function replaceLimits(value) {
     const render = (_, condition) => `<span class="math-limit"><span>lim</span><sub>${condition.trim()}</sub></span>`;
     return String(value)
       .replace(/\blim\s*_\{\s*([^{}]+)\s*\}/gi, render)
+      .replace(/\blim\s*_\(\s*([^()]*?→[^()]*)\s*\)/gi, render)
       .replace(/\blim\s*\(\s*([^()]*?→[^()]*)\s*\)/gi, render)
       .replace(/\blim\s+([A-Za-zα-ωΑ-Ω][A-Za-z0-9α-ωΑ-Ω]*\s*→\s*(?:[+−-]?∞|[^\s<]+))(?:\s+de)?/gi, render);
   }
@@ -550,18 +823,42 @@
       .replace(/\b([A-Za-z]{1,3})⃗/g, '<span class="math-vector"><span>$1</span></span>');
   }
 
+  function replaceValueUnits(value) {
+    const units = "(?:km/h|m/s|mm|cm|km|m|kg|g|L|ml|€|%)(?:[²³])?";
+    return String(value).replace(
+      new RegExp(`(^|[>\\s(])([+−-]?\\d+(?:[.,]\\d+)?)(?:&nbsp;|\\s)+(${units})(?=$|[<\\s),.;:])`, "gi"),
+      '$1<span class="math-value-unit">$2&nbsp;$3</span>'
+    );
+  }
+
   function fragment(value, options = {}) {
     const normalized = normalizeTupleMatrices(normalizeCoordinateFractions(normalize(value, options)));
     let output = escapeHtml(normalized);
+    output = replaceExplicitSystems(output, options);
+    output = replaceExplicitMatrices(output, options);
+    output = replaceExplicitPiecewise(output, options);
     output = replaceLatexCases(output, options);
     // La cabecera de una función a trozos debe conservar tipografía matemática
     // aunque el contenedor exterior (por ejemplo, un enunciado) use negrita.
     // Solo se aplica cuando f(x)= precede inmediatamente al bloque `cases`.
     output = output.replace(
       /\b([A-Za-z])\s*\(\s*([A-Za-z])\s*\)\s*=\s*(?=<span class="math-piecewise")/g,
-      '<span class="math-piecewise-prefix"><i>$1</i><span class="math-function-paren">(</span><i>$2</i><span class="math-function-paren">)</span> =</span> '
+      '<span class="math-piecewise-prefix"><i>$1</i><span class="math-function-paren">(</span><i>$2</i><span class="math-function-paren">)</span> =</span>&nbsp;'
     );
+    // A power applied to a whole matrix must survive the structural matrix
+    // replacement. Convert the exponent first so it stays attached visually
+    // to the rendered matrix instead of leaking as `^{n}` plain text.
+    output = output
+      .replace(/(\[\[[\s\S]*?\]\])\^\{([^{}]+)\}/g, "$1<sup>$2</sup>")
+      .replace(/(\[\[[\s\S]*?\]\])\^(-?\d+)/g, "$1<sup>$2</sup>");
     output = replaceMatrices(output, options);
+    // Una etiqueta y la estructura matemática que nombra forman una sola
+    // unidad visual. El espacio no separable evita que A =, r = o f(x) =
+    // queden huérfanos al final de una línea en pantallas estrechas.
+    output = output.replace(
+      /((?:\b[A-Za-z]|\b[A-Za-z]\s*\(\s*[A-Za-z]\s*\))\s*=)\s*(?=<span class="math-(?:matrix|system|piecewise|fraction|root))/g,
+      "$1&nbsp;"
+    );
     // MyScript envuelve a veces una respuesta de varias partes en entornos de
     // alineación LaTeX. Son metadatos de maquetación: no deben mostrarse al
     // alumno ni confundirse con el contenido matemático reconocido. Las
@@ -579,6 +876,7 @@
       .replace(/\\qquad\b/g, '<span class="math-space math-space-wide" aria-hidden="true"></span>')
       .replace(/\\quad\b/g, '<span class="math-space" aria-hidden="true"></span>')
       .replace(/\\[;,!]\s*/g, " ");
+    output = replaceBoundedIntegrals(output, options);
     output = replaceLatexRoots(output);
     output = replaceBalancedFractions(replaceBalancedDelimiters(output));
     output = replaceIndexedRoots(output);
@@ -586,40 +884,81 @@
     output = replaceLimits(output);
     output = replaceVectors(output);
     output = output
-      .replace(/√([A-Za-z0-9]+(?:\^[0-9]+)?)/g, '<span class="math-root"><span class="radicand">$1</span></span>')
-      .replace(/∫_\{([^}]+)\}\^\{([^}]+)\}\s*/g, '<span class="math-integral"><span class="integral-sign">∫</span><span class="integral-bounds"><sup>$2</sup><sub>$1</sub></span></span> ')
-      .replace(/∫_([^\s^]+)\^([^\s]+)\s*/g, '<span class="math-integral"><span class="integral-sign">∫</span><span class="integral-bounds"><sup>$2</sup><sub>$1</sub></span></span> ')
-      .replace(/∫([₀₁₂₃₄₅₆₇₈₉₋]+)\^([^\s]+)/g, '<span class="math-integral"><span class="integral-sign">∫</span><span class="integral-bounds"><sup>$2</sup><sub>$1</sub></span></span>')
+      .replace(/√([A-Za-z0-9α-ωΑ-Ωπ]+(?:\^[0-9]+)?)/g, '<span class="math-root"><span class="radicand">$1</span></span>')
+      .replace(/∫([₀₁₂₃₄₅₆₇₈₉₋]+)\^([^\s]+)/g, (_, lower, upper) => nativeIntegral(lower, upper))
       .replace(/\bd([²³⁴⁵⁶⁷⁸⁹⁰]?)y\s*\/\s*d([A-Za-z])([²³⁴⁵⁶⁷⁸⁹⁰]?)/g, (_, numeratorOrder, variable, denominatorOrder) => `<span class="math-fraction math-leibniz"><span>d${numeratorOrder}y</span><span>d${variable}${denominatorOrder}</span></span>`)
-      .replace(/([)\]])_\{([^}]+)\}\^\{([^}]+)\}/g, '$1<span class="math-evaluation"><sup>$3</sup><sub>$2</sub></span>')
-      .replace(/([)\]])([₀₁₂₃₄₅₆₇₈₉₋]+)\^([A-Za-zα-ωΑ-Ωπ∞0-9+\-]+)/g, '$1<span class="math-evaluation"><sup>$3</sup><sub>$2</sub></span>')
+      .replace(/([)\]|])_\{([^}]+)\}\^\{([^}]+)\}/g, (_, base, lower, upper) => nativeEvaluation(base, lower, upper))
+      .replace(/([)\]|])_\(([^()]+)\)\^\{?([^{}\s]+)\}?/g, (_, base, lower, upper) => nativeEvaluation(base, lower, upper))
+      .replace(/([)\]|])_([^\s^]+)\^\{?([^{}\s]+)\}?/g, (_, base, lower, upper) => nativeEvaluation(base, lower, upper))
+      .replace(/([)\]|])_([A-Za-z0-9+−-]+)([⁰¹²³⁴⁵⁶⁷⁸⁹⁻]+)/g, (_, base, lower, upper) => nativeEvaluation(base, lower, plainSuperscriptDigits(upper)))
+      .replace(/([)\]|])_\{([^}]+)\}/g, (_, base, lower) => nativeEvaluation(base, lower))
+      .replace(/([)\]|])_\(([^()]+)\)/g, (_, base, lower) => nativeEvaluation(base, lower))
+      .replace(/([)\]])([₀₁₂₃₄₅₆₇₈₉₋]+)\^([A-Za-zα-ωΑ-Ωπ∞0-9+\-]+)/g, (_, base, lower, upper) => nativeEvaluation(base, lower, upper))
       .replace(/\b(sen|cos|tg|ln|log)\^\{?([^{}()\s]+)\}?\(([^)]+)\)/gi, '$1<sup>$2</sup>($3)')
-      .replace(/([A-Za-z0-9α-ωΑ-Ωπ|)\]}])\^\{([^{}]+)\}/g, '$1<sup>$2</sup>')
-      .replace(/([A-Za-z0-9α-ωΑ-Ωπ|)\]}])\^\(([^()]+)\)/g, '$1<sup>$2</sup>')
-      .replace(/([A-Za-z0-9α-ωΑ-Ωπ|)\]}])\^(-?\d+)/g, '$1<sup>$2</sup>')
-      .replace(/([A-Za-z0-9α-ωΑ-Ωπ|)\]}])\^([A-Za-zα-ωΑ-Ωπ][A-Za-z0-9α-ωΑ-Ωπ²³]*)/g, '$1<sup>$2</sup>')
-      .replace(/([A-Za-z)\]}])_\{([^{}]+)\}/g, '$1<sub>$2</sub>')
-      .replace(/([A-Za-z])_([A-Za-z0-9]+)/g, '$1<sub>$2</sub>')
+      .replace(/([A-Za-z0-9α-ωΑ-Ωπℝℕℤℚℂ|)\]}])\^\{([^{}]+)\}/g, '$1<sup>$2</sup>')
+      .replace(/([A-Za-z0-9α-ωΑ-Ωπℝℕℤℚℂ|)\]}])\^\(([^()]+)\)/g, '$1<sup>$2</sup>')
+      .replace(/([A-Za-z0-9α-ωΑ-Ωπℝℕℤℚℂ|)\]}])\^(-?\d+)/g, '$1<sup>$2</sup>')
+      .replace(/([A-Za-z0-9α-ωΑ-Ωπℝℕℤℚℂ|)\]}])\^([A-Za-zα-ωΑ-Ωπ][A-Za-z0-9α-ωΑ-Ωπ²³]*)/g, '$1<sup>$2</sup>')
+      .replace(/([A-Za-zα-ωΑ-Ωπℝℕℤℚℂ′⁰¹²³⁴⁵⁶⁷⁸⁹)\]}])_\{([^{}]+)\}/g, '$1<sub>$2</sub>')
+      .replace(/([A-Za-zα-ωΑ-Ωπℝℕℤℚℂ′⁰¹²³⁴⁵⁶⁷⁸⁹)\]}])_\(([^()]+)\)/g, '$1<sub>$2</sub>')
+      .replace(/([A-Za-zα-ωΑ-Ωπℝℕℤℚℂ′⁰¹²³⁴⁵⁶⁷⁸⁹])_([A-Za-z0-9α-ωΑ-Ωπ]+)/g, '$1<sub>$2</sub>')
       .replace(/\\overline\{([^}]+)\}/g, '<span class="math-overline">$1</span>')
       .replace(/\bpi\b/g, "π")
       .replace(/\balpha\b/gi, "α")
       .replace(/\bbeta\b/gi, "β")
       .replace(/\bsigma\b/gi, "σ")
       .replace(/\bmu\b/gi, "μ")
-      .replace(/\bDelta\b/g, "Δ")
-      .replace(/\bR\b/g, "ℝ");
-    return replaceInlineFractions(output);
+      .replace(/\bDelta\b/g, "Δ");
+    return replaceValueUnits(replaceInlineFractions(output)).replace(
+      /((?:\b[A-Za-z]|\b[A-Za-z]\s*\(\s*[A-Za-z]\s*\))\s*=)\s*(?=<span class="math-(?:matrix|system|piecewise|fraction|root))/g,
+      "$1&nbsp;"
+    );
   }
 
   function systemEquationLine(value) {
-    const line = String(value ?? "").trim().replace(/^[{}]\s*|\s*[{}.;]$/g, "");
-    return line.length > 2 && line.length < 220 && /(?:=|≤|≥|<|>)/.test(line) && !/^\d+[.)]\s/.test(line);
+    const line = String(value ?? "").trim().replace(/\s*[.;]$/g, "");
+    return line.length > 2
+      && line.length < 220
+      && /(?:=|≤|≥|<|>)/.test(line)
+      && !/^(?:\d+[.)]|Paso\s+\d+|Resultado\s+final|Comprobaci[oó]n)\b/i.test(line);
   }
 
   function renderSystem(equations, options = {}) {
-    const lines = equations.map((equation) => String(equation).trim().replace(/^[{}]\s*|\s*[{}.;]$/g, "")).filter(Boolean);
+    const lines = equations.map((equation) => String(equation).trim().replace(/\s*[.;]$/g, "")).filter(Boolean);
     const rowClass = `math-system-rows-${Math.min(5, Math.max(2, lines.length))}`;
     return `<span class="math-system ${rowClass}" role="img" aria-label="sistema de ecuaciones"><span class="math-system-brace">{</span><span class="math-system-lines">${lines.map((equation) => `<span>${fragment(equation, options)}</span>`).join("")}</span></span>`;
+  }
+
+  function standaloneInlineSystem(line) {
+    const source = String(line ?? "").trim().replace(/[.]$/, "");
+    // Las listas de probabilidades P(A)=... no son sistemas de incógnitas.
+    if (/\bP\s*\(/.test(source)
+      || /\b(?:system|sistema|piecewise|matrix)\s*\{/i.test(source)
+      || /\s+si\s+/i.test(source)
+      || /\b(?:de|del|la|las|el|los|por|tanto|resulta|obtenemos|entonces|sustituimos|recuperamos|comprobaci[oó]n)\b/i.test(source)
+      || !/\b[xyz]\b/i.test(source)) return null;
+    const equations = [];
+    let current = "";
+    let depth = 0;
+    for (let index = 0; index < source.length; index += 1) {
+      const character = source[index];
+      if ("([{".includes(character)) depth += 1;
+      else if (")]}".includes(character)) depth = Math.max(0, depth - 1);
+      const separates = depth === 0 && (character === ";" || (character === "," && /\s/.test(source[index + 1] || "")));
+      if (separates) {
+        if (current.trim()) equations.push(current.trim());
+        current = "";
+      } else {
+        current += character;
+      }
+    }
+    if (current.trim()) equations.push(current.trim());
+    const validEquations = equations.filter(systemEquationLine);
+    // Una lista de conclusiones separada por punto y coma puede contener dos
+    // igualdades sin ser un sistema. No debemos descartar los fragmentos de
+    // prosa restantes (por ejemplo, las unidades de una respuesta). Solo se
+    // agrupa cuando todos los elementos son ecuaciones del mismo bloque.
+    return validEquations.length >= 2 && validEquations.length === equations.length ? validEquations : null;
   }
 
   function formatPiecewise(line, options) {
@@ -638,7 +977,15 @@
   }
 
   function text(value, options = {}) {
-    const normalizedText = normalize(value, options);
+    const normalizedText = normalize(value, options).replace(
+      /((?:\b[A-Za-z]|\b[A-Za-z]\s*\(\s*[A-Za-z]\s*\))\s*=)\s*(?:\\n|\r?\n)\s*(?=(?:matrix|system|sistema|piecewise|frac|root)\s*\{|\[\[|\\begin\{(?:pmatrix|bmatrix|vmatrix|cases)\})/gi,
+      "$1 "
+    );
+    // Las formas explícitas `piecewise{...}` y `cases{...}` son bloques
+    // atómicos. Se procesan desde la fuente original para evitar que una
+    // normalización previa convierta exponentes o comparadores en HTML antes
+    // de que el analizador pueda separar todas las ramas.
+    if (/\b(?:piecewise|cases)\s*\{/i.test(normalizedText)) return fragment(value, options);
     // MyScript suele devolver las matrices con saltos de línea reales entre
     // \begin{pmatrix} y \end{pmatrix}. No se deben separar antes de componerlas.
     if (/\\begin\{(?:pmatrix|bmatrix|vmatrix|cases|aligned|alignedat|gathered|split)\}[\s\S]*?\\end\{(?:pmatrix|bmatrix|vmatrix|cases|aligned|alignedat|gathered|split)\}/.test(normalizedText)) {
@@ -658,7 +1005,17 @@
         rendered.push(piecewise);
         continue;
       }
-      if (/\bsistema\b/i.test(line)) {
+      // Si el sistema canónico comparte línea con su introducción, debe
+      // procesarlo el analizador equilibrado. El agrupador heurístico de prosa
+      // no debe volver a interpretar sus puntos y coma ni anidar `system{...}`.
+      if (/\b(?:system|sistema)\s*\{/i.test(line)) {
+        rendered.push(fragment(line, options));
+        continue;
+      }
+      // En una solución, «Paso 3. Estudiamos el sistema...» es prosa
+      // pedagógica, no la cabecera de un bloque de ecuaciones. Solo las
+      // cabeceras documentales ordinarias activan la agrupación automática.
+      if (/\bsistema\b/i.test(line) && !/^\s*Paso\s+\d+\b/i.test(line)) {
         const following = [];
         let cursor = index + 1;
         while (cursor < lines.length && systemEquationLine(lines[cursor])) {
@@ -679,13 +1036,18 @@
           }
         }
       }
+      const standaloneSystem = standaloneInlineSystem(line);
+      if (standaloneSystem) {
+        rendered.push(renderSystem(standaloneSystem, options));
+        continue;
+      }
       rendered.push(fragment(line, options));
     }
     return rendered.join("<br>");
   }
 
   function looksMathematical(value) {
-    return /(?:\\(?:sqrt|dfrac|tfrac|frac|mathbb|vec|overrightarrow)|\b(?:frac|sqrt|raiz|root|cuberoot|vector|vec|lim|sen|sin|cos|tg|tan|log|det)\b|\[\[|→|∞|∫|∀|∈|ℝ|∪|∩|[A-Za-z0-9)\]}][\^_]|\([^()]+\)\s*\/\s*\([^()]+\)|\b\w+\s*\/\s*\w+\b)/i.test(String(value));
+    return /(?:\\(?:sqrt|dfrac|tfrac|frac|mathbb|vec|overrightarrow)|\b(?:matrix|frac|sqrt|raiz|root|cuberoot|vector|vec|lim|sen|sin|cos|tg|tan|log|det)\b|\[\[|→|∞|∫|∀|∈|ℝ|∪|∩|[A-Za-z0-9)\]}][\^_]|\([^()]+\)\s*\/\s*\([^()]+\)|\b\w+\s*\/\s*\w+\b)/i.test(String(value));
   }
 
   function shouldSkipTextNode(node) {

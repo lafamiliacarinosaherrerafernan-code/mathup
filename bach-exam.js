@@ -52,6 +52,14 @@
     ]
   };
 
+  function examSlotLabels(courseId) {
+    return slotLabels[courseId] || [];
+  }
+
+  function examSlotLabel(courseId, slot) {
+    return examSlotLabels(courseId)[slot - 1] || `Grupo ${slot}`;
+  }
+
   const CCSS_II_EXAM_FAMILIES = {
     2: [
       { id: "sistemas", label: "Sistemas", blockId: "algebra", topicIndexes: [2] },
@@ -64,10 +72,25 @@
   };
 
   function currentPauCommunity() {
-    return window.currentBachPauCommunity?.() === "madrid" ? "madrid" : "clm";
+    const current = window.currentBachPauCommunity?.();
+    return current === "madrid" || current === "andalucia" ? current : "clm";
+  }
+
+  function questionMatchesPauContext(question, courseId, region = currentPauCommunity()) {
+    if (typeof window.pauExerciseMatchesContext === "function") {
+      return window.pauExerciseMatchesContext(question, courseId, region);
+    }
+    const declaredRegion = String(question?.community || question?.region || "clm").toLowerCase();
+    const questionRegion = /andaluc/.test(declaredRegion) ? "andalucia" : /madrid/.test(declaredRegion) ? "madrid" : "clm";
+    const declaredSubject = String(question?.courseId || question?.subject || question?.course || "").toLowerCase();
+    const questionCourseId = /ccss/.test(declaredSubject) ? "2bach-ccss" : /mates|matem/.test(declaredSubject) ? "2bach-mates" : null;
+    return questionRegion === region && (!questionCourseId || questionCourseId === courseId);
   }
 
   function rawBanks(courseId) {
+    if (currentPauCommunity() === "andalucia") {
+      return window.ANDALUCIA_PAU_RUNTIME?.banks?.(courseId) || {};
+    }
     if (currentPauCommunity() === "madrid") {
       const excluded = window.MADRID_PAU_AUTHORED?.exclusions?.[courseId] || {};
       return (window.MADRID_PAU_BANK?.[courseId] || []).reduce((banks, exercise) => {
@@ -258,10 +281,12 @@
 
   function examTopicIndexesForSlot(courseId, slot) {
     if (courseId !== "2bach-ccss") return [];
-    const madrid = currentPauCommunity() === "madrid";
-    if (slot === 1) return madrid ? [0, 1] : [0];
+    const community = currentPauCommunity();
+    const madrid = community === "madrid";
+    const andalucia = community === "andalucia";
+    if (slot === 1) return madrid || andalucia ? [0, 1] : [0];
     if (slot === 2) return [2, 3];
-    if (slot === 3) return madrid ? [4, 5, 6, 7] : [4, 5];
+    if (slot === 3) return madrid || andalucia ? [4, 5, 6, 7] : [4, 5];
     if (slot === 4) return [8, 9, 10];
     return [];
   }
@@ -313,6 +338,8 @@
   }
 
   function questionAvailableForMode(courseId, question, mode) {
+    if (!questionMatchesPauContext(question, courseId)) return false;
+    if (currentPauCommunity() === "andalucia" && question?.community === "andalucia") return true;
     if (currentPauCommunity() === "madrid" && question?.community === "madrid") return true;
     const availability = window.MargaritaContentAvailability;
     if (!availability?.isAvailable) return true;
@@ -354,7 +381,15 @@
           solution: expanded.solution
         }]
         : [];
-    const parts = sourceParts.map((part, index) => rotateExamPart(part, rotationSeed + index));
+    const parts = sourceParts.map((part, index) => {
+      if (expanded.community === "andalucia" && window.ANDALUCIA_PAU_RUNTIME?.materializePart) {
+        return window.ANDALUCIA_PAU_RUNTIME.materializePart(
+          part,
+          `${rotationSeed}|${expanded.id || expanded.rawBaseId || "andalucia"}|${index}`
+        );
+      }
+      return rotateExamPart(part, rotationSeed + index);
+    });
     if (!parts.length || parts.some((part) => !part)) return null;
     const identity = challengeQuestionIdentity(expanded);
     const pauMetadata = officialPauMetadata(expanded.courseId || courseId, expanded);
@@ -582,8 +617,20 @@
 
   function buildExamSlotPool(courseId, slot, rotationSeed = 0) {
     const course = courseById(courseId);
+    if (!course) return [];
+    if (currentPauCommunity() === "andalucia") {
+      return (window.ANDALUCIA_PAU_RUNTIME?.examSlotRecords?.(courseId, slot) || [])
+        .map((record, index) => asPreparedExamQuestion(
+          record,
+          slot,
+          record.blockId,
+          rotationSeed + index,
+          courseId
+        ))
+        .filter(Boolean);
+    }
     const blockIds = examBlocksForSlot(courseId, slot);
-    if (!course || !blockIds.length) return [];
+    if (!blockIds.length) return [];
     if (currentPauCommunity() === "madrid") {
       return madridRecords(courseId)
         .filter((record) => blockIds.includes(record.blockId))
@@ -657,20 +704,21 @@
   }
 
   function chooseWithoutRepeating(courseId, slot, seed, selectedTopicIndexes = null, familyId = null) {
-    const filteredPool = filterExamSlotPoolByFamily(courseId, slot, buildFilteredExamSlotPool(
+    const completePool = buildFilteredExamSlotPool(
       courseId,
       slot,
       selectedTopicIndexes,
       hashExamText(`${seed}|${slot}`)
-    ), familyId);
+    );
+    const filteredPool = filterExamSlotPoolByFamily(courseId, slot, completePool, familyId);
     // El examen completo de CCSS II prioriza el modelo vigente. El banco
     // histórico solo actúa como alternativa cuando el filtro solicitado no
     // dispone de ejercicios actuales compatibles.
     const currentPool = courseId === "2bach-ccss"
       ? filteredPool.filter((question) => question.pauEra === "current")
       : [];
-    const pool = currentPool.length ? currentPool : filteredPool;
-    return chooseFromExamPoolWithoutRepeating(courseId, slot, seed, pool);
+    const preferredPool = currentPool.length ? currentPool : filteredPool;
+    return chooseFromExamPoolWithoutRepeating(courseId, slot, seed, preferredPool, completePool);
   }
 
   function alternatingFamilyHistoryKey(courseId, slot) {
@@ -710,8 +758,8 @@
     return selected;
   }
 
-  function chooseFromExamPoolWithoutRepeating(courseId, slot, seed, pool) {
-    if (!pool.length) return null;
+  function chooseFromExamPoolWithoutRepeating(courseId, slot, seed, pool, cyclePool = pool) {
+    if (!pool.length || !cyclePool.length) return null;
     const history = readExamHistory();
     const key = `${studentExamKey(courseId)}|slot-${slot}`;
     const legacyKey = `${legacyStudentExamKey(courseId)}|slot-${slot}`;
@@ -726,26 +774,33 @@
       question?.id ? `id:${question.id}` : "",
       question?.rawBaseId ? `raw:${question.rawBaseId}` : ""
     ].filter(Boolean));
+    const canonicalByAlias = new Map();
+    cyclePool.forEach((question) => {
+      const canonical = identityOf(question);
+      aliasesOf(question).forEach((alias) => canonicalByAlias.set(alias, canonical));
+    });
     const stored = [
       ...(Array.isArray(history[key]) ? history[key] : []),
       ...(previousKey !== key && Array.isArray(history[previousKey]) ? history[previousKey] : []),
       ...(legacyKey !== key && Array.isArray(history[legacyKey]) ? history[legacyKey] : [])
     ];
-    let used = [...new Set(stored.flatMap((storedIdentity) => {
-      const matchingQuestion = pool.find((question) => aliasesOf(question).has(storedIdentity));
-      return matchingQuestion ? [identityOf(matchingQuestion)] : [];
-    }))];
+    let used = [...new Set(stored.map((storedIdentity) => canonicalByAlias.get(storedIdentity)).filter(Boolean))];
     history[key] = used;
     writeExamHistory(history);
-    let available = pool.filter((question) => !used.includes(identityOf(question)));
+    let usedSet = new Set(used);
+    let available = cyclePool.filter((question) => !usedSet.has(identityOf(question)));
     if (!available.length) {
       const lastIdentity = used.at(-1);
-      used = lastIdentity && pool.length > 1 ? [lastIdentity] : [];
-      available = pool.filter((question) => !used.includes(identityOf(question)));
+      used = lastIdentity && cyclePool.length > 1 ? [lastIdentity] : [];
+      usedSet = new Set(used);
+      available = cyclePool.filter((question) => !usedSet.has(identityOf(question)));
       history[key] = used;
       writeExamHistory(history);
     }
-    return seededShuffle(available, `${seed}|${slot}|${used.length}`)[0];
+    const availableIds = new Set(available.map(identityOf));
+    const preferredAvailable = pool.filter((question) => availableIds.has(identityOf(question)));
+    const selectionPool = preferredAvailable.length ? preferredAvailable : available;
+    return seededShuffle(selectionPool, `${seed}|${slot}|${used.length}`)[0];
   }
 
   function markExamExerciseAnswered(courseId, question) {
@@ -1003,6 +1058,7 @@
       renderStudentHome();
       return;
     }
+    const examPauCommunity = currentPauCommunity();
     let validTopicIndexes = null;
     if (Array.isArray(selectedTopicIndexes)) {
       const availability = window.MargaritaContentAvailability;
@@ -1021,7 +1077,7 @@
         return slotTopics.length && !slotTopics.some((topicIndex) => validTopicIndexes.includes(topicIndex));
       });
       if (incompatibleSlots.length) {
-        const labels = incompatibleSlots.map((slot) => slotLabels[course.id]?.[slot - 1] || `Grupo ${slot}`);
+        const labels = incompatibleSlots.map((slot) => examSlotLabel(course.id, slot));
         alert(`La selección no permite construir un examen completo PAU: faltan temas compatibles para ${labels.join(", ")}. Selecciona al menos un tema de cada grupo.`);
         renderBachIIHome();
         return;
@@ -1043,6 +1099,11 @@
       renderBachIIHome();
       return;
     }
+    if (questions.some((question) => !questionMatchesPauContext(question, course.id, examPauCommunity))) {
+      alert("El examen se ha detenido porque un ejercicio no pertenece a la comunidad PAU o a la materia activa.");
+      renderBachIIHome();
+      return;
+    }
     questions.forEach((question) => {
       const family = ccssIIExamFamilyForQuestion(question.slot, question);
       if (family) {
@@ -1052,6 +1113,7 @@
     });
     state.bachExam = {
       courseId: course.id,
+      pauCommunity: examPauCommunity,
       index: 0,
       score: 0,
       totalParts: questions.reduce((total, question) => total + question.parts.length, 0),
@@ -1059,6 +1121,9 @@
       questions: questions.map((question) => ({
         ...question,
         selections: Array(question.parts.length).fill(null),
+        activePartIndex: 0,
+        partGraded: Array(question.parts.length).fill(false),
+        partSolutions: Array(question.parts.length).fill(false),
         graded: false,
         results: [],
         showSolutions: false
@@ -1068,12 +1133,14 @@
   }
 
   function renderExamOptions(question, part, partIndex) {
+    const preserveTrigNotation = Boolean(officialExerciseSource(question));
     return part.options.map((option, optionIndex) => {
       const selected = question.selections[partIndex] === optionIndex;
-      const correct = question.graded && part.correct === optionIndex;
-      const wrong = question.graded && selected && !correct;
+      const partIsGraded = Boolean(question.partGraded?.[partIndex]);
+      const correct = partIsGraded && part.correct === optionIndex;
+      const wrong = partIsGraded && selected && !correct;
       const classes = ["answer-btn", selected ? "is-selected" : "", correct ? "correct" : "", wrong ? "wrong" : ""].filter(Boolean).join(" ");
-      return `<button class="${classes}" ${question.graded ? "disabled" : ""} onclick="selectBachExamAnswer(${partIndex},${optionIndex})"><span class="answer-letter">${String.fromCharCode(65 + optionIndex)}</span><span class="answer-content">${formatMathText(option)}</span></button>`;
+      return `<button class="${classes}" ${partIsGraded ? "disabled" : ""} onclick="selectBachExamAnswer(${partIndex},${optionIndex})"><span class="answer-letter">${String.fromCharCode(65 + optionIndex)}</span><span class="answer-content">${formatMathText(option, { preserveTrigNotation })}</span></button>`;
     }).join("");
   }
 
@@ -1095,14 +1162,21 @@
     // En PAU también cuenta como utilizado al mostrarse, aunque el alumno
     // abandone antes de corregir el ejercicio.
     markExamExerciseAnswered(exam.courseId, question);
-    const labels = slotLabels[course.id] || [];
+    const labels = examSlotLabels(course.id);
     const exerciseCount = exam.questions.length;
     const answeredCount = exam.questions.reduce((total, item) => total + (item.graded ? item.results.length : 0), 0);
-    const partsHtml = question.parts.map((part, partIndex) => {
+    const sequential = question.community === "andalucia";
+    const activePartIndex = sequential ? (question.activePartIndex || 0) : null;
+    const visiblePartEntries = sequential
+      ? [{ part: question.parts[activePartIndex], partIndex: activePartIndex }]
+      : question.parts.map((part, partIndex) => ({ part, partIndex }));
+    const partsHtml = visiblePartEntries.map(({ part, partIndex }) => {
       const selected = question.selections[partIndex];
       const isCorrect = question.results[partIndex];
+      const partIsGraded = Boolean(question.partGraded?.[partIndex]);
       return `
         <section class="exam-part">
+          ${sequential ? `<div class="subpart-progress" data-subpart-progress="${partIndex + 1}/${question.parts.length}">Apartado ${partIndex + 1} de ${question.parts.length}</div>` : ""}
           <div class="exam-part-prompt">${formatMathHtml(part.html, { preserveTrigNotation: true })}</div>
           ${isMadridOpen ? "" : handwritingAnswerHtml(question, {
             courseId: exam.courseId,
@@ -1115,46 +1189,51 @@
             questionIndex: exam.index,
             mode: "bachExam",
             resultChannel: "bachExamPart",
-            statementHtml: `${renderOfficialSourceCallout(question, course.id)}<div class="question-text official-exercise-statement">${officialQuestionStatementHtml(question, course.id)}</div>${renderPauReferenceTable(question)}<div class="exam-part-prompt">${formatMathHtml(part.html, { preserveTrigNotation: true })}</div>`,
+            statementHtml: `${renderOfficialSourceCallout(question, course.id)}<div class="question-text official-exercise-statement">${officialQuestionStatementHtml(question, course.id)}</div>${renderPauReferenceTable(question, part)}<div class="exam-part-prompt">${formatMathHtml(part.html, { preserveTrigNotation: true })}</div>`,
             scoreState: { score: exam.score, answeredParts: answeredCount, progressIndex: exam.index, total: exam.totalParts },
             attemptContext: { slot: question.slot, examFamily: question.examFamilyLabel || "" }
           })}
           ${isMadridOpen ? "" : `<div class="answers exam-part-options">${renderExamOptions(question, part, partIndex)}</div>`}
-          ${question.graded && !isMadridOpen ? `<div class="part-feedback ${isCorrect ? "is-correct" : "is-wrong"}">${isCorrect ? "Respuesta correcta." : `Respuesta incorrecta. La opción correcta es ${String.fromCharCode(65 + part.correct)}.`}</div>` : ""}
-          ${question.graded && question.showSolutions ? `<div class="solution-help exam-solution">${formatSolutionText(didacticSolutionText({ solution: part.solution }))}</div>` : ""}
+          ${partIsGraded && !isMadridOpen ? `<div class="part-feedback ${isCorrect ? "is-correct" : "is-wrong"}">${isCorrect ? "Respuesta correcta." : `Respuesta incorrecta. La opción correcta es ${String.fromCharCode(65 + part.correct)}.`}</div>` : ""}
+          ${partIsGraded && question.partSolutions?.[partIndex] ? `<div class="solution-help exam-solution">${formatSolutionText(didacticSolutionText({ solution: part.solution }), part.solutionMathOptions)}</div>` : ""}
         </section>
       `;
     }).join("");
-    const allSelected = isMadridOpen || question.selections.every(Number.isInteger);
+    const currentPartGraded = sequential ? Boolean(question.partGraded?.[activePartIndex]) : question.graded;
+    const allSelected = isMadridOpen || (sequential
+      ? Number.isInteger(question.selections[activePartIndex])
+      : question.selections.every(Number.isInteger));
     const progress = Math.round(((exam.index + (question.graded ? 1 : 0)) / exam.questions.length) * 100);
 
     renderShell(`
       <section class="student-dashboard bach-exam-screen">
         <section class="screen-panel bach-exam-panel">
-          <div class="workspace-head exam-workspace-head">
+          <div class="workspace-head exam-workspace-head pau-exam-header" data-pau-region="${escapeHtml(currentPauCommunity())}">
             <div class="exam-heading-copy">
-              <div class="exam-summary-line">
-                <span class="topic-kicker">Examen de ${escapeHtml(courseDisplayName(course))}</span>
-                <h1>Ejercicio ${exam.index + 1} de ${exerciseCount} · ${escapeHtml(question.examFamilyLabel || labels[question.slot - 1] || "Ejercicio")}</h1>
+              <h1>Examen</h1>
+              <div class="exam-compact-toolbar">
+                <span class="badge">${escapeHtml(courseDisplayName(course))}</span>
+                <span class="badge bach-pau-community-badge">PAU · ${escapeHtml(BACH_II_PAU_COMMUNITIES[currentPauCommunity()])}</span>
+                <span class="badge">Ejercicio ${exam.index + 1} de ${exerciseCount}</span>
+                <span id="bach-exam-countdown" class="badge exam-countdown"></span>
                 <span class="badge">Aciertos: ${isMadridOpenExam ? exam.questions.filter((item) => item.graded).length : exam.score}/${isMadridOpenExam ? exerciseCount : (answeredCount || 0)}</span>
+                <div class="dashboard-exit exam-header-actions">
+                  <button class="ghost" onclick="leaveBachExam()">Volver</button>
+                  <button class="ghost" onclick="publicLogout()">Salir</button>
+                </div>
               </div>
-            </div>
-            <div class="dashboard-exit">
-              <span id="bach-exam-countdown" class="badge exam-countdown"></span>
-              <button class="ghost" onclick="leaveBachExam()">Volver</button>
-              <button class="ghost" onclick="publicLogout()">Salir</button>
             </div>
           </div>
           <div class="progress exam-progress"><span style="width:${progress}%"></span></div>
-          <article class="exam-question-card">
+          <article class="exam-question-card${question.community === 'andalucia' ? ' andalucia-exam-delivery' : ''}">
             ${renderOfficialSourceCallout(question, course.id)}
             <div class="question-text official-exercise-statement">${officialQuestionStatementHtml(question, course.id)}</div>
-            ${renderPauReferenceTable(question)}
+            ${renderPauReferenceTable(question, sequential ? question.parts[activePartIndex] : null)}
             <div class="exam-parts">${partsHtml}</div>
             <div class="exam-actions">
-              ${!question.graded ? `<button class="primary" ${allSelected ? "" : "disabled"} onclick="gradeBachExamExercise()">${isMadridOpen ? "Ver resolución paso a paso" : "Corregir ejercicio"}</button>` : `
-                <button class="secondary" onclick="toggleBachExamSolutions()">${question.showSolutions ? "Ocultar resolución" : "Ver resolución paso a paso"}</button>
-                <button class="primary" onclick="nextBachExamExercise()">${exam.index === exerciseCount - 1 ? "Ver resultado del examen" : "Siguiente ejercicio"}</button>
+              ${!currentPartGraded ? `<button class="primary" ${allSelected ? "" : "disabled"} onclick="gradeBachExamExercise()">${isMadridOpen ? "Ver resolución paso a paso" : sequential ? "Corregir apartado" : "Corregir ejercicio"}</button>` : `
+                <button class="secondary" onclick="toggleBachExamSolutions()">${question.partSolutions?.[activePartIndex] || question.showSolutions ? "Ocultar resolución" : "Ver resolución paso a paso"}</button>
+                <button class="primary" onclick="nextBachExamExercise()">${sequential && activePartIndex < question.parts.length - 1 ? "Siguiente apartado" : exam.index === exerciseCount - 1 ? "Ver resultado del examen" : "Siguiente ejercicio"}</button>
               `}
             </div>
           </article>
@@ -1166,7 +1245,7 @@
 
   function selectBachExamAnswer(partIndex, optionIndex) {
     const question = state.bachExam?.questions?.[state.bachExam.index];
-    if (!question || question.graded) return;
+    if (!question || question.partGraded?.[partIndex] || question.graded) return;
     question.selections[partIndex] = optionIndex;
     renderBachExam();
   }
@@ -1175,12 +1254,28 @@
     const exam = state.bachExam;
     const question = exam?.questions?.[exam.index];
     const isMadridOpen = question?.type === "pau-open";
-    if (!question || question.graded || (!isMadridOpen && !question.selections.every(Number.isInteger))) return;
+    if (!question || question.graded) return;
+    if (question.community === "andalucia") {
+      const partIndex = question.activePartIndex || 0;
+      const part = question.parts[partIndex];
+      if (!part || question.partGraded[partIndex] || (!isMadridOpen && !Number.isInteger(question.selections[partIndex]))) return;
+      const correct = isMadridOpen || question.selections[partIndex] === part.correct;
+      question.results[partIndex] = correct;
+      question.partGraded[partIndex] = true;
+      question.partSolutions[partIndex] = true;
+      question.showSolutions = true;
+      if (correct) exam.score += 1;
+      question.graded = question.partGraded.every(Boolean);
+      if (question.graded) markExamExerciseAnswered(exam.courseId, question);
+      renderBachExam();
+      return;
+    }
+    if (!isMadridOpen && !question.selections.every(Number.isInteger)) return;
     question.results = isMadridOpen
       ? question.parts.map(() => true)
       : question.parts.map((part, partIndex) => question.selections[partIndex] === part.correct);
     question.graded = true;
-    if (isMadridOpen) question.showSolutions = true;
+    question.showSolutions = true;
     markExamExerciseAnswered(exam.courseId, question);
     exam.score += question.results.filter(Boolean).length;
     renderBachExam();
@@ -1188,7 +1283,13 @@
 
   function toggleBachExamSolutions() {
     const question = state.bachExam?.questions?.[state.bachExam.index];
-    if (!question?.graded) return;
+    const partIndex = question?.activePartIndex || 0;
+    if (!question?.partGraded?.[partIndex] && !question?.graded) return;
+    if (question.community === "andalucia") {
+      question.partSolutions[partIndex] = !question.partSolutions[partIndex];
+      renderBachExam();
+      return;
+    }
     question.showSolutions = !question.showSolutions;
     renderBachExam();
   }
@@ -1196,6 +1297,15 @@
   function nextBachExamExercise() {
     const exam = state.bachExam;
     const question = exam?.questions?.[exam.index];
+    if (question?.community === "andalucia") {
+      const partIndex = question.activePartIndex || 0;
+      if (!question.partGraded?.[partIndex]) return;
+      if (partIndex < question.parts.length - 1) {
+        question.activePartIndex = partIndex + 1;
+        renderBachExam();
+        return;
+      }
+    }
     if (!question?.graded) return;
     exam.index += 1;
     renderBachExam();
@@ -1227,6 +1337,7 @@
         <section class="screen-panel bach-exam-result">
           <span class="topic-kicker">Examen terminado</span>
           <h1>${escapeHtml(courseDisplayName(course))}</h1>
+          <div class="badge-row"><span class="badge bach-pau-community-badge">PAU · ${escapeHtml(BACH_II_PAU_COMMUNITIES[currentPauCommunity()])}</span><span class="badge exam-mode-badge">Examen</span></div>
           <div class="exam-result-score">${isMadridOpenExam ? workedCount : exam.score}<small>${isMadridOpenExam ? `de ${exam.questions.length} problemas trabajados` : `de ${exam.totalParts} apartados correctos`}</small></div>
           <p class="exam-final-grade">Nota final: <strong>${grade.toFixed(1).replace(".", ",")}/10</strong></p>
           <div class="progress exam-progress"><span style="width:${percent}%"></span></div>
@@ -1250,6 +1361,17 @@
     if (!BACH_II_COURSE_IDS.includes(course?.id)) return [];
     if (window.MargaritaContentAvailability?.isAvailable
       && !window.MargaritaContentAvailability.isAvailable(course.id, topicIndex, "topicPractice")) return [];
+    if (currentPauCommunity() === "andalucia") {
+      return (window.ANDALUCIA_PAU_RUNTIME?.topicRecords?.(course.id, topicIndex) || [])
+        .map((record, index) => asPreparedExamQuestion(
+          record,
+          record.examSlot,
+          record.blockId,
+          state.practiceRound + topicIndex + index,
+          course.id
+        ))
+        .filter(Boolean);
+    }
     if (currentPauCommunity() === "madrid") {
       return madridRecords(course.id)
         .filter((record) => record.topicIndexes.includes(topicIndex))
@@ -1341,6 +1463,17 @@
 
   function buildCorrectedBlockQuestions(course, blockId) {
     if (!BACH_II_COURSE_IDS.includes(course?.id)) return [];
+    if (currentPauCommunity() === "andalucia") {
+      return (window.ANDALUCIA_PAU_RUNTIME?.blockRecords?.(course.id, blockId) || [])
+        .map((record, index) => asPreparedExamQuestion(
+          record,
+          record.examSlot,
+          blockId,
+          state.practiceRound + index,
+          course.id
+        ))
+        .filter(Boolean);
+    }
     if (currentPauCommunity() === "madrid") {
       return madridRecords(course.id)
         .filter((record) => record.blockId === blockId)
@@ -1434,7 +1567,7 @@
     const slots = course.id === "2bach-ccss" ? [1, 2, 3, 4] : [1, 2, 3, 4, 5];
     return slots.map((slot) => ({
       slot,
-      label: slotLabels[course.id]?.[slot - 1] || `Grupo ${slot}`,
+      label: examSlotLabel(course.id, slot),
       count: buildExamSlotPool(course.id, slot, 0).length
     }));
   }

@@ -1,4 +1,48 @@
 /* +MathUp overrides loaded after every feature stylesheet. */
+/* Only Andalucía: prevent an unbroken mathematical expression from enlarging
+   the entire exam grid beyond a mobile viewport. Other communities retain
+   their existing layout. Formula overflow is tested separately, not hidden. */
+.andalucia-exam-delivery,
+.andalucia-exam-delivery .exam-parts,
+.andalucia-exam-delivery .exam-part {
+  min-width: 0;
+  grid-template-columns: minmax(0, 1fr);
+}
+.andalucia-exam-delivery > *,
+.andalucia-exam-delivery .exam-part > * { min-width: 0; }
+/* Official expressions can be substantially wider than ordinary prose.  Give
+   them legal prose wrap points and use a single answer column before formulas
+   would be compressed into two narrow cards. */
+.andalucia-exam-delivery .official-exercise-statement,
+.andalucia-exam-delivery .exam-part-prompt,
+.andalucia-exam-delivery .answer-content,
+.andalucia-exam-delivery .exam-solution {
+  overflow-wrap: anywhere;
+}
+@media (max-width: 900px) {
+  .andalucia-exam-delivery .exam-part-options { grid-template-columns: minmax(0, 1fr); }
+}
+@media (max-width: 480px) {
+  .bach-exam-panel:has(> .andalucia-exam-delivery) { padding: 6px; }
+  .andalucia-exam-delivery { padding: 10px; }
+  .andalucia-exam-delivery .answer-btn { padding: 10px 8px; gap: 6px; }
+  /* Preserve the full matrix/system instead of clipping it.  This reduction
+     is scoped to official Andalucía cards and only at phone widths. */
+  .andalucia-exam-delivery .official-exercise-statement .math-system,
+  .andalucia-exam-delivery .official-exercise-statement .math-piecewise,
+  .andalucia-exam-delivery .official-exercise-statement .math-matrix {
+    font-size: 0.68em;
+  }
+  .andalucia-exam-delivery .answer-content:has(.math-matrix, .math-system, .math-piecewise, .math-fraction) {
+    font-size: 0.7em;
+  }
+  .andalucia-exam-delivery .exam-solution { font-size: 0.9em; }
+  .andalucia-exam-delivery .math-matrix { gap: 2px; margin-inline: 1px; }
+  .andalucia-exam-delivery .matrix-grid {
+    grid-template-columns: repeat(var(--matrix-columns, 1), minmax(14px, max-content));
+    column-gap: 6px;
+  }
+}
 .public-register-intro,
 .coach-entry-card,
 .coach-result-score {
@@ -116,6 +160,17 @@
   gap: clamp(12px, 1.25vw, 18px);
 }
 
+/* Topic challenges grow with the scaled stage too. Using the former fixed
+   1320px cap made this panel look narrower than the header after fit-to-screen
+   scaling, even though both declared the same nominal maximum width. */
+.shell-stage > .app-grid.topic-challenge-layout {
+  width: min(100%, calc(1320px / var(--shell-fit-scale, 1)));
+  max-width: 100%;
+  margin-inline: auto;
+  grid-template-columns: minmax(250px, 300px) minmax(0, 1fr);
+  gap: clamp(12px, 1.25vw, 18px);
+}
+
 /* The active 2nd Bachillerato exam follows the same full-width rule as the
    block challenge. The stage may be scaled vertically, so a percentage width
    keeps its visible edges aligned with the header. */
@@ -136,7 +191,8 @@
 }
 
 @media (max-width: 980px) {
-  .shell-stage > .app-grid.block-challenge-layout {
+  .shell-stage > .app-grid.block-challenge-layout,
+  .shell-stage > .app-grid.topic-challenge-layout {
     grid-template-columns: 1fr;
   }
 }

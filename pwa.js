@@ -1,4 +1,6 @@
 (function initializeMathUpInstall() {
+  const multipartE2E = ["127.0.0.1", "localhost"].includes(location.hostname)
+    && new URL(location.href).searchParams.get("multipart-e2e") === "1";
   let installPrompt = null;
 
   window.addEventListener("beforeinstallprompt", (event) => {
@@ -22,7 +24,7 @@
     }
   };
 
-  if ("serviceWorker" in navigator && location.protocol !== "file:") {
+  if (!multipartE2E && "serviceWorker" in navigator && location.protocol !== "file:") {
     window.addEventListener("load", () => navigator.serviceWorker.register("service-worker.js").catch(() => {}));
   }
 })();

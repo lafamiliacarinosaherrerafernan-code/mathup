@@ -1,0 +1,10 @@
+import fs from 'node:fs';
+import {cases as pc,buildPolynomialDomainBatch} from './resolve-andalucia-polynomial-domain-applications.mjs';
+import {cases as wc,buildWorkshopsAdvertisingBatch} from './resolve-andalucia-linear-workshops-advertising.mjs';
+import {cases as cc,buildClientsLogisticsBatch} from './resolve-andalucia-linear-clients-logistics.mjs';
+const id='batch-0350',runs=[buildPolynomialDomainBatch(id,pc.filter(x=>x.index===375)),buildWorkshopsAdvertisingBatch(id,wc.filter(x=>[687,702,752].includes(x.index))),buildClientsLogisticsBatch(id,cc.filter(x=>x.index===1385))];
+const batch={...runs[0].batch,records:runs.flatMap(r=>r.batch.records),executedChecks:runs.flatMap(r=>r.batch.executedChecks)};
+const archive='artifacts/pau-andalucia-resolution/audit/correction-0350-original-records.json';
+if(!fs.existsSync(archive))fs.writeFileSync(archive,JSON.stringify(runs.flatMap(r=>r.originals),null,2)+'\n');
+fs.writeFileSync('tmp/batch-0350.json',JSON.stringify(batch,null,2)+'\n');
+console.log(JSON.stringify({records:batch.records.length,parts:batch.records.reduce((s,r)=>s+r.parts.length,0)}));

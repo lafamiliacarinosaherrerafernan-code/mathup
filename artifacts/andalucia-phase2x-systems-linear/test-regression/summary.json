@@ -1,0 +1,36 @@
+{
+  "schemaVersion": "mathup.andalucia.systems-linear-phase2x.v1",
+  "generatedAt": "2026-08-31T13:52:34.605Z",
+  "label": "test-regression",
+  "totalEnabledExercises": 1640,
+  "bySubject": {
+    "2_bach_mates_ii": {
+      "enabledExercises": 817,
+      "sourceSystemExercises": 110,
+      "sourceSystemEquations": 228,
+      "runtimeSystemExercises": 110,
+      "runtimeSystemEquations": 336,
+      "solutionSystemExercises": 56,
+      "barrowEvaluations": 33,
+      "barrowLimitPositionErrors": 0,
+      "linearProgrammingCandidates": 0,
+      "linearProgrammingClassified": 0,
+      "failedExercises": 0
+    },
+    "2_bach_ccss_ii": {
+      "enabledExercises": 823,
+      "sourceSystemExercises": 1,
+      "sourceSystemEquations": 0,
+      "runtimeSystemExercises": 5,
+      "runtimeSystemEquations": 21,
+      "solutionSystemExercises": 21,
+      "barrowEvaluations": 10,
+      "barrowLimitPositionErrors": 0,
+      "linearProgrammingCandidates": 44,
+      "linearProgrammingClassified": 49,
+      "failedExercises": 0
+    }
+  },
+  "failureCounts": {},
+  "affectedExerciseIds": []
+}

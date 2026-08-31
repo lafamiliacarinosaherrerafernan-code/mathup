@@ -1,0 +1,50 @@
+{
+  "contract": "mathup.solution-skill-policy.v1",
+  "courses": {
+    "eso": {
+      "lhopital": "FORBIDDEN",
+      "systems3x3": "GAUSS_STEP_BY_STEP"
+    },
+    "matematicas_i": {
+      "lhopital": "FORBIDDEN",
+      "systems3x3": "GAUSS_STEP_BY_STEP",
+      "extrema": "SIGN_CHART_REQUIRED_WHEN_APPLICABLE",
+      "asymptotes": "LATERAL_AND_INFINITY_LIMITS_REQUIRED",
+      "quotientDerivative": "DIRECT_RULE_PREFERRED"
+    },
+    "matematicas_ii": {
+      "lhopital": "ONLY_0_OVER_0_OR_INFINITY_OVER_INFINITY",
+      "parametricSystems": "ROUCHE_FROBENIUS_REQUIRED",
+      "integrationByParts": "FULL_DEVELOPMENT_REQUIRED",
+      "asymptotes": "LATERAL_AND_INFINITY_LIMITS_REQUIRED",
+      "quotientDerivative": "DIRECT_RULE_PREFERRED",
+      "areaGraph": "CUTS_LABELS_SHADE_AND_FULL_INTEGRAL_REQUIRED",
+      "definiteIntegralRendering": "NATIVE_DISPLAYSTYLE_GEOMETRY_REQUIRED",
+      "normal": "INLINE_STANDARDIZATION_WITH_TABLE_READING"
+    },
+    "ccss_ii": {
+      "lhopital": "FORBIDDEN",
+      "indefiniteIntegrals": "IMMEDIATE_ONLY_IN_PRACTICE",
+      "advancedIntegration": "FORBIDDEN",
+      "asymptotes": "LATERAL_AND_INFINITY_LIMITS_REQUIRED",
+      "quotientDerivative": "DIRECT_RULE_PREFERRED",
+      "areaGraph": "CUTS_LABELS_SHADE_AND_FULL_INTEGRAL_REQUIRED",
+      "definiteIntegralRendering": "NATIVE_DISPLAYSTYLE_GEOMETRY_REQUIRED",
+      "normal": "INLINE_STANDARDIZATION_WITH_TABLE_READING"
+    }
+  },
+  "publicationBarriers": [
+    "ANSWER_FINAL_MISMATCH",
+    "STEPS_REQUIRED",
+    "METHOD_FORBIDDEN",
+    "INVALID_CHOICES",
+    "VISIBLE_UNDEFINED",
+    "RAW_TEX_DELIMITER",
+    "RAW_TEX_COMMAND"
+    ,"VISIBLE_INTERNAL_MATH_TOKENS"
+    ,"OPAQUE_NORMAL_CDF"
+    ,"INCOMPLETE_AREA_GRAPH"
+    ,"MANUAL_INTEGRAL_LIMIT_LAYOUT"
+    ,"BARROW_LIMIT_GEOMETRY_ERROR"
+  ]
+}

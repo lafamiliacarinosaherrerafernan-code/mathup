@@ -1,0 +1,278 @@
+[
+  {
+    "community": "andalucia",
+    "communityLabel": "Andalucía",
+    "courseId": "2bach-mates",
+    "subject": "Matemáticas II",
+    "blockId": "algebra",
+    "block": "Bloque de álgebra",
+    "topicIndexes": [
+      0,
+      1,
+      2
+    ],
+    "topics": [
+      "Matrices",
+      "Determinantes",
+      "Resolución de sistemas con determinantes"
+    ],
+    "canonicalExerciseCount": 201,
+    "interactiveSubpartCount": 402,
+    "rawBankDistribution": {
+      "Matrices": 91,
+      "Determinantes": 21,
+      "Resolución de sistemas con determinantes": 89
+    },
+    "selectionDistribution": {
+      "0": 99,
+      "1": 29,
+      "2": 97
+    },
+    "percentageOfEnabledCatalog": 24.6,
+    "theoreticalFullChallenges": 40,
+    "balancedFullChallengesObserved": 40,
+    "limitingFamily": "Determinantes"
+  },
+  {
+    "community": "andalucia",
+    "communityLabel": "Andalucía",
+    "courseId": "2bach-mates",
+    "subject": "Matemáticas II",
+    "blockId": "analisis",
+    "block": "Bloque de análisis",
+    "topicIndexes": [
+      6,
+      7,
+      8,
+      9,
+      10,
+      11
+    ],
+    "topics": [
+      "Límite de sucesiones y funciones",
+      "Continuidad",
+      "Derivadas",
+      "Aplicación de derivadas",
+      "Integrales indefinidas",
+      "Integrales definidas"
+    ],
+    "canonicalExerciseCount": 368,
+    "interactiveSubpartCount": 586,
+    "rawBankDistribution": {
+      "Límite de sucesiones y funciones": 30,
+      "Continuidad": 12,
+      "Derivadas": 66,
+      "Aplicación de derivadas": 112,
+      "Integrales indefinidas": 73,
+      "Integrales definidas": 75
+    },
+    "selectionDistribution": {
+      "6": 34,
+      "7": 16,
+      "8": 69,
+      "9": 115,
+      "10": 77,
+      "11": 79
+    },
+    "percentageOfEnabledCatalog": 45.04,
+    "theoreticalFullChallenges": 73,
+    "balancedFullChallengesObserved": 73,
+    "limitingFamily": "Continuidad"
+  },
+  {
+    "community": "andalucia",
+    "communityLabel": "Andalucía",
+    "courseId": "2bach-mates",
+    "subject": "Matemáticas II",
+    "blockId": "geometria",
+    "block": "Bloque de geometría",
+    "topicIndexes": [
+      3,
+      4,
+      5
+    ],
+    "topics": [
+      "Vectores en el espacio",
+      "Planos y rectas en el espacio",
+      "Propiedades métricas"
+    ],
+    "canonicalExerciseCount": 235,
+    "interactiveSubpartCount": 429,
+    "rawBankDistribution": {
+      "Vectores en el espacio": 8,
+      "Planos y rectas en el espacio": 89,
+      "Propiedades métricas": 138
+    },
+    "selectionDistribution": {
+      "3": 16,
+      "4": 98,
+      "5": 146
+    },
+    "percentageOfEnabledCatalog": 28.76,
+    "theoreticalFullChallenges": 47,
+    "balancedFullChallengesObserved": 47,
+    "limitingFamily": "Vectores en el espacio"
+  },
+  {
+    "community": "andalucia",
+    "communityLabel": "Andalucía",
+    "courseId": "2bach-mates",
+    "subject": "Matemáticas II",
+    "blockId": "probabilidad-estadistica",
+    "block": "Bloque de probabilidad y estadística",
+    "topicIndexes": [
+      12,
+      13
+    ],
+    "topics": [
+      "Probabilidad",
+      "Distribución binomial y normal"
+    ],
+    "canonicalExerciseCount": 13,
+    "interactiveSubpartCount": 22,
+    "rawBankDistribution": {
+      "Probabilidad": 9,
+      "Distribución binomial y normal": 4
+    },
+    "selectionDistribution": {
+      "12": 23,
+      "13": 12
+    },
+    "percentageOfEnabledCatalog": 1.59,
+    "theoreticalFullChallenges": 2,
+    "balancedFullChallengesObserved": 2,
+    "limitingFamily": "Distribución binomial y normal"
+  },
+  {
+    "community": "andalucia",
+    "communityLabel": "Andalucía",
+    "courseId": "2bach-ccss",
+    "subject": "CCSS II",
+    "blockId": "algebra",
+    "block": "Bloque de álgebra",
+    "topicIndexes": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "topics": [
+      "Matrices",
+      "Determinantes",
+      "Sistemas con determinantes",
+      "Programación lineal"
+    ],
+    "canonicalExerciseCount": 183,
+    "interactiveSubpartCount": 391,
+    "rawBankDistribution": {
+      "Matrices": 94,
+      "Determinantes": 0,
+      "Sistemas con determinantes": 64,
+      "Programación lineal": 25
+    },
+    "selectionDistribution": {
+      "0": 100,
+      "1": 0,
+      "2": 70,
+      "3": 30
+    },
+    "percentageOfEnabledCatalog": 20.33,
+    "theoreticalFullChallenges": 45,
+    "balancedFullChallengesObserved": 45,
+    "limitingFamily": "Determinantes"
+  },
+  {
+    "community": "andalucia",
+    "communityLabel": "Andalucía",
+    "courseId": "2bach-ccss",
+    "subject": "CCSS II",
+    "blockId": "analisis",
+    "block": "Bloque de análisis",
+    "topicIndexes": [
+      4,
+      5,
+      6,
+      7
+    ],
+    "topics": [
+      "Límites y continuidad",
+      "Derivadas y aplicaciones",
+      "Integrales indefinidas",
+      "Integrales definidas"
+    ],
+    "canonicalExerciseCount": 266,
+    "interactiveSubpartCount": 663,
+    "rawBankDistribution": {
+      "Límites y continuidad": 37,
+      "Derivadas y aplicaciones": 206,
+      "Integrales indefinidas": 0,
+      "Integrales definidas": 23
+    },
+    "selectionDistribution": {
+      "4": 43,
+      "5": 212,
+      "6": 0,
+      "7": 29
+    },
+    "percentageOfEnabledCatalog": 29.56,
+    "theoreticalFullChallenges": 66,
+    "balancedFullChallengesObserved": 66,
+    "limitingFamily": "Integrales indefinidas"
+  },
+  {
+    "community": "andalucia",
+    "communityLabel": "Andalucía",
+    "courseId": "2bach-ccss",
+    "subject": "CCSS II",
+    "blockId": "probabilidad",
+    "block": "Bloque de probabilidad",
+    "topicIndexes": [
+      8
+    ],
+    "topics": [
+      "Probabilidad"
+    ],
+    "canonicalExerciseCount": 170,
+    "interactiveSubpartCount": 463,
+    "rawBankDistribution": {
+      "Probabilidad": 170
+    },
+    "selectionDistribution": {
+      "8": 188
+    },
+    "percentageOfEnabledCatalog": 18.89,
+    "theoreticalFullChallenges": 42,
+    "balancedFullChallengesObserved": 42,
+    "limitingFamily": "Probabilidad"
+  },
+  {
+    "community": "andalucia",
+    "communityLabel": "Andalucía",
+    "courseId": "2bach-ccss",
+    "subject": "CCSS II",
+    "blockId": "estadistica",
+    "block": "Bloque de estadística",
+    "topicIndexes": [
+      9,
+      10
+    ],
+    "topics": [
+      "Distribución binomial y normal",
+      "Muestreo e inferencia estadística"
+    ],
+    "canonicalExerciseCount": 205,
+    "interactiveSubpartCount": 474,
+    "rawBankDistribution": {
+      "Distribución binomial y normal": 15,
+      "Muestreo e inferencia estadística": 190
+    },
+    "selectionDistribution": {
+      "9": 24,
+      "10": 200
+    },
+    "percentageOfEnabledCatalog": 22.78,
+    "theoreticalFullChallenges": 51,
+    "balancedFullChallengesObserved": 51,
+    "limitingFamily": "Distribución binomial y normal"
+  }
+]

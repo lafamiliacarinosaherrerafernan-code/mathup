@@ -1,0 +1,14 @@
+[
+  {
+    "skill": "solucion-de-ejercicios",
+    "beforeSha256": "855c9b12608774428ac9a7fedbe395fc560d13bb049b0b8e198358d4223de21f",
+    "afterSha256": "1541d7600849e95d82ab5aa6e19ec1e7a4ae461745b0c036245735528f2c52eb",
+    "changed": true
+  },
+  {
+    "skill": "skill-editor-enunciados",
+    "beforeSha256": "621b1d3e8446873b47afca22d0abb10912b0314a5f27db7df611524a68f2be80",
+    "afterSha256": "7cfcf81473e814747c73288e7ad949f3af9923a450b60598c48289c76fa48699",
+    "changed": true
+  }
+]

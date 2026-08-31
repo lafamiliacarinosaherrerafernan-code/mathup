@@ -1,0 +1,79 @@
+{
+  "schemaVersion": "mathup.andalucia.source-app-visual-parity.v1",
+  "generatedAt": "2026-08-31T07:58:28.476Z",
+  "corpus": {
+    "officialDocuments": 217,
+    "matesDocuments": 110,
+    "ccssDocuments": 107,
+    "enabledExercises": 1641
+  },
+  "bySubject": {
+    "2_bach_mates_ii": {
+      "materia": "Matemáticas II",
+      "enabledExercises": 817,
+      "PASS": 778,
+      "CORRECTED": 39,
+      "UNRESOLVED_SOURCE": 0,
+      "NEEDS_HUMAN_VISUAL_REVIEW": 0,
+      "FAIL": 0
+    },
+    "2_bach_ccss_ii": {
+      "materia": "CCSS II",
+      "enabledExercises": 824,
+      "PASS": 803,
+      "CORRECTED": 20,
+      "UNRESOLVED_SOURCE": 1,
+      "NEEDS_HUMAN_VISUAL_REVIEW": 0,
+      "FAIL": 0
+    }
+  },
+  "patternCounts": {},
+  "totals": {
+    "PASS": 1581,
+    "CORRECTED": 59,
+    "UNRESOLVED_SOURCE": 1,
+    "NEEDS_HUMAN_VISUAL_REVIEW": 0,
+    "FAIL": 0
+  },
+  "sourceAuthority": "USER_SUPPLIED_OFFICIAL_FILES_ONLY",
+  "browserEvidencePending": false,
+  "browserResults": {
+    "schemaVersion": "mathup.andalucia.browser-visual-gate.v1",
+    "renderer": "production runtime + corrections + source-app parity + interactive delivery gate + MargaritaMathRenderer",
+    "results": [
+      {
+        "viewport": 1280,
+        "exercises": 1641,
+        "parts": 3429,
+        "options": 13716,
+        "badChoiceParts": [],
+        "internalTokens": [],
+        "overflow": [],
+        "errors": []
+      },
+      {
+        "viewport": 768,
+        "exercises": 1641,
+        "parts": 3429,
+        "options": 13716,
+        "badChoiceParts": [],
+        "internalTokens": [],
+        "overflow": [],
+        "errors": []
+      },
+      {
+        "viewport": 375,
+        "exercises": 1641,
+        "parts": 3429,
+        "options": 13716,
+        "badChoiceParts": [],
+        "internalTokens": [],
+        "overflow": [],
+        "errors": []
+      }
+    ],
+    "sourceCaptures": 61,
+    "manualSourcePending": 1,
+    "gallerySheets": 1
+  }
+}

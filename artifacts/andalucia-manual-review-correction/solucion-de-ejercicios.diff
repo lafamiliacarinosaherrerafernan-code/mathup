@@ -1,0 +1,111 @@
+diff --git "a/C:\\Users\\aherr\\OneDrive\\Documentos\\Codex\\APP MARGARITA SALAS\\artifacts\\andalucia-manual-review-correction\\skill-before\\solucion-de-ejercicios.SKILL.before.md" "b/C:\\Users\\aherr\\OneDrive\\Documentos\\Codex\\APP MARGARITA SALAS\\artifacts\\andalucia-manual-review-correction\\skill-after\\solucion-de-ejercicios.SKILL.after.md"
+index 336a6e9..c8d8c01 100644
+--- "a/C:\\Users\\aherr\\OneDrive\\Documentos\\Codex\\APP MARGARITA SALAS\\artifacts\\andalucia-manual-review-correction\\skill-before\\solucion-de-ejercicios.SKILL.before.md"	
++++ "b/C:\\Users\\aherr\\OneDrive\\Documentos\\Codex\\APP MARGARITA SALAS\\artifacts\\andalucia-manual-review-correction\\skill-after\\solucion-de-ejercicios.SKILL.after.md"	
+@@ -58,6 +58,15 @@ No adaptar la explicación para hacer coincidir una opción predeterminada. Si e
+ - Mostrar un único encabezado de solución. No repetir ni concatenar títulos como `Resolución paso a pasoResolución` cuando la interfaz y el contenido incorporen cada uno su propio encabezado.
+ - Si una fuente oficial contiene dos o más problemas numerados independientes, convertir cada problema en un ejercicio distinto con identificador propio. Conservar dentro de cada ejercicio únicamente sus apartados reales; nunca presentar un problema nuevo como si fuera otro apartado del anterior.
+ 
++## Fidelidad, segmentación y composición visual transversales
++
++- La fuente documental aportada por el usuario prevalece sobre catálogos derivados, OCR, solucionarios y versiones históricas. Antes de publicar, comparar `documento → ejercicio canónico → ejercicio mostrado`, incluidos todos los apartados, números, signos, exponentes, matrices, sistemas, integrales, unidades, tablas y gráficos.
++- El número y orden de apartados del ejercicio mostrado debe coincidir con el original. Cada apartado evaluable conserva su enunciado, respuesta comprobada, cuatro opciones cuando proceda, solución y navegación. Un apartado que no admita cuatro opciones se conserva y se marca para revisión; nunca se elimina silenciosamente.
++- `etiqueta + signo igual + objeto matemático` constituye un bloque visual atómico. `A=`, `B=`, `X=`, `f(x)=`, `g(x)=`, `r=` o `s=` no pueden separarse de su matriz, vector, fracción, función, recta, plano o sistema. En pantallas estrechas puede saltar el bloque completo, pero no romperse por dentro.
++- Matrices, determinantes, sistemas, funciones a trozos, fracciones, raíces, límites e integrales son estructuras atómicas. Ninguna ruta de la interfaz puede mostrar `matrix{}`, `system{}`, `piecewise{}`, `frac{}`, `sqrt{}`, delimitadores TeX ni una serialización lineal equivalente.
++- Una integral definida debe conservar como unidad el signo `∫`, el límite inferior, el superior, el integrando y el diferencial. El signo será proporcionado al texto y los límites legibles y asociados inequívocamente al signo, también en opciones y soluciones.
++- La clasificación temática depende de la tarea matemática principal del enunciado, no de una herramienta incidental usada en la solución. Registrar `primaryTopic` y, cuando proceda, `secondaryTopics[]`; la tarjeta y el banco principal dependen únicamente de `primaryTopic`.
++
+ ## Política didáctica formalizada de 1.º ESO · Matemáticas
+ 
+ Esta sección se aplica exclusivamente a `1eso` y a sus diez temas oficiales. Sus reglas prevalecen sobre cualquier regla genérica o de Bachillerato cuando exista una diferencia de nivel, profundidad o procedimiento. No heredar automáticamente métodos de cursos superiores.
+@@ -2501,20 +2510,20 @@ Estas reglas distinguen entre un método matemáticamente válido y el método d
+ 
+ #### Matriz inversa y convención de adjuntos
+ 
+-En Margarita Salas, `Adj(A)` significa **matriz de cofactores**, no la adjunta clásica que ya incorpora la trasposición. Usar obligatoriamente:
++En Margarita Salas, `Adj(A)` es la matriz formada directamente por los menores complementarios con sus signos, antes de trasponer. No introducir una fase, tabla o matriz separada denominada «cofactores». Usar obligatoriamente:
+ 
+ `A⁻¹=(1/det(A))·Adj(A)^T`.
+ 
+ Proceder así:
+ 
+ 1. Calcular `det(A)` y comprobar `det(A)≠0`.
+-2. Calcular los cofactores `Aᵢⱼ=(-1)^(i+j)·det(Mᵢⱼ)`.
+-3. Colocarlos en su posición para formar `Adj(A)`.
++2. Construir directamente `Adj(A)` como una matriz. En cada posición escribir el signo `(-1)^(i+j)` y el determinante real del menor complementario correspondiente; en orden tres deben verse dentro de la matriz los nueve determinantes `2×2`, no una lista vertical ni solo sus valores.
++3. Resolver cada determinante `2×2` y escribir la matriz numérica `Adj(A)`.
+ 4. Trasponer y obtener `Adj(A)^T`.
+-5. Multiplicar por `1/det(A)` y presentar `A⁻¹`.
++5. Aplicar `A⁻¹=(1/det(A))·Adj(A)^T` y presentar el resultado final.
+ 6. Comprobar `A·A⁻¹=I` cuando sea razonable.
+ 
+-No mezclar esta convención con la nomenclatura en la que «matriz adjunta» ya significa la traspuesta de la matriz de cofactores.
++No mezclar esta convención con la nomenclatura en la que «matriz adjunta» ya incluye la trasposición, ni añadir una etapa independiente llamada matriz de cofactores.
+ 
+ #### Rango sin parámetros
+ 
+@@ -2542,6 +2551,18 @@ Si la matriz es cuadrada y `det(A)≠0`, concluir que tiene rango máximo. Permi
+ - Cuando se intercambien filas, se multiplique una fila por un escalar, se sume a una fila un múltiplo de otra o se utilicen propiedades de producto, potencia o trasposición, explicar expresamente el efecto sobre el determinante.
+ - No imponer Sarrus cuando otro procedimiento sea claramente más eficiente.
+ 
++#### Desarrollo por una fila o columna
++
++Cuando se desarrolle un determinante por Laplace, el alumno debe ver cada término completo `elemento × menor complementario` con su signo:
++
++1. Indicar la fila o columna elegida y el patrón de signos.
++2. Escribir la suma algebraica completa; por ejemplo, `a₁₁·det(M₁₁)−a₁₂·det(M₁₂)+a₁₃·det(M₁₃)`.
++3. Representar cada `Mᵢⱼ` como un determinante `2×2` real con sus cuatro entradas, no como un nombre que salta directamente al valor.
++4. Resolver cada determinante `2×2` mostrando los dos productos y su resta.
++5. Sustituir los valores en la expansión y simplificar.
++
++Queda prohibido pasar directamente del determinante inicial a un polinomio o número si se ha elegido el desarrollo por fila o columna.
++
+ #### Ecuaciones matriciales
+ 
+ Las matrices no conmutan en general. Mantener estrictamente el orden de los factores:
+@@ -2574,6 +2595,17 @@ No escribir `(A+B)X` si la factorización no está justificada.
+ - Incluir un dibujo o esquema cuando ayude a comprender puntos, rectas, planos, posiciones relativas, perpendicularidades, proyecciones, simetrías, distancias, ángulos, áreas o volúmenes.
+ - El esquema no necesita estar a escala, pero debe ser matemáticamente coherente, etiquetar los objetos relevantes y no contradecir el enunciado. No usar dibujos decorativos.
+ 
++#### Punto genérico de una recta
++
++Cuando una resolución necesite elegir un punto genérico de una recta:
++
++1. Escribir primero la recta completa en forma paramétrica, con sus tres coordenadas alineadas bajo una única llave cuando se trabaje en el espacio.
++2. Explicar literalmente: «Sea C un punto genérico de la recta» —adaptando únicamente la letra si el enunciado ya reserva `C` para otro objeto—.
++3. Escribir `C=(x(λ),y(λ),z(λ))` sustituyendo las tres expresiones paramétricas.
++4. Usar después ese punto en las condiciones de pertenencia, perpendicularidad, distancia o intersección.
++
++No introducir directamente una terna parametrizada sin explicar qué punto representa ni de qué forma de la recta procede.
++
+ #### Posición relativa de dos rectas en el espacio
+ 
+ Usar preferentemente el criterio de rangos de los vectores directores y del vector que une un punto de cada recta:
+@@ -2748,6 +2780,18 @@ Cuando una derivada de orden alto se resuelva mediante la periodicidad de las de
+ 
+ Comprobar que ambas columnas caben completas y que superíndices, primas y signos quedan alineados. En una pantalla estrecha se pueden apilar las dos columnas, manteniendo el orden de las ocho derivadas.
+ 
++## Cambios de variable en integrales
++
++Cuando se use una sustitución, no saltar de la integral original a la integral transformada:
++
++1. Definir la sustitución completa, por ejemplo `u=g(x)`.
++2. Calcular y mostrar el diferencial `du=g'(x)dx` y despejar `dx` si es necesario.
++3. Transformar todos los factores del integrando; no dejar simultáneamente variables `x` y `u` salvo durante una línea de transición explícita.
++4. Si la integral es definida, transformar por separado cada límite mediante la sustitución y escribir los nuevos límites antes de integrar.
++5. Mostrar la integral resultante completa, con signo, límites, integrando y diferencial correctamente asociados.
++6. Integrar y, en una integral indefinida, volver a la variable original antes del resultado final.
++7. Comprobar por derivación cuando sea razonable.
++
+ ## Integrales racionales mediante fracciones simples
+ 
+ Cuando el denominador se pueda factorizar y la integral se resuelva mediante fracciones simples:
+@@ -2824,7 +2868,7 @@ Cuando `X` pueda aislarse mediante una factorización matricial válida, resolve
+    - `X(A+B)=C` implica `X=C(A+B)⁻¹`.
+ 3. Explicar que el producto de matrices no es conmutativo y que no se puede cambiar la inversa de lado.
+ 4. Comprobar que la matriz que se va a invertir es cuadrada y que su determinante no es cero. Si `det(B)=0`, indicar que `B⁻¹` no existe y no continuar como si fuera invertible.
+-5. Calcular la inversa mediante determinantes usando la nomenclatura del centro: `Adj(B)` es la matriz de cofactores de `B`, es decir, la matriz cuyos elementos son `Aᵢⱼ=(-1)^(i+j)·det(Mᵢⱼ)`. No denominarla `Cof(B)` ni usar `Adj(B)` para designar una matriz que ya esté traspuesta. Mostrar sin saltos `det(B)`, cada menor, la matriz `Adj(B)`, su traspuesta `Adj(B)^T` y la fórmula `B⁻¹=(1/det(B))·Adj(B)^T`. Para una matriz de orden tres, no presentar los nueve cofactores como una lista vertical: colocarlos directamente en una matriz `3×3`, cada uno en su posición, e igualar después esa matriz simbólica a la matriz numérica `Adj(B)`. Para matrices de orden dos se puede aplicar la fórmula equivalente, mostrando también el determinante.
++5. Calcular la inversa mediante determinantes usando la nomenclatura del centro: construir directamente `Adj(B)` como una matriz cuyos elementos son `(-1)^(i+j)·det(Mᵢⱼ)`. No crear ni nombrar una fase separada de cofactores, no denominarla `Cof(B)` y no usar `Adj(B)` para una matriz ya traspuesta. Mostrar sin saltos `det(B)`, la matriz simbólica `Adj(B)` con cada determinante menor `2×2` escrito en su posición, la matriz numérica `Adj(B)`, su traspuesta `Adj(B)^T` y `B⁻¹=(1/det(B))·Adj(B)^T`. Para matrices de orden dos puede aplicarse la fórmula equivalente mostrando también el determinante.
+ 6. Calcular por separado las sumas o diferencias de matrices necesarias, efectuar después todos los productos fila por columna y presentar la matriz `X` con sus elementos alineados entre paréntesis grandes.
+ 7. Comprobar el resultado sustituyendo la matriz obtenida en la ecuación matricial original y verificando que ambos miembros coinciden.
+ 8. Si la ecuación no es factorizable, escribir `X` con incógnitas escalares, calcular por separado todos los productos, igualar las entradas correspondientes, resolver el sistema escalar resultante y comprobar la matriz obtenida en la ecuación original. No fingir una factorización de `AX+XB` ni alterar el orden de los factores para aplicar una inversa.

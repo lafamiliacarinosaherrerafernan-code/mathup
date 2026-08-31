@@ -1,0 +1,4 @@
+interface:
+  display_name: "Skill Editor Enunciados"
+  short_description: "Convierte exámenes a Word sin alterar enunciados"
+  default_prompt: "Usa $skill-editor-enunciados para convertir exámenes originales en documentos Word editables, conservando literalmente los enunciados y usando ecuaciones nativas."

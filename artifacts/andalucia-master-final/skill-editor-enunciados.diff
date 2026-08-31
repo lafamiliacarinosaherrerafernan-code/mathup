@@ -1,0 +1,17 @@
+diff --git "a/artifacts\\andalucia-master-final\\skill-before\\skill-editor-enunciados\\SKILL.md" "b/artifacts\\andalucia-master-final\\skill-after\\skill-editor-enunciados\\SKILL.md"
+index c537c07..dfaad0c 100644
+--- "a/artifacts\\andalucia-master-final\\skill-before\\skill-editor-enunciados\\SKILL.md"
++++ "b/artifacts\\andalucia-master-final\\skill-after\\skill-editor-enunciados\\SKILL.md"
+@@ -32,6 +32,12 @@ Aplicar un flujo de fidelidad documental: el PDF original es la única fuente de
+ 21. En la salida para aplicaciones, matrices, determinantes, sistemas, funciones a trozos, fracciones, raíces, límites e integrales deben transportarse como estructuras, nunca como texto aplanado o tokens internos. Auditar todas las rutas de renderizado y tamaños de pantalla: el alumno no puede ver `matrix`, `matrix{`, `matrix(`, `system{`, `frac{}`, `sqrt{}` ni delimitadores TeX. `A=matriz`, `B=matriz`, `X=vector` y `f(x)=expresión` son bloques visuales indivisibles.
+ 22. En límites, la fracción debe ser vertical y `x→a` debe quedar como subíndice visual del operador `lim`. En integrales, el signo, límites e integrando deben permanecer legibles y unidos. Probar también opciones y soluciones, no solo el enunciado.
+ 23. En la clasificación, el tema principal es la tarea pedida: calcular un determinante pertenece a Determinantes; resolver o discutir un sistema pertenece a Resolución de sistemas con determinantes aunque se use un determinante; una ecuación o potencia matricial pertenece a Matrices. Registrar herramientas incidentales en `secondaryTopics[]`.
++24. Conservar también subapartados romanos, numéricos y jerárquicos. Una subdivisión interactiva (`a.i`, `a.ii`, `b.1`, funciones `f` y `g`) debe registrar su apartado padre y conservar el texto común una sola vez. No confundir una subdivisión pedagógica con un ejercicio independiente.
++25. En ejercicios con `Parte I` y `Parte II`, mantener el orden del PDF en canónico, runtime y DOM aunque el material de resolución llegue invertido. Usar identidades jerárquicas estables (`I.a`, `I.b`, `II.a`...) para la paridad y la no repetición.
++26. Tratar número y unidad como un bloque tipográfico indivisible mediante espacio no separable: `64 kg`, `1,68 m`, `25 kg/m²`, `10 km²`. Conservar exponentes y denominadores de la unidad.
++27. La tabla de distribución normal de Andalucía es un recurso auxiliar, no un examen. Andalucía y Madrid pueden presentarla desde un desplegable asociado al ejercicio; Castilla-La Mancha conserva la tabla incluida localmente en su enunciado. Registrar el tipo exacto de recurso (`normal`, `binomial` o ninguno).
++28. Para una errata tipográfica inequívoca del original —por ejemplo, dos apartados consecutivos rotulados `a)`— conservar el literal y la etiqueta documental en la proyección fuente, registrar la incidencia y evitar “corregirla” silenciosamente. La interfaz puede añadir una identidad técnica distinta, pero nunca sustituir la evidencia original.
++29. Añadir regresiones a 375, 768 y 1280 px. Deben cubrir matrices, sistemas, rectas/planos, funciones a trozos, fracciones, límites, integrales, raíces, exponentes, subíndices, unidades y tildes, además de opciones, corrección y solución. El cuerpo de la página no puede desbordar horizontalmente.
+ 
+ ## Flujo de trabajo
+ 

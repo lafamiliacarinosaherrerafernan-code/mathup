@@ -14,6 +14,21 @@ math.native-math mtext {
   text-align: left;
 }
 
+/* Una estructura matemática se envuelve siempre como unidad completa. La
+   etiqueta precedente se une mediante un espacio no separable en el
+   renderizador, de modo que el salto responsivo ocurre antes de A = matriz,
+   r = sistema o f(x) = expresión, nunca dentro de la asociación. */
+.math-matrix,
+.math-system,
+.math-piecewise,
+.math-fraction,
+.math-root,
+.math-integral {
+  break-inside: avoid;
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
 .math-system-brace {
   display: inline-flex;
   align-items: center;
@@ -292,18 +307,20 @@ math.native-math mtext {
 .math-integral {
   display: inline-grid;
   grid-template-columns: auto max-content;
-  grid-template-rows: 0.72em 0.72em;
+  grid-template-rows: 0.78em 0.78em;
   align-items: center;
-  margin: 0 0.16em;
-  vertical-align: -0.28em;
-  font-family: Georgia, "Times New Roman", serif;
+  margin: 0 0.12em;
+  vertical-align: -0.3em;
+  font-family: "Cambria Math", "STIX Two Math", "Times New Roman", serif;
+  font-weight: 400;
 }
 
 .integral-sign {
   grid-column: 1;
   grid-row: 1 / 3;
-  font-size: 2em;
-  line-height: 0.72;
+  font-size: 1.85em;
+  font-weight: 400;
+  line-height: 0.78;
 }
 
 .integral-bounds {
@@ -312,10 +329,11 @@ math.native-math mtext {
   grid-row: 1 / 3;
   grid-template-rows: 1fr 1fr;
   align-self: stretch;
-  margin-left: -0.08em;
-  font-size: 0.54em;
-  line-height: 0.9;
-  text-align: left;
+  margin-left: -0.04em;
+  font-size: 0.58em;
+  font-weight: 600;
+  line-height: 0.95;
+  text-align: center;
 }
 
 .integral-bounds sup,
@@ -338,6 +356,23 @@ math.native-math mtext {
 .math-evaluation sub {
   position: static;
   line-height: inherit;
+}
+
+/* El motor MathML posiciona las cotas; no se reconstruyen con una cuadrícula. */
+.math-integral.math-native-operator,
+.math-evaluation.math-native-operator {
+  display: inline-block;
+  margin: 0 0.08em;
+  vertical-align: -0.32em;
+  font-size: 1em;
+  line-height: 1;
+}
+
+.math-native-operator math {
+  display: inline-block;
+  font-family: "Cambria Math", "STIX Two Math", "Times New Roman", serif;
+  font-size: 1.08em;
+  line-height: 1;
 }
 
 .math-indexed-root {
@@ -441,8 +476,8 @@ math.native-math mtext {
 }
 
 .question-text .math-system {
-  display: flex;
-  width: max-content;
+  display: inline-flex;
+  width: auto;
   max-width: 100%;
   margin-top: 14px;
 }
@@ -1219,6 +1254,11 @@ math.native-math mtext {
 .area-integrand,
 .area-differential {
   display: inline-block;
+}
+
+.math-value-unit {
+  display: inline-block;
+  white-space: nowrap;
 }
 
 .area-equation-equals {
