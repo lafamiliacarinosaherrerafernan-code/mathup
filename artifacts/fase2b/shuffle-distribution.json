@@ -1,0 +1,59 @@
+{
+  "algorithmVersion": "mathup.shuffle.sha256-sort.v1",
+  "allPositionsReached": true,
+  "distribution": {
+    "A": 108,
+    "B": 105,
+    "C": 93,
+    "D": 94
+  },
+  "sampleSize": 400,
+  "samples": [
+    {
+      "attemptId": "distribution-0",
+      "correctPosition": "D",
+      "seedHash": "079ce8db3d5f323d72b884c5058a2b0345e13244ad0856f0b87e300d153d8ce4"
+    },
+    {
+      "attemptId": "distribution-1",
+      "correctPosition": "C",
+      "seedHash": "6d930997fab97f00f9c119798a27c582955114fa48304b672461396b2049f4fc"
+    },
+    {
+      "attemptId": "distribution-2",
+      "correctPosition": "C",
+      "seedHash": "b8227f8b50b6aa6e76bbd83ddc0472810788a789f6c6684856939bb3536a5d22"
+    },
+    {
+      "attemptId": "distribution-3",
+      "correctPosition": "B",
+      "seedHash": "125ed44c7a201beca5f6affe139c22b96903da620d453db2ae3e08bd0195a7b1"
+    },
+    {
+      "attemptId": "distribution-4",
+      "correctPosition": "A",
+      "seedHash": "4901d2d60a63266711293354147b06ef4d1852d6e2326c034f4c377138e295ed"
+    },
+    {
+      "attemptId": "distribution-5",
+      "correctPosition": "D",
+      "seedHash": "e98163338852214215de84caf63ebe859c534aba0dc58b3f4fd69dac665cf8db"
+    },
+    {
+      "attemptId": "distribution-6",
+      "correctPosition": "B",
+      "seedHash": "0c9ad767ef6e12f9972b5f962cc171e57ca279ba22e186c5b467af1f9cbd9757"
+    },
+    {
+      "attemptId": "distribution-7",
+      "correctPosition": "B",
+      "seedHash": "dc4133c823adca53b46d2dd214bb01dd07870a5039abc3a8fef75dda05c204b9"
+    }
+  ],
+  "schemaVersion": "mathup.fase2b-shuffle-audit.v1",
+  "tolerance": {
+    "maximum": 140,
+    "minimum": 60
+  },
+  "withinTolerance": true
+}

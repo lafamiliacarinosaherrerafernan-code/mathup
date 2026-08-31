@@ -1,0 +1,34 @@
+{
+  "scope": "2bach-mates-andalucia",
+  "topics": {
+    "expected": 14,
+    "enabled": 14,
+    "openedWithQuestion": 14,
+    "rawInternalTokensVisible": 0
+  },
+  "blocks": {
+    "expected": 4,
+    "enabled": 4,
+    "openedWithQuestion": 4,
+    "varietyPolicy": "ONE_PER_AVAILABLE_TOPIC_BEFORE_REMAINDER"
+  },
+  "exam": {
+    "exercises": 5,
+    "multipartSelection": "PASS",
+    "grading": "PASS",
+    "solution": "PASS",
+    "nextExercise": "PASS"
+  },
+  "normalDistribution": {
+    "topicEnabled": true,
+    "referenceTableControlVisible": true,
+    "grading": "PASS",
+    "pedagogicalSolution": "PASS"
+  },
+  "responsive": {
+    "viewport": "390x844",
+    "documentClientWidth": 375,
+    "documentScrollWidth": 375,
+    "horizontalOverflow": false
+  }
+}

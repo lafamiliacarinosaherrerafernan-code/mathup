@@ -1,0 +1,23 @@
+{
+  "version": "mathup.pau-normalization.v1",
+  "sittings": {
+    "junio": "JUNIO",
+    "julio": "JULIO",
+    "septiembre": "SEPTIEMBRE",
+    "ordinaria": "ORDINARIA",
+    "extraordinaria": "EXTRAORDINARIA"
+  },
+  "parts": {
+    "a": "a)",
+    "a)": "a)",
+    "b": "b)",
+    "b)": "b)",
+    "c": "c)",
+    "c)": "c)",
+    "d": "d)",
+    "d)": "d)",
+    "resultado": "Resultado"
+  },
+  "unknownPolicy": "PRESERVE_NULL_AND_LITERAL",
+  "inferenceAllowed": false
+}

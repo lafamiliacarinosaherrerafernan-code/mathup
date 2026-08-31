@@ -1,0 +1,78 @@
+{
+  "schemaVersion": "mathup.andalucia-ccss-final.v1",
+  "generatedAt": "2026-08-31T13:52:25.329Z",
+  "documents": {
+    "reconciled": 107,
+    "excludedNormalTableResource": 1
+  },
+  "exercises": {
+    "source": 824,
+    "enabled": 823,
+    "blocked": 1,
+    "regeneratedStatements": 823,
+    "regeneratedSolutions": 1988
+  },
+  "subparts": {
+    "sourceDocumentary": 1791,
+    "canonicalInteractiveUnits": 1789,
+    "reachableDocumentaryUnits": 1789,
+    "runtimePedagogicalUnits": 1988,
+    "recovered": 1791,
+    "lost": 0,
+    "invariantFailures": 0
+  },
+  "contracts": {
+    "missingAnswer": 0,
+    "invalidOptionSets": 0,
+    "missingSolution": 0,
+    "forbiddenPhi": 0,
+    "positiveLhopital": 0
+  },
+  "tables": {
+    "normalParts": 384,
+    "binomialParts": 5,
+    "missingNormal": 0,
+    "extraNormal": 0,
+    "missingBinomial": 0,
+    "extraBinomial": 0,
+    "multipartParentLeaks": 0
+  },
+  "families": {
+    "matricesAndSystems": 143,
+    "linearProgramming": 45,
+    "probability": 170,
+    "binomialExercises": 3,
+    "distributionTopic": 15,
+    "inference": 190
+  },
+  "census": {
+    "byTopic": {
+      "Derivadas y aplicaciones": 201,
+      "Distribución binomial y normal": 15,
+      "Integrales definidas": 23,
+      "Límites y continuidad": 36,
+      "Matrices": 94,
+      "Muestreo e inferencia estadística": 190,
+      "Probabilidad": 170,
+      "Programación lineal": 45,
+      "Sistemas con determinantes": 49
+    },
+    "byBlock": {
+      "algebra": 188,
+      "analisis": 260,
+      "estadistica": 205,
+      "probabilidad": 170
+    },
+    "byExamSlot": {
+      "1": 118,
+      "2": 119,
+      "3": 152,
+      "4": 434
+    }
+  },
+  "capacity": {
+    "examQuestions": 4,
+    "theoreticalExamCombinations": 926322656,
+    "nonRepeatingExamCapacity": 118
+  }
+}

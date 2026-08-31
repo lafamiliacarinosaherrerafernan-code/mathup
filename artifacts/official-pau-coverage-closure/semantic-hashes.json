@@ -1,0 +1,22 @@
+[
+    {
+        "file":  "coverage-matrix-2000-2026.json",
+        "sha256":  "5c08f794204a120c25924198398db9b24ba21f2c2c5de8545d83d2d3fdbe7dba"
+    },
+    {
+        "file":  "missing-convocations-2010-2026.json",
+        "sha256":  "b523efa6879e577b35e1413c03f36b9a39fcaccbdedeed22e8cc248020b41476"
+    },
+    {
+        "file":  "andalucia-exam-criteria-matches.jsonl",
+        "sha256":  "758a90d5a8c2195812872493d8548f1f69666178b0cc72026594a382af3b504f"
+    },
+    {
+        "file":  "criteria-match-summary.json",
+        "sha256":  "b3bc2ff46e0395539a181261d0a0416b8bdc94334d212c16e320cc47d03c9196"
+    },
+    {
+        "file":  "directed-gap-search.json",
+        "sha256":  "6466e7dac7c2065c6515ba1e47f15867ed375bf4ec80ded248cd4d75aff2fa8d"
+    }
+]

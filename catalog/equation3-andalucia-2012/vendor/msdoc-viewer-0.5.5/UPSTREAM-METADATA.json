@@ -1,0 +1,79 @@
+{
+  "schemaVersion": "mathup.upstream-metadata.v1",
+  "project": "msdoc-viewer",
+  "repository": "https://github.com/zheng2429/msdoc-viewer.git",
+  "commit": "cd1481b62a7f2b51e532884b3057b76e1be8e3a6",
+  "gitTree": "e8b6839e1f8d3f3fe9440ade6a9eb51125668c27",
+  "commitDate": "2026-05-08T03:40:02Z",
+  "declaredVersion": "0.5.5",
+  "versionQualification": {
+    "publishedOnNpm": false,
+    "gitTagPresent": false,
+    "statement": "Version declared by package.json at the pinned commit; not an npm release or Git tag."
+  },
+  "declaredLicense": "MIT",
+  "licenseEvidence": [
+    {
+      "path": "package.json",
+      "sha256": "8a51c6399c5761cee5191b4700e0129b82e270129acf5576f7149725c6cfb4cb"
+    },
+    {
+      "path": "README.md",
+      "sha256": "45a2ac71f017b57d958cce67071b1025c73cacea7ffa1ea7d24889f38d320200"
+    }
+  ],
+  "copyrightNotice": {
+    "explicitHolderFound": false,
+    "statement": "No explicit copyright holder or copyright notice was found in the examined upstream source; none is inferred or invented."
+  },
+  "historicalRepositoryReferences": {
+    "value": "wybaby168/msdoc-viewer",
+    "usedAsProofOfLocalOrigin": false
+  },
+  "subset": {
+    "localModifications": 0,
+    "classification": "IDENTICAL_TO_PUBLIC_MIT_SOURCE",
+    "files": [
+      {
+        "path": "core/binary.js",
+        "sha256": "3c430545e3ba08d5c4b23074a5529e767b4830a3eab55b40ba37943cd67bd852",
+        "classification": "IDENTICAL_TO_PUBLIC_MIT_SOURCE"
+      },
+      {
+        "path": "core/cfb.js",
+        "sha256": "a0187bd3746b9d84de1a918b9733d72e39fca823c69f14e1a756b606e974f517",
+        "classification": "IDENTICAL_TO_PUBLIC_MIT_SOURCE"
+      },
+      {
+        "path": "core/utils.js",
+        "sha256": "e4b12750970f7722a90f528f260e498fb2da8b1f059823b850570d41c95782a7",
+        "classification": "IDENTICAL_TO_PUBLIC_MIT_SOURCE"
+      },
+      {
+        "path": "msdoc/clx.js",
+        "sha256": "58228bbf555eb67d6047c7028204c7a76c6f24021efb5a54fd6e66ff82d2154a",
+        "classification": "IDENTICAL_TO_PUBLIC_MIT_SOURCE"
+      },
+      {
+        "path": "msdoc/constants.js",
+        "sha256": "75008dc7c3f84b31b3b140097df0a408aeaa58ef835307b98e7ce87aa363b2b1",
+        "classification": "IDENTICAL_TO_PUBLIC_MIT_SOURCE"
+      },
+      {
+        "path": "msdoc/fib.js",
+        "sha256": "c3175dfe1beb2ad4266bc86c3d821d80dc22bf513c5cbb24ef6a7aa356fb3c8e",
+        "classification": "IDENTICAL_TO_PUBLIC_MIT_SOURCE"
+      },
+      {
+        "path": "msdoc/fkp.js",
+        "sha256": "f30ed3de014f222df8d8a338fe8703bd06b7c8f8d4efdf31641c7ae13eea3a10",
+        "classification": "IDENTICAL_TO_PUBLIC_MIT_SOURCE"
+      },
+      {
+        "path": "msdoc/sprm.js",
+        "sha256": "1fd47309053cedf00c671bb264501a85625a2e1c24312570f6be2a0c4646b506",
+        "classification": "IDENTICAL_TO_PUBLIC_MIT_SOURCE"
+      }
+    ]
+  }
+}

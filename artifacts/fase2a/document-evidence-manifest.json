@@ -1,0 +1,4520 @@
+[
+  {
+    "file": "documentos/2º Bachillerato CCSS II/1-Matrices Ejercicios.doc",
+    "extension": ".doc",
+    "extraction": "TEXT",
+    "sha256": "f2efe0976d430ea21167e891f5164e1fb564ff20d60b474337374a22e9cadee7",
+    "textLength": 5398,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/2º Bachillerato CCSS II/1-Matrices teoria.doc",
+    "extension": ".doc",
+    "extraction": "TEXT",
+    "sha256": "87fa56748148907dcbbb27e30141c5f51fc46b03eeeb40cb9a29056924612b71",
+    "textLength": 28962,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/2º Bachillerato CCSS II/1-Matrices teoria.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "ed1d9e4c58f2de815436a2831b377dcf066d1b170baa3a1ec53bbd79a4cb7c69",
+    "textLength": 31575,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/2º Bachillerato CCSS II/1-Matrices.doc",
+    "extension": ".doc",
+    "extraction": "TEXT",
+    "sha256": "d5fca7b66d6a3905d4af3a97027914ddcf428b76c35a3bc27157a3c6c219f8ec",
+    "textLength": 34358,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/2º Bachillerato CCSS II/10-Distribución de probabilidad. Distribución Binomial. Continuas Ejercicios.doc",
+    "extension": ".doc",
+    "extraction": "TEXT",
+    "sha256": "0e5691364b015d522b3b5040a429c3f1958bf81dd05050665941b63201c9b255",
+    "textLength": 16876,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/2º Bachillerato CCSS II/10-Distribución de probabilidad. Distribución Binomial. Continuas teoria.doc",
+    "extension": ".doc",
+    "extraction": "TEXT",
+    "sha256": "034f5f77ce9613b705839ba9c5c1d952e1b594cf9b955ea3c82e87c05de8e40a",
+    "textLength": 24018,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/2º Bachillerato CCSS II/10-Distribución de probabilidad. Distribución Binomial. Continuas teoria.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "97380fb73396edec0878b302af7d04db38448bc19de76b52261afddd4ae8af5c",
+    "textLength": 18876,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/2º Bachillerato CCSS II/10-Distribución de probabilidad. Distribución Binomial. Continuas.doc",
+    "extension": ".doc",
+    "extraction": "TEXT",
+    "sha256": "d125294008580353b7348df46da2ebbf96cf97cbcec213935713db03668cf0db",
+    "textLength": 40764,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/2º Bachillerato CCSS II/10-Distribución de probabilidad. Distribución Binomial. Soluciones.doc",
+    "extension": ".doc",
+    "extraction": "TEXT",
+    "sha256": "9b33d070b402eb1fc29717d3193f7458650c29409be7c737174294ae36c719d0",
+    "textLength": 15028,
+    "candidateMatches": 0,
+    "solutionLike": true
+  },
+  {
+    "file": "documentos/2º Bachillerato CCSS II/11- Muestreo e indiferencia estadística Ejercicios.docx",
+    "extension": ".docx",
+    "extraction": "TEXT",
+    "sha256": "35aa1ce3ff6648f7f1b69fe721b719cde4ae3efd0b0cee1aa83ba9b9f5c39736",
+    "textLength": 21300,
+    "candidateMatches": 1,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/2º Bachillerato CCSS II/11- Muestreo e indiferencia estadística teoria.docx",
+    "extension": ".docx",
+    "extraction": "TEXT",
+    "sha256": "c662701ce4bc3e0ce68f38f3ea01a5830ecfab737b1b134c68be48a34da00b94",
+    "textLength": 50597,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/2º Bachillerato CCSS II/11- Muestreo e indiferencia estadística teoria.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "9f5e40e1f297df3437b40d733cb83ed5e8b480e3a00a90356560f1a3f937734e",
+    "textLength": 31260,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/2º Bachillerato CCSS II/11- Muestreo e indiferencia estadística.docx",
+    "extension": ".docx",
+    "extraction": "TEXT",
+    "sha256": "5edfec5b0fc3bfd8ac1a94985e42947a0a172e07c323ad9dc185531f7d60a711",
+    "textLength": 71294,
+    "candidateMatches": 1,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/2º Bachillerato CCSS II/2-Determinantes Ejercicios.doc",
+    "extension": ".doc",
+    "extraction": "TEXT",
+    "sha256": "558225f0a9f2b636a6c3604adc780a3bab8ea8d06cc12fd169140bdb82950d43",
+    "textLength": 3893,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/2º Bachillerato CCSS II/2-Determinantes teoria.doc",
+    "extension": ".doc",
+    "extraction": "TEXT",
+    "sha256": "ba15d23ce04bae1d2eb2aee0a79656bce05e5cfefaa7ce06e9c998ea5dfd50f5",
+    "textLength": 12569,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/2º Bachillerato CCSS II/2-Determinantes teoria.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "dc5f148cd8fa2717b7465d846cc927784d5ad54e85e2eb89fe1cf9bba9b3112a",
+    "textLength": 14882,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/2º Bachillerato CCSS II/2-Determinantes.doc",
+    "extension": ".doc",
+    "extraction": "TEXT",
+    "sha256": "d7c361b1847881aeb11bbc04910ea6f76752ddde092d0a0a570c57bdfe023098",
+    "textLength": 16496,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/2º Bachillerato CCSS II/3- Resolución de sistemas mediante determinantes Ejercicios.doc",
+    "extension": ".doc",
+    "extraction": "TEXT",
+    "sha256": "fa68ded7f55e2c8862e0f7593113d5e058dda4f6b0401913f5fa016f6eef94c5",
+    "textLength": 6335,
+    "candidateMatches": 0,
+    "solutionLike": true
+  },
+  {
+    "file": "documentos/2º Bachillerato CCSS II/3- Resolución de sistemas mediante determinantes Teoria.doc",
+    "extension": ".doc",
+    "extraction": "TEXT",
+    "sha256": "227e3713248e4029e2edb9b8c4c2478029365714a60ad4a4a97e58a687aba768",
+    "textLength": 11282,
+    "candidateMatches": 0,
+    "solutionLike": true
+  },
+  {
+    "file": "documentos/2º Bachillerato CCSS II/3- Resolución de sistemas mediante determinantes Teoria.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "03b10ce0ebdf1a10beb82fb55c28a5025c5b431abef1b5d01d1b9e5c11ab607e",
+    "textLength": 13801,
+    "candidateMatches": 0,
+    "solutionLike": true
+  },
+  {
+    "file": "documentos/2º Bachillerato CCSS II/3- Resolución de sistemas mediante determinantes.doc",
+    "extension": ".doc",
+    "extraction": "TEXT",
+    "sha256": "9a5cb4b3d14ee33a54e62044eeb29dd78991be771f59dd96650792569d50af56",
+    "textLength": 17553,
+    "candidateMatches": 0,
+    "solutionLike": true
+  },
+  {
+    "file": "documentos/2º Bachillerato CCSS II/4-Programación lineal Ejercicios.doc",
+    "extension": ".doc",
+    "extraction": "TEXT",
+    "sha256": "afb1a337cb8324573c5d4b8d2134fa4b64cacb3d4c3225ffb91d92ab087ad6a5",
+    "textLength": 16113,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/2º Bachillerato CCSS II/4-Programación lineal teoria.doc",
+    "extension": ".doc",
+    "extraction": "TEXT",
+    "sha256": "0ddaeb5ee2256955748ff7c85efb78079022732e90717ddf9369483a95510e0a",
+    "textLength": 13383,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/2º Bachillerato CCSS II/4-Programación lineal teoria.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "f4316230b2d3ca23ac16c8eabd82b5bb0bffedf62883f6fecea422db693fcea9",
+    "textLength": 10453,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/2º Bachillerato CCSS II/4-Programación lineal.doc",
+    "extension": ".doc",
+    "extraction": "TEXT",
+    "sha256": "412272394825c0945187cb8a62b6bc7ad742413b1cd98a5f0feca8a4a5704a58",
+    "textLength": 29441,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/2º Bachillerato CCSS II/5-Límite de Funciones. Continuidad Ejercicios.doc",
+    "extension": ".doc",
+    "extraction": "TEXT",
+    "sha256": "f74f86016446e5b587f2034ec12ab56831590b726fd87a0a0505b42724eeb1d4",
+    "textLength": 4968,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/2º Bachillerato CCSS II/5-Límite de Funciones. Continuidad teoria.doc",
+    "extension": ".doc",
+    "extraction": "TEXT",
+    "sha256": "8bb0c15e609a0997837cc20389e19e34b0e6de11e0c18255ab725558e9468074",
+    "textLength": 19264,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/2º Bachillerato CCSS II/5-Límite de Funciones. Continuidad teoria.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "c4644a67c468c22d5009ea1e9eb9b78397edf5913e8eb821e9823a92736c2bee",
+    "textLength": 23892,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/2º Bachillerato CCSS II/5-Límite de Funciones. Continuidad.doc",
+    "extension": ".doc",
+    "extraction": "TEXT",
+    "sha256": "24c460a30352bffc9df03db67f782f0ce67ada7013abdd945b2ba554aa0307aa",
+    "textLength": 24156,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/2º Bachillerato CCSS II/6-Derivadas y Aplicación de Derivadas Ejercicios.doc",
+    "extension": ".doc",
+    "extraction": "TEXT",
+    "sha256": "555488d91fdcb72fd16a340e80b88a1f4357b1a19a793bb3130e8b2ec1e539fe",
+    "textLength": 9050,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/2º Bachillerato CCSS II/6-Derivadas y Aplicación de Derivadas teoria.doc",
+    "extension": ".doc",
+    "extraction": "TEXT",
+    "sha256": "db8efdcef23f10ea788caf864f86522e1e2481644eabb69235a56474a65512ed",
+    "textLength": 20368,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/2º Bachillerato CCSS II/6-Derivadas y Aplicación de Derivadas teoria.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "0c7ef56129bc6adea1ab8bf8869a3b5ee35979395225c17704b93dd1953ac460",
+    "textLength": 20908,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/2º Bachillerato CCSS II/6-Derivadas y Aplicación de Derivadas.doc",
+    "extension": ".doc",
+    "extraction": "TEXT",
+    "sha256": "df3ec3243f1d58cd1d7d15d2ee6b5223860a746a40da26f7f3e141057130c697",
+    "textLength": 28047,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/2º Bachillerato CCSS II/7-Integrales indefinidas Ejercicios.doc",
+    "extension": ".doc",
+    "extraction": "TEXT",
+    "sha256": "d9a13f4219b3a5ff1d30c1c0da7ca60bcd9f9f1f967e1ea8cb9a363df1c9daa7",
+    "textLength": 2458,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/2º Bachillerato CCSS II/7-Integrales indefinidas teoria.doc",
+    "extension": ".doc",
+    "extraction": "TEXT",
+    "sha256": "890089bf3ebacac0011e96db91dcc9edd1aa55ef74d6340b70ee0380939d1599",
+    "textLength": 23805,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/2º Bachillerato CCSS II/7-Integrales indefinidas teoria.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "a6dec78ff1723945ca9b3c930f36d10a47b4c62764b400e383ff106a80354998",
+    "textLength": 41736,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/2º Bachillerato CCSS II/7-Integrales indefinidas.doc",
+    "extension": ".doc",
+    "extraction": "TEXT",
+    "sha256": "3db5336822639342ec8873d69eb2afca77d88cadab966039b915b0dad86420bd",
+    "textLength": 23811,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/2º Bachillerato CCSS II/8-Integrales definidas Ejercicios.doc",
+    "extension": ".doc",
+    "extraction": "TEXT",
+    "sha256": "b0490a0d63f91abb889e9127fb93c997f4699098d089ed52781663f29ec3c38f",
+    "textLength": 4738,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/2º Bachillerato CCSS II/8-Integrales definidas teoria.doc",
+    "extension": ".doc",
+    "extraction": "TEXT",
+    "sha256": "4b4c426e211031b51ba99b2f90ab175a2cae64e8f86d480143aea2a706f90c22",
+    "textLength": 9560,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/2º Bachillerato CCSS II/8-Integrales definidas teoria.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "10722db18f73e4e82a0b6b3d10bccadfe25367b5f5b007baad394953209b5c60",
+    "textLength": 10042,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/2º Bachillerato CCSS II/8-Integrales definidas.doc",
+    "extension": ".doc",
+    "extraction": "TEXT",
+    "sha256": "d1139688c07d4b8840a9eb055b24ffbb9206e362fc94ecf4f5221a6ae6f680f9",
+    "textLength": 14241,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/2º Bachillerato CCSS II/9-Probabilidad Ejercicios.doc",
+    "extension": ".doc",
+    "extraction": "TEXT",
+    "sha256": "7c6d58211016236fe9eb0e7a65a9a01f49bbbe7a1d0c30abed3f4514727d0e65",
+    "textLength": 23064,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/2º Bachillerato CCSS II/9-Probabilidad Teoria.doc",
+    "extension": ".doc",
+    "extraction": "TEXT",
+    "sha256": "5a96e51867b7e51be883ee0a1d4b3fd861c6830c544fb13b69c17e572afe35cd",
+    "textLength": 23708,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/2º Bachillerato CCSS II/9-Probabilidad Teoria.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "c41ebf2ef468b5a924ee8b70e3b750a9263fbd09c5b2a03717316fc83cc757fc",
+    "textLength": 33070,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/2º Bachillerato CCSS II/9-Probabilidad.doc",
+    "extension": ".doc",
+    "extraction": "TEXT",
+    "sha256": "e699c0d39ab61d7110beb8cdb01e8103b557e935386377aec52aa5b045777fd3",
+    "textLength": 46719,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/2º Bachillerato CCSS II/LIBRO 2º Bachillerato CCSS II.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "6ba2d87698bc3ac12e9b14de1e7f9d231dbe89c907c84f432d3df0fc7354badf",
+    "textLength": 934166,
+    "candidateMatches": 3,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/2º Bachillerato Mates II/1-Matrices Ejercicios.doc",
+    "extension": ".doc",
+    "extraction": "TEXT",
+    "sha256": "e710f5b2110be360b1fd8f4da2e24a3d9ddce28df4d2fed3d6001ae345a0cc10",
+    "textLength": 5398,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/2º Bachillerato Mates II/1-Matrices teoria.doc",
+    "extension": ".doc",
+    "extraction": "TEXT",
+    "sha256": "9460299cc673885e295ef2a0426b7f92e27059df9dbaa188c9239addb101a536",
+    "textLength": 28964,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/2º Bachillerato Mates II/1-Matrices teoria.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "92b6532f65c4a351a3ef6291f3a75737e0334282a2e80926a29d5db74e2050db",
+    "textLength": 31575,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/2º Bachillerato Mates II/1-Matrices.doc",
+    "extension": ".doc",
+    "extraction": "TEXT",
+    "sha256": "aedf6c9fb248e2fdbefb7a3ea968d2bbc2eca0eb3f44773c80f3e7a50df3b0fa",
+    "textLength": 34358,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/2º Bachillerato Mates II/10-Aplicación de Derivadas Ejercicios.doc",
+    "extension": ".doc",
+    "extraction": "TEXT",
+    "sha256": "3b58ca79a700f7edec23a1e7e811d8c0d03348dc6fb16eb1dbd18b6b982d3399",
+    "textLength": 9542,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/2º Bachillerato Mates II/10-Aplicación de Derivadas teoria.doc",
+    "extension": ".doc",
+    "extraction": "TEXT",
+    "sha256": "639a2a7d54e77b000edfaebca2f141f47cce4e1c133d595606d59fa53094ba2e",
+    "textLength": 12294,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/2º Bachillerato Mates II/10-Aplicación de Derivadas teoria.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "8359f770f23f4bf7ba6233261ddb122867e5b22c7494be00b3e74cb83fd1dfac",
+    "textLength": 10486,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/2º Bachillerato Mates II/10-Aplicación de Derivadas.doc",
+    "extension": ".doc",
+    "extraction": "TEXT",
+    "sha256": "c4d3f1bb8af3baac9c912d63199a417073eb4bb037970e839ee1e46557e3c7d2",
+    "textLength": 20470,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/2º Bachillerato Mates II/11-Integrales indefinidas Ejercicios.doc",
+    "extension": ".doc",
+    "extraction": "TEXT",
+    "sha256": "0831a01a32dfbdc6c853261602a2a81ba93c0b93338777923f96c2fbc2001385",
+    "textLength": 2459,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/2º Bachillerato Mates II/11-Integrales indefinidas teoria.doc",
+    "extension": ".doc",
+    "extraction": "TEXT",
+    "sha256": "6063a44bb8e4bd588c53a89b272558828993bcd8623ff301575b511fbbd54b03",
+    "textLength": 21406,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/2º Bachillerato Mates II/11-Integrales indefinidas teoria.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "3eedd32e08ac32f1814cc1dba1a7ac4b5664db66441bfb1b93ded5bc4ced3a51",
+    "textLength": 37312,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/2º Bachillerato Mates II/11-Integrales indefinidas.doc",
+    "extension": ".doc",
+    "extraction": "TEXT",
+    "sha256": "659136e64878c2ff646e8b81bf68911c8878e226639305a8100025c68aa9bd4a",
+    "textLength": 23806,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/2º Bachillerato Mates II/12-Integrales definidas Ejercicios.doc",
+    "extension": ".doc",
+    "extraction": "TEXT",
+    "sha256": "0ec0efe6873a991687cb6993fa200754ef3b6db910979d859f41c02c1f2b9453",
+    "textLength": 4739,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/2º Bachillerato Mates II/12-Integrales definidas teoria.doc",
+    "extension": ".doc",
+    "extraction": "TEXT",
+    "sha256": "78292021038e1a43becbe6710394ef5effcc711287fd11e3d6c69a50bde88755",
+    "textLength": 9561,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/2º Bachillerato Mates II/12-Integrales definidas teoria.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "017c12487dbe7aa0b98ac62c884c55bd8779ed0130da3cf6c4160cf00cca1425",
+    "textLength": 10042,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/2º Bachillerato Mates II/12-Integrales definidas.doc",
+    "extension": ".doc",
+    "extraction": "TEXT",
+    "sha256": "8b306d5cb6869714ab2fc24a3f5408b162fb38f185bc6646763d9ed7e2146300",
+    "textLength": 14242,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/2º Bachillerato Mates II/13-Probabilidad Ejercicios.doc",
+    "extension": ".doc",
+    "extraction": "TEXT",
+    "sha256": "8b21cb4e0719087aa72afe6c85c3a8692e4470ae5eeee75c1ba86e5376ff2fe1",
+    "textLength": 23065,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/2º Bachillerato Mates II/13-Probabilidad teoria.doc",
+    "extension": ".doc",
+    "extraction": "TEXT",
+    "sha256": "b2e34fd91163bd7c32259a43ea96d2a2eb15ded09e9076fea26493a2e09f74f0",
+    "textLength": 23705,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/2º Bachillerato Mates II/13-Probabilidad teoria.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "227a3f5cef8d493f6a4e7a03eac2c09f17a9fb37f16cbd3ba62d5b02bd733589",
+    "textLength": 33071,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/2º Bachillerato Mates II/13-Probabilidad.doc",
+    "extension": ".doc",
+    "extraction": "TEXT",
+    "sha256": "5431ca16e20e95fe731bc9bf0795bb182920ef2b9410fd669b4af81b06f6c7d8",
+    "textLength": 46720,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/2º Bachillerato Mates II/14-Distribución de probabilidad. Distribución Binomial Ejercicios.doc",
+    "extension": ".doc",
+    "extraction": "TEXT",
+    "sha256": "14d53e5ae4e9bb87e297bdb55215e6213c5f786be7afef1805eeeb18069a9ea1",
+    "textLength": 16878,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/2º Bachillerato Mates II/14-Distribución de probabilidad. Distribución Binomial teoria.doc",
+    "extension": ".doc",
+    "extraction": "TEXT",
+    "sha256": "d4baae72f1cf1e67a14440793ba56d53fe1703dd54d1385682feb8c64a994ec9",
+    "textLength": 23842,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/2º Bachillerato Mates II/14-Distribución de probabilidad. Distribución Binomial teoria.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "096abd904888b3eddcde353a1be98db6a4b2698743af559696fadc5155bc7c6b",
+    "textLength": 18815,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/2º Bachillerato Mates II/14-Distribución de probabilidad. Distribución Binomial. Soluciones.doc",
+    "extension": ".doc",
+    "extraction": "TEXT",
+    "sha256": "dd81662617688861f2c030967e57f1e63572d4a5f1ae8f4683bce683bb450a29",
+    "textLength": 15028,
+    "candidateMatches": 0,
+    "solutionLike": true
+  },
+  {
+    "file": "documentos/2º Bachillerato Mates II/14-Distribución de probabilidad. Distribución Binomial.doc",
+    "extension": ".doc",
+    "extraction": "TEXT",
+    "sha256": "a116b828598fac9f9141ca2c7089ae9a3a84f49a78e123b5004871b3ede13d08",
+    "textLength": 40590,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/2º Bachillerato Mates II/2-Determinantes Ejercicios.doc",
+    "extension": ".doc",
+    "extraction": "TEXT",
+    "sha256": "b8329f9a55842a01fb9a90c6aeecd4f96caa50fe4255de08062d81d98d9e9d55",
+    "textLength": 3891,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/2º Bachillerato Mates II/2-Determinantes teoria.doc",
+    "extension": ".doc",
+    "extraction": "TEXT",
+    "sha256": "8fa653c805a8067e8d956f0a8a11ed942701f0e01168a2fac624ef991dfcf56d",
+    "textLength": 12659,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/2º Bachillerato Mates II/2-Determinantes teoria.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "5017ed3c98f5cd816e73aaf1573a448cb8a1ee6b8b41670992921f9e982ffcfe",
+    "textLength": 14882,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/2º Bachillerato Mates II/2-Determinantes.doc",
+    "extension": ".doc",
+    "extraction": "TEXT",
+    "sha256": "69ccd6bba461a71a505c8f6b4dee7a3148c6c7f661988548ce720d21f860812d",
+    "textLength": 16496,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/2º Bachillerato Mates II/3- Resolución de sistemas mediante determinantes Ejercicios.doc",
+    "extension": ".doc",
+    "extraction": "TEXT",
+    "sha256": "d5d3d048c3d108cbe1d82090b27d588c28eaf1c1ba4b8073da8d09f1672b1fa1",
+    "textLength": 6335,
+    "candidateMatches": 0,
+    "solutionLike": true
+  },
+  {
+    "file": "documentos/2º Bachillerato Mates II/3- Resolución de sistemas mediante determinantes teoria.doc",
+    "extension": ".doc",
+    "extraction": "TEXT",
+    "sha256": "bffc45dcef0512a5bb1efee65d4fc5d2477d12c2fdff90f61c2e6ac6f6ce435d",
+    "textLength": 11284,
+    "candidateMatches": 0,
+    "solutionLike": true
+  },
+  {
+    "file": "documentos/2º Bachillerato Mates II/3- Resolución de sistemas mediante determinantes teoria.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "a661e31099bfc60b95eb7d79647d9cce5bc204b8f389d20d4d7961bfc115440e",
+    "textLength": 13801,
+    "candidateMatches": 0,
+    "solutionLike": true
+  },
+  {
+    "file": "documentos/2º Bachillerato Mates II/3- Resolución de sistemas mediante determinantes.doc",
+    "extension": ".doc",
+    "extraction": "TEXT",
+    "sha256": "d65e42813b88a23cb1b40a9ae61ddf4b8aca1ef0b4775b94d5cc08c9cf5ecd7f",
+    "textLength": 17553,
+    "candidateMatches": 0,
+    "solutionLike": true
+  },
+  {
+    "file": "documentos/2º Bachillerato Mates II/4-Vectores en el Espacio Ejercicio.doc",
+    "extension": ".doc",
+    "extraction": "TEXT",
+    "sha256": "d2a93673560a7866409ef3d2b9697675f54c36ca5615d88d50f2cffacf263b47",
+    "textLength": 6191,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/2º Bachillerato Mates II/4-Vectores en el Espacio teoria.doc",
+    "extension": ".doc",
+    "extraction": "TEXT",
+    "sha256": "aaf42ce93aaeab3e4e3f1c7809cf9db4e93873071eaa7cf7dca3514003900c9e",
+    "textLength": 19125,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/2º Bachillerato Mates II/4-Vectores en el Espacio teoria.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "62fc8c5d2ce45f5aa710c139510f3ed79d8aeff7051235fa0be94fc4c65992fb",
+    "textLength": 16887,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/2º Bachillerato Mates II/4-Vectores en el Espacio.doc",
+    "extension": ".doc",
+    "extraction": "TEXT",
+    "sha256": "a7f536e26bb03c9f99e35b731b27610cde7a6fc8bf2cdf5f8235d0f84196fd98",
+    "textLength": 25260,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/2º Bachillerato Mates II/5-Planos y rectas en el espacio Ejercicios.doc",
+    "extension": ".doc",
+    "extraction": "TEXT",
+    "sha256": "b720dd469f7dc4aa5f20d5eff5b25eabcd953b88f0856a488dfa7d149b52513b",
+    "textLength": 11383,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/2º Bachillerato Mates II/5-Planos y rectas en el espacio Teoria.doc",
+    "extension": ".doc",
+    "extraction": "TEXT",
+    "sha256": "29896950b9e25c5d94585a76a48877339d954a28189b42cfcf0b6f79e368cb6d",
+    "textLength": 17293,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/2º Bachillerato Mates II/5-Planos y rectas en el espacio teoria.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "6ec3274233d6a79b6d48d77f12e17a2e320346887d07d8183ecce467c85f8bfc",
+    "textLength": 19462,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/2º Bachillerato Mates II/5-Planos y rectas en el espacio.doc",
+    "extension": ".doc",
+    "extraction": "TEXT",
+    "sha256": "59ecca82133440f6ae61ef94a546b89ae735fb88b7269dab6d3f689ea7c7f602",
+    "textLength": 28614,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/2º Bachillerato Mates II/6-Propiedades métricas Ejercicios.doc",
+    "extension": ".doc",
+    "extraction": "TEXT",
+    "sha256": "11fb5009f3f48df95622172b38f259571987d1e99cfe75018330c35a748eda1f",
+    "textLength": 3765,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/2º Bachillerato Mates II/6-Propiedades métricas teoria.doc",
+    "extension": ".doc",
+    "extraction": "TEXT",
+    "sha256": "c18bc603fe113f91745ddf187ce059ff6727a1d9753799dac9107a6570a9ccf4",
+    "textLength": 23979,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/2º Bachillerato Mates II/6-Propiedades métricas teoria.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "42f9c8245181996a8d69154936c2788f3e3ab4032fbd7b409d5d574abc1ebc58",
+    "textLength": 22442,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/2º Bachillerato Mates II/6-Propiedades métricas.doc",
+    "extension": ".doc",
+    "extraction": "TEXT",
+    "sha256": "fe9dc3c6c7e1fba947e61d72df813ea3f6219c5c15e9af047e52c31a4450562b",
+    "textLength": 27687,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/2º Bachillerato Mates II/7-Límite de Sucesiones y Funciones Ejercicios.doc",
+    "extension": ".doc",
+    "extraction": "TEXT",
+    "sha256": "856b529f93ed0dd38e3a97a58a162a14ad80e98d1ab5fd1909124462df27f0ee",
+    "textLength": 4075,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/2º Bachillerato Mates II/7-Límite de Sucesiones y Funciones teoria.doc",
+    "extension": ".doc",
+    "extraction": "TEXT",
+    "sha256": "359e83cf9305bea7fa4a84ce11f51ddb2b4aa74071bf1397728eb893b4d67e31",
+    "textLength": 20272,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/2º Bachillerato Mates II/7-Límite de Sucesiones y Funciones teoria.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "a3e8b2146179e306d2d6dc9cd0b7f7c40cc4c6168a89297d7acb27a544989789",
+    "textLength": 29077,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/2º Bachillerato Mates II/7-Límite de Sucesiones y Funciones.doc",
+    "extension": ".doc",
+    "extraction": "TEXT",
+    "sha256": "aa026bb6c6e7b326df6cfc2351a3811f8effa9dbf795eb34387b0512c5542517",
+    "textLength": 24270,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/2º Bachillerato Mates II/8-Continuidad Ejercicios.doc",
+    "extension": ".doc",
+    "extraction": "TEXT",
+    "sha256": "9134d52b798636278227fa79d97dd4d47cedf8d4e1db23751b6fca124aaef41c",
+    "textLength": 4167,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/2º Bachillerato Mates II/8-Continuidad teoria.doc",
+    "extension": ".doc",
+    "extraction": "TEXT",
+    "sha256": "b7dcdf4ec5843124dec51c03f4fb4ca2e2cb5a17f14a8c4c0eb024bdeafd6aca",
+    "textLength": 10075,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/2º Bachillerato Mates II/8-Continuidad teoria.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "892013e7b6f86c8c9e80df3e2a41f0f9b8b82a31f2407f130d3871b2882c087d",
+    "textLength": 7519,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/2º Bachillerato Mates II/8-Continuidad.doc",
+    "extension": ".doc",
+    "extraction": "TEXT",
+    "sha256": "653a48642c4e754b728cc12e9870f9bba81fe300d35d6b14b879dd8ade18ec08",
+    "textLength": 14182,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/2º Bachillerato Mates II/9-Derivadas Ejercicios.doc",
+    "extension": ".doc",
+    "extraction": "TEXT",
+    "sha256": "69cf63cf7409611e5da2998515d55311861017e3cfe2b25c653eb2b77f8218bd",
+    "textLength": 4856,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/2º Bachillerato Mates II/9-Derivadas teoria.doc",
+    "extension": ".doc",
+    "extraction": "TEXT",
+    "sha256": "5767118411a07cda7d838d686ec3e1c5d6a31dcdc555811fa7bbcc96ff72aa77",
+    "textLength": 10411,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/2º Bachillerato Mates II/9-Derivadas teoria.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "cb10b41d1248c52864c795d0ac00bcb692bbb40f07b7bcf978e8c89560fef365",
+    "textLength": 13156,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/2º Bachillerato Mates II/9-Derivadas.doc",
+    "extension": ".doc",
+    "extraction": "TEXT",
+    "sha256": "f22fd55974390c5f15810d4f069e2889ffa95e0b220a7e8cd27dc96103a4ad76",
+    "textLength": 15213,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/2º Bachillerato Mates II/LIBRO 2º Bachillerato Matematicas II.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "ffd0cffd52dbcf550bd0fb5405eb65611cbff887729ae192e8a161b880ae676c",
+    "textLength": 1654540,
+    "candidateMatches": 3,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/Inventario variedad retos/EJERCICIOS EXAMENES CLASIFICADOS.md",
+    "extension": ".md",
+    "extraction": "TEXT",
+    "sha256": "3f6d561b3ffddc9630f007c83fd62f0b3e5ff93f782d99f9d59924f94e3e1738",
+    "textLength": 3255,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/Inventario variedad retos/REFERENCIAS EXAMENES TIPO ESO.md",
+    "extension": ".md",
+    "extraction": "TEXT",
+    "sha256": "deaa7c61610a6b7d64c03bbfa8bae725dcb0dad126d7a1aa882f8ece73250151",
+    "textLength": 3142,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Andalucía/CCSS II/CCSS II_1_2008.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "a6aec067c8996803441f982636f1141cd0444e72afa37b05cd39c61bdfeffaa4",
+    "textLength": 6779,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Andalucía/CCSS II/CCSS II_1_2009.pdf",
+    "extension": ".pdf",
+    "extraction": "NO_TEXT",
+    "sha256": "80e82d1ada8cde9a84c1088246d700356571506846e96c69a8283c5286f0550a",
+    "textLength": 3,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Andalucía/CCSS II/CCSS II_1_2010.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "310edb4d339c82858be28984a787c90047d83167315d4f732949cd0a0f44f272",
+    "textLength": 6221,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Andalucía/CCSS II/CCSS II_1_2012.doc",
+    "extension": ".doc",
+    "extraction": "TEXT",
+    "sha256": "d2239593f40f90880c0b939040b4cd3c15e213c5d42e12b31af85a6b9ab5afd2",
+    "textLength": 3690,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Andalucía/CCSS II/CCSS II_1_2013.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "37469eebdc17fad412c172ac42afa58bb629ea97513a337b22867835bdfd1d3a",
+    "textLength": 6357,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Andalucía/CCSS II/CCSS II_1_2014.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "879681aaab5a83cd50bda983af4d575d0256411a6b6d9f60c01b82e1e19abca1",
+    "textLength": 5820,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Andalucía/CCSS II/CCSS II_1_2015.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "9bb2b2a84b1dfbe84e15eb0bd916a990ba273ea81b8e4e13ba1ea9c7e0007399",
+    "textLength": 6069,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Andalucía/CCSS II/CCSS II_1_2016.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "834aaff158da40f129e39cbc27feb8957616c288d580128c9f8ec07a6b27735e",
+    "textLength": 6596,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Andalucía/CCSS II/CCSS II_1_2017.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "0c4ea20878edc1ee9d60761ca251a214ce87bb6cc2ea4f987390cdfabedea99f",
+    "textLength": 5871,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Andalucía/CCSS II/CCSS II_1_2018.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "b2f989474045f6cfe13f23222ac0b23bb1806d36506e2816d8b2619857d63b09",
+    "textLength": 6060,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Andalucía/CCSS II/CCSS II_1_2019.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "a426ca0e5fe165490d191b15c6ffba5e540c6dad30aa683d96c686e140ea590f",
+    "textLength": 6650,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Andalucía/CCSS II/CCSS II_1_2021.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "3eed1b1198efe76ebfddba21b71e56b5d8e0b6bb68995f7d9f585a0c63d095b6",
+    "textLength": 7492,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Andalucía/CCSS II/CCSS II_1_2022.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "55b379261d9618d8a1975cd443aa2b8eb4f70e0f51bc9accc8694948756ed928",
+    "textLength": 6186,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Andalucía/CCSS II/CCSS II_1_2023.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "e17331433b5ec22495bd56c3e0da45858e962bbea2061a9a7bc1d78b0e632a49",
+    "textLength": 6981,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Andalucía/CCSS II/CCSS II_1_2024.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "6fcaa0e6476db4e300e58b086dc6b3438ec4d5c932a1d638aab8d3caf8021b21",
+    "textLength": 7231,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Andalucía/CCSS II/CCSS II_1_2025.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "c6fbec9d7082d69e4ae81309dcf23fec051cc785397bdbc7ab5a5dbb8ae32bde",
+    "textLength": 6890,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Andalucía/CCSS II/CCSS II_1_2026.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "15330d316dd2455b2a7cdb64e084d85d33d5196372712e76a5890356faf7df5a",
+    "textLength": 5253,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Andalucía/CCSS II/CCSS II_2_2008.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "c91f5c6433e54e51f7ab28d7d46b64d349f31823fd42c4aad4953f9e750d940d",
+    "textLength": 6616,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Andalucía/CCSS II/CCSS II_2_2010.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "f24ab21b067be27ad83eadb87fc2ad6fb59d0ebbb661352aedffda5ecdd9c9ca",
+    "textLength": 6020,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Andalucía/CCSS II/CCSS II_2_2011.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "6f5aeecbeb35eaca9c786c3e2efb1a1c0a3d8850b353aa99beccb1717e2f4db4",
+    "textLength": 6479,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Andalucía/CCSS II/CCSS II_2_2012.doc",
+    "extension": ".doc",
+    "extraction": "TEXT",
+    "sha256": "8c58a2230b6b87b5bb6882db3b8d4dabfa2e6637932faeeca03bd70549be79b4",
+    "textLength": 3507,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Andalucía/CCSS II/CCSS II_2_2013.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "6f85e6759b32d4f966ce77545057f125772c9451ef56cb87c7fe786844fed142",
+    "textLength": 6329,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Andalucía/CCSS II/CCSS II_2_2014.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "ee7659e6856f01e993b7f0b9427fc4a52ea68f501f816e548de5d98bbaa2c640",
+    "textLength": 6646,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Andalucía/CCSS II/CCSS II_2_2015.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "9ce8fb9b0f9c9879eb015202ee5caf751a470a7fbec6bbb2481ee6d496cd433d",
+    "textLength": 5785,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Andalucía/CCSS II/CCSS II_2_2016.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "fb018157c5ef4e39129dc6206c53ee1d5cc5a53fa6173b69ba185562320687a8",
+    "textLength": 6447,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Andalucía/CCSS II/CCSS II_2_2017.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "921e765db601e6413bf1dc9f2a15e105a6b279a294e7469fb7142669c4972988",
+    "textLength": 6713,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Andalucía/CCSS II/CCSS II_2_2018.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "84a9b598f70da96d5cff693ff81bbc4ee1917915c5688eeede5fa09653d0ebb3",
+    "textLength": 6961,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Andalucía/CCSS II/CCSS II_2_2019.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "aa4d18a2312e6ff8e66883ef779c73e93fc234cf926ac4307424be56e022d430",
+    "textLength": 6365,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Andalucía/CCSS II/CCSS II_2_2020.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "8237e63ddf870850d7f58f027d3e30bdf4375117445082b6bfaece9499136cc0",
+    "textLength": 6771,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Andalucía/CCSS II/CCSS II_2_2021.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "edb681ac322d4e08d4647c19ae87ec4d966d270c675d3e9a680b2e28ff1b6db1",
+    "textLength": 7683,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Andalucía/CCSS II/CCSS II_2_2022.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "851f55dc32d60f8cadb17c26ad6a8a07c50081121b706f8479184d4e6d2e41c4",
+    "textLength": 6701,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Andalucía/CCSS II/CCSS II_2_2023.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "77d7134423f0e1e546c0149309076a5c9942e96ff30252c417e4c5fdb3b0cc1e",
+    "textLength": 6908,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Andalucía/CCSS II/CCSS II_2_2024.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "dd80b5c5720587026655090a37915cab5ea437f99f960f121e7c64d96482ca5d",
+    "textLength": 7746,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Andalucía/CCSS II/CCSS II_2_2025.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "020491fa1d13840d761ed0121db7c9e1d5dd9a89f13a756d39e6f089d907824c",
+    "textLength": 7168,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Andalucía/CCSS II/CCSS II_2_2026.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "f531a8e9f9a6b70955258821b5f4faa3ab59167b7a9014a0325f68054a6b86f9",
+    "textLength": 6018,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Andalucía/CCSS II/CCSS II_3_2008.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "28181e0950340ca61bfd6b2babd86815cdc9de62788f4f48695c54ab1abe2629",
+    "textLength": 6828,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Andalucía/CCSS II/CCSS II_3_2010.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "f1b30fbec9913769aeef7019a26f98bfe295c6361df23dbbc033d27474688d44",
+    "textLength": 6452,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Andalucía/CCSS II/CCSS II_3_2011.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "83b17d17e89167c9a3c67f37c613874a2cfeaad930bc0cfbb33d161d3a06b762",
+    "textLength": 6538,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Andalucía/CCSS II/CCSS II_3_2013.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "65a0c586e2ffd6e2ebc60f652e2a1a1a45e07c3ab91612b54156526886f80dcb",
+    "textLength": 5984,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Andalucía/CCSS II/CCSS II_3_2014.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "aa898006fd427f81a5d59224a55ac0dd32cc360b1758f04a3dd9e2fdb39d255a",
+    "textLength": 5378,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Andalucía/CCSS II/CCSS II_3_2016.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "7cb9f032b9bd4183cb9ca0d690d62db366b7367354039250e484791d3141a56a",
+    "textLength": 6197,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Andalucía/CCSS II/CCSS II_3_2017.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "c82f476d9e8baea6cef53cb7a220619cf1fac8b461ee5316365154ffb1a05d19",
+    "textLength": 6319,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Andalucía/CCSS II/CCSS II_3_2018.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "3205a580f35e96083cfcb45ffe5c55df6bd8b5055f139d1a2575cf584ca11509",
+    "textLength": 6420,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Andalucía/CCSS II/CCSS II_3_2019.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "789a998736656552bfa8e1e70eb9092b5d63b18f097ff7bf96cf276a30e39053",
+    "textLength": 6473,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Andalucía/CCSS II/CCSS II_3_2022.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "af6efaf580b60e18d4a88ef66efd274c00694c6472a06bc1a22040926c1f71c5",
+    "textLength": 6665,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Andalucía/CCSS II/CCSS II_3_2023.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "1cb418ffb8ad9419a1507495d3ceb5fdb3d67b28e7bf826ae18e7f02096b4be4",
+    "textLength": 6025,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Andalucía/CCSS II/CCSS II_3_2024.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "c9f1831a04aa6e6f42ffbb6dbb4dc09278e64ba46e30468966754ae92fd808f8",
+    "textLength": 10404,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Andalucía/CCSS II/CCSS II_3_2025.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "64c51887368b3f6670550f457a2e285d314aa84b2bca7de0fd34317f0a2cecd8",
+    "textLength": 6656,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Andalucía/CCSS II/CCSS II_4_2008.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "f17e7922c8bef6ac4fe8015e9497545063a3622d5fe5b9533bf670828386d6a0",
+    "textLength": 7095,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Andalucía/CCSS II/CCSS II_4_2009.pdf",
+    "extension": ".pdf",
+    "extraction": "NO_TEXT",
+    "sha256": "d66c1bb77fbd7f69836aca9d344866b359335f320935905cd754c3d90a5bc8e2",
+    "textLength": 3,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Andalucía/CCSS II/CCSS II_4_2011.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "8cb05c29c689c52e0b454312cbce2521b4c8d4e721052ef2a88aab1c4d694d53",
+    "textLength": 6298,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Andalucía/CCSS II/CCSS II_4_2013.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "06240590aae980245f2633f5984bc87b86aecd50b3544335bc2e5b6cfde388dc",
+    "textLength": 6263,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Andalucía/CCSS II/CCSS II_4_2014.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "768e7866b6c6b70c09b3c91f950d33a3ede9c4877080debbf8c9b54d480afb43",
+    "textLength": 5919,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Andalucía/CCSS II/CCSS II_4_2017.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "477535719f5810b7f19e0391ce7881aa5e2a1d5b599dacc2e635dcdc3755de0a",
+    "textLength": 5793,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Andalucía/CCSS II/CCSS II_4_2018.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "975e53f9a882f6f47de713ea3e64916f419a409603c4cc5cf219682473fb27b6",
+    "textLength": 6687,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Andalucía/CCSS II/CCSS II_4_2019.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "796ffba462ff393e974ca7b187580d8a4b7f50b7beb757f935021c2e10b7ccc2",
+    "textLength": 7140,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Andalucía/CCSS II/CCSS II_4_2020.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "60f457aada220d347bbb88a8df8a8b4aebf3a71d8d4a2975f7f9073d7bb00c53",
+    "textLength": 7384,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Andalucía/CCSS II/CCSS II_4_2023.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "abec2b04cb31eae8d9fddc1a0a7ca5725ff70ec5884ed85a17fe6a27974ee504",
+    "textLength": 6862,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Andalucía/CCSS II/CCSS II_4_2024.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "6d848a7de74d95669624c24068c0500b612311e43bdd1ed29d30e425576919b0",
+    "textLength": 6860,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Andalucía/CCSS II/CCSS II_4_2025.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "9a639787839a5dd937bd36f8fa82fa29805c8870d080ba95fe50f76c312fd6d7",
+    "textLength": 7168,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Andalucía/CCSS II/CCSS II_5_2008.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "187045f99fbaed5cd27fe5ac6dde8f3ff89a5ff8ca1ec72e280e104c49507886",
+    "textLength": 6781,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Andalucía/CCSS II/CCSS II_5_2009.pdf",
+    "extension": ".pdf",
+    "extraction": "NO_TEXT",
+    "sha256": "663d04d7629249a82542b3dbc51d459da675f83cda588a55ce988839549d90dc",
+    "textLength": 3,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Andalucía/CCSS II/CCSS II_5_2011.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "49d7e8e7edcd699638a087068ec2b3798434683c5b5f5ef6e73d5874c42ceaaa",
+    "textLength": 5732,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Andalucía/CCSS II/CCSS II_5_2012.doc",
+    "extension": ".doc",
+    "extraction": "TEXT",
+    "sha256": "e5604935500ba421af79c686981fbb55efab72bda9ef7c0bb1399db16124fed8",
+    "textLength": 4602,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Andalucía/CCSS II/CCSS II_5_2015.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "ca959748ef407ffa13507e42019be05ce8014a3f736d2c90944c7e9d2eee44c0",
+    "textLength": 5405,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Andalucía/CCSS II/CCSS II_5_2020.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "347aa74734988f7b3dfb0bde2d28f926058719924c044eaab71e24a3580b837e",
+    "textLength": 7246,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Andalucía/CCSS II/CCSS II_6_2008.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "f4a3d45a17e8d7f0d1936b54ae4b3c82dc67bfc457ade4509313b979da8c657e",
+    "textLength": 7194,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Andalucía/CCSS II/CCSS II_6_2009.pdf",
+    "extension": ".pdf",
+    "extraction": "NO_TEXT",
+    "sha256": "bb969c02f0ebc83521ad845eb7872c6d378ef50c2a490f3e46f161c83efa37d0",
+    "textLength": 3,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Andalucía/CCSS II/CCSS II_6_2011.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "3414b2ed362df0a1c1e887972a03857acdd5137395d9f6694f5e1364a8031cf4",
+    "textLength": 6041,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Andalucía/CCSS II/CCSS II_6_2012.doc",
+    "extension": ".doc",
+    "extraction": "TEXT",
+    "sha256": "79746f4e8cd2833ff0abfab272ac47371a8f4ee767cb05a96a0ff08bffd08880",
+    "textLength": 3958,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Andalucía/CCSS II/CCSS II_6_2015.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "b80f2f0c1557c9f2d691c588f15d540e2e8e0828e948d76e92381a15b4c82c05",
+    "textLength": 6321,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Andalucía/CCSS II/CCSS II_6_2020.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "f13845c33dfbfc0bfa1b6f4a4d4580e864cf9c7b11b8268b0fd22aa4230bda25",
+    "textLength": 6759,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Andalucía/CCSS II/CCSS II_6_2023.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "cc4f5312d292a3c9c2ab532ff02cef2394fb24ec2891bfb5293b302aceb747ff",
+    "textLength": 6425,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Andalucía/CCSS II/CCSS II_extra_2009.pdf",
+    "extension": ".pdf",
+    "extraction": "NO_TEXT",
+    "sha256": "10cd3a7989cbe473d80a06ad456fe6c50416c66f80b4d6b3c00b6761f3a19207",
+    "textLength": 3,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Andalucía/CCSS II/CCSS II_extra_2010.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "f022e67a9e956f3c27943acb0e66ab03d9819488396448ad21d5e9c69c8269f0",
+    "textLength": 5888,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Andalucía/CCSS II/CCSS II_extra_2011.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "0039208e62f5aca352b3b2fbdee00f63abcf29a48a0b81ad7338c3a7c9d998a8",
+    "textLength": 5522,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Andalucía/CCSS II/CCSS II_extra_2012.doc",
+    "extension": ".doc",
+    "extraction": "TEXT",
+    "sha256": "991dc0eef8d5f4bf1511d2025e51ab4da701807cd51d383da1115476096a25b3",
+    "textLength": 4495,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Andalucía/CCSS II/CCSS II_extra_2013.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "864656bbfee4468983a8e159a4452957dfdf0c1fa4a5fda621ec39e95f7b037b",
+    "textLength": 6683,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Andalucía/CCSS II/CCSS II_extra_2014.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "08d766a1824ccdeead2a13e7003d77a06886571c217f2a50e7d9dd01ac32a73d",
+    "textLength": 6495,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Andalucía/CCSS II/CCSS II_extra_2015.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "d33bab1859bffb673c26c03997d1c03860c5bb27528eec53592e0af0e1f38e39",
+    "textLength": 5963,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Andalucía/CCSS II/CCSS II_extra_2016.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "dc275fdcc9837ab8e0b48d70f830acf5ec7967f109c5ef95e9a570f90f9611a7",
+    "textLength": 6177,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Andalucía/CCSS II/CCSS II_extra_2017.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "44af0cd2a5beada9d96c8dc68f5d6a849372cdadb1a5141cc8a49e01ba08b12f",
+    "textLength": 6212,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Andalucía/CCSS II/CCSS II_extra_2018.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "ef56b9b14a5921454bbbf2c1589bc9908d6b7918821ccf4204a7de0deea88d6e",
+    "textLength": 6557,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Andalucía/CCSS II/CCSS II_extra_2019.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "2898a3f09b8bc1620b1656c1d4ad6d0993184bf7718842ff5025c2d9177f1b54",
+    "textLength": 7208,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Andalucía/CCSS II/CCSS II_extra_2020.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "1336e7f7de37d751c9b482036e491ba5c024f9e7ab5283d0c44e12febee0af65",
+    "textLength": 7169,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Andalucía/CCSS II/CCSS II_extra_2021.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "d1f0f3f5851c9fb5c7aeb758c7f20241f8951ac3864101b3ae95a41a8bf52834",
+    "textLength": 10805,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Andalucía/CCSS II/CCSS II_extra_2022.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "054065586a8c7647610c0025b1a9bbbddf55afcecc123945f2ecc52e0fbc49e2",
+    "textLength": 6882,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Andalucía/CCSS II/CCSS II_extra_2024.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "42d78690a35f29630fb1f10a0d7a91c500c9cb9e29bea4bb533b14829493f9dc",
+    "textLength": 6598,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Andalucía/CCSS II/CCSS II_extra_2025.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "17d7c2acfd22cc1bbfd388acdcdfd5af14ef5785317cccad9309d7175a8e363e",
+    "textLength": 6591,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Andalucía/CCSS II/CCSS II_ord_2009.pdf",
+    "extension": ".pdf",
+    "extraction": "NO_TEXT",
+    "sha256": "5f0e048e3bbd0d6656037c26f6bbb15665aacd50b4982481e13e58361e931997",
+    "textLength": 3,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Andalucía/CCSS II/CCSS II_ord_2010.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "3953d0e18658d6808daa61c2b0a6024eaa3a99b107c1fc0506d5492b37717047",
+    "textLength": 5602,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Andalucía/CCSS II/CCSS II_ord_2011.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "097a2add75f6beb5b4265b55dda6b9f7e6a9cea7503ebd1d4137c0e317896851",
+    "textLength": 6538,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Andalucía/CCSS II/CCSS II_ord_2012.doc",
+    "extension": ".doc",
+    "extraction": "TEXT",
+    "sha256": "9a0be7ba5240d6694612c89222a599be5906dd17044ebdbeab535486702ae49d",
+    "textLength": 3623,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Andalucía/CCSS II/CCSS II_ord_2013.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "543ca9c31ef029482f06ee5a70c9d756bf2a770491cbc4c445909ef46eb77967",
+    "textLength": 6194,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Andalucía/CCSS II/CCSS II_ord_2014.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "dca9b73b626dd3d94c8760d79327d3936d843bfc9fc005d22b89ccd839349bcd",
+    "textLength": 5921,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Andalucía/CCSS II/CCSS II_ord_2015.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "ef1194ec66042255d1a6724cf9a6672dd26ed008d3013f5974cf62c8369d4c62",
+    "textLength": 6473,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Andalucía/CCSS II/CCSS II_ord_2016.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "b45493b5b507fd8414a03b32232337b8b6c033cf9ff3f757f1a241e71fdb08f4",
+    "textLength": 6856,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Andalucía/CCSS II/CCSS II_ord_2017.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "e49f5955f12825ad4a2a148735fbbad124ba37fa1b69448ddc3eac6cd403b548",
+    "textLength": 6338,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Andalucía/CCSS II/CCSS II_ord_2018.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "6310b9dd5703e849828a9c5ab4e28366fb415ca0b77cf2315ee9561b95b3a536",
+    "textLength": 6875,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Andalucía/CCSS II/CCSS II_ord_2019.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "3b67e1ea8e4e2dd805d7cf3dd316331432e4d9111886b55fa0ba93a0e5999e62",
+    "textLength": 6491,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Andalucía/CCSS II/CCSS II_ord_2020.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "ed39722b8601eeb7877da619e522eeaeaef353979964bb396ff7c9a3be42f8d5",
+    "textLength": 7355,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Andalucía/CCSS II/CCSS II_ord_2021.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "f6ae524d4fd5f8eeabdc29cc23a7c01e77a837b20e515bf9e3998a021a4df3d2",
+    "textLength": 7233,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Andalucía/CCSS II/CCSS II_ord_2022.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "8402f2e822c271384dca3f563c6dd2f37c8845eaa99a65ece6361402f3e078ff",
+    "textLength": 6643,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Andalucía/CCSS II/CCSS II_ord_2023.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "1c250e0e0dce43bee7e500451a00f1f5a7d4da5b9da0d03fb5eebb55a0d72bef",
+    "textLength": 6650,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Andalucía/CCSS II/CCSS II_ord_2024.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "e9f6f8d79e048fced7ac61098e2b14eec9f19f4a22ccf25190cc34b9b57079fd",
+    "textLength": 7713,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Andalucía/CCSS II/CCSS II_ord_2025.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "833d0b4e0ee91a05869048b7b0b75a1ecb8e9de7e94f988cdf8142d1fa0db718",
+    "textLength": 8378,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Andalucía/CCSS II/CCSS II_ord_2026.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "ca078bf956d1b23e523ce233a49d239e6d6b00e89617df9b1d8163f1920dbad2",
+    "textLength": 10229,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Andalucía/CCSS II/Tabla función distribuón normal.pdf",
+    "extension": ".pdf",
+    "extraction": "NO_TEXT",
+    "sha256": "1d9690ef4840cd2af1487276e2d982bc02a971b664a83e10cebad78006d1cd41",
+    "textLength": 1,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Andalucía/Matemáticas II/Mates II_1_2008.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "06bc6b63eb008a89aca61c49015855026098c6405c782414bdfa5aef09b92b18",
+    "textLength": 8282,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Andalucía/Matemáticas II/Mates II_1_2009.pdf",
+    "extension": ".pdf",
+    "extraction": "NO_TEXT",
+    "sha256": "320244a620e396b9261f6dba659dd8c91d8890f7d2f46f44b3f7c2e0b5259d3c",
+    "textLength": 3,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Andalucía/Matemáticas II/Mates II_1_2010.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "94ed58b8862ea76f2f722d05b298551279a8638c93f5df4fd5f69c19a1e06f58",
+    "textLength": 4443,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Andalucía/Matemáticas II/Mates II_1_2011.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "f4b2ab58d422635cb79f2d312a11d5de70d6328e35e534e09dd568cbf876b16a",
+    "textLength": 5115,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Andalucía/Matemáticas II/Mates II_1_2012.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "e79f6444b120d495e28db46f2dfa0422e95e5c28d65b78f00e9e20bba9493bdf",
+    "textLength": 4956,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Andalucía/Matemáticas II/Mates II_1_2013.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "3d931ed116a25f37bf7510d183ccdc515787000e372c8180e4785a5067f8b761",
+    "textLength": 4519,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Andalucía/Matemáticas II/Mates II_1_2014.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "fa24b74633343de3dc6302b85138a4ea7ce2b316bcf864561e3f01604edc20e9",
+    "textLength": 5210,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Andalucía/Matemáticas II/Mates II_1_2015.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "d0e5fea96cdd4fd95489e39dbd13d532bba75373656960bf46142a0675707ffe",
+    "textLength": 4723,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Andalucía/Matemáticas II/Mates II_1_2016.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "0598cb9e01256ce3d3b99d1831c85e74ee6f19026093c13e27cb17de7a9e450c",
+    "textLength": 4873,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Andalucía/Matemáticas II/Mates II_1_2017.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "23c019957adbe4f43966373acc5d313007243eadc0efc7180877e285130d206b",
+    "textLength": 5111,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Andalucía/Matemáticas II/Mates II_1_2018.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "cd822fd26699e66a1cade8ced58249b14dccad949fcb8d1e4394e582226cb120",
+    "textLength": 6750,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Andalucía/Matemáticas II/Mates II_1_2019.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "63d1a51fc72cca121cb9fe369bd34bb6bfbddf50131a592098c15fe4ba89c29d",
+    "textLength": 5382,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Andalucía/Matemáticas II/Mates II_1_2020.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "2ebdbd2740e09adb05ef22d980fb43c2c7e49f3787bd0954251ce4a849446240",
+    "textLength": 4150,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Andalucía/Matemáticas II/Mates II_1_2021.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "2ec36515e050c36d8362d809c1a5ea52397c0fd575d013a7bb1aac4cc8298ae3",
+    "textLength": 4894,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Andalucía/Matemáticas II/Mates II_1_2022.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "c10a8347716cdc6e5b26678f678dce89f598d80edd6e7f85946df2d40809191e",
+    "textLength": 5060,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Andalucía/Matemáticas II/Mates II_1_2023.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "bbd4f794e9268830237c4cde6ac0734b0400d72663e84c15a416bc9999a18e54",
+    "textLength": 4448,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Andalucía/Matemáticas II/Mates II_1_2024.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "459e7c22108eac945941e7f74e3c2990ae4d4de7b660a9713aa5681057bd93e2",
+    "textLength": 5246,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Andalucía/Matemáticas II/Mates II_1_2025.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "fd619528916c229ad7db43f292d79f2b7149c51ca71dd0930184ecee65fb73b1",
+    "textLength": 4573,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Andalucía/Matemáticas II/Mates II_1_2026.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "f1f78767ba281d61ca849d72b8f24d687b66bd08d765effeaf41d54ea3261109",
+    "textLength": 9016,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Andalucía/Matemáticas II/Mates II_2_2010.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "f1374d48090df8bd141bdadbf56bec1bf850611861f821c20bd41e3a57412e2d",
+    "textLength": 4645,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Andalucía/Matemáticas II/Mates II_2_2012.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "12ed0647dea779a36e33d4e4a17904b042d4b72e51834f8fda8de6eac9b39cdf",
+    "textLength": 4743,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Andalucía/Matemáticas II/Mates II_2_2013.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "a4bdf966aae8f5989272ee0134a70f185f811441301b58ba4a80e31af3fb5766",
+    "textLength": 4868,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Andalucía/Matemáticas II/Mates II_2_2014.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "b75fca8bffeaa7d1f38459b19ded783cb23a018bb0cd273096d6ecf57225c8f8",
+    "textLength": 5164,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Andalucía/Matemáticas II/Mates II_2_2015.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "975b10ec866ad6063bbb17c0ff4227d98539314dbfa15aa756e5b99f7d0cdb5b",
+    "textLength": 4949,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Andalucía/Matemáticas II/Mates II_2_2016.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "4c2374e09c667b81ae4876d476dad84433244170daf1fd7b893e96d2e2149afd",
+    "textLength": 4673,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Andalucía/Matemáticas II/Mates II_2_2017.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "82b1f389aea27791b08f7dc9402e41d93a1a4a363ce7aa79b74da9805c521018",
+    "textLength": 5255,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Andalucía/Matemáticas II/Mates II_2_2018.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "445780e7a0b830aecae924008b6e782129c5cb5c86ad5d9ef52c2d7f0c5bb05b",
+    "textLength": 5863,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Andalucía/Matemáticas II/Mates II_2_2019.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "9c669b35a2f54252974e045d5f06a039cfc6037f6df0a69100adac18c776acc3",
+    "textLength": 5155,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Andalucía/Matemáticas II/Mates II_2_2020.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "2cebcfa28d3d2873fb4ecab2369d6c80863d4b73bcee2bf0db47a3b7b8c2a4c3",
+    "textLength": 4230,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Andalucía/Matemáticas II/Mates II_2_2021.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "9e981f59b4fa0b98efd5215ed7523bf9f8a07e3487fc3cb974b507c5941c44f8",
+    "textLength": 5051,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Andalucía/Matemáticas II/Mates II_2_2022.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "d286339366899bc538245a802c58c81da114d2515f57f46f94618b8b11db7f17",
+    "textLength": 5289,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Andalucía/Matemáticas II/Mates II_2_2023.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "d64da4d3724e79e71c2e2cc847d9de3540e5a6309db5d5a1bddf2ed0b0903fee",
+    "textLength": 4472,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Andalucía/Matemáticas II/Mates II_2_2024.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "c200fa937013b05c8bb1798a278d1672dbd39c55ca5109ab5695e281aafaaa17",
+    "textLength": 5004,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Andalucía/Matemáticas II/Mates II_2_2025.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "52fb27286faba72082ebf2a5869653f83a0f7e3ae7e0078bbbafecefb392ee87",
+    "textLength": 5105,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Andalucía/Matemáticas II/Mates II_2_2026.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "5f9d355d1db153170e296b27fb68ef1ff9c054e7e2857c59f5570461b966664f",
+    "textLength": 8737,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Andalucía/Matemáticas II/Mates II_3_2010.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "6d83f8e2d2a1b18c3579626f92283cc8dc178e623d8eab49bf645e568e7cef4b",
+    "textLength": 4672,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Andalucía/Matemáticas II/Mates II_3_2011.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "8fd60a44c396a2a309d6cc5dc9b3ada04e6a22ee5a3f841f7d30c757d12779c0",
+    "textLength": 4553,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Andalucía/Matemáticas II/Mates II_3_2013.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "e5deb28138a971b4608f500e3d716ec37b755ae9a79f904fef483542350d2839",
+    "textLength": 5434,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Andalucía/Matemáticas II/Mates II_3_2014.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "3e308b3933aff9b257a3e1b16071f06129f480a3595a4b92a600753d9df0e36b",
+    "textLength": 4864,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Andalucía/Matemáticas II/Mates II_3_2016.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "5447f893de3627e321d3fad964b06d52a1c4d0883441b81e4fbba25c1c14d690",
+    "textLength": 5438,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Andalucía/Matemáticas II/Mates II_3_2017.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "22cd4676754e40e06425146184b32b16dbac3ed8bbfdb9ce3df229f24937101e",
+    "textLength": 5493,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Andalucía/Matemáticas II/Mates II_3_2018.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "a2d04b9baa21d5e7875c04d4c858a9ee0220ec54a4bd96714ce8bda372470275",
+    "textLength": 5214,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Andalucía/Matemáticas II/Mates II_3_2019.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "fcaeed907f4458690d88a957113ede27de5ff22c964661973e153bb6c50bf2a5",
+    "textLength": 5187,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Andalucía/Matemáticas II/Mates II_3_2020.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "90719e17970eb2d86fcd6375a59684f8d8ff699106291ce6b4eb95f24981c524",
+    "textLength": 3926,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Andalucía/Matemáticas II/Mates II_3_2021.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "a9466281e89750b55f1fcc398c013d6d766d393296805094ba12b78515094943",
+    "textLength": 4619,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Andalucía/Matemáticas II/Mates II_3_2022.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "347839991aa2e07602103b48f997c8df16feefd10982089f245a5d664891523c",
+    "textLength": 4389,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Andalucía/Matemáticas II/Mates II_3_2023.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "c354e6487272d9a253ff6c4059460ec0b30ca9ecdc85b6cc5a90fea8a665ac1f",
+    "textLength": 4476,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Andalucía/Matemáticas II/Mates II_3_2024.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "f95283557b9bf5a312ca2064ebc97f79c8c4dcaebccc6d31d2011d4b4a3b3dc4",
+    "textLength": 4857,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Andalucía/Matemáticas II/Mates II_3_2025.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "784483ac88a753c6ef7ed9f57b40aa3d1e014933c1c0c99bf54d05d5612fa50a",
+    "textLength": 4613,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Andalucía/Matemáticas II/Mates II_4_2008.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "fd296af885131cd4f6e9f1f5014a90e4421ad82558f4b03ba44a814cbdd0ee15",
+    "textLength": 7809,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Andalucía/Matemáticas II/Mates II_4_2009.pdf",
+    "extension": ".pdf",
+    "extraction": "NO_TEXT",
+    "sha256": "99f864eed0e7676a07b96d074659adc88ded32623f70260eec8ebbc21fa55721",
+    "textLength": 3,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Andalucía/Matemáticas II/Mates II_4_2010.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "11f1c929d4e052ee6e8bcc3018d967fca3ec53a1123571556ea1030c86606b30",
+    "textLength": 4958,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Andalucía/Matemáticas II/Mates II_4_2011.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "5f185f5ab4ddd1180379867a89e011fdb45e37584dd41f4268a77d8746259403",
+    "textLength": 4891,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Andalucía/Matemáticas II/Mates II_4_2013.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "2e1c655329165423cb0d27d7b6499f8d99b47e54d4b52dff804c38f8c9c1065f",
+    "textLength": 4640,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Andalucía/Matemáticas II/Mates II_4_2014.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "096bcbb42664c2194f78c1c3537264ea98bc249f735e3ca4807b917ca1f6616c",
+    "textLength": 4555,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Andalucía/Matemáticas II/Mates II_4_2017.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "d327594dc7a85baca6f649674146c4fafd24e5590b40d6737f1c796b4c9a89a5",
+    "textLength": 5056,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Andalucía/Matemáticas II/Mates II_4_2018.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "3aa01dc52879e2c3ffcb8cb76f75e92393dca4bace17dd4f1363544f1a3bb5c3",
+    "textLength": 5521,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Andalucía/Matemáticas II/Mates II_4_2019.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "0711cc749fcdde7a1836700c4a97ca3e4c13bc0778a0f8234f0c4bbd2e508666",
+    "textLength": 5587,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Andalucía/Matemáticas II/Mates II_4_2021.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "6e96147c79a61463bc65c4f6b844915ec27c8bfb1fe9e3d558a63e00897d85ae",
+    "textLength": 4601,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Andalucía/Matemáticas II/Mates II_4_2022.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "1008abbc86e9dcf11ce3609367dacf6b83f38423b5f0e583b9962265ceca2353",
+    "textLength": 4393,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Andalucía/Matemáticas II/Mates II_4_2023.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "18446db180fb836a033ddc71c9523b402975b09b41965aca07db23a2419cf561",
+    "textLength": 4516,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Andalucía/Matemáticas II/Mates II_4_2024.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "d460f24cbbcc89b98ca3bb36fdf73197296188e15492bc7365e002064fa9ee7e",
+    "textLength": 5009,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Andalucía/Matemáticas II/Mates II_4_2025.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "a53cf3ea0ad30a99b21d42594b0d86fb9aeea2afbdc6e03fdfffb234e04af0c1",
+    "textLength": 4747,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Andalucía/Matemáticas II/Mates II_5_2008.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "68eb38f1c95927030b41fe4c7aea8caa21fcff79a8fb416d96bdcd4b66c0d920",
+    "textLength": 7444,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Andalucía/Matemáticas II/Mates II_5_2009.pdf",
+    "extension": ".pdf",
+    "extraction": "NO_TEXT",
+    "sha256": "cfe96f06b9e63491eb90a99ca82883b0359e1f86576faf8b36699bd660a53263",
+    "textLength": 3,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Andalucía/Matemáticas II/Mates II_5_2011.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "e28a98aedb2a2cd511e596be019a11cb4e9c6e91932f948ccf8e2fcde29abe1d",
+    "textLength": 4402,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Andalucía/Matemáticas II/Mates II_5_2012.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "9e9c377618754ee035213ce6ed26b14da0ea40ec9d3a88e60b8886e54d93dbb4",
+    "textLength": 4732,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Andalucía/Matemáticas II/Mates II_5_2015.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "395c5874284befb5748fc63432b17d70156e2ce14ef175df29ce9809b107e494",
+    "textLength": 4996,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Andalucía/Matemáticas II/Mates II_5_2020.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "376c3e4f9b3071a4ddce16bfbac2216cddd9fa16a488891bb5be8eca02718ba5",
+    "textLength": 4433,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Andalucía/Matemáticas II/Mates II_6_2008.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "14d9f5e9738d4f76152bd583d1c1d62ce7de60d40389069de05ce048cd60ccc3",
+    "textLength": 7947,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Andalucía/Matemáticas II/Mates II_6_2009.pdf",
+    "extension": ".pdf",
+    "extraction": "NO_TEXT",
+    "sha256": "6ee327328a2a8424436237f493f44c5e508aedd8dc1ded69f41ca1190ba07cff",
+    "textLength": 3,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Andalucía/Matemáticas II/Mates II_6_2012.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "51fcef514691ef04ea5b6b59d979457b69269d27070c275eaccef01c2be5195b",
+    "textLength": 4741,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Andalucía/Matemáticas II/Mates II_6_2015.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "755dbb6dafeb6ebc862f452e5a473c73cded4443b979c5acbc085b213d39a810",
+    "textLength": 4310,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Andalucía/Matemáticas II/Mates II_extra_2008.pdf",
+    "extension": ".pdf",
+    "extraction": "NO_TEXT",
+    "sha256": "54a6365a002d01f1c30b1e162ccf8bc081f497b1662810f87217c37cd9c92ffd",
+    "textLength": 3,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Andalucía/Matemáticas II/Mates II_extra_2009.pdf",
+    "extension": ".pdf",
+    "extraction": "NO_TEXT",
+    "sha256": "427b687b7abb3b8115b8591e9df5971385b3a38810f2468f1538570db33b1689",
+    "textLength": 3,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Andalucía/Matemáticas II/Mates II_extra_2010.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "f0afb0fde6fa5c9f211a1021903ba81e12eddd4dd5cd3c34c0ef86495ecbee5e",
+    "textLength": 4743,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Andalucía/Matemáticas II/Mates II_extra_2011.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "e8d4186dedc5223f65d467579948e870276b3685dd7785a3ec1aab31c37b0ff1",
+    "textLength": 4737,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Andalucía/Matemáticas II/Mates II_extra_2012.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "d042c846fd803c23164dff6d425dde0e0e7cdd19a831c57525b53ca8781d23d4",
+    "textLength": 5129,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Andalucía/Matemáticas II/Mates II_extra_2013.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "c555fde89216b20594a3866b3a3399bafdb540289d084840d7d62a79a022f35e",
+    "textLength": 4789,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Andalucía/Matemáticas II/Mates II_extra_2014.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "d883273c383f03baedc05bbe4aeb2c783d18827289dac3d9ed67482b945158c2",
+    "textLength": 4860,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Andalucía/Matemáticas II/Mates II_extra_2015.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "9b08791f2fdbb7019b3732b81ae482b05dd87e0ca103147430e20a3b5dc45c28",
+    "textLength": 4948,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Andalucía/Matemáticas II/Mates II_extra_2016.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "e48da1f7ac56bbe98b79cd613ecab38d5293489a824079b64b18d2c51321516e",
+    "textLength": 4894,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Andalucía/Matemáticas II/Mates II_extra_2017.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "0ca3b381bf7abee9ce29231310958d4704de790dd1cfe2b31315788205234477",
+    "textLength": 5614,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Andalucía/Matemáticas II/Mates II_extra_2018.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "7bf11b7c556a853a2d0d192f10c5d6a63ad147c524a97525b6b2ec20dc7ee486",
+    "textLength": 5690,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Andalucía/Matemáticas II/Mates II_extra_2019.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "0cee5fb5660cf8b44058ed184699406b3e865c66fd8cf24e0ead16ccbd92f326",
+    "textLength": 5559,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Andalucía/Matemáticas II/Mates II_extra_2020.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "59e61a320639b51d2a7c2e222c087f1349373fb83a2e7a12e2400db53046f408",
+    "textLength": 4349,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Andalucía/Matemáticas II/Mates II_extra_2021.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "165989bcbc9f8ce4445a11aef524db82405adae4c07d8b3f37824250c26ab4ad",
+    "textLength": 4959,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Andalucía/Matemáticas II/Mates II_extra_2022.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "a56ddcf6bee4085a57cb613f24879ad75d7a09c4f329db2d678c0b00515bde3c",
+    "textLength": 4413,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Andalucía/Matemáticas II/Mates II_extra_2023.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "ef6af79ce4a11a390c8ed05e8ef828d2d437ef87ec389e404aca35a1d49490ae",
+    "textLength": 4888,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Andalucía/Matemáticas II/Mates II_extra_2024.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "c29174ff59d30bce6211e8196e36c44a48e7128e2c4b21972fa5a569cc577bc1",
+    "textLength": 5461,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Andalucía/Matemáticas II/Mates II_extra_2025.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "7b921ab1f54d190058155f49acff09aafdcebb1a97645fd193c1b39974d6d434",
+    "textLength": 4475,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Andalucía/Matemáticas II/Mates II_ord_2008.pdf",
+    "extension": ".pdf",
+    "extraction": "NO_TEXT",
+    "sha256": "a5988fa843c17476a9b92566d3ac86a4c50ca7cc5acd7b77f371c0f790e90b7a",
+    "textLength": 3,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Andalucía/Matemáticas II/Mates II_ord_2009.pdf",
+    "extension": ".pdf",
+    "extraction": "NO_TEXT",
+    "sha256": "d1c4bf58181b6e7cfe6e39f511cf6f5cad7d5d608c2f17e3ea8ac7102cfcd961",
+    "textLength": 3,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Andalucía/Matemáticas II/Mates II_ord_2010.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "5f95d075b5171de7a161baf0e9299a60a412413e4e3798b3f5f44ae00c5a3a3f",
+    "textLength": 5170,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Andalucía/Matemáticas II/Mates II_ord_2011.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "6605a577890341e8f09691152708321bdc59954775f77868fe6a40c7142c7977",
+    "textLength": 4213,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Andalucía/Matemáticas II/Mates II_ord_2012.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "190c3f621d1bc3a582c99292a16e6ce1ad4339034992c4deec5542558a158f08",
+    "textLength": 5159,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Andalucía/Matemáticas II/Mates II_ord_2013.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "f249d8445a01a90aa309d9169f17e6c3295ea8b8771f249be2e0c7b7a5314a6f",
+    "textLength": 4490,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Andalucía/Matemáticas II/Mates II_ord_2014.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "a1c8f4962ba535c57e1ad85afcae788921a6ab3c23333922671e23be3f25df78",
+    "textLength": 4859,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Andalucía/Matemáticas II/Mates II_ord_2015.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "93accc6ff5877601c37ae6b055627c8d3898719c44beabb2d582b831d3978cc4",
+    "textLength": 4420,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Andalucía/Matemáticas II/Mates II_ord_2016.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "a7387201f0e4768a2028d122d26f1b3250ae213ab007d77b0497fecb6328cb3d",
+    "textLength": 5117,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Andalucía/Matemáticas II/Mates II_ord_2017.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "68e3879e6342bd65eab64d6f0b130f4065ec09313e5a07ee0e4142a7655d5b35",
+    "textLength": 4988,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Andalucía/Matemáticas II/Mates II_ord_2018.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "854d0d1a581abf5fd9c99efd7a2a93b3570e2bfd0781f9ec311e8c3a0f2fb699",
+    "textLength": 8792,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Andalucía/Matemáticas II/Mates II_ord_2019.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "293de11f199c9a8ce91fec20504d1cbcdc501f9b287f7bc1cfee39f418c0b7d3",
+    "textLength": 4901,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Andalucía/Matemáticas II/Mates II_ord_2020.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "0ceac1e7876e5ab58139d3c48caac2882dcd4e969cdc5d3c64387cfbd4c73c80",
+    "textLength": 4693,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Andalucía/Matemáticas II/Mates II_ord_2021.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "cc140b303ff4dae3e6e5377c15375159a5b02635369b82853f48d2f1124427ba",
+    "textLength": 5398,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Andalucía/Matemáticas II/Mates II_ord_2022.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "d9fc06ff49f778112027ef2a0b2a4e67afef531fe1b5f0bd4003e4bd01e85a4c",
+    "textLength": 5179,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Andalucía/Matemáticas II/Mates II_ord_2023.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "75e06d1deaf1445a0a773e5e9b407c8b0a0ca4b7367cfcda735d63f1adb4fa45",
+    "textLength": 4652,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Andalucía/Matemáticas II/Mates II_ord_2024.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "ff917f7b1d2cbe80a083ceeb929f7c5f01d51502dea8a82887d93a86ba72ea35",
+    "textLength": 5168,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Andalucía/Matemáticas II/Mates II_ord_2025.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "be0264a7bcecf451d5fa105fd99dda8b12455a4567535262dfe9c615b9a455b0",
+    "textLength": 4973,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Andalucía/Matemáticas II/Mates II_ord_2026.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "05a5439db1024c142be9b9429962238a6b0091e3f7bdd706b475df0890e84e9d",
+    "textLength": 8311,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Castilla y León/CCSS II/maccss_ebau_julio_2023.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "f9ecdb7daa500e680348b99201d542943a009166f3b8da1bc18e3f50012c0122",
+    "textLength": 9023,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Castilla y León/CCSS II/maccss_ebau_junio_2022.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "f1d897d293dd4c56363359f24230896783f1b2727cf79fdc7ac811ae02083a74",
+    "textLength": 9449,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Castilla y León/CCSS II/maccss_ebau_junio_2023.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "7faa2ac2fbe4572f618782591957ad4bc86703c082c275ab10c008061fbb4da9",
+    "textLength": 8779,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Castilla y León/CCSS II/maccss_fase_general_ebau_julio_2024.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "a06ab89681ffddced80acbccff7762e586aaf431d696b4b2e7270d9198b65b42",
+    "textLength": 9008,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Castilla y León/CCSS II/maccss_fase_mejora_nota_ebau_julio_2024.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "2e6d8acfa6220da1530fbc57ae08203338a22a9b4df9138233c6bf96bdaa3124",
+    "textLength": 8877,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Castilla y León/CCSS II/maccss_ii_fase_general_ebau_junio_2024.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "f803097d1a72e6220c313f6e3d4dd411369f952b9e568fd25350151fda62dbe0",
+    "textLength": 8516,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Castilla y León/CCSS II/maccss_ii_fase_mejora_nota_ebau_junio_2024.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "1e381053f5a788a741efc66071b50cf4dc7e34b679046b74891d9c7b34c0bfa8",
+    "textLength": 9155,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Castilla y León/CCSS II/maccss_jun_2015.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "ce3e9a59b22a21bddf2cd77d88fb0d71be464b9eeef3dbdef836c6e6fd5199b2",
+    "textLength": 17026,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Castilla y León/CCSS II/maccss_pau_julio_2025.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "dfd2bb9e5b41190eb20ebe18c6bd7cd33ae817905a72c4bc9251ed19d61e0d44",
+    "textLength": 17811,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Castilla y León/CCSS II/maccss_pau_julio_2026.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "2967c32a54c4c10103eb26f20078de7aa92194bfe75e66d510a0d4b9904b95b6",
+    "textLength": 19023,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Castilla y León/CCSS II/maccss_pau_junio_2025.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "6043632e56ba347106c105509f8851da847607f5a977eec72a2dd7626231f370",
+    "textLength": 17372,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Castilla y León/CCSS II/maccss_pau_junio_2026.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "f7752f4938e12e9e722d15ef2eb1bd2d57d586ae099bff29f79d5bd5a04f524a",
+    "textLength": 17346,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Castilla y León/CCSS II/maccss_sept_2015.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "dfa9e99e6f2f0a4b83bef4af2e05a6a5a7398443e91f934b6573090fb8f4402f",
+    "textLength": 19982,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Castilla y León/CCSS II/MACSEJ_sept_2010.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "3918730906eebfa4f9e1ec100da0109df702ba76805f9854a366c2b6b6d0233a",
+    "textLength": 19719,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Castilla y León/CCSS II/MACSGJjunio_2010.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "292c7a740411a7283cc22763a4f3ac0c20c744da5f0011df00d098e4e96709b5",
+    "textLength": 20081,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Castilla y León/CCSS II/MACSJ_jun_2011.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "b949500fe4dfc81d8afd54daa4fd2e096a20a175d393406c5b348b914a9bb96c",
+    "textLength": 19923,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Castilla y León/CCSS II/MACSS_sept_2011.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "ff18ec7a935ef128677b3f7d085b475bb200714adea31309aae13ffbf7bbaec5",
+    "textLength": 20279,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Castilla y León/CCSS II/macs_ebau_julio_2022.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "7e016019bf3d0099b2f9168cadd1875b187d80c2a0ceff6da7e76e57f1931d7c",
+    "textLength": 9831,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Castilla y León/CCSS II/macs_junio_2012.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "a5dad2d5415b3f849883476861c8886a4144253a142a8ba6394e8f2056263136",
+    "textLength": 20416,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Castilla y León/CCSS II/macs_junio_2014.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "3954f295558e726bdc1c82453469722362ae98f453600cf4e042cee6ccebac63",
+    "textLength": 17469,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Castilla y León/CCSS II/mac_sept_2012.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "d8fa059aac84360a7171b63cddb17120860525a8f4a056ab43b59c2fcd49f412",
+    "textLength": 19781,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Castilla y León/CCSS II/Mat ACS_sept_2016.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "d237486bc32ab9ff4f01a8f69dcb2a88b014e16599e806ecbc1659f988ca1860",
+    "textLength": 18264,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Castilla y León/CCSS II/mat._aplic.cc_.ss_._ebau_sept_2020.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "1a57bb5da1189347f03469af5875726adce9e521196edd74362b29f0ae7a41cd",
+    "textLength": 8750,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Castilla y León/CCSS II/mat._aplicadas_a_las_ccss_jun_2016.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "d237486bc32ab9ff4f01a8f69dcb2a88b014e16599e806ecbc1659f988ca1860",
+    "textLength": 18264,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Castilla y León/CCSS II/matematicasacs_jun_2018.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "6805467b9f75c2f3640af7b290e45d1c0f436655814c2a5d103041987bc2a557",
+    "textLength": 7681,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Castilla y León/CCSS II/matematicas_acs_ebau_julio_2021.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "ab8227b5309ad096187210075442c524ee4dfe8ff4532c762873ef67d1c099db",
+    "textLength": 8626,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Castilla y León/CCSS II/matematicas_acs_ebau_junio_2021.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "325cd08b7d6b671700bfa1434a91ad1c72a7d7bfb7d96369898b16fff8759e78",
+    "textLength": 9049,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Castilla y León/CCSS II/matematicas_acs_julio_2018.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "5f8de9484eaaceec771281fb361f1ad7a5cad63c59db6484e5ac4a1387cd1fb7",
+    "textLength": 8134,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Castilla y León/CCSS II/matematicas_acs_julio_2019.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "09a7470804e6f5329dd3e05c2bc431c07d558c91032a261ff24541885c80b1c1",
+    "textLength": 7899,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Castilla y León/CCSS II/matematicas_acs_junio_2019.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "950bec3197828dd639fb7fe92acff83923094194e8a8e17de35af4fb3de4892b",
+    "textLength": 8367,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Castilla y León/CCSS II/matematicas_cc_ss_ebau_junio_2020.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "9a2f6bcceada1b0b710707c92c038a1568e2a6d04842ce8aee92c8b726e820bd",
+    "textLength": 9075,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Castilla y León/CCSS II/Matemáticas_ACS_Sept_2017.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "6e5027e44d6f30f791ade5bf6fe104f1c78ad8f8f4217a6c400bba9818109587",
+    "textLength": 8034,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Castilla y León/CCSS II/Matemáticas_Aplicadas_CCSS_sept_2014.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "849f6e3e31dc471193b9ab322897998adeae11b1960100e86a180ebdae8f3df7",
+    "textLength": 17686,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Castilla y León/CCSS II/Matématicas_ACS_Jun_2017.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "2baa34bb57882783085f17219b6df2bd9a93f11dff998de6b7e18f08f53e7e9e",
+    "textLength": 8111,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Castilla y León/Matemáticas II/MATEJ_sept_2010.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "e46b6a8ec535f9edf870ff59ac3a8d2c1c74b83b7e15002ef1d22d1257cd5565",
+    "textLength": 4557,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Castilla y León/Matemáticas II/Matematicas II sept13.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "b4a30080e71cb8524e003b08fe75f54ab914eeb2412887c222e0b8421a212504",
+    "textLength": 4565,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Castilla y León/Matemáticas II/matematicasii_jun_2016.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "a6f1ee98c85096acf999b2e837f6419f8417be157da551410705c88179d9a7eb",
+    "textLength": 4609,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Castilla y León/Matemáticas II/MatematicasII_sept_2016.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "a6f1ee98c85096acf999b2e837f6419f8417be157da551410705c88179d9a7eb",
+    "textLength": 4609,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Castilla y León/Matemáticas II/Matematicasjun2013.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "a34a00a267d7acce3b7866d1afc02a3e3dc86cc20c3f79fbdf55a31df4fc5b92",
+    "textLength": 5017,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Castilla y León/Matemáticas II/matematicas_ebau_julio_2021.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "7fb3be9c9d07e6628bd325483f0b643ae75d0bf054de5ee20a3a634043466218",
+    "textLength": 10041,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Castilla y León/Matemáticas II/matematicas_ebau_julio_2022.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "45dd21b5e91d1d9239779723cbce1dc9aa37ed225a2220b309edc93807cecd4f",
+    "textLength": 10443,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Castilla y León/Matemáticas II/matematicas_ebau_julio_2023.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "2c1171cf0cc7ee43cb8bffc9cc7ca65367b6b86feb1eb41c3fdba7d2a6ab1f83",
+    "textLength": 9757,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Castilla y León/Matemáticas II/matematicas_ebau_junio_2022.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "29141e5996fd79e565ef035b4c2ba73b8225a9508154bef1bd795a2baf58ebbe",
+    "textLength": 8811,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Castilla y León/Matemáticas II/matematicas_ii_ebau_junio_2020.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "b25856bed865f5619b06ddaed4296eb2c9a587c7eb6576bb578086fdca2fe6fe",
+    "textLength": 9655,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Castilla y León/Matemáticas II/matematicas_ii_ebau_junio_2021.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "f8e2f96f5408fea99172d1ae1caf81f076b230fdd5591a55908d02b6a22c00d8",
+    "textLength": 9330,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Castilla y León/Matemáticas II/matematicas_ii_ebau_junio_2023.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "48aaf8869e3092cecc17b8825a9e0f07b81d5b0e19d0ac214ac229fe596b10cc",
+    "textLength": 8945,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Castilla y León/Matemáticas II/matematicas_ii_fase_general_ebau_julio_2024.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "b5bd86bbe9d8aeece487cd78124de8d5c6d3760731d19464b30905b1c1698f9f",
+    "textLength": 9401,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Castilla y León/Matemáticas II/matematicas_ii_fase_general_ebau_junio_2024.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "9975f726d6b6f6b2b9529af38b9c87899a9f9352ea3c4566440cbf8be51cb26e",
+    "textLength": 9678,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Castilla y León/Matemáticas II/matematicas_ii_fase_mejora_nota_ebau_julio_2024.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "3a74fa6be629e2edc05f0b72909e4af67cf8626a24ff3f8ffe0979d1d03bd566",
+    "textLength": 9868,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Castilla y León/Matemáticas II/matematicas_ii_fase_mejora_nota_ebau_junio_2024.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "74b16a7fe6ffc20ad7e94710456106ab1808eed616d23c93c13a8aa538671bce",
+    "textLength": 9413,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Castilla y León/Matemáticas II/matematicas_ii_julio_2019.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "12bb8ab22d6b1cdc41d92b464f66a689ff3fe423e2e3e608d2668a9343cdac75",
+    "textLength": 8884,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Castilla y León/Matemáticas II/matematicas_ii_jun_2018.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "11dd65698bd4ae65406dbe82a79b51c2c6f5c79dbe55b7475376380aa0f8177b",
+    "textLength": 8087,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Castilla y León/Matemáticas II/matematicas_ii_pau_julio_2025.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "3be483f678e4991f1cf0a2aabda69c2c92298531b8dab2c11f4c9fea9c0e7265",
+    "textLength": 7518,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Castilla y León/Matemáticas II/matematicas_ii_pau_junio_2025.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "d2bc7db19a39737a4b08686c25f176555856dba10540c5675dd895962b1221d1",
+    "textLength": 6939,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Castilla y León/Matemáticas II/matematicas_ii_sept_2020.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "484d0e6e598789f9aa9c88e525f86a821d1c9ad425aecaac576f58845a30245d",
+    "textLength": 9107,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Castilla y León/Matemáticas II/matematicas_julio_2018.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "f7610265565df1a98e3a9d54b959bed4cb005ee8fc1341f3946f44228d02e71b",
+    "textLength": 9306,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Castilla y León/Matemáticas II/matematicas_junio_2014.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "59f0967b27ad78c99445fd65c400fcfa554742d523ee1192e879f434de79399e",
+    "textLength": 4290,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Castilla y León/Matemáticas II/matematicas_junio_2019.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "edf6c6c238760b44061f2bd8887e3299d8c46d3535e9d61f851456f1ddf803b4",
+    "textLength": 9135,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Castilla y León/Matemáticas II/matematicas_jun_2015.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "62f85af9bcec46a23a61779a444ff7f95910420b55a26782881bc914b3f7f54a",
+    "textLength": 5007,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Castilla y León/Matemáticas II/matematicas_pau_julio_2026.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "b0cab0e920448fb5e64a744f7b32e84634cb471439ff7917340038dd236b2d8f",
+    "textLength": 7695,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Castilla y León/Matemáticas II/matematicas_pau_junio_2026.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "9d6c529e68c828eb1822227f38384909b43d0e0f802eb72986fde7de803c8b67",
+    "textLength": 7297,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Castilla y León/Matemáticas II/matematicas_sept_2015.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "12f0b77ec2ccdece10c918b2e2e161ec97196ea9d44798f8ffab1a23b98af099",
+    "textLength": 5087,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Castilla y León/Matemáticas II/Matemáticas_II_sept_2014.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "430829c34735e6749241f7ed03cc15a36244a11dee3ee2d6d3d0a7db0d5e35db",
+    "textLength": 4741,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Castilla y León/Matemáticas II/Matemáticas_II_Sept_2017.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "98259ff9b2331229541f12e61889430baeda2dda53c3c5102c4e96ca8c1b4c5d",
+    "textLength": 4936,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Castilla y León/Matemáticas II/Matemáticas_Jun_2017.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "97788f3756c3d4c469bcc1339616f42c7f3f730511816958f4865c6298a1b394",
+    "textLength": 4646,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Castilla y León/Matemáticas II/MATGJ_junio_2010.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "203c3309cfac054b672c89d02eba83b5bd5a112a9afbefa978652af15402d1ba",
+    "textLength": 4528,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Castilla y León/Matemáticas II/MATii_sept-2011.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "9109a8f540e6817b174ca03f0151315c2884792a275122e66e4dd4050b53ddd7",
+    "textLength": 4106,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Castilla y León/Matemáticas II/MATJ2011.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "d448460890b875d8ac1b37d5afa1c2ab937cc7aabd84b51cf8b16e684c41a19a",
+    "textLength": 4470,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Castilla y León/Matemáticas II/mats_sept_2012.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "3e4972692c38b123ccd48e71a023099c3dd2d225e6d5ffd2c660759fbd583f17",
+    "textLength": 5051,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Castilla y León/Matemáticas II/mat_junio_2012.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "48ca37dac299d5dfd3fd232e1fed5900971b5c60f520c8ba87d0c3d29d67f532",
+    "textLength": 5032,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/Castilla y León/Selectividad Mates II Castilla y León  2018-2010 soluciones.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "997b79cf39382df0e940f90779702def5e6de8642cd2044d0755080447cf44aa",
+    "textLength": 376428,
+    "candidateMatches": 0,
+    "solutionLike": true
+  },
+  {
+    "file": "documentos/PAU Comunidades/MADRID/EXAMENES CCSS II/2017-2018 Extraordinaria Matemáticas aplicadas a las Ciencias Sociales.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "6cd34b4c3116973bfdf3e5524790f3eb7949b4c7725f0b22b7244356464f216e",
+    "textLength": 16014,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/MADRID/EXAMENES CCSS II/2017-2018 Ordinaria Matemáticas aplicadas a las Ciencias Sociales.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "6d80ef06393c2fc17e718316637dfa5791e0ec0e3b010602071c42ac1b0febd8",
+    "textLength": 15608,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/MADRID/EXAMENES CCSS II/2018-2019 Extraordinaria Matemáticas aplicadas Ciencias Sociales.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "cbcd7e68647ef7cd895bf8e55d5a157237c2dfb7cf9f801b72e62b5fbd45ea31",
+    "textLength": 16725,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/MADRID/EXAMENES CCSS II/2018-2019 Ordinaria Matemáticas aplicadas Ciencias Sociales.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "d01354a1079d139291a256d23281422c35c5b1d3cce743bc75475831d53ffbbd",
+    "textLength": 18291,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/MADRID/EXAMENES CCSS II/2019-2020 Extraordinaria Matemáticas aplicadas a las Ciencias Sociales.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "e2b02d75598617bf595f3d789a2f878d2ed091aa7b5acb8a919b99b3d8e8dc76",
+    "textLength": 22384,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/MADRID/EXAMENES CCSS II/2019-2020 Ordinaria Matemáticas Aplicadas a las Ciencias Sociales (coincidencias).pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "c8d9c5c1b899e8d581d86bf4da83a54bba38408d77c94f402d0a7d4f7e92d4c9",
+    "textLength": 22708,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/MADRID/EXAMENES CCSS II/2019-2020 Ordinaria Matemáticas Aplicadas a las Ciencias Sociales.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "fae918f83be3c73aaf8011b140a3a8d0bbcf2694562ffd419dc60f9bf076e82d",
+    "textLength": 23852,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/MADRID/EXAMENES CCSS II/2020-2021 Extraordinaria Matemáticas aplicadas Ciencias Sociales coincidencias.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "5b2f5ad771f73a67d3a356942bd084f9cdae7b33a76500c231ff3c2b9732ddf8",
+    "textLength": 17756,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/MADRID/EXAMENES CCSS II/2020-2021 Extraordinaria Soluciones Matemáticas aplicadas Ciencias Sociales.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "1be8ef7711ae4d9a85bd67218465549f879550ee5181f9cd15841a4955f39370",
+    "textLength": 26078,
+    "candidateMatches": 0,
+    "solutionLike": true
+  },
+  {
+    "file": "documentos/PAU Comunidades/MADRID/EXAMENES CCSS II/2020-2021 Ordinaria Soluciones Matemáticas aplicadas a las Ciencias Sociales.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "c52bc7eaeb9608ead59fdf51435825f50d45406b2166936d978efd4982d4ba18",
+    "textLength": 27474,
+    "candidateMatches": 0,
+    "solutionLike": true
+  },
+  {
+    "file": "documentos/PAU Comunidades/MADRID/EXAMENES CCSS II/2020-2021 Ordinaria Soluciones Matemáticas aplicadas Ciencias Sociales coincidencias.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "4fdcb13a76f2799170e8e450557b60c6bb8f5982b9ea13e4da38953e1966977c",
+    "textLength": 22542,
+    "candidateMatches": 0,
+    "solutionLike": true
+  },
+  {
+    "file": "documentos/PAU Comunidades/MADRID/EXAMENES CCSS II/2021-2022 Extraordinaria Soluciones Matemáticas Aplicadas a las Ciencias Sociales II coincidencias.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "71ec5d6db0115c95f31d914a9f0bf696affd9e35b841de672ee6d915e3ac1bde",
+    "textLength": 24438,
+    "candidateMatches": 0,
+    "solutionLike": true
+  },
+  {
+    "file": "documentos/PAU Comunidades/MADRID/EXAMENES CCSS II/2021-2022 Extraordinaria Soluciones Matemáticas Aplicadas a las Ciencias Sociales II.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "ff30ab62a500d6a03cf3be46539f765f2783e9481fcde08fb94f6d4c7a48dedc",
+    "textLength": 24113,
+    "candidateMatches": 0,
+    "solutionLike": true
+  },
+  {
+    "file": "documentos/PAU Comunidades/MADRID/EXAMENES CCSS II/2021-2022 Ordinaria Soluciones Matemáticas aplicadas Ciencias Sociales coincidencias.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "6b72f15423b6258bbeb9641f2ac2752f32d0b9a34b41ab99632c106b6e2df42a",
+    "textLength": 25383,
+    "candidateMatches": 0,
+    "solutionLike": true
+  },
+  {
+    "file": "documentos/PAU Comunidades/MADRID/EXAMENES CCSS II/2021-2022 Ordinaria Soluciones Matemáticas aplicadas Ciencias Sociales.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "27941c7ae8c6f3c81fae5f6ed71f79f73eb0aec20dbd1f45ac183ccaf0b7583c",
+    "textLength": 26072,
+    "candidateMatches": 0,
+    "solutionLike": true
+  },
+  {
+    "file": "documentos/PAU Comunidades/MADRID/EXAMENES CCSS II/2022-2023 Extraordinaria Soluciones Matemáticas Aplicadas a las Ciencias Sociales II coincidencias.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "00d54e1d3c9f59e986e00d78f233efd881b760235daa10886e91449cf732b7b0",
+    "textLength": 23653,
+    "candidateMatches": 0,
+    "solutionLike": true
+  },
+  {
+    "file": "documentos/PAU Comunidades/MADRID/EXAMENES CCSS II/2022-2023 Extraordinaria Soluciones Matemáticas Aplicadas a las Ciencias Sociales II.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "9f64d3d9e02ae382a7cb6ea625bbf9f9731fb7207e16ea0e4784a521ccb067ad",
+    "textLength": 23446,
+    "candidateMatches": 0,
+    "solutionLike": true
+  },
+  {
+    "file": "documentos/PAU Comunidades/MADRID/EXAMENES CCSS II/2022-2023 Ordinaria Soluciones Matemáticas Aplicadas a las Ciencias Sociales II coincidencias.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "8b44ec322873efa9cde340ae3074d0399824011209c7d82696c28e25cca7acd6",
+    "textLength": 22888,
+    "candidateMatches": 0,
+    "solutionLike": true
+  },
+  {
+    "file": "documentos/PAU Comunidades/MADRID/EXAMENES CCSS II/2022-2023 Ordinaria Soluciones Matemáticas Aplicadas a las Ciencias Sociales II.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "3ffe713bd59b6d087dd7f9a8147af599b160eac7c00ea0109c26ac17e8a131ef",
+    "textLength": 22930,
+    "candidateMatches": 0,
+    "solutionLike": true
+  },
+  {
+    "file": "documentos/PAU Comunidades/MADRID/EXAMENES CCSS II/2023-2024 Extraordinaria Soluciones Matemáticas Aplicadas a las Ciencias Sociales II coincidencias.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "55ca5b85ee29b8754fc894fca318ec9c530ca2e8b2e317db22404807c2ed8474",
+    "textLength": 24076,
+    "candidateMatches": 0,
+    "solutionLike": true
+  },
+  {
+    "file": "documentos/PAU Comunidades/MADRID/EXAMENES CCSS II/2023-2024 Extraordinaria Soluciones Matemáticas Aplicadas a las Ciencias Sociales II.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "db27ea0c3be530da11e918d26c9b4471d3325cdac351697df32806148906fca1",
+    "textLength": 25016,
+    "candidateMatches": 0,
+    "solutionLike": true
+  },
+  {
+    "file": "documentos/PAU Comunidades/MADRID/EXAMENES CCSS II/2023-2024 Ordinaria Soluciones Matemáticas Aplicadas a las Ciencias Sociales II coincidencias.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "c51b59bfb4677c630eaf44c1d391aff6750a65a622419413a255184da9b8a97c",
+    "textLength": 23036,
+    "candidateMatches": 0,
+    "solutionLike": true
+  },
+  {
+    "file": "documentos/PAU Comunidades/MADRID/EXAMENES CCSS II/2023-2024 Ordinaria Soluciones Matemáticas Aplicadas a las Ciencias Sociales II.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "725dd5982c2ef724e0806379c49be558a17761bf2037d4985b89f2cf53751bdc",
+    "textLength": 24360,
+    "candidateMatches": 0,
+    "solutionLike": true
+  },
+  {
+    "file": "documentos/PAU Comunidades/MADRID/EXAMENES CCSS II/2024-2025 Extraordinaria Soluciones Matemáticas Aplicadas a las Ciencias Sociales II coincidencias.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "acc46bb1f3f49e1d287569105b4cfcbd2a833b682eab9dea30545f32d1ed2262",
+    "textLength": 21606,
+    "candidateMatches": 0,
+    "solutionLike": true
+  },
+  {
+    "file": "documentos/PAU Comunidades/MADRID/EXAMENES CCSS II/2024-2025 Extraordinaria Soluciones Matemáticas Aplicadas a las Ciencias Sociales II.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "580ca9ae3704f8ffe2e7b589a02e1607be4b8da3e6e77f204d9b3abf45c4f628",
+    "textLength": 22085,
+    "candidateMatches": 0,
+    "solutionLike": true
+  },
+  {
+    "file": "documentos/PAU Comunidades/MADRID/EXAMENES CCSS II/2024-2025 Ordinaria Soluciones Matemáticas Aplicadas a las Ciencias Sociales II coincidencias.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "122c0e4ee72e4a106377e4179181d28b39ac47d5a412f1732331a5384c192b01",
+    "textLength": 22619,
+    "candidateMatches": 0,
+    "solutionLike": true
+  },
+  {
+    "file": "documentos/PAU Comunidades/MADRID/EXAMENES CCSS II/2024-2025 Ordinaria Soluciones Matemáticas Aplicadas a las Ciencias Sociales II.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "3257e6e34712cfb8307dafe7be4c98692d4d65561af54778a2887a29f11168f5",
+    "textLength": 23401,
+    "candidateMatches": 0,
+    "solutionLike": true
+  },
+  {
+    "file": "documentos/PAU Comunidades/MADRID/EXAMENES CCSS II/2025-2026 Ordinaria Soluciones Matemáticas Aplicadas a las Ciencias Sociales II (3).pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "6fb7cdf55b3694a3532bfa5cc684520e8ece4d69258a2721d1c0cbce2381236e",
+    "textLength": 24251,
+    "candidateMatches": 0,
+    "solutionLike": true
+  },
+  {
+    "file": "documentos/PAU Comunidades/MADRID/EXAMENES MATES II/2Bach.Mates_II.Selectividad.04-05.Junio.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "785bf42738264253e0681ba167d698c701771fb863a33fc9e98d4054e30b6e16",
+    "textLength": 5649,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/MADRID/EXAMENES MATES II/2Bach.Mates_II.Selectividad.04-05.Septiembre.pdf",
+    "extension": ".pdf",
+    "extraction": "NO_TEXT",
+    "sha256": "3c1301930d8025a8d98a470a48c85c38716383cf50465a9ded6ed16a1574c76e",
+    "textLength": 3,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/MADRID/EXAMENES MATES II/2Bach.Mates_II.Selectividad.05-06.Junio.pdf",
+    "extension": ".pdf",
+    "extraction": "NO_TEXT",
+    "sha256": "4c41670450c9566539be8e7fec2145e104c62d7879ab725f4a9f7b380134fe33",
+    "textLength": 3,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/MADRID/EXAMENES MATES II/2Bach.Mates_II.Selectividad.05-06.Septiembre.pdf",
+    "extension": ".pdf",
+    "extraction": "NO_TEXT",
+    "sha256": "16d59c684196530ea9cb410d506220f8b2c75b0e360c87748f7d42e227f3cc9c",
+    "textLength": 3,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/MADRID/EXAMENES MATES II/2Bach.Mates_II.Selectividad.06-07.Junio.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "e811a3ebdd3fbad6d3d113d0d3736de7f31ae838541a7befd48b9bfc1658e1e5",
+    "textLength": 4996,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/MADRID/EXAMENES MATES II/2Bach.Mates_II.Selectividad.06-07.Septiembre.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "237df35b66af38ec3b523a73d463b3a33d90da2652f450a93da59106260f85dd",
+    "textLength": 5954,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/MADRID/EXAMENES MATES II/2Bach.Mates_II.Selectividad.07-08.Junio.pdf",
+    "extension": ".pdf",
+    "extraction": "NO_TEXT",
+    "sha256": "a82302b6cf0f63913421286554f3c48ad4caf9623012f3e8e17241365f356a7d",
+    "textLength": 2,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/MADRID/EXAMENES MATES II/2Bach.Mates_II.Selectividad.07-08.Septiembre.pdf",
+    "extension": ".pdf",
+    "extraction": "NO_TEXT",
+    "sha256": "cf9000ffa351ce46029c7e426dae54e67c039b0a17e95d4d83ba35fb33939b11",
+    "textLength": 3,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/MADRID/EXAMENES MATES II/2Bach.Mates_II.Selectividad.08-09.Junio.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "448a12c20a6af86571a502096eb6e12e2f52fe1fc3ba3aa541c496bb8483f36f",
+    "textLength": 5194,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/MADRID/EXAMENES MATES II/2Bach.Mates_II.Selectividad.08-09.Septiembre.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "745e9d07835baf61992a361740a8cfca0db6162b4ba3225e6fe9013d14fa705d",
+    "textLength": 5186,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/MADRID/EXAMENES MATES II/2Bach.Mates_II.Selectividad.09-10.Junio.Especifica.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "17fb56f81e09665ede4d4c3f6a98f1b837f88eccf89f462096e71d0ccc83e894",
+    "textLength": 5778,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/MADRID/EXAMENES MATES II/2Bach.Mates_II.Selectividad.09-10.Septiembre.Especifica.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "c9c338c5ac6a5e85652f5faa2ebabbeb600b7ae1780db7787abd8ffc73c97e26",
+    "textLength": 5789,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/MADRID/EXAMENES MATES II/2Bach.Mates_II.Selectividad.10-11.Junio.pdf",
+    "extension": ".pdf",
+    "extraction": "NO_TEXT",
+    "sha256": "ebc6adf072ed8d3fe96db09793eabcf74224ef4bb3d8b3d56df8a0eb667d3b74",
+    "textLength": 3,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/MADRID/EXAMENES MATES II/2Bach.Mates_II.Selectividad.10-11.Septiembre.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "a169e5315a560a448124d235210850d29c1283e90feaf4ba6e832e56726c8006",
+    "textLength": 6677,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/MADRID/EXAMENES MATES II/2Bach.Mates_II.Selectividad.11-12.Junio.pdf",
+    "extension": ".pdf",
+    "extraction": "NO_TEXT",
+    "sha256": "17a4317c7f9e9e8958b15c10aa79d754c4a4b40af1a50ce1ee102dc91aa3a44d",
+    "textLength": 3,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/MADRID/EXAMENES MATES II/2Bach.Mates_II.Selectividad.11-12.Septiembre.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "9311c737c52716b751fd6767e32d822ea48b9307ab27ee25153ff747c4ef5fb1",
+    "textLength": 4397,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/MADRID/EXAMENES MATES II/2Bach.Mates_II.Selectividad.12-13.Junio.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "2f106fa84167821ded8e7bc0748e6d7b93edcc24e98a43687f725ad054ac9593",
+    "textLength": 4906,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/MADRID/EXAMENES MATES II/2Bach.Mates_II.Selectividad.12-13.Septiembre.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "ab193f59de6b587f295183fb4765c016f277f31100ae4b9effa041caf7ea8bbb",
+    "textLength": 4721,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/MADRID/EXAMENES MATES II/2Bach.Mates_II.Selectividad.13-14.Junio.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "e42225230454e03345c1743b5c2601ab5e3f2451cfabcbfc373be138c4317078",
+    "textLength": 5676,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/MADRID/EXAMENES MATES II/2Bach.Mates_II.Selectividad.13-14.Septiembre.pdf",
+    "extension": ".pdf",
+    "extraction": "NO_TEXT",
+    "sha256": "ec8da87d05f59dc95d27bf705bd01366bc647f0616326e4f69f479f84617905d",
+    "textLength": 2,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/MADRID/EXAMENES MATES II/2Bach.Mates_II.Selectividad.14-15.Junio.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "2d4ff13a110da9f5529478372d4d9c4f4ed428fc03ac56b38b8fc6d4a114c1c3",
+    "textLength": 4727,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/MADRID/EXAMENES MATES II/2Bach.Mates_II.Selectividad.14-15.Septiembre.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "bf5a2a00ebbd705d62575ed149192abf208983f459a415bea32496d4305f380e",
+    "textLength": 4585,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/MADRID/EXAMENES MATES II/2Bach.Mates_II.Selectividad.15-16.Junio.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "37687ec5e6a8e08088256cf065fb559ba88158eb6c7f2d14d9e4a7b593355a80",
+    "textLength": 4624,
+    "candidateMatches": 1,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/MADRID/EXAMENES MATES II/2Bach.Mates_II.Selectividad.15-16.Septiembre.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "d4e0f5f98e07784e1cf52991eb700df2fe4e44cdf29e06421d58733ea2db68ca",
+    "textLength": 7127,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/MADRID/EXAMENES MATES II/2Bach.Mates_II.Selectividad.16-17.Junio.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "eabb2dd3fc0cba1376e958e48083fde1c37e5d712585e96b63319d98e4a1ab0a",
+    "textLength": 7857,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/MADRID/EXAMENES MATES II/2Bach.Mates_II.Selectividad.16-17.Septiembre.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "5325b50cfcdc1864d3c816c3c5ad3b019a05ac5f6fdde8fd2ca6bfcb04213fc6",
+    "textLength": 5111,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/MADRID/EXAMENES MATES II/2Bach.Mates_II.Selectividad.17-18.Julio.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "aa34af71649e1c705b57a3cdf674af14c69fd0ae69797c54015a5d7f4fc65ac9",
+    "textLength": 9456,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/MADRID/EXAMENES MATES II/2Bach.Mates_II.Selectividad.17-18.Junio.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "3ec9a82633a6c7cc2af54d11fd1dd2f8b0f901f12cc68a1b2da43f81f1066625",
+    "textLength": 8343,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/MADRID/EXAMENES MATES II/2Bach.Mates_II.Selectividad.18-19.Junio.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "d69169f609a5053b8b2e8c210911af0a137884229084d994bd3fc706622ecc5e",
+    "textLength": 10615,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/MADRID/EXAMENES MATES II/2Bach.Mates_II.Selectividad.19-20.Junio.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "1e282cb222609665ce8acdee0b4fe1bedf4d5e3f13e9c787b9d74f0805aef904",
+    "textLength": 15681,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/MADRID/EXAMENES MATES II/2Bach.Mates_II.Selectividad.19-20.Septiembre.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "126b5e228208f3b9eed3c77a92d472631fa1a95a9640956190c9023aa6d7573d",
+    "textLength": 11278,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/MADRID/EXAMENES MATES II/2Bach.Mates_II.Selectividad.20-21.Julio.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "462217e8bdc6e2bd0a84a2ae8d0ac770100877804ab26bcb1c81fb23f7a8d77d",
+    "textLength": 12999,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/MADRID/EXAMENES MATES II/2Bach.Mates_II.Selectividad.20-21.Junio.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "4743aee7d2d035d1221fffb55ec10864ea97af4e0949a5fdf3b3e1c306e05a72",
+    "textLength": 12917,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/MADRID/EXAMENES MATES II/2Bach.Mates_II.Selectividad.21-22.Julio.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "bd31cdb9ad2361c070d70f0fca325d9ef711d541f860a3875aa626275af1e607",
+    "textLength": 24068,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/MADRID/EXAMENES MATES II/2Bach.Mates_II.Selectividad.21-22.Junio.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "b9a482ff566bcafc42d8f6c5ee8447efcf47173cdb0ad29ad9f98135104b3d74",
+    "textLength": 22383,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/MADRID/EXAMENES MATES II/2Bach.Mates_II.Selectividad.22-23.Julio.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "d353ddfac31650cb18e5ddd9df161216947030bbb5be0295ba8c7ef647a6ab66",
+    "textLength": 21171,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/MADRID/EXAMENES MATES II/2Bach.Mates_II.Selectividad.22-23.Junio.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "5ce920f5cd73e4d17ac43e20e1fa03a4c211ad00feb4e12f5281c8b7c7189dd9",
+    "textLength": 21782,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/MADRID/EXAMENES MATES II/2Bach.Mates_II.Selectividad.23-24.Julio.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "394380979632b5afdf907f7fb59833db8aa4d05022cc0e606bc2ac497b7448ed",
+    "textLength": 16591,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/MADRID/EXAMENES MATES II/2Bach.Mates_II.Selectividad.23-24.Junio.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "b77262c0f7d8ce109d4269b3f777abc639c4630f14aee0adbd137220a715ad7b",
+    "textLength": 16885,
+    "candidateMatches": 1,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/MADRID/EXAMENES MATES II/2Bach.Mates_II.Selectividad.24-25.Junio.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "0a5a9e03d54c595befde230003ba5cee3ae757713896630f9ef33a0e454a9a2b",
+    "textLength": 5331,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/MADRID/EXAMENES MATES II/CCSS II_ORD_2026.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "6fb7cdf55b3694a3532bfa5cc684520e8ece4d69258a2721d1c0cbce2381236e",
+    "textLength": 24251,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/MADRID/EXAMENES MATES II/Criterios_MAACCSSII EXTRA 2026.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "fd2105ddcdf4efd438c3357307385e95efe967f552f0be0c91aa555f02a1791e",
+    "textLength": 15620,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/MADRID/EXAMENES MATES II/Criterios_Matemáticas+II EXTRA 2026.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "088e2ec6158e1d8203bde528190a91625c947767fc70869a007fcb96f67ecb94",
+    "textLength": 8548,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/MADRID/EXAMENES MATES II/madrid CCSS II examenes 2000-2026.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "e0b45bdfeccae87ac7badaba527ba373861ea3a468b4828b0ff67e7f7391ba48",
+    "textLength": 554054,
+    "candidateMatches": 2,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/MADRID/EXAMENES MATES II/MAT II_ORD_2026.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "50694e6c102cbe293e4ad7e05668eedf91244cb4ae35d31bac9e6affdf25dfb3",
+    "textLength": 15186,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/MADRID/EXAMENES MATES II/matematicas II.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "3bd4835fea559dd4d797b2b91ab5299c9641f5bbe333b8d1d42efc708ffeb5fe",
+    "textLength": 8440,
+    "candidateMatches": 1,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/MADRID/madrid CCSS II examenes 2000-2026.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "e0b45bdfeccae87ac7badaba527ba373861ea3a468b4828b0ff67e7f7391ba48",
+    "textLength": 554054,
+    "candidateMatches": 2,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/MADRID/Madrid matematicas II exámenes 200-2026.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "3fb48a641598e872d8a833f7e323bf9be9fc7f7e431c52f78090023e7d2f05d7",
+    "textLength": 489913,
+    "candidateMatches": 9,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/MADRID/Selectividad CCSS II Madrid 2026-2000 Ejercicios.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "28a02460e6bcee41a494245f77f9d7272cdb8d9947a69bd3ba45dbfa743d67e9",
+    "textLength": 672878,
+    "candidateMatches": 2,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/MADRID/Selectividad CCSS II Madrid 2026-2000 Soluciones.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "f6da62198b99a832b4dcc2a590cd76e561b233088ab6e9abb5d1f7b8638bfb4d",
+    "textLength": 1440740,
+    "candidateMatches": 1,
+    "solutionLike": true
+  },
+  {
+    "file": "documentos/PAU Comunidades/MADRID/Selectividad Mat II 2026-200 Ejercicios.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "f36343cc39382a39025129fc339fd3b4385094b12e61d451265dc2663909f3e8",
+    "textLength": 552182,
+    "candidateMatches": 8,
+    "solutionLike": false
+  },
+  {
+    "file": "documentos/PAU Comunidades/MADRID/Selectividad Mates II madrid 2026-2000 soluciones.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "7c64b89630a6ce72934d221861a7206687cf513dbdefae690bd08719b2cdaee9",
+    "textLength": 1664096,
+    "candidateMatches": 9,
+    "solutionLike": true
+  },
+  {
+    "file": "documentos/PAU Comunidades/MADRID/Tablas de la distribución binomial y normal.pdf",
+    "extension": ".pdf",
+    "extraction": "TEXT",
+    "sha256": "e1f3fb5e7a69268a3afba66ff445defbee3d3cb37f3825c9aa05619bce185ae6",
+    "textLength": 9036,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "_extracted/2bach-ccss-ejercicios/1-Matrices Ejercicios.txt",
+    "extension": ".txt",
+    "extraction": "TEXT",
+    "sha256": "f622cea5645438c3dd9a3fc03b4ec9ca9e2d0752cf00d7d8aca6e444b7026304",
+    "textLength": 4044,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "_extracted/2bach-ccss-ejercicios/10-Distribución de probabilidad. Distribución Binomial. Continuas Ejercicios.txt",
+    "extension": ".txt",
+    "extraction": "TEXT",
+    "sha256": "3a8b69223977e6b65fd4a287c9b2ab1e9401f501675ed13d11c84c8e48b19a53",
+    "textLength": 13278,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "_extracted/2bach-ccss-ejercicios/11- Muestreo e indiferencia estadística Ejercicios.txt",
+    "extension": ".txt",
+    "extraction": "TEXT",
+    "sha256": "8663d99aac5e953b4acca27efae5ddf64ac80e77580cdc405b1c240219d8dcc2",
+    "textLength": 14805,
+    "candidateMatches": 1,
+    "solutionLike": false
+  },
+  {
+    "file": "_extracted/2bach-ccss-ejercicios/2-Determinantes Ejercicios.txt",
+    "extension": ".txt",
+    "extraction": "TEXT",
+    "sha256": "6d370032e97d0b8d94c1369808b0359afe7cad2b106dbef81b28bf4bb27cd30a",
+    "textLength": 3208,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "_extracted/2bach-ccss-ejercicios/3- Resolución de sistemas mediante determinantes Ejercicios.txt",
+    "extension": ".txt",
+    "extraction": "TEXT",
+    "sha256": "49761d7c89d1bbaa2ebe465dc93e55696f9cd263a27d0133b6533d6b4883f049",
+    "textLength": 5338,
+    "candidateMatches": 0,
+    "solutionLike": true
+  },
+  {
+    "file": "_extracted/2bach-ccss-ejercicios/4-Programación lineal Ejercicios.txt",
+    "extension": ".txt",
+    "extraction": "TEXT",
+    "sha256": "cb7c9c0a632ead88be67ffa8f4f15098274191704d99415974065148fd2f7026",
+    "textLength": 14186,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "_extracted/2bach-ccss-ejercicios/5-Límite de Funciones. Continuidad Ejercicios.txt",
+    "extension": ".txt",
+    "extraction": "TEXT",
+    "sha256": "0baf1e7bca413dec5b255fce94c110b9a50bac2959fda7000b4f82ae9f9179df",
+    "textLength": 4021,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "_extracted/2bach-ccss-ejercicios/6-Derivadas y Aplicación de Derivadas Ejercicios.txt",
+    "extension": ".txt",
+    "extraction": "TEXT",
+    "sha256": "0372736422459784dff808f4af9223f109db1c48553abfd333544baaa8af0877",
+    "textLength": 7881,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "_extracted/2bach-ccss-ejercicios/7-Integrales indefinidas Ejercicios.txt",
+    "extension": ".txt",
+    "extraction": "TEXT",
+    "sha256": "9eaf975ee7517e95c7a9639added0fc533b7d37bc40d64daaefc0c17716e3189",
+    "textLength": 1242,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "_extracted/2bach-ccss-ejercicios/8-Integrales definidas Ejercicios.txt",
+    "extension": ".txt",
+    "extraction": "TEXT",
+    "sha256": "34cce52e6746a967e09743871c9cb61262acfe7fb62069ed2041dd66ef283890",
+    "textLength": 3978,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "_extracted/2bach-ccss-ejercicios/9-Probabilidad Ejercicios.txt",
+    "extension": ".txt",
+    "extraction": "TEXT",
+    "sha256": "9c6e0cb0805c6dfe4b6707a921321c1cd8da42ce66e46362714eebafc00ed668",
+    "textLength": 20058,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "_extracted/2bach-mates-ejercicios/1-Matrices Ejercicios.txt",
+    "extension": ".txt",
+    "extraction": "TEXT",
+    "sha256": "f622cea5645438c3dd9a3fc03b4ec9ca9e2d0752cf00d7d8aca6e444b7026304",
+    "textLength": 4044,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "_extracted/2bach-mates-ejercicios/10-Aplicación de Derivadas Ejercicios.txt",
+    "extension": ".txt",
+    "extraction": "TEXT",
+    "sha256": "900b97f5c46613d7a9efe27daaa83616d7e6d3beea6e65d16d44ad0af0ffa23e",
+    "textLength": 8161,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "_extracted/2bach-mates-ejercicios/11-Integrales indefinidas Ejercicios.txt",
+    "extension": ".txt",
+    "extraction": "TEXT",
+    "sha256": "e423660f2e3c5313492bc068919fa8a3ea292e79f3ba4330867ab343d5b38cd5",
+    "textLength": 1243,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "_extracted/2bach-mates-ejercicios/12-Integrales definidas Ejercicios.txt",
+    "extension": ".txt",
+    "extraction": "TEXT",
+    "sha256": "5fbb971799a090fd04c768117b006e184494365e1c7dca56421efd64e2f0bc37",
+    "textLength": 3979,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "_extracted/2bach-mates-ejercicios/13-Probabilidad Ejercicios.txt",
+    "extension": ".txt",
+    "extraction": "TEXT",
+    "sha256": "67154b045deefb78afa5bcb5939eb35fa871cb0afd71c523f1c4388c3ab1f10b",
+    "textLength": 20059,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "_extracted/2bach-mates-ejercicios/14-Distribución de probabilidad. Distribución Binomial Ejercicios.txt",
+    "extension": ".txt",
+    "extraction": "TEXT",
+    "sha256": "6c37dcf33d75d9a70e78177056adf287cd8714e1f62ab02d0bb00ffb9e5bd893",
+    "textLength": 13280,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "_extracted/2bach-mates-ejercicios/2-Determinantes Ejercicios.txt",
+    "extension": ".txt",
+    "extraction": "TEXT",
+    "sha256": "95bc7698de3598be79b38770c0ebf25086fdb12390f23e834f7dbf0e685a6ef2",
+    "textLength": 3207,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "_extracted/2bach-mates-ejercicios/3- Resolución de sistemas mediante determinantes Ejercicios.txt",
+    "extension": ".txt",
+    "extraction": "TEXT",
+    "sha256": "49761d7c89d1bbaa2ebe465dc93e55696f9cd263a27d0133b6533d6b4883f049",
+    "textLength": 5338,
+    "candidateMatches": 0,
+    "solutionLike": true
+  },
+  {
+    "file": "_extracted/2bach-mates-ejercicios/4-Vectores en el Espacio Ejercicio.txt",
+    "extension": ".txt",
+    "extraction": "TEXT",
+    "sha256": "73e81d158d98bc3bd4d97b1bc6e54f6b074f8a83b5d5a327b38f9c491516fb32",
+    "textLength": 4862,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "_extracted/2bach-mates-ejercicios/5-Planos y rectas en el espacio Ejercicios.txt",
+    "extension": ".txt",
+    "extraction": "TEXT",
+    "sha256": "4b53e5683831ea6fa0e3b9a59e13add0e3972f0324bf066d158e36338673de1c",
+    "textLength": 9577,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "_extracted/2bach-mates-ejercicios/6-Propiedades métricas Ejercicios.txt",
+    "extension": ".txt",
+    "extraction": "TEXT",
+    "sha256": "621ce4de3d1ee4f83dd4fd81836391880318bc4f275f78f4aa6a5f665c48101e",
+    "textLength": 3165,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "_extracted/2bach-mates-ejercicios/7-Límite de Sucesiones y Funciones Ejercicios.txt",
+    "extension": ".txt",
+    "extraction": "TEXT",
+    "sha256": "9204ac221c458729d54738b37b5f3558fc296c4eb0c52896e08e99ec6551b85c",
+    "textLength": 2584,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "_extracted/2bach-mates-ejercicios/8-Continuidad Ejercicios.txt",
+    "extension": ".txt",
+    "extraction": "TEXT",
+    "sha256": "ad4903fd0671e8af717384a6289681088dfd1fff8712b5ce8004dc2d406810bd",
+    "textLength": 3536,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "_extracted/2bach-mates-ejercicios/9-Derivadas Ejercicios.txt",
+    "extension": ".txt",
+    "extraction": "TEXT",
+    "sha256": "bcda582455662e58e628963d2d140ed6ebb8a6c2fc4bd985fe647ad056ed1f5b",
+    "textLength": 4076,
+    "candidateMatches": 0,
+    "solutionLike": false
+  },
+  {
+    "file": "_extracted/pdf-samples/ccssII.txt",
+    "extension": ".txt",
+    "extraction": "TEXT",
+    "sha256": "8d8f347e5ca09a32b14764bd527afc7398b511bcdebfd42a4bec5d7ba246370b",
+    "textLength": 7878,
+    "candidateMatches": 1,
+    "solutionLike": false
+  }
+]

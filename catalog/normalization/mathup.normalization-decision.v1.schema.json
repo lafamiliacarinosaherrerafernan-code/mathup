@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://mathup.es/contracts/normalization/mathup.normalization-decision.v1.schema.json",
+  "title": "MathUp normalization decision v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "decisionId", "target", "inputHash", "classification", "diagnosis", "issues", "families", "rules", "review", "outputDocumentId"],
+  "properties": {
+    "schemaVersion": { "const": "mathup.normalization-decision.v1" },
+    "decisionId": { "type": "string", "pattern": "^ndec-[0-9a-f]{64}$" },
+    "target": { "type": "object" },
+    "inputHash": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+    "classification": {
+      "enum": ["SAFE_AUTOMATIC_NORMALIZATION", "SOURCE_REVIEW_REQUIRED", "MATHEMATICAL_REVIEW_REQUIRED", "VISUAL_REVIEW_REQUIRED", "NO_ACTION_REQUIRED"]
+    },
+    "diagnosis": { "type": "string" },
+    "issues": { "type": "array", "items": { "type": "string" }, "uniqueItems": true },
+    "families": { "type": "array", "items": { "type": "string" }, "uniqueItems": true },
+    "rules": { "type": "array", "items": { "type": "string" } },
+    "review": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["required", "kinds", "reason"],
+      "properties": {
+        "required": { "type": "boolean" },
+        "kinds": { "type": "array", "items": { "enum": ["source", "mathematical", "visual"] }, "uniqueItems": true },
+        "reason": { "type": "string" }
+      }
+    },
+    "outputDocumentId": { "type": ["string", "null"] }
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "version": "1.0",
+  "status": "awaiting-real-handwriting-and-credentials",
+  "storagePolicy": "anonymous-temporary-no-student-link",
+  "families": {
+    "integers": ["5", "-7", "120"],
+    "decimals": ["3,5", "-0,75", "12,04"],
+    "fractions": ["1/2", "-3/4", "7/12", "vertical-fraction"],
+    "powers": ["2^3", "x^2", "(-3)^2", "-x^2"],
+    "roots": ["sqrt(9)", "sqrt(5)", "sqrt(x+1)"],
+    "algebra": ["2x+3", "3(x-2)", "x^2+5x-6"],
+    "equations": ["x=4", "2x+3=7", "x^2-5x+6=0"],
+    "inequalities": ["x<3", "x>=-2"],
+    "coordinates": ["(2,3)", "(-1,4)"],
+    "fractionExpressions": ["(x+1)/2", "(2x-3)/(x+4)"]
+  },
+  "confusions": ["1-7", "0-6", "x-times", "minus-fraction-bar", "2-z", "5-s", "less-less-equal", "greater-greater-equal", "1-l", "x-squared-x2"],
+  "metrics": ["recognitionAccuracy", "symbolAccuracy", "familyAccuracy", "ambiguousRate", "technicalErrorRate", "meanConfidenceCorrect", "meanConfidenceIncorrect", "mathematicalValidationAccuracy", "falsePositiveRate", "falseNegativeRate", "latencyMs", "requestCount"]
+}

@@ -1,0 +1,41 @@
+{
+  "mappingVersion": "mathup.fase2.taxonomy.v1",
+  "identityNamespace": "8c82e6c2-7a41-5efc-8f23-6f77319eb9e2",
+  "courses": {
+    "1eso": { "status": "VERIFIED", "stage": "ESO", "subjectId": "matematicas", "subjectLabel": "Matemáticas", "courseLabel": "1.º ESO" },
+    "2eso": { "status": "VERIFIED", "stage": "ESO", "subjectId": "matematicas", "subjectLabel": "Matemáticas", "courseLabel": "2.º ESO" },
+    "3eso": { "status": "VERIFIED", "stage": "ESO", "subjectId": "matematicas", "subjectLabel": "Matemáticas", "courseLabel": "3.º ESO" },
+    "4eso-a": { "status": "VERIFIED", "stage": "ESO", "subjectId": "matematicas", "subjectLabel": "Matemáticas A", "courseLabel": "4.º ESO A" },
+    "4eso-b": { "status": "VERIFIED", "stage": "ESO", "subjectId": "matematicas", "subjectLabel": "Matemáticas B", "courseLabel": "4.º ESO B" },
+    "1bach-mates": { "status": "VERIFIED", "stage": "BACHILLERATO", "subjectId": "matematicas-i", "subjectLabel": "Matemáticas I", "courseLabel": "1.º Bachillerato Matemáticas I" },
+    "1bach-ccss": { "status": "VERIFIED", "stage": "BACHILLERATO", "subjectId": "matematicas-ccss-i", "subjectLabel": "Matemáticas Aplicadas a las CCSS I", "courseLabel": "1.º Bachillerato CCSS I" },
+    "2bach-mates": { "status": "VERIFIED", "stage": "PAU", "subjectId": "matematicas-ii", "subjectLabel": "Matemáticas II", "courseLabel": "2.º Bachillerato Matemáticas II" },
+    "2bach-ccss": { "status": "VERIFIED", "stage": "PAU", "subjectId": "matematicas-ccss-ii", "subjectLabel": "Matemáticas Aplicadas a las CCSS II", "courseLabel": "2.º Bachillerato CCSS II" }
+  },
+  "communities": {
+    "castilla-la mancha": { "status": "VERIFIED", "code": "CLM", "name": "Castilla-La Mancha" },
+    "madrid": { "status": "VERIFIED", "code": "MAD", "name": "Madrid" }
+  },
+  "difficultyAliases": {
+    "easy": "easy",
+    "facil": "easy",
+    "fácil": "easy",
+    "medium": "medium",
+    "media": "medium",
+    "medio": "medium",
+    "hard": "hard",
+    "dificil": "hard",
+    "difícil": "hard"
+  },
+  "modalityEvidence": {
+    "practica:true": "practice",
+    "reto:true": "challenge",
+    "aventura:true": "adventure",
+    "examen:true": "topic-exam"
+  },
+  "unknownTokens": [
+    "",
+    "sin-determinar",
+    "no-aplica-o-sin-determinar"
+  ]
+}

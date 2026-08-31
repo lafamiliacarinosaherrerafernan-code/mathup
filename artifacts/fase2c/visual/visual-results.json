@@ -1,0 +1,57 @@
+{
+  "schemaVersion": "mathup.fase2c.visual-results.v1",
+  "corpus": {
+    "fixtures": 28,
+    "contextsPerFixture": 3,
+    "mathElementsPerResolution": 84,
+    "profile": "SYNTHETIC_CONTROL_WITH_LINKED_REAL_EVIDENCE"
+  },
+  "resolutions": [
+    {
+      "width": 320,
+      "fixtures": 28,
+      "mathElements": 84,
+      "overflow": [],
+      "clipped": [],
+      "rawJson": false,
+      "rawLatex": false,
+      "passed": true
+    },
+    {
+      "width": 375,
+      "fixtures": 28,
+      "mathElements": 84,
+      "overflow": [],
+      "clipped": [],
+      "rawJson": false,
+      "rawLatex": false,
+      "passed": true
+    },
+    {
+      "width": 768,
+      "fixtures": 28,
+      "mathElements": 84,
+      "overflow": [],
+      "clipped": [],
+      "rawJson": false,
+      "rawLatex": false,
+      "passed": true
+    },
+    {
+      "width": 1280,
+      "fixtures": 28,
+      "mathElements": 84,
+      "overflow": [],
+      "clipped": [],
+      "rawJson": false,
+      "rawLatex": false,
+      "passed": true
+    }
+  ],
+  "visualIncidents": [],
+  "limitations": [
+    "El corpus es un control aislado y no esta conectado al runtime publico.",
+    "Las muestras matematicas del control son sinteticas y estan marcadas como tales; cada una conserva un enlace de evidencia a un caso real del catalogo.",
+    "Las 7067 entidades ambiguas clasificadas VISUAL_REVIEW_REQUIRED no se declaran corregidas por el resultado de este corpus."
+  ]
+}

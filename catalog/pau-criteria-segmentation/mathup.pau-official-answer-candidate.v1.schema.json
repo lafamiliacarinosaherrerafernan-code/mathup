@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://mathup.es/schemas/mathup.pau-official-answer-candidate.v1.schema.json",
+  "title": "MathUp official answer candidate",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "candidateId", "fragmentId", "exerciseId", "subpartId", "literal", "status", "promotionPolicy", "provenance"],
+  "properties": {
+    "schemaVersion": { "const": "mathup.pau-official-answer-candidate.v1" },
+    "candidateId": { "type": "string", "pattern": "^pau-official-answer-candidate-[0-9a-f]{32}$" },
+    "fragmentId": { "type": "string" },
+    "exerciseId": { "type": "string" },
+    "subpartId": { "type": ["string", "null"] },
+    "literal": { "type": "string", "minLength": 1 },
+    "status": { "const": "OFFICIAL_ANSWER_CANDIDATE" },
+    "promotionPolicy": { "const": "NO_AUTOMATIC_PROMOTION" },
+    "provenance": { "type": "object", "required": ["criterionDocumentId", "fragmentId", "literalSha256"] }
+  }
+}

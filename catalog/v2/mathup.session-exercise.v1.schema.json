@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://mathup.es/contracts/mathup.session-exercise.v1.schema.json",
+  "title": "MathUp session exercise v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "sessionExerciseId", "attemptId", "exerciseRevisionId", "templateRevisionId", "algorithmVersion", "seedHash", "options", "correctOptionInstanceId", "correctIndex", "correctPosition"],
+  "properties": {
+    "schemaVersion": { "const": "mathup.session-exercise.v1" },
+    "sessionExerciseId": { "type": "string", "pattern": "^ses-[0-9a-f-]{36}$" },
+    "attemptId": { "type": "string" },
+    "exerciseRevisionId": { "type": "string" },
+    "templateRevisionId": { "type": "string" },
+    "algorithmVersion": { "const": "mathup.shuffle.sha256-sort.v1" },
+    "seedHash": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+    "options": { "type": "array", "minItems": 4, "maxItems": 4, "items": { "type": "object" } },
+    "correctOptionInstanceId": { "type": "string" },
+    "correctIndex": { "type": "integer", "minimum": 0, "maximum": 3 },
+    "correctPosition": { "enum": ["A", "B", "C", "D"] }
+  }
+}

@@ -1,0 +1,95 @@
+{
+  "metadata": {
+    "generatedAt": "2026-08-31T19:18:01.978Z",
+    "auditVersion": "fase-2.6-v1",
+    "simulationExamsPerScope": 1000,
+    "sourceHash": "eb35e699d4254a7a716b147c498c505c43e19f6c81d45e99eb177a8ff45de3e4",
+    "communities": [
+      "madrid"
+    ],
+    "courses": [
+      "2bach-mates",
+      "2bach-ccss"
+    ]
+  },
+  "status": "MADRID AUDITADA Y VALIDADA MANUALMENTE",
+  "scopeReports": [
+    {
+      "community": "madrid",
+      "communityLabel": "Madrid",
+      "courseId": "2bach-mates",
+      "subject": "Matemáticas II",
+      "enabledCanonicalTotal": 825,
+      "classifiedCanonicalTotal": 825,
+      "interactiveSubpartTotal": 1925,
+      "topics": 14,
+      "blocks": 4,
+      "examPositions": 5,
+      "theoreticalExamCombinations": "77791104000",
+      "directPositionNonRepeatingCapacity": 80,
+      "practicalNonRepeatingExamCapacity": 80,
+      "limitingPosition": 5,
+      "emptyTopics": [],
+      "scarceTopics": [],
+      "enabledButUnreachable": 0,
+      "unclassified": 0
+    },
+    {
+      "community": "madrid",
+      "communityLabel": "Madrid",
+      "courseId": "2bach-ccss",
+      "subject": "CCSS II",
+      "enabledCanonicalTotal": 903,
+      "classifiedCanonicalTotal": 903,
+      "interactiveSubpartTotal": 1853,
+      "topics": 11,
+      "blocks": 4,
+      "examPositions": 4,
+      "theoreticalExamCombinations": "1593315360",
+      "directPositionNonRepeatingCapacity": 84,
+      "practicalNonRepeatingExamCapacity": 84,
+      "limitingPosition": 1,
+      "emptyTopics": [],
+      "scarceTopics": [],
+      "enabledButUnreachable": 0,
+      "unclassified": 0
+    }
+  ],
+  "historyArchitecture": {
+    "persistence": "LOCAL_STORAGE",
+    "challengeKey": "margarita-challenge-answer-history-v2",
+    "examKey": "margarita-bach-ii-exam-history-v1",
+    "challengeScope": "academicYear + courseId + student identity + community + topic/block scope",
+    "examScope": "academicYear + courseId + group + student identity + community + slot",
+    "familyScope": "same exam scope + slot + last-family",
+    "survivesAppRestart": true,
+    "independentByStudent": true,
+    "independentByCourse": true,
+    "independentByCommunity": true,
+    "independentByTopicOrBlock": true,
+    "independentByExamSlot": true,
+    "resetRule": "deck resets only after the compatible pool is exhausted; the last identity is retained when pool size > 1"
+  },
+  "invariants": {
+    "canonicalVsSubpartsSeparated": true,
+    "primaryTopicSumMatchesEnabled": true,
+    "withinActivityNoRepeat": true,
+    "successiveActivityExhaustion": true,
+    "reachability": true,
+    "isolationScopeSupportedByKeys": true
+  },
+  "anomalyCount": 0,
+  "anomalies": [],
+  "artifactChecksums": {
+    "topic-census.json": "82be8e283992bd7987f1c7616a62bb1ab97ef9e7e353f8a89ab67d29e0dd7441",
+    "block-census.json": "09cbae69f0cd5c69f65e971ce429821049702c45703bc0f0383ffe136f9a7617",
+    "exam-position-census.json": "6196e55da7c72c4532f9fdc783e86ac5aa5aff518071f545e2ca1f0f918475e0",
+    "statistics-census.json": "43a6fc2630bc616e662172c28d15acc1c1eb3410cb7e8a20209ee2aac7b315dc",
+    "non-repeat-audit.json": "4cc4d904d24b61b048c0e948ab1adbe0822d57e8d3b4153880d48fc934cca387",
+    "reachability-audit.json": "840ae97d4f3a93aee414d65802042b457562cdbfdf073e6e7573a7d1f12dd0bf",
+    "simulation-results.json": "0ad1a1dcf68a3a85e31bb54178a1caa8751ad8a500f16304ed9f702da9e08106",
+    "duplicate-audit.json": "eaaed53479737c623f58b023bf8d6c90b547fccc25edbd0ca61dc7deb37122e5",
+    "bottlenecks.json": "4534ceebbb7b3a5123b1b2d8d2b30e1912203a857f330baef165af8e1d58159f",
+    "MASTER-REPORT.md": "a9e7dc57727985bdf2fe66daad61a4cc9cac79449a6fe08f45cc7f672ca02172"
+  }
+}

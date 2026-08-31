@@ -1,0 +1,65 @@
+{
+  "exercisesAudited": 48,
+  "confirmedIncidents": [
+    {
+      "schemaVersion": "mathup.document-layout-reconstruction-incident.v1",
+      "incidentId": "layout-ade2012-m6-a-e1-column-headers",
+      "classification": "DOCUMENT_LAYOUT_RECONSTRUCTION_ERROR",
+      "documentExerciseId": "ade2012-m6-a-e1-61f8d5d80988",
+      "documentId": "ade2012-exam-m6-61f8d5d809881c49",
+      "documentPath": "sources/pau-official/andalucia/ccss-ii/2012/official-doc/exam-modelo-6.doc",
+      "documentSha256": "61f8d5d809881c49e9e9212281f7028516338e026524e55d572ab691ec5f416d",
+      "model": 6,
+      "option": "A",
+      "exerciseNumber": 1,
+      "literalExtracted": "A B C A B C",
+      "originalStructure": "Primer A/B/C anclado sobre las tres columnas de F; segundo A/B/C anclado sobre las tres columnas de G.",
+      "anchorEvidence": {
+        "textPrecedesObjectId": "adobj-61f8d5d809881c49-001",
+        "equationContains": [
+          "F",
+          "G",
+          "dos matrices de 2x3"
+        ],
+        "officialPngPath": "artifacts/andalucia-ccssii-2012-doc/document-objects/adobj-61f8d5d809881c49-001.png",
+        "officialPngSha256": "f8800fb36468616a63a20677a963a713e4309082390f9e7d49563f4a89c865c0"
+      },
+      "rootCause": "Word codifica las cabeceras como texto espaciado previo al objeto Equation.3; el modelo lineal de bloques conserva caracteres y orden, pero no coordenadas ni anclaje a columnas.",
+      "requiredFutureStructure": {
+        "type": "paired-labeled-matrices",
+        "items": [
+          {
+            "matrixLabel": "F",
+            "columnHeaders": [
+              "A",
+              "B",
+              "C"
+            ],
+            "matrixObjectId": "adobj-61f8d5d809881c49-001",
+            "matrixSegment": 0
+          },
+          {
+            "matrixLabel": "G",
+            "columnHeaders": [
+              "A",
+              "B",
+              "C"
+            ],
+            "matrixObjectId": "adobj-61f8d5d809881c49-001",
+            "matrixSegment": 1
+          }
+        ],
+        "note": "La futura estructura debe derivarse de la geometría oficial; no borrar ni concatenar las etiquetas."
+      },
+      "automaticCorrectionAuthorized": false
+    }
+  ],
+  "otherCandidatesReviewed": [
+    {
+      "documentExerciseId": "ade2012-m5-a-e4-87b729cdd463",
+      "literal": "10.5   10   8.5   10.5   11.5   13.5   9.5   13   12",
+      "assessment": "ORDERED_NUMERIC_SERIES_NO_SPATIAL_ANCHOR_REQUIRED"
+    }
+  ],
+  "additionalConfirmedIncidents": []
+}

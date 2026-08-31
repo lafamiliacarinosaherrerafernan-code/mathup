@@ -1,0 +1,9 @@
+{
+  "deletesOnly": [
+    "artifacts/equation3-human-validation-final"
+  ],
+  "sourceFilesModified": false,
+  "firstPublicDecisionSetSha256": "bd412eee4c7ebe87d4ab5a298d55ed1024c1a3bbee80d7260d808522866d9847",
+  "secondPublicDecisionSetSha256": "10a64a94ed91aa40d2cb3fe74702acb57f2a00ebd525f66c0206150618634965",
+  "abcabcHumanDecisionSha256": "7c8a5e85ba2195bf5b1055bde6ac2230951977174e7977e4e2ad44a9b7a97406"
+}

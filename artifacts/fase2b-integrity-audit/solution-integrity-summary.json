@@ -1,0 +1,9 @@
+{
+  "total": 4649,
+  "rawJsonInTextField": 3295,
+  "emptyParts": 0,
+  "duplicatedPartLabels": 0,
+  "orderedAsStored": 4649,
+  "finalAnswerExplicit": 4649,
+  "caveat": "El orden almacenado se conserva, pero no se afirma completitud ni corrección matemática sin comparación humana con el documento original."
+}

@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://mathup.es/contracts/mathup.distractor-set.v1.schema.json",
+  "title": "MathUp distractor set v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "distractorSetId", "exerciseId", "answerId", "revisionId", "distractors", "equivalencePolicy", "provenance", "review"],
+  "properties": {
+    "schemaVersion": { "const": "mathup.distractor-set.v1" },
+    "distractorSetId": { "type": "string", "pattern": "^dst-[0-9a-f-]{36}$" },
+    "exerciseId": { "type": "string", "pattern": "^ex-[0-9a-f-]{36}$" },
+    "answerId": { "type": "string", "pattern": "^ans-[0-9a-f-]{36}$" },
+    "revisionId": { "type": "string" },
+    "distractors": { "type": "array", "minItems": 3, "maxItems": 3, "items": { "type": "object" } },
+    "equivalencePolicy": { "type": "string" },
+    "provenance": { "type": "object" },
+    "review": { "type": "object" }
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "generatedAt": "2026-08-31T19:36:48.742Z",
+  "scope": "Madrid · Matemáticas II y CCSS II · ejercicios habilitados",
+  "totals": {
+    "2bach-mates": {
+      "enabledExercises": 825,
+      "patterns": {
+        "FRACTION_INLINE": 643,
+        "MATRIX_TUPLE_FLATTENED": 5,
+        "INTEGRAL_LEGACY_BOUNDS": 111,
+        "LIMIT_LINEARIZED": 9
+      }
+    },
+    "2bach-ccss": {
+      "enabledExercises": 903,
+      "patterns": {
+        "FRACTION_INLINE": 685,
+        "MATRIX_TUPLE_FLATTENED": 30,
+        "INTEGRAL_LEGACY_BOUNDS": 58,
+        "LIMIT_LINEARIZED": 1
+      }
+    }
+  },
+  "findingsCount": 1542
+}

@@ -1,0 +1,38 @@
+{
+  "candidates": {
+    "path": "artifacts/fase2/runs/run-a/canonical-candidates.jsonl",
+    "sha256": "a2202fd04d420746b982d7bfc0c0c1fcc16014ac68ac9a62753ce4d4cce8af8a"
+  },
+  "collisions": {
+    "path": "artifacts/fase2a/mates-i-identity-collisions.jsonl",
+    "sha256": "bb854e67a60b7cc091122d0e74e2710667054daa3b68a54ccc620b68ace0da63"
+  },
+  "inventory": {
+    "path": "docs/FASE-0-INVENTARIO-CATALOGO-MATHUP.json",
+    "sha256": "fa11709b4eb675c522496591f93ba35fa2fc1a4a46d57475e60ef4c2a0c80d10"
+  },
+  "normalization": {
+    "path": "catalog/fase2b-pau-normalization.v1.json",
+    "sha256": "5255bd585df5cbdcbda80cd8ef06d79b34a4bcfc64777cc8c25c4949da66d5aa"
+  },
+  "reconciliation": {
+    "path": "artifacts/fase2/runs/run-a/educational-content-reconciliation.jsonl",
+    "sha256": "e39afc41c82792775b48095a7630689334c1caa22b1f2e6595d63662f54a2947"
+  },
+  "recovery": {
+    "path": "artifacts/fase2a/pau-recovery-classification.jsonl",
+    "sha256": "fbfa4cbfe55ac50dd1da8176bf85821948a0ce2264f6d82bd37ce5bba5b50e78"
+  },
+  "sourceLinks": {
+    "path": "artifacts/fase2/runs/run-a/source-to-canonical.jsonl",
+    "sha256": "02ba09f34b67f100c312dbc90aaca04007543d7684092c13471e4f2e196145b2"
+  },
+  "sourceRecords": {
+    "path": "artifacts/fase2/runs/run-a/source-records.jsonl",
+    "sha256": "db3fbdcb3083054e4fc6ef769a679ea0d290a87fbefb6a4753a1194421c1bed5"
+  },
+  "validation": {
+    "path": "artifacts/fase2/runs/run-a/validation-results.jsonl",
+    "sha256": "1baa1dfb659214090fd724aa85c60001e02accb306855dce4c6f0281ae8f3cd4"
+  }
+}

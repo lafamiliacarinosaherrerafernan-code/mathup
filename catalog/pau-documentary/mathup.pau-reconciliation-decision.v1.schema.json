@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://mathup.es/schemas/mathup.pau-reconciliation-decision.v1.schema.json",
+  "title": "MathUp PAU documentary reconciliation decision",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "decisionId", "exerciseId", "revisionId", "sourceRecordIds", "status", "reasonCodes", "evidence", "documentExerciseIds"],
+  "properties": {
+    "schemaVersion": { "const": "mathup.pau-reconciliation-decision.v1" },
+    "decisionId": { "type": "string", "pattern": "^pau-dec-[0-9a-f]{32}$" },
+    "exerciseId": { "type": "string" },
+    "revisionId": { "type": "string" },
+    "sourceRecordIds": { "type": "array", "items": { "type": "string" } },
+    "status": { "enum": ["DOCUMENT_MATCH_EXACT", "DOCUMENT_MATCH_STRUCTURAL", "AMBIGUOUS", "NOT_FOUND", "HUMAN_REVIEW_REQUIRED"] },
+    "reasonCodes": { "type": "array", "items": { "type": "string" }, "minItems": 1 },
+    "evidence": { "type": "array", "items": { "type": "object" } },
+    "documentExerciseIds": { "type": "array", "items": { "type": "string" } },
+    "answerSolutionScopes": { "type": "array", "items": { "type": "object" } },
+    "historicalCategories": { "type": "array", "items": { "type": "string" } }
+  }
+}

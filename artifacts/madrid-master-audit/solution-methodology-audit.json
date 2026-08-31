@@ -1,0 +1,751 @@
+{
+  "summary": {
+    "2bach-mates": {
+      "subject": "Matemáticas II",
+      "sourceRecords": 831,
+      "excludedOtherCommunity": 6,
+      "enabledExercises": 825,
+      "expectedEnabledExercises": 825,
+      "sourceSubparts": 1925,
+      "canonicalSubparts": 1925,
+      "legacyOcrDetectedSubparts": 1881,
+      "legacyOcrCountDisagreements": 44,
+      "sourceMismatches": 0,
+      "optionErrors": 0,
+      "solutionErrors": 0,
+      "methodologyNeedsRegeneration": 0,
+      "methodologyAmbiguous": 50,
+      "renderErrors": 0
+    },
+    "2bach-ccss": {
+      "subject": "CCSS II",
+      "sourceRecords": 903,
+      "excludedOtherCommunity": 0,
+      "enabledExercises": 903,
+      "expectedEnabledExercises": 903,
+      "sourceSubparts": 1853,
+      "canonicalSubparts": 1853,
+      "legacyOcrDetectedSubparts": 1758,
+      "legacyOcrCountDisagreements": 71,
+      "sourceMismatches": 0,
+      "optionErrors": 0,
+      "solutionErrors": 0,
+      "methodologyNeedsRegeneration": 0,
+      "methodologyAmbiguous": 29,
+      "renderErrors": 0
+    }
+  },
+  "issues": [
+    {
+      "exerciseId": "madrid-mates-3.3.1",
+      "subpartId": "madrid-mates-3.3.1#a)",
+      "courseId": "2bach-mates",
+      "method": "AREA_CUTS_ORDER_PRIMITIVE_BARROW",
+      "status": "AMBIGUOUS",
+      "prompt": "Hallar r para que T(r) tenga área mínima.",
+      "solution": "Planteamiento:\nExpresamos los dos catetos mediante los cortes de la tangente con los ejes y minimizamos su semiproducto.\n\nDesarrollo paso a paso:\nLa tangente en x=r es y=4+r²−2rx. Sus cortes positivos son (4+r²)/(2r) con el eje X y 4+r² con el eje Y. El área es S(r)=(4+r²)²/(4r). Al derivar e imponer S'(r)=0 resulta 3r⁴+8r²−16=0. Como r>0, r²=4/3.\n\nResultado final:\nr=2/√3.\n\nComprobación:\nEl área tiende a infinito tanto cuando r→0⁺ como cuando r→∞, y el único punto crítico positivo es un mínimo absoluto."
+    },
+    {
+      "exerciseId": "madrid-mates-3.4.8",
+      "subpartId": "madrid-mates-3.4.8#c)",
+      "courseId": "2bach-mates",
+      "method": "AREA_CUTS_ORDER_PRIMITIVE_BARROW",
+      "status": "AMBIGUOUS",
+      "prompt": "Calcular el área limitada por la gráfica, el eje de abscisas y las rectas x=0 y x=5.",
+      "solution": "Planteamiento:\nLa función es no negativa en [0,5], pero cambia de expresión en x=4.\n\nDesarrollo paso a paso:\nA=∫₀⁴(8x−2x²)dx+∫₄⁵(2x²−8x)dx. La primera integral vale 32/3 y la segunda 14/3.\n\nRepresentación y contraste con la fuente oficial:\nLa representación oficial permite comprobar las curvas, los puntos de corte y la región encerrada usada en las integrales.\n[[official-solution-image src=\"assets/madrid-pau/mates/solutions/madrid-mates-3.4.8.jpg\"]]\n\nResultado final:\nEl área total es 46/3 unidades cuadradas.\n\nComprobación:\nAmbas contribuciones son positivas y suman 46/3."
+    },
+    {
+      "exerciseId": "madrid-mates-3.5.8",
+      "subpartId": "madrid-mates-3.5.8#b)",
+      "courseId": "2bach-mates",
+      "method": "CONCAVITY_SECOND_DERIVATIVE_SIGN_LINE",
+      "status": "AMBIGUOUS",
+      "prompt": "Describir su gráfica usando sus tres puntos de inflexión dados.",
+      "solution": "Planteamiento:\nCombinamos extremos, corte, asíntota e inflexiones.\n\nDesarrollo paso a paso:\nEl numerador se anula en −1/2. La curva baja desde y=0 al mínimo, sube cruzando el eje hasta el máximo y vuelve hacia y=0; la concavidad cambia en las tres abscisas dadas.\n\nResultado final:\nLa primera descripción reúne todos los rasgos.\n\nComprobación:\nf(−1−x)=−f(x), simetría central respecto de (−1/2,0)."
+    },
+    {
+      "exerciseId": "madrid-mates-3.5.8",
+      "subpartId": "madrid-mates-3.5.8#c)",
+      "courseId": "2bach-mates",
+      "method": "AREA_CUTS_ORDER_PRIMITIVE_BARROW",
+      "status": "AMBIGUOUS",
+      "prompt": "Calcular el área entre la gráfica, el eje de abscisas y x=0, x=2.",
+      "solution": "Planteamiento:\nEl numerador es la derivada de x²+x+1.\n\nDesarrollo paso a paso:\nUna primitiva es −1/(x²+x+1). Entre 0 y 2 resulta −1/7+1=6/7.\n\nResultado final:\nEl área es 6/7.\n\nComprobación:\nf es positiva en [0,2]."
+    },
+    {
+      "exerciseId": "madrid-mates-3.6.3",
+      "subpartId": "madrid-mates-3.6.3#c)",
+      "courseId": "2bach-mates",
+      "method": "CONCAVITY_SECOND_DERIVATIVE_SIGN_LINE",
+      "status": "AMBIGUOUS",
+      "prompt": "Hallar las rectas tangentes a la gráfica en los puntos de inflexión.",
+      "solution": "Planteamiento:\nUsamos la pendiente f'(x) en cada punto de inflexión.\n\nDesarrollo paso a paso:\nf'(−1)=−1 y f'(1)=1. En (−1,ln 2), la tangente es y−ln 2=−(x+1). En (1,ln 2), la tangente es y−ln 2=x−1.\n\nResultado final:\nLas tangentes son y−ln 2=−(x+1) e y−ln 2=x−1.\n\nComprobación:\nCada recta pasa por su punto de tangencia y tiene la pendiente obtenida con f'."
+    },
+    {
+      "exerciseId": "madrid-mates-3.8.6",
+      "subpartId": "madrid-mates-3.8.6#a)",
+      "courseId": "2bach-mates",
+      "method": "EXTREMA_DERIVATIVE_SIGN_LINE",
+      "status": "AMBIGUOUS",
+      "prompt": "Dibujar su gráfica indicando dominio, crecimiento, decrecimiento y asíntotas.",
+      "solution": "Planteamiento:\nEliminamos el valor absoluto por tramos y estudiamos cada expresión.\n\nDesarrollo paso a paso:\nPara x<0, f=−x/(2−x) y f'=−2/(2−x)²<0. Para x≥0, x≠2, f=x/(2−x) y f'=2/(2−x)²>0. El dominio excluye x=2, donde hay asíntota vertical. Cuando x→−∞, f→1; cuando x→∞, f→−1. La gráfica pasa por (0,0).\n\nResultado final:\nLa descripción correcta es la primera opción.\n\nComprobación:\nLos límites laterales en x=2 son +∞ por la izquierda y −∞ por la derecha, coherentes con la asíntota vertical."
+    },
+    {
+      "exerciseId": "madrid-mates-3.9.3",
+      "subpartId": "madrid-mates-3.9.3#b)",
+      "courseId": "2bach-mates",
+      "method": "AREA_CUTS_ORDER_PRIMITIVE_BARROW",
+      "status": "AMBIGUOUS",
+      "prompt": "Para esos valores, calcular el área comprendida entre la gráfica de f, el eje de abscisas y las rectas x=1 y x=3.",
+      "solution": "Planteamiento:\nLa expresión cambia en x=2, así que dividimos el área en dos integrales.\n\nDesarrollo paso a paso:\nEn [1,2], f(x)=−x²/16+1/2 y su integral vale [−x³/48+x/2]₁²=17/48. En [2,3], f(x)=1/x² y la integral vale [−1/x]₂³=1/6. Sumando: 17/48+1/6=25/48.\n\nResultado final:\nEl área es 25/48 unidades cuadradas.\n\nComprobación:\nLa función es positiva en todo [1,3], por lo que no es necesario introducir valores absolutos."
+    },
+    {
+      "exerciseId": "madrid-mates-3.9.6",
+      "subpartId": "madrid-mates-3.9.6#b)",
+      "courseId": "2bach-mates",
+      "method": "EXTREMA_DERIVATIVE_SIGN_LINE",
+      "status": "AMBIGUOUS",
+      "prompt": "Hallar el valor de c para el que dicha área es mínima y calcular ese mínimo.",
+      "solution": "Planteamiento:\nMinimizamos A(c) en c>0.\n\nDesarrollo paso a paso:\nA'(c)=1/5−1/(3c²). Al imponer A'(c)=0 resulta c²=5/3 y, como c>0, c=√(5/3). Además, A''(c)=2/(3c³)>0. Sustituyendo, c/5+1/(3c)=2/√15.\n\nResultado final:\nEl área mínima se alcanza para c=√(5/3) y vale 1+2/√15.\n\nComprobación:\nLa segunda derivada positiva confirma que el punto crítico es un mínimo estricto."
+    },
+    {
+      "exerciseId": "madrid-mates-3.9.6",
+      "subpartId": "madrid-mates-3.9.6#b)",
+      "courseId": "2bach-mates",
+      "method": "AREA_CUTS_ORDER_PRIMITIVE_BARROW",
+      "status": "AMBIGUOUS",
+      "prompt": "Hallar el valor de c para el que dicha área es mínima y calcular ese mínimo.",
+      "solution": "Planteamiento:\nMinimizamos A(c) en c>0.\n\nDesarrollo paso a paso:\nA'(c)=1/5−1/(3c²). Al imponer A'(c)=0 resulta c²=5/3 y, como c>0, c=√(5/3). Además, A''(c)=2/(3c³)>0. Sustituyendo, c/5+1/(3c)=2/√15.\n\nResultado final:\nEl área mínima se alcanza para c=√(5/3) y vale 1+2/√15.\n\nComprobación:\nLa segunda derivada positiva confirma que el punto crítico es un mínimo estricto."
+    },
+    {
+      "exerciseId": "madrid-mates-3.10.3",
+      "subpartId": "madrid-mates-3.10.3#a)",
+      "courseId": "2bach-mates",
+      "method": "AREA_CUTS_ORDER_PRIMITIVE_BARROW",
+      "status": "AMBIGUOUS",
+      "prompt": "Hallar el área de la región acotada limitada por la gráfica de f y la recta y=1.",
+      "solution": "Planteamiento:\nHallamos los cortes con y=1 y separamos el área en el punto de cambio x=1.\n\nDesarrollo paso a paso:\nEn el primer tramo, (x−1)²=1 da x=0 dentro de x≤1. En el segundo, ln x=1 da x=e. El área es ∫₀¹[1−(x−1)²]dx+∫₁ᵉ(1−ln x)dx. La primera integral vale 2/3 y la segunda e−2.\n\nRepresentación y contraste con la fuente oficial:\nLa representación oficial permite comprobar las curvas, los puntos de corte y la región encerrada usada en las integrales.\n[[official-solution-image src=\"assets/madrid-pau/mates/solutions/madrid-mates-3.10.3.jpg\"]]\n\nResultado final:\nEl área es e−4/3 unidades cuadradas.\n\nComprobación:\nEntre 0 y e la recta y=1 queda por encima de ambos tramos, por lo que las dos integrales son positivas."
+    },
+    {
+      "exerciseId": "madrid-mates-3.11.7",
+      "subpartId": "madrid-mates-3.11.7#a)",
+      "courseId": "2bach-mates",
+      "method": "AREA_CUTS_ORDER_PRIMITIVE_BARROW",
+      "status": "AMBIGUOUS",
+      "prompt": "Dibujar sus gráficas e identificar el recinto acotado por ellas.",
+      "solution": "Planteamiento:\nIgualamos las ecuaciones y comparamos su posición entre los puntos de corte.\n\nDesarrollo paso a paso:\n9−x²=2x+1 equivale a x²+2x−8=0=(x+4)(x−2). Los cortes son (−4,−7) y (2,5). En x=0, la parábola vale 9 y la recta 1, por lo que la parábola queda por encima entre los cortes.\n\nResultado final:\nEl recinto está comprendido entre x=−4 y x=2, con y=9−x² como borde superior e y=2x+1 como borde inferior.\n\nComprobación:\nLa diferencia 8−2x−x² es positiva en el intervalo abierto (−4,2)."
+    },
+    {
+      "exerciseId": "madrid-mates-3.12.4",
+      "subpartId": "madrid-mates-3.12.4#b)",
+      "courseId": "2bach-mates",
+      "method": "EXTREMA_DERIVATIVE_SIGN_LINE",
+      "status": "AMBIGUOUS",
+      "prompt": "Hallar los valores mínimo y máximo absolutos de f(x)=√(12−3x2).",
+      "solution": "Planteamiento:\nDeterminamos el dominio cerrado y evaluamos los extremos y el punto crítico interior.\n\nDesarrollo paso a paso:\nLa condición 12−3x²≥0 da el dominio [−2,2]. En los extremos f(±2)=0. En el interior, f'(x)=−3x/√(12−3x²), que se anula en x=0, donde f(0)=2√3.\n\nResultado final:\nEl mínimo absoluto es 0 en x=−2 y x=2; el máximo absoluto es 2√3 en x=0.\n\nComprobación:\nLa raíz cuadrada nunca es negativa y 12−3x² alcanza su máximo en x=0."
+    },
+    {
+      "exerciseId": "madrid-mates-3.12.6",
+      "subpartId": "madrid-mates-3.12.6#a)",
+      "courseId": "2bach-mates",
+      "method": "EXTREMA_DERIVATIVE_SIGN_LINE",
+      "status": "AMBIGUOUS",
+      "prompt": "Determinar a para que f tenga un mínimo relativo en x=1 y, para ese valor, obtener los demás extremos relativos.",
+      "solution": "Planteamiento:\nEscribimos f(x)=ax+x^(−3) y usamos las condiciones de extremo.\n\nDesarrollo paso a paso:\nf'(x)=a−3/x⁴. Para que x=1 sea crítico debe cumplirse a=3. Entonces f'(x)=3−3/x⁴ se anula también en x=−1. Como f''(x)=12/x⁵, en x=1 es positiva y en x=−1 es negativa. Los valores son f(1)=4 y f(−1)=−4.\n\nResultado final:\na=3; hay un máximo relativo en (−1,−4) y un mínimo relativo en (1,4).\n\nComprobación:\nLa segunda derivada confirma la naturaleza de ambos extremos."
+    },
+    {
+      "exerciseId": "madrid-mates-3.13.4",
+      "subpartId": "madrid-mates-3.13.4#a)",
+      "courseId": "2bach-mates",
+      "method": "CONCAVITY_SECOND_DERIVATIVE_SIGN_LINE",
+      "status": "AMBIGUOUS",
+      "prompt": "Hallar a, b y c para que f alcance en x=1 un máximo relativo de valor 2 y tenga en x=3 un punto de inflexión.",
+      "solution": "Planteamiento:\nTraducimos el máximo y el punto de inflexión en condiciones sobre f, f' y f''.\n\nDesarrollo paso a paso:\nf'(x)=3x²+2ax+b y f''(x)=6x+2a. La condición f''(3)=0 da a=−9. Después, f'(1)=0 implica 3−18+b=0, luego b=15. Finalmente, f(1)=2 conduce a 1−9+15+c=2, de donde c=−5. Además, f''(1)=−12<0, por lo que el extremo es un máximo.\n\nResultado final:\na=−9, b=15 y c=−5.\n\nComprobación:\nSe verifican simultáneamente f(1)=2, f'(1)=0, f''(1)<0 y f''(3)=0."
+    },
+    {
+      "exerciseId": "madrid-mates-3.14.2",
+      "subpartId": "madrid-mates-3.14.2#a)",
+      "courseId": "2bach-mates",
+      "method": "AREA_CUTS_ORDER_PRIMITIVE_BARROW",
+      "status": "AMBIGUOUS",
+      "prompt": "Representar gráficamente el recinto.",
+      "solution": "Planteamiento:\nUsamos los valores y el signo del logaritmo en los extremos y en x=1.\n\nDesarrollo paso a paso:\nln(1/e)=−1, ln(1)=0 y ln(e)=1. Además, ln x es creciente: es negativa entre 1/e y 1 y positiva entre 1 y e.\n\nResultado final:\nEl recinto tiene dos partes, separadas en x=1: una bajo el eje y otra sobre él.\n\nComprobación:\nLos tres puntos de referencia determinan correctamente la posición de la curva."
+    },
+    {
+      "exerciseId": "madrid-mates-3.14.12",
+      "subpartId": "madrid-mates-3.14.12#a)",
+      "courseId": "2bach-mates",
+      "method": "EXTREMA_DERIVATIVE_SIGN_LINE",
+      "status": "AMBIGUOUS",
+      "prompt": "Hallar a, b y c para que la gráfica tenga un extremo relativo en x=1, un punto de inflexión en x=2/3 y corte el eje OY en y=1.",
+      "solution": "Planteamiento:\nTraducimos las tres condiciones en ecuaciones para f, f' y f''.\n\nDesarrollo paso a paso:\nEl corte con OY da f(0)=c=1. Como f'(x)=3x²+2ax+b, el extremo en x=1 exige 3+2a+b=0. Además, f''(x)=6x+2a y el punto de inflexión en x=2/3 exige 4+2a=0, luego a=−2. Sustituyendo, b=1.\n\nResultado final:\na=−2, b=1 y c=1.\n\nComprobación:\nf'(1)=0, f''(2/3)=0 y f(0)=1."
+    },
+    {
+      "exerciseId": "madrid-mates-3.14.12",
+      "subpartId": "madrid-mates-3.14.12#a)",
+      "courseId": "2bach-mates",
+      "method": "CONCAVITY_SECOND_DERIVATIVE_SIGN_LINE",
+      "status": "AMBIGUOUS",
+      "prompt": "Hallar a, b y c para que la gráfica tenga un extremo relativo en x=1, un punto de inflexión en x=2/3 y corte el eje OY en y=1.",
+      "solution": "Planteamiento:\nTraducimos las tres condiciones en ecuaciones para f, f' y f''.\n\nDesarrollo paso a paso:\nEl corte con OY da f(0)=c=1. Como f'(x)=3x²+2ax+b, el extremo en x=1 exige 3+2a+b=0. Además, f''(x)=6x+2a y el punto de inflexión en x=2/3 exige 4+2a=0, luego a=−2. Sustituyendo, b=1.\n\nResultado final:\na=−2, b=1 y c=1.\n\nComprobación:\nf'(1)=0, f''(2/3)=0 y f(0)=1."
+    },
+    {
+      "exerciseId": "madrid-mates-3.16.1",
+      "subpartId": "madrid-mates-3.16.1#b)",
+      "courseId": "2bach-mates",
+      "method": "EXTREMA_DERIVATIVE_SIGN_LINE",
+      "status": "AMBIGUOUS",
+      "prompt": "Hallar los intervalos de crecimiento y decrecimiento de f.",
+      "solution": "Planteamiento:\nSimplificamos la expresión únicamente para derivar, manteniendo las exclusiones del dominio original.\n\nDesarrollo paso a paso:\nPara x≠−1,1, f(x)=(x−3)/(x+1). Entonces f'(x)=4/(x+1)², que es positiva en todos los puntos del dominio. Los puntos excluidos separan los intervalos de monotonía.\n\nResultado final:\nf crece en (−∞,−1), (−1,1) y (1,∞), y no tiene intervalos de decrecimiento.\n\nComprobación:\nEl numerador de f' es positivo y su denominador es un cuadrado."
+    },
+    {
+      "exerciseId": "madrid-mates-3.17.1",
+      "subpartId": "madrid-mates-3.17.1#c)",
+      "courseId": "2bach-mates",
+      "method": "EXTREMA_DERIVATIVE_SIGN_LINE",
+      "status": "AMBIGUOUS",
+      "prompt": "Hallar el valor máximo de la pendiente de una recta tangente a la gráfica.",
+      "solution": "Planteamiento:\nLa pendiente en x=a es f'(a); buscamos el máximo de esa función.\n\nDesarrollo paso a paso:\ng(a)=4a−a² es una parábola cóncava. g'(a)=4−2a se anula en a=2 y g''(a)=−2<0.\n\nResultado final:\nLa pendiente máxima es g(2)=4.\n\nComprobación:\n4a−a²=4−(a−2)²≤4."
+    },
+    {
+      "exerciseId": "madrid-mates-3.17.7",
+      "subpartId": "madrid-mates-3.17.7#a)",
+      "courseId": "2bach-mates",
+      "method": "AREA_CUTS_ORDER_PRIMITIVE_BARROW",
+      "status": "AMBIGUOUS",
+      "prompt": "Hallar el área del recinto del primer cuadrante limitado por y=f(x) e y=g(x).",
+      "solution": "Planteamiento:\nHallamos los puntos de corte del primer cuadrante y restamos la función inferior de la superior.\n\nDesarrollo paso a paso:\nLa igualdad f=g conduce a x(3−x²)=0, de donde x=0 y x=√3 en el primer cuadrante. En ese intervalo f≥g. Integramos 2+x−x²−2/(x+1) entre 0 y √3.\n\nRepresentación y contraste con la fuente oficial:\nLa representación oficial permite comprobar las curvas, los puntos de corte y la región encerrada usada en las integrales.\n[[official-solution-image src=\"assets/madrid-pau/mates/solutions/madrid-mates-3.17.7.jpg\"]]\n\nResultado final:\nÁrea=√3+3/2−2 ln(1+√3).\n\nComprobación:\nLa expresión es positiva y los extremos usados son precisamente los dos cortes relevantes."
+    },
+    {
+      "exerciseId": "madrid-mates-3.17.9",
+      "subpartId": "madrid-mates-3.17.9#c)",
+      "courseId": "2bach-mates",
+      "method": "AREA_CUTS_ORDER_PRIMITIVE_BARROW",
+      "status": "AMBIGUOUS",
+      "prompt": "Hallar el área del triángulo formado por los ejes y la tangente a la curva en x=0.",
+      "solution": "Planteamiento:\nHallamos la tangente en x=0 y sus intersecciones con los ejes.\n\nDesarrollo paso a paso:\nf(0)=6 y f'(0)=1, por lo que la tangente es y=x+6. Corta a OY en (0,6) y a OX en (−6,0).\n\nResultado final:\nEl área es (1/2)·6·6=18.\n\nComprobación:\nLa base y la altura del triángulo rectángulo miden ambas 6."
+    },
+    {
+      "exerciseId": "madrid-mates-3.18.6",
+      "subpartId": "madrid-mates-3.18.6#c)",
+      "courseId": "2bach-mates",
+      "method": "AREA_CUTS_ORDER_PRIMITIVE_BARROW",
+      "status": "AMBIGUOUS",
+      "prompt": "Calcular el área delimitada por y=f(x) y la recta y=−x+3.",
+      "solution": "Planteamiento:\nHallamos los cortes y restamos la curva inferior de la superior.\n\nDesarrollo paso a paso:\n2/x=−x+3 conduce a x²−3x+2=0, luego x=1 y x=2. En [1,2], la recta está por encima. El área es ∫₁²(−x+3−2/x)dx.\n\nRepresentación y contraste con la fuente oficial:\nLa representación oficial permite comprobar las curvas, los puntos de corte y la región encerrada usada en las integrales.\n[[official-solution-image src=\"assets/madrid-pau/mates/solutions/madrid-mates-3.18.6.jpg\"]]\n\nResultado final:\nA=3/2−2 ln 2.\n\nComprobación:\nEl valor es aproximadamente 0,114>0."
+    },
+    {
+      "exerciseId": "madrid-mates-3.18.13",
+      "subpartId": "madrid-mates-3.18.13#Resultado",
+      "courseId": "2bach-mates",
+      "method": "AREA_CUTS_ORDER_PRIMITIVE_BARROW",
+      "status": "AMBIGUOUS",
+      "prompt": "Calcular el área comprendida entre la curva y la recta.",
+      "solution": "Planteamiento:\nHallamos los puntos de corte y determinamos la diferencia positiva.\n\nDesarrollo paso a paso:\nLa igualdad (1−x²)/(x²+1)=1−x equivale a x(x−1)²=0, de donde x=0 y x=1. En [0,1], f(x)−(1−x)≥0. Una primitiva de esa diferencia es x²/2−2x+2 arctan x.\n\nResultado final:\nA=[x²/2−2x+2 arctan x]₀¹=(π−3)/2.\n\nComprobación:\nπ>3, por lo que el área obtenida es positiva."
+    },
+    {
+      "exerciseId": "madrid-mates-3.19.1",
+      "subpartId": "madrid-mates-3.19.1#c)",
+      "courseId": "2bach-mates",
+      "method": "AREA_CUTS_ORDER_PRIMITIVE_BARROW",
+      "status": "AMBIGUOUS",
+      "prompt": "Hallar el área limitada por y=f(x), el eje OX y las rectas x=π y x=2π.",
+      "solution": "Planteamiento:\nEn [π,2π], f(x)=2cosx+x−1 y es positiva.\n\nDesarrollo paso a paso:\nIntegramos: [2sinx+x²/2−x] de π a 2π.\n\nRepresentación y contraste con la fuente oficial:\nLa representación oficial permite comprobar las curvas, los puntos de corte y la región encerrada usada en las integrales.\n[[official-solution-image src=\"assets/madrid-pau/mates/solutions/madrid-mates-3.19.1.jpg\"]]\n\nResultado final:\nA=3π²/2−π.\n\nComprobación:\nLa función no corta al eje OX en el intervalo y el resultado es positivo."
+    },
+    {
+      "exerciseId": "madrid-mates-3.19.3",
+      "subpartId": "madrid-mates-3.19.3#a)",
+      "courseId": "2bach-mates",
+      "method": "EXTREMA_DERIVATIVE_SIGN_LINE",
+      "status": "AMBIGUOUS",
+      "prompt": "Calcular el valor de x que minimiza E(x)=Σ(x−mi)2.",
+      "solution": "Planteamiento:\nDerivamos la suma de cuadrados y anulamos la derivada.\n\nDesarrollo paso a paso:\nE'(x)=2Σ(x−mᵢ)=10x−2Σmᵢ. Como Σmᵢ=4,56, resulta x=4,56/5=0,912. Además E''=10>0.\n\nResultado final:\nx=0,912.\n\nComprobación:\nEs la media aritmética de las cinco medidas y produce un mínimo estricto."
+    },
+    {
+      "exerciseId": "madrid-mates-3.19.6",
+      "subpartId": "madrid-mates-3.19.6#d)",
+      "courseId": "2bach-mates",
+      "method": "EXTREMA_DERIVATIVE_SIGN_LINE",
+      "status": "AMBIGUOUS",
+      "prompt": "Determinar x para que el precio total sea máximo, así como la capacidad y el precio resultantes.",
+      "solution": "Planteamiento:\nMaximizamos la parábola cóncava P(x).\n\nDesarrollo paso a paso:\nP'(x)=−6x+12, que se anula en x=2. Como P''=−6<0, es máximo. La capacidad es 14 ml y P(2)=14·42=588.\n\nResultado final:\nx=2 ml, capacidad 14 ml y precio 588 €.\n\nComprobación:\nEl precio supera al de x=0 y la segunda derivada confirma el máximo."
+    },
+    {
+      "exerciseId": "madrid-mates-3.20.6",
+      "subpartId": "madrid-mates-3.20.6#b)",
+      "courseId": "2bach-mates",
+      "method": "AREA_CUTS_ORDER_PRIMITIVE_BARROW",
+      "status": "AMBIGUOUS",
+      "prompt": "Calcular el área limitada por y=f(x) y la recta 2x+4y=7.",
+      "solution": "Planteamiento:\nHallamos los cortes y restamos la curva inferior de la superior.\n\nDesarrollo paso a paso:\nLa recta es y=(7−2x)/4. Al igualarla con 1/[2(x−1)] se obtienen x=3/2 y x=3. En ese intervalo la recta queda encima. El área es ∫₃⧸₂³[(7−2x)/4−1/(2(x−1))]dx.\n\nRepresentación y contraste con la fuente oficial:\nLa representación oficial permite comprobar las curvas, los puntos de corte y la región encerrada usada en las integrales.\n[[official-solution-image src=\"assets/madrid-pau/mates/solutions/madrid-mates-3.20.6.jpg\"]]\n\nResultado final:\nA=15/16−ln 2.\n\nComprobación:\nEl valor aproximado es 0,244>0, coherente con un área."
+    },
+    {
+      "exerciseId": "madrid-mates-3.21.2",
+      "subpartId": "madrid-mates-3.21.2#a)",
+      "courseId": "2bach-mates",
+      "method": "AREA_CUTS_ORDER_PRIMITIVE_BARROW",
+      "status": "AMBIGUOUS",
+      "prompt": "Calcular el área del triángulo formado por los ejes y la tangente a y=f(x) en x=2.",
+      "solution": "Planteamiento:\nHallamos la tangente y sus cortes con los ejes.\n\nDesarrollo paso a paso:\nf(2)=1 y f'(x)=−3/(x+1)², luego f'(2)=−1/3. La tangente es y−1=−(x−2)/3, equivalente a x+3y=5. Sus interceptos son (5,0) y (0,5/3).\n\nResultado final:\nEl área es (1/2)·5·(5/3)=25/6.\n\nComprobación:\nLa base y la altura del triángulo son positivas y coinciden con los interceptos de la recta."
+    },
+    {
+      "exerciseId": "madrid-mates-3.21.3",
+      "subpartId": "madrid-mates-3.21.3#b)",
+      "courseId": "2bach-mates",
+      "method": "EXTREMA_DERIVATIVE_SIGN_LINE",
+      "status": "AMBIGUOUS",
+      "prompt": "Calcular la tangente a y=f(x) con pendiente mínima.",
+      "solution": "Planteamiento:\nLa pendiente en cada punto es f'(x); buscamos el mínimo de esa función.\n\nDesarrollo paso a paso:\nf'(x)=3x²+6x=3(x+1)²−3, cuyo mínimo es −3 en x=−1. Además f(−1)=1. La tangente cumple y−1=−3(x+1).\n\nResultado final:\nLa recta es y=−3x−2.\n\nComprobación:\nSu pendiente −3 coincide con el mínimo de f'."
+    },
+    {
+      "exerciseId": "madrid-mates-3.21.6",
+      "subpartId": "madrid-mates-3.21.6#b)",
+      "courseId": "2bach-mates",
+      "method": "EXTREMA_DERIVATIVE_SIGN_LINE",
+      "status": "AMBIGUOUS",
+      "prompt": "Determinar cómo cortar la barra para maximizar el área total encerrada.",
+      "solution": "Planteamiento:\nSi y es la altura del rectángulo, la longitud usada es 4x+2y=10.\n\nDesarrollo paso a paso:\ny=5−2x. El área es S(x)=xy+(√3/4)x²=5x+[(√3−8)/4]x². Se anula S'(x)=5+[(√3−8)/2]x en x=10/(8−√3). Como S''=(√3−8)/2<0, es un máximo. Entonces y=5−20/(8−√3).\n\nRepresentación y contraste con la fuente oficial:\nLa representación oficial permite comprobar las curvas, los puntos de corte y la región encerrada usada en las integrales.\n[[official-solution-image src=\"assets/madrid-pau/mates/solutions/madrid-mates-3.21.6.jpg\"]]\n\nResultado final:\nSe cortan cuatro trozos de longitud 10/(8−√3)≈1,595 m y dos trozos de longitud 5−20/(8−√3)≈1,809 m.\n\nComprobación:\nLa suma 4x+2y es 10 m y la segunda derivada confirma el máximo."
+    },
+    {
+      "exerciseId": "madrid-mates-3.21.6",
+      "subpartId": "madrid-mates-3.21.6#b)",
+      "courseId": "2bach-mates",
+      "method": "AREA_CUTS_ORDER_PRIMITIVE_BARROW",
+      "status": "AMBIGUOUS",
+      "prompt": "Determinar cómo cortar la barra para maximizar el área total encerrada.",
+      "solution": "Planteamiento:\nSi y es la altura del rectángulo, la longitud usada es 4x+2y=10.\n\nDesarrollo paso a paso:\ny=5−2x. El área es S(x)=xy+(√3/4)x²=5x+[(√3−8)/4]x². Se anula S'(x)=5+[(√3−8)/2]x en x=10/(8−√3). Como S''=(√3−8)/2<0, es un máximo. Entonces y=5−20/(8−√3).\n\nRepresentación y contraste con la fuente oficial:\nLa representación oficial permite comprobar las curvas, los puntos de corte y la región encerrada usada en las integrales.\n[[official-solution-image src=\"assets/madrid-pau/mates/solutions/madrid-mates-3.21.6.jpg\"]]\n\nResultado final:\nSe cortan cuatro trozos de longitud 10/(8−√3)≈1,595 m y dos trozos de longitud 5−20/(8−√3)≈1,809 m.\n\nComprobación:\nLa suma 4x+2y es 10 m y la segunda derivada confirma el máximo."
+    },
+    {
+      "exerciseId": "madrid-mates-3.22.3",
+      "subpartId": "madrid-mates-3.22.3#Resultado",
+      "courseId": "2bach-mates",
+      "method": "AREA_CUTS_ORDER_PRIMITIVE_BARROW",
+      "status": "AMBIGUOUS",
+      "prompt": "Calcular el área de la región limitada por las gráficas de f y g.",
+      "solution": "Planteamiento:\nBuscamos los puntos de corte y determinamos qué función queda por encima.\n\nDesarrollo paso a paso:\nLa igualdad 2+x−x²=2x²−4x equivale a 3x²−5x−2=0, cuyas raíces son x=−1/3 y x=2. Entre ambos puntos, f−g=2+5x−3x² es positiva. El área es ∫_{−1/3}²(2+5x−3x²)dx.\n\nRepresentación y contraste con la fuente oficial:\nLa representación oficial permite comprobar las curvas, los puntos de corte y la región encerrada usada en las integrales.\n[[official-solution-image src=\"assets/madrid-pau/mates/solutions/madrid-mates-3.22.3.jpg\"]]\n\nResultado final:\nEl área es 343/54 unidades cuadradas.\n\nComprobación:\nLa diferencia se anula en los extremos y es positiva, por ejemplo, en x=0."
+    },
+    {
+      "exerciseId": "madrid-mates-3.22.8",
+      "subpartId": "madrid-mates-3.22.8#c)",
+      "courseId": "2bach-mates",
+      "method": "AREA_CUTS_ORDER_PRIMITIVE_BARROW",
+      "status": "AMBIGUOUS",
+      "prompt": "Calcular el área limitada por la gráfica de f, el eje OX y las rectas x=−1 y x=1.",
+      "solution": "Planteamiento:\nLa función es no negativa en [−1,1] y se integra por ramas debido al valor absoluto.\n\nDesarrollo paso a paso:\nEn [−1,0], f=x³+x+2 y su integral vale 5/4. En [0,1], f=x³−x+2 y su integral vale 7/4.\n\nRepresentación y contraste con la fuente oficial:\nLa representación oficial permite comprobar las curvas, los puntos de corte y la región encerrada usada en las integrales.\n[[official-solution-image src=\"assets/madrid-pau/mates/solutions/madrid-mates-3.22.8.jpg\"]]\n\nResultado final:\nEl área total es 5/4+7/4=3 unidades cuadradas.\n\nComprobación:\nf(−1)=0 y la función permanece por encima del eje en el resto del intervalo."
+    },
+    {
+      "exerciseId": "madrid-mates-3.23.2",
+      "subpartId": "madrid-mates-3.23.2#a)",
+      "courseId": "2bach-mates",
+      "method": "AREA_CUTS_ORDER_PRIMITIVE_BARROW",
+      "status": "AMBIGUOUS",
+      "prompt": "Hallar el área de la región acotada limitada por la gráfica de f y la recta y=2x.",
+      "solution": "Planteamiento:\nCalculamos los puntos de corte y la diferencia positiva entre las gráficas.\n\nDesarrollo paso a paso:\nx+x²=2x equivale a x(x−1)=0, luego los cortes son 0 y 1. En [0,1], la recta queda por encima y el área es ∫₀¹(x−x²)dx.\n\nRepresentación y contraste con la fuente oficial:\nLa representación oficial permite comprobar las curvas, los puntos de corte y la región encerrada usada en las integrales.\n[[official-solution-image src=\"assets/madrid-pau/mates/solutions/madrid-mates-3.23.2.jpg\"]]\n\nResultado final:\nEl área es 1/6.\n\nComprobación:\nLa diferencia x−x² es no negativa en [0,1]."
+    },
+    {
+      "exerciseId": "madrid-mates-3.23.5",
+      "subpartId": "madrid-mates-3.23.5#b)",
+      "courseId": "2bach-mates",
+      "method": "AREA_CUTS_ORDER_PRIMITIVE_BARROW",
+      "status": "AMBIGUOUS",
+      "prompt": "Dada g(x)=(5−x)/2, hallar el área de la región acotada por las gráficas de f y g.",
+      "solution": "Planteamiento:\nHallamos los cortes y determinamos qué gráfica queda arriba.\n\nDesarrollo paso a paso:\nLa igualdad 1+1/x=(5−x)/2 conduce a x²−3x+2=0, con soluciones 1 y 2. En ese intervalo g≥f. Por tanto, A=∫₁²[(3−x)/2−1/x]dx.\n\nResultado final:\nEl área es 3/4−ln 2.\n\nComprobación:\nEl valor aproximado es 0,0569, positivo."
+    },
+    {
+      "exerciseId": "madrid-mates-3.24.2",
+      "subpartId": "madrid-mates-3.24.2#a)",
+      "courseId": "2bach-mates",
+      "method": "EXTREMA_DERIVATIVE_SIGN_LINE",
+      "status": "AMBIGUOUS",
+      "prompt": "Calcular las dimensiones del huerto que maximizan el área destinada a hortalizas.",
+      "solution": "Planteamiento:\nSean x e y las longitudes del huerto, con xy=72. La zona interior mide (x−2) por (y−1).\n\nDesarrollo paso a paso:\nSustituyendo y=72/x, A(x)=(x−2)(72/x−1)=74−x−144/x. Entonces A'(x)=−1+144/x², que se anula en x=12. Resulta y=72/12=6, y A''(12)<0.\n\nResultado final:\nLas dimensiones del huerto son 12 m por 6 m.\n\nComprobación:\nSu producto es 72 y el punto crítico proporciona un máximo."
+    },
+    {
+      "exerciseId": "madrid-mates-3.24.2",
+      "subpartId": "madrid-mates-3.24.2#a)",
+      "courseId": "2bach-mates",
+      "method": "AREA_CUTS_ORDER_PRIMITIVE_BARROW",
+      "status": "AMBIGUOUS",
+      "prompt": "Calcular las dimensiones del huerto que maximizan el área destinada a hortalizas.",
+      "solution": "Planteamiento:\nSean x e y las longitudes del huerto, con xy=72. La zona interior mide (x−2) por (y−1).\n\nDesarrollo paso a paso:\nSustituyendo y=72/x, A(x)=(x−2)(72/x−1)=74−x−144/x. Entonces A'(x)=−1+144/x², que se anula en x=12. Resulta y=72/12=6, y A''(12)<0.\n\nResultado final:\nLas dimensiones del huerto son 12 m por 6 m.\n\nComprobación:\nSu producto es 72 y el punto crítico proporciona un máximo."
+    },
+    {
+      "exerciseId": "madrid-mates-3.24.2",
+      "subpartId": "madrid-mates-3.24.2#b)",
+      "courseId": "2bach-mates",
+      "method": "EXTREMA_DERIVATIVE_SIGN_LINE",
+      "status": "AMBIGUOUS",
+      "prompt": "Calcular el área máxima de la zona de hortalizas.",
+      "solution": "Planteamiento:\nUsamos las dimensiones óptimas obtenidas.\n\nDesarrollo paso a paso:\nLa zona interior mide 12−2=10 m y 6−1=5 m. Su área es 10·5.\n\nResultado final:\nEl área máxima destinada a hortalizas es 50 m².\n\nComprobación:\nEs menor que los 72 m² totales y deja una franja de 22 m²."
+    },
+    {
+      "exerciseId": "madrid-mates-3.24.2",
+      "subpartId": "madrid-mates-3.24.2#b)",
+      "courseId": "2bach-mates",
+      "method": "AREA_CUTS_ORDER_PRIMITIVE_BARROW",
+      "status": "AMBIGUOUS",
+      "prompt": "Calcular el área máxima de la zona de hortalizas.",
+      "solution": "Planteamiento:\nUsamos las dimensiones óptimas obtenidas.\n\nDesarrollo paso a paso:\nLa zona interior mide 12−2=10 m y 6−1=5 m. Su área es 10·5.\n\nResultado final:\nEl área máxima destinada a hortalizas es 50 m².\n\nComprobación:\nEs menor que los 72 m² totales y deja una franja de 22 m²."
+    },
+    {
+      "exerciseId": "madrid-mates-3.24.5",
+      "subpartId": "madrid-mates-3.24.5#a)",
+      "courseId": "2bach-mates",
+      "method": "EXTREMA_DERIVATIVE_SIGN_LINE",
+      "status": "AMBIGUOUS",
+      "prompt": "Calcular la recta tangente a la gráfica de f con mínima pendiente.",
+      "solution": "Planteamiento:\nLa pendiente de la tangente en x es f'(x); buscamos el mínimo de esa función.\n\nDesarrollo paso a paso:\nf'(x)=3x²+2x+1, cuyo mínimo está en x=−1/3 y vale 2/3. Además, f(−1/3)=−7/27. La tangente cumple y+7/27=(2/3)(x+1/3).\n\nResultado final:\nLa recta tangente de mínima pendiente es y=(2/3)x−1/27.\n\nComprobación:\nPasa por (−1/3,−7/27) y su pendiente es el mínimo de f'."
+    },
+    {
+      "exerciseId": "madrid-mates-3.24.5",
+      "subpartId": "madrid-mates-3.24.5#b)",
+      "courseId": "2bach-mates",
+      "method": "AREA_CUTS_ORDER_PRIMITIVE_BARROW",
+      "status": "AMBIGUOUS",
+      "prompt": "Calcular el área de la región acotada entre la gráfica de f y la recta y=x.",
+      "solution": "Planteamiento:\nHallamos los puntos de corte entre f(x) e y=x.\n\nDesarrollo paso a paso:\nf(x)−x=x³+x²=x²(x+1), que se anula en x=−1 y x=0. En [−1,0] la diferencia es no negativa. El área es ∫₋₁⁰(x³+x²)dx.\n\nResultado final:\nEl área es 1/12.\n\nComprobación:\n[x⁴/4+x³/3]₋₁⁰=1/12."
+    },
+    {
+      "exerciseId": "madrid-mates-3.24.7",
+      "subpartId": "madrid-mates-3.24.7#a)",
+      "courseId": "2bach-mates",
+      "method": "EXTREMA_DERIVATIVE_SIGN_LINE",
+      "status": "AMBIGUOUS",
+      "prompt": "Si el vehículo debe circular a más de 30 km/h, determinar la velocidad que minimiza el consumo.",
+      "solution": "Planteamiento:\nPara v>3 se utiliza la segunda rama del consumo.\n\nDesarrollo paso a paso:\nc'(v)=−4+2v/3, que se anula en v=6. Como c''(v)=2/3>0, allí hay un mínimo. La velocidad real es 10v.\n\nResultado final:\nEl consumo mínimo se obtiene a 60 km/h.\n\nComprobación:\nc(6)=2 litros por cada 100 km."
+    },
+    {
+      "exerciseId": "madrid-mates-3.24.9",
+      "subpartId": "madrid-mates-3.24.9#a)",
+      "courseId": "2bach-mates",
+      "method": "EXTREMA_DERIVATIVE_SIGN_LINE",
+      "status": "AMBIGUOUS",
+      "prompt": "Calcular las dimensiones del depósito que minimizan la filtración.",
+      "solution": "Planteamiento:\nUsamos la restricción de volumen para expresar la pérdida en función del radio.\n\nDesarrollo paso a paso:\nπr²h=432π, luego h=432/r². Salvo el factor constante 20π, la pérdida es L(r)=rh+r²=432/r+r². Entonces L'(r)=−432/r²+2r, que se anula cuando r³=216, es decir, r=6. Así, h=432/36=12.\n\nResultado final:\nEl depósito debe tener radio 6 dm y altura 12 dm.\n\nComprobación:\nL''(6)=864/216+2=6>0, por lo que se trata de un mínimo."
+    },
+    {
+      "exerciseId": "madrid-mates-3.26.3",
+      "subpartId": "madrid-mates-3.26.3#a)",
+      "courseId": "2bach-mates",
+      "method": "EXTREMA_DERIVATIVE_SIGN_LINE",
+      "status": "AMBIGUOUS",
+      "prompt": "Hallar los valores máximo y mínimo de f en [0,12] y decidir si la curva queda completamente contenida en el muro.",
+      "solution": "Planteamiento:\nEstudiamos el recorrido del coseno y verificamos que sus extremos se alcanzan en el intervalo.\n\nDesarrollo paso a paso:\nComo −1≤cos(πx/9)≤1, se tiene 1≤f(x)≤3. En x=0 se alcanza 3 y en x=9 se alcanza 1. El muro ocupa alturas entre 0 y 3.\n\nResultado final:\nEl máximo es 3, el mínimo es 1 y la curva queda completamente contenida en el muro.\n\nComprobación:\nTodos los valores de f pertenecen al intervalo vertical [0,3]."
+    },
+    {
+      "exerciseId": "madrid-mates-3.26.3",
+      "subpartId": "madrid-mates-3.26.3#c)",
+      "courseId": "2bach-mates",
+      "method": "EXTREMA_DERIVATIVE_SIGN_LINE",
+      "status": "AMBIGUOUS",
+      "prompt": "Calcular el número mínimo de botes necesarios para pintar toda el área situada bajo la curva.",
+      "solution": "Planteamiento:\nDividimos el área bajo la curva entre el rendimiento de un bote y redondeamos hacia arriba.\n\nDesarrollo paso a paso:\nEl área bajo la curva es 24−9√3/(2π)≈21,52 m². El cociente 21,52/3≈7,17. Como no se pueden comprar fracciones de bote, se necesita el entero siguiente.\n\nResultado final:\nSe deben comprar 8 botes como mínimo.\n\nComprobación:\nSiete botes cubren 21 m², insuficientes; ocho cubren 24 m²."
+    },
+    {
+      "exerciseId": "madrid-mates-3.26.3",
+      "subpartId": "madrid-mates-3.26.3#c)",
+      "courseId": "2bach-mates",
+      "method": "AREA_CUTS_ORDER_PRIMITIVE_BARROW",
+      "status": "AMBIGUOUS",
+      "prompt": "Calcular el número mínimo de botes necesarios para pintar toda el área situada bajo la curva.",
+      "solution": "Planteamiento:\nDividimos el área bajo la curva entre el rendimiento de un bote y redondeamos hacia arriba.\n\nDesarrollo paso a paso:\nEl área bajo la curva es 24−9√3/(2π)≈21,52 m². El cociente 21,52/3≈7,17. Como no se pueden comprar fracciones de bote, se necesita el entero siguiente.\n\nResultado final:\nSe deben comprar 8 botes como mínimo.\n\nComprobación:\nSiete botes cubren 21 m², insuficientes; ocho cubren 24 m²."
+    },
+    {
+      "exerciseId": "madrid-mates-3.26.6",
+      "subpartId": "madrid-mates-3.26.6#a)",
+      "courseId": "2bach-mates",
+      "method": "AREA_CUTS_ORDER_PRIMITIVE_BARROW",
+      "status": "AMBIGUOUS",
+      "prompt": "Determinar a qué distancias de A deben situarse B y E para que la parcela tenga la mayor área posible.",
+      "solution": "Planteamiento:\nLlamamos a=AB=DE y b=AE=BD. La parcela es la suma de un rectángulo y un triángulo equilátero de lado b.\n\nDesarrollo paso a paso:\nEl perímetro es 2a+3b=120, de modo que a=60−3b/2. El área vale A(b)=ab+(√3/4)b²=60b+(−3/2+√3/4)b². Derivando, A'(b)=60+(−3+√3/2)b. Su único cero positivo es b=120/(6−√3)=40(6+√3)/11. Sustituyendo en a=60−3b/2 se obtiene a=60(5−√3)/11. El coeficiente cuadrático es negativo, por lo que es un máximo.\n\nResultado final:\nB debe situarse a AB=60(5−√3)/11 m de A y E a AE=40(6+√3)/11 m de A.\n\nComprobación:\nLas longitudes satisfacen exactamente 2AB+3AE=120 y la segunda derivada es negativa."
+    },
+    {
+      "exerciseId": "madrid-mates-3.26.7",
+      "subpartId": "madrid-mates-3.26.7#b.II)",
+      "courseId": "2bach-mates",
+      "method": "AREA_CUTS_ORDER_PRIMITIVE_BARROW",
+      "status": "AMBIGUOUS",
+      "prompt": "Hallar las dimensiones y el área del rectángulo de mayor área, apoyado sobre el eje OX, que puede inscribirse bajo la parábola f(x)=−x2+4 con lados paralelos a los ejes.",
+      "solution": "Planteamiento:\nPor simetría, si x>0 es la semibase, la base mide 2x y la altura es 4−x².\n\nDesarrollo paso a paso:\nA(x)=2x(4−x²)=8x−2x³. Entonces A'(x)=8−6x², que se anula en x=2/√3. La base es 4/√3 y la altura 4−4/3=8/3. El área vale (4/√3)(8/3)=32√3/9. La segunda derivada es negativa.\n\nResultado final:\nLas dimensiones son base 4/√3 y altura 8/3; el área máxima es 32√3/9.\n\nComprobación:\nLos vértices superiores (±2/√3,8/3) pertenecen a la parábola."
+    },
+    {
+      "exerciseId": "madrid-mates-3.27.5",
+      "subpartId": "madrid-mates-3.27.5#b)",
+      "courseId": "2bach-mates",
+      "method": "AREA_CUTS_ORDER_PRIMITIVE_BARROW",
+      "status": "AMBIGUOUS",
+      "prompt": "Calcular el área limitada por la gráfica de f, el eje OX y las rectas x=3 y x=6.",
+      "solution": "Planteamiento:\nEl valor absoluto cambia de expresión en x=5, que pertenece al intervalo [3,6].\n\nDesarrollo paso a paso:\nEntre 3 y 5, f(x)=−x²+6x−5; entre 5 y 6, f(x)=x²−6x+5. La primera integral vale 16/3 y la segunda 7/3.\n\nRepresentación y contraste con la fuente oficial:\nLa representación oficial permite comprobar las curvas, los puntos de corte y la región encerrada usada en las integrales.\n[[official-solution-image src=\"assets/madrid-pau/mates/solutions/madrid-mates-3.27.5.jpg\"]]\n\nResultado final:\nEl área total es 16/3+7/3=23/3 unidades cuadradas.\n\nComprobación:\nAmbos integrandos son no negativos en sus respectivos intervalos."
+    },
+    {
+      "exerciseId": "madrid-mates-3.27.9",
+      "subpartId": "madrid-mates-3.27.9#a)",
+      "courseId": "2bach-mates",
+      "method": "EXTREMA_DERIVATIVE_SIGN_LINE",
+      "status": "AMBIGUOUS",
+      "prompt": "Determinar cuándo aumenta y cuándo disminuye la potencia, y en qué momento del día alcanza su máximo.",
+      "solution": "Planteamiento:\nEn el tramo con producción derivamos la función; fuera de él la potencia es constante e igual a cero.\n\nDesarrollo paso a paso:\nPara 8<t<20, P'(t)=(3π/8)cos((π/8)(t−12)). El argumento recorre desde −π/2 hasta π. El coseno es positivo hasta que el argumento alcanza π/2, lo que ocurre en t=16, y después es negativo hasta t=20. Por tanto, P aumenta en (8,16) y disminuye en (16,20). P(16)=3+3 sin(π/2)=6.\n\nResultado final:\nLa potencia aumenta de 8 a 16 h, disminuye de 16 a 20 h y alcanza su máximo de 6 kW a las 16 h.\n\nComprobación:\nEn los extremos del tramo productivo se obtienen P(8)=0 y P(20)=3, ambos inferiores al máximo."
+    },
+    {
+      "exerciseId": "madrid-ccss-3.1.4",
+      "subpartId": "madrid-ccss-3.1.4#c)",
+      "courseId": "2bach-ccss",
+      "method": "AREA_CUTS_ORDER_PRIMITIVE_BARROW",
+      "status": "AMBIGUOUS",
+      "prompt": "Para a=0 y b=3, hallar el área limitada por la gráfica, el eje de abscisas y las rectas x=1 y x=3.",
+      "solution": "Planteamiento:\nEn [1,2] se usa y=x−1 y en [2,3] se usa y=3x−5; ambas son no negativas.\n\nDesarrollo paso a paso:\nEl área es ∫[1,2](x−1)dx+∫[2,3](3x−5)dx. La primera integral vale 1/2 y la segunda 5/2.\n\nRepresentación y contraste con la fuente oficial:\nLa representación oficial permite comprobar las curvas, los puntos de corte y la región encerrada usada en las integrales.\n[[official-solution-image src=\"assets/madrid-pau/ccss/solutions/madrid-ccss-3.1.4.jpg\"]]\n\nResultado final:\nEl área total es 3 unidades cuadradas.\n\nComprobación:\nGeométricamente son dos trapecios de áreas 1/2 y 5/2."
+    },
+    {
+      "exerciseId": "madrid-ccss-3.2.3",
+      "subpartId": "madrid-ccss-3.2.3#a)",
+      "courseId": "2bach-ccss",
+      "method": "EXTREMA_DERIVATIVE_SIGN_LINE",
+      "status": "AMBIGUOUS",
+      "prompt": "Hallar la altura y el lado de la base de cada caja para que la superficie empleada sea mínima.",
+      "solution": "Planteamiento:\nSea x el lado de la base y h la altura. Eliminamos h usando el volumen.\n\nDesarrollo paso a paso:\nx²h=500, luego h=500/x². Al no tener tapa, la superficie es S=x²+4xh=x²+2000/x. S'=2x−2000/x². La condición S'=0 da 2x³=2000, así que x=10. Entonces h=500/100=5.\n\nResultado final:\nEl lado de la base debe medir 10 cm y la altura 5 cm.\n\nComprobación:\nS''=2+4000/x³>0 para x>0, por lo que el punto crítico es un mínimo."
+    },
+    {
+      "exerciseId": "madrid-ccss-3.3.1",
+      "subpartId": "madrid-ccss-3.3.1#a)",
+      "courseId": "2bach-ccss",
+      "method": "AREA_CUTS_ORDER_PRIMITIVE_BARROW",
+      "status": "AMBIGUOUS",
+      "prompt": "Dibujar el recinto limitado por las gráficas de ambas curvas.",
+      "solution": "Planteamiento:\nHallamos los puntos de intersección y comparamos las funciones.\n\nDesarrollo paso a paso:\nx²+2=x+2 equivale a x(x−1)=0, luego los cortes son x=0 y x=1. En (0,1), g−f=x−x²=x(1−x)>0.\n\nRepresentación y contraste con la fuente oficial:\nLa representación oficial permite comprobar las curvas, los puntos de corte y la región encerrada usada en las integrales.\n[[official-solution-image src=\"assets/madrid-pau/ccss/solutions/madrid-ccss-3.3.1.jpg\"]]\n\nResultado final:\nEl recinto acotado queda entre x=0 y x=1, con la recta g arriba y la parábola f abajo.\n\nComprobación:\nAmbas curvas pasan por (0,2) y (1,3)."
+    },
+    {
+      "exerciseId": "madrid-ccss-3.3.2",
+      "subpartId": "madrid-ccss-3.3.2#b)",
+      "courseId": "2bach-ccss",
+      "method": "AREA_CUTS_ORDER_PRIMITIVE_BARROW",
+      "status": "AMBIGUOUS",
+      "prompt": "Calcular el área del triángulo limitado por el eje OX y las tangentes a la curva en sus puntos de intersección con dicho eje.",
+      "solution": "Planteamiento:\nHallamos los cortes con OX, las tangentes y su punto de intersección.\n\nDesarrollo paso a paso:\nx²−4x−5=(x+1)(x−5), por lo que los cortes son (−1,0) y (5,0). La derivada es 2x−4: las tangentes son y=−6(x+1) e y=6(x−5). Se cortan en (2,−18). El triángulo tiene base 6 y altura 18.\n\nRepresentación y contraste con la fuente oficial:\nLa representación oficial permite comprobar las curvas, los puntos de corte y la región encerrada usada en las integrales.\n[[official-solution-image src=\"assets/madrid-pau/ccss/solutions/madrid-ccss-3.3.2.jpg\"]]\n\nResultado final:\nEl área es 6·18/2=54 unidades cuadradas.\n\nComprobación:\nEl punto (2,−18) satisface ambas ecuaciones de las tangentes."
+    },
+    {
+      "exerciseId": "madrid-ccss-3.6.3",
+      "subpartId": "madrid-ccss-3.6.3#a)",
+      "courseId": "2bach-ccss",
+      "method": "EXTREMA_DERIVATIVE_SIGN_LINE",
+      "status": "AMBIGUOUS",
+      "prompt": "Calcular el número de artículos que deben venderse para obtener el beneficio máximo y determinar dicho beneficio.",
+      "solution": "Planteamiento:\nSimplificamos B(x)=−x+9−16/x y buscamos su máximo en x>0.\n\nDesarrollo paso a paso:\nB'(x)=−1+16/x²=(16−x²)/x². Se anula en x=4 dentro del dominio positivo. La derivada es positiva antes de 4 y negativa después. B(4)=−4+9−4=1, expresado en miles de euros.\n\nResultado final:\nDeben venderse 4 artículos y el beneficio máximo es 1 000 euros.\n\nComprobación:\nB''(4)=−32/4³<0, confirmando el máximo."
+    },
+    {
+      "exerciseId": "madrid-ccss-3.9.5",
+      "subpartId": "madrid-ccss-3.9.5#a)",
+      "courseId": "2bach-ccss",
+      "method": "EXTREMA_DERIVATIVE_SIGN_LINE",
+      "status": "AMBIGUOUS",
+      "prompt": "Determinar sus medidas para minimizar la superficie total de cristal empleada.",
+      "solution": "Planteamiento:\nLlamamos x al lado de la base y h a la altura, usando el volumen para expresar la superficie con una sola variable.\n\nDesarrollo paso a paso:\nx²h=500, luego h=500/x². Al no haber tapa, la superficie es S=x²+4xh=x²+2000/x. Derivando, S'=2x−2000/x². La condición S'=0 da 2x³=2000, de donde x=10 dm. Entonces h=500/10²=5 dm. Además, S''=2+4000/x³>0, por lo que es un mínimo.\n\nResultado final:\nLa base debe medir 10 dm por 10 dm y la altura 5 dm.\n\nComprobación:\nEl volumen es 10·10·5=500 dm³ y la superficie mínima obtenida es 300 dm²."
+    },
+    {
+      "exerciseId": "madrid-ccss-3.10.5",
+      "subpartId": "madrid-ccss-3.10.5#c)",
+      "courseId": "2bach-ccss",
+      "method": "AREA_CUTS_ORDER_PRIMITIVE_BARROW",
+      "status": "AMBIGUOUS",
+      "prompt": "Calcular el área del recinto acotado limitado por la gráfica y el eje de abscisas.",
+      "solution": "Planteamiento:\nLa función es positiva entre sus ceros −12 y 15, pero cambia de fórmula en −3 y 2.\n\nDesarrollo paso a paso:\nEl área del primer tramo, entre −12 y −3, es 81. La integral de x²+9 entre −3 y 2 vale 170/3. La integral de −x+15 entre 2 y 15 vale 169/2. Sumando con denominador común: 81+170/3+169/2=1333/6.\n\nRepresentación y contraste con la fuente oficial:\nLa representación oficial permite comprobar las curvas, los puntos de corte y la región encerrada usada en las integrales.\n[[official-solution-image src=\"assets/madrid-pau/ccss/solutions/madrid-ccss-3.10.5.jpg\"]]\n\nResultado final:\nEl área es 1333/6 unidades cuadradas.\n\nComprobación:\nLos tres tramos son no negativos en los intervalos integrados, de modo que no es necesario cambiar signos."
+    },
+    {
+      "exerciseId": "madrid-ccss-3.10.6",
+      "subpartId": "madrid-ccss-3.10.6#c)",
+      "courseId": "2bach-ccss",
+      "method": "EXTREMA_DERIVATIVE_SIGN_LINE",
+      "status": "AMBIGUOUS",
+      "prompt": "Determinar la producción mínima y máxima para que la empresa no tenga pérdidas.",
+      "solution": "Planteamiento:\nNo tener pérdidas significa exigir B(x)≥0.\n\nDesarrollo paso a paso:\nB(x)=−(x−2)(x−5). Una parábola cóncava hacia abajo es no negativa entre sus raíces, por lo que 2≤x≤5.\n\nResultado final:\nLa producción mínima es 2 hectolitros y la máxima 5 hectolitros.\n\nComprobación:\nEn los extremos el beneficio es cero y, por ejemplo, en x=3 es positivo."
+    },
+    {
+      "exerciseId": "madrid-ccss-3.11.1",
+      "subpartId": "madrid-ccss-3.11.1#b)",
+      "courseId": "2bach-ccss",
+      "method": "AREA_CUTS_ORDER_PRIMITIVE_BARROW",
+      "status": "AMBIGUOUS",
+      "prompt": "Calcular el área del recinto acotado por la curva, la tangente en P(1,1) y el eje OX.",
+      "solution": "Planteamiento:\nHallamos la tangente y dividimos el recinto en los intervalos determinados por sus cortes con OX.\n\nDesarrollo paso a paso:\nLa tangente en (1,1) es y=2x−1 y corta OX en x=1/2. El área es ∫ de 0 a 1/2 de x² dx más ∫ de 1/2 a 1 de [x²−(2x−1)] dx. Cada integral vale 1/24.\n\nResultado final:\nEl área es 1/12 unidades cuadradas.\n\nComprobación:\nEn [1/2,1], x²−2x+1=(x−1)²≥0, por lo que el orden de las curvas es correcto."
+    },
+    {
+      "exerciseId": "madrid-ccss-3.11.4",
+      "subpartId": "madrid-ccss-3.11.4#c)",
+      "courseId": "2bach-ccss",
+      "method": "AREA_CUTS_ORDER_PRIMITIVE_BARROW",
+      "status": "AMBIGUOUS",
+      "prompt": "Para a=6 y b=3/4, calcular el área limitada por la gráfica, OX y x=2.",
+      "solution": "Planteamiento:\nEl recinto va desde el cero x=−3 hasta x=2 y cambia de expresión en x=1.\n\nDesarrollo paso a paso:\nLa integral de −x²−x+6 entre −3 y 1 vale 56/3. Para x>1, f(x)=3/[(3/4)x]=4/x, cuya integral entre 1 y 2 vale 4 ln 2.\n\nRepresentación y contraste con la fuente oficial:\nLa representación oficial permite comprobar las curvas, los puntos de corte y la región encerrada usada en las integrales.\n[[official-solution-image src=\"assets/madrid-pau/ccss/solutions/madrid-ccss-3.11.4.jpg\"]]\n\nResultado final:\nEl área es 56/3+4 ln 2 unidades cuadradas.\n\nComprobación:\nAmbos tramos son positivos dentro del recinto, por lo que las integrales se suman sin cambiar el signo."
+    },
+    {
+      "exerciseId": "madrid-ccss-3.11.5",
+      "subpartId": "madrid-ccss-3.11.5#a)",
+      "courseId": "2bach-ccss",
+      "method": "EXTREMA_DERIVATIVE_SIGN_LINE",
+      "status": "AMBIGUOUS",
+      "prompt": "Calcular el largo y el alto que minimizan el precio del marco y obtener ese precio mínimo.",
+      "solution": "Planteamiento:\nExpresamos el coste usando la condición de área para trabajar con una sola variable.\n\nDesarrollo paso a paso:\nSi x es el largo e y el alto, xy=2. El marco cuesta C=2·25x+2·50y=50x+100y. Como y=2/x, C(x)=50x+200/x. Entonces C'(x)=50−200/x², que se anula en x=2. Resulta y=1 y C''(x)=400/x³>0.\n\nResultado final:\nEl largo es 2 m, el alto 1 m y el coste mínimo 200 euros.\n\nComprobación:\nEl área es 2·1=2 m² y la segunda derivada confirma el mínimo."
+    },
+    {
+      "exerciseId": "madrid-ccss-3.12.6",
+      "subpartId": "madrid-ccss-3.12.6#a)",
+      "courseId": "2bach-ccss",
+      "method": "EXTREMA_DERIVATIVE_SIGN_LINE",
+      "status": "AMBIGUOUS",
+      "prompt": "Si el perímetro es 12 m, hallar los lados que maximizan el área y calcular dicha área.",
+      "solution": "Planteamiento:\nUsamos el perímetro para expresar el área con una variable.\n\nDesarrollo paso a paso:\n2x+2y=12, luego y=6−x. El área es A(x)=x(6−x)=6x−x². A'(x)=6−2x se anula en x=3 y A''(x)=−2<0. Por tanto, y=3.\n\nResultado final:\nx=y=3 m y el área máxima es 9 m².\n\nComprobación:\nEl perímetro es 2·3+2·3=12 m."
+    },
+    {
+      "exerciseId": "madrid-ccss-3.12.6",
+      "subpartId": "madrid-ccss-3.12.6#a)",
+      "courseId": "2bach-ccss",
+      "method": "AREA_CUTS_ORDER_PRIMITIVE_BARROW",
+      "status": "AMBIGUOUS",
+      "prompt": "Si el perímetro es 12 m, hallar los lados que maximizan el área y calcular dicha área.",
+      "solution": "Planteamiento:\nUsamos el perímetro para expresar el área con una variable.\n\nDesarrollo paso a paso:\n2x+2y=12, luego y=6−x. El área es A(x)=x(6−x)=6x−x². A'(x)=6−2x se anula en x=3 y A''(x)=−2<0. Por tanto, y=3.\n\nResultado final:\nx=y=3 m y el área máxima es 9 m².\n\nComprobación:\nEl perímetro es 2·3+2·3=12 m."
+    },
+    {
+      "exerciseId": "madrid-ccss-3.12.6",
+      "subpartId": "madrid-ccss-3.12.6#b)",
+      "courseId": "2bach-ccss",
+      "method": "EXTREMA_DERIVATIVE_SIGN_LINE",
+      "status": "AMBIGUOUS",
+      "prompt": "Si el área es 36 m2, hallar los lados que minimizan el perímetro y calcular dicho perímetro.",
+      "solution": "Planteamiento:\nUsamos la condición de área y minimizamos el perímetro.\n\nDesarrollo paso a paso:\nxy=36, luego y=36/x. El perímetro es P(x)=2x+72/x. P'(x)=2−72/x² se anula en x=6. Como P''(x)=144/x³>0, es mínimo; entonces y=6.\n\nResultado final:\nx=y=6 m y el perímetro mínimo es 24 m.\n\nComprobación:\nEl área es 6·6=36 m²."
+    },
+    {
+      "exerciseId": "madrid-ccss-3.12.6",
+      "subpartId": "madrid-ccss-3.12.6#b)",
+      "courseId": "2bach-ccss",
+      "method": "AREA_CUTS_ORDER_PRIMITIVE_BARROW",
+      "status": "AMBIGUOUS",
+      "prompt": "Si el área es 36 m2, hallar los lados que minimizan el perímetro y calcular dicho perímetro.",
+      "solution": "Planteamiento:\nUsamos la condición de área y minimizamos el perímetro.\n\nDesarrollo paso a paso:\nxy=36, luego y=36/x. El perímetro es P(x)=2x+72/x. P'(x)=2−72/x² se anula en x=6. Como P''(x)=144/x³>0, es mínimo; entonces y=6.\n\nResultado final:\nx=y=6 m y el perímetro mínimo es 24 m.\n\nComprobación:\nEl área es 6·6=36 m²."
+    },
+    {
+      "exerciseId": "madrid-ccss-3.13.1",
+      "subpartId": "madrid-ccss-3.13.1#a)",
+      "courseId": "2bach-ccss",
+      "method": "EXTREMA_DERIVATIVE_SIGN_LINE",
+      "status": "AMBIGUOUS",
+      "prompt": "Calcular largo, anchura y altura para minimizar la superficie de cartón.",
+      "solution": "Planteamiento:\nLlamamos x a la anchura, 2x al largo y h a la altura; usamos el volumen para eliminar h.\n\nDesarrollo paso a paso:\n2x²h=9000, luego h=4500/x². La superficie de una caja cerrada es S=4x²+6xh=4x²+27000/x. Entonces S'=8x−27000/x². Al imponer S'=0 resulta x³=3375, así que x=15. El largo es 30 y h=4500/225=20. Además, S''=8+54000/x³>0.\n\nResultado final:\nLargo 30 cm, anchura 15 cm y altura 20 cm.\n\nComprobación:\n30·15·20=9000 cm³ y la segunda derivada confirma el mínimo."
+    },
+    {
+      "exerciseId": "madrid-ccss-3.13.2",
+      "subpartId": "madrid-ccss-3.13.2#b)",
+      "courseId": "2bach-ccss",
+      "method": "AREA_CUTS_ORDER_PRIMITIVE_BARROW",
+      "status": "AMBIGUOUS",
+      "prompt": "Para a=0, hallar b y c para que f sea continua y calcular el área acotada por la gráfica y OX.",
+      "solution": "Planteamiento:\nLa continuidad determina la recta central; después localizamos el recinto cerrado con OX.\n\nDesarrollo paso a paso:\nEn x=0 resulta c=2. En x=3 debe cumplirse 3b+c=0, luego b=−2/3. La gráfica corta OX en x=−1 y x=3. El área entre −1 y 0 bajo 2x+2 vale 1, y entre 0 y 3 bajo 2−2x/3 vale 3.\n\nResultado final:\nb=−2/3, c=2 y el área es 4 unidades cuadradas.\n\nComprobación:\nLas dos regiones son triángulos de bases 1 y 3 y altura 2."
+    },
+    {
+      "exerciseId": "madrid-ccss-3.13.3",
+      "subpartId": "madrid-ccss-3.13.3#a)",
+      "courseId": "2bach-ccss",
+      "method": "EXTREMA_DERIVATIVE_SIGN_LINE",
+      "status": "AMBIGUOUS",
+      "prompt": "Determinar cuántas cepas deben añadirse para maximizar la producción total.",
+      "solution": "Planteamiento:\nExpresamos la producción total en función del número x de cepas añadidas.\n\nDesarrollo paso a paso:\nP(x)=(1200+x)(16−0,01x)=19200+4x−0,01x². Es una parábola cóncava hacia abajo. P'(x)=4−0,02x se anula en x=200 y P''(x)=−0,02<0.\n\nResultado final:\nDeben añadirse 200 cepas.\n\nComprobación:\nCon 1400 cepas, cada una produce 14 kg y la producción total es 19600 kg, superior a la inicial."
+    },
+    {
+      "exerciseId": "madrid-ccss-3.13.4",
+      "subpartId": "madrid-ccss-3.13.4#c)",
+      "courseId": "2bach-ccss",
+      "method": "AREA_CUTS_ORDER_PRIMITIVE_BARROW",
+      "status": "AMBIGUOUS",
+      "prompt": "Calcular el área limitada por la gráfica, OX, OY y x=2.",
+      "solution": "Planteamiento:\nEntre x=0 y x=2 la función es no negativa y cambia de fórmula en x=1.\n\nDesarrollo paso a paso:\nLa integral de x²−4x+3 entre 0 y 1 vale 4/3. La integral de −x²+4x−3 entre 1 y 2 vale 2/3. Sumando se obtiene 2.\n\nRepresentación y contraste con la fuente oficial:\nLa representación oficial permite comprobar las curvas, los puntos de corte y la región encerrada usada en las integrales.\n[[official-solution-image src=\"assets/madrid-pau/ccss/solutions/madrid-ccss-3.13.4.jpg\"]]\n\nResultado final:\nEl área es 2 unidades cuadradas.\n\nComprobación:\nLas dos contribuciones son positivas y cubren exactamente el intervalo delimitado por OY y x=2."
+    },
+    {
+      "exerciseId": "madrid-ccss-3.16.1",
+      "subpartId": "madrid-ccss-3.16.1#b)",
+      "courseId": "2bach-ccss",
+      "method": "AREA_CUTS_ORDER_PRIMITIVE_BARROW",
+      "status": "AMBIGUOUS",
+      "prompt": "Calcular el área de la región.",
+      "solution": "Planteamiento:\nIntegramos la diferencia entre la curva superior y la inferior.\n\nDesarrollo paso a paso:\nEl área es ∫ de 0 a 6 de [√(6x)−x²/6] dx. La primera integral vale √6·(2/3)x^(3/2) evaluada en 6, es decir, 24. La segunda vale x³/18 evaluada en 6, es decir, 12.\n\nRepresentación y contraste con la fuente oficial:\nLa representación oficial permite comprobar las curvas, los puntos de corte y la región encerrada usada en las integrales.\n[[official-solution-image src=\"assets/madrid-pau/ccss/solutions/madrid-ccss-3.16.1.jpg\"]]\n\nResultado final:\nEl área es 12 unidades cuadradas.\n\nComprobación:\nLa diferencia de funciones es no negativa en [0,6] y se anula en los extremos."
+    },
+    {
+      "exerciseId": "madrid-ccss-3.20.7",
+      "subpartId": "madrid-ccss-3.20.7#b)",
+      "courseId": "2bach-ccss",
+      "method": "AREA_CUTS_ORDER_PRIMITIVE_BARROW",
+      "status": "AMBIGUOUS",
+      "prompt": "Calcular a para que el área delimitada por g(x), las rectas x=0 y x=1 y el eje de abscisas sea 2 unidades cuadradas.",
+      "solution": "Planteamiento:\nComo a>0, g es positiva en [0,1] y el área coincide con su integral.\n\nDesarrollo paso a paso:\nLa integral de ax/(x²+1) entre 0 y 1 es (a/2)ln 2. La integral de 1/(1+x)² es 1/2. Igualando la suma a 2: (a/2)ln 2+1/2=2, luego a ln 2=3.\n\nRepresentación y contraste con la fuente oficial:\nLa representación oficial permite comprobar las curvas, los puntos de corte y la región encerrada usada en las integrales.\n[[official-solution-image src=\"assets/madrid-pau/ccss/solutions/madrid-ccss-3.20.7.jpg\"]]\n\nResultado final:\na=3/ln 2.\n\nComprobación:\nSustituyendo, el primer sumando del área vale 3/2 y el segundo 1/2, total 2."
+    },
+    {
+      "exerciseId": "madrid-ccss-3.21.1",
+      "subpartId": "madrid-ccss-3.21.1#b)",
+      "courseId": "2bach-ccss",
+      "method": "EXTREMA_DERIVATIVE_SIGN_LINE",
+      "status": "AMBIGUOUS",
+      "prompt": "Obtener la recta tangente a f(x) en x=e y estudiar el crecimiento o decrecimiento de esta recta.",
+      "solution": "Planteamiento:\nComo e>1, usamos la rama ln x para calcular el punto y la pendiente.\n\nDesarrollo paso a paso:\nf(e)=ln e=1 y f'(e)=1/e. La recta tangente cumple y−1=(1/e)(x−e), que se simplifica a y=x/e. Su pendiente 1/e es positiva.\n\nResultado final:\nLa recta tangente es y=x/e y es estrictamente creciente.\n\nComprobación:\nLa recta pasa por (e,1) y tiene la misma pendiente que ln x en x=e."
+    },
+    {
+      "exerciseId": "madrid-ccss-3.22.1",
+      "subpartId": "madrid-ccss-3.22.1#a)",
+      "courseId": "2bach-ccss",
+      "method": "EXTREMA_DERIVATIVE_SIGN_LINE",
+      "status": "AMBIGUOUS",
+      "prompt": "Determinar a, b y c sabiendo que f(x) tiene un extremo relativo en x=−3 y que la tangente en x=0 es y=6x+8.",
+      "solution": "Planteamiento:\nLa tangente proporciona el valor y la derivada en x=0; el extremo exige derivada nula en x=−3.\n\nDesarrollo paso a paso:\nf(0)=c=8 y f'(0)=b=6. Como f'(x)=2ax+b, la condición f'(−3)=0 da −6a+6=0, luego a=1.\n\nResultado final:\na=1, b=6 y c=8.\n\nComprobación:\nCon estos coeficientes, f'(x)=2x+6 se anula exactamente en x=−3 y la tangente en cero es y=6x+8."
+    },
+    {
+      "exerciseId": "madrid-ccss-3.23.6",
+      "subpartId": "madrid-ccss-3.23.6#b)",
+      "courseId": "2bach-ccss",
+      "method": "EXTREMA_DERIVATIVE_SIGN_LINE",
+      "status": "AMBIGUOUS",
+      "prompt": "Obtener la longitud de cada trozo de alambre para que el coste total sea mínimo.",
+      "solution": "Planteamiento:\nMinimizamos la función cuadrática de coste.\n\nDesarrollo paso a paso:\nC'(h)=112h−5400. Al imponer C'(h)=0 resulta h=5400/112≈48,214 cm. El rectángulo consume 6h≈289,286 cm y el cuadrado recibe 450−6h≈160,714 cm. Como C''(h)=112>0, se trata de un mínimo.\n\nResultado final:\nEl trozo para el cuadrado mide aproximadamente 160,714 cm y el del rectángulo 289,286 cm.\n\nComprobación:\nLas longitudes suman 450 cm y la segunda derivada es positiva."
+    },
+    {
+      "exerciseId": "madrid-ccss-3.24.2",
+      "subpartId": "madrid-ccss-3.24.2#b)",
+      "courseId": "2bach-ccss",
+      "method": "AREA_CUTS_ORDER_PRIMITIVE_BARROW",
+      "status": "AMBIGUOUS",
+      "prompt": "Calcular el área de la región limitada por la parábola y las rectas tangentes a la parábola en sus puntos de corte con el eje de abscisas.",
+      "solution": "Planteamiento:\nObtenemos las tangentes en los dos ceros de la parábola y calculamos el área por tramos.\n\nDesarrollo paso a paso:\nSi q(x)=9x−x², entonces q'(x)=9−2x. En x=0 la tangente es y=9x y en x=9 es y=−9x+81. Se cortan en x=9/2. Entre 0 y 9/2 la diferencia con la parábola es x², cuya integral vale 243/8. Entre 9/2 y 9 la diferencia es (x−9)² y aporta otros 243/8.\n\nRepresentación y contraste con la fuente oficial:\nLa representación oficial permite comprobar las curvas, los puntos de corte y la región encerrada usada en las integrales.\n[[official-solution-image src=\"assets/madrid-pau/ccss/solutions/madrid-ccss-3.24.2.jpg\"]]\n\nResultado final:\nEl área total vale 243/4 unidades cuadradas.\n\nComprobación:\nLas dos zonas son simétricas y tienen la misma área, 243/8."
+    },
+    {
+      "exerciseId": "madrid-ccss-3.24.3",
+      "subpartId": "madrid-ccss-3.24.3#a)",
+      "courseId": "2bach-ccss",
+      "method": "EXTREMA_DERIVATIVE_SIGN_LINE",
+      "status": "AMBIGUOUS",
+      "prompt": "Determinar el valor de t para el que el coste diario es mínimo y calcular dicho coste.",
+      "solution": "Planteamiento:\nMinimizar el coste equivale a minimizar Q en el intervalo cerrado [1,2].\n\nDesarrollo paso a paso:\nQ'(t)=2t³−6t=2t(t²−3). El único punto crítico del intervalo es t=√3. Como Q''(√3)=6·3−6=12>0, es un mínimo; además, Q(√3)=9/2−9+5=1/2. Entonces C(√3)=150+100·1/2=200.\n\nResultado final:\nEl coste diario mínimo se alcanza para t=√3 y es de 200 euros.\n\nComprobación:\nEn los extremos, C(1)=400 y C(2)=250, ambos mayores que 200."
+    },
+    {
+      "exerciseId": "madrid-ccss-3.27.2",
+      "subpartId": "madrid-ccss-3.27.2#b)",
+      "courseId": "2bach-ccss",
+      "method": "AREA_CUTS_ORDER_PRIMITIVE_BARROW",
+      "status": "AMBIGUOUS",
+      "prompt": "Calcular el área limitada por f y el eje de abscisas entre x=0 y x=1, y determinar los valores de λ para los que f'(0)>0.",
+      "solution": "Planteamiento:\nEn [0,1], x−x³ es no negativo y el término exponencial es positivo, por lo que el área coincide con la integral. Después evaluamos f'(0).\n\nDesarrollo paso a paso:\nLa integral de x−x³ entre 0 y 1 es 1/4. Si λ≠0, la integral del exponencial es (1−e^(−λ))/λ; si λ=0, vale 1. Por otra parte, f'(x)=1−3x²−λe^(−λx), luego f'(0)=1−λ, que es positivo exactamente cuando λ<1.\n\nRepresentación y contraste con la fuente oficial:\nLa representación oficial permite comprobar las curvas, los puntos de corte y la región encerrada usada en las integrales.\n[[official-solution-image src=\"assets/madrid-pau/ccss/solutions/madrid-ccss-3.27.2.jpg\"]]\n\nResultado final:\nÁrea=1/4+(1−e^(−λ))/λ para λ≠0 y 5/4 para λ=0; f'(0)>0 si λ<1.\n\nComprobación:\nEl límite de (1−e^(−λ))/λ cuando λ tiende a 0 es 1, coherente con el caso especial."
+    },
+    {
+      "exerciseId": "madrid-ccss-3.27.3",
+      "subpartId": "madrid-ccss-3.27.3#b)",
+      "courseId": "2bach-ccss",
+      "method": "EXTREMA_DERIVATIVE_SIGN_LINE",
+      "status": "AMBIGUOUS",
+      "prompt": "Estudiar la continuidad de f y su crecimiento o decrecimiento en (1,∞).",
+      "solution": "Planteamiento:\nComparamos las ramas en x=1 y derivamos la expresión racional en su intervalo.\n\nDesarrollo paso a paso:\nEl valor y límite izquierdo son e⁵; el límite derecho es (1+5+2)/(2+3)=8/5. Son distintos, luego hay salto. Para x>1, f'(x)=(2x²+6x+11)/(2x+3)². El numerador tiene discriminante 36−88<0 y coeficiente principal positivo, de modo que es siempre positivo.\n\nResultado final:\nf es discontinua de salto en x=1 y estrictamente creciente en (1,∞).\n\nComprobación:\nEl denominador de la derivada es positivo y el numerador nunca se anula."
+    },
+    {
+      "exerciseId": "madrid-ccss-3.27.3",
+      "subpartId": "madrid-ccss-3.27.3#c)",
+      "courseId": "2bach-ccss",
+      "method": "EXTREMA_DERIVATIVE_SIGN_LINE",
+      "status": "AMBIGUOUS",
+      "prompt": "Sea g(x)=x3+bx2−9x+d. Determinar b y d para que g tenga un extremo relativo en x=3 y su gráfica pase por (2,10).",
+      "solution": "Planteamiento:\nUn extremo en x=3 exige g'(3)=0 y el paso por (2,10) exige g(2)=10.\n\nDesarrollo paso a paso:\ng'(x)=3x²+2bx−9. Así, g'(3)=18+6b=0 y b=−3. Después, g(2)=8+4(−3)−18+d=10, de donde d=32.\n\nResultado final:\nb=−3 y d=32.\n\nComprobación:\ng'(3)=27−18−9=0 y g(2)=8−12−18+32=10."
+    }
+  ]
+}

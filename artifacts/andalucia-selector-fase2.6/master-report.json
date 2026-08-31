@@ -1,0 +1,111 @@
+{
+  "metadata": {
+    "generatedAt": "2026-08-31T11:25:19.352Z",
+    "auditVersion": "fase-2.6-v1",
+    "simulationExamsPerScope": 1000,
+    "sourceHash": "21a94098968ab8455f3f3707b110df1e29b8471f67400b311dd784b8f61e5f88",
+    "communities": [
+      "andalucia"
+    ],
+    "courses": [
+      "2bach-mates",
+      "2bach-ccss"
+    ]
+  },
+  "status": "FASE 2.6 COMPLETADA SIN INCIDENCIAS",
+  "scopeReports": [
+    {
+      "community": "andalucia",
+      "communityLabel": "Andalucía",
+      "courseId": "2bach-mates",
+      "subject": "Matemáticas II",
+      "enabledCanonicalTotal": 817,
+      "classifiedCanonicalTotal": 817,
+      "interactiveSubpartTotal": 1439,
+      "topics": 14,
+      "blocks": 4,
+      "examPositions": 5,
+      "theoreticalExamCombinations": "13346163072",
+      "directPositionNonRepeatingCapacity": 8,
+      "practicalNonRepeatingExamCapacity": 8,
+      "limitingPosition": 5,
+      "emptyTopics": [],
+      "scarceTopics": [
+        {
+          "topic": "Vectores en el espacio",
+          "count": 8
+        },
+        {
+          "topic": "Probabilidad",
+          "count": 9
+        },
+        {
+          "topic": "Distribución binomial y normal",
+          "count": 4
+        }
+      ],
+      "enabledButUnreachable": 0,
+      "unclassified": 0
+    },
+    {
+      "community": "andalucia",
+      "communityLabel": "Andalucía",
+      "courseId": "2bach-ccss",
+      "subject": "CCSS II",
+      "enabledCanonicalTotal": 823,
+      "classifiedCanonicalTotal": 823,
+      "interactiveSubpartTotal": 1988,
+      "topics": 11,
+      "blocks": 4,
+      "examPositions": 4,
+      "theoreticalExamCombinations": "926322656",
+      "directPositionNonRepeatingCapacity": 118,
+      "practicalNonRepeatingExamCapacity": 118,
+      "limitingPosition": 1,
+      "emptyTopics": [
+        "Determinantes",
+        "Integrales indefinidas"
+      ],
+      "scarceTopics": [],
+      "enabledButUnreachable": 0,
+      "unclassified": 0
+    }
+  ],
+  "historyArchitecture": {
+    "persistence": "LOCAL_STORAGE",
+    "challengeKey": "margarita-challenge-answer-history-v2",
+    "examKey": "margarita-bach-ii-exam-history-v1",
+    "challengeScope": "academicYear + courseId + student identity + community + topic/block scope",
+    "examScope": "academicYear + courseId + group + student identity + community + slot",
+    "familyScope": "same exam scope + slot + last-family",
+    "survivesAppRestart": true,
+    "independentByStudent": true,
+    "independentByCourse": true,
+    "independentByCommunity": true,
+    "independentByTopicOrBlock": true,
+    "independentByExamSlot": true,
+    "resetRule": "deck resets only after the compatible pool is exhausted; the last identity is retained when pool size > 1"
+  },
+  "invariants": {
+    "canonicalVsSubpartsSeparated": true,
+    "primaryTopicSumMatchesEnabled": true,
+    "withinActivityNoRepeat": true,
+    "successiveActivityExhaustion": true,
+    "reachability": true,
+    "isolationScopeSupportedByKeys": true
+  },
+  "anomalyCount": 0,
+  "anomalies": [],
+  "artifactChecksums": {
+    "topic-census.json": "ea84acaf217e36e88c4a44c18ac1bd741e8458c08dacec0f785ac99458c5b6f5",
+    "block-census.json": "2a66a73ee4907ca07c3127623bb4f54f30cec349c6203c2110b26c44f4174712",
+    "exam-position-census.json": "5215b59c4e95417b76d4238ae593d5dbf26d3008633261875dcaf601c423a1a7",
+    "statistics-census.json": "650f247960f77d486cc5f9742e8e1b35b553e8a46e3f0f85ec25dad270304653",
+    "non-repeat-audit.json": "989d30108679b4a01a602bbc0064ee4092aefbc9a949d3112ffdbb9efcdc4270",
+    "reachability-audit.json": "9afd2ed4c9a69f520cf0b0603274516024853bae5389ab9b052a47acc5d705ed",
+    "simulation-results.json": "cbfda0e8f613b7379f18dcb6bf4da72208d79818b91ed7398ebbd110be871446",
+    "duplicate-audit.json": "70172597e1a014f47ac7b667469494600ead4321b14f4d2c500daa9db570ec46",
+    "bottlenecks.json": "3fc93e117368da605d2f2631a56cde7bb2e8f56f887746a3d3237b96f449671f",
+    "MASTER-REPORT.md": "c2a8c9e2ce00706f05f185787302f7c3befe306c27181581b379cdc0e5730516"
+  }
+}

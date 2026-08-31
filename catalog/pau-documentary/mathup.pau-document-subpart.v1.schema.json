@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://mathup.es/schemas/mathup.pau-document-subpart.v1.schema.json",
+  "title": "MathUp PAU document subpart",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "documentSubpartId", "documentExerciseId", "label", "normalizedLabel", "ordinal", "statement", "sourceRange"],
+  "properties": {
+    "schemaVersion": { "const": "mathup.pau-document-subpart.v1" },
+    "documentSubpartId": { "type": "string", "pattern": "^pau-sub-[0-9a-f]{32}$" },
+    "documentExerciseId": { "type": "string" },
+    "label": { "type": "string", "minLength": 1 },
+    "normalizedLabel": { "type": "string", "pattern": "^[a-z0-9]+$" },
+    "ordinal": { "type": "integer", "minimum": 1 },
+    "statement": { "type": "string" },
+    "statementHash": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+    "sourceRange": { "type": "object", "required": ["page", "startOffset", "endOffset"] }
+  }
+}

@@ -1,0 +1,13 @@
+diff --git "a/artifacts\\andalucia-phase2x-systems-linear\\skill-before\\skill-editor-enunciados\\SKILL.md" "b/C:\\Users\\aherr\\.codex\\skills\\skill-editor-enunciados\\SKILL.md"
+index a460f6f..f526272 100644
+--- "a/artifacts\\andalucia-phase2x-systems-linear\\skill-before\\skill-editor-enunciados\\SKILL.md"
++++ "b/C:\\Users\\aherr\\.codex\\skills\\skill-editor-enunciados\\SKILL.md"
+@@ -44,6 +44,8 @@ Aplicar un flujo de fidelidad documental: el PDF original es la única fuente de
+ 33. Cuando la extracción haya perdido filas, columnas, delimitadores, signos o condiciones y la página no permita reconstruirlos con certeza, asignar `NEEDS_HUMAN_VISUAL_REVIEW`; conservar el ejercicio y adjuntar fuente, representación de la aplicación y motivo. No inventar estructura para reducir la cola ni contabilizar estos casos como `PASS`.
+ 34. Mantener una galería fuente–aplicación para todos los casos corregidos o pendientes. En formatos antiguos que no puedan rasterizarse sin reparación, no forzar la conversión: señalar el bloqueo del formato y conservar el archivo oficial como autoridad para su apertura manual.
+ 35. La regresión permanente debe recorrer todos los ejercicios habilitados, todos sus apartados, exactamente cuatro opciones por apartado y todos los pasos de solución a 1280, 768 y 375 px. Debe fallar ante tokens internos visibles, errores del renderizador, opciones ausentes o desbordamiento horizontal, y guardar un log identificable por `exerciseId`.
++36. En sistemas de ecuaciones, exigir paridad estructural `fuente = canónico = runtime = DOM`: una sola llave por sistema, una fila por ecuación y ninguna ecuación omitida, duplicada o desplazada a otro apartado. Aplicar la misma comprobación a opciones y soluciones; no confundir con un sistema una secuencia narrativa de igualdades independientes.
++37. En programación lineal, clasificar por la tarea principal de modelización u optimización, no por la aparición auxiliar de ecuaciones. La solución debe conservar restricciones, fronteras, semiplanos, región factible, vértices exactos, tabla completa `vértice | valor`, interpretación contextual y una gráfica matemática no decorativa. Registrar como fallo cualquier discrepancia entre los vértices calculados, la tabla y la figura.
+ 
+ ## Flujo de trabajo
+ 

@@ -1,0 +1,24 @@
+diff --git "a/C:\\Users\\aherr\\OneDrive\\Documentos\\Codex\\APP MARGARITA SALAS\\artifacts\\andalucia-manual-review-correction\\skill-before\\skill-editor-enunciados.SKILL.before.md" "b/C:\\Users\\aherr\\OneDrive\\Documentos\\Codex\\APP MARGARITA SALAS\\artifacts\\andalucia-manual-review-correction\\skill-after\\skill-editor-enunciados.SKILL.after.md"
+index c9bd7b8..d75c524 100644
+--- "a/C:\\Users\\aherr\\OneDrive\\Documentos\\Codex\\APP MARGARITA SALAS\\artifacts\\andalucia-manual-review-correction\\skill-before\\skill-editor-enunciados.SKILL.before.md"	
++++ "b/C:\\Users\\aherr\\OneDrive\\Documentos\\Codex\\APP MARGARITA SALAS\\artifacts\\andalucia-manual-review-correction\\skill-after\\skill-editor-enunciados.SKILL.after.md"	
+@@ -25,13 +25,18 @@ Aplicar un flujo de fidelidad documental: el PDF original es la única fuente de
+ 14. Insertar cada tabla o figura necesaria exactamente una vez dentro de su ejercicio. Antes de añadirla, recorrer desde el encabezado del ejercicio hasta el encabezado siguiente y comprobar si ya existe un dibujo. Una misma tabla puede reutilizarse en ejercicios distintos, pero no repetirse dentro del mismo ejercicio. Tras guardar, auditar por ejercicio `tablas esperadas = tablas encontradas`; en los ejercicios con una única tabla, el resultado obligatorio es `1 = 1`.
+ 15. Colocar cada opción `a)`, `b)`, `c)` en su propio párrafo, en el orden del original. No fragmentar una fórmula que en el original pertenece a la misma línea lógica del enunciado.
+ 16. No incluir soluciones salvo petición expresa. No borrar archivos del usuario; eliminar únicamente temporales creados durante la ejecución, tras verificar su ruta.
++17. En bancos destinados a una aplicación, auditar la cadena completa `documento original → ejercicio canónico → ejercicio mostrado`. Año y convocatoria no bastan: deben coincidir ejercicio, apartados, cifras, signos, potencias, raíces, fracciones, matrices, sistemas, límites, integrales, condiciones, unidades y recursos visuales.
++18. Registrar por ejercicio `apartados originales` y `apartados canónicos/mostrados`. Un apartado ilegible o no convertible se conserva y queda marcado para revisión; nunca se elimina silenciosamente. Cada alternativa numerada y cada apartado permanecen asociados a su ejercicio correcto.
++19. Tratar `etiqueta + signo igual + objeto matemático` como una unidad estructural: `A=`, `B=`, `X=`, `f(x)=`, `r=` o `s=` deben permanecer unidos a su matriz, vector, fracción, función, recta, plano o sistema. Un ajuste responsivo puede mover la unidad completa, pero no separar la etiqueta.
++20. La clasificación temática depende de la tarea principal solicitada por el enunciado. Registrar `primaryTopic`, `secondaryTopics[]` y el motivo. La aparición incidental de un determinante, una derivada o una integral en la resolución no convierte esa herramienta en el tema principal.
++21. En la salida para aplicaciones, matrices, determinantes, sistemas, funciones a trozos, fracciones, raíces, límites e integrales deben transportarse como estructuras, nunca como texto aplanado o tokens internos. Auditar que el alumno no pueda ver `matrix{}`, `system{}`, `frac{}`, `sqrt{}` ni delimitadores TeX.
+ 
+ ## Flujo de trabajo
+ 
+ 1. Identificar páginas y convocatorias del intervalo solicitado y conservar una referencia página–año–convocatoria.
+ 2. Extraer texto para localizar ejercicios, pero reconstruir notación desde la imagen de la página; el OCR no decide exponentes, filas, columnas ni fracciones.
+ 3. Detectar antes de clasificar las preguntas alternativas del tipo `N.1 o N.2`. Crear un registro independiente para cada alternativa, retirar la instrucción de elección y comprobar que sus apartados pertenecen al registro correcto.
+-4. Clasificar cada ejercicio según el temario solicitado sin modificarlo. Si combina bloques, repetir solo el contexto común necesario y separar los apartados por bloque.
++4. Clasificar cada ejercicio según el temario solicitado sin modificarlo. Asignar `primaryTopic` por la tarea matemática principal y `secondaryTopics[]` por contenidos auxiliares relevantes. Si combina bloques, repetir solo el contexto común necesario y separar los apartados por bloque.
+ 5. Comparar cada transcripción con la página original, carácter a carácter en fórmulas y signos.
+ 6. Construir DOCX con texto editable y OMML. Usar MathML→OMML o XML OOXML; no simular estructuras matemáticas con texto.
+ 7. Insertar las tablas auxiliares debajo del ejercicio completo, después de su último apartado (`a)`, `b)`, `c)`, etc.), cuando esa sea su posición en el original. No colocarlas entre el enunciado común y el apartado `a)`. Para otras figuras, conservar su posición exacta respecto al texto original.

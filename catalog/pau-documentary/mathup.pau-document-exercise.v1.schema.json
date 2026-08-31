@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://mathup.es/schemas/mathup.pau-document-exercise.v1.schema.json",
+  "title": "MathUp PAU document exercise",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "documentExerciseId", "documentId", "documentHash", "subject", "questionKey", "alternativeKey", "statement", "sourceRange", "subpartRefs"],
+  "properties": {
+    "schemaVersion": { "const": "mathup.pau-document-exercise.v1" },
+    "documentExerciseId": { "type": "string", "pattern": "^pau-ex-[0-9a-f]{32}$" },
+    "documentId": { "type": "string" },
+    "documentHash": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+    "subject": { "type": "string", "minLength": 1 },
+    "questionKey": { "type": "string", "minLength": 1 },
+    "alternativeKey": { "type": "string", "minLength": 1 },
+    "statement": { "type": "string" },
+    "statementHash": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+    "editorialInstruction": { "type": ["object", "null"] },
+    "sourceRange": { "type": "object", "required": ["page", "startOffset", "endOffset"] },
+    "subpartRefs": { "type": "array", "items": { "type": "string" } }
+  }
+}

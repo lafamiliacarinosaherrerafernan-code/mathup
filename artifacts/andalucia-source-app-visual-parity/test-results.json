@@ -1,0 +1,6 @@
+{
+  "specificRenderingAndParity": { "passed": 17, "failed": 0 },
+  "integratedSelectedSuite": { "passed": 77, "failed": 0 },
+  "browserGate": { "viewports": 3, "failed": 0 },
+  "commandExitCode": 0
+}

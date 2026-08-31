@@ -1,0 +1,48 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://mathup.es/contracts/mathup.exercise.v2.schema.json",
+  "title": "MathUp canonical exercise v2",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "identity", "classification", "difficulty", "provenance", "content", "links", "review", "traceability", "editorial"],
+  "properties": {
+    "schemaVersion": { "const": "mathup.exercise.v2" },
+    "identity": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["exerciseId", "revisionId", "revisionNumber", "contentHash", "aliases"],
+      "properties": {
+        "exerciseId": { "type": "string", "pattern": "^ex-[0-9a-f-]{36}$" },
+        "revisionId": { "type": "string" },
+        "revisionNumber": { "type": "integer", "minimum": 1 },
+        "contentHash": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+        "aliases": { "type": "array", "items": { "type": "string" }, "uniqueItems": true }
+      }
+    },
+    "classification": { "type": "object" },
+    "difficulty": { "type": "object" },
+    "provenance": { "type": "object" },
+    "content": { "type": "object" },
+    "links": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["answerRefs", "solutionRefs", "deliveryTemplateRefs"],
+      "properties": {
+        "answerRefs": { "type": "array", "items": { "type": "string" }, "uniqueItems": true },
+        "solutionRefs": { "type": "array", "items": { "type": "string" }, "uniqueItems": true },
+        "deliveryTemplateRefs": { "type": "array", "items": { "type": "string" }, "uniqueItems": true }
+      }
+    },
+    "review": { "type": "object" },
+    "traceability": { "type": "object" },
+    "editorial": { "type": "object" }
+  },
+  "not": {
+    "anyOf": [
+      { "required": ["choices"] },
+      { "required": ["modalities"] },
+      { "required": ["correctIndex"] },
+      { "required": ["correctPosition"] }
+    ]
+  }
+}

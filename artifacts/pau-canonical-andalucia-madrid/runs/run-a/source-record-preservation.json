@@ -1,0 +1,7 @@
+{
+    "inputRecords":  15527,
+    "uniqueSourceRecordIds":  15527,
+    "missingSourceRecordIds":  0,
+    "sourceRecordIdSetHash":  "03f1d806eb3f253025496b8e94c0860ad672906e0af1b243e6fe8502df1e2f5c",
+    "policy":  "NO_SOURCE_RECORD_DELETED_OR_REWRITTEN"
+}

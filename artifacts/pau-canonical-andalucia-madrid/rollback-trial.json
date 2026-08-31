@@ -1,0 +1,26 @@
+﻿{
+    "schemaVersion":  "mathup.pau-canonical-rollback-trial.v1",
+    "mode":  "DRY_RUN_DELETE_GENERATED_PATHS_ONLY",
+    "generatedFiles":  343,
+    "rollbackScope":  "artifacts/pau-canonical-andalucia-madrid plus new parallel code only",
+    "protectedHashesBefore":  {
+                                  "index.html":  "45af3746e63e336a133baab830296ec797f5d68059e38122ebca0936bac89080",
+                                  "catalog\\canonical-exercise.schema.json":  "34d99c9a7f9764c6a8a55b6c7f3cc53c8ac1acdff6a3f704dd819db18cfe2678",
+                                  "app.js":  "7d3ccc9dc3590c2b32f0e95ea2865f9c692c9f465d8abfbd4f72d9408f72757c",
+                                  "catalog\\validate-canonical-exercise.mjs":  "13658e74efdeda3c55b9f4bf29fa5ab0871a5af48cf4d4ff1589745bdccfcaa5",
+                                  "math-renderer.js":  "fbe21999db03802cf48941ce84cfd4d77c0850df4bd968c577d7670d3039062d",
+                                  "catalog\\canonical-exercise.mjs":  "7a2989a0318532a144950f33d64b64802e4fabc62b27172e6a6ea23211496918"
+                              },
+    "protectedHashesAfter":  {
+                                 "index.html":  "45af3746e63e336a133baab830296ec797f5d68059e38122ebca0936bac89080",
+                                 "catalog\\canonical-exercise.schema.json":  "34d99c9a7f9764c6a8a55b6c7f3cc53c8ac1acdff6a3f704dd819db18cfe2678",
+                                 "app.js":  "7d3ccc9dc3590c2b32f0e95ea2865f9c692c9f465d8abfbd4f72d9408f72757c",
+                                 "catalog\\validate-canonical-exercise.mjs":  "13658e74efdeda3c55b9f4bf29fa5ab0871a5af48cf4d4ff1589745bdccfcaa5",
+                                 "math-renderer.js":  "fbe21999db03802cf48941ce84cfd4d77c0850df4bd968c577d7670d3039062d",
+                                 "catalog\\canonical-exercise.mjs":  "7a2989a0318532a144950f33d64b64802e4fabc62b27172e6a6ea23211496918"
+                             },
+    "protectedChanges":  [
+
+                         ],
+    "passed":  true
+}

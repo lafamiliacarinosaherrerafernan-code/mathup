@@ -1,0 +1,13 @@
+{
+  "schemaVersion": "mathup.equation3-human-comparison.manifest.v1",
+  "generatedAt": "2026-08-25T00:00:00.000Z",
+  "sourcePath": "artifacts/equation3-andalucia-2012/runs/run-a/recovered-equations.jsonl",
+  "sourceSha256": "3540c953e06c9bf34301f5928e90ed8eef1ed5f780bdf9dbd4a837eb01329073",
+  "exerciseSourcePath": "artifacts/andalucia-ccssii-2012-doc/runs/run-a/recovered-exercises.jsonl",
+  "exerciseSourceSha256": "7ff61095484d57ba0f1f37bbf20b807ae68cbd48993a14da090a7668a3a7c03a",
+  "queueCount": 55,
+  "exerciseCount": 27,
+  "queueSemanticHash": "bf46fe6a0457c97bca5718a4b4494558301513a09613a0b3668c5c7e47c64df0",
+  "queueFileSha256": "7adf5a36c15c2a408459f56ee71e38304ada537875d30e77dcc3b760e8850cec",
+  "decisionsAtBuild": 0
+}

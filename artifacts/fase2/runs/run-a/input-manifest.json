@@ -1,0 +1,875 @@
+{
+  "files": [
+    {
+      "exists": true,
+      "file": "app.js",
+      "sha256": "7d3ccc9dc3590c2b32f0e95ea2865f9c692c9f465d8abfbd4f72d9408f72757c",
+      "size": 820959
+    },
+    {
+      "exists": true,
+      "file": "bach-exam.js",
+      "sha256": "9b18cbd6c57ff18e7490cd873b6e8e5fc01d69e545806487f5fb85f959a39705",
+      "size": 66557
+    },
+    {
+      "exists": true,
+      "file": "catalog/canonical-exercise.mjs",
+      "sha256": "7a2989a0318532a144950f33d64b64802e4fabc62b27172e6a6ea23211496918",
+      "size": 5095
+    },
+    {
+      "exists": true,
+      "file": "catalog/canonical-exercise.schema.json",
+      "sha256": "34d99c9a7f9764c6a8a55b6c7f3cc53c8ac1acdff6a3f704dd819db18cfe2678",
+      "size": 13587
+    },
+    {
+      "exists": true,
+      "file": "catalog/fase2-taxonomy-mappings.v1.json",
+      "sha256": "b767732def91c6e315a2a59d9f90d56a81592a7aa4adbfaa08bdf7de736b8da0",
+      "size": 2281
+    },
+    {
+      "exists": true,
+      "file": "catalog/validate-canonical-exercise.mjs",
+      "sha256": "13658e74efdeda3c55b9f4bf29fa5ab0871a5af48cf4d4ff1589745bdccfcaa5",
+      "size": 24144
+    },
+    {
+      "exists": true,
+      "file": "data/bach-ii-answer-option-balance.js",
+      "sha256": "816c4a0f6f0860fe7a055d82b5753fa523a5196711bfe3c2f29d9973014dcf6b",
+      "size": 1111
+    },
+    {
+      "exists": true,
+      "file": "data/bach-ii-bank-coverage.js",
+      "sha256": "f2549952329c51a81d0f415c8e715aad06840c8141256805fb4ecd3753d89f99",
+      "size": 3456
+    },
+    {
+      "exists": true,
+      "file": "data/bach-ii-bank-normalization.js",
+      "sha256": "4a8560d563944af7781c5463b5f40d89eea8e376e4bdac51c64e5d686fa06646",
+      "size": 1744
+    },
+    {
+      "exists": true,
+      "file": "data/bach-ii-ccss-answer-bank-bridge-2020-2024.js",
+      "sha256": "5b8982d8620885a9fbe682af3ae6c49809ae81d7fab50f6eaff94660e1c92011",
+      "size": 1732
+    },
+    {
+      "exists": true,
+      "file": "data/bach-ii-complete-answer-bank-2000.js",
+      "sha256": "9815192f757538f73630a1c3e450184c875632ec230ccdde94e53e059a40906a",
+      "size": 25035
+    },
+    {
+      "exists": true,
+      "file": "data/bach-ii-complete-answer-bank-2001.js",
+      "sha256": "80a45a3ed145aef699054aa020d96e7f191010aa6e4b1d8c1aa4478cf26b8b94",
+      "size": 28205
+    },
+    {
+      "exists": true,
+      "file": "data/bach-ii-complete-answer-bank-2002.js",
+      "sha256": "14aa8fe0ae9318ff555035ff8fbbce1e82e42f1ee5d0e652744c21c5bce0db93",
+      "size": 34400
+    },
+    {
+      "exists": true,
+      "file": "data/bach-ii-complete-answer-bank-2003.js",
+      "sha256": "7e7b474b93662e7208d6157f937e3e43b4ba53dbe08fe990e70608c128a5ce22",
+      "size": 32478
+    },
+    {
+      "exists": true,
+      "file": "data/bach-ii-complete-answer-bank-2004.js",
+      "sha256": "30f3fa1d35a4a8ad92b1c349f6e6d0832d1b7bac6868e08da2c376759526aeb3",
+      "size": 49826
+    },
+    {
+      "exists": true,
+      "file": "data/bach-ii-complete-answer-bank-2005.js",
+      "sha256": "4757139d8d662e8c7a0e3b25df07e1b5ebd26ebef979640322b9ff8041cdd2fb",
+      "size": 21888
+    },
+    {
+      "exists": true,
+      "file": "data/bach-ii-complete-answer-bank-2006.js",
+      "sha256": "0fc9aa2f550efb9bd8d54019490399756b80d86af80dbb43310a77c5cf704e65",
+      "size": 23185
+    },
+    {
+      "exists": true,
+      "file": "data/bach-ii-complete-answer-bank-2007.js",
+      "sha256": "0c08d4212d3d573cd4c7fefeeaa5150eb390052773e48d068de4a5fdb87f53be",
+      "size": 39210
+    },
+    {
+      "exists": true,
+      "file": "data/bach-ii-complete-answer-bank-2008.js",
+      "sha256": "340e98e8c4efb52f06f655359e8d92540ccbf6b64397d6ddfc0cb86bb27fe8b3",
+      "size": 51138
+    },
+    {
+      "exists": true,
+      "file": "data/bach-ii-complete-answer-bank-2009.js",
+      "sha256": "0f11f8327fc61bd23e86a5a486e40f23639514efdb8a618ef92d5a23a68cca2a",
+      "size": 58006
+    },
+    {
+      "exists": true,
+      "file": "data/bach-ii-complete-answer-bank-2010.js",
+      "sha256": "e7ee5a9b5f22d479917c3cc992c642718371312237b4894008a2bd34aea367ca",
+      "size": 79020
+    },
+    {
+      "exists": true,
+      "file": "data/bach-ii-complete-answer-bank-2011.js",
+      "sha256": "c20bc35befc5d880e7f766d3e3ab11338d62ca02fac94474b1868e9bcd7b4712",
+      "size": 38453
+    },
+    {
+      "exists": true,
+      "file": "data/bach-ii-complete-answer-bank-2012.js",
+      "sha256": "ba83af22f493e832e3c60bf712b6245aefc703f3625b90f535f2ae131d1eb1c6",
+      "size": 91931
+    },
+    {
+      "exists": true,
+      "file": "data/bach-ii-complete-answer-bank-2013.js",
+      "sha256": "bfc3114494b461fa1647fabce04de67ab7520689417991291ddafda00741497a",
+      "size": 78863
+    },
+    {
+      "exists": true,
+      "file": "data/bach-ii-complete-answer-bank-2014.js",
+      "sha256": "475417f425758db88571121e9879aa55117639e9ebdae4f48ebac5e093b9d8fc",
+      "size": 27708
+    },
+    {
+      "exists": true,
+      "file": "data/bach-ii-complete-answer-bank-2015.js",
+      "sha256": "67002ccac8d62ddd92de00d2463e38c92c33da9f8e2f4c89f40381801325bc34",
+      "size": 42311
+    },
+    {
+      "exists": true,
+      "file": "data/bach-ii-complete-answer-bank-2016.js",
+      "sha256": "2611c8c562caed7687065226d7d1dec5539f1f8444d240b008db4a1f3d7e9ff2",
+      "size": 38656
+    },
+    {
+      "exists": true,
+      "file": "data/bach-ii-complete-answer-bank-2017.js",
+      "sha256": "cdf3126c790f704f919ea10b6952e4cf35ea99554b1bf14c899bc323dea91752",
+      "size": 58342
+    },
+    {
+      "exists": true,
+      "file": "data/bach-ii-complete-answer-bank-2018-ccss.js",
+      "sha256": "10e1d990ef1bad69f2c20c1eda538f1a8f92aa3e38b5fcca0892ae3b3a9274d5",
+      "size": 35576
+    },
+    {
+      "exists": true,
+      "file": "data/bach-ii-complete-answer-bank-2018.js",
+      "sha256": "9a6e747af504fc0005c8b2a5fda64fb1f9d5ddedb803f7ae539315dc0bb84e3b",
+      "size": 26771
+    },
+    {
+      "exists": true,
+      "file": "data/bach-ii-complete-answer-bank-2019.js",
+      "sha256": "ab429da2fe878e4919a669f64237e8bb68c3089892862cbdea5ede5cbb5a3d7d",
+      "size": 60882
+    },
+    {
+      "exists": true,
+      "file": "data/bach-ii-complete-answer-bank-2020.js",
+      "sha256": "d3ced98b18fefddf64fe98cb2ca177d9727e34c34f5dc2682c8f88986ed524e4",
+      "size": 52878
+    },
+    {
+      "exists": true,
+      "file": "data/bach-ii-complete-answer-bank-2021.js",
+      "sha256": "87c2080f9c630e0ae9471947f946969e8dafe54a0b4e9a34e13922691ef9a994",
+      "size": 42846
+    },
+    {
+      "exists": true,
+      "file": "data/bach-ii-complete-answer-bank-2022.js",
+      "sha256": "cf11ad8c9aff0b08a4ffd6c3e89d464e26960cf24c6ce877f957169e42abf45f",
+      "size": 55762
+    },
+    {
+      "exists": true,
+      "file": "data/bach-ii-complete-answer-bank-2023.js",
+      "sha256": "6e5bc20e3795cf5637325a74f1c67291aa1f932908c53406a1efc61d56c9a637",
+      "size": 49861
+    },
+    {
+      "exists": true,
+      "file": "data/bach-ii-complete-answer-bank-2024.js",
+      "sha256": "20c2598f6eafdea9199c523870a6433eeba51f8b983be92ac3fbeb29d8fe9d84",
+      "size": 41238
+    },
+    {
+      "exists": true,
+      "file": "data/bach-ii-complete-answer-bank-2025-ccss.js",
+      "sha256": "574d8edf119515a8a741dc10bef7893bb736b7ca2a485ae53d95d7d82d4cebe3",
+      "size": 11694
+    },
+    {
+      "exists": true,
+      "file": "data/bach-ii-complete-answer-bank-2025.js",
+      "sha256": "c1f7f71c77443e6faf5179b73757f7e59fd8df5afc78318f279c819105c7a663",
+      "size": 34228
+    },
+    {
+      "exists": true,
+      "file": "data/bach-ii-complete-answer-bank-2026-ccss.js",
+      "sha256": "b452d158f8335ea7e986494909ffb3d6f58d7d3be187cb796036f06c3f6da69d",
+      "size": 14816
+    },
+    {
+      "exists": true,
+      "file": "data/bach-ii-complete-answer-bank.js",
+      "sha256": "928229bd2730faa2c6d8ce97ba5d7b694895deae4b3839e145d1f825d13333fb",
+      "size": 26445
+    },
+    {
+      "exists": true,
+      "file": "data/bach-ii-exam-data.js",
+      "sha256": "76d267105393faa7c42a9c341590126e26d99b9fff64bec6fef2cd6cdfee2fb0",
+      "size": 24481
+    },
+    {
+      "exists": true,
+      "file": "data/bach-ii-variety-expansion.js",
+      "sha256": "b703a41a9c2af5b5810dd85e607b6ccf9c5ea27c9d4baf60270fe416a3d7355f",
+      "size": 53923
+    },
+    {
+      "exists": true,
+      "file": "data/ccss-i-original-combinatorics-bank.js",
+      "sha256": "127bf845d1ec5eb33f4ab68ef9fb098418e4b0441550e157ec773d48ad890aa9",
+      "size": 5117
+    },
+    {
+      "exists": true,
+      "file": "data/ccss-i-original-exercise-banks.js",
+      "sha256": "0acc71518dd0c53c7c3d5d4ff89cb3c6cc39f19f43065e2cd653f8dba5231369",
+      "size": 42239
+    },
+    {
+      "exists": true,
+      "file": "data/ccss-i-progress-migration.js",
+      "sha256": "904d60594dd1a0085a812c0f2b3cfcde3dac7518014e7c527370cf43c0e6a8e7",
+      "size": 4364
+    },
+    {
+      "exists": true,
+      "file": "data/ccss-i-topic-remap.js",
+      "sha256": "999f175e424544f9aaaa61a2819689ac285481f82031fe3f80311ff5482b0056",
+      "size": 506
+    },
+    {
+      "exists": true,
+      "file": "data/ccss-ii-block-answers.js",
+      "sha256": "b965593b741de53c7433026f3737d3d1a87ef6667031156b527599e294e2a1f8",
+      "size": 21487
+    },
+    {
+      "exists": true,
+      "file": "data/ccss-ii-blocks.js",
+      "sha256": "e1a3cf7786ba62cfcab219e46466eb4d8acbff8affc968a0d108bdca360bbf6d",
+      "size": 769806
+    },
+    {
+      "exists": true,
+      "file": "data/ccss-ii-cross-course-practice.js",
+      "sha256": "f1d9eb3a444211d8af8de2767ea8a344e69b1f6a186fd190bd3f74dbd6c632e5",
+      "size": 4896
+    },
+    {
+      "exists": true,
+      "file": "data/ccss-ii-integrals-practice.js",
+      "sha256": "0cd1574dd68edb8274b4004b1b6ea7cc8832504cdbe9c1dba6220b86de27446c",
+      "size": 11275
+    },
+    {
+      "exists": true,
+      "file": "data/ccss-ii-topic-classification.js",
+      "sha256": "003fa793f90be7739ce9a78a22df0514d28239745af345cdfc29ded94c5f33b9",
+      "size": 19952
+    },
+    {
+      "exists": true,
+      "file": "data/ccss-ii-topic10-de-moivre-practice.js",
+      "sha256": "c309a06243d463a31f02f05f43ff298ff4af26d88fb22387e684c4aacc815575",
+      "size": 8619
+    },
+    {
+      "exists": true,
+      "file": "data/coach-data.js",
+      "sha256": "20503241497753d568fcf7dd6e2fdd0efa20dfbb205fb48d55d00d3afe5e659d",
+      "size": 17009
+    },
+    {
+      "exists": true,
+      "file": "data/combinatorics-supplied-banks.js",
+      "sha256": "f25f5f4f7904b741bf0dd83ab5fbfbe361cd5b2eb4358eb36bc3bddfcaf97302",
+      "size": 19897
+    },
+    {
+      "exists": true,
+      "file": "data/content-availability.js",
+      "sha256": "e7f761eb050ec9d39c24e65cbae0f4d5d8b6dfbd85730dc9ad2c3981923b8257",
+      "size": 4128
+    },
+    {
+      "exists": true,
+      "file": "data/eso-exam-verified-banks-10.js",
+      "sha256": "0760a2ed2df0c7467ed51bf71d6c963f40ccd3a81764fad33482815df830a7bd",
+      "size": 17725
+    },
+    {
+      "exists": true,
+      "file": "data/eso-exam-verified-banks-11.js",
+      "sha256": "1e08ed2cf45aa42b250159a6ecf09745a3cafa41b21937df8e14017f3ffec3a7",
+      "size": 20748
+    },
+    {
+      "exists": true,
+      "file": "data/eso-exam-verified-banks-12.js",
+      "sha256": "48d57a70842720cf566b490c552144b80507ef1b2359ca7507051ece6327462c",
+      "size": 16425
+    },
+    {
+      "exists": true,
+      "file": "data/eso-exam-verified-banks-13.js",
+      "sha256": "59ec4c5e41b7e3979ba17c2f0594fd798e7df0bf837491515de56e9fde8f6a59",
+      "size": 12680
+    },
+    {
+      "exists": true,
+      "file": "data/eso-exam-verified-banks-14.js",
+      "sha256": "e6dcab6080e9bd446a73988d8a6773dd2576cb433b2a67d0dc129859c17f20c6",
+      "size": 12485
+    },
+    {
+      "exists": true,
+      "file": "data/eso-exam-verified-banks-15.js",
+      "sha256": "e354bcc3865643b5a2f4a49ca939357d7af8c67aad39a04a0dc6853309bd1fa8",
+      "size": 8489
+    },
+    {
+      "exists": true,
+      "file": "data/eso-exam-verified-banks-16.js",
+      "sha256": "efab87a874b7fe20f31e19f41246e0fe48490b14f05ea512eeb91b1d28e8e809",
+      "size": 14736
+    },
+    {
+      "exists": true,
+      "file": "data/eso-exam-verified-banks-17.js",
+      "sha256": "bc112516e8681fc4a1d721a22ebee4b066f2d68c87ca8326d353f49289b79951",
+      "size": 9229
+    },
+    {
+      "exists": true,
+      "file": "data/eso-exam-verified-banks-18.js",
+      "sha256": "ccf434592ab521b01b2096252c711ed9dd72b286af68e4fbece1296aecf817ba",
+      "size": 10146
+    },
+    {
+      "exists": true,
+      "file": "data/eso-exam-verified-banks-19.js",
+      "sha256": "d7b2b12c0eff6988ff01bdde773e962203330bd41ef13a15dd213b3576bc26ed",
+      "size": 13997
+    },
+    {
+      "exists": true,
+      "file": "data/eso-exam-verified-banks-2.js",
+      "sha256": "16ce3d80eaa7218064821e3405908739ae26aa225ddec3aa4152bd417e8b77a6",
+      "size": 20045
+    },
+    {
+      "exists": true,
+      "file": "data/eso-exam-verified-banks-20.js",
+      "sha256": "dba18bdf5e050484cad3b5e887eb7dbb80f13dac63e79782d164d5fe80188f23",
+      "size": 12622
+    },
+    {
+      "exists": true,
+      "file": "data/eso-exam-verified-banks-21.js",
+      "sha256": "d80da7cc0ca097069bb27b0e409633f9233efcea0e318b814ccf1cfe3352bd78",
+      "size": 8532
+    },
+    {
+      "exists": true,
+      "file": "data/eso-exam-verified-banks-22.js",
+      "sha256": "6811342b0679aa03108be3839285e4c16507bf26ae0eb07bd3c67ec290a1807e",
+      "size": 4142
+    },
+    {
+      "exists": true,
+      "file": "data/eso-exam-verified-banks-23.js",
+      "sha256": "54b9bc0feb242b455ad269fe3c927bc75c8c6326519fbc5d15ae692d3ddb93c4",
+      "size": 2819
+    },
+    {
+      "exists": true,
+      "file": "data/eso-exam-verified-banks-24.js",
+      "sha256": "35132a3208743d2536057dc137a1d03fa446b9d93a20563aa19c8827e158c9d4",
+      "size": 4404
+    },
+    {
+      "exists": true,
+      "file": "data/eso-exam-verified-banks-25.js",
+      "sha256": "536f6dd743e921658c44a8ca7a500c1ba0b02aa7881651e705957b879103dafa",
+      "size": 5348
+    },
+    {
+      "exists": true,
+      "file": "data/eso-exam-verified-banks-26.js",
+      "sha256": "988b33ab0cb1d0b328ae05d86718ad6f8eba58f0791568106786e146f6f1e30f",
+      "size": 2517
+    },
+    {
+      "exists": true,
+      "file": "data/eso-exam-verified-banks-27.js",
+      "sha256": "f8ab32afc1f46eb9554c1f37864901b5e908b1bd32728eed109a74b982cf6c0a",
+      "size": 4749
+    },
+    {
+      "exists": true,
+      "file": "data/eso-exam-verified-banks-28.js",
+      "sha256": "eba8e54bf5f16454dac60cc114f3a0fa1888e8947b620173a9f187b68cf96857",
+      "size": 3794
+    },
+    {
+      "exists": true,
+      "file": "data/eso-exam-verified-banks-29.js",
+      "sha256": "113d8015edb274621ef2f1ddc794150ac232af30cb5f30912fd8cd2fa7a1a96d",
+      "size": 4116
+    },
+    {
+      "exists": true,
+      "file": "data/eso-exam-verified-banks-3.js",
+      "sha256": "72d0d009fdcb1a690f72b3c10ac34c4513d1488d80a3f5795f349b91fa41f7bd",
+      "size": 11986
+    },
+    {
+      "exists": true,
+      "file": "data/eso-exam-verified-banks-30.js",
+      "sha256": "30a084defb3508b3052ec02098fed90dabc68b6317f7e45f9539dbdee4052fc2",
+      "size": 4322
+    },
+    {
+      "exists": true,
+      "file": "data/eso-exam-verified-banks-31.js",
+      "sha256": "e286afd92e24548d9bf28c1aa76e064a47fb6269ba63c4e52809fb0626a684d3",
+      "size": 3615
+    },
+    {
+      "exists": true,
+      "file": "data/eso-exam-verified-banks-32.js",
+      "sha256": "5ce2e56560edceb3ecd227567ce2393fa84486b0155563def4d5bafffdd874ad",
+      "size": 4270
+    },
+    {
+      "exists": true,
+      "file": "data/eso-exam-verified-banks-33.js",
+      "sha256": "acb44f59331e4198ac12870415e5d42394589900b61d696d6e0a438fe709742e",
+      "size": 5125
+    },
+    {
+      "exists": true,
+      "file": "data/eso-exam-verified-banks-34.js",
+      "sha256": "c78dd53065dd80be8ce80df257d597783711a469f94943461d437695d3cb67f7",
+      "size": 4152
+    },
+    {
+      "exists": true,
+      "file": "data/eso-exam-verified-banks-35.js",
+      "sha256": "ed283632ee0a7d2fc78f1142e62f02d2dcdd4da3f6c6f19d43b5aee3e7778da9",
+      "size": 4122
+    },
+    {
+      "exists": true,
+      "file": "data/eso-exam-verified-banks-36.js",
+      "sha256": "9f5f1a314e5d1ac90b73b7636888a2fe7b1e972e2927bd67c62eb4fce552d84e",
+      "size": 2684
+    },
+    {
+      "exists": true,
+      "file": "data/eso-exam-verified-banks-37.js",
+      "sha256": "375af61f23ca3c179efa73fe643fe21f3b1780abec40fd9f4206b99df51a8ddd",
+      "size": 10589
+    },
+    {
+      "exists": true,
+      "file": "data/eso-exam-verified-banks-38.js",
+      "sha256": "cf5c392c929683f8921b6126aabafb38a0e3c53f7ba7f031b7d572afca44b8c0",
+      "size": 4377
+    },
+    {
+      "exists": true,
+      "file": "data/eso-exam-verified-banks-39.js",
+      "sha256": "324fcbcdd301383c48caa65b22f3ad25fa89fccdd455c2b0dbbf3b7062012dd6",
+      "size": 1441
+    },
+    {
+      "exists": true,
+      "file": "data/eso-exam-verified-banks-4.js",
+      "sha256": "85f97480aac542d84213ffc2bc090c33a9eb13f0947b13ccc18b34f7c2d7765e",
+      "size": 11057
+    },
+    {
+      "exists": true,
+      "file": "data/eso-exam-verified-banks-40.js",
+      "sha256": "146ad970aa9e0b09f9f02ed5b4f95d3f4701e118551cda4df7546563140b3122",
+      "size": 1429
+    },
+    {
+      "exists": true,
+      "file": "data/eso-exam-verified-banks-41.js",
+      "sha256": "d389b8718eb2fb938e8084ba6641ec3f3a0391f180a7cb2f9037a6338f1108ed",
+      "size": 3326
+    },
+    {
+      "exists": true,
+      "file": "data/eso-exam-verified-banks-42.js",
+      "sha256": "950b9855d02425407250767720d246227ade474ba43fe5e07b55fe2ca3308877",
+      "size": 1982
+    },
+    {
+      "exists": true,
+      "file": "data/eso-exam-verified-banks-43.js",
+      "sha256": "83116fc663f324143c99cb9f938e4d1d72bfbe231cac771a99a997cd88229dd7",
+      "size": 4580
+    },
+    {
+      "exists": true,
+      "file": "data/eso-exam-verified-banks-44.js",
+      "sha256": "c7436359f56de8ce69135e2c2e1eafaf81231f22d82d9a5d442d3d39009e8d37",
+      "size": 2065
+    },
+    {
+      "exists": true,
+      "file": "data/eso-exam-verified-banks-45.js",
+      "sha256": "8ed073c1bd780fd562badb17bd1dcb129597a60077b909ecdca8b73314318af7",
+      "size": 2297
+    },
+    {
+      "exists": true,
+      "file": "data/eso-exam-verified-banks-46.js",
+      "sha256": "b792a61ab3184a20c0acb0fcb72f58c56f484f4056b3ab57f191b84afa814ea0",
+      "size": 2562
+    },
+    {
+      "exists": true,
+      "file": "data/eso-exam-verified-banks-47.js",
+      "sha256": "9fcc562c70063fe8b85e97ff6715111be5771e23330975c8a5f5063ce61dec19",
+      "size": 1610
+    },
+    {
+      "exists": true,
+      "file": "data/eso-exam-verified-banks-48.js",
+      "sha256": "b8a2121403c86d56bb78a7a202cad8ff8a5fc71d6437d2c815ad442d818c08f7",
+      "size": 3164
+    },
+    {
+      "exists": true,
+      "file": "data/eso-exam-verified-banks-49.js",
+      "sha256": "7429ce4d08cc29e2dacebc3159e5e757d1dc766c77d4810eb269044437079617",
+      "size": 2122
+    },
+    {
+      "exists": true,
+      "file": "data/eso-exam-verified-banks-5.js",
+      "sha256": "a63ac039a64eed627be0e36e57f27c48668803015a7095b97b813e50bf96bb84",
+      "size": 14895
+    },
+    {
+      "exists": true,
+      "file": "data/eso-exam-verified-banks-50.js",
+      "sha256": "3363aeb3d069648a0b765811267e389d5c4cb4a97ca613d995440e22dc57322e",
+      "size": 19914
+    },
+    {
+      "exists": true,
+      "file": "data/eso-exam-verified-banks-51.js",
+      "sha256": "252c6dda9d875f725be8c5ca4d5a4946da5db557b4e9a63abb19ab4f0aa3a304",
+      "size": 13979
+    },
+    {
+      "exists": true,
+      "file": "data/eso-exam-verified-banks-52.js",
+      "sha256": "b37de45f07303fe104b40358ca4cbb751d677a06adf93834557663068a6610a9",
+      "size": 20096
+    },
+    {
+      "exists": true,
+      "file": "data/eso-exam-verified-banks-6.js",
+      "sha256": "d288a80dd7712376a0b8c468ebb2dab07666a68cc46e9ffdfce26c4222861ea1",
+      "size": 27365
+    },
+    {
+      "exists": true,
+      "file": "data/eso-exam-verified-banks-7.js",
+      "sha256": "a6b6441558a270322c8b93719551d6ba5caa8c55f1a7e62e0167dc1ddc1a4cd9",
+      "size": 16364
+    },
+    {
+      "exists": true,
+      "file": "data/eso-exam-verified-banks-8.js",
+      "sha256": "e75fe51e2ec0d4299a4228fb7206fb976a8648c9ce43c19502dabe1ec2724817",
+      "size": 10965
+    },
+    {
+      "exists": true,
+      "file": "data/eso-exam-verified-banks-9.js",
+      "sha256": "d862a446d880efa1d358739debb029371e32b8bfade4888a4f381a4d42332445",
+      "size": 20539
+    },
+    {
+      "exists": true,
+      "file": "data/eso-exam-verified-banks.js",
+      "sha256": "deb7b5142f12dfc6c12bfb62eebdf1217e8625c2c3e0e2c9b3e534f09123b1be",
+      "size": 8530
+    },
+    {
+      "exists": true,
+      "file": "data/eso-topic-content.js",
+      "sha256": "8063c42ab57d759ea1da67ae3a3193236e5838c39590f2fe2f00e03cad1e7eb0",
+      "size": 53734
+    },
+    {
+      "exists": true,
+      "file": "data/eso1-original-topic9-10-banks.js",
+      "sha256": "ce87192ab4799ff8175f9086a79961a7f9f7ee852ed7dcbb8a35c4be6f2871b1",
+      "size": 25089
+    },
+    {
+      "exists": true,
+      "file": "data/eso1-original-topic9-10-review2.js",
+      "sha256": "f370912bc99e43de095c232bd10eddbec36a659001f36e10e93bcf64761d1090",
+      "size": 98832
+    },
+    {
+      "exists": true,
+      "file": "data/eso2-original-practice-banks.js",
+      "sha256": "56ffa80350fb8dac38a77efee284b2fb3df1b161c3c32523a717a5a239ea17c9",
+      "size": 42117
+    },
+    {
+      "exists": true,
+      "file": "data/eso2-topic-classification-fixes.js",
+      "sha256": "fca58c72d3c239f30b4cd5409cc544de05e6343677018795c0dc05a38d30a315",
+      "size": 3897
+    },
+    {
+      "exists": true,
+      "file": "data/eso3-approved-ab-practice-functions-statistics.js",
+      "sha256": "b580451e37d9cc68fc9bfab5acd81b7ea1a37028b2d10a09c844f0eff6e1b050",
+      "size": 6414
+    },
+    {
+      "exists": true,
+      "file": "data/eso3-approved-ab-practice-probability.js",
+      "sha256": "ee600661a2d345103258447c2fc692ed87b90962a25b6a32556c0aabcf635277",
+      "size": 11262
+    },
+    {
+      "exists": true,
+      "file": "data/eso3-approved-ab-practice-remaining.js",
+      "sha256": "35614c825001ce125be37bcab5ee73544dc5ed46ee675ed333b49ce63f9d1545",
+      "size": 21634
+    },
+    {
+      "exists": true,
+      "file": "data/eso3-approved-ab-practice-sequences-geometry.js",
+      "sha256": "5ae50f392cadb84ab195e492810ede166eb2a058627458b38736515f45874c63",
+      "size": 14631
+    },
+    {
+      "exists": true,
+      "file": "data/eso3-approved-ab-practice.js",
+      "sha256": "1bbce06a23d6be3b83c761ebe2191cfef47e54a89febbf8f71cf38288d7739fb",
+      "size": 19434
+    },
+    {
+      "exists": true,
+      "file": "data/eso3-exam-metadata-normalization.js",
+      "sha256": "a8a2887e88e6f73d9b9a7366df734515e23165880f667ca036ff5f8c6da0c578",
+      "size": 2874
+    },
+    {
+      "exists": true,
+      "file": "data/eso3-original-practice-banks.js",
+      "sha256": "9dcba62e35339414f5bf9aee8461e34d2a661e04ec74bc583cf8d1e79437aee1",
+      "size": 105303
+    },
+    {
+      "exists": true,
+      "file": "data/eso4a-controlled-practice-banks.js",
+      "sha256": "af94f48b1024eb9e9d194f3dd3c7673dd9a506b8a83f7d924de1f24bbe34ab92",
+      "size": 44125
+    },
+    {
+      "exists": true,
+      "file": "data/eso4a-topic-classification-fixes.js",
+      "sha256": "0dc2a6f630113e74a5526b2828de77cb8e06cd23e1120d4f491b85bbc81af9ed",
+      "size": 2009
+    },
+    {
+      "exists": true,
+      "file": "data/eso4b-controlled-practice-banks.js",
+      "sha256": "90b837e7186c7aa7a4fc9c94494c64b842049ce0f1d1c3c311b095ef5a163bce",
+      "size": 52128
+    },
+    {
+      "exists": true,
+      "file": "data/first-bach-variety-banks.js",
+      "sha256": "85c099418a3dc5f0cbfa86b48e59c9416163cb976686f85d91f7fe9c8c2a74ab",
+      "size": 23134
+    },
+    {
+      "exists": true,
+      "file": "data/madrid-pau-authored.js",
+      "sha256": "e03fd538d44e22872f2a67c38686cb4f4e3780c93353026d26a93f3df63136f0",
+      "size": 3765770
+    },
+    {
+      "exists": true,
+      "file": "data/madrid-pau-bank.js",
+      "sha256": "2f2ba893468e4530063b8e519c772c0770ee673c81defc7958765c7fbfb07ec5",
+      "size": 675648
+    },
+    {
+      "exists": true,
+      "file": "data/mates-i-supplied-banks.js",
+      "sha256": "5326d0b8255c344315b8bda26208b3d1c8055cef312a5385d520809b85cc3f3c",
+      "size": 37997
+    },
+    {
+      "exists": true,
+      "file": "data/mates-ii-blocks.js",
+      "sha256": "dd2dc2f9d39add2e6c828d15e9a17f351b8b58be9040321bb87e65fb3a108168",
+      "size": 864555
+    },
+    {
+      "exists": true,
+      "file": "data/mates-ii-runtime-fixes.js",
+      "sha256": "a8613c5f3b1c9865d13ce3d86ece7d0edab32ff019173f06f63fdc2d9d887b0a",
+      "size": 31739
+    },
+    {
+      "exists": true,
+      "file": "data/myscript-phase2c-corpus.js",
+      "sha256": "b9065c10142203b67adf3b95a4155a748820999630f082b5b8e006e422094708",
+      "size": 4735
+    },
+    {
+      "exists": true,
+      "file": "data/myscript-phase2d-pilot-selection.js",
+      "sha256": "84d6fd436cebd342c788f5a04547eb622a8bb468e8e60af6aed3a29cfeab2484",
+      "size": 3109
+    },
+    {
+      "exists": true,
+      "file": "data/source-verified-exercise-banks.js",
+      "sha256": "49665dcd7b509bf6b32c5ba7e7ec185787dde44707f729711ba37c40530d823a",
+      "size": 14054
+    },
+    {
+      "exists": true,
+      "file": "data/topic-explanations.js",
+      "sha256": "ce46b9abdad481ec94f04f491313124f528cde85e61d60778cee11e01756989b",
+      "size": 256350
+    },
+    {
+      "exists": true,
+      "file": "data/topic-podcasts.js",
+      "sha256": "351d40b3b51b644074007953e7381fe1f089fdab6e49a7ceeaef29248abf3747",
+      "size": 18748
+    },
+    {
+      "exists": true,
+      "file": "docs/FASE-0-INVENTARIO-CATALOGO-MATHUP.csv",
+      "sha256": "2d70149cb35082bfa2510f014e35a7fa7f5df19eb76bbbdc1b81f2427a2b999d",
+      "size": 11166299
+    },
+    {
+      "exists": true,
+      "file": "docs/FASE-0-INVENTARIO-CATALOGO-MATHUP.json",
+      "sha256": "fa11709b4eb675c522496591f93ba35fa2fc1a4a46d57475e60ef4c2a0c80d10",
+      "size": 28527758
+    },
+    {
+      "exists": true,
+      "file": "docs/FASE-0-INVENTARIO-CONTRATO-CATALOGO-MATHUP.md",
+      "sha256": "5ca903441b8d5e40b0a401fd76511e7465c6b12398a2ff5db65b122ca9793ed6",
+      "size": 21643
+    },
+    {
+      "exists": true,
+      "file": "docs/FASE-0B-DIAGNOSTICO-CATALOGO-MATHUP.md",
+      "sha256": "7454e3951401fe2bea0c0838890fd03e45b482f843c8701b72e32fbe081c5476",
+      "size": 284080
+    },
+    {
+      "exists": true,
+      "file": "docs/FASE-1-ESQUEMA-VALIDADOR-CATALOGO-MATHUP.md",
+      "sha256": "142612af1232ca4986e928e021697df9ab1efe41ad6142ad42e2344acae5248e",
+      "size": 20963
+    },
+    {
+      "exists": true,
+      "file": "docs/PLAN-FASE-2-CATALOGO-CANONICO-MATHUP.md",
+      "sha256": "6c903cf91008d5a24ef5b3bfac00c29439d760e304f0fb239f05696a604d4633",
+      "size": 34680
+    },
+    {
+      "exists": true,
+      "file": "eso-exam.js",
+      "sha256": "c514480882cbca7488f74cdad10ac6e4bd70098c6316c8f229e26b0cd0cc1dc3",
+      "size": 16493
+    },
+    {
+      "exists": true,
+      "file": "first-bach-exam.js",
+      "sha256": "a91b96e8999192f3779f0d9387f41b98fdd12e95fb948bd51cf31ae8cfee44c4",
+      "size": 17112
+    },
+    {
+      "exists": true,
+      "file": "index.html",
+      "sha256": "45af3746e63e336a133baab830296ec797f5d68059e38122ebca0936bac89080",
+      "size": 13876
+    },
+    {
+      "exists": true,
+      "file": "math-renderer.js",
+      "sha256": "fbe21999db03802cf48941ce84cfd4d77c0850df4bd968c577d7670d3039062d",
+      "size": 36683
+    },
+    {
+      "exists": true,
+      "file": "scripts/fase0-inventory-catalog.mjs",
+      "sha256": "174d9dae18f7dde6bf745ea412d1f1f2e43ed74ddb76e8bc6837768639a6221a",
+      "size": 35042
+    },
+    {
+      "exists": true,
+      "file": "scripts/fase2-import-catalog.mjs",
+      "sha256": "10df8fe808b76fa9c10f9f33e5b6a2e1819341a27fdb73ebaf7124518b0e324f",
+      "size": 43862
+    }
+  ],
+  "manifestVersion": "mathup.fase2.inputs.v1"
+}

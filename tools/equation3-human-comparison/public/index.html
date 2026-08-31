@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Comparación humana Equation.3 · +MathUp</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="navigation.css">
+  <style>
+    .math-stage { font-size: 96px; }
+    .math-stage math { max-width: 100%; max-height: 150px; }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div><strong>+MathUp</strong><span>Comparación Equation.3 · Andalucía CCSS II 2012</span></div>
+    <div id="progress">Cargando…</div>
+  </header>
+  <main>
+    <section class="toolbar" aria-label="Navegación y filtros">
+      <button id="previous" class="quiet">← ANTERIOR</button><span id="position"></span>
+      <label>Modelo <select id="modelFilter"><option value="">Todos</option></select></label>
+      <label>Ejercicio <select id="exerciseFilter"><option value="">Todos</option></select></label>
+      <button id="next" class="quiet">SIGUIENTE →</button>
+      <a id="fullOriginal" class="original-link" target="_blank" rel="noopener">VER ORIGINAL COMPLETO</a>
+    </section>
+    <div id="caseContent" class="case-content">
+    <section class="case-line">
+      <div><h1 id="exerciseTitle">Ejercicio</h1><p id="subpartTitle"></p></div>
+      <span id="mappingStatus" class="mapping-status"></span>
+    </section>
+    <section class="comparison" aria-label="Comparación de la ecuación">
+      <article class="compare-card"><h2>ORIGINAL OFICIAL</h2><button class="equation-stage" id="officialZoom" aria-label="Ampliar original oficial"><img id="officialImage" alt="Ecuación oficial extraída del DOC"></button></article>
+      <article class="compare-card"><h2 id="renderedHeading">REPRESENTACIÓN RECUPERADA</h2><button class="equation-stage math-stage" id="renderedZoom" aria-label="Ampliar representación recuperada"><span id="renderedMath"></span></button></article>
+    </section>
+    <section id="recheckHistory" class="recheck-history" hidden>
+      <strong>Historial preservado:</strong> <span id="originalDecision"></span>
+      <span id="originalComment"></span>
+      <small>Corrección general aplicada: <span id="correctionRules"></span></small>
+    </section>
+    <section class="exercise-context">
+      <header><h2 id="contextTitle">Ejercicio y apartado completos</h2><span>El objeto comparado aparece resaltado</span></header>
+      <div id="exerciseFlow" class="exercise-flow"></div>
+    </section>
+    <details class="technical-panel"><summary>Información técnica</summary><dl id="technicalData"></dl></details>
+    </div>
+    <section id="completionSummary" class="completion-summary" hidden>
+      <h1>Resumen de la revisión</h1>
+      <div class="summary-grid">
+        <article><strong id="summaryReviewed">0</strong><span>Revisados</span></article>
+        <article><strong id="summaryPending">55</strong><span>Pendientes</span></article>
+        <article><strong id="summaryCoincide">0</strong><span>COINCIDE</span></article>
+        <article><strong id="summaryNoCoincide">0</strong><span>NO COINCIDE</span></article>
+        <article><strong id="summaryDoubt">0</strong><span>DUDOSO</span></article>
+      </div>
+    </section>
+  </main>
+  <footer class="decision-bar">
+    <label>Revisor <input id="reviewerId" autocomplete="off" placeholder="Identificador local"></label>
+    <label class="comment-label">Comentario <input id="comment" autocomplete="off" placeholder="Obligatorio para fallo o duda"></label>
+    <div class="decision-buttons"><button class="approve" data-decision="COINCIDE">COINCIDE</button><button class="fail" data-decision="NO_COINCIDE">NO COINCIDE</button><button class="doubt" data-decision="DUDOSO">DUDOSO</button></div>
+    <p id="status">0 decisiones humanas.</p>
+  </footer>
+  <dialog id="zoomDialog"><button id="closeZoom" aria-label="Cerrar">×</button><div id="zoomContent"></div></dialog>
+  <script type="module" src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://mathup.es/contracts/mathup.answer.v1.schema.json",
+  "title": "MathUp mathematical answer v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "answerId", "exerciseId", "revisionId", "kind", "canonicalValue", "acceptedValues", "evidenceStatus", "provenance", "review"],
+  "properties": {
+    "schemaVersion": { "const": "mathup.answer.v1" },
+    "answerId": { "type": "string", "pattern": "^ans-[0-9a-f-]{36}$" },
+    "exerciseId": { "type": "string", "pattern": "^ex-[0-9a-f-]{36}$" },
+    "revisionId": { "type": "string" },
+    "kind": { "enum": ["scalar", "expression", "set", "structured", "composite", "text"] },
+    "canonicalValue": {},
+    "acceptedValues": { "type": "array" },
+    "units": { "type": ["string", "null"] },
+    "tolerance": { "type": ["number", "null"] },
+    "evidenceStatus": { "enum": ["OBSERVED", "RECOVERED_UNIQUE", "POSSIBLE", "CONFLICT", "NOT_FOUND"] },
+    "provenance": { "type": "object" },
+    "review": { "type": "object" }
+  },
+  "not": {
+    "anyOf": [
+      { "required": ["correctIndex"] },
+      { "required": ["correctPosition"] },
+      { "required": ["letter"] }
+    ]
+  }
+}

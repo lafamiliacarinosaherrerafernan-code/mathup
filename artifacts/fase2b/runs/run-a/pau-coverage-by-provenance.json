@@ -1,0 +1,2538 @@
+[
+  {
+    "community": "Castilla-La Mancha",
+    "exercises": 1,
+    "recovered": 1,
+    "sitting": "Julio",
+    "subjectId": "matematicas-ii",
+    "year": null
+  },
+  {
+    "community": "Castilla-La Mancha",
+    "exercises": 1,
+    "recovered": 1,
+    "sitting": "Septiembre",
+    "subjectId": "matematicas-ii",
+    "year": null
+  },
+  {
+    "community": "Castilla-La Mancha",
+    "exercises": 1,
+    "recovered": 1,
+    "sitting": null,
+    "subjectId": "matematicas-ii",
+    "year": null
+  },
+  {
+    "community": "Castilla-La Mancha",
+    "exercises": 10,
+    "recovered": 10,
+    "sitting": "Junio/ordinaria",
+    "subjectId": "matematicas-ii",
+    "year": 2004
+  },
+  {
+    "community": "Castilla-La Mancha",
+    "exercises": 10,
+    "recovered": 10,
+    "sitting": "Junio/ordinaria",
+    "subjectId": "matematicas-ii",
+    "year": 2009
+  },
+  {
+    "community": "Castilla-La Mancha",
+    "exercises": 10,
+    "recovered": 10,
+    "sitting": "Junio/ordinaria",
+    "subjectId": "matematicas-ii",
+    "year": 2013
+  },
+  {
+    "community": "Castilla-La Mancha",
+    "exercises": 10,
+    "recovered": 10,
+    "sitting": "Septiembre",
+    "subjectId": "matematicas-ii",
+    "year": 2007
+  },
+  {
+    "community": "Castilla-La Mancha",
+    "exercises": 10,
+    "recovered": 10,
+    "sitting": "Septiembre",
+    "subjectId": "matematicas-ii",
+    "year": 2008
+  },
+  {
+    "community": "Castilla-La Mancha",
+    "exercises": 10,
+    "recovered": 10,
+    "sitting": "Septiembre",
+    "subjectId": "matematicas-ii",
+    "year": 2009
+  },
+  {
+    "community": "Castilla-La Mancha",
+    "exercises": 10,
+    "recovered": 10,
+    "sitting": "Septiembre",
+    "subjectId": "matematicas-ii",
+    "year": 2013
+  },
+  {
+    "community": "Castilla-La Mancha",
+    "exercises": 11,
+    "recovered": 0,
+    "sitting": "Julio",
+    "subjectId": "matematicas-ccss-ii",
+    "year": 2018
+  },
+  {
+    "community": "Castilla-La Mancha",
+    "exercises": 11,
+    "recovered": 0,
+    "sitting": "Septiembre",
+    "subjectId": "matematicas-ccss-ii",
+    "year": 2017
+  },
+  {
+    "community": "Castilla-La Mancha",
+    "exercises": 11,
+    "recovered": 11,
+    "sitting": "Julio",
+    "subjectId": "matematicas-ccss-ii",
+    "year": 2023
+  },
+  {
+    "community": "Castilla-La Mancha",
+    "exercises": 11,
+    "recovered": 11,
+    "sitting": "Junio/ordinaria",
+    "subjectId": "matematicas-ccss-ii",
+    "year": 2021
+  },
+  {
+    "community": "Castilla-La Mancha",
+    "exercises": 11,
+    "recovered": 11,
+    "sitting": "Junio/ordinaria",
+    "subjectId": "matematicas-ccss-ii",
+    "year": 2022
+  },
+  {
+    "community": "Castilla-La Mancha",
+    "exercises": 11,
+    "recovered": 11,
+    "sitting": "Junio/ordinaria",
+    "subjectId": "matematicas-ii",
+    "year": 2007
+  },
+  {
+    "community": "Castilla-La Mancha",
+    "exercises": 11,
+    "recovered": 11,
+    "sitting": "Junio/ordinaria",
+    "subjectId": "matematicas-ii",
+    "year": 2008
+  },
+  {
+    "community": "Castilla-La Mancha",
+    "exercises": 11,
+    "recovered": 11,
+    "sitting": "Septiembre",
+    "subjectId": "matematicas-ii",
+    "year": 2005
+  },
+  {
+    "community": "Castilla-La Mancha",
+    "exercises": 11,
+    "recovered": 11,
+    "sitting": "Septiembre",
+    "subjectId": "matematicas-ii",
+    "year": 2015
+  },
+  {
+    "community": "Castilla-La Mancha",
+    "exercises": 11,
+    "recovered": 9,
+    "sitting": "Junio/ordinaria",
+    "subjectId": "matematicas-ii",
+    "year": 2011
+  },
+  {
+    "community": "Castilla-La Mancha",
+    "exercises": 12,
+    "recovered": 0,
+    "sitting": "Junio/ordinaria",
+    "subjectId": "matematicas-ccss-ii",
+    "year": 2016
+  },
+  {
+    "community": "Castilla-La Mancha",
+    "exercises": 12,
+    "recovered": 0,
+    "sitting": "Junio/ordinaria",
+    "subjectId": "matematicas-ccss-ii",
+    "year": 2017
+  },
+  {
+    "community": "Castilla-La Mancha",
+    "exercises": 12,
+    "recovered": 0,
+    "sitting": "Junio/ordinaria",
+    "subjectId": "matematicas-ccss-ii",
+    "year": 2018
+  },
+  {
+    "community": "Castilla-La Mancha",
+    "exercises": 12,
+    "recovered": 1,
+    "sitting": "Junio/ordinaria",
+    "subjectId": "matematicas-ccss-ii",
+    "year": 2019
+  },
+  {
+    "community": "Castilla-La Mancha",
+    "exercises": 12,
+    "recovered": 1,
+    "sitting": "Septiembre",
+    "subjectId": "matematicas-ccss-ii",
+    "year": 2016
+  },
+  {
+    "community": "Castilla-La Mancha",
+    "exercises": 12,
+    "recovered": 12,
+    "sitting": "Julio",
+    "subjectId": "matematicas-ccss-ii",
+    "year": 2020
+  },
+  {
+    "community": "Castilla-La Mancha",
+    "exercises": 12,
+    "recovered": 12,
+    "sitting": "Julio",
+    "subjectId": "matematicas-ccss-ii",
+    "year": 2024
+  },
+  {
+    "community": "Castilla-La Mancha",
+    "exercises": 12,
+    "recovered": 12,
+    "sitting": "Junio/ordinaria",
+    "subjectId": "matematicas-ccss-ii",
+    "year": 2023
+  },
+  {
+    "community": "Castilla-La Mancha",
+    "exercises": 12,
+    "recovered": 12,
+    "sitting": "Junio/ordinaria",
+    "subjectId": "matematicas-ii",
+    "year": 2012
+  },
+  {
+    "community": "Castilla-La Mancha",
+    "exercises": 12,
+    "recovered": 12,
+    "sitting": "Junio/ordinaria",
+    "subjectId": "matematicas-ii",
+    "year": 2015
+  },
+  {
+    "community": "Castilla-La Mancha",
+    "exercises": 12,
+    "recovered": 12,
+    "sitting": "Junio/ordinaria",
+    "subjectId": "matematicas-ii",
+    "year": 2016
+  },
+  {
+    "community": "Castilla-La Mancha",
+    "exercises": 12,
+    "recovered": 12,
+    "sitting": "Septiembre",
+    "subjectId": "matematicas-ii",
+    "year": 2011
+  },
+  {
+    "community": "Castilla-La Mancha",
+    "exercises": 12,
+    "recovered": 12,
+    "sitting": "Septiembre",
+    "subjectId": "matematicas-ii",
+    "year": 2012
+  },
+  {
+    "community": "Castilla-La Mancha",
+    "exercises": 12,
+    "recovered": 12,
+    "sitting": "Septiembre",
+    "subjectId": "matematicas-ii",
+    "year": 2016
+  },
+  {
+    "community": "Castilla-La Mancha",
+    "exercises": 13,
+    "recovered": 0,
+    "sitting": "Julio",
+    "subjectId": "matematicas-ccss-ii",
+    "year": 2019
+  },
+  {
+    "community": "Castilla-La Mancha",
+    "exercises": 13,
+    "recovered": 13,
+    "sitting": "Julio",
+    "subjectId": "matematicas-ccss-ii",
+    "year": 2021
+  },
+  {
+    "community": "Castilla-La Mancha",
+    "exercises": 13,
+    "recovered": 13,
+    "sitting": "Julio",
+    "subjectId": "matematicas-ccss-ii",
+    "year": 2022
+  },
+  {
+    "community": "Castilla-La Mancha",
+    "exercises": 13,
+    "recovered": 13,
+    "sitting": "Julio",
+    "subjectId": "matematicas-ii",
+    "year": 2021
+  },
+  {
+    "community": "Castilla-La Mancha",
+    "exercises": 13,
+    "recovered": 13,
+    "sitting": "Junio/ordinaria",
+    "subjectId": "matematicas-ii",
+    "year": 2010
+  },
+  {
+    "community": "Castilla-La Mancha",
+    "exercises": 13,
+    "recovered": 13,
+    "sitting": "Septiembre",
+    "subjectId": "matematicas-ccss-ii",
+    "year": 2020
+  },
+  {
+    "community": "Castilla-La Mancha",
+    "exercises": 14,
+    "recovered": 14,
+    "sitting": "Junio/ordinaria",
+    "subjectId": "matematicas-ccss-ii",
+    "year": 2024
+  },
+  {
+    "community": "Castilla-La Mancha",
+    "exercises": 14,
+    "recovered": 14,
+    "sitting": "Junio/ordinaria",
+    "subjectId": "matematicas-ii",
+    "year": 2001
+  },
+  {
+    "community": "Castilla-La Mancha",
+    "exercises": 14,
+    "recovered": 14,
+    "sitting": "Junio/ordinaria",
+    "subjectId": "matematicas-ii",
+    "year": 2021
+  },
+  {
+    "community": "Castilla-La Mancha",
+    "exercises": 14,
+    "recovered": 14,
+    "sitting": "Septiembre",
+    "subjectId": "matematicas-ii",
+    "year": 2002
+  },
+  {
+    "community": "Castilla-La Mancha",
+    "exercises": 14,
+    "recovered": 14,
+    "sitting": "Septiembre",
+    "subjectId": "matematicas-ii",
+    "year": 2010
+  },
+  {
+    "community": "Castilla-La Mancha",
+    "exercises": 14,
+    "recovered": 14,
+    "sitting": null,
+    "subjectId": "matematicas-ii",
+    "year": 2000
+  },
+  {
+    "community": "Castilla-La Mancha",
+    "exercises": 14,
+    "recovered": 6,
+    "sitting": "Junio/ordinaria",
+    "subjectId": "matematicas-ii",
+    "year": 2000
+  },
+  {
+    "community": "Castilla-La Mancha",
+    "exercises": 15,
+    "recovered": 0,
+    "sitting": null,
+    "subjectId": "matematicas-ccss-ii",
+    "year": 2010
+  },
+  {
+    "community": "Castilla-La Mancha",
+    "exercises": 15,
+    "recovered": 15,
+    "sitting": "Julio",
+    "subjectId": "matematicas-ii",
+    "year": 2019
+  },
+  {
+    "community": "Castilla-La Mancha",
+    "exercises": 15,
+    "recovered": 15,
+    "sitting": "Junio/ordinaria",
+    "subjectId": "matematicas-ii",
+    "year": 2019
+  },
+  {
+    "community": "Castilla-La Mancha",
+    "exercises": 15,
+    "recovered": 15,
+    "sitting": "Septiembre",
+    "subjectId": "matematicas-ii",
+    "year": 2001
+  },
+  {
+    "community": "Castilla-La Mancha",
+    "exercises": 15,
+    "recovered": 7,
+    "sitting": "Septiembre",
+    "subjectId": "matematicas-ii",
+    "year": 2000
+  },
+  {
+    "community": "Castilla-La Mancha",
+    "exercises": 16,
+    "recovered": 0,
+    "sitting": null,
+    "subjectId": "matematicas-ccss-ii",
+    "year": 2013
+  },
+  {
+    "community": "Castilla-La Mancha",
+    "exercises": 16,
+    "recovered": 16,
+    "sitting": "Julio",
+    "subjectId": "matematicas-ii",
+    "year": 2018
+  },
+  {
+    "community": "Castilla-La Mancha",
+    "exercises": 16,
+    "recovered": 16,
+    "sitting": "Julio",
+    "subjectId": "matematicas-ii",
+    "year": 2020
+  },
+  {
+    "community": "Castilla-La Mancha",
+    "exercises": 16,
+    "recovered": 16,
+    "sitting": "Junio/ordinaria",
+    "subjectId": "matematicas-ii",
+    "year": 2002
+  },
+  {
+    "community": "Castilla-La Mancha",
+    "exercises": 16,
+    "recovered": 16,
+    "sitting": "Junio/ordinaria",
+    "subjectId": "matematicas-ii",
+    "year": 2003
+  },
+  {
+    "community": "Castilla-La Mancha",
+    "exercises": 16,
+    "recovered": 16,
+    "sitting": "Junio/ordinaria",
+    "subjectId": "matematicas-ii",
+    "year": 2017
+  },
+  {
+    "community": "Castilla-La Mancha",
+    "exercises": 16,
+    "recovered": 16,
+    "sitting": "Junio/ordinaria",
+    "subjectId": "matematicas-ii",
+    "year": 2018
+  },
+  {
+    "community": "Castilla-La Mancha",
+    "exercises": 16,
+    "recovered": 16,
+    "sitting": "Junio/ordinaria",
+    "subjectId": "matematicas-ii",
+    "year": 2020
+  },
+  {
+    "community": "Castilla-La Mancha",
+    "exercises": 16,
+    "recovered": 16,
+    "sitting": "Septiembre",
+    "subjectId": "matematicas-ii",
+    "year": 2003
+  },
+  {
+    "community": "Castilla-La Mancha",
+    "exercises": 16,
+    "recovered": 16,
+    "sitting": "Septiembre",
+    "subjectId": "matematicas-ii",
+    "year": 2017
+  },
+  {
+    "community": "Castilla-La Mancha",
+    "exercises": 17,
+    "recovered": 17,
+    "sitting": "Julio",
+    "subjectId": "matematicas-ii",
+    "year": 2024
+  },
+  {
+    "community": "Castilla-La Mancha",
+    "exercises": 17,
+    "recovered": 17,
+    "sitting": "Junio/ordinaria",
+    "subjectId": "matematicas-ii",
+    "year": 2024
+  },
+  {
+    "community": "Castilla-La Mancha",
+    "exercises": 19,
+    "recovered": 19,
+    "sitting": "Julio",
+    "subjectId": "matematicas-ii",
+    "year": 2023
+  },
+  {
+    "community": "Castilla-La Mancha",
+    "exercises": 20,
+    "recovered": 20,
+    "sitting": "Julio",
+    "subjectId": "matematicas-ii",
+    "year": 2022
+  },
+  {
+    "community": "Castilla-La Mancha",
+    "exercises": 20,
+    "recovered": 20,
+    "sitting": null,
+    "subjectId": "matematicas-ii",
+    "year": 2013
+  },
+  {
+    "community": "Castilla-La Mancha",
+    "exercises": 21,
+    "recovered": 21,
+    "sitting": "Junio/ordinaria",
+    "subjectId": "matematicas-ii",
+    "year": 2023
+  },
+  {
+    "community": "Castilla-La Mancha",
+    "exercises": 22,
+    "recovered": 22,
+    "sitting": "Junio/ordinaria",
+    "subjectId": "matematicas-ii",
+    "year": 2022
+  },
+  {
+    "community": "Castilla-La Mancha",
+    "exercises": 23,
+    "recovered": 23,
+    "sitting": null,
+    "subjectId": "matematicas-ii",
+    "year": 2012
+  },
+  {
+    "community": "Castilla-La Mancha",
+    "exercises": 27,
+    "recovered": 27,
+    "sitting": null,
+    "subjectId": "matematicas-ii",
+    "year": 2010
+  },
+  {
+    "community": "Castilla-La Mancha",
+    "exercises": 28,
+    "recovered": 28,
+    "sitting": null,
+    "subjectId": "matematicas-ii",
+    "year": 2008
+  },
+  {
+    "community": "Castilla-La Mancha",
+    "exercises": 28,
+    "recovered": 28,
+    "sitting": null,
+    "subjectId": "matematicas-ii",
+    "year": 2011
+  },
+  {
+    "community": "Castilla-La Mancha",
+    "exercises": 29,
+    "recovered": 29,
+    "sitting": null,
+    "subjectId": "matematicas-ii",
+    "year": 2004
+  },
+  {
+    "community": "Castilla-La Mancha",
+    "exercises": 29,
+    "recovered": 29,
+    "sitting": null,
+    "subjectId": "matematicas-ii",
+    "year": 2009
+  },
+  {
+    "community": "Castilla-La Mancha",
+    "exercises": 30,
+    "recovered": 30,
+    "sitting": null,
+    "subjectId": "matematicas-ii",
+    "year": 2001
+  },
+  {
+    "community": "Castilla-La Mancha",
+    "exercises": 30,
+    "recovered": 30,
+    "sitting": null,
+    "subjectId": "matematicas-ii",
+    "year": 2002
+  },
+  {
+    "community": "Castilla-La Mancha",
+    "exercises": 30,
+    "recovered": 30,
+    "sitting": null,
+    "subjectId": "matematicas-ii",
+    "year": 2007
+  },
+  {
+    "community": "Castilla-La Mancha",
+    "exercises": 31,
+    "recovered": 31,
+    "sitting": null,
+    "subjectId": "matematicas-ii",
+    "year": 2003
+  },
+  {
+    "community": "Castilla-La Mancha",
+    "exercises": 4,
+    "recovered": 0,
+    "sitting": "Junio/ordinaria",
+    "subjectId": "matematicas-ccss-ii",
+    "year": 2008
+  },
+  {
+    "community": "Castilla-La Mancha",
+    "exercises": 4,
+    "recovered": 0,
+    "sitting": "Junio/ordinaria",
+    "subjectId": "matematicas-ccss-ii",
+    "year": 2009
+  },
+  {
+    "community": "Castilla-La Mancha",
+    "exercises": 4,
+    "recovered": 0,
+    "sitting": "Junio/ordinaria",
+    "subjectId": "matematicas-ccss-ii",
+    "year": 2012
+  },
+  {
+    "community": "Castilla-La Mancha",
+    "exercises": 4,
+    "recovered": 0,
+    "sitting": "Septiembre",
+    "subjectId": "matematicas-ccss-ii",
+    "year": 2008
+  },
+  {
+    "community": "Castilla-La Mancha",
+    "exercises": 4,
+    "recovered": 0,
+    "sitting": "Septiembre",
+    "subjectId": "matematicas-ccss-ii",
+    "year": 2012
+  },
+  {
+    "community": "Castilla-La Mancha",
+    "exercises": 5,
+    "recovered": 0,
+    "sitting": "Septiembre",
+    "subjectId": "matematicas-ccss-ii",
+    "year": 2009
+  },
+  {
+    "community": "Castilla-La Mancha",
+    "exercises": 5,
+    "recovered": 5,
+    "sitting": "Julio",
+    "subjectId": "matematicas-ii",
+    "year": 2025
+  },
+  {
+    "community": "Castilla-La Mancha",
+    "exercises": 5,
+    "recovered": 5,
+    "sitting": "Junio/ordinaria",
+    "subjectId": "matematicas-ii",
+    "year": null
+  },
+  {
+    "community": "Castilla-La Mancha",
+    "exercises": 6,
+    "recovered": 5,
+    "sitting": "Junio/ordinaria",
+    "subjectId": "matematicas-ccss-ii",
+    "year": 2025
+  },
+  {
+    "community": "Castilla-La Mancha",
+    "exercises": 6,
+    "recovered": 6,
+    "sitting": "Julio",
+    "subjectId": "matematicas-ccss-ii",
+    "year": 2026
+  },
+  {
+    "community": "Castilla-La Mancha",
+    "exercises": 6,
+    "recovered": 6,
+    "sitting": "Junio/ordinaria",
+    "subjectId": "matematicas-ccss-ii",
+    "year": 2026
+  },
+  {
+    "community": "Castilla-La Mancha",
+    "exercises": 7,
+    "recovered": 0,
+    "sitting": "Junio/ordinaria",
+    "subjectId": "matematicas-ccss-ii",
+    "year": 2010
+  },
+  {
+    "community": "Castilla-La Mancha",
+    "exercises": 7,
+    "recovered": 0,
+    "sitting": "Septiembre",
+    "subjectId": "matematicas-ccss-ii",
+    "year": 2010
+  },
+  {
+    "community": "Castilla-La Mancha",
+    "exercises": 7,
+    "recovered": 7,
+    "sitting": "Julio",
+    "subjectId": "matematicas-ccss-ii",
+    "year": 2025
+  },
+  {
+    "community": "Castilla-La Mancha",
+    "exercises": 7,
+    "recovered": 7,
+    "sitting": "Junio/ordinaria",
+    "subjectId": "matematicas-ii",
+    "year": 2025
+  },
+  {
+    "community": "Castilla-La Mancha",
+    "exercises": 8,
+    "recovered": 0,
+    "sitting": "Junio/ordinaria",
+    "subjectId": "matematicas-ccss-ii",
+    "year": 2013
+  },
+  {
+    "community": "Castilla-La Mancha",
+    "exercises": 8,
+    "recovered": 0,
+    "sitting": "Junio/ordinaria",
+    "subjectId": "matematicas-ccss-ii",
+    "year": 2014
+  },
+  {
+    "community": "Castilla-La Mancha",
+    "exercises": 8,
+    "recovered": 0,
+    "sitting": "Junio/ordinaria",
+    "subjectId": "matematicas-ccss-ii",
+    "year": 2015
+  },
+  {
+    "community": "Castilla-La Mancha",
+    "exercises": 8,
+    "recovered": 0,
+    "sitting": "Septiembre",
+    "subjectId": "matematicas-ccss-ii",
+    "year": 2013
+  },
+  {
+    "community": "Castilla-La Mancha",
+    "exercises": 8,
+    "recovered": 0,
+    "sitting": "Septiembre",
+    "subjectId": "matematicas-ccss-ii",
+    "year": 2014
+  },
+  {
+    "community": "Castilla-La Mancha",
+    "exercises": 8,
+    "recovered": 0,
+    "sitting": "Septiembre",
+    "subjectId": "matematicas-ccss-ii",
+    "year": 2015
+  },
+  {
+    "community": "Castilla-La Mancha",
+    "exercises": 8,
+    "recovered": 0,
+    "sitting": null,
+    "subjectId": "matematicas-ccss-ii",
+    "year": 2008
+  },
+  {
+    "community": "Castilla-La Mancha",
+    "exercises": 8,
+    "recovered": 0,
+    "sitting": null,
+    "subjectId": "matematicas-ccss-ii",
+    "year": 2009
+  },
+  {
+    "community": "Castilla-La Mancha",
+    "exercises": 8,
+    "recovered": 0,
+    "sitting": null,
+    "subjectId": "matematicas-ccss-ii",
+    "year": 2012
+  },
+  {
+    "community": "Castilla-La Mancha",
+    "exercises": 8,
+    "recovered": 8,
+    "sitting": "Julio",
+    "subjectId": "matematicas-ii",
+    "year": 2026
+  },
+  {
+    "community": "Castilla-La Mancha",
+    "exercises": 8,
+    "recovered": 8,
+    "sitting": "Junio/ordinaria",
+    "subjectId": "matematicas-ii",
+    "year": 2014
+  },
+  {
+    "community": "Castilla-La Mancha",
+    "exercises": 8,
+    "recovered": 8,
+    "sitting": "Septiembre",
+    "subjectId": "matematicas-ii",
+    "year": 2014
+  },
+  {
+    "community": "Castilla-La Mancha",
+    "exercises": 9,
+    "recovered": 9,
+    "sitting": "Junio/ordinaria",
+    "subjectId": "matematicas-ii",
+    "year": 2005
+  },
+  {
+    "community": "Castilla-La Mancha",
+    "exercises": 9,
+    "recovered": 9,
+    "sitting": "Junio/ordinaria",
+    "subjectId": "matematicas-ii",
+    "year": 2006
+  },
+  {
+    "community": "Castilla-La Mancha",
+    "exercises": 9,
+    "recovered": 9,
+    "sitting": "Junio/ordinaria",
+    "subjectId": "matematicas-ii",
+    "year": 2026
+  },
+  {
+    "community": "Castilla-La Mancha",
+    "exercises": 9,
+    "recovered": 9,
+    "sitting": "Septiembre",
+    "subjectId": "matematicas-ii",
+    "year": 2004
+  },
+  {
+    "community": "Castilla-La Mancha",
+    "exercises": 9,
+    "recovered": 9,
+    "sitting": "Septiembre",
+    "subjectId": "matematicas-ii",
+    "year": 2006
+  },
+  {
+    "community": "Madrid",
+    "exercises": 1,
+    "recovered": 0,
+    "sitting": "Extraordinaria",
+    "subjectId": "matematicas-ccss-ii",
+    "year": null
+  },
+  {
+    "community": "Madrid",
+    "exercises": 1,
+    "recovered": 0,
+    "sitting": "Extraordinaria",
+    "subjectId": "matematicas-ii",
+    "year": null
+  },
+  {
+    "community": "Madrid",
+    "exercises": 1,
+    "recovered": 0,
+    "sitting": "Julio",
+    "subjectId": "matematicas-ccss-ii",
+    "year": null
+  },
+  {
+    "community": "Madrid",
+    "exercises": 1,
+    "recovered": 0,
+    "sitting": "Julio",
+    "subjectId": "matematicas-ii",
+    "year": null
+  },
+  {
+    "community": "Madrid",
+    "exercises": 1,
+    "recovered": 0,
+    "sitting": "Junio/ordinaria",
+    "subjectId": "matematicas-ii",
+    "year": 2020
+  },
+  {
+    "community": "Madrid",
+    "exercises": 1,
+    "recovered": 0,
+    "sitting": "Septiembre",
+    "subjectId": "matematicas-ccss-ii",
+    "year": null
+  },
+  {
+    "community": "Madrid",
+    "exercises": 1,
+    "recovered": 0,
+    "sitting": "Septiembre",
+    "subjectId": "matematicas-ii",
+    "year": null
+  },
+  {
+    "community": "Madrid",
+    "exercises": 1,
+    "recovered": 0,
+    "sitting": null,
+    "subjectId": "matematicas-ccss-ii",
+    "year": 2007
+  },
+  {
+    "community": "Madrid",
+    "exercises": 1,
+    "recovered": 0,
+    "sitting": null,
+    "subjectId": "matematicas-ii",
+    "year": null
+  },
+  {
+    "community": "Madrid",
+    "exercises": 10,
+    "recovered": 0,
+    "sitting": "Septiembre",
+    "subjectId": "matematicas-ccss-ii",
+    "year": 2016
+  },
+  {
+    "community": "Madrid",
+    "exercises": 10,
+    "recovered": 0,
+    "sitting": "Septiembre",
+    "subjectId": "matematicas-ii",
+    "year": 2001
+  },
+  {
+    "community": "Madrid",
+    "exercises": 10,
+    "recovered": 0,
+    "sitting": "Septiembre",
+    "subjectId": "matematicas-ii",
+    "year": 2012
+  },
+  {
+    "community": "Madrid",
+    "exercises": 10,
+    "recovered": 0,
+    "sitting": null,
+    "subjectId": "matematicas-ccss-ii",
+    "year": 2010
+  },
+  {
+    "community": "Madrid",
+    "exercises": 10,
+    "recovered": 0,
+    "sitting": null,
+    "subjectId": "matematicas-ccss-ii",
+    "year": 2013
+  },
+  {
+    "community": "Madrid",
+    "exercises": 10,
+    "recovered": 0,
+    "sitting": null,
+    "subjectId": "matematicas-ccss-ii",
+    "year": 2014
+  },
+  {
+    "community": "Madrid",
+    "exercises": 10,
+    "recovered": 0,
+    "sitting": null,
+    "subjectId": "matematicas-ccss-ii",
+    "year": 2015
+  },
+  {
+    "community": "Madrid",
+    "exercises": 10,
+    "recovered": 0,
+    "sitting": null,
+    "subjectId": "matematicas-ccss-ii",
+    "year": 2016
+  },
+  {
+    "community": "Madrid",
+    "exercises": 10,
+    "recovered": 0,
+    "sitting": null,
+    "subjectId": "matematicas-ccss-ii",
+    "year": 2020
+  },
+  {
+    "community": "Madrid",
+    "exercises": 10,
+    "recovered": 0,
+    "sitting": null,
+    "subjectId": "matematicas-ccss-ii",
+    "year": 2024
+  },
+  {
+    "community": "Madrid",
+    "exercises": 10,
+    "recovered": 0,
+    "sitting": null,
+    "subjectId": "matematicas-ii",
+    "year": 2003
+  },
+  {
+    "community": "Madrid",
+    "exercises": 10,
+    "recovered": 0,
+    "sitting": null,
+    "subjectId": "matematicas-ii",
+    "year": 2009
+  },
+  {
+    "community": "Madrid",
+    "exercises": 10,
+    "recovered": 0,
+    "sitting": null,
+    "subjectId": "matematicas-ii",
+    "year": 2018
+  },
+  {
+    "community": "Madrid",
+    "exercises": 11,
+    "recovered": 0,
+    "sitting": "Julio",
+    "subjectId": "matematicas-ccss-ii",
+    "year": 2021
+  },
+  {
+    "community": "Madrid",
+    "exercises": 11,
+    "recovered": 0,
+    "sitting": "Junio/ordinaria",
+    "subjectId": "matematicas-ii",
+    "year": 2009
+  },
+  {
+    "community": "Madrid",
+    "exercises": 11,
+    "recovered": 0,
+    "sitting": "Junio/ordinaria",
+    "subjectId": "matematicas-ii",
+    "year": 2012
+  },
+  {
+    "community": "Madrid",
+    "exercises": 11,
+    "recovered": 0,
+    "sitting": "Septiembre",
+    "subjectId": "matematicas-ccss-ii",
+    "year": 2020
+  },
+  {
+    "community": "Madrid",
+    "exercises": 11,
+    "recovered": 0,
+    "sitting": null,
+    "subjectId": "matematicas-ccss-ii",
+    "year": 2021
+  },
+  {
+    "community": "Madrid",
+    "exercises": 11,
+    "recovered": 0,
+    "sitting": null,
+    "subjectId": "matematicas-ii",
+    "year": 2002
+  },
+  {
+    "community": "Madrid",
+    "exercises": 11,
+    "recovered": 0,
+    "sitting": null,
+    "subjectId": "matematicas-ii",
+    "year": 2006
+  },
+  {
+    "community": "Madrid",
+    "exercises": 11,
+    "recovered": 0,
+    "sitting": null,
+    "subjectId": "matematicas-ii",
+    "year": 2011
+  },
+  {
+    "community": "Madrid",
+    "exercises": 12,
+    "recovered": 0,
+    "sitting": "Junio/ordinaria",
+    "subjectId": "matematicas-ccss-ii",
+    "year": 2003
+  },
+  {
+    "community": "Madrid",
+    "exercises": 12,
+    "recovered": 0,
+    "sitting": "Junio/ordinaria",
+    "subjectId": "matematicas-ccss-ii",
+    "year": 2007
+  },
+  {
+    "community": "Madrid",
+    "exercises": 12,
+    "recovered": 0,
+    "sitting": "Septiembre",
+    "subjectId": "matematicas-ii",
+    "year": 2009
+  },
+  {
+    "community": "Madrid",
+    "exercises": 12,
+    "recovered": 0,
+    "sitting": "Septiembre",
+    "subjectId": "matematicas-ii",
+    "year": 2010
+  },
+  {
+    "community": "Madrid",
+    "exercises": 12,
+    "recovered": 0,
+    "sitting": "Septiembre",
+    "subjectId": "matematicas-ii",
+    "year": 2013
+  },
+  {
+    "community": "Madrid",
+    "exercises": 12,
+    "recovered": 0,
+    "sitting": null,
+    "subjectId": "matematicas-ccss-ii",
+    "year": 2001
+  },
+  {
+    "community": "Madrid",
+    "exercises": 13,
+    "recovered": 0,
+    "sitting": "Extraordinaria",
+    "subjectId": "matematicas-ii",
+    "year": 2022
+  },
+  {
+    "community": "Madrid",
+    "exercises": 14,
+    "recovered": 0,
+    "sitting": "Junio/ordinaria",
+    "subjectId": "matematicas-ii",
+    "year": 2014
+  },
+  {
+    "community": "Madrid",
+    "exercises": 14,
+    "recovered": 0,
+    "sitting": "Junio/ordinaria",
+    "subjectId": "matematicas-ii",
+    "year": 2025
+  },
+  {
+    "community": "Madrid",
+    "exercises": 14,
+    "recovered": 0,
+    "sitting": "Septiembre",
+    "subjectId": "matematicas-ccss-ii",
+    "year": 2013
+  },
+  {
+    "community": "Madrid",
+    "exercises": 15,
+    "recovered": 0,
+    "sitting": "Extraordinaria",
+    "subjectId": "matematicas-ii",
+    "year": 2023
+  },
+  {
+    "community": "Madrid",
+    "exercises": 15,
+    "recovered": 0,
+    "sitting": "Extraordinaria",
+    "subjectId": "matematicas-ii",
+    "year": 2024
+  },
+  {
+    "community": "Madrid",
+    "exercises": 15,
+    "recovered": 0,
+    "sitting": "Julio",
+    "subjectId": "matematicas-ii",
+    "year": 2020
+  },
+  {
+    "community": "Madrid",
+    "exercises": 15,
+    "recovered": 0,
+    "sitting": "Junio/ordinaria",
+    "subjectId": "matematicas-ii",
+    "year": 2021
+  },
+  {
+    "community": "Madrid",
+    "exercises": 15,
+    "recovered": 0,
+    "sitting": "Septiembre",
+    "subjectId": "matematicas-ii",
+    "year": 2017
+  },
+  {
+    "community": "Madrid",
+    "exercises": 15,
+    "recovered": 0,
+    "sitting": null,
+    "subjectId": "matematicas-ii",
+    "year": 2019
+  },
+  {
+    "community": "Madrid",
+    "exercises": 16,
+    "recovered": 0,
+    "sitting": "Junio/ordinaria",
+    "subjectId": "matematicas-ccss-ii",
+    "year": 2012
+  },
+  {
+    "community": "Madrid",
+    "exercises": 16,
+    "recovered": 0,
+    "sitting": "Junio/ordinaria",
+    "subjectId": "matematicas-ii",
+    "year": 2015
+  },
+  {
+    "community": "Madrid",
+    "exercises": 16,
+    "recovered": 0,
+    "sitting": "Junio/ordinaria",
+    "subjectId": "matematicas-ii",
+    "year": 2016
+  },
+  {
+    "community": "Madrid",
+    "exercises": 16,
+    "recovered": 0,
+    "sitting": "Junio/ordinaria",
+    "subjectId": "matematicas-ii",
+    "year": 2019
+  },
+  {
+    "community": "Madrid",
+    "exercises": 16,
+    "recovered": 0,
+    "sitting": "Junio/ordinaria",
+    "subjectId": "matematicas-ii",
+    "year": 2023
+  },
+  {
+    "community": "Madrid",
+    "exercises": 16,
+    "recovered": 0,
+    "sitting": "Junio/ordinaria",
+    "subjectId": "matematicas-ii",
+    "year": 2024
+  },
+  {
+    "community": "Madrid",
+    "exercises": 16,
+    "recovered": 0,
+    "sitting": "Septiembre",
+    "subjectId": "matematicas-ccss-ii",
+    "year": 2011
+  },
+  {
+    "community": "Madrid",
+    "exercises": 16,
+    "recovered": 0,
+    "sitting": "Septiembre",
+    "subjectId": "matematicas-ii",
+    "year": 2015
+  },
+  {
+    "community": "Madrid",
+    "exercises": 17,
+    "recovered": 0,
+    "sitting": "Junio/ordinaria",
+    "subjectId": "matematicas-ccss-ii",
+    "year": 2022
+  },
+  {
+    "community": "Madrid",
+    "exercises": 17,
+    "recovered": 0,
+    "sitting": "Junio/ordinaria",
+    "subjectId": "matematicas-ii",
+    "year": 2010
+  },
+  {
+    "community": "Madrid",
+    "exercises": 17,
+    "recovered": 0,
+    "sitting": "Junio/ordinaria",
+    "subjectId": "matematicas-ii",
+    "year": 2017
+  },
+  {
+    "community": "Madrid",
+    "exercises": 18,
+    "recovered": 0,
+    "sitting": "Julio",
+    "subjectId": "matematicas-ccss-ii",
+    "year": 2020
+  },
+  {
+    "community": "Madrid",
+    "exercises": 18,
+    "recovered": 0,
+    "sitting": "Junio/ordinaria",
+    "subjectId": "matematicas-ccss-ii",
+    "year": 2017
+  },
+  {
+    "community": "Madrid",
+    "exercises": 18,
+    "recovered": 0,
+    "sitting": "Septiembre",
+    "subjectId": "matematicas-ccss-ii",
+    "year": 2015
+  },
+  {
+    "community": "Madrid",
+    "exercises": 19,
+    "recovered": 0,
+    "sitting": "Junio/ordinaria",
+    "subjectId": "matematicas-ccss-ii",
+    "year": 2016
+  },
+  {
+    "community": "Madrid",
+    "exercises": 19,
+    "recovered": 0,
+    "sitting": "Junio/ordinaria",
+    "subjectId": "matematicas-ccss-ii",
+    "year": 2023
+  },
+  {
+    "community": "Madrid",
+    "exercises": 19,
+    "recovered": 0,
+    "sitting": "Junio/ordinaria",
+    "subjectId": "matematicas-ii",
+    "year": 2013
+  },
+  {
+    "community": "Madrid",
+    "exercises": 19,
+    "recovered": 0,
+    "sitting": "Junio/ordinaria",
+    "subjectId": "matematicas-ii",
+    "year": 2018
+  },
+  {
+    "community": "Madrid",
+    "exercises": 19,
+    "recovered": 0,
+    "sitting": "Junio/ordinaria",
+    "subjectId": "matematicas-ii",
+    "year": 2022
+  },
+  {
+    "community": "Madrid",
+    "exercises": 2,
+    "recovered": 0,
+    "sitting": null,
+    "subjectId": "matematicas-ccss-ii",
+    "year": 2026
+  },
+  {
+    "community": "Madrid",
+    "exercises": 20,
+    "recovered": 0,
+    "sitting": "Extraordinaria",
+    "subjectId": "matematicas-ccss-ii",
+    "year": 2022
+  },
+  {
+    "community": "Madrid",
+    "exercises": 20,
+    "recovered": 0,
+    "sitting": "Extraordinaria",
+    "subjectId": "matematicas-ccss-ii",
+    "year": 2024
+  },
+  {
+    "community": "Madrid",
+    "exercises": 20,
+    "recovered": 0,
+    "sitting": "Junio/ordinaria",
+    "subjectId": "matematicas-ccss-ii",
+    "year": 2014
+  },
+  {
+    "community": "Madrid",
+    "exercises": 20,
+    "recovered": 0,
+    "sitting": "Junio/ordinaria",
+    "subjectId": "matematicas-ccss-ii",
+    "year": 2015
+  },
+  {
+    "community": "Madrid",
+    "exercises": 20,
+    "recovered": 0,
+    "sitting": "Junio/ordinaria",
+    "subjectId": "matematicas-ccss-ii",
+    "year": 2018
+  },
+  {
+    "community": "Madrid",
+    "exercises": 20,
+    "recovered": 0,
+    "sitting": "Junio/ordinaria",
+    "subjectId": "matematicas-ccss-ii",
+    "year": 2019
+  },
+  {
+    "community": "Madrid",
+    "exercises": 20,
+    "recovered": 0,
+    "sitting": "Junio/ordinaria",
+    "subjectId": "matematicas-ccss-ii",
+    "year": 2021
+  },
+  {
+    "community": "Madrid",
+    "exercises": 20,
+    "recovered": 0,
+    "sitting": "Junio/ordinaria",
+    "subjectId": "matematicas-ccss-ii",
+    "year": 2024
+  },
+  {
+    "community": "Madrid",
+    "exercises": 20,
+    "recovered": 0,
+    "sitting": "Septiembre",
+    "subjectId": "matematicas-ccss-ii",
+    "year": 2017
+  },
+  {
+    "community": "Madrid",
+    "exercises": 21,
+    "recovered": 0,
+    "sitting": "Extraordinaria",
+    "subjectId": "matematicas-ccss-ii",
+    "year": 2023
+  },
+  {
+    "community": "Madrid",
+    "exercises": 21,
+    "recovered": 0,
+    "sitting": "Septiembre",
+    "subjectId": "matematicas-ccss-ii",
+    "year": 2014
+  },
+  {
+    "community": "Madrid",
+    "exercises": 21,
+    "recovered": 0,
+    "sitting": null,
+    "subjectId": "matematicas-ccss-ii",
+    "year": 2018
+  },
+  {
+    "community": "Madrid",
+    "exercises": 25,
+    "recovered": 0,
+    "sitting": "Junio/ordinaria",
+    "subjectId": "matematicas-ccss-ii",
+    "year": 2013
+  },
+  {
+    "community": "Madrid",
+    "exercises": 3,
+    "recovered": 0,
+    "sitting": null,
+    "subjectId": "matematicas-ccss-ii",
+    "year": 2025
+  },
+  {
+    "community": "Madrid",
+    "exercises": 30,
+    "recovered": 0,
+    "sitting": null,
+    "subjectId": "matematicas-ccss-ii",
+    "year": 2019
+  },
+  {
+    "community": "Madrid",
+    "exercises": 4,
+    "recovered": 0,
+    "sitting": "Junio/ordinaria",
+    "subjectId": "matematicas-ccss-ii",
+    "year": 2001
+  },
+  {
+    "community": "Madrid",
+    "exercises": 4,
+    "recovered": 0,
+    "sitting": "Junio/ordinaria",
+    "subjectId": "matematicas-ccss-ii",
+    "year": 2010
+  },
+  {
+    "community": "Madrid",
+    "exercises": 4,
+    "recovered": 0,
+    "sitting": "Junio/ordinaria",
+    "subjectId": "matematicas-ii",
+    "year": 2002
+  },
+  {
+    "community": "Madrid",
+    "exercises": 4,
+    "recovered": 0,
+    "sitting": "Junio/ordinaria",
+    "subjectId": "matematicas-ii",
+    "year": 2006
+  },
+  {
+    "community": "Madrid",
+    "exercises": 4,
+    "recovered": 0,
+    "sitting": "Junio/ordinaria",
+    "subjectId": "matematicas-ii",
+    "year": 2011
+  },
+  {
+    "community": "Madrid",
+    "exercises": 4,
+    "recovered": 0,
+    "sitting": "Septiembre",
+    "subjectId": "matematicas-ccss-ii",
+    "year": 2003
+  },
+  {
+    "community": "Madrid",
+    "exercises": 4,
+    "recovered": 0,
+    "sitting": "Septiembre",
+    "subjectId": "matematicas-ccss-ii",
+    "year": 2007
+  },
+  {
+    "community": "Madrid",
+    "exercises": 4,
+    "recovered": 0,
+    "sitting": null,
+    "subjectId": "matematicas-ii",
+    "year": 2026
+  },
+  {
+    "community": "Madrid",
+    "exercises": 5,
+    "recovered": 0,
+    "sitting": "Extraordinaria",
+    "subjectId": "matematicas-ccss-ii",
+    "year": 2026
+  },
+  {
+    "community": "Madrid",
+    "exercises": 5,
+    "recovered": 0,
+    "sitting": "Junio/ordinaria",
+    "subjectId": "matematicas-ii",
+    "year": 2003
+  },
+  {
+    "community": "Madrid",
+    "exercises": 6,
+    "recovered": 0,
+    "sitting": "Junio/ordinaria",
+    "subjectId": "matematicas-ccss-ii",
+    "year": 2025
+  },
+  {
+    "community": "Madrid",
+    "exercises": 6,
+    "recovered": 0,
+    "sitting": "Junio/ordinaria",
+    "subjectId": "matematicas-ccss-ii",
+    "year": null
+  },
+  {
+    "community": "Madrid",
+    "exercises": 6,
+    "recovered": 0,
+    "sitting": "Septiembre",
+    "subjectId": "matematicas-ii",
+    "year": 2008
+  },
+  {
+    "community": "Madrid",
+    "exercises": 6,
+    "recovered": 0,
+    "sitting": "Septiembre",
+    "subjectId": "matematicas-ii",
+    "year": 2011
+  },
+  {
+    "community": "Madrid",
+    "exercises": 7,
+    "recovered": 0,
+    "sitting": "Extraordinaria",
+    "subjectId": "matematicas-ccss-ii",
+    "year": 2025
+  },
+  {
+    "community": "Madrid",
+    "exercises": 7,
+    "recovered": 0,
+    "sitting": "Extraordinaria",
+    "subjectId": "matematicas-ii",
+    "year": 2025
+  },
+  {
+    "community": "Madrid",
+    "exercises": 7,
+    "recovered": 0,
+    "sitting": "Julio",
+    "subjectId": "matematicas-ii",
+    "year": 2021
+  },
+  {
+    "community": "Madrid",
+    "exercises": 7,
+    "recovered": 0,
+    "sitting": "Junio/ordinaria",
+    "subjectId": "matematicas-ccss-ii",
+    "year": 2026
+  },
+  {
+    "community": "Madrid",
+    "exercises": 7,
+    "recovered": 0,
+    "sitting": "Junio/ordinaria",
+    "subjectId": "matematicas-ii",
+    "year": 2000
+  },
+  {
+    "community": "Madrid",
+    "exercises": 7,
+    "recovered": 0,
+    "sitting": "Junio/ordinaria",
+    "subjectId": "matematicas-ii",
+    "year": 2001
+  },
+  {
+    "community": "Madrid",
+    "exercises": 7,
+    "recovered": 0,
+    "sitting": "Junio/ordinaria",
+    "subjectId": "matematicas-ii",
+    "year": 2004
+  },
+  {
+    "community": "Madrid",
+    "exercises": 7,
+    "recovered": 0,
+    "sitting": "Junio/ordinaria",
+    "subjectId": "matematicas-ii",
+    "year": 2005
+  },
+  {
+    "community": "Madrid",
+    "exercises": 7,
+    "recovered": 0,
+    "sitting": "Junio/ordinaria",
+    "subjectId": "matematicas-ii",
+    "year": 2008
+  },
+  {
+    "community": "Madrid",
+    "exercises": 7,
+    "recovered": 0,
+    "sitting": "Junio/ordinaria",
+    "subjectId": "matematicas-ii",
+    "year": 2026
+  },
+  {
+    "community": "Madrid",
+    "exercises": 7,
+    "recovered": 0,
+    "sitting": "Septiembre",
+    "subjectId": "matematicas-ccss-ii",
+    "year": 2002
+  },
+  {
+    "community": "Madrid",
+    "exercises": 7,
+    "recovered": 0,
+    "sitting": "Septiembre",
+    "subjectId": "matematicas-ccss-ii",
+    "year": 2004
+  },
+  {
+    "community": "Madrid",
+    "exercises": 7,
+    "recovered": 0,
+    "sitting": "Septiembre",
+    "subjectId": "matematicas-ccss-ii",
+    "year": 2005
+  },
+  {
+    "community": "Madrid",
+    "exercises": 7,
+    "recovered": 0,
+    "sitting": "Septiembre",
+    "subjectId": "matematicas-ccss-ii",
+    "year": 2009
+  },
+  {
+    "community": "Madrid",
+    "exercises": 7,
+    "recovered": 0,
+    "sitting": "Septiembre",
+    "subjectId": "matematicas-ii",
+    "year": 2016
+  },
+  {
+    "community": "Madrid",
+    "exercises": 7,
+    "recovered": 0,
+    "sitting": null,
+    "subjectId": "matematicas-ii",
+    "year": 2001
+  },
+  {
+    "community": "Madrid",
+    "exercises": 7,
+    "recovered": 0,
+    "sitting": null,
+    "subjectId": "matematicas-ii",
+    "year": 2007
+  },
+  {
+    "community": "Madrid",
+    "exercises": 7,
+    "recovered": 0,
+    "sitting": null,
+    "subjectId": "matematicas-ii",
+    "year": 2008
+  },
+  {
+    "community": "Madrid",
+    "exercises": 7,
+    "recovered": 0,
+    "sitting": null,
+    "subjectId": "matematicas-ii",
+    "year": 2014
+  },
+  {
+    "community": "Madrid",
+    "exercises": 7,
+    "recovered": 0,
+    "sitting": null,
+    "subjectId": "matematicas-ii",
+    "year": 2015
+  },
+  {
+    "community": "Madrid",
+    "exercises": 7,
+    "recovered": 0,
+    "sitting": null,
+    "subjectId": "matematicas-ii",
+    "year": 2016
+  },
+  {
+    "community": "Madrid",
+    "exercises": 7,
+    "recovered": 0,
+    "sitting": null,
+    "subjectId": "matematicas-ii",
+    "year": 2017
+  },
+  {
+    "community": "Madrid",
+    "exercises": 7,
+    "recovered": 0,
+    "sitting": null,
+    "subjectId": "matematicas-ii",
+    "year": 2020
+  },
+  {
+    "community": "Madrid",
+    "exercises": 7,
+    "recovered": 0,
+    "sitting": null,
+    "subjectId": "matematicas-ii",
+    "year": 2025
+  },
+  {
+    "community": "Madrid",
+    "exercises": 8,
+    "recovered": 0,
+    "sitting": "Extraordinaria",
+    "subjectId": "matematicas-ii",
+    "year": 2026
+  },
+  {
+    "community": "Madrid",
+    "exercises": 8,
+    "recovered": 0,
+    "sitting": "Junio/ordinaria",
+    "subjectId": "matematicas-ccss-ii",
+    "year": 2000
+  },
+  {
+    "community": "Madrid",
+    "exercises": 8,
+    "recovered": 0,
+    "sitting": "Junio/ordinaria",
+    "subjectId": "matematicas-ccss-ii",
+    "year": 2002
+  },
+  {
+    "community": "Madrid",
+    "exercises": 8,
+    "recovered": 0,
+    "sitting": "Junio/ordinaria",
+    "subjectId": "matematicas-ccss-ii",
+    "year": 2004
+  },
+  {
+    "community": "Madrid",
+    "exercises": 8,
+    "recovered": 0,
+    "sitting": "Junio/ordinaria",
+    "subjectId": "matematicas-ccss-ii",
+    "year": 2006
+  },
+  {
+    "community": "Madrid",
+    "exercises": 8,
+    "recovered": 0,
+    "sitting": "Junio/ordinaria",
+    "subjectId": "matematicas-ccss-ii",
+    "year": 2008
+  },
+  {
+    "community": "Madrid",
+    "exercises": 8,
+    "recovered": 0,
+    "sitting": "Junio/ordinaria",
+    "subjectId": "matematicas-ccss-ii",
+    "year": 2011
+  },
+  {
+    "community": "Madrid",
+    "exercises": 8,
+    "recovered": 0,
+    "sitting": "Junio/ordinaria",
+    "subjectId": "matematicas-ii",
+    "year": 2007
+  },
+  {
+    "community": "Madrid",
+    "exercises": 8,
+    "recovered": 0,
+    "sitting": "Septiembre",
+    "subjectId": "matematicas-ccss-ii",
+    "year": 2000
+  },
+  {
+    "community": "Madrid",
+    "exercises": 8,
+    "recovered": 0,
+    "sitting": "Septiembre",
+    "subjectId": "matematicas-ccss-ii",
+    "year": 2001
+  },
+  {
+    "community": "Madrid",
+    "exercises": 8,
+    "recovered": 0,
+    "sitting": "Septiembre",
+    "subjectId": "matematicas-ccss-ii",
+    "year": 2006
+  },
+  {
+    "community": "Madrid",
+    "exercises": 8,
+    "recovered": 0,
+    "sitting": "Septiembre",
+    "subjectId": "matematicas-ccss-ii",
+    "year": 2008
+  },
+  {
+    "community": "Madrid",
+    "exercises": 8,
+    "recovered": 0,
+    "sitting": "Septiembre",
+    "subjectId": "matematicas-ccss-ii",
+    "year": 2010
+  },
+  {
+    "community": "Madrid",
+    "exercises": 8,
+    "recovered": 0,
+    "sitting": "Septiembre",
+    "subjectId": "matematicas-ccss-ii",
+    "year": 2012
+  },
+  {
+    "community": "Madrid",
+    "exercises": 8,
+    "recovered": 0,
+    "sitting": "Septiembre",
+    "subjectId": "matematicas-ii",
+    "year": 2000
+  },
+  {
+    "community": "Madrid",
+    "exercises": 8,
+    "recovered": 0,
+    "sitting": "Septiembre",
+    "subjectId": "matematicas-ii",
+    "year": 2003
+  },
+  {
+    "community": "Madrid",
+    "exercises": 8,
+    "recovered": 0,
+    "sitting": "Septiembre",
+    "subjectId": "matematicas-ii",
+    "year": 2005
+  },
+  {
+    "community": "Madrid",
+    "exercises": 8,
+    "recovered": 0,
+    "sitting": "Septiembre",
+    "subjectId": "matematicas-ii",
+    "year": 2006
+  },
+  {
+    "community": "Madrid",
+    "exercises": 8,
+    "recovered": 0,
+    "sitting": "Septiembre",
+    "subjectId": "matematicas-ii",
+    "year": 2007
+  },
+  {
+    "community": "Madrid",
+    "exercises": 8,
+    "recovered": 0,
+    "sitting": "Septiembre",
+    "subjectId": "matematicas-ii",
+    "year": 2020
+  },
+  {
+    "community": "Madrid",
+    "exercises": 8,
+    "recovered": 0,
+    "sitting": null,
+    "subjectId": "matematicas-ccss-ii",
+    "year": 2000
+  },
+  {
+    "community": "Madrid",
+    "exercises": 8,
+    "recovered": 0,
+    "sitting": null,
+    "subjectId": "matematicas-ccss-ii",
+    "year": 2005
+  },
+  {
+    "community": "Madrid",
+    "exercises": 8,
+    "recovered": 0,
+    "sitting": null,
+    "subjectId": "matematicas-ccss-ii",
+    "year": 2006
+  },
+  {
+    "community": "Madrid",
+    "exercises": 8,
+    "recovered": 0,
+    "sitting": null,
+    "subjectId": "matematicas-ccss-ii",
+    "year": 2008
+  },
+  {
+    "community": "Madrid",
+    "exercises": 8,
+    "recovered": 0,
+    "sitting": null,
+    "subjectId": "matematicas-ccss-ii",
+    "year": 2009
+  },
+  {
+    "community": "Madrid",
+    "exercises": 8,
+    "recovered": 0,
+    "sitting": null,
+    "subjectId": "matematicas-ccss-ii",
+    "year": 2011
+  },
+  {
+    "community": "Madrid",
+    "exercises": 8,
+    "recovered": 0,
+    "sitting": null,
+    "subjectId": "matematicas-ccss-ii",
+    "year": 2012
+  },
+  {
+    "community": "Madrid",
+    "exercises": 8,
+    "recovered": 0,
+    "sitting": null,
+    "subjectId": "matematicas-ii",
+    "year": 2004
+  },
+  {
+    "community": "Madrid",
+    "exercises": 8,
+    "recovered": 0,
+    "sitting": null,
+    "subjectId": "matematicas-ii",
+    "year": 2005
+  },
+  {
+    "community": "Madrid",
+    "exercises": 8,
+    "recovered": 0,
+    "sitting": null,
+    "subjectId": "matematicas-ii",
+    "year": 2010
+  },
+  {
+    "community": "Madrid",
+    "exercises": 8,
+    "recovered": 0,
+    "sitting": null,
+    "subjectId": "matematicas-ii",
+    "year": 2012
+  },
+  {
+    "community": "Madrid",
+    "exercises": 8,
+    "recovered": 0,
+    "sitting": null,
+    "subjectId": "matematicas-ii",
+    "year": 2013
+  },
+  {
+    "community": "Madrid",
+    "exercises": 8,
+    "recovered": 0,
+    "sitting": null,
+    "subjectId": "matematicas-ii",
+    "year": 2021
+  },
+  {
+    "community": "Madrid",
+    "exercises": 8,
+    "recovered": 0,
+    "sitting": null,
+    "subjectId": "matematicas-ii",
+    "year": 2022
+  },
+  {
+    "community": "Madrid",
+    "exercises": 8,
+    "recovered": 0,
+    "sitting": null,
+    "subjectId": "matematicas-ii",
+    "year": 2023
+  },
+  {
+    "community": "Madrid",
+    "exercises": 8,
+    "recovered": 0,
+    "sitting": null,
+    "subjectId": "matematicas-ii",
+    "year": 2024
+  },
+  {
+    "community": "Madrid",
+    "exercises": 9,
+    "recovered": 0,
+    "sitting": "Junio/ordinaria",
+    "subjectId": "matematicas-ccss-ii",
+    "year": 2005
+  },
+  {
+    "community": "Madrid",
+    "exercises": 9,
+    "recovered": 0,
+    "sitting": "Junio/ordinaria",
+    "subjectId": "matematicas-ccss-ii",
+    "year": 2009
+  },
+  {
+    "community": "Madrid",
+    "exercises": 9,
+    "recovered": 0,
+    "sitting": "Septiembre",
+    "subjectId": "matematicas-ii",
+    "year": 2002
+  },
+  {
+    "community": "Madrid",
+    "exercises": 9,
+    "recovered": 0,
+    "sitting": "Septiembre",
+    "subjectId": "matematicas-ii",
+    "year": 2004
+  },
+  {
+    "community": "Madrid",
+    "exercises": 9,
+    "recovered": 0,
+    "sitting": "Septiembre",
+    "subjectId": "matematicas-ii",
+    "year": 2014
+  },
+  {
+    "community": "Madrid",
+    "exercises": 9,
+    "recovered": 0,
+    "sitting": null,
+    "subjectId": "matematicas-ccss-ii",
+    "year": 2002
+  },
+  {
+    "community": "Madrid",
+    "exercises": 9,
+    "recovered": 0,
+    "sitting": null,
+    "subjectId": "matematicas-ccss-ii",
+    "year": 2004
+  },
+  {
+    "community": "Madrid",
+    "exercises": 9,
+    "recovered": 0,
+    "sitting": null,
+    "subjectId": "matematicas-ccss-ii",
+    "year": 2022
+  },
+  {
+    "community": "Madrid",
+    "exercises": 9,
+    "recovered": 0,
+    "sitting": null,
+    "subjectId": "matematicas-ccss-ii",
+    "year": 2023
+  },
+  {
+    "community": "Madrid",
+    "exercises": 9,
+    "recovered": 0,
+    "sitting": null,
+    "subjectId": "matematicas-ii",
+    "year": 2000
+  },
+  {
+    "community": null,
+    "exercises": 1,
+    "recovered": 0,
+    "sitting": "Julio",
+    "subjectId": "matematicas-ii",
+    "year": 2022
+  },
+  {
+    "community": null,
+    "exercises": 1,
+    "recovered": 0,
+    "sitting": "Julio",
+    "subjectId": "matematicas-ii",
+    "year": 2025
+  },
+  {
+    "community": null,
+    "exercises": 1,
+    "recovered": 0,
+    "sitting": "Julio",
+    "subjectId": "matematicas-ii",
+    "year": 2026
+  },
+  {
+    "community": null,
+    "exercises": 1,
+    "recovered": 0,
+    "sitting": "Junio/ordinaria",
+    "subjectId": "matematicas-ccss-ii",
+    "year": 2010
+  },
+  {
+    "community": null,
+    "exercises": 1,
+    "recovered": 0,
+    "sitting": "Junio/ordinaria",
+    "subjectId": "matematicas-ii",
+    "year": 2022
+  },
+  {
+    "community": null,
+    "exercises": 1,
+    "recovered": 0,
+    "sitting": "Septiembre",
+    "subjectId": "matematicas-ccss-ii",
+    "year": 2010
+  },
+  {
+    "community": null,
+    "exercises": 1,
+    "recovered": 1,
+    "sitting": "Junio/ordinaria",
+    "subjectId": "matematicas-ii",
+    "year": 2011
+  },
+  {
+    "community": null,
+    "exercises": 1,
+    "recovered": 1,
+    "sitting": "Junio/ordinaria",
+    "subjectId": "matematicas-ii",
+    "year": 2014
+  },
+  {
+    "community": null,
+    "exercises": 1,
+    "recovered": 1,
+    "sitting": "Junio/ordinaria",
+    "subjectId": "matematicas-ii",
+    "year": null
+  },
+  {
+    "community": null,
+    "exercises": 1,
+    "recovered": 1,
+    "sitting": "Septiembre",
+    "subjectId": "matematicas-ccss-ii",
+    "year": 2020
+  },
+  {
+    "community": null,
+    "exercises": 11,
+    "recovered": 0,
+    "sitting": "Junio/ordinaria",
+    "subjectId": "matematicas-ii",
+    "year": 2024
+  },
+  {
+    "community": null,
+    "exercises": 175,
+    "recovered": 0,
+    "sitting": null,
+    "subjectId": "matematicas-ccss-ii",
+    "year": null
+  },
+  {
+    "community": null,
+    "exercises": 2,
+    "recovered": 0,
+    "sitting": "Julio",
+    "subjectId": "matematicas-ii",
+    "year": 2023
+  },
+  {
+    "community": null,
+    "exercises": 2,
+    "recovered": 0,
+    "sitting": "Junio/ordinaria",
+    "subjectId": "matematicas-ii",
+    "year": 2023
+  },
+  {
+    "community": null,
+    "exercises": 2,
+    "recovered": 0,
+    "sitting": null,
+    "subjectId": "matematicas-ccss-ii",
+    "year": 2010
+  },
+  {
+    "community": null,
+    "exercises": 2,
+    "recovered": 2,
+    "sitting": "Junio/ordinaria",
+    "subjectId": "matematicas-ii",
+    "year": 2010
+  },
+  {
+    "community": null,
+    "exercises": 2,
+    "recovered": 2,
+    "sitting": "Septiembre",
+    "subjectId": "matematicas-ii",
+    "year": 2004
+  },
+  {
+    "community": null,
+    "exercises": 2,
+    "recovered": 2,
+    "sitting": "Septiembre",
+    "subjectId": "matematicas-ii",
+    "year": 2010
+  },
+  {
+    "community": null,
+    "exercises": 2,
+    "recovered": 2,
+    "sitting": "Septiembre",
+    "subjectId": "matematicas-ii",
+    "year": 2011
+  },
+  {
+    "community": null,
+    "exercises": 3,
+    "recovered": 0,
+    "sitting": "Junio/ordinaria",
+    "subjectId": "matematicas-ccss-ii",
+    "year": 2008
+  },
+  {
+    "community": null,
+    "exercises": 3,
+    "recovered": 0,
+    "sitting": "Junio/ordinaria",
+    "subjectId": "matematicas-ccss-ii",
+    "year": 2009
+  },
+  {
+    "community": null,
+    "exercises": 3,
+    "recovered": 0,
+    "sitting": "Septiembre",
+    "subjectId": "matematicas-ccss-ii",
+    "year": 2008
+  },
+  {
+    "community": null,
+    "exercises": 3,
+    "recovered": 0,
+    "sitting": "Septiembre",
+    "subjectId": "matematicas-ccss-ii",
+    "year": 2009
+  },
+  {
+    "community": null,
+    "exercises": 4,
+    "recovered": 4,
+    "sitting": "Junio/ordinaria",
+    "subjectId": "matematicas-ii",
+    "year": 2004
+  },
+  {
+    "community": null,
+    "exercises": 4,
+    "recovered": 4,
+    "sitting": null,
+    "subjectId": "matematicas-ii",
+    "year": 2010
+  },
+  {
+    "community": null,
+    "exercises": 4,
+    "recovered": 4,
+    "sitting": null,
+    "subjectId": "matematicas-ii",
+    "year": 2011
+  },
+  {
+    "community": null,
+    "exercises": 5,
+    "recovered": 0,
+    "sitting": "Junio/ordinaria",
+    "subjectId": "matematicas-ii",
+    "year": 2026
+  },
+  {
+    "community": null,
+    "exercises": 5,
+    "recovered": 5,
+    "sitting": "Junio/ordinaria",
+    "subjectId": "matematicas-ii",
+    "year": 2005
+  },
+  {
+    "community": null,
+    "exercises": 5,
+    "recovered": 5,
+    "sitting": "Junio/ordinaria",
+    "subjectId": "matematicas-ii",
+    "year": 2006
+  },
+  {
+    "community": null,
+    "exercises": 5,
+    "recovered": 5,
+    "sitting": "Junio/ordinaria",
+    "subjectId": "matematicas-ii",
+    "year": 2007
+  },
+  {
+    "community": null,
+    "exercises": 5,
+    "recovered": 5,
+    "sitting": "Junio/ordinaria",
+    "subjectId": "matematicas-ii",
+    "year": 2008
+  },
+  {
+    "community": null,
+    "exercises": 5,
+    "recovered": 5,
+    "sitting": "Junio/ordinaria",
+    "subjectId": "matematicas-ii",
+    "year": 2009
+  },
+  {
+    "community": null,
+    "exercises": 5,
+    "recovered": 5,
+    "sitting": "Septiembre",
+    "subjectId": "matematicas-ii",
+    "year": 2005
+  },
+  {
+    "community": null,
+    "exercises": 5,
+    "recovered": 5,
+    "sitting": "Septiembre",
+    "subjectId": "matematicas-ii",
+    "year": 2006
+  },
+  {
+    "community": null,
+    "exercises": 5,
+    "recovered": 5,
+    "sitting": "Septiembre",
+    "subjectId": "matematicas-ii",
+    "year": 2007
+  },
+  {
+    "community": null,
+    "exercises": 5,
+    "recovered": 5,
+    "sitting": "Septiembre",
+    "subjectId": "matematicas-ii",
+    "year": 2008
+  },
+  {
+    "community": null,
+    "exercises": 5,
+    "recovered": 5,
+    "sitting": "Septiembre",
+    "subjectId": "matematicas-ii",
+    "year": 2009
+  },
+  {
+    "community": null,
+    "exercises": 6,
+    "recovered": 0,
+    "sitting": null,
+    "subjectId": "matematicas-ccss-ii",
+    "year": 2008
+  },
+  {
+    "community": null,
+    "exercises": 6,
+    "recovered": 0,
+    "sitting": null,
+    "subjectId": "matematicas-ccss-ii",
+    "year": 2009
+  },
+  {
+    "community": null,
+    "exercises": 8,
+    "recovered": 0,
+    "sitting": "Julio",
+    "subjectId": "matematicas-ii",
+    "year": 2024
+  },
+  {
+    "community": null,
+    "exercises": 90,
+    "recovered": 0,
+    "sitting": null,
+    "subjectId": "matematicas-ii",
+    "year": null
+  }
+]

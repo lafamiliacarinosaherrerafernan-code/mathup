@@ -1,0 +1,17 @@
+{
+  "scope": "2bach-mates-andalucia",
+  "testFiles": 79,
+  "tests": 776,
+  "passed": 776,
+  "failed": 0,
+  "cancelled": 0,
+  "skipped": 0,
+  "durationMs": 26753.4391,
+  "includes": [
+    "all pau-andalucia-resolution-mates regression suites",
+    "runtime isolation and interaction",
+    "render adapter",
+    "human blocking regressions",
+    "historical math notation rendering"
+  ]
+}

@@ -1,0 +1,22 @@
+(function () {
+  "use strict";
+  const q = (rawBaseId, source, text, options, solution) => ({ rawBaseId, source, sourceKind: "exam", difficulty: "hard", text, options, correct: 0, solution });
+  const source = "documentos/2º ESO/Exámenes tipo/2020-2021/Unidad 1 y 2/Simulacro und 1-2.pdf";
+  const banks = {
+    "2eso::fracciones": [
+      q("2eso-simulacro-und-1-2-ejercicio-1-a", source, "1. Ejercicio (1 punto): Calcula 2,817−3,6·0,4. Aproxima a la centésima por exceso.", ["1,38", "1,37", "1,40", "1,377"], "Resolución:\n1. 3,6·0,4=1,44.\n2. 2,817−1,44=1,377.\n3. Por exceso a la centésima elegimos la centésima inmediatamente superior: 1,38.\nComprobación: 1,38≥1,377 y la diferencia es 0,003.\nResultado final: 1,38."),
+      q("2eso-simulacro-und-1-2-ejercicio-1-b", source, "1. Ejercicio (1 punto): Calcula (9,612·4,5):2,7. Redondea el resultado a la décima.", ["16,0", "16,1", "15,9", "16,02"], "Resolución:\n1. 9,612·4,5=43,254.\n2. 43,254:2,7=16,02.\n3. Redondeado a la décima es 16,0 porque la centésima es 2.\nComprobación: 16,02 está más cerca de 16,0 que de 16,1.\nResultado final: 16,0."),
+      q("2eso-simulacro-und-1-2-ejercicio-2-a", source, "2. Ejercicio (2,5 puntos): Realiza y simplifica: a) (7/5−2)²−7/12−5/18.", ["−451/900", "451/900", "−31/36", "9/25"], "Resolución:\n1. 7/5−2=−3/5 y su cuadrado es 9/25.\n2. 7/12+5/18=21/36+10/36=31/36.\n3. 9/25−31/36=(324−775)/900=−451/900.\nComprobación: el resultado aproximado es −0,5011.\nResultado final: −451/900."),
+      q("2eso-numeros-enteros-f0563835c718", source, "2. Ejercicio (2,5 puntos): Realiza y simplifica: b) (5/14−1/4):(5/8−3/4).", ["−6/7", "6/7", "−7/6", "3/28"], "Resolución:\n1. 5/14−1/4=10/28−7/28=3/28.\n2. 5/8−3/4=5/8−6/8=−1/8.\n3. (3/28):(−1/8)=3/28·(−8)=−6/7.\nComprobación: el cociente debe ser negativo.\nResultado final: −6/7."),
+      q("2eso-simulacro-und-1-2-ejercicio-2-c", source, "2. Ejercicio (2,5 puntos): Realiza y simplifica: c) (4/6·3):(3/2:5/2).", ["10/3", "3/10", "2", "6/5"], "Resolución:\n1. 4/6·3=2/3·3=2.\n2. 3/2:5/2=3/2·2/5=3/5.\n3. 2:(3/5)=2·5/3=10/3.\nComprobación: 10/3·3/5=2.\nResultado final: 10/3."),
+      q("2eso-numeros-enteros-e2468345049c", source, "2. Ejercicio (2,5 puntos): Realiza y simplifica: d) 3/5:2−2·3/2·[5/10−2/3·(1/3−2)]².", ["−4043/540", "4043/540", "−841/108", "3/10"], "Resolución:\n1. 3/5:2=3/10.\n2. 1/3−2=−5/3; 5/10−2/3·(−5/3)=1/2+10/9=29/18.\n3. 2·3/2·(29/18)²=3·841/324=841/108.\n4. 3/10−841/108=162/540−4205/540=−4043/540.\nComprobación: −4043/540≈−7,487.\nResultado final: −4043/540."),
+      q("2eso-numeros-enteros-cda7f2effca6", source, "3. Ejercicio (1 punto): Pasa a fracción generatriz y calcula: a) 0,25+0,416̅:1,6̅.", ["1/2", "1/4", "3/4", "5/12"], "Resolución:\n1. 0,25=1/4, 0,416̅=5/12 y 1,6̅=5/3.\n2. (5/12):(5/3)=5/12·3/5=1/4.\n3. 1/4+1/4=1/2.\nComprobación: 0,25+0,41666…/1,6666…=0,5.\nResultado final: 1/2."),
+      q("2eso-numeros-enteros-62d1edc59ca3", source, "3. Ejercicio (1 punto): Pasa a fracción generatriz y calcula: b) 0,02·5/10+0,05̅−1,002̅.", ["−281/300", "281/300", "−843/100", "−451/450"], "Resolución:\n1. 0,02=1/50, 0,05̅=1/18 y 1,002̅=451/450.\n2. 1/50·5/10=1/100.\n3. Con denominador 900: 1/100+1/18−451/450=9/900+50/900−902/900.\n4. El resultado es −843/900=−281/300.\nComprobación: −281/300≈−0,93667.\nResultado final: −281/300."),
+      q("2eso-numeros-enteros-a9879655f05d-a", source, "5. Ejercicio (2,25 puntos): Álvaro gasta el primer día 1/5 de la capacidad del depósito y el segundo 2/7. a) ¿Qué fracción se ha vaciado?", ["17/35", "18/35", "3/12", "11/35"], "Resolución:\n1. Sumamos 1/5+2/7.\n2. Con denominador 35: 7/35+10/35=17/35.\nComprobación: 17/35<1, por lo que no se ha vaciado todo.\nResultado final: 17/35."),
+      q("2eso-numeros-enteros-a9879655f05d-b", source, "5. Ejercicio (2,25 puntos): Álvaro gasta el primer día 1/5 de la capacidad del depósito y el segundo 2/7. b) ¿Qué fracción queda?", ["18/35", "17/35", "1/35", "3/7"], "Resolución:\n1. Se ha vaciado 1/5+2/7=17/35.\n2. Queda 1−17/35=18/35.\nComprobación: 17/35+18/35=1.\nResultado final: 18/35.")
+    ]
+  };
+  const previous = window.MargaritaEsoExamVerified;
+  const normalize = (value) => String(value || "").normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().trim();
+  window.MargaritaEsoExamVerified = { build(courseId, theme) { return [...(previous?.build?.(courseId, theme) || []), ...(banks[`${courseId}::${normalize(theme)}`] || []).map((item) => ({ ...item }))]; }, count: (previous?.count || 0) + Object.values(banks).reduce((sum, items) => sum + items.length, 0) };
+})();

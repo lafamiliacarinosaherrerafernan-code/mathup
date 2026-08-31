@@ -1,0 +1,24 @@
+# Control de calidad
+
+- [ ] Cada enunciado coincide con el examen original, salvo eliminaciones solicitadas explícitamente (por ejemplo, puntuaciones editoriales).
+- [ ] No hay resúmenes, etiquetas inventadas ni reformulaciones.
+- [ ] Cada opción `a)`, `b)`, `c)` ocupa su propio párrafo.
+- [ ] Las fórmulas son ecuaciones nativas OMML y la prosa permanece fuera del editor.
+- [ ] Las fracciones están apiladas y conservan paréntesis.
+- [ ] Las matrices conservan exactamente el número de filas, columnas y valores del original.
+- [ ] Las inversas usan un superíndice OMML `−1` completo; nunca texto lateral.
+- [ ] Las traspuestas usan `T` en superíndice OMML.
+- [ ] Todas las potencias visibles (`x²`, `x³`, `x⁵`, etc.) son superíndices OMML.
+- [ ] Ninguna constante final `−1` se ha convertido en `x^{-1}`.
+- [ ] Las funciones a trozos tienen llave, ramas separadas y condiciones correctas.
+- [ ] Los vectores llevan flecha superior, también con subíndice.
+- [ ] Tablas, gráficos y figuras están completos y son legibles.
+- [ ] Cada recorte contiene solo la tabla o figura necesaria, nunca una pregunta del enunciado.
+- [ ] Se han revisado anexos y tablas de probabilidad de todas las convocatorias del intervalo, incluidas las recientes y los años 2010–2008.
+- [ ] Cada ejercicio contiene exactamente una copia de cada tabla o figura requerida; no hay duplicados dentro del mismo ejercicio.
+- [ ] La auditoría de imágenes está hecha por ejercicio: `esperadas = encontradas`, y en los ejercicios recientes con una tabla el resultado es `1 = 1`.
+- [ ] Cada tabla auxiliar está debajo del ejercicio completo, después del último apartado, cuando así aparece en el original; nunca está intercalada entre el enunciado común y el apartado `a)`.
+- [ ] Se incluyen todos los años y convocatorias solicitados y la clasificación por bloques es correcta.
+- [ ] Los documentos se abren en Microsoft Word y no contienen caracteres corruptos.
+- [ ] La carpeta final contiene únicamente los entregables.
+- [ ] No se ha borrado ningún documento del usuario.

@@ -1,0 +1,139 @@
+[
+  {
+    "community": "andalucia",
+    "communityLabel": "Andalucía",
+    "courseId": "2bach-mates",
+    "subject": "Matemáticas II",
+    "family": "probabilidad-general",
+    "canonicalExerciseCount": 6,
+    "interactiveSubpartCount": 8,
+    "exercisesRequiringTable": 0,
+    "subpartsRequiringTable": 0,
+    "resources": {
+      "NONE_OR_NOT_EXPLICIT": 6
+    }
+  },
+  {
+    "community": "andalucia",
+    "communityLabel": "Andalucía",
+    "courseId": "2bach-mates",
+    "subject": "Matemáticas II",
+    "family": "probabilidad-condicional-bayes-total",
+    "canonicalExerciseCount": 3,
+    "interactiveSubpartCount": 6,
+    "exercisesRequiringTable": 0,
+    "subpartsRequiringTable": 0,
+    "resources": {
+      "NONE_OR_NOT_EXPLICIT": 3
+    }
+  },
+  {
+    "community": "andalucia",
+    "communityLabel": "Andalucía",
+    "courseId": "2bach-mates",
+    "subject": "Matemáticas II",
+    "family": "binomial",
+    "canonicalExerciseCount": 0,
+    "interactiveSubpartCount": 0,
+    "exercisesRequiringTable": 0,
+    "subpartsRequiringTable": 0,
+    "resources": {}
+  },
+  {
+    "community": "andalucia",
+    "communityLabel": "Andalucía",
+    "courseId": "2bach-mates",
+    "subject": "Matemáticas II",
+    "family": "normal",
+    "canonicalExerciseCount": 4,
+    "interactiveSubpartCount": 8,
+    "exercisesRequiringTable": 4,
+    "subpartsRequiringTable": 8,
+    "resources": {
+      "NORMAL_STANDARD_TABLE": 4
+    }
+  },
+  {
+    "community": "andalucia",
+    "communityLabel": "Andalucía",
+    "courseId": "2bach-mates",
+    "subject": "Matemáticas II",
+    "family": "inferencia",
+    "canonicalExerciseCount": 0,
+    "interactiveSubpartCount": 0,
+    "exercisesRequiringTable": 0,
+    "subpartsRequiringTable": 0,
+    "resources": {}
+  },
+  {
+    "community": "andalucia",
+    "communityLabel": "Andalucía",
+    "courseId": "2bach-ccss",
+    "subject": "CCSS II",
+    "family": "probabilidad-general",
+    "canonicalExerciseCount": 18,
+    "interactiveSubpartCount": 50,
+    "exercisesRequiringTable": 0,
+    "subpartsRequiringTable": 0,
+    "resources": {
+      "NONE_OR_NOT_EXPLICIT": 18
+    }
+  },
+  {
+    "community": "andalucia",
+    "communityLabel": "Andalucía",
+    "courseId": "2bach-ccss",
+    "subject": "CCSS II",
+    "family": "probabilidad-condicional-bayes-total",
+    "canonicalExerciseCount": 152,
+    "interactiveSubpartCount": 413,
+    "exercisesRequiringTable": 0,
+    "subpartsRequiringTable": 0,
+    "resources": {
+      "NONE_OR_NOT_EXPLICIT": 152
+    }
+  },
+  {
+    "community": "andalucia",
+    "communityLabel": "Andalucía",
+    "courseId": "2bach-ccss",
+    "subject": "CCSS II",
+    "family": "binomial",
+    "canonicalExerciseCount": 3,
+    "interactiveSubpartCount": 6,
+    "exercisesRequiringTable": 0,
+    "subpartsRequiringTable": 0,
+    "resources": {
+      "NONE_OR_NOT_EXPLICIT": 3
+    }
+  },
+  {
+    "community": "andalucia",
+    "communityLabel": "Andalucía",
+    "courseId": "2bach-ccss",
+    "subject": "CCSS II",
+    "family": "normal",
+    "canonicalExerciseCount": 52,
+    "interactiveSubpartCount": 64,
+    "exercisesRequiringTable": 16,
+    "subpartsRequiringTable": 28,
+    "resources": {
+      "NONE_OR_NOT_EXPLICIT": 36,
+      "NORMAL_STANDARD_TABLE": 16
+    }
+  },
+  {
+    "community": "andalucia",
+    "communityLabel": "Andalucía",
+    "courseId": "2bach-ccss",
+    "subject": "CCSS II",
+    "family": "inferencia",
+    "canonicalExerciseCount": 190,
+    "interactiveSubpartCount": 444,
+    "exercisesRequiringTable": 0,
+    "subpartsRequiringTable": 0,
+    "resources": {
+      "NONE_OR_NOT_EXPLICIT": 190
+    }
+  }
+]

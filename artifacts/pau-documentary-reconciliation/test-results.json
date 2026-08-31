@@ -1,0 +1,22 @@
+{
+  "schemaVersion": "mathup.pau-documentary.test-results.v1",
+  "phaseTests": {
+    "passed": 14,
+    "failed": 0
+  },
+  "fullRegression": {
+    "passed": 117,
+    "failed": 0
+  },
+  "reproducibility": {
+    "passed": true,
+    "doubleRunEqual": true,
+    "reverseOrderEqual": true,
+    "semanticHash": "f5673900ccd9bfa1a89097ecab61c5ae5b205bacf8c4f3e4e2e0b985bd162278"
+  },
+  "rollback": {
+    "passed": true,
+    "productionWrites": 0,
+    "protectedInputsUnchanged": 3
+  }
+}

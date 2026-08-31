@@ -1,0 +1,16 @@
+[
+  {
+    "type": "posición de examen escasa",
+    "community": "madrid",
+    "courseId": "2bach-mates",
+    "context": 5,
+    "count": 80
+  },
+  {
+    "type": "posición de examen escasa",
+    "community": "madrid",
+    "courseId": "2bach-ccss",
+    "context": 1,
+    "count": 84
+  }
+]

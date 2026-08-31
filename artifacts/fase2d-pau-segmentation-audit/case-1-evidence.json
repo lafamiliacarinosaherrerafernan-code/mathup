@@ -1,0 +1,195 @@
+{
+    "visualEntityId":  "vent-421552a489e688ce586b07f0c1870560",
+    "exerciseId":  "ex-25662a75-7e5e-5935-903f-0d41aa138462",
+    "sourceRecordIds":  [
+                            "src-45bd33c7-c79f-50db-91aa-c41796fadff6"
+                        ],
+    "sourceFile":  "data/mates-ii-blocks.js",
+    "sourcePath":  "window.MATES_II_BLOCK_EXERCISES.geometria.0",
+    "officialDocument":  "26_exjun.pdf",
+    "officialDocumentLocation":  "Archivo local externo al repositorio: Ex Mates II / Examenes Castilla la Mancha 2025-00",
+    "officialStructure":  {
+                              "examInstruction":  "Pregunta 4. Conteste solo UNA de las siguientes preguntas (4.1 o 4.2).",
+                              "alternatives":  [
+                                                   {
+                                                       "id":  "4.1",
+                                                       "independentExercise":  true,
+                                                       "subparts":  [
+                                                                        "a",
+                                                                        "b"
+                                                                    ],
+                                                       "topic":  "Vectores: coplanaridad y volumen del paralelepípedo"
+                                                   },
+                                                   {
+                                                       "id":  "4.2",
+                                                       "independentExercise":  true,
+                                                       "subparts":  [
+                                                                        "a",
+                                                                        "b"
+                                                                    ],
+                                                       "topic":  "Simetría respecto de un plano y distancia"
+                                                   }
+                                               ]
+                          },
+    "observedDefect":  {
+                           "examInstructionAttached":  true,
+                           "duplicatedInstructionInCanonicalStatement":  true,
+                           "alternative42EmbeddedInsidePartBOf41":  true,
+                           "repeatedPartLabels":  [
+                                                      "a)",
+                                                      "b)",
+                                                      "a)",
+                                                      "b)"
+                                                  ],
+                           "answersMerged":  4,
+                           "solutionsMerged":  4,
+                           "sourceTextCorruption":  true,
+                           "mathNotationCorruption":  true
+                       },
+    "observedLinkage":  {
+                            "statement":  {
+                                              "sourceRecordIds":  [
+                                                                      "src-45bd33c7-c79f-50db-91aa-c41796fadff6"
+                                                                  ],
+                                              "sourceFile":  "data/mates-ii-blocks.js",
+                                              "sourcePath":  "window.MATES_II_BLOCK_EXERCISES.geometria.0"
+                                          },
+                            "answer":  {
+                                           "answerId":  "ans-eb1cae6d-8d68-5cb7-8e6c-e88e334312d1",
+                                           "kind":  "composite",
+                                           "partKeys":  [
+                                                            "4.1 a)",
+                                                            "4.1 b)",
+                                                            "4.2 a)",
+                                                            "4.2 b)"
+                                                        ],
+                                           "sourceRecordIds":  [
+                                                                   "src-0dd76dd7-a689-5bef-8d62-f5cbd7916560",
+                                                                   "src-2c3dd537-6d18-5aef-be45-97ca526a84b5",
+                                                                   "src-be221980-06eb-59a7-a221-967b2afb58e5",
+                                                                   "src-d61fbaa9-a982-5694-a4e3-c6f08f849d90"
+                                                               ],
+                                           "evidenceHashes":  [
+                                                                  {
+                                                                      "immutableHash":  "004338eeae2fc2ec79808eda5318a254d6ade926af93ff1007ddb8505c3e4e7c",
+                                                                      "sourceRecordId":  "src-0dd76dd7-a689-5bef-8d62-f5cbd7916560"
+                                                                  },
+                                                                  {
+                                                                      "immutableHash":  "b89ff778329840938edf069314c1b88684c0d2be133d546300383a6df43f1174",
+                                                                      "sourceRecordId":  "src-2c3dd537-6d18-5aef-be45-97ca526a84b5"
+                                                                  },
+                                                                  {
+                                                                      "immutableHash":  "c1dfc93cec602bc9f89057fbb1bc1ca926d83987f01fb47b8626fcee329fc276",
+                                                                      "sourceRecordId":  "src-be221980-06eb-59a7-a221-967b2afb58e5"
+                                                                  },
+                                                                  {
+                                                                      "immutableHash":  "246efd842f0a58ac88691fe37dc404f34871e6c1c8b946a07266a7d92e010c15",
+                                                                      "sourceRecordId":  "src-d61fbaa9-a982-5694-a4e3-c6f08f849d90"
+                                                                  }
+                                                              ],
+                                           "canonicalValue":  {
+                                                                  "parts":  [
+                                                                                {
+                                                                                    "part":  "4.1 a)",
+                                                                                    "value":  "a=-2 o a=1."
+                                                                                },
+                                                                                {
+                                                                                    "part":  "4.1 b)",
+                                                                                    "value":  "a=3 o a=-4."
+                                                                                },
+                                                                                {
+                                                                                    "part":  "4.2 a)",
+                                                                                    "value":  "P\u0027=(-1,0,4)."
+                                                                                },
+                                                                                {
+                                                                                    "part":  "4.2 b)",
+                                                                                    "value":  "d(P,π)=2√3."
+                                                                                }
+                                                                            ]
+                                                              }
+                                       },
+                            "solution":  {
+                                             "solutionId":  "sol-ddb59a38-aac4-56dc-a219-d0f21975244c",
+                                             "kind":  "developed",
+                                             "partKeys":  [
+                                                              "4.1 a)",
+                                                              "4.1 b)",
+                                                              "4.2 a)",
+                                                              "4.2 b)"
+                                                          ],
+                                             "sourceRecordIds":  [
+                                                                     "src-0dd76dd7-a689-5bef-8d62-f5cbd7916560",
+                                                                     "src-2c3dd537-6d18-5aef-be45-97ca526a84b5",
+                                                                     "src-be221980-06eb-59a7-a221-967b2afb58e5",
+                                                                     "src-d61fbaa9-a982-5694-a4e3-c6f08f849d90"
+                                                                 ],
+                                             "evidenceHashes":  [
+                                                                    {
+                                                                        "immutableHash":  "004338eeae2fc2ec79808eda5318a254d6ade926af93ff1007ddb8505c3e4e7c",
+                                                                        "sourceRecordId":  "src-0dd76dd7-a689-5bef-8d62-f5cbd7916560"
+                                                                    },
+                                                                    {
+                                                                        "immutableHash":  "b89ff778329840938edf069314c1b88684c0d2be133d546300383a6df43f1174",
+                                                                        "sourceRecordId":  "src-2c3dd537-6d18-5aef-be45-97ca526a84b5"
+                                                                    },
+                                                                    {
+                                                                        "immutableHash":  "c1dfc93cec602bc9f89057fbb1bc1ca926d83987f01fb47b8626fcee329fc276",
+                                                                        "sourceRecordId":  "src-be221980-06eb-59a7-a221-967b2afb58e5"
+                                                                    },
+                                                                    {
+                                                                        "immutableHash":  "246efd842f0a58ac88691fe37dc404f34871e6c1c8b946a07266a7d92e010c15",
+                                                                        "sourceRecordId":  "src-d61fbaa9-a982-5694-a4e3-c6f08f849d90"
+                                                                    }
+                                                                ],
+                                             "parts":  [
+                                                           {
+                                                               "part":  "4.1 a)",
+                                                               "finalAnswer":  "a=-2 o a=1."
+                                                           },
+                                                           {
+                                                               "part":  "4.1 b)",
+                                                               "finalAnswer":  "a=3 o a=-4."
+                                                           },
+                                                           {
+                                                               "part":  "4.2 a)",
+                                                               "finalAnswer":  "P\u0027=(-1,0,4)."
+                                                           },
+                                                           {
+                                                               "part":  "4.2 b)",
+                                                               "finalAnswer":  "d(P,π)=2√3."
+                                                           }
+                                                       ]
+                                         }
+                        },
+    "requiredCanonicalTarget":  {
+                                    "examInstruction":  "Metadato de estructura del examen; no forma parte del enunciado de 4.1 ni de 4.2.",
+                                    "exercise41":  {
+                                                       "statement":  "Solo el enunciado propio de 4.1",
+                                                       "subparts":  [
+                                                                        "4.1.a",
+                                                                        "4.1.b"
+                                                                    ],
+                                                       "answerAndSolutionScope":  "Solo 4.1.a y 4.1.b"
+                                                   },
+                                    "exercise42":  {
+                                                       "statement":  "Solo el enunciado propio de 4.2",
+                                                       "subparts":  [
+                                                                        "4.2.a",
+                                                                        "4.2.b"
+                                                                    ],
+                                                       "answerAndSolutionScope":  "Solo 4.2.a y 4.2.b"
+                                                   },
+                                    "preserves":  [
+                                                      "comunidad",
+                                                      "materia",
+                                                      "año",
+                                                      "convocatoria",
+                                                      "pregunta",
+                                                      "alternativa",
+                                                      "apartados",
+                                                      "archivo original",
+                                                      "página cuando se vincule",
+                                                      "sourceRecordId"
+                                                  ]
+                                }
+}

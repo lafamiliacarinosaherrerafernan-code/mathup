@@ -1,0 +1,44 @@
+diff --git a/.agents/skills/solucion-de-ejercicios/SKILL.md b/.agents/skills/solucion-de-ejercicios/SKILL.md
+index 1153280..ca692ff 100644
+--- a/.agents/skills/solucion-de-ejercicios/SKILL.md
++++ b/.agents/skills/solucion-de-ejercicios/SKILL.md
+@@ -2810,6 +2810,19 @@ Cuando se use una sustitución, no saltar de la integral original a la integral
+ 6. Integrar y, en una integral indefinida, volver a la variable original antes del resultado final.
+ 7. Comprobar por derivación cuando sea razonable.
+ 
++## Integración por partes en Matemáticas II
++
++Cuando una integral de Matemáticas II se resuelva por partes, el desarrollo debe conservar completa y en este orden la secuencia docente:
++
++1. Escribir primero la fórmula general `∫u\,dv=u·v−∫v\,du`.
++2. Identificar expresamente la elección de `u` y `dv` en el integrando original.
++3. Calcular y mostrar `du` y obtener `v` integrando `dv`.
++4. Sustituir `u`, `v`, `du` y `dv` en la fórmula general antes de simplificar.
++5. Desarrollar por completo la integral resultante, repitiendo el procedimiento si vuelve a ser necesaria una integración por partes.
++6. Simplificar el resultado y, cuando proceda, comprobarlo por derivación. En integrales definidas, aplicar además los límites y Barrow con la composición matemática nativa establecida.
++
++No abreviar el método con frases como «integramos por partes» si no quedan visibles la fórmula, las cuatro identificaciones y el desarrollo posterior.
++
+ ## Integrales racionales mediante fracciones simples
+ 
+ Cuando el denominador se pueda factorizar y la integral se resuelva mediante fracciones simples:
+@@ -2854,6 +2867,19 @@ La cadena pedagógica debe permanecer completa y no usar `Φ`, `Φ⁻¹`, `invNo
+ 
+ No escribir un valor aislado `z=(a−μ)/σ` y reutilizarlo después si con ello desaparece de la vista el suceso que se está calculando.
+ 
++## Aproximación binomial por normal en Matemáticas II
++
++Cuando en Matemáticas II se aproxime una variable binomial mediante una normal, mostrar la cadena completa sin heredarla implícitamente de otra materia:
++
++1. Definir la variable binomial e identificar `n`, `p` y `q=1−p`.
++2. Comprobar que procede la aproximación normal con el criterio adoptado en el curso y calcular, sustituyendo los datos, `μ=np` y `σ=√(npq)`.
++3. Escribir primero el suceso binomial original y justificar la corrección de continuidad como el paso de una variable discreta a una continua. Aplicarla según la desigualdad: por ejemplo, «al menos `k`» transforma el umbral en `k−0,5`, «como máximo `k`» en `k+0,5` y un intervalo corrige ambos extremos de acuerdo con su inclusión.
++4. Escribir el suceso ya corregido con la normal aproximante y tipificar dentro de esa misma probabilidad mediante `Z=(Y−μ)/σ`; no calcular valores `z` aislados.
++5. Transformar el resultado en una probabilidad acumulada `P(Z≤z)` consultable, indicar literalmente qué valor se busca en la tabla y escribir el valor leído. No usar `Φ`, `Φ⁻¹`, `invNorm` ni otra abreviatura opaca como sustituto de la tabla.
++6. Completar el cálculo, comprobar que la probabilidad pertenece a `[0,1]` e interpretar el resultado en el contexto cuando corresponda.
++
++La explicación de la corrección de continuidad es obligatoria: no basta con sustituir `k` por `k±0,5` sin relacionar el límite entero del recuento con la frontera continua correspondiente.
++
+ ## Áreas mediante integrales definidas
+ 
+ Cuando una integral definida calcule el área de un recinto limitado por funciones:

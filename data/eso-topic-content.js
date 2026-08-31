@@ -453,13 +453,13 @@ window.ESO_TOPIC_CONTENT = {
   "4eso-a-8": {
     "courseId": "4eso-a",
     "topicIndex": 8,
-    "title": "Geometria",
-    "pdfPath": "C:/Users/aherr/OneDrive/Escritorio/Libro_Matematicas_4ESO_Mat_A.pdf",
-    "page": 130,
-    "endPage": 159,
-    "theoryPage": 133,
-    "theoryEndPage": 153,
-    "sourcePages": "133-153",
+    "title": "Funciones",
+    "pdfPath": "Infografías 4 ESO A/9-Funciones - Infografía.pdf",
+    "page": 1,
+    "endPage": 4,
+    "theoryPage": 1,
+    "theoryEndPage": 4,
+    "sourcePages": "1-4",
     "summary": "- La suma de los á??ngulos de un triá?ngulo es igual a\n- El perímetro de un triá?ngulo es la suma de las\n- El á?rea o la superficie de un triá?ngulo es la mitad del\n- aplicar el Teorema de Pitágoras y la definición de las\n- razones trigonométricas.\n- Otro método para el cálculo del á?rea es la fórmula\n- La altura es la línea perpendicular a cada\n- es la distancia de cada vértice al lado\n- Se aplica el Teorema de Pitágoras para calcular la altura\n- Un paralelogramo es un cuadrilátero que tiene los\n- interiores de un paralelogramo es igual a 360º.\n- El perímetro de un paralelogramo es la suma de las\n- Un trapecio es un cuadrilátero que tiene dos lados\n- trapecio es igual a 360º."
   },
   "4eso-a-9": {
@@ -595,3 +595,121 @@ window.ESO_TOPIC_CONTENT = {
     "summary": "- va a obtener. Son experimentos aleatorios, aquellos\n- experimento aleatorio se llama espacio muestral, y\n- 9 Un suceso es cualquier subconjunto del espacio\n- seguro que es el mismo espacio muestral.\n- • La unión de A y B, AUB, es el suceso formado\n- Ocurre cuando sucede A ó sucede B ó ambos.\n- • La intersección, A∩B, es el suceso formado\n- Se verifica cuando ocurren A y B a la vez.\n- B, es el suceso\n- están en A. Es el que ocurre cuando no sucede A y\n- • El suceso contrario del seguro es el\n- Probabilidad\n- Cuando sale 3\n- vez, pero no son"
   }
 };
+
+// Tema incorporado específicamente para 4.º ESO Opción A.
+// Esta corrección evita que el índice 8 conserve el resumen del tema antiguo.
+window.ESO_TOPIC_CONTENT["4eso-a-8"] = {
+  ...window.ESO_TOPIC_CONTENT["4eso-a-8"],
+  title: "Funciones",
+  pdfPath: "Infografías 4 ESO A/9-Funciones - Infografía.pdf",
+  page: 1,
+  endPage: 4,
+  theoryPage: 1,
+  theoryEndPage: 4,
+  sourcePages: "1-4",
+  summary: [
+    "Una función relaciona dos variables: x es la variable independiente e y la dependiente.",
+    "El dominio reúne los valores de x para los que existe la función y el recorrido reúne sus imágenes.",
+    "Se estudian la simetría, la continuidad, la monotonía y la representación gráfica.",
+    "También se trabajan la tasa de variación, las operaciones con funciones, la composición y la función inversa."
+  ].map((line) => `- ${line}`).join("\n")
+};
+
+// P0 ESO: catálogo semántico estable.
+//
+// ESO_TOPIC_CONTENT conserva debajo el inventario histórico extraído de los
+// libros. La aplicación no debe volver a consultarlo por posición: los libros
+// tenían otra cantidad y otro orden de unidades. Esta capa reutiliza únicamente
+// resúmenes cuya identidad matemática coincide con el catálogo actual. Cuando
+// no existe una correspondencia inequívoca se deja el resumen pendiente, en
+// lugar de mostrar el capítulo antiguo que ocupaba casualmente el mismo índice.
+(function buildSemanticEsoTopicContent() {
+  const legacy = window.ESO_TOPIC_CONTENT || {};
+  // Fuentes propias del catálogo actual de 3.º ESO. Se añaden por identidad
+  // matemática, no por la antigua posición de los capítulos del libro.
+  legacy["3eso-sucesiones-original"] = {
+    courseId: "3eso",
+    title: "Sucesiones",
+    pdfPath: "documentos/3º ESO/Temas mios/6-Sucesiones Teoria.pdf",
+    sourcePages: "documento completo",
+    summary: "- Concepto y formas de definir una sucesión.\n- Recurrencia y término general.\n- Crecimiento, decrecimiento, acotación y convergencia conceptual.\n- Progresiones aritméticas y geométricas.\n- Término general y suma de términos.\n- Suma infinita geométrica cuando |r|<1."
+  };
+  legacy["3eso-cuerpos-original"] = {
+    courseId: "3eso",
+    title: "Cuerpos geométricos",
+    pdfPath: "documentos/3º ESO/Temas mios/7-Cuerpos geométricos Teoria.pdf",
+    sourcePages: "documento completo",
+    summary: "- Poliedros, elementos y relación de Euler.\n- Prismas y pirámides.\n- Cuerpos redondos.\n- Áreas y volúmenes.\n- Desarrollos planos y problemas geométricos."
+  };
+  legacy["3eso-probabilidad-original"] = {
+    courseId: "3eso",
+    title: "Probabilidad",
+    pdfPath: "documentos/3º ESO/Temas mios/10-Probabilidad Teoria.pdf",
+    sourcePages: "documento completo",
+    summary: "- Experimentos aleatorios y espacio muestral.\n- Sucesos elementales, compuestos, seguros, imposibles y contrarios.\n- Operaciones con sucesos.\n- Técnicas de recuento y diagramas de árbol.\n- Regla de Laplace.\n- Probabilidad compuesta y extracciones con o sin reemplazamiento."
+  };
+  const topicIds = {
+    "1eso": [
+      "numeros-naturales", "numeros-enteros", "potencias-raices-cuadradas",
+      "fracciones-decimales", "expresiones-algebraicas", "proporcionalidad",
+      "medida-angulos-rectas-circunferencias", "semejanza-pitagoras-areas",
+      "cuerpos-geometricos", "funciones"
+    ],
+    "2eso": [
+      "numeros-enteros", "potencias-raices-cuadradas", "fracciones",
+      "proporcionalidad", "expresiones-algebraicas", "sistemas-ecuaciones",
+      "figuras-planas", "cuerpos-geometricos", "funciones"
+    ],
+    "3eso": [
+      "numeros-reales", "potencias-raices", "expresiones-algebraicas",
+      "ecuaciones-sistemas", "proporcionalidad", "sucesiones",
+      "cuerpos-geometricos", "funciones", "estadistica", "probabilidad"
+    ],
+    "4eso-a": [
+      "numeros-reales", "radicales", "proporcionalidad", "expresiones-algebraicas",
+      "ecuaciones-inecuaciones", "sistemas-ecuaciones-inecuaciones",
+      "semejanza-trigonometria", "areas-cuerpos-geometricos", "funciones"
+    ],
+    "4eso-b": [
+      "numeros-reales", "radicales-logaritmos", "expresiones-algebraicas",
+      "ecuaciones-sistemas", "inecuaciones-sistemas", "proporcionalidad",
+      "semejanza", "trigonometria", "geometria-analitica", "funciones",
+      "limite-funciones", "derivadas", "limite-sucesiones", "combinatoria"
+    ]
+  };
+  const titles = {
+    "1eso": ["Números naturales", "Números enteros", "Potencias y raíces cuadradas", "Fracciones y números decimales", "Expresiones algebraicas", "Proporcionalidad", "Medida, ángulos, rectas y circunferencias", "Semejanza, Pitágoras y áreas", "Cuerpos geométricos", "Funciones"],
+    "2eso": ["Números enteros", "Potencias y raíces cuadradas", "Fracciones", "Proporcionalidad", "Expresiones algebraicas", "Sistemas de ecuaciones", "Figuras planas", "Cuerpos geométricos", "Funciones"],
+    "3eso": ["Números reales", "Potencias y raíces", "Expresiones algebraicas", "Ecuaciones y sistemas de ecuaciones", "Proporcionalidad", "Sucesiones", "Cuerpos geométricos", "Funciones", "Estadística", "Probabilidad"],
+    "4eso-a": ["Números reales", "Radicales", "Proporcionalidad", "Expresiones algebraicas", "Ecuaciones e inecuaciones", "Sistemas de ecuaciones e inecuaciones", "Semejanza y trigonometría", "Áreas y cuerpos geométricos", "Funciones"],
+    "4eso-b": ["Números reales", "Radicales y logaritmos", "Expresiones algebraicas", "Ecuaciones y sistemas de ecuaciones", "Inecuaciones y sistemas de inecuaciones", "Proporcionalidad", "Semejanza", "Trigonometría", "Geometría analítica", "Funciones", "Límite de funciones", "Derivadas", "Límite de sucesiones", "Combinatoria"]
+  };
+  const sources = {
+    "1eso": [["1eso-0", "1eso-1"], ["1eso-2"], [], ["1eso-3", "1eso-4"], ["1eso-6"], ["1eso-5"], ["1eso-7", "1eso-8"], [], ["1eso-9"], []],
+    "2eso": [[], ["2eso-0"], ["2eso-1"], ["2eso-2"], ["2eso-3"], ["2eso-4", "2eso-5"], ["2eso-7"], ["2eso-8"], ["2eso-6"]],
+    "3eso": [["3eso-0"], ["3eso-1"], ["3eso-2"], ["3eso-3"], ["3eso-4"], ["3eso-sucesiones-original"], ["3eso-7", "3eso-cuerpos-original"], ["3eso-5", "3eso-6"], ["3eso-9"], ["3eso-probabilidad-original"]],
+    "4eso-a": [["4eso-a-0", "4eso-a-1"], ["4eso-a-1"], ["4eso-a-2"], ["4eso-a-3"], ["4eso-a-4"], [], ["4eso-a-9"], [], ["4eso-a-5"]],
+    "4eso-b": [["4eso-b-0"], ["4eso-b-1"], ["4eso-b-2"], ["4eso-b-3", "4eso-b-4"], ["4eso-b-3"], [], ["4eso-b-6"], ["4eso-b-5"], [], ["4eso-b-7"], [], [], [], []]
+  };
+
+  const semantic = {};
+  Object.entries(topicIds).forEach(([courseId, ids]) => {
+    ids.forEach((topicId, topicIndex) => {
+      const sourceKeys = sources[courseId][topicIndex] || [];
+      const sourceItems = sourceKeys.map((key) => legacy[key]).filter(Boolean);
+      semantic[`${courseId}:${topicId}`] = {
+        courseId,
+        topicId: `${courseId}:${topicId}`,
+        topicIndex,
+        title: titles[courseId][topicIndex],
+        summary: sourceItems.map((item) => item.summary).filter(Boolean).join("\n"),
+        summaryStatus: sourceItems.length ? "verified-semantic-reuse" : "pending-review",
+        contentSourceKeys: sourceKeys,
+        sourcePages: sourceItems.map((item) => item.sourcePages).filter(Boolean).join(", ")
+      };
+    });
+  });
+
+  window.ESO_TOPIC_IDS = topicIds;
+  window.ESO_TOPIC_CONTENT_BY_ID = semantic;
+})();

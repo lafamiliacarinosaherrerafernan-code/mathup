@@ -1,0 +1,45 @@
+:root {
+  font-family: Inter, "Segoe UI", Arial, sans-serif;
+  color: #10204a;
+  background: #eef5ff;
+}
+
+* { box-sizing: border-box; }
+body { margin: 0; }
+header { display: flex; justify-content: space-between; align-items: center; padding: 14px 24px; background: #09245f; color: #fff; }
+h1 { font-size: 22px; margin: 3px 0; }
+.eyebrow { font-size: 11px; letter-spacing: .12em; color: #87e6c2; }
+.readonly { border: 1px solid #86a9e7; border-radius: 999px; padding: 7px 12px; }
+main { padding: 16px; max-width: 1800px; margin: auto; }
+.comparison { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; height: calc(100vh - 190px); min-height: 600px; }
+.panel { background: #fff; border: 1px solid #cddaf0; border-radius: 16px; overflow: hidden; box-shadow: 0 6px 20px #143b7a18; }
+.panel h2 { font-size: 15px; margin: 0; padding: 9px 14px; border-bottom: 1px solid #dce6f5; }
+.original-toolbar { min-height: 40px; display: flex; gap: 12px; align-items: center; justify-content: space-between; padding: 7px 12px; color: #4b5f82; font-size: 12px; border-bottom: 1px solid #e6edf8; }
+.original-toolbar a { color: #0b57d0; font-weight: 800; text-decoration: none; white-space: nowrap; }
+.original iframe { border: 0; width: 100%; height: calc(100% - 79px); }
+.student-card { padding: 24px; height: calc(100% - 39px); overflow: auto; font-family: Georgia, Cambria, serif; font-size: 17px; line-height: 1.55; }
+.exercise-intro { white-space: pre-wrap; }
+.matrix-pair { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 30px; margin: 24px 0; align-items: start; }
+.labeled-matrix { display: grid; grid-template-columns: auto 1fr; gap: 10px; align-items: center; min-width: 0; }
+.matrix-prefix { font-size: 25px; font-style: italic; }
+.matrix-shell { display: grid; grid-template-columns: auto minmax(132px, 1fr) auto auto; grid-template-rows: auto auto; align-items: stretch; min-width: 0; }
+.column-headers, .matrix-row { display: grid; grid-template-columns: repeat(3, minmax(44px, 1fr)); text-align: center; align-items: center; }
+.column-headers { grid-column: 2; grid-row: 1; font-weight: 700; padding-bottom: 3px; }
+.paren { font-family: "Cambria Math", "STIX Two Math", serif; font-size: 84px; line-height: .74; transform: scaleX(.7); display: flex; align-items: center; }
+.left-paren { grid-column: 1; grid-row: 2; }
+.right-paren { grid-column: 3; grid-row: 2; }
+.matrix-grid { grid-column: 2; grid-row: 2; display: grid; gap: 5px; }
+.matrix-row { font-family: "Cambria Math", "STIX Two Math", serif; font-size: 21px; }
+.row-labels { grid-column: 4; grid-row: 2; display: grid; grid-template-rows: repeat(2, 1fr); align-items: center; gap: 5px; margin-left: 8px; white-space: nowrap; font-family: Georgia, serif; font-size: 13px; }
+.math-block { font-family: "Cambria Math", "STIX Two Math", serif; color: #10204a; padding: 8px; border-radius: 8px; overflow: auto; }
+.math-block math { font-size: 1.15em; }
+.status { margin-top: 10px; padding: 10px 14px; background: #fff7db; border: 1px solid #efcf60; border-radius: 10px; }
+details { margin-top: 8px; background: #fff; border-radius: 10px; padding: 10px 14px; }
+pre { white-space: pre-wrap; font-size: 12px; }
+
+@media (max-width: 850px) {
+  .comparison { grid-template-columns: 1fr; height: auto; }
+  .panel { min-height: 520px; }
+  .matrix-pair { grid-template-columns: 1fr; }
+  .original iframe { height: 480px; }
+}

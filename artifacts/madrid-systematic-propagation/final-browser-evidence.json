@@ -1,0 +1,54 @@
+{
+  "scope": "Madrid · Matemáticas II y CCSS II · ejercicios habilitados",
+  "browser": "real in-app browser",
+  "multipartE2E": {
+    "totalExercisesVisited": 1493,
+    "totalSubpartsVisibleAndChecked": 3543,
+    "failedExercises": 0,
+    "byCourse": {
+      "2bach-mates": {
+        "enabledExercises": 825,
+        "multipartExercises": 706,
+        "sourceSubparts": 1806,
+        "visibleSubparts": 1806,
+        "navigatedSubparts": 1806,
+        "passExercises": 706,
+        "failExercises": 0
+      },
+      "2bach-ccss": {
+        "enabledExercises": 903,
+        "multipartExercises": 787,
+        "sourceSubparts": 1737,
+        "visibleSubparts": 1737,
+        "navigatedSubparts": 1737,
+        "passExercises": 787,
+        "failExercises": 0
+      }
+    },
+    "failureCategories": {
+      "SUBPART_MISSING": 0,
+      "SUBPART_NOT_NAVIGABLE": 0,
+      "SOURCE_MISMATCH": 0,
+      "OPTION_COUNT_ERROR": 0,
+      "CORRECT_ANSWER_ERROR": 0,
+      "SOLUTION_MISSING": 0,
+      "SOLUTION_WRONG_SUBPART": 0,
+      "MATH_RENDER_ERROR": 0,
+      "NAVIGATION_ERROR": 0
+    }
+  },
+  "responsiveControls": {
+    "exerciseCases": 12,
+    "widths": [1280, 768, 375, 320],
+    "checks": 48,
+    "passed": 48,
+    "failed": 0,
+    "assertions": [
+      "no horizontal document overflow",
+      "four options per subpart",
+      "solution visible",
+      "expected mathematical structure present",
+      "no internal token or raw HTML visible"
+    ]
+  }
+}

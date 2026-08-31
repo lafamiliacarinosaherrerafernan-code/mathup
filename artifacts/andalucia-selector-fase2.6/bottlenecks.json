@@ -1,0 +1,51 @@
+[
+  {
+    "type": "tema escaso",
+    "community": "andalucia",
+    "courseId": "2bach-mates",
+    "context": "Vectores en el espacio",
+    "count": 8
+  },
+  {
+    "type": "tema escaso",
+    "community": "andalucia",
+    "courseId": "2bach-mates",
+    "context": "Probabilidad",
+    "count": 9
+  },
+  {
+    "type": "tema escaso",
+    "community": "andalucia",
+    "courseId": "2bach-mates",
+    "context": "Distribución binomial y normal",
+    "count": 4
+  },
+  {
+    "type": "tema vacío",
+    "community": "andalucia",
+    "courseId": "2bach-ccss",
+    "context": "Determinantes",
+    "count": 0
+  },
+  {
+    "type": "tema vacío",
+    "community": "andalucia",
+    "courseId": "2bach-ccss",
+    "context": "Integrales indefinidas",
+    "count": 0
+  },
+  {
+    "type": "posición de examen escasa",
+    "community": "andalucia",
+    "courseId": "2bach-mates",
+    "context": 5,
+    "count": 8
+  },
+  {
+    "type": "posición de examen escasa",
+    "community": "andalucia",
+    "courseId": "2bach-ccss",
+    "context": 1,
+    "count": 118
+  }
+]

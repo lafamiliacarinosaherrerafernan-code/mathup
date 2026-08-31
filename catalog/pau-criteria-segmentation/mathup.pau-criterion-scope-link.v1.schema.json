@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://mathup.es/schemas/mathup.pau-criterion-scope-link.v1.schema.json",
+  "title": "MathUp PAU official criterion scope link v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "scopeLinkId", "fragmentId", "criterionDocumentId", "exerciseId", "subpartId", "scopeLevel", "linkState", "matchClassification", "provenance"],
+  "properties": {
+    "schemaVersion": { "const": "mathup.pau-criterion-scope-link.v1" },
+    "scopeLinkId": { "type": "string", "minLength": 1 },
+    "fragmentId": { "type": "string", "minLength": 1 },
+    "criterionDocumentId": { "type": "string", "minLength": 1 },
+    "exerciseId": { "type": "string", "minLength": 1 },
+    "subpartId": { "type": ["string", "null"] },
+    "scopeLevel": { "enum": ["EXERCISE", "SUBPART"] },
+    "linkState": { "enum": ["DOCUMENTARY_LINKED", "HUMAN_REVIEW_REQUIRED"] },
+    "matchClassification": { "enum": ["CRITERIA_MATCH_EXACT", "CRITERIA_MATCH_STRUCTURAL"] },
+    "provenance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["criterionLinkId", "documentHash", "literalSha256", "rule"],
+      "properties": {
+        "criterionLinkId": { "type": "string" },
+        "documentHash": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+        "literalSha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+        "rule": { "type": "string" }
+      }
+    }
+  }
+}

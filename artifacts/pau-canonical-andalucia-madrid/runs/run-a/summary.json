@@ -1,0 +1,77 @@
+{
+    "schemaVersion":  "mathup.pau-canonical-build-summary.v1",
+    "runName":  "run-a",
+    "reverseInput":  false,
+    "officialSessions":  311,
+    "andaluciaOfficialDocuments":  210,
+    "madridOfficialDocuments":  101,
+    "andaluciaCanonicalExercises":  1618,
+    "andaluciaSubparts":  2610,
+    "andaluciaExpectedUnits":  1616,
+    "andaluciaUnmaterializedUnits":  0,
+    "andaluciaCriterionRelationships":  184,
+    "criterionExerciseScopeLinks":  0,
+    "madridHistoricalRecords":  1728,
+    "madridOfficialExerciseSegments":  817,
+    "madridReconciliation":  [
+                                 {
+                                     "classification":  "DOCUMENT_MATCH_STRUCTURAL",
+                                     "count":  49
+                                 },
+                                 {
+                                     "classification":  "AMBIGUOUS",
+                                     "count":  9
+                                 },
+                                 {
+                                     "classification":  "NOT_FOUND",
+                                     "count":  1364
+                                 },
+                                 {
+                                     "classification":  "HUMAN_REVIEW_REQUIRED",
+                                     "count":  306
+                                 }
+                             ],
+    "madridDifferenceFlags":  [
+                                  {
+                                      "flag":  "TRANSCRIPTION_DIFFERENCE",
+                                      "count":  49
+                                  },
+                                  {
+                                      "flag":  "SEGMENTATION_DIFFERENCE",
+                                      "count":  0
+                                  },
+                                  {
+                                      "flag":  "MATH_NOTATION_DIFFERENCE",
+                                      "count":  285
+                                  }
+                              ],
+    "madridDuplicateGroups":  5,
+    "sourceRecordPreservation":  {
+                                     "inputRecords":  15527,
+                                     "uniqueSourceRecordIds":  15527,
+                                     "missingSourceRecordIds":  0,
+                                     "sourceRecordIdSetHash":  "03f1d806eb3f253025496b8e94c0860ad672906e0af1b243e6fe8502df1e2f5c",
+                                     "policy":  "NO_SOURCE_RECORD_DELETED_OR_REWRITTEN"
+                                 },
+    "caseOne":  {
+                    "visualEntityId":  "vent-421552a489e688ce586b07f0c1870560",
+                    "evidenceAvailable":  true,
+                    "expectedAlternatives":  [
+                                                 "4.1",
+                                                 "4.2"
+                                             ],
+                    "expectedSubparts":  [
+                                             "a",
+                                             "b"
+                                         ],
+                    "editorialInstructionSeparated":  true,
+                    "redirectKind":  "SPLIT",
+                    "priorEvidenceHash":  "e391914bff8bbf4c0cfac00b7e6446bc885580ec04949de911329f933893670a",
+                    "status":  "REGRESSION_PRESERVED"
+                },
+    "productionFilesModified":  0,
+    "publicationConnected":  false,
+    "answersGenerated":  0,
+    "solutionsGenerated":  0,
+    "distractorsGenerated":  0
+}

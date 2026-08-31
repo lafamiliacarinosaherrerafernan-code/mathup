@@ -1,0 +1,19 @@
+:root { color-scheme: light; }
+body { margin: 0; background: #eef5ff; color: #10204a; font-family: Arial, sans-serif; }
+main { max-width: 1180px; margin: auto; padding: 24px; }
+header { margin-bottom: 20px; }
+header p { color: #087f6c; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; }
+.cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 18px; }
+.student-card, .comparison { background: white; border: 1px solid #cbd8ed; border-radius: 22px; padding: 22px; box-shadow: 0 12px 28px rgba(19,50,102,.08); }
+.student-card h2 { margin-top: 0; font-size: 1.2rem; }
+.statement { font-size: 1.08rem; line-height: 1.55; }
+.answer { background: #eefbf7; border-left: 5px solid #0b8b72; padding: 12px 14px; margin: 16px 0; }
+.steps { display: grid; gap: 12px; }
+.step { border-top: 1px solid #dbe4f2; padding-top: 10px; }
+.step h3 { margin: 0 0 6px; font-size: .98rem; }
+.step p { margin: 4px 0; line-height: 1.45; }
+.choices { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.choice { border: 1px solid #b7c7de; border-radius: 12px; padding: 10px; background: white; color: #10204a; text-align: left; }
+.comparison { margin-top: 18px; display: grid; gap: 12px; }
+@media (max-width: 420px) { main { padding: 12px; } .cards { grid-template-columns: 1fr; } .choices { grid-template-columns: 1fr; } }
+

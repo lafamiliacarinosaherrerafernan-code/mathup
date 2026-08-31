@@ -1,0 +1,14 @@
+{
+  "phase": "ANDALUCIA_CCSSII_2012_DOC_RECOVERY",
+  "phaseAssertions": { "passed": 24, "failed": 0 },
+  "nodeRegression": { "passed": 117, "failed": 0 },
+  "powershellRegression": {
+    "officialCoverageClosure": { "passed": 13, "failed": 0 },
+    "officialMadridAndalucia": { "passed": 1453, "failed": 0 },
+    "pauCanonicalAndaluciaMadrid": { "passed": 33, "failed": 0 }
+  },
+  "allChecks": { "passed": 1640, "failed": 0 },
+  "reproducibility": "PASS",
+  "orderInvariance": "PASS",
+  "rollback": "PASS"
+}

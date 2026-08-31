@@ -1,0 +1,14 @@
+{
+  "schemaVersion": "mathup.equation3-browser-technical-check.v1",
+  "url": "http://127.0.0.1:8844/artifacts/equation3-andalucia-2012/runs/run-a/visual-comparison.html",
+  "scope": "Arnés local aislado; no runtime público",
+  "cards": 55,
+  "officialImages": 55,
+  "officialImagesLoaded": 55,
+  "mathMlNodes": 55,
+  "emptyMathMlNodes": 0,
+  "pageHorizontalOverflow": false,
+  "overflowingCards": 0,
+  "humanEquivalenceDecisionRecorded": false,
+  "note": "Estas métricas prueban integridad técnica del arnés. No certifican equivalencia visual o matemática original↔renderizado."
+}

@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://mathup.es/contracts/normalization/mathup.math-representation.v1.schema.json",
+  "title": "MathUp derived mathematical representation v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "representationId", "documentId", "blockId", "format", "value", "sourceTreeHash", "generator", "validated", "derivedOnly"],
+  "properties": {
+    "schemaVersion": { "const": "mathup.math-representation.v1" },
+    "representationId": { "type": "string", "pattern": "^mrep-[0-9a-f]{64}$" },
+    "documentId": { "type": "string", "pattern": "^mdoc-[0-9a-f]{64}$" },
+    "blockId": { "type": "string" },
+    "format": { "enum": ["latex", "mathml"] },
+    "value": { "type": "string" },
+    "sourceTreeHash": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+    "generator": { "type": "object" },
+    "validated": { "type": "boolean" },
+    "derivedOnly": { "const": true }
+  }
+}

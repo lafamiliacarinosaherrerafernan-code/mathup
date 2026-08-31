@@ -1,0 +1,32 @@
+[
+  {
+    "community": "madrid",
+    "courseId": "2bach-mates",
+    "semanticHash": "7e48550dc4b2145d9c0583e9a76abb7056c60ff092eb37e518852f278c09c4df",
+    "canonicalExerciseIds": [
+      "madrid-mates-3.18.1",
+      "madrid-mates-3.17.6"
+    ],
+    "classification": "SAME_MATHEMATICAL_EXERCISE_DIFFERENT_OFFICIAL_SOURCE"
+  },
+  {
+    "community": "madrid",
+    "courseId": "2bach-ccss",
+    "semanticHash": "7a97f5787066dbe1d0404d1697d8e1cbfde3b4ff5aeafd3fd73665be47849b92",
+    "canonicalExerciseIds": [
+      "madrid-ccss-4.11.2",
+      "madrid-ccss-4.8.4"
+    ],
+    "classification": "SAME_MATHEMATICAL_EXERCISE_DIFFERENT_OFFICIAL_SOURCE"
+  },
+  {
+    "community": "madrid",
+    "courseId": "2bach-ccss",
+    "semanticHash": "93c4614046945957126ea4b002983124c0bd41f9402c50c223d7fc046ab6f214",
+    "canonicalExerciseIds": [
+      "madrid-ccss-4.11.1",
+      "madrid-ccss-4.8.1"
+    ],
+    "classification": "SAME_MATHEMATICAL_EXERCISE_DIFFERENT_OFFICIAL_SOURCE"
+  }
+]

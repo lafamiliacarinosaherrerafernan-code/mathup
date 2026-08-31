@@ -1,0 +1,23 @@
+{
+    "phase":  "ANDALUCIA_CCSSII_2012_DOC_RECOVERY",
+    "runName":  "run-a",
+    "reversed":  false,
+    "sourceDocuments":  12,
+    "exams":  6,
+    "criteria":  6,
+    "exactCriteriaPairs":  6,
+    "equationObjects":  55,
+    "objectsRecoveredExactly":  55,
+    "objectsPending":  0,
+    "detectedExercises":  48,
+    "materializableExercises":  48,
+    "subparts":  104,
+    "scoreEvidence":  111,
+    "criteriaLinks":  48,
+    "potentialAndaluciaTotal":  1666,
+    "semanticSha256":  "61d2a28a669a565e9823315efbd96d1a737fba543797d929cb2f0cc1bad5425a",
+    "productionModified":  false,
+    "answersGenerated":  0,
+    "solutionsGenerated":  0,
+    "distractorsGenerated":  0
+}

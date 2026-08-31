@@ -1,0 +1,1064 @@
+{
+  "communities": {
+    "castilla-la mancha": {
+      "code": "CLM",
+      "name": "Castilla-La Mancha",
+      "status": "VERIFIED"
+    },
+    "madrid": {
+      "code": "MAD",
+      "name": "Madrid",
+      "status": "VERIFIED"
+    }
+  },
+  "courses": {
+    "1bach-ccss": {
+      "courseLabel": "1.º Bachillerato CCSS I",
+      "stage": "BACHILLERATO",
+      "status": "VERIFIED",
+      "subjectId": "matematicas-ccss-i",
+      "subjectLabel": "Matemáticas Aplicadas a las CCSS I"
+    },
+    "1bach-mates": {
+      "courseLabel": "1.º Bachillerato Matemáticas I",
+      "stage": "BACHILLERATO",
+      "status": "VERIFIED",
+      "subjectId": "matematicas-i",
+      "subjectLabel": "Matemáticas I"
+    },
+    "1eso": {
+      "courseLabel": "1.º ESO",
+      "stage": "ESO",
+      "status": "VERIFIED",
+      "subjectId": "matematicas",
+      "subjectLabel": "Matemáticas"
+    },
+    "2bach-ccss": {
+      "courseLabel": "2.º Bachillerato CCSS II",
+      "stage": "PAU",
+      "status": "VERIFIED",
+      "subjectId": "matematicas-ccss-ii",
+      "subjectLabel": "Matemáticas Aplicadas a las CCSS II"
+    },
+    "2bach-mates": {
+      "courseLabel": "2.º Bachillerato Matemáticas II",
+      "stage": "PAU",
+      "status": "VERIFIED",
+      "subjectId": "matematicas-ii",
+      "subjectLabel": "Matemáticas II"
+    },
+    "2eso": {
+      "courseLabel": "2.º ESO",
+      "stage": "ESO",
+      "status": "VERIFIED",
+      "subjectId": "matematicas",
+      "subjectLabel": "Matemáticas"
+    },
+    "3eso": {
+      "courseLabel": "3.º ESO",
+      "stage": "ESO",
+      "status": "VERIFIED",
+      "subjectId": "matematicas",
+      "subjectLabel": "Matemáticas"
+    },
+    "4eso-a": {
+      "courseLabel": "4.º ESO A",
+      "stage": "ESO",
+      "status": "VERIFIED",
+      "subjectId": "matematicas",
+      "subjectLabel": "Matemáticas A"
+    },
+    "4eso-b": {
+      "courseLabel": "4.º ESO B",
+      "stage": "ESO",
+      "status": "VERIFIED",
+      "subjectId": "matematicas",
+      "subjectLabel": "Matemáticas B"
+    }
+  },
+  "mappingVersion": "mathup.fase2.taxonomy.v1",
+  "observed": [
+    {
+      "basis": "observed-literal",
+      "canonical": {
+        "id": "block-2bach-ccss-algebra-ec752d1d",
+        "label": "algebra"
+      },
+      "raw": "algebra",
+      "status": "VERIFIED"
+    },
+    {
+      "basis": "observed-literal",
+      "canonical": {
+        "id": "block-2bach-ccss-analisis-6a854c4a",
+        "label": "analisis"
+      },
+      "raw": "analisis",
+      "status": "VERIFIED"
+    },
+    {
+      "basis": "observed-literal",
+      "canonical": {
+        "id": "block-2bach-ccss-estadistica-b9d50122",
+        "label": "estadistica"
+      },
+      "raw": "estadistica",
+      "status": "VERIFIED"
+    },
+    {
+      "basis": "observed-literal",
+      "canonical": {
+        "id": "block-2bach-ccss-probabilidad-f5a3e9f1",
+        "label": "probabilidad"
+      },
+      "raw": "probabilidad",
+      "status": "VERIFIED"
+    },
+    {
+      "basis": "observed-literal",
+      "canonical": {
+        "id": "block-2bach-mates-algebra-ec752d1d",
+        "label": "algebra"
+      },
+      "raw": "algebra",
+      "status": "VERIFIED"
+    },
+    {
+      "basis": "observed-literal",
+      "canonical": {
+        "id": "block-2bach-mates-analisis-6a854c4a",
+        "label": "analisis"
+      },
+      "raw": "analisis",
+      "status": "VERIFIED"
+    },
+    {
+      "basis": "observed-literal",
+      "canonical": {
+        "id": "block-2bach-mates-geometria-6705d57f",
+        "label": "geometria"
+      },
+      "raw": "geometria",
+      "status": "VERIFIED"
+    },
+    {
+      "basis": "observed-literal",
+      "canonical": {
+        "id": "block-2bach-mates-probabilidad-estadistica-7f9c94e6",
+        "label": "probabilidad-estadistica"
+      },
+      "raw": "probabilidad-estadistica",
+      "status": "VERIFIED"
+    },
+    {
+      "basis": "observed-literal",
+      "canonical": {
+        "id": "topic-1bach-ccss-combinatoria-07a36583",
+        "label": "Combinatoria"
+      },
+      "raw": "Combinatoria",
+      "status": "VERIFIED"
+    },
+    {
+      "basis": "observed-literal",
+      "canonical": {
+        "id": "topic-1bach-ccss-distribucion-binomial-0fc1f108",
+        "label": "Distribucion binomial"
+      },
+      "raw": "Distribucion binomial",
+      "status": "VERIFIED"
+    },
+    {
+      "basis": "observed-literal",
+      "canonical": {
+        "id": "topic-1bach-ccss-distribucion-normal-4f34fd2d",
+        "label": "Distribucion normal"
+      },
+      "raw": "Distribucion normal",
+      "status": "VERIFIED"
+    },
+    {
+      "basis": "observed-literal",
+      "canonical": {
+        "id": "topic-1bach-ccss-ecuaciones-y-sistemas-65712442",
+        "label": "Ecuaciones y sistemas"
+      },
+      "raw": "Ecuaciones y sistemas",
+      "status": "VERIFIED"
+    },
+    {
+      "basis": "observed-literal",
+      "canonical": {
+        "id": "topic-1bach-ccss-estadistica-b9d50122",
+        "label": "Estadistica"
+      },
+      "raw": "Estadistica",
+      "status": "VERIFIED"
+    },
+    {
+      "basis": "observed-literal",
+      "canonical": {
+        "id": "topic-1bach-ccss-estadistica-unidimensional-y-bidimensional-81a9e21b",
+        "label": "Estadistica unidimensional y bidimensional"
+      },
+      "raw": "Estadistica unidimensional y bidimensional",
+      "status": "VERIFIED"
+    },
+    {
+      "basis": "observed-literal",
+      "canonical": {
+        "id": "topic-1bach-ccss-inecuaciones-y-sistemas-a42a3cf8",
+        "label": "Inecuaciones y sistemas"
+      },
+      "raw": "Inecuaciones y sistemas",
+      "status": "VERIFIED"
+    },
+    {
+      "basis": "observed-literal",
+      "canonical": {
+        "id": "topic-1bach-ccss-numeros-complejos-6ac94b7d",
+        "label": "Numeros complejos"
+      },
+      "raw": "Numeros complejos",
+      "status": "VERIFIED"
+    },
+    {
+      "basis": "observed-literal",
+      "canonical": {
+        "id": "topic-1bach-ccss-numeros-reales-5d04b2cc",
+        "label": "Numeros reales"
+      },
+      "raw": "Numeros reales",
+      "status": "VERIFIED"
+    },
+    {
+      "basis": "observed-literal",
+      "canonical": {
+        "id": "topic-1bach-ccss-probabilidad-f5a3e9f1",
+        "label": "Probabilidad"
+      },
+      "raw": "Probabilidad",
+      "status": "VERIFIED"
+    },
+    {
+      "basis": "observed-literal",
+      "canonical": {
+        "id": "topic-1bach-mates-aplicacion-de-derivadas-d96e95ba",
+        "label": "Aplicacion de derivadas"
+      },
+      "raw": "Aplicacion de derivadas",
+      "status": "VERIFIED"
+    },
+    {
+      "basis": "observed-literal",
+      "canonical": {
+        "id": "topic-1bach-mates-conicas-5269c776",
+        "label": "Conicas"
+      },
+      "raw": "Conicas",
+      "status": "VERIFIED"
+    },
+    {
+      "basis": "observed-literal",
+      "canonical": {
+        "id": "topic-1bach-mates-derivadas-dd45a21f",
+        "label": "Derivadas"
+      },
+      "raw": "Derivadas",
+      "status": "VERIFIED"
+    },
+    {
+      "basis": "observed-literal",
+      "canonical": {
+        "id": "topic-1bach-mates-geometria-analitica-2cc949e6",
+        "label": "Geometria analitica"
+      },
+      "raw": "Geometria analitica",
+      "status": "VERIFIED"
+    },
+    {
+      "basis": "observed-literal",
+      "canonical": {
+        "id": "topic-1bach-mates-numeros-complejos-6ac94b7d",
+        "label": "Numeros complejos"
+      },
+      "raw": "Numeros complejos",
+      "status": "VERIFIED"
+    },
+    {
+      "basis": "observed-literal",
+      "canonical": {
+        "id": "topic-1bach-mates-probabilidad-f5a3e9f1",
+        "label": "Probabilidad"
+      },
+      "raw": "Probabilidad",
+      "status": "VERIFIED"
+    },
+    {
+      "basis": "observed-literal",
+      "canonical": {
+        "id": "topic-1bach-mates-trigonometria-223236b0",
+        "label": "Trigonometria"
+      },
+      "raw": "Trigonometria",
+      "status": "VERIFIED"
+    },
+    {
+      "basis": "observed-literal",
+      "canonical": {
+        "id": "topic-1eso-1eso-cuerpos-geometricos-cf257b6a",
+        "label": "1eso:cuerpos-geometricos"
+      },
+      "raw": "1eso:cuerpos-geometricos",
+      "status": "VERIFIED"
+    },
+    {
+      "basis": "observed-literal",
+      "canonical": {
+        "id": "topic-1eso-1eso-funciones-632bf65d",
+        "label": "1eso:funciones"
+      },
+      "raw": "1eso:funciones",
+      "status": "VERIFIED"
+    },
+    {
+      "basis": "observed-literal",
+      "canonical": {
+        "id": "topic-1eso-1eso-numeros-enteros-401f42f0",
+        "label": "1eso:numeros-enteros"
+      },
+      "raw": "1eso:numeros-enteros",
+      "status": "VERIFIED"
+    },
+    {
+      "basis": "observed-literal",
+      "canonical": {
+        "id": "topic-1eso-cuerpos-geometricos-8da23d64",
+        "label": "Cuerpos geometricos"
+      },
+      "raw": "Cuerpos geometricos",
+      "status": "VERIFIED"
+    },
+    {
+      "basis": "observed-literal",
+      "canonical": {
+        "id": "topic-1eso-expresiones-algebraicas-64a70438",
+        "label": "Expresiones algebraicas"
+      },
+      "raw": "Expresiones algebraicas",
+      "status": "VERIFIED"
+    },
+    {
+      "basis": "observed-literal",
+      "canonical": {
+        "id": "topic-1eso-fracciones-y-numeros-decimales-6ff0daed",
+        "label": "Fracciones y numeros decimales"
+      },
+      "raw": "Fracciones y numeros decimales",
+      "status": "VERIFIED"
+    },
+    {
+      "basis": "observed-literal",
+      "canonical": {
+        "id": "topic-1eso-funciones-c0691007",
+        "label": "Funciones"
+      },
+      "raw": "Funciones",
+      "status": "VERIFIED"
+    },
+    {
+      "basis": "observed-literal",
+      "canonical": {
+        "id": "topic-1eso-medida-angulos-rectas-y-circunferencias-956fb883",
+        "label": "Medida, angulos, rectas y circunferencias"
+      },
+      "raw": "Medida, angulos, rectas y circunferencias",
+      "status": "VERIFIED"
+    },
+    {
+      "basis": "observed-literal",
+      "canonical": {
+        "id": "topic-1eso-numeros-enteros-6d5a69fd",
+        "label": "Numeros enteros"
+      },
+      "raw": "Numeros enteros",
+      "status": "VERIFIED"
+    },
+    {
+      "basis": "observed-literal",
+      "canonical": {
+        "id": "topic-1eso-numeros-naturales-aa689590",
+        "label": "Numeros naturales"
+      },
+      "raw": "Numeros naturales",
+      "status": "VERIFIED"
+    },
+    {
+      "basis": "observed-literal",
+      "canonical": {
+        "id": "topic-1eso-potencias-y-raices-cuadradas-ccb0ef58",
+        "label": "Potencias y raices cuadradas"
+      },
+      "raw": "Potencias y raices cuadradas",
+      "status": "VERIFIED"
+    },
+    {
+      "basis": "observed-literal",
+      "canonical": {
+        "id": "topic-1eso-proporcionalidad-d7740eee",
+        "label": "Proporcionalidad"
+      },
+      "raw": "Proporcionalidad",
+      "status": "VERIFIED"
+    },
+    {
+      "basis": "observed-literal",
+      "canonical": {
+        "id": "topic-1eso-semejanza-pitagoras-y-areas-d4503ca6",
+        "label": "Semejanza, Pitagoras y areas"
+      },
+      "raw": "Semejanza, Pitagoras y areas",
+      "status": "VERIFIED"
+    },
+    {
+      "basis": "observed-literal",
+      "canonical": {
+        "id": "topic-2bach-ccss-bloque-de-algebra-b4ec7fae",
+        "label": "Bloque de álgebra"
+      },
+      "raw": "Bloque de álgebra",
+      "status": "VERIFIED"
+    },
+    {
+      "basis": "observed-literal",
+      "canonical": {
+        "id": "topic-2bach-ccss-bloque-de-analisis-9b7c7cbd",
+        "label": "Bloque de análisis"
+      },
+      "raw": "Bloque de análisis",
+      "status": "VERIFIED"
+    },
+    {
+      "basis": "observed-literal",
+      "canonical": {
+        "id": "topic-2bach-ccss-bloque-de-estadistica-503310a1",
+        "label": "Bloque de estadística"
+      },
+      "raw": "Bloque de estadística",
+      "status": "VERIFIED"
+    },
+    {
+      "basis": "observed-literal",
+      "canonical": {
+        "id": "topic-2bach-ccss-bloque-de-probabilidad-0220b139",
+        "label": "Bloque de probabilidad"
+      },
+      "raw": "Bloque de probabilidad",
+      "status": "VERIFIED"
+    },
+    {
+      "basis": "observed-literal",
+      "canonical": {
+        "id": "topic-2bach-ccss-derivadas-y-aplicaciones-31de791b",
+        "label": "Derivadas y aplicaciones"
+      },
+      "raw": "Derivadas y aplicaciones",
+      "status": "VERIFIED"
+    },
+    {
+      "basis": "observed-literal",
+      "canonical": {
+        "id": "topic-2bach-ccss-distribucion-binomial-y-normal-ed8df5d4",
+        "label": "Distribución binomial y normal"
+      },
+      "raw": "Distribución binomial y normal",
+      "status": "VERIFIED"
+    },
+    {
+      "basis": "observed-literal",
+      "canonical": {
+        "id": "topic-2bach-ccss-integrales-definidas-51863839",
+        "label": "Integrales definidas"
+      },
+      "raw": "Integrales definidas",
+      "status": "VERIFIED"
+    },
+    {
+      "basis": "observed-literal",
+      "canonical": {
+        "id": "topic-2bach-ccss-integrales-indefinidas-ace34034",
+        "label": "Integrales indefinidas"
+      },
+      "raw": "Integrales indefinidas",
+      "status": "VERIFIED"
+    },
+    {
+      "basis": "observed-literal",
+      "canonical": {
+        "id": "topic-2bach-ccss-limites-y-continuidad-4d8a2ca5",
+        "label": "Límites y continuidad"
+      },
+      "raw": "Límites y continuidad",
+      "status": "VERIFIED"
+    },
+    {
+      "basis": "observed-literal",
+      "canonical": {
+        "id": "topic-2bach-ccss-matrices-3b095cb6",
+        "label": "Matrices"
+      },
+      "raw": "Matrices",
+      "status": "VERIFIED"
+    },
+    {
+      "basis": "observed-literal",
+      "canonical": {
+        "id": "topic-2bach-ccss-muestreo-e-inferencia-estadistica-2abc91ba",
+        "label": "Muestreo e inferencia estadística"
+      },
+      "raw": "Muestreo e inferencia estadística",
+      "status": "VERIFIED"
+    },
+    {
+      "basis": "observed-literal",
+      "canonical": {
+        "id": "topic-2bach-ccss-probabilidad-f5a3e9f1",
+        "label": "Probabilidad"
+      },
+      "raw": "Probabilidad",
+      "status": "VERIFIED"
+    },
+    {
+      "basis": "observed-literal",
+      "canonical": {
+        "id": "topic-2bach-ccss-programacion-lineal-a261a802",
+        "label": "Programación lineal"
+      },
+      "raw": "Programación lineal",
+      "status": "VERIFIED"
+    },
+    {
+      "basis": "observed-literal",
+      "canonical": {
+        "id": "topic-2bach-ccss-sistemas-con-determinantes-898dfcb3",
+        "label": "Sistemas con determinantes"
+      },
+      "raw": "Sistemas con determinantes",
+      "status": "VERIFIED"
+    },
+    {
+      "basis": "observed-literal",
+      "canonical": {
+        "id": "topic-2bach-mates-aplicacion-de-derivadas-d96e95ba",
+        "label": "Aplicación de derivadas"
+      },
+      "raw": "Aplicación de derivadas",
+      "status": "VERIFIED"
+    },
+    {
+      "basis": "observed-literal",
+      "canonical": {
+        "id": "topic-2bach-mates-bloque-de-algebra-b4ec7fae",
+        "label": "Bloque de álgebra"
+      },
+      "raw": "Bloque de álgebra",
+      "status": "VERIFIED"
+    },
+    {
+      "basis": "observed-literal",
+      "canonical": {
+        "id": "topic-2bach-mates-continuidad-2faf6076",
+        "label": "Continuidad"
+      },
+      "raw": "Continuidad",
+      "status": "VERIFIED"
+    },
+    {
+      "basis": "observed-literal",
+      "canonical": {
+        "id": "topic-2bach-mates-derivadas-dd45a21f",
+        "label": "Derivadas"
+      },
+      "raw": "Derivadas",
+      "status": "VERIFIED"
+    },
+    {
+      "basis": "observed-literal",
+      "canonical": {
+        "id": "topic-2bach-mates-determinantes-9eb20252",
+        "label": "Determinantes"
+      },
+      "raw": "Determinantes",
+      "status": "VERIFIED"
+    },
+    {
+      "basis": "observed-literal",
+      "canonical": {
+        "id": "topic-2bach-mates-distribucion-binomial-y-normal-ed8df5d4",
+        "label": "Distribución binomial y normal"
+      },
+      "raw": "Distribución binomial y normal",
+      "status": "VERIFIED"
+    },
+    {
+      "basis": "observed-literal",
+      "canonical": {
+        "id": "topic-2bach-mates-integrales-definidas-51863839",
+        "label": "Integrales definidas"
+      },
+      "raw": "Integrales definidas",
+      "status": "VERIFIED"
+    },
+    {
+      "basis": "observed-literal",
+      "canonical": {
+        "id": "topic-2bach-mates-integrales-indefinidas-ace34034",
+        "label": "Integrales indefinidas"
+      },
+      "raw": "Integrales indefinidas",
+      "status": "VERIFIED"
+    },
+    {
+      "basis": "observed-literal",
+      "canonical": {
+        "id": "topic-2bach-mates-limite-de-sucesiones-y-funciones-1ad25b78",
+        "label": "Límite de sucesiones y funciones"
+      },
+      "raw": "Límite de sucesiones y funciones",
+      "status": "VERIFIED"
+    },
+    {
+      "basis": "observed-literal",
+      "canonical": {
+        "id": "topic-2bach-mates-matrices-3b095cb6",
+        "label": "Matrices"
+      },
+      "raw": "Matrices",
+      "status": "VERIFIED"
+    },
+    {
+      "basis": "observed-literal",
+      "canonical": {
+        "id": "topic-2bach-mates-planos-y-rectas-en-el-espacio-cd9d7340",
+        "label": "Planos y rectas en el espacio"
+      },
+      "raw": "Planos y rectas en el espacio",
+      "status": "VERIFIED"
+    },
+    {
+      "basis": "observed-literal",
+      "canonical": {
+        "id": "topic-2bach-mates-probabilidad-f5a3e9f1",
+        "label": "Probabilidad"
+      },
+      "raw": "Probabilidad",
+      "status": "VERIFIED"
+    },
+    {
+      "basis": "observed-literal",
+      "canonical": {
+        "id": "topic-2bach-mates-propiedades-metricas-4ac78044",
+        "label": "Propiedades métricas"
+      },
+      "raw": "Propiedades métricas",
+      "status": "VERIFIED"
+    },
+    {
+      "basis": "observed-literal",
+      "canonical": {
+        "id": "topic-2bach-mates-sistemas-con-determinantes-898dfcb3",
+        "label": "Sistemas con determinantes"
+      },
+      "raw": "Sistemas con determinantes",
+      "status": "VERIFIED"
+    },
+    {
+      "basis": "observed-literal",
+      "canonical": {
+        "id": "topic-2bach-mates-vectores-en-el-espacio-7599e594",
+        "label": "Vectores en el espacio"
+      },
+      "raw": "Vectores en el espacio",
+      "status": "VERIFIED"
+    },
+    {
+      "basis": "observed-literal",
+      "canonical": {
+        "id": "topic-2eso-cuerpos-geometricos-8da23d64",
+        "label": "Cuerpos geometricos"
+      },
+      "raw": "Cuerpos geometricos",
+      "status": "VERIFIED"
+    },
+    {
+      "basis": "observed-literal",
+      "canonical": {
+        "id": "topic-2eso-expresiones-algebraicas-64a70438",
+        "label": "Expresiones algebraicas"
+      },
+      "raw": "Expresiones algebraicas",
+      "status": "VERIFIED"
+    },
+    {
+      "basis": "observed-literal",
+      "canonical": {
+        "id": "topic-2eso-figuras-planas-eca0e4c2",
+        "label": "Figuras planas"
+      },
+      "raw": "Figuras planas",
+      "status": "VERIFIED"
+    },
+    {
+      "basis": "observed-literal",
+      "canonical": {
+        "id": "topic-2eso-fracciones-0d3d5b84",
+        "label": "Fracciones"
+      },
+      "raw": "Fracciones",
+      "status": "VERIFIED"
+    },
+    {
+      "basis": "observed-literal",
+      "canonical": {
+        "id": "topic-2eso-funciones-c0691007",
+        "label": "Funciones"
+      },
+      "raw": "Funciones",
+      "status": "VERIFIED"
+    },
+    {
+      "basis": "observed-literal",
+      "canonical": {
+        "id": "topic-2eso-numeros-enteros-6d5a69fd",
+        "label": "Numeros enteros"
+      },
+      "raw": "Numeros enteros",
+      "status": "VERIFIED"
+    },
+    {
+      "basis": "observed-literal",
+      "canonical": {
+        "id": "topic-2eso-potencias-y-raices-cuadradas-ccb0ef58",
+        "label": "Potencias y raices cuadradas"
+      },
+      "raw": "Potencias y raices cuadradas",
+      "status": "VERIFIED"
+    },
+    {
+      "basis": "observed-literal",
+      "canonical": {
+        "id": "topic-2eso-proporcionalidad-d7740eee",
+        "label": "Proporcionalidad"
+      },
+      "raw": "Proporcionalidad",
+      "status": "VERIFIED"
+    },
+    {
+      "basis": "observed-literal",
+      "canonical": {
+        "id": "topic-2eso-sistemas-de-ecuaciones-62f491b2",
+        "label": "Sistemas de ecuaciones"
+      },
+      "raw": "Sistemas de ecuaciones",
+      "status": "VERIFIED"
+    },
+    {
+      "basis": "observed-literal",
+      "canonical": {
+        "id": "topic-3eso-cuerpos-geometricos-8da23d64",
+        "label": "Cuerpos geometricos"
+      },
+      "raw": "Cuerpos geometricos",
+      "status": "VERIFIED"
+    },
+    {
+      "basis": "observed-literal",
+      "canonical": {
+        "id": "topic-3eso-ecuaciones-y-sistemas-de-ecuaciones-3744a0e1",
+        "label": "Ecuaciones y sistemas de ecuaciones"
+      },
+      "raw": "Ecuaciones y sistemas de ecuaciones",
+      "status": "VERIFIED"
+    },
+    {
+      "basis": "observed-literal",
+      "canonical": {
+        "id": "topic-3eso-estadistica-b9d50122",
+        "label": "Estadistica"
+      },
+      "raw": "Estadistica",
+      "status": "VERIFIED"
+    },
+    {
+      "basis": "observed-literal",
+      "canonical": {
+        "id": "topic-3eso-expresiones-algebraicas-64a70438",
+        "label": "Expresiones algebraicas"
+      },
+      "raw": "Expresiones algebraicas",
+      "status": "VERIFIED"
+    },
+    {
+      "basis": "observed-literal",
+      "canonical": {
+        "id": "topic-3eso-funciones-c0691007",
+        "label": "Funciones"
+      },
+      "raw": "Funciones",
+      "status": "VERIFIED"
+    },
+    {
+      "basis": "observed-literal",
+      "canonical": {
+        "id": "topic-3eso-numeros-reales-5d04b2cc",
+        "label": "Numeros reales"
+      },
+      "raw": "Numeros reales",
+      "status": "VERIFIED"
+    },
+    {
+      "basis": "observed-literal",
+      "canonical": {
+        "id": "topic-3eso-potencias-y-raices-31893c87",
+        "label": "Potencias y raices"
+      },
+      "raw": "Potencias y raices",
+      "status": "VERIFIED"
+    },
+    {
+      "basis": "observed-literal",
+      "canonical": {
+        "id": "topic-3eso-probabilidad-f5a3e9f1",
+        "label": "Probabilidad"
+      },
+      "raw": "Probabilidad",
+      "status": "VERIFIED"
+    },
+    {
+      "basis": "observed-literal",
+      "canonical": {
+        "id": "topic-3eso-proporcionalidad-d7740eee",
+        "label": "Proporcionalidad"
+      },
+      "raw": "Proporcionalidad",
+      "status": "VERIFIED"
+    },
+    {
+      "basis": "observed-literal",
+      "canonical": {
+        "id": "topic-3eso-sucesiones-f24b4a6e",
+        "label": "Sucesiones"
+      },
+      "raw": "Sucesiones",
+      "status": "VERIFIED"
+    },
+    {
+      "basis": "observed-literal",
+      "canonical": {
+        "id": "topic-4eso-a-areas-y-cuerpos-geometricos-0675ca7f",
+        "label": "Areas y cuerpos geometricos"
+      },
+      "raw": "Areas y cuerpos geometricos",
+      "status": "VERIFIED"
+    },
+    {
+      "basis": "observed-literal",
+      "canonical": {
+        "id": "topic-4eso-a-ecuaciones-e-inecuaciones-93a6d233",
+        "label": "Ecuaciones e inecuaciones"
+      },
+      "raw": "Ecuaciones e inecuaciones",
+      "status": "VERIFIED"
+    },
+    {
+      "basis": "observed-literal",
+      "canonical": {
+        "id": "topic-4eso-a-expresiones-algebraicas-64a70438",
+        "label": "Expresiones algebraicas"
+      },
+      "raw": "Expresiones algebraicas",
+      "status": "VERIFIED"
+    },
+    {
+      "basis": "observed-literal",
+      "canonical": {
+        "id": "topic-4eso-a-funciones-c0691007",
+        "label": "Funciones"
+      },
+      "raw": "Funciones",
+      "status": "VERIFIED"
+    },
+    {
+      "basis": "observed-literal",
+      "canonical": {
+        "id": "topic-4eso-a-numeros-reales-5d04b2cc",
+        "label": "Numeros reales"
+      },
+      "raw": "Numeros reales",
+      "status": "VERIFIED"
+    },
+    {
+      "basis": "observed-literal",
+      "canonical": {
+        "id": "topic-4eso-a-proporcionalidad-d7740eee",
+        "label": "Proporcionalidad"
+      },
+      "raw": "Proporcionalidad",
+      "status": "VERIFIED"
+    },
+    {
+      "basis": "observed-literal",
+      "canonical": {
+        "id": "topic-4eso-a-radicales-bbb86fa4",
+        "label": "Radicales"
+      },
+      "raw": "Radicales",
+      "status": "VERIFIED"
+    },
+    {
+      "basis": "observed-literal",
+      "canonical": {
+        "id": "topic-4eso-a-semejanza-y-trigonometria-5abf819a",
+        "label": "Semejanza y trigonometria"
+      },
+      "raw": "Semejanza y trigonometria",
+      "status": "VERIFIED"
+    },
+    {
+      "basis": "observed-literal",
+      "canonical": {
+        "id": "topic-4eso-a-sistemas-de-ecuaciones-e-inecuaciones-33e98fac",
+        "label": "Sistemas de ecuaciones e inecuaciones"
+      },
+      "raw": "Sistemas de ecuaciones e inecuaciones",
+      "status": "VERIFIED"
+    },
+    {
+      "basis": "observed-literal",
+      "canonical": {
+        "id": "topic-4eso-b-combinatoria-07a36583",
+        "label": "Combinatoria"
+      },
+      "raw": "Combinatoria",
+      "status": "VERIFIED"
+    },
+    {
+      "basis": "observed-literal",
+      "canonical": {
+        "id": "topic-4eso-b-derivadas-dd45a21f",
+        "label": "Derivadas"
+      },
+      "raw": "Derivadas",
+      "status": "VERIFIED"
+    },
+    {
+      "basis": "observed-literal",
+      "canonical": {
+        "id": "topic-4eso-b-ecuaciones-y-sistemas-de-ecuaciones-3744a0e1",
+        "label": "Ecuaciones y sistemas de ecuaciones"
+      },
+      "raw": "Ecuaciones y sistemas de ecuaciones",
+      "status": "VERIFIED"
+    },
+    {
+      "basis": "observed-literal",
+      "canonical": {
+        "id": "topic-4eso-b-expresiones-algebraicas-64a70438",
+        "label": "Expresiones algebraicas"
+      },
+      "raw": "Expresiones algebraicas",
+      "status": "VERIFIED"
+    },
+    {
+      "basis": "observed-literal",
+      "canonical": {
+        "id": "topic-4eso-b-funciones-c0691007",
+        "label": "Funciones"
+      },
+      "raw": "Funciones",
+      "status": "VERIFIED"
+    },
+    {
+      "basis": "observed-literal",
+      "canonical": {
+        "id": "topic-4eso-b-geometria-analitica-2cc949e6",
+        "label": "Geometria analitica"
+      },
+      "raw": "Geometria analitica",
+      "status": "VERIFIED"
+    },
+    {
+      "basis": "observed-literal",
+      "canonical": {
+        "id": "topic-4eso-b-inecuaciones-y-sistemas-de-inecuaciones-f2dd45f2",
+        "label": "Inecuaciones y sistemas de inecuaciones"
+      },
+      "raw": "Inecuaciones y sistemas de inecuaciones",
+      "status": "VERIFIED"
+    },
+    {
+      "basis": "observed-literal",
+      "canonical": {
+        "id": "topic-4eso-b-limite-de-funciones-79a13167",
+        "label": "Limite de funciones"
+      },
+      "raw": "Limite de funciones",
+      "status": "VERIFIED"
+    },
+    {
+      "basis": "observed-literal",
+      "canonical": {
+        "id": "topic-4eso-b-limite-de-sucesiones-6d024ad3",
+        "label": "Limite de sucesiones"
+      },
+      "raw": "Limite de sucesiones",
+      "status": "VERIFIED"
+    },
+    {
+      "basis": "observed-literal",
+      "canonical": {
+        "id": "topic-4eso-b-numeros-reales-5d04b2cc",
+        "label": "Numeros reales"
+      },
+      "raw": "Numeros reales",
+      "status": "VERIFIED"
+    },
+    {
+      "basis": "observed-literal",
+      "canonical": {
+        "id": "topic-4eso-b-proporcionalidad-d7740eee",
+        "label": "Proporcionalidad"
+      },
+      "raw": "Proporcionalidad",
+      "status": "VERIFIED"
+    },
+    {
+      "basis": "observed-literal",
+      "canonical": {
+        "id": "topic-4eso-b-radicales-y-logaritmos-272d6fdb",
+        "label": "Radicales y logaritmos"
+      },
+      "raw": "Radicales y logaritmos",
+      "status": "VERIFIED"
+    },
+    {
+      "basis": "observed-literal",
+      "canonical": {
+        "id": "topic-4eso-b-semejanza-aca61987",
+        "label": "Semejanza"
+      },
+      "raw": "Semejanza",
+      "status": "VERIFIED"
+    },
+    {
+      "basis": "observed-literal",
+      "canonical": {
+        "id": "topic-4eso-b-trigonometria-223236b0",
+        "label": "Trigonometria"
+      },
+      "raw": "Trigonometria",
+      "status": "VERIFIED"
+    }
+  ],
+  "staticMappingsHash": "b767732def91c6e315a2a59d9f90d56a81592a7aa4adbfaa08bdf7de736b8da0"
+}

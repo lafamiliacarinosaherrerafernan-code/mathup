@@ -1,0 +1,12 @@
+{
+  "schemaVersion": "mathup.andalucia.browser-visual-gate.v1",
+  "renderer": "production runtime + corrections + source-app parity + interactive delivery gate + MargaritaMathRenderer",
+  "results": [
+    { "viewport": 1280, "exercises": 1641, "parts": 3429, "options": 13716, "badChoiceParts": [], "internalTokens": [], "overflow": [], "errors": [] },
+    { "viewport": 768, "exercises": 1641, "parts": 3429, "options": 13716, "badChoiceParts": [], "internalTokens": [], "overflow": [], "errors": [] },
+    { "viewport": 375, "exercises": 1641, "parts": 3429, "options": 13716, "badChoiceParts": [], "internalTokens": [], "overflow": [], "errors": [] }
+  ],
+  "sourceCaptures": 61,
+  "manualSourcePending": 1,
+  "gallerySheets": 1
+}

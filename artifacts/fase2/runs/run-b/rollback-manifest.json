@@ -1,0 +1,43 @@
+{
+  "createdFiles": [
+    "assets-manifest.json",
+    "canonical-candidates.jsonl",
+    "checksums.sha256",
+    "coverage-by-course-subject.csv",
+    "duplicate-clusters.json",
+    "educational-content-reconciliation.jsonl",
+    "field-provenance.jsonl",
+    "identity-conflicts.csv",
+    "identity-registry.json",
+    "inaccessible-classification.csv",
+    "input-manifest.json",
+    "join-decisions.jsonl",
+    "migration-report.md",
+    "not-converted.csv",
+    "pau-coverage-by-provenance.csv",
+    "possible-equivalents.csv",
+    "queue-blocked.csv",
+    "queue-passed.csv",
+    "queue-review-required.csv",
+    "reconciliation.json",
+    "rollback-manifest.json",
+    "run-manifest.json",
+    "runtime-observations.jsonl",
+    "source-records.jsonl",
+    "source-to-canonical.jsonl",
+    "taxonomy-mappings.json",
+    "unmapped-taxonomy.csv",
+    "validation-results.jsonl",
+    "validation-summary.json"
+  ],
+  "externalWrites": [],
+  "procedure": [
+    "Verify safeRemovalRoot is inside artifacts/fase2/runs.",
+    "Verify checksums.",
+    "Remove only the run directory.",
+    "Re-run production integrity checks."
+  ],
+  "productionFilesModified": [],
+  "rollbackVersion": "mathup.fase2.rollback.v1",
+  "safeRemovalRoot": "artifacts/fase2/runs/run-b"
+}

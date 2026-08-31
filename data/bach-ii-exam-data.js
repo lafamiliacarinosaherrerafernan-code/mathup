@@ -196,12 +196,17 @@ Al sustituir x=0 vuelve a aparecer la indeterminación 0/0.
 Así obtenemos:
 lim x→0 frac{sen x}{2·tg x·(1+tg^2 x)+sen x}.
 Al sustituir x=0 aparece de nuevo 0/0.
-4. Antes de aplicar L'Hôpital otra vez, simplificamos usando tg x=frac{sen x}{cos x}:
-2·tg x·(1+tg^2 x)+sen x=sen x·(frac{2·(1+tg^2 x)}{cos x}+1).
-Para x≠0 suficientemente próximo a 0 podemos simplificar el factor sen x:
-lim x→0 frac{sen x}{sen x·(frac{2·(1+tg^2 x)}{cos x}+1)}=lim x→0 frac{1}{frac{2·(1+tg^2 x)}{cos x}+1}.
-5. Sustituimos x=0:
-frac{1}{frac{2·(1+tg^2 0)}{cos 0}+1}=frac{1}{2+1}=frac{1}{3}.
+4. Para evitar fracciones innecesarias, desarrollamos el producto del denominador antes de volver a derivar:
+2·tg x·(1+tg^2 x)+sen x=2·tg x+2·tg^3 x+sen x.
+5. Como todavía tenemos 0/0, aplicamos L'Hôpital por tercera vez. Derivamos cada término del denominador:
+(2·tg x)'=2·(1+tg^2 x),
+(2·tg^3 x)'=6·tg^2 x·(1+tg^2 x),
+(sen x)'=cos x.
+Por tanto:
+lim x→0 frac{cos x}{2·(1+tg^2 x)+6·tg^2 x·(1+tg^2 x)+cos x}
+=lim x→0 frac{cos x}{2+8·tg^2 x+6·tg^4 x+cos x}.
+6. Sustituimos x=0:
+frac{cos 0}{2+8·tg^2 0+6·tg^4 0+cos 0}=frac{1}{2+0+0+1}=frac{1}{3}.
 Resultado final: el límite vale frac{1}{3}.`
       }
     },
@@ -259,9 +264,9 @@ I=-frac{1}{6}·ln|x|-frac{2}{15}·ln|x+3|+frac{3}{10}·ln|x-2|+C.`
 Para x≥0: x^2=x ⇒ x=0 o x=1.
 Para x<0: x^2=-x ⇒ x=-1.
 2. El recinto está entre x=-1 y x=1. En ese intervalo |x| queda por encima de x^2.
-3. Por simetría respecto del eje OY:
+3. Planteamos el área como función superior menos función inferior. Como y=|x| e y=x^2 son funciones pares, el recinto es simétrico respecto del eje OY:
 [[area-graph-abs-parabola]]
-Área=2·∫_{0}^{1} (x-x^2) dx.
+[[area-equation-abs-parabola]]
 4. Calculamos una primitiva:
 ∫ (x-x^2) dx=frac{x^2}{2}-frac{x^3}{3}.
 5. Aplicamos la regla de Barrow:
@@ -289,14 +294,14 @@ Sustituimos los datos:
 d(P,π)=frac{|3·2+4·4+12·1-8|}{sqrt(3^2+4^2+12^2)}.
 3. El numerador es |6+16+12-8|=26 y el denominador es sqrt(169)=13. Por tanto:
 d(P,π)=frac{26}{13}=2.
-4. El vector normal es n=(3,4,12). La recta perpendicular al plano que pasa por P es
-r:(x,y,z)=(2,4,1)+t(3,4,12).
+4. El vector normal es vector{n}=(3,4,12). La recta perpendicular al plano que pasa por P se escribe en forma paramétrica:
+r:{x=2+3t; y=4+4t; z=1+12t}.
 5. Sustituimos en el plano:
 3(2+3t)+4(4+4t)+12(1+12t)-8=0.
 Así, 26+169t=0 y t=-2/13.
 6. El pie de la perpendicular es
 Q=(2,4,1)-frac{2}{13}(3,4,12)=(frac{20}{13},frac{44}{13},-frac{11}{13}).
-Comprobación: Q pertenece al plano y PQ es paralelo al vector normal.
+Comprobación: Q pertenece al plano y vector{PQ} es paralelo al vector normal vector{n}.
 Resultado final: d(P,π)=2 y Q=(frac{20}{13},frac{44}{13},-frac{11}{13}).`
       }
     },
@@ -305,12 +310,10 @@ Resultado final: d(P,π)=2 y Q=(frac{20}{13},frac{44}{13},-frac{11}{13}).`
         options: ["A′=(-2,9,-11)", "A′=(0,3,-3)", "A′=(2,-9,11)", "A′=(-2,3,-11)"],
         correct: 0,
         solution: `Resolución:
-1. El plano es π:x-3y+4z+21=0 y su vector normal es n=(1,-3,4).
+1. El plano es π:x-3y+4z+21=0 y su vector normal es vector{n}=(1,-3,4).
 [[reflection-plane plane="π: x−3y+4z+21=0" a="A(2,−3,5)" q="Q(0,3,−3)" ap="A′(−2,9,−11)"]]
-2. La recta perpendicular al plano que pasa por A=(2,-3,5) tiene como vector director n=(1,-3,4). Su ecuación en forma paramétrica es el sistema:
-x=2+t
-y=-3-3t
-z=5+4t
+2. La recta perpendicular al plano que pasa por A=(2,-3,5) tiene como vector director vector{n}=(1,-3,4). Su ecuación en forma paramétrica es el sistema:
+r:{x=2+t; y=-3-3t; z=5+4t}.
 3. Sustituimos las tres expresiones paramétricas de la recta en el plano:
 (2+t)-3(-3-3t)+4(5+4t)+21=0.
 2+t+9+9t+20+16t+21=0,
@@ -328,7 +331,7 @@ frac{5+z}{2}=-3
 -3+y=6, por tanto y=9.
 5+z=-6, por tanto z=-11.
 Así, A′=(-2,9,-11).
-Comprobación: Q=frac{A+A′}{2}=(0,3,-3), Q pertenece a π y el segmento AA′ es paralelo a n=(1,-3,4); por tanto, AA′ es perpendicular al plano.
+Comprobación: Q=frac{A+A′}{2}=(0,3,-3), Q pertenece a π y vector{AA′} es paralelo a vector{n}=(1,-3,4); por tanto, AA′ es perpendicular al plano.
 Resultado final: A′=(-2,9,-11).`
       }
     },
@@ -369,8 +372,9 @@ P(28≤X≤46)=P(frac{28−34}{6}≤Z≤frac{46−34}{6}).
 P(frac{28−34}{6}≤Z≤frac{46−34}{6})=P(−1≤Z≤2).
 3. Expresamos el intervalo mediante probabilidades acumuladas:
 P(−1≤Z≤2)=P(Z≤2)−P(Z≤−1).
-4. Buscamos ambos valores en la tabla de la normal típica:
-P(Z≤2)=0,9772 y P(Z≤−1)=0,1587.
+4. Buscamos ambos valores en la tabla de la normal típica. Para el valor negativo usamos la simetría:
+P(Z≤−1)=P(Z<−1)=1−P(Z<1)=1−0,8413=0,1587.
+Además, P(Z≤2)=0,9772.
 5. Restamos:
 P(28≤X≤46)=0,9772−0,1587=0,8185≈0,8186.
 Resultado final: la probabilidad es aproximadamente 0,8186, es decir, un 81,86 %.`
@@ -380,11 +384,11 @@ Resultado final: la probabilidad es aproximadamente 0,8186, es decir, un 81,86 %
         correct: 0,
         solution: `Resolución:
 1. Se pide P(X>K)=0,1587; por tanto, P(X≤K)=1-0,1587=0,8413.
-2. Llamamos k al valor tipificado que corresponde a K. Entonces:
-P(Z≤k)=0,8413.
-Buscamos 0,8413 en la tabla de la normal típica y obtenemos k=1.
+2. Llamamos a al valor tipificado que corresponde a K. Entonces:
+P(Z≤a)=0,8413.
+Buscamos 0,8413 en la tabla de la normal típica y obtenemos a=1.
 3. Igualamos ese valor con la tipificación de K:
-frac{K−34}{6}=k=1.
+frac{K−34}{6}=a=1.
 4. Despejamos:
 K−34=6 y K=40.
 Resultado final: K=40 años.`

@@ -1,0 +1,7 @@
+"key","total","SEGMENTATION_OK","EXAM_INSTRUCTION_ATTACHED","DUPLICATED_HEADER","MULTIPLE_EXERCISES_MERGED","EXERCISE_INCORRECTLY_SPLIT","SUBPART_STRUCTURE_ERROR","SOURCE_TEXT_CORRUPTION","MATH_NOTATION_CORRUPTION","DOCUMENT_REVIEW_REQUIRED"
+"CCSS II|Castilla-La Mancha","384","10","5","200","0","0","374","1","4","384"
+"CCSS II|Madrid","892","886","6","0","0","0","0","0","0","892"
+"CCSS II|No verificable","204","198","1","5","0","0","0","0","0","204"
+"Matemáticas II|Castilla-La Mancha","1021","508","11","145","9","0","508","0","429","1021"
+"Matemáticas II|Madrid","795","794","1","0","0","0","0","0","40","795"
+"Matemáticas II|No verificable","195","185","1","9","0","0","0","0","23","195"

@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://mathup.es/contracts/mathup.solution.v1.schema.json",
+  "title": "MathUp solution v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "solutionId", "exerciseId", "revisionId", "answerId", "kind", "parts", "recoveryKind", "provenance", "review"],
+  "properties": {
+    "schemaVersion": { "const": "mathup.solution.v1" },
+    "solutionId": { "type": "string", "pattern": "^sol-[0-9a-f-]{36}$" },
+    "exerciseId": { "type": "string", "pattern": "^ex-[0-9a-f-]{36}$" },
+    "revisionId": { "type": "string" },
+    "answerId": { "type": ["string", "null"] },
+    "kind": { "enum": ["developed", "final-only"] },
+    "parts": { "type": "array", "minItems": 1, "items": { "type": "object" } },
+    "verification": { "type": ["string", "null"] },
+    "pedagogicalProfile": { "type": ["string", "null"] },
+    "recoveryKind": { "enum": ["RECOVERED_ANSWER_ONLY", "RECOVERED_FINAL_ONLY", "RECOVERED_DEVELOPED", "AUTHORITATIVE_EXISTING"] },
+    "provenance": { "type": "object" },
+    "review": { "type": "object" }
+  }
+}

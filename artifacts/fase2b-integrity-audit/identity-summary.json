@@ -1,0 +1,17 @@
+{
+  "candidatesV1": 6680,
+  "exercisesV2": 7485,
+  "increase": 805,
+  "mappings": 6680,
+  "oneToOne": 6650,
+  "splitJustified": 27,
+  "duplicateRelation": 3,
+  "unexplainedExpansionCases": 0,
+  "unexplainedExpansionEntities": 0,
+  "splitTargets": 835,
+  "distinctStatementsWithinSplits": 818,
+  "distinctStatementExpansion": 788,
+  "exactDuplicateSurplus": 17,
+  "arithmetic": "6680 + 788 + 17 + 0 = 7485",
+  "closureDecision": "IDENTITY_EXPLAINED_BUT_DUPLICATE_RELATIONS_REQUIRE_REVIEW"
+}

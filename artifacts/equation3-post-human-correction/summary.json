@@ -1,0 +1,15 @@
+{
+  "schemaVersion": "mathup.equation3-post-human-correction.summary.v1",
+  "objects": 55,
+  "corrected": 10,
+  "frozenRegression": 45,
+  "regression45Passed": 45,
+  "recheckRequired": 10,
+  "ruleCounts": {
+    "MTEF_UNILATERAL_LEFT_DELIMITER": 4,
+    "ORDINARY_LITERAL_DELIMITER_NON_STRETCHY": 10,
+    "SCRIPT_BASE_LITERAL_GROUP": 1
+  },
+  "publicDecisionSetSha256": "bd412eee4c7ebe87d4ab5a298d55ed1024c1a3bbee80d7260d808522866d9847",
+  "abcabcStatus": "DOCUMENT_LAYOUT_RECONSTRUCTION_ERROR_UNCHANGED"
+}

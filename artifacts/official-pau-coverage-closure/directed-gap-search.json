@@ -1,0 +1,47 @@
+[
+    {
+        "community":  "Madrid",
+        "subject":  "Matemáticas II",
+        "year":  2013,
+        "resolved":  true,
+        "authority":  "UAH",
+        "evidenceUrl":  "https://www.uah.es/es/admision-y-ayudas/grados/pruebas-de-acceso/Evaluacion-para-el-Acceso-a-la-Universidad/examenes-y-criterios-de-correccion/",
+        "result":  "Ordinaria y Extraordinaria censadas"
+    },
+    {
+        "community":  "Madrid",
+        "subject":  "Matemáticas II",
+        "year":  2015,
+        "resolved":  true,
+        "authority":  "UAH",
+        "evidenceUrl":  "https://www.uah.es/es/admision-y-ayudas/grados/pruebas-de-acceso/Evaluacion-para-el-Acceso-a-la-Universidad/examenes-y-criterios-de-correccion/",
+        "result":  "Ordinaria y Extraordinaria censadas"
+    },
+    {
+        "community":  "Madrid",
+        "subject":  "Matemáticas Aplicadas a las CCSS II",
+        "year":  2011,
+        "resolved":  true,
+        "authority":  "UAH",
+        "evidenceUrl":  "https://www.uah.es/es/admision-y-ayudas/grados/pruebas-de-acceso/Evaluacion-para-el-Acceso-a-la-Universidad/examenes-y-criterios-de-correccion/",
+        "result":  "Año cubierto por Ordinaria; Extraordinaria sigue ausente"
+    },
+    {
+        "community":  "Madrid",
+        "subject":  "Matemáticas Aplicadas a las CCSS II",
+        "year":  2014,
+        "resolved":  true,
+        "authority":  "UAH",
+        "evidenceUrl":  "https://www.uah.es/es/admision-y-ayudas/grados/pruebas-de-acceso/Evaluacion-para-el-Acceso-a-la-Universidad/examenes-y-criterios-de-correccion/",
+        "result":  "Ordinaria y Extraordinaria censadas"
+    },
+    {
+        "community":  "Andalucía",
+        "subject":  "Matemáticas Aplicadas a las CCSS II",
+        "year":  2012,
+        "resolved":  true,
+        "authority":  "Junta de Andalucía / Distrito Único Andaluz",
+        "evidenceUrl":  "https://www.juntadeandalucia.es/economiaconocimientoempresasyuniversidad/sguit/examanes_anios_anteriores/selectividad/sel_2012_matematicas_aplicadas.zip",
+        "result":  "Exámenes y criterios oficiales localizados en DOC; no existe PDF oficial en el paquete"
+    }
+]

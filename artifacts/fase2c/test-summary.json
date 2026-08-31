@@ -1,0 +1,17 @@
+{
+  "schemaVersion": "mathup.fase2c.test-summary.v1",
+  "total": 79,
+  "passed": 79,
+  "failed": 0,
+  "suites": [
+    {"file": "tests/canonical-exercise-validator.test.mjs", "tests": 22, "passed": 22, "failed": 0, "phase": "Fase 1"},
+    {"file": "tests/fase2-import-catalog.test.mjs", "tests": 12, "passed": 12, "failed": 0, "phase": "Fase 2"},
+    {"file": "tests/fase2b-catalog.test.mjs", "tests": 33, "passed": 33, "failed": 0, "phase": "Fase 2B"},
+    {"file": "tests/fase2c-json-solutions.test.mjs", "tests": 2, "passed": 2, "failed": 0, "phase": "Fase 2C"},
+    {"file": "tests/fase2c-math-contracts.test.mjs", "tests": 3, "passed": 3, "failed": 0, "phase": "Fase 2C"},
+    {"file": "tests/fase2c-normalization.test.mjs", "tests": 4, "passed": 4, "failed": 0, "phase": "Fase 2C"},
+    {"file": "tests/fase2c-reproducibility.test.mjs", "tests": 1, "passed": 1, "failed": 0, "phase": "Fase 2C"},
+    {"file": "tests/fase2c-visual-fixtures.test.mjs", "tests": 2, "passed": 2, "failed": 0, "phase": "Fase 2C"}
+  ],
+  "phase1Original": {"total": 22, "passed": 22, "failed": 0}
+}

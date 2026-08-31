@@ -1,0 +1,5 @@
+import assert from 'node:assert/strict';
+import {officialParts} from './resolve-andalucia-inference-multipart.mjs';
+export const adjacencyObservations=[[1180,'69f8b84ed22f2b49074eafb95dbdce8a98114a4a2f02989b92f3f7add9355155',1,'1','f8d679679ff7d62fcdec053f6f04eec40878c1ec4e418bbec40e020abd588b52',0]];
+export const adjacencyStatement='Sean las matrices C=[[0,1,0],[1,0,1],[0,1,0]] y D=[[0,1,1],[1,0,1],[1,1,0]].\na) Resuelva la ecuación matricial 2·X−C·D=(I₃+D)·C.\nb) Si las matrices C y D son las matrices de adyacencia de dos grafos, de vértices a, b, c y 1, 2, 3, respectivamente, haga la representación gráfica de dichos grafos.';
+export function adjacencyReplacements(record){if(record.queueIndex!==1180)return[];const pp=officialParts(adjacencyStatement);assert.equal(record.parts.length,2);return [[record.sourceLiteral,adjacencyStatement,'PDF_VISIBLE_ADJACENCY_MATRICES_AND_TWO_PARTS'],...pp.map((p,i)=>{assert.equal(p.id,record.parts[i].partId);return[record.parts[i].prompt,p.prompt,'PDF_VISIBLE_ADJACENCY_SUBPART'];})];}

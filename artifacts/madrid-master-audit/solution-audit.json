@@ -1,0 +1,39 @@
+{
+  "summary": {
+    "2bach-mates": {
+      "subject": "Matemáticas II",
+      "sourceRecords": 831,
+      "excludedOtherCommunity": 6,
+      "enabledExercises": 825,
+      "expectedEnabledExercises": 825,
+      "sourceSubparts": 1925,
+      "canonicalSubparts": 1925,
+      "legacyOcrDetectedSubparts": 1881,
+      "legacyOcrCountDisagreements": 44,
+      "sourceMismatches": 0,
+      "optionErrors": 0,
+      "solutionErrors": 0,
+      "methodologyNeedsRegeneration": 0,
+      "methodologyAmbiguous": 50,
+      "renderErrors": 0
+    },
+    "2bach-ccss": {
+      "subject": "CCSS II",
+      "sourceRecords": 903,
+      "excludedOtherCommunity": 0,
+      "enabledExercises": 903,
+      "expectedEnabledExercises": 903,
+      "sourceSubparts": 1853,
+      "canonicalSubparts": 1853,
+      "legacyOcrDetectedSubparts": 1758,
+      "legacyOcrCountDisagreements": 71,
+      "sourceMismatches": 0,
+      "optionErrors": 0,
+      "solutionErrors": 0,
+      "methodologyNeedsRegeneration": 0,
+      "methodologyAmbiguous": 29,
+      "renderErrors": 0
+    }
+  },
+  "issues": []
+}

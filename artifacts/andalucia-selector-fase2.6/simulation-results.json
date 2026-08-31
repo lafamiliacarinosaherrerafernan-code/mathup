@@ -1,0 +1,132 @@
+[
+  {
+    "community": "andalucia",
+    "courseId": "2bach-mates",
+    "seed": "fase-2.6-v1|andalucia|2bach-mates",
+    "exams": 1000,
+    "verificationMethod": "real-persistent-generator-core",
+    "withinExamDuplicates": 0,
+    "slots": [
+      {
+        "slot": 1,
+        "selections": 1000,
+        "distinctSelected": 198,
+        "neverSelected": [],
+        "minFrequency": 4,
+        "maxFrequency": 6,
+        "firstRepeatInRealGenerator": 199,
+        "families": {
+          "sin-familia": 1000
+        }
+      },
+      {
+        "slot": 2,
+        "selections": 1000,
+        "distinctSelected": 214,
+        "neverSelected": [],
+        "minFrequency": 3,
+        "maxFrequency": 5,
+        "firstRepeatInRealGenerator": 215,
+        "families": {
+          "sin-familia": 1000
+        }
+      },
+      {
+        "slot": 3,
+        "selections": 1000,
+        "distinctSelected": 193,
+        "neverSelected": [],
+        "minFrequency": 4,
+        "maxFrequency": 6,
+        "firstRepeatInRealGenerator": 194,
+        "families": {
+          "sin-familia": 1000
+        }
+      },
+      {
+        "slot": 4,
+        "selections": 1000,
+        "distinctSelected": 204,
+        "neverSelected": [],
+        "minFrequency": 3,
+        "maxFrequency": 5,
+        "firstRepeatInRealGenerator": 205,
+        "families": {
+          "sin-familia": 1000
+        }
+      },
+      {
+        "slot": 5,
+        "selections": 1000,
+        "distinctSelected": 8,
+        "neverSelected": [],
+        "minFrequency": 115,
+        "maxFrequency": 137,
+        "firstRepeatInRealGenerator": 9,
+        "families": {
+          "sin-familia": 1000
+        }
+      }
+    ]
+  },
+  {
+    "community": "andalucia",
+    "courseId": "2bach-ccss",
+    "seed": "fase-2.6-v1|andalucia|2bach-ccss",
+    "exams": 1000,
+    "verificationMethod": "real-persistent-generator-core",
+    "withinExamDuplicates": 0,
+    "slots": [
+      {
+        "slot": 1,
+        "selections": 1000,
+        "distinctSelected": 118,
+        "neverSelected": [],
+        "minFrequency": 7,
+        "maxFrequency": 9,
+        "firstRepeatInRealGenerator": 119,
+        "families": {
+          "sin-familia": 1000
+        }
+      },
+      {
+        "slot": 2,
+        "selections": 1000,
+        "distinctSelected": 119,
+        "neverSelected": [],
+        "minFrequency": 6,
+        "maxFrequency": 9,
+        "firstRepeatInRealGenerator": 120,
+        "families": {
+          "programacion-lineal": 495,
+          "sistemas": 505
+        }
+      },
+      {
+        "slot": 3,
+        "selections": 1000,
+        "distinctSelected": 152,
+        "neverSelected": [],
+        "minFrequency": 5,
+        "maxFrequency": 7,
+        "firstRepeatInRealGenerator": 153,
+        "families": {
+          "sin-familia": 1000
+        }
+      },
+      {
+        "slot": 4,
+        "selections": 1000,
+        "distinctSelected": 434,
+        "neverSelected": [],
+        "minFrequency": 1,
+        "maxFrequency": 3,
+        "firstRepeatInRealGenerator": 435,
+        "families": {
+          "probabilidad": 498,
+          "estadistica": 502
+        }
+      }
+    ]
+  }
+]

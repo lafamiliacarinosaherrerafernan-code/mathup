@@ -1,0 +1,362 @@
+[
+    {
+        "subject":  "Matemáticas II",
+        "year":  2010,
+        "scope":  "annual",
+        "officialUrl":  "https://www.juntadeandalucia.es/economiaconocimientoempresasyuniversidad/sguit/examanes_anios_anteriores/selectividad/sel_2010_matematicas.zip",
+        "localPackagePath":  "sources/pau-official/andalucia/.work/packages/sel_2010_matematicas.zip",
+        "sha256":  "d345c350178eedd4f9a071ba267d4d6f669880084010c031ea059141eaeca87b",
+        "verificationStatus":  "DOWNLOADED_VERIFIED_ZIP",
+        "error":  null
+    },
+    {
+        "subject":  "Matemáticas Aplicadas a las CCSS II",
+        "year":  2010,
+        "scope":  "annual",
+        "officialUrl":  "https://www.juntadeandalucia.es/economiaconocimientoempresasyuniversidad/sguit/examanes_anios_anteriores/selectividad/sel_2010_matematicas_aplicadas.zip",
+        "localPackagePath":  "sources/pau-official/andalucia/.work/packages/sel_2010_matematicas_aplicadas.zip",
+        "sha256":  "e570966474e14d91f32cd653e854c183dbe4dc94ed7dc731dce05f8b5da9dc05",
+        "verificationStatus":  "DOWNLOADED_VERIFIED_ZIP",
+        "error":  null
+    },
+    {
+        "subject":  "Matemáticas II",
+        "year":  2011,
+        "scope":  "annual",
+        "officialUrl":  "https://www.juntadeandalucia.es/economiaconocimientoempresasyuniversidad/sguit/examanes_anios_anteriores/selectividad/sel_2011_matematicas.zip",
+        "localPackagePath":  "sources/pau-official/andalucia/.work/packages/sel_2011_matematicas.zip",
+        "sha256":  "e0c1f0e2694eae61c9e413bb694e04b8e7bab2edf85d0f209e94c790218ebc57",
+        "verificationStatus":  "DOWNLOADED_VERIFIED_ZIP",
+        "error":  null
+    },
+    {
+        "subject":  "Matemáticas Aplicadas a las CCSS II",
+        "year":  2011,
+        "scope":  "annual",
+        "officialUrl":  "https://www.juntadeandalucia.es/economiaconocimientoempresasyuniversidad/sguit/examanes_anios_anteriores/selectividad/sel_2011_matematicas_aplicadas.zip",
+        "localPackagePath":  "sources/pau-official/andalucia/.work/packages/sel_2011_matematicas_aplicadas.zip",
+        "sha256":  "ce6f31ba476c7ae5a38dbb526c0740ebc6b3b035d888bcd5a9541b11a4c953e4",
+        "verificationStatus":  "DOWNLOADED_VERIFIED_ZIP",
+        "error":  null
+    },
+    {
+        "subject":  "Matemáticas II",
+        "year":  2012,
+        "scope":  "annual",
+        "officialUrl":  "https://www.juntadeandalucia.es/economiaconocimientoempresasyuniversidad/sguit/examanes_anios_anteriores/selectividad/sel_2012_matematicas.zip",
+        "localPackagePath":  "sources/pau-official/andalucia/.work/packages/sel_2012_matematicas.zip",
+        "sha256":  "d7e7c736c4eda0964a8f1acf6561d074573b6ffef8caed1c94b89966daeb5b06",
+        "verificationStatus":  "DOWNLOADED_VERIFIED_ZIP",
+        "error":  null
+    },
+    {
+        "subject":  "Matemáticas Aplicadas a las CCSS II",
+        "year":  2012,
+        "scope":  "annual",
+        "officialUrl":  "https://www.juntadeandalucia.es/economiaconocimientoempresasyuniversidad/sguit/examanes_anios_anteriores/selectividad/sel_2012_matematicas_aplicadas.zip",
+        "localPackagePath":  "sources/pau-official/andalucia/.work/packages/sel_2012_matematicas_aplicadas.zip",
+        "sha256":  "6c6008e2c228efd69d62b717ff4f18f81c196e20d91e8ef47af5db878dc59832",
+        "verificationStatus":  "DOWNLOADED_VERIFIED_ZIP",
+        "error":  null
+    },
+    {
+        "subject":  "Matemáticas II",
+        "year":  2013,
+        "scope":  "annual",
+        "officialUrl":  "https://www.juntadeandalucia.es/economiaconocimientoempresasyuniversidad/sguit/examanes_anios_anteriores/selectividad/sel_2013_matematicas.zip",
+        "localPackagePath":  "sources/pau-official/andalucia/.work/packages/sel_2013_matematicas.zip",
+        "sha256":  "3412409522ac72c8c04b3371121aed9dff2d9f9c8cae8227728edaffb75ba2b7",
+        "verificationStatus":  "DOWNLOADED_VERIFIED_ZIP",
+        "error":  null
+    },
+    {
+        "subject":  "Matemáticas Aplicadas a las CCSS II",
+        "year":  2013,
+        "scope":  "annual",
+        "officialUrl":  "https://www.juntadeandalucia.es/economiaconocimientoempresasyuniversidad/sguit/examanes_anios_anteriores/selectividad/sel_2013_matematicas_aplicadas.zip",
+        "localPackagePath":  "sources/pau-official/andalucia/.work/packages/sel_2013_matematicas_aplicadas.zip",
+        "sha256":  "010b87d56e443815dc5536de0daea7d1be0b665c36458c13903dd478d04bf02d",
+        "verificationStatus":  "DOWNLOADED_VERIFIED_ZIP",
+        "error":  null
+    },
+    {
+        "subject":  "Matemáticas II",
+        "year":  2014,
+        "scope":  "annual",
+        "officialUrl":  "https://www.juntadeandalucia.es/economiaconocimientoempresasyuniversidad/sguit/examanes_anios_anteriores/selectividad/sel_2014_matematicas.zip",
+        "localPackagePath":  "sources/pau-official/andalucia/.work/packages/sel_2014_matematicas.zip",
+        "sha256":  "4e0352be6a509193ccfbb761a1394a56d34d2b44e9b5abc555a83b0443c58623",
+        "verificationStatus":  "DOWNLOADED_VERIFIED_ZIP",
+        "error":  null
+    },
+    {
+        "subject":  "Matemáticas Aplicadas a las CCSS II",
+        "year":  2014,
+        "scope":  "annual",
+        "officialUrl":  "https://www.juntadeandalucia.es/economiaconocimientoempresasyuniversidad/sguit/examanes_anios_anteriores/selectividad/sel_2014_matematicas_aplicadas.zip",
+        "localPackagePath":  "sources/pau-official/andalucia/.work/packages/sel_2014_matematicas_aplicadas.zip",
+        "sha256":  "9cf33992995bf5e81c0c4d62dd4e0ad3c3b1448d6a8967c0aeb267bb8402526b",
+        "verificationStatus":  "DOWNLOADED_VERIFIED_ZIP",
+        "error":  null
+    },
+    {
+        "subject":  "Matemáticas II",
+        "year":  2015,
+        "scope":  "annual",
+        "officialUrl":  "https://www.juntadeandalucia.es/economiaconocimientoempresasyuniversidad/sguit/examanes_anios_anteriores/selectividad/sel_2015_matematicas.zip",
+        "localPackagePath":  "sources/pau-official/andalucia/.work/packages/sel_2015_matematicas.zip",
+        "sha256":  "067a96c5b7178b150c497a480f44592b78c55c68bd667bcc4d26b86e83bb585e",
+        "verificationStatus":  "DOWNLOADED_VERIFIED_ZIP",
+        "error":  null
+    },
+    {
+        "subject":  "Matemáticas Aplicadas a las CCSS II",
+        "year":  2015,
+        "scope":  "annual",
+        "officialUrl":  "https://www.juntadeandalucia.es/economiaconocimientoempresasyuniversidad/sguit/examanes_anios_anteriores/selectividad/sel_2015_matematicas_aplicadas.zip",
+        "localPackagePath":  "sources/pau-official/andalucia/.work/packages/sel_2015_matematicas_aplicadas.zip",
+        "sha256":  "877e0286592e5cf48137579e65f6ba657fc387cb0160b9f0a42be635edb2b6b2",
+        "verificationStatus":  "DOWNLOADED_VERIFIED_ZIP",
+        "error":  null
+    },
+    {
+        "subject":  "Matemáticas II",
+        "year":  2016,
+        "scope":  "annual",
+        "officialUrl":  "https://www.juntadeandalucia.es/economiaconocimientoempresasyuniversidad/sguit/examanes_anios_anteriores/selectividad/sel_2016_matematicas.zip",
+        "localPackagePath":  "sources/pau-official/andalucia/.work/packages/sel_2016_matematicas.zip",
+        "sha256":  "6f073fa9b351c6ab02a9d704e56bda532261c38ce42845f723cb5dce3ccecb70",
+        "verificationStatus":  "DOWNLOADED_VERIFIED_ZIP",
+        "error":  null
+    },
+    {
+        "subject":  "Matemáticas Aplicadas a las CCSS II",
+        "year":  2016,
+        "scope":  "annual",
+        "officialUrl":  "https://www.juntadeandalucia.es/economiaconocimientoempresasyuniversidad/sguit/examanes_anios_anteriores/selectividad/sel_2016_matematicas_aplicadas.zip",
+        "localPackagePath":  "sources/pau-official/andalucia/.work/packages/sel_2016_matematicas_aplicadas.zip",
+        "sha256":  "a3e136886290065b0d32f125fb8539f4529ffbdbf3c3cf1390c01f55732c2b41",
+        "verificationStatus":  "DOWNLOADED_VERIFIED_ZIP",
+        "error":  null
+    },
+    {
+        "subject":  "Matemáticas II",
+        "year":  2017,
+        "scope":  "annual",
+        "officialUrl":  "https://www.juntadeandalucia.es/economiaconocimientoempresasyuniversidad/sguit/examanes_anios_anteriores/selectividad/sel_2017_matematicas.zip",
+        "localPackagePath":  "sources/pau-official/andalucia/.work/packages/sel_2017_matematicas.zip",
+        "sha256":  "08a2b4d6e3719eacfd5600d6f73f5e1659bb4fd8ce196aee07a768db5f21222e",
+        "verificationStatus":  "DOWNLOADED_VERIFIED_ZIP",
+        "error":  null
+    },
+    {
+        "subject":  "Matemáticas Aplicadas a las CCSS II",
+        "year":  2017,
+        "scope":  "annual",
+        "officialUrl":  "https://www.juntadeandalucia.es/economiaconocimientoempresasyuniversidad/sguit/examanes_anios_anteriores/selectividad/sel_2017_matematicas_aplicadas.zip",
+        "localPackagePath":  "sources/pau-official/andalucia/.work/packages/sel_2017_matematicas_aplicadas.zip",
+        "sha256":  "23528a97ddf25ee188f962fd581a8904acc90cd4038e8b594182f64ba4f20589",
+        "verificationStatus":  "DOWNLOADED_VERIFIED_ZIP",
+        "error":  null
+    },
+    {
+        "subject":  "Matemáticas II",
+        "year":  2018,
+        "scope":  "annual",
+        "officialUrl":  "https://www.juntadeandalucia.es/economiaconocimientoempresasyuniversidad/sguit/examanes_anios_anteriores/selectividad/sel_2018_matematicas.zip",
+        "localPackagePath":  "sources/pau-official/andalucia/.work/packages/sel_2018_matematicas.zip",
+        "sha256":  "8f552e55f4a9db33748ed6648d55b852036da3eb9a8910d5560588f720ad5cb4",
+        "verificationStatus":  "DOWNLOADED_VERIFIED_ZIP",
+        "error":  null
+    },
+    {
+        "subject":  "Matemáticas Aplicadas a las CCSS II",
+        "year":  2018,
+        "scope":  "annual",
+        "officialUrl":  "https://www.juntadeandalucia.es/economiaconocimientoempresasyuniversidad/sguit/examanes_anios_anteriores/selectividad/sel_2018_matematicas_aplicadas.zip",
+        "localPackagePath":  "sources/pau-official/andalucia/.work/packages/sel_2018_matematicas_aplicadas.zip",
+        "sha256":  "35cf49b6a86758da56d7c4d659ddbb369b7601253f6a7b6c0bf2eccdc1406902",
+        "verificationStatus":  "DOWNLOADED_VERIFIED_ZIP",
+        "error":  null
+    },
+    {
+        "subject":  "Matemáticas II",
+        "year":  2019,
+        "scope":  "annual",
+        "officialUrl":  "https://www.juntadeandalucia.es/economiaconocimientoempresasyuniversidad/sguit/examanes_anios_anteriores/selectividad/sel_2019_matematicas.zip",
+        "localPackagePath":  "sources/pau-official/andalucia/.work/packages/sel_2019_matematicas.zip",
+        "sha256":  "f42576d46e12ca1a4daa5835dfea3b62b791ad6929a56579d296e06799d1b05c",
+        "verificationStatus":  "DOWNLOADED_VERIFIED_ZIP",
+        "error":  null
+    },
+    {
+        "subject":  "Matemáticas Aplicadas a las CCSS II",
+        "year":  2019,
+        "scope":  "annual",
+        "officialUrl":  "https://www.juntadeandalucia.es/economiaconocimientoempresasyuniversidad/sguit/examanes_anios_anteriores/selectividad/sel_2019_matematicas_aplicadas.zip",
+        "localPackagePath":  "sources/pau-official/andalucia/.work/packages/sel_2019_matematicas_aplicadas.zip",
+        "sha256":  "e5a873dac970f22855408b3b53d58aad52279ab502ab60503289c2bd2eb318fe",
+        "verificationStatus":  "DOWNLOADED_VERIFIED_ZIP",
+        "error":  null
+    },
+    {
+        "subject":  "Matemáticas II",
+        "year":  2020,
+        "scope":  "annual",
+        "officialUrl":  "https://www.juntadeandalucia.es/economiaconocimientoempresasyuniversidad/sguit/examanes_anios_anteriores/selectividad/sel_2020_matematicas.zip",
+        "localPackagePath":  "sources/pau-official/andalucia/.work/packages/sel_2020_matematicas.zip",
+        "sha256":  "13867350635fc7a8c8902581d5ec9137e30b0dc970b91c4500e28c8447f0a3ce",
+        "verificationStatus":  "DOWNLOADED_VERIFIED_ZIP",
+        "error":  null
+    },
+    {
+        "subject":  "Matemáticas Aplicadas a las CCSS II",
+        "year":  2020,
+        "scope":  "annual",
+        "officialUrl":  "https://www.juntadeandalucia.es/economiaconocimientoempresasyuniversidad/sguit/examanes_anios_anteriores/selectividad/sel_2020_matematicas_aplicadas.zip",
+        "localPackagePath":  "sources/pau-official/andalucia/.work/packages/sel_2020_matematicas_aplicadas.zip",
+        "sha256":  "8bd14eb7e2a04c8da382b97291202325560040140af388039847b7c3241265ce",
+        "verificationStatus":  "DOWNLOADED_VERIFIED_ZIP",
+        "error":  null
+    },
+    {
+        "subject":  "Matemáticas II",
+        "year":  2021,
+        "scope":  "annual",
+        "officialUrl":  "https://www.juntadeandalucia.es/economiaconocimientoempresasyuniversidad/sguit/examanes_anios_anteriores/selectividad/sel_2021_matematicas.zip",
+        "localPackagePath":  "sources/pau-official/andalucia/.work/packages/sel_2021_matematicas.zip",
+        "sha256":  "cec005fdf1d1e6a4fe4656b2f75f2dd027d05b12e60186c8275731aab67c1d9d",
+        "verificationStatus":  "DOWNLOADED_VERIFIED_ZIP",
+        "error":  null
+    },
+    {
+        "subject":  "Matemáticas Aplicadas a las CCSS II",
+        "year":  2021,
+        "scope":  "annual",
+        "officialUrl":  "https://www.juntadeandalucia.es/economiaconocimientoempresasyuniversidad/sguit/examanes_anios_anteriores/selectividad/sel_2021_matematicas_aplicadas.zip",
+        "localPackagePath":  "sources/pau-official/andalucia/.work/packages/sel_2021_matematicas_aplicadas.zip",
+        "sha256":  "fca1418160b778d439395084a757a29a0f67ad6be35dbe488a075af07527e402",
+        "verificationStatus":  "DOWNLOADED_VERIFIED_ZIP",
+        "error":  null
+    },
+    {
+        "subject":  "Matemáticas II",
+        "year":  2022,
+        "scope":  "annual",
+        "officialUrl":  "https://www.juntadeandalucia.es/economiaconocimientoempresasyuniversidad/sguit/examanes_anios_anteriores/selectividad/sel_2022_matematicas.zip",
+        "localPackagePath":  "sources/pau-official/andalucia/.work/packages/sel_2022_matematicas.zip",
+        "sha256":  "2bee558eb815fe7ed76fd91159d0f141e152b2c2594960a278d5d4149f8cf899",
+        "verificationStatus":  "DOWNLOADED_VERIFIED_ZIP",
+        "error":  null
+    },
+    {
+        "subject":  "Matemáticas Aplicadas a las CCSS II",
+        "year":  2022,
+        "scope":  "annual",
+        "officialUrl":  "https://www.juntadeandalucia.es/economiaconocimientoempresasyuniversidad/sguit/examanes_anios_anteriores/selectividad/sel_2022_matematicas_aplicadas.zip",
+        "localPackagePath":  "sources/pau-official/andalucia/.work/packages/sel_2022_matematicas_aplicadas.zip",
+        "sha256":  "0ec8374f3e160de64c0001b93b78116c6973ab4a7faf4b47f402e1df81ce7d28",
+        "verificationStatus":  "DOWNLOADED_VERIFIED_ZIP",
+        "error":  null
+    },
+    {
+        "subject":  "Matemáticas II",
+        "year":  2023,
+        "scope":  "annual",
+        "officialUrl":  "https://www.juntadeandalucia.es/economiaconocimientoempresasyuniversidad/sguit/examanes_anios_anteriores/selectividad/sel_2023_matematicas.zip",
+        "localPackagePath":  "sources/pau-official/andalucia/.work/packages/sel_2023_matematicas.zip",
+        "sha256":  "981cc2e7b02e3ee8a3ef5958e937f35d950fb89668d64f181206a80f23e91d44",
+        "verificationStatus":  "DOWNLOADED_VERIFIED_ZIP",
+        "error":  null
+    },
+    {
+        "subject":  "Matemáticas Aplicadas a las CCSS II",
+        "year":  2023,
+        "scope":  "annual",
+        "officialUrl":  "https://www.juntadeandalucia.es/economiaconocimientoempresasyuniversidad/sguit/examanes_anios_anteriores/selectividad/sel_2023_matematicas_aplicadas.zip",
+        "localPackagePath":  "sources/pau-official/andalucia/.work/packages/sel_2023_matematicas_aplicadas.zip",
+        "sha256":  "eb30cf6c974f88eb30f80c3860cff757e820fdf881139d22fa650508d4ad76d8",
+        "verificationStatus":  "DOWNLOADED_VERIFIED_ZIP",
+        "error":  null
+    },
+    {
+        "subject":  "Matemáticas II",
+        "year":  2024,
+        "scope":  "annual",
+        "officialUrl":  "https://www.juntadeandalucia.es/economiaconocimientoempresasyuniversidad/sguit/examanes_anios_anteriores/selectividad/sel_2024_matematicas.zip",
+        "localPackagePath":  "sources/pau-official/andalucia/.work/packages/sel_2024_matematicas.zip",
+        "sha256":  "4f1754294cbd922bd808a6cc1d2cd60d819e89f62428d46c61c92fc1ec785e38",
+        "verificationStatus":  "DOWNLOADED_VERIFIED_ZIP",
+        "error":  null
+    },
+    {
+        "subject":  "Matemáticas Aplicadas a las CCSS II",
+        "year":  2024,
+        "scope":  "annual",
+        "officialUrl":  "https://www.juntadeandalucia.es/economiaconocimientoempresasyuniversidad/sguit/examanes_anios_anteriores/selectividad/sel_2024_matematicas_aplicadas.zip",
+        "localPackagePath":  "sources/pau-official/andalucia/.work/packages/sel_2024_matematicas_aplicadas.zip",
+        "sha256":  "1a4bf9f3c741dede6640e55180f9d8ff2cee6f043fc8dcfa8cf81b9eef6a6eb0",
+        "verificationStatus":  "DOWNLOADED_VERIFIED_ZIP",
+        "error":  null
+    },
+    {
+        "subject":  "Matemáticas II",
+        "year":  2025,
+        "scope":  "annual",
+        "officialUrl":  "https://www.juntadeandalucia.es/economiaconocimientoempresasyuniversidad/sguit/examanes_anios_anteriores/selectividad/sel_2025_matematicas.zip",
+        "localPackagePath":  "sources/pau-official/andalucia/.work/packages/sel_2025_matematicas.zip",
+        "sha256":  "e72bab459267782589018a446e16644fe21efed123ad9eed743fd6df9c2b9dc1",
+        "verificationStatus":  "DOWNLOADED_VERIFIED_ZIP",
+        "error":  null
+    },
+    {
+        "subject":  "Matemáticas Aplicadas a las CCSS II",
+        "year":  2025,
+        "scope":  "annual",
+        "officialUrl":  "https://www.juntadeandalucia.es/economiaconocimientoempresasyuniversidad/sguit/examanes_anios_anteriores/selectividad/sel_2025_matematicas_aplicadas.zip",
+        "localPackagePath":  "sources/pau-official/andalucia/.work/packages/sel_2025_matematicas_aplicadas.zip",
+        "sha256":  "8cf818d76da279024a5fd3c5f16b0f8fcc67d46f2cf1aa16d2afacdc6c05ffca",
+        "verificationStatus":  "DOWNLOADED_VERIFIED_ZIP",
+        "error":  null
+    },
+    {
+        "subject":  "Matemáticas II",
+        "year":  2026,
+        "scope":  "annual",
+        "officialUrl":  "https://www.juntadeandalucia.es/economiaconocimientoempresasyuniversidad/sguit/examanes_anios_anteriores/selectividad/sel_2026_matematicas.zip",
+        "localPackagePath":  "sources/pau-official/andalucia/.work/packages/sel_2026_matematicas.zip",
+        "sha256":  "666d87317a8fab882b4c9404e941d78d2b7c71caff18f27700e7bd492a483a2e",
+        "verificationStatus":  "DOWNLOADED_VERIFIED_ZIP",
+        "error":  null
+    },
+    {
+        "subject":  "Matemáticas Aplicadas a las CCSS II",
+        "year":  2026,
+        "scope":  "annual",
+        "officialUrl":  "https://www.juntadeandalucia.es/economiaconocimientoempresasyuniversidad/sguit/examanes_anios_anteriores/selectividad/sel_2026_matematicas_aplicadas.zip",
+        "localPackagePath":  "sources/pau-official/andalucia/.work/packages/sel_2026_matematicas_aplicadas.zip",
+        "sha256":  "68b70884c9162efaae352c6a854fdb1268ed1635f38d16462f5d28177854b370",
+        "verificationStatus":  "DOWNLOADED_VERIFIED_ZIP",
+        "error":  null
+    },
+    {
+        "subject":  "Matemáticas II",
+        "year":  null,
+        "scope":  "historical-aggregate",
+        "officialUrl":  "https://www.juntadeandalucia.es/economiaconocimientoempresasyuniversidad/sguit/examanes_anios_anteriores/selectividad/sel_matematicas.zip",
+        "localPackagePath":  "sources/pau-official/andalucia/.work/packages/sel_matematicas.zip",
+        "sha256":  "ad2e6026e2734c9c791e24c35d839162bc369250461366820039431a922ed32f",
+        "verificationStatus":  "DOWNLOADED_VERIFIED_ZIP",
+        "error":  null
+    },
+    {
+        "subject":  "Matemáticas Aplicadas a las CCSS II",
+        "year":  null,
+        "scope":  "historical-aggregate",
+        "officialUrl":  "https://www.juntadeandalucia.es/economiaconocimientoempresasyuniversidad/sguit/examanes_anios_anteriores/selectividad/sel_matematicas_aplicadas.zip",
+        "localPackagePath":  "sources/pau-official/andalucia/.work/packages/sel_matematicas_aplicadas.zip",
+        "sha256":  "cdd168ab42c6ebc88364c023fd291596d12f9c9a216a183b1c7c4735450150dd",
+        "verificationStatus":  "DOWNLOADED_VERIFIED_ZIP",
+        "error":  null
+    }
+]

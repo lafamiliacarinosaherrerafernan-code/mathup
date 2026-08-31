@@ -1,0 +1,56 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://mathup.es/schemas/mathup.pau-canonical-doc-exercise.v1.schema.json",
+  "title": "MathUp PAU canonical exercise recovered from an official DOC",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion", "exerciseId", "sessionId", "documentExerciseId", "documentId",
+    "documentHash", "community", "subject", "year", "model", "alternativeKey",
+    "questionKey", "learnerContent", "subparts", "scoreEvidence", "criteriaEvidence",
+    "sourceRange", "provenance", "validation", "reviewStates", "publicationState",
+    "sourceRecordIds", "pauContext", "taxonomy", "deliveryPolicy", "answerPolicy",
+    "selectionPolicy"
+  ],
+  "properties": {
+    "schemaVersion": { "const": "mathup.pau-canonical-doc-exercise.v1" },
+    "exerciseId": { "type": "string", "pattern": "^pau-can-doc-ex-[0-9a-f]{32}$" },
+    "sessionId": { "type": "string", "pattern": "^pau-doc-session-[0-9a-f]{32}$" },
+    "documentExerciseId": { "type": "string", "pattern": "^ade2012-" },
+    "documentId": { "type": "string", "minLength": 1 },
+    "documentHash": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+    "community": { "const": "Andalucía" },
+    "subject": { "const": "Matemáticas Aplicadas a las CCSS II" },
+    "year": { "const": 2012 },
+    "sitting": { "type": "null" },
+    "model": { "type": "integer", "minimum": 1, "maximum": 6 },
+    "alternativeKey": { "enum": ["A", "B"] },
+    "questionKey": { "type": "string", "pattern": "^[1-4]$" },
+    "learnerContent": { "type": "array", "items": { "type": "object" } },
+    "subparts": { "type": "array", "items": { "type": "object", "required": ["subpartId", "label", "ordinal", "characterOffset"] } },
+    "scoreEvidence": { "type": "array", "items": { "type": "object", "required": ["literal", "points", "characterOffset", "classification"] } },
+    "criteriaEvidence": { "type": "array", "items": { "type": "object" } },
+    "pauContext": {
+      "type": "object",
+      "required": ["isPau", "communityId", "subjectId", "year", "sourceInteraction"],
+      "properties": {
+        "isPau": { "const": true },
+        "communityId": { "const": "andalucia" },
+        "subjectId": { "const": "2bach-ccss" },
+        "year": { "const": 2012 },
+        "sourceInteraction": { "const": "open-response" }
+      }
+    },
+    "taxonomy": { "type": "object", "required": ["courseId", "block", "topics", "classificationEvidence"] },
+    "deliveryPolicy": { "type": "object", "required": ["communityFilterRequired", "subjectFilterRequired", "runtimeConnected", "runtimeMismatchCodes", "modalities"] },
+    "answerPolicy": { "type": "object", "required": ["answerState", "solutionState", "officialCriteriaRole", "automaticCorrectionEligible", "pedagogicalSolutionEligible", "canonicalOptionsStored", "distractorsGenerated", "correctOptionPosition"] },
+    "selectionPolicy": { "type": "object", "required": ["requiredFilters", "deduplicationKey", "noRepeatWithinAttempt", "multipleChoiceMaterialization", "futureAuditDimensions"] },
+    "sourceRange": { "type": "object", "required": ["startCp", "endCp"], "properties": { "startCp": { "type": "integer", "minimum": 0 }, "endCp": { "type": "integer", "minimum": 0 } } },
+    "provenance": { "type": "object", "required": ["authority", "localPath", "sourceDocumentSha256", "traceabilityPolicy"] },
+    "validation": { "type": "object", "required": ["document", "structure", "equation3", "layout"] },
+    "reviewStates": { "type": "array", "items": { "enum": ["ANSWER_REVIEW_REQUIRED", "SOLUTION_REVIEW_REQUIRED"] }, "uniqueItems": true },
+    "publicationState": { "const": "NOT_PUBLISHED" },
+    "sourceRecordIds": { "type": "array", "maxItems": 0 },
+    "sourceRecordPolicy": { "const": "NEW_OFFICIAL_DOCUMENTARY_MATERIAL_NO_LEGACY_SOURCE_RECORD" }
+  }
+}

@@ -1,11 +1,12 @@
 $ErrorActionPreference = "Stop"
 
 $root = Split-Path -Parent $MyInvocation.MyCommand.Path
-$serverScript = Join-Path $root "serve_app.py"
-$port = 8765
+$serverScript = Join-Path $root "serve_app_http.ps1"
+$port = 8799
 $healthUrl = "http://127.0.0.1:$port/index.html"
-$appUrl = "${healthUrl}?nocache=$([DateTimeOffset]::Now.ToUnixTimeMilliseconds())"
+$appUrl = "${healthUrl}?owner=1&nocache=$([DateTimeOffset]::Now.ToUnixTimeMilliseconds())"
 $logPath = Join-Path $root "launcher.log"
+$browserProfile = Join-Path $env:LOCALAPPDATA "MathUp\ChromeAppProfileV5"
 
 function Write-LauncherLog([string]$message) {
     $timestamp = Get-Date -Format "yyyy-MM-dd HH:mm:ss.fff"
@@ -14,53 +15,73 @@ function Write-LauncherLog([string]$message) {
 
 function Test-AppServer {
     try {
-        $connection = Get-NetTCPConnection -LocalPort $port -State Listen -ErrorAction SilentlyContinue |
-            Select-Object -First 1
-        if (-not $connection) {
-            return $false
-        }
+        $response = Invoke-WebRequest `
+            -Uri $healthUrl `
+            -UseBasicParsing `
+            -TimeoutSec 2 `
+            -Headers @{ "Cache-Control" = "no-cache" }
 
-        $process = Get-CimInstance Win32_Process -Filter "ProcessId=$($connection.OwningProcess)"
-        return $process.CommandLine -and $process.CommandLine.Contains($serverScript)
+        return $response.StatusCode -eq 200 -and
+            $response.Content -match '<div id="app"'
     }
     catch {
         return $false
     }
 }
 
+function Open-AppBrowser {
+    $browserCandidates = @(
+        (Join-Path $env:ProgramFiles "Google\Chrome\Application\chrome.exe"),
+        (Join-Path ${env:ProgramFiles(x86)} "Google\Chrome\Application\chrome.exe"),
+        (Join-Path ${env:ProgramFiles(x86)} "Microsoft\Edge\Application\msedge.exe"),
+        (Join-Path $env:ProgramFiles "Microsoft\Edge\Application\msedge.exe")
+    )
+
+    foreach ($browserPath in $browserCandidates) {
+        if ($browserPath -and (Test-Path -LiteralPath $browserPath)) {
+            Start-Process -FilePath $browserPath `
+                -ArgumentList @(
+                    "--user-data-dir=`"$browserProfile`"",
+                    "--no-first-run",
+                    "--no-default-browser-check",
+                    "--start-maximized",
+                    "--app=$appUrl"
+                )
+            return
+        }
+    }
+
+    Start-Process -FilePath $appUrl
+}
+
 try {
     Write-LauncherLog "Starting desktop launcher."
 
     if (-not (Test-AppServer)) {
-        $pythonCandidates = @(
-            "C:\Users\aherr\AppData\Local\Programs\Python\Python312-arm64\python.exe",
-            "C:\Users\aherr\AppData\Local\Programs\Python\Python312\python.exe"
-        )
-        $python = $pythonCandidates | Where-Object { Test-Path -LiteralPath $_ } | Select-Object -First 1
-
-        if (-not $python) {
-            $pythonCommand = Get-Command python.exe -ErrorAction SilentlyContinue
-            if ($pythonCommand) {
-                $python = $pythonCommand.Source
-            }
-        }
-
-        if (-not $python) {
-            throw "No se encontro Python para iniciar la aplicacion."
-        }
-
         if (-not (Test-Path -LiteralPath $serverScript)) {
-            throw "No se encontro serve_app.py."
+            throw "No se encontro el servidor local de la aplicacion."
         }
 
-        Write-LauncherLog "Launching local server with $python."
-        Start-Process -FilePath $python `
-            -ArgumentList @("`"$serverScript`"", "--port", "$port", "--bind", "127.0.0.1") `
+        $powershell = Join-Path $env:SystemRoot "System32\WindowsPowerShell\v1.0\powershell.exe"
+        if (-not (Test-Path -LiteralPath $powershell)) {
+            throw "No se encontro Windows PowerShell para iniciar la aplicacion."
+        }
+
+        Write-LauncherLog "Launching local server with Windows PowerShell."
+        Start-Process -FilePath $powershell `
+            -ArgumentList @(
+                "-NoProfile",
+                "-ExecutionPolicy", "Bypass",
+                "-WindowStyle", "Hidden",
+                "-File", "`"$serverScript`"",
+                "-Port", "$port",
+                "-Bind", "127.0.0.1"
+            ) `
             -WorkingDirectory $root `
             -WindowStyle Hidden
 
         $ready = $false
-        for ($attempt = 0; $attempt -lt 50; $attempt += 1) {
+        for ($attempt = 0; $attempt -lt 150; $attempt += 1) {
             Start-Sleep -Milliseconds 200
             if (Test-AppServer) {
                 $ready = $true
@@ -69,19 +90,19 @@ try {
         }
 
         if (-not $ready) {
-            throw "El servidor no respondio despues de 10 segundos."
+            throw "El servidor no respondio despues de 30 segundos."
         }
     }
 
     Write-LauncherLog "Opening $appUrl."
-    Start-Process -FilePath $appUrl
+    Open-AppBrowser
 }
 catch {
     Write-LauncherLog "ERROR: $($_.Exception.Message)"
     Add-Type -AssemblyName PresentationFramework
     [System.Windows.MessageBox]::Show(
-        "No se pudo abrir Aula Matematica Margarita Salas.`n`n$($_.Exception.Message)",
-        "Aula Matematica Margarita Salas",
+        "No se pudo abrir +MathUp.`n`n$($_.Exception.Message)",
+        "+MathUp",
         "OK",
         "Error"
     ) | Out-Null

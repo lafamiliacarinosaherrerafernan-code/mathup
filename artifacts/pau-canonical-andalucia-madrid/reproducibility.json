@@ -1,0 +1,78 @@
+﻿{
+    "schemaVersion":  "mathup.pau-canonical-reproducibility.v1",
+    "semanticFiles":  10,
+    "identicalFiles":  10,
+    "allIdentical":  true,
+    "comparisons":  [
+                        {
+                            "path":  "exam-sessions.jsonl",
+                            "runA":  "c2f33f3eb0997f5aa56919cd3de20e66b4a7694974dfbf5b68b08b6ad0d50408",
+                            "runB":  "c2f33f3eb0997f5aa56919cd3de20e66b4a7694974dfbf5b68b08b6ad0d50408",
+                            "reversed":  "c2f33f3eb0997f5aa56919cd3de20e66b4a7694974dfbf5b68b08b6ad0d50408",
+                            "identical":  true
+                        },
+                        {
+                            "path":  "andalucia-canonical-exercises.jsonl",
+                            "runA":  "78ca10a13b91530785ee49b80d1ab1d34ff642414323a802fc29954067c593ba",
+                            "runB":  "78ca10a13b91530785ee49b80d1ab1d34ff642414323a802fc29954067c593ba",
+                            "reversed":  "78ca10a13b91530785ee49b80d1ab1d34ff642414323a802fc29954067c593ba",
+                            "identical":  true
+                        },
+                        {
+                            "path":  "madrid-official-exercises.jsonl",
+                            "runA":  "956b1710780eacce1e2ed391ed3f4392a500a800356d7d99c54b41e305048f15",
+                            "runB":  "956b1710780eacce1e2ed391ed3f4392a500a800356d7d99c54b41e305048f15",
+                            "reversed":  "956b1710780eacce1e2ed391ed3f4392a500a800356d7d99c54b41e305048f15",
+                            "identical":  true
+                        },
+                        {
+                            "path":  "andalucia-criterion-links.jsonl",
+                            "runA":  "36ff1b86eff75ebf6b8e6d5fc17bfc48275ba340cefeddbc11225645921b4bc2",
+                            "runB":  "36ff1b86eff75ebf6b8e6d5fc17bfc48275ba340cefeddbc11225645921b4bc2",
+                            "reversed":  "36ff1b86eff75ebf6b8e6d5fc17bfc48275ba340cefeddbc11225645921b4bc2",
+                            "identical":  true
+                        },
+                        {
+                            "path":  "madrid-historical-reconciliation.jsonl",
+                            "runA":  "500142a55133ad3dc2a1aaf8b1339b5c6099baabbc83847bd12f54aaa261f9c4",
+                            "runB":  "500142a55133ad3dc2a1aaf8b1339b5c6099baabbc83847bd12f54aaa261f9c4",
+                            "reversed":  "500142a55133ad3dc2a1aaf8b1339b5c6099baabbc83847bd12f54aaa261f9c4",
+                            "identical":  true
+                        },
+                        {
+                            "path":  "madrid-duplicate-aliases.jsonl",
+                            "runA":  "86e76b4509c0aa17a86e50935e373be9f308b03eb31656281d88c90f3c55f603",
+                            "runB":  "86e76b4509c0aa17a86e50935e373be9f308b03eb31656281d88c90f3c55f603",
+                            "reversed":  "86e76b4509c0aa17a86e50935e373be9f308b03eb31656281d88c90f3c55f603",
+                            "identical":  true
+                        },
+                        {
+                            "path":  "unmaterialized-document-units.jsonl",
+                            "runA":  "c5d8b3ca500d9f1e322cd13a1dcfc9ae2921696cafda249a33b5c5c74f5c1b8a",
+                            "runB":  "c5d8b3ca500d9f1e322cd13a1dcfc9ae2921696cafda249a33b5c5c74f5c1b8a",
+                            "reversed":  "c5d8b3ca500d9f1e322cd13a1dcfc9ae2921696cafda249a33b5c5c74f5c1b8a",
+                            "identical":  true
+                        },
+                        {
+                            "path":  "source-record-preservation.json",
+                            "runA":  "d244fca825417b4762228d5989f1afc1177a31cb8a207d6d092778e7b8a4657a",
+                            "runB":  "d244fca825417b4762228d5989f1afc1177a31cb8a207d6d092778e7b8a4657a",
+                            "reversed":  "d244fca825417b4762228d5989f1afc1177a31cb8a207d6d092778e7b8a4657a",
+                            "identical":  true
+                        },
+                        {
+                            "path":  "case-1-regression.json",
+                            "runA":  "48404243fbf77aa64f274db53412539319d06746419f4eb96d67b536693ff7b4",
+                            "runB":  "48404243fbf77aa64f274db53412539319d06746419f4eb96d67b536693ff7b4",
+                            "reversed":  "48404243fbf77aa64f274db53412539319d06746419f4eb96d67b536693ff7b4",
+                            "identical":  true
+                        },
+                        {
+                            "path":  "coverage-summary.json",
+                            "runA":  "44887a2f05fa7cc3642e82f4782389f7e40393e1221bbe892464930e08fa5a07",
+                            "runB":  "44887a2f05fa7cc3642e82f4782389f7e40393e1221bbe892464930e08fa5a07",
+                            "reversed":  "44887a2f05fa7cc3642e82f4782389f7e40393e1221bbe892464930e08fa5a07",
+                            "identical":  true
+                        }
+                    ]
+}

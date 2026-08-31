@@ -1,0 +1,26 @@
+{
+  "schemaVersion": "mathup.andalucia-methodology-notation-audit.v1",
+  "generatedAt": "2026-08-31T10:27:10.435Z",
+  "runtimeVersion": "3.0.0-parallel+global-correction-1",
+  "totalEnabledExercises": {
+    "Matemáticas II": 817,
+    "CCSS II": 824
+  },
+  "errors": {
+    "Matemáticas II": {
+      "STRUCTURAL_ERROR": 0,
+      "VISIBLE_NOTATION_ERROR": 0,
+      "PEDAGOGICAL_METHOD_ERROR": 0,
+      "GRAPH_ERROR": 0,
+      "STATISTICAL_METHOD_ERROR": 0
+    },
+    "CCSS II": {
+      "STRUCTURAL_ERROR": 0,
+      "VISIBLE_NOTATION_ERROR": 0,
+      "PEDAGOGICAL_METHOD_ERROR": 0,
+      "GRAPH_ERROR": 0,
+      "STATISTICAL_METHOD_ERROR": 0
+    }
+  },
+  "finalErrors": 0
+}

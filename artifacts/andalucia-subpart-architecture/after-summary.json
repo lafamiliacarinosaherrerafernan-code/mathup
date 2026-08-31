@@ -1,0 +1,43 @@
+{
+  "phase": "after",
+  "generatedAt": "2026-08-31T13:52:27.781Z",
+  "corpus": {
+    "documents": 217,
+    "mates": 110,
+    "ccss": 107
+  },
+  "bySubject": {
+    "2_bach_mates_ii": {
+      "materia": "Matemáticas II",
+      "sourceDocuments": 110,
+      "originalExercises": 817,
+      "originalExplicitSubparts": 1355,
+      "runtimeSubparts": 1355,
+      "interactiveSubparts": 1355,
+      "lostB": 0,
+      "lostC": 0,
+      "lostD": 0,
+      "lostE": 0,
+      "lostSubparts": 0,
+      "enabledExercises": 817,
+      "blockedExercises": 0,
+      "invariantFailures": 0
+    },
+    "2_bach_ccss_ii": {
+      "materia": "CCSS II",
+      "sourceDocuments": 107,
+      "originalExercises": 824,
+      "originalExplicitSubparts": 1791,
+      "runtimeSubparts": 1789,
+      "interactiveSubparts": 1789,
+      "lostB": 0,
+      "lostC": 0,
+      "lostD": 0,
+      "lostE": 0,
+      "lostSubparts": 0,
+      "enabledExercises": 823,
+      "blockedExercises": 1,
+      "invariantFailures": 0
+    }
+  }
+}

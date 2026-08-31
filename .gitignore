@@ -3,21 +3,96 @@ config.local.js
 .env
 .env.*
 !.env.example
+supabase/functions/.env
 
 # Biblioteca pesada y duplicados locales
 documentos/
 book-resources/full-books/
 *.zip
+/sources/pau-official/**/*.pdf
+/sources/pau-official/**/*.doc
+/sources/pau-official/**/*.zip
+
+# Artefactos regenerables de la biblioteca oficial PAU Madrid-Andalucía
+/artifacts/official-pau-madrid-andalucia/andalucia-exam-structures.jsonl
+/artifacts/official-pau-madrid-andalucia/impact-on-prior-madrid-not-found.json
+/artifacts/official-pau-madrid-andalucia/madrid-historical-reconciliation.jsonl
 
 # Archivos generados o temporales
+/_diag_claim.png
+/_diag_claim.ps1
 _codex_temporal/
 _extracted/
 _preview/
+/tmp/
+/.codex_find_log.txt
+/scripts/_inspect_log_render.*
 __pycache__/
 *.py[cod]
 *.log
 _bach_pdf_jobs.json
 ~$*
+
+# Fase 2D: artefactos visuales pesados y reproducibles
+/artifacts/fase2d/reproducibility/
+/artifacts/fase2d/runs/*/geometry-*.jsonl
+/artifacts/fase2d/runs/*/geometry-results.jsonl
+/artifacts/fase2d/runs/*/population.jsonl
+/artifacts/fase2d/runs/*/render-manifest.jsonl
+/artifacts/fase2d/runs/*/visual-decisions.jsonl
+/artifacts/fase2d/runs/*/persistent-evidence-plan.json
+/artifacts/fase2d/runs/*/review-queues/
+/artifacts/fase2d/runs/*/diffs/
+/artifacts/fase2d/runs/*/contact-sheets/
+/artifacts/fase2d/runs/*/screenshots/contact-sheets/
+
+# Estado local de revisión humana (incluye identificador y decisiones del revisor)
+/artifacts/fase2d-human-review/local-state/
+
+# Artefactos regenerables de la reconciliación documental PAU
+/artifacts/pau-documentary-reconciliation/runs/run-b/
+/artifacts/pau-documentary-reconciliation/runs/run-order-reversed/
+/artifacts/pau-documentary-reconciliation/runs/run-a/review-queue.jsonl
+/artifacts/pau-documentary-reconciliation/runs/run-a/exam-structures.jsonl
+/artifacts/pau-documentary-reconciliation/runs/run-a/document-exercises.jsonl
+/artifacts/pau-documentary-reconciliation/runs/run-a/document-subparts.jsonl
+/artifacts/pau-documentary-reconciliation/runs/run-a/notation-differences.jsonl
+
+# Artefactos regenerables de la construcción canónica PAU Andalucía-Madrid
+/artifacts/pau-canonical-andalucia-madrid/.text-cache/
+/artifacts/pau-canonical-andalucia-madrid/runs/run-b/
+/artifacts/pau-canonical-andalucia-madrid/runs/run-order-reversed/
+
+# Artefactos regenerables de la recuperación DOC Andalucía CCSS II 2012
+/artifacts/andalucia-ccssii-2012-doc/runs/run-b/
+/artifacts/andalucia-ccssii-2012-doc/runs/run-order-reversed/
+/artifacts/andalucia-ccssii-2012-doc/comparison-corpus/
+
+/artifacts/andalucia-ccssii-2012-doc/document-objects/*
+!/artifacts/andalucia-ccssii-2012-doc/document-objects/adobj-a5dfff58dac253bf-001.*
+!/artifacts/andalucia-ccssii-2012-doc/document-objects/adobj-bcec57ae525fa5e2-006.*
+!/artifacts/andalucia-ccssii-2012-doc/document-objects/adobj-c8688a19515dfeb3-001.*
+!/artifacts/andalucia-ccssii-2012-doc/document-objects/adobj-8446c5da6b4b7cfc-003.*
+!/artifacts/andalucia-ccssii-2012-doc/document-objects/adobj-87b729cdd4632386-007.*
+!/artifacts/andalucia-ccssii-2012-doc/document-objects/adobj-61f8d5d809881c49-001.*
+!/artifacts/andalucia-ccssii-2012-doc/document-objects/adobj-8446c5da6b4b7cfc-006.*
+!/artifacts/andalucia-ccssii-2012-doc/document-objects/adobj-61f8d5d809881c49-008.*
+
+/artifacts/equation3-andalucia-2012/native-evidence/*/
+/artifacts/equation3-andalucia-2012/runs/run-a/visual-comparison.html
+
+# Estado local de la comparacion humana Equation.3 (decisiones del revisor)
+/artifacts/equation3-human-comparison/local-state/
+
+# Artefactos regenerables del cierre humano Equation.3
+/artifacts/equation3-human-comparison/pilot-*.json
+/artifacts/equation3-human-comparison/review-queue.jsonl
+/artifacts/equation3-post-human-correction/corrected-equations-55.jsonl
+/artifacts/equation3-post-human-correction/recheck-10.jsonl
+/artifacts/equation3-post-human-correction/regression-45.jsonl
+
+# Evidencia humana privada original (identidad y marcas temporales exactas)
+/private/equation3-human-evidence-original/
 
 # Configuracion de herramientas locales
 .agents/

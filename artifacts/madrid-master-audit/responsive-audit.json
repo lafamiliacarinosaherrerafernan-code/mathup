@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "community": "madrid",
+  "widths": [1280, 768, 375, 320],
+  "selectedCases": 19,
+  "checks": 76,
+  "pass": true,
+  "failures": [],
+  "cases": [
+    {"courseId":"2bach-mates","exerciseId":"madrid-mates-1.1.2","category":"Matriz multiparte","widthsChecked":[1280,768,375,320],"pass":true},
+    {"courseId":"2bach-mates","exerciseId":"madrid-mates-1.2.1","category":"Determinante","widthsChecked":[1280,768,375,320],"pass":true},
+    {"courseId":"2bach-mates","exerciseId":"madrid-mates-1.1.1","category":"Sistema con parámetro","widthsChecked":[1280,768,375,320],"pass":true},
+    {"courseId":"2bach-mates","exerciseId":"madrid-mates-1.2.3","category":"Rango","widthsChecked":[1280,768,375,320],"pass":true},
+    {"courseId":"2bach-mates","exerciseId":"madrid-mates-3.2.6","category":"Límite","widthsChecked":[1280,768,375,320],"pass":true},
+    {"courseId":"2bach-mates","exerciseId":"madrid-mates-3.1.1","category":"Asíntota","widthsChecked":[1280,768,375,320],"pass":true},
+    {"courseId":"2bach-mates","exerciseId":"madrid-mates-3.3.7","category":"Derivada","widthsChecked":[1280,768,375,320],"pass":true},
+    {"courseId":"2bach-mates","exerciseId":"madrid-mates-3.1.3","category":"Área entre curvas","widthsChecked":[1280,768,375,320],"pass":true},
+    {"courseId":"2bach-mates","exerciseId":"madrid-mates-3.2.2","category":"Integral definida","widthsChecked":[1280,768,375,320],"pass":true},
+    {"courseId":"2bach-mates","exerciseId":"madrid-mates-2.1.2","category":"Geometría","widthsChecked":[1280,768,375,320],"pass":true},
+    {"courseId":"2bach-mates","exerciseId":"madrid-mates-4.8.7","category":"Distribución normal","widthsChecked":[1280,768,375,320],"pass":true},
+    {"courseId":"2bach-ccss","exerciseId":"madrid-ccss-1.2.1","category":"Matrices","widthsChecked":[1280,768,375,320],"pass":true},
+    {"courseId":"2bach-ccss","exerciseId":"madrid-ccss-1.1.1","category":"Sistema","widthsChecked":[1280,768,375,320],"pass":true},
+    {"courseId":"2bach-ccss","exerciseId":"madrid-ccss-2.1.2","category":"Programación lineal","widthsChecked":[1280,768,375,320],"pass":true},
+    {"courseId":"2bach-ccss","exerciseId":"madrid-ccss-3.1.2","category":"Optimización","widthsChecked":[1280,768,375,320],"pass":true},
+    {"courseId":"2bach-ccss","exerciseId":"madrid-ccss-4.1.1","category":"Probabilidad","widthsChecked":[1280,768,375,320],"pass":true},
+    {"courseId":"2bach-ccss","exerciseId":"madrid-ccss-5.1.1","category":"Binomial","widthsChecked":[1280,768,375,320],"pass":true},
+    {"courseId":"2bach-ccss","exerciseId":"madrid-ccss-5.1.2","category":"Normal","widthsChecked":[1280,768,375,320],"pass":true},
+    {"courseId":"2bach-ccss","exerciseId":"madrid-ccss-5.1.4","category":"Inferencia","widthsChecked":[1280,768,375,320],"pass":true}
+  ]
+}

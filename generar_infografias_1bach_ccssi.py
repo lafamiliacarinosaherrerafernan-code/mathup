@@ -11,7 +11,7 @@ SRC_DIR = next(
 OUT_DIR = BASE / "Infograf\u00edas 1\u00ba Bachillerato CCSSI"
 PREVIEW_DIR = BASE / "_preview" / "infografias_1bach_ccssi"
 
-THEMES = [
+GENERATED_THEMES = [
     ("\u03c3", "#7257C8", "1-Estad\u00edstica unidimensional y bidimensional"),
     ("P", "#EF6B24", "2-Probabilidad"),
     ("X", "#28A06A", "3-Distribuci\u00f3n binomial"),
@@ -21,7 +21,14 @@ THEMES = [
     ("=", "#28A06A", "7-Ecuaciones y sistemas"),
     ("<=", "#EF6B24", "8-Inecuaciones y sistemas"),
     ("f", "#2572C7", "9-Funciones"),
-    ("nCr", "#E3B700", "10-Combinatoria"),
+]
+
+# Estas tres infografías proceden del material docente aportado y se mantienen
+# como documentos maestros. El generador no debe borrarlas ni sustituirlas.
+CURATED_INFOGRAPHICS = [
+    "10-Derivadas - Infografía.pdf",
+    "11-Aplicación de derivadas - Infografía.pdf",
+    "12-Combinatoria - Infografía.pdf",
 ]
 
 
@@ -34,7 +41,7 @@ def load_skill_module():
 
 def selected_sources():
     files = []
-    for n in range(1, 11):
+    for n in range(1, 10):
         files.append(next(p for p in SRC_DIR.glob("*.pdf") if p.name.startswith(f"{n}-") and "teoria" in p.name.lower()))
     return files
 
@@ -44,16 +51,26 @@ def main():
     OUT_DIR.mkdir(exist_ok=True)
     PREVIEW_DIR.mkdir(parents=True, exist_ok=True)
 
-    for old_pdf in OUT_DIR.glob("*.pdf"):
-        old_pdf.unlink()
+    # Solo se sustituyen los nueve PDF que genera este script. Así se preservan
+    # los temas 10, 11 y 12, cuya maquetación procede de los originales.
+    for _, _, title in GENERATED_THEMES:
+        old_pdf = OUT_DIR / f"{title} - Infografía.pdf"
+        if old_pdf.exists():
+            old_pdf.unlink()
 
     outputs = []
-    for index, (src, (label, accent, title)) in enumerate(zip(selected_sources(), THEMES)):
+    for index, (src, (label, accent, title)) in enumerate(zip(selected_sources(), GENERATED_THEMES)):
         out = OUT_DIR / f"{title} - Infograf\u00eda.pdf"
         clean_title = title.split("-", 1)[1]
         infografia.build_infographic_pdf(src, out, title=clean_title, label=label, accent=accent, seed=index)
         outputs.append(out)
         print(out)
+
+    for filename in CURATED_INFOGRAPHICS:
+        curated = OUT_DIR / filename
+        if not curated.exists():
+            raise FileNotFoundError(f"Falta la infografía maestra: {curated}")
+        outputs.append(curated)
 
     infografia.make_contact_sheet(outputs, PREVIEW_DIR / "mosaico_todas_paginas.png", scale=0.27, cols=4)
 

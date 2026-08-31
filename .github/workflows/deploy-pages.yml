@@ -1,0 +1,56 @@
+name: Deploy +MathUp to GitHub Pages
+
+on:
+  push:
+    branches:
+      - agent/indice-pruebas-y-autenticacion
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Descargar el proyecto
+        uses: actions/checkout@v4
+      - name: Configurar GitHub Pages
+        uses: actions/configure-pages@v5
+      - name: Preparar la aplicación pública
+        shell: bash
+        run: |
+          mkdir _site
+          rsync -av \
+            --exclude='.git/' \
+            --exclude='.github/' \
+            --exclude='.agents/' \
+            --exclude='.codex/' \
+            --exclude='documentos/' \
+            --exclude='scripts/' \
+            --exclude='supabase/' \
+            --exclude='tmp/' \
+            --exclude='config.local.js' \
+            --exclude='*.md' \
+            --exclude='*.ps1' \
+            --exclude='*.py' \
+            --exclude='*.zip' \
+            ./ _site/
+          touch _site/.nojekyll
+      - name: Subir artefacto de Pages
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+      - name: Publicar
+        id: deployment
+        uses: actions/deploy-pages@v4
+

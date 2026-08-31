@@ -1,0 +1,42 @@
+{
+  "action": "Remove the selected Fase 2B run directory only; no reverse write to production is required.",
+  "generatedFiles": [
+    "contract-manifest.json",
+    "input-manifest.json",
+    "exercise-v2.jsonl",
+    "answer-records.jsonl",
+    "solution-records.jsonl",
+    "v1-candidate-reference.jsonl",
+    "delivery-templates.jsonl",
+    "distractor-sets.jsonl",
+    "identity-redirects.jsonl",
+    "v1-to-v2-migration.jsonl",
+    "pau-recovery-decisions.jsonl",
+    "queue-possible-match.jsonl",
+    "queue-conflict.jsonl",
+    "queue-not-found.jsonl",
+    "queue-mathematical-review.jsonl",
+    "source-reconciliation.jsonl",
+    "educational-content-reconciliation.jsonl",
+    "validation-results.jsonl",
+    "validation-summary.json",
+    "identity-registry.json",
+    "coverage-by-course-subject.json",
+    "pau-coverage-by-provenance.json",
+    "before-after-comparison.json",
+    "reconciliation-summary.json",
+    "rollback-manifest.json"
+  ],
+  "protectedInputs": [
+    "docs/FASE-0-INVENTARIO-CATALOGO-MATHUP.json",
+    "artifacts/fase2/runs/run-a/canonical-candidates.jsonl",
+    "artifacts/fase2/runs/run-a/source-records.jsonl",
+    "artifacts/fase2/runs/run-a/source-to-canonical.jsonl",
+    "artifacts/fase2/runs/run-a/educational-content-reconciliation.jsonl",
+    "artifacts/fase2/runs/run-a/validation-results.jsonl",
+    "artifacts/fase2a/pau-recovery-classification.jsonl",
+    "artifacts/fase2a/mates-i-identity-collisions.jsonl",
+    "catalog/fase2b-pau-normalization.v1.json"
+  ],
+  "scope": "selected Fase 2B run directory only"
+}

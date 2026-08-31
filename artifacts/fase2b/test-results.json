@@ -1,0 +1,14 @@
+{
+  "schemaVersion": "mathup.fase2b-test-results.v1",
+  "nodeVersion": "v22.22.3",
+  "commands": [
+    "node --test tests/canonical-exercise-validator.test.mjs",
+    "node --test tests/fase2b-catalog.test.mjs"
+  ],
+  "fase1Original": { "passed": 22, "failed": 0 },
+  "fase2b": { "passed": 33, "failed": 0 },
+  "total": { "passed": 55, "failed": 0 },
+  "reproducibility": "PASSED",
+  "orderInvariance": "PASSED",
+  "rollback": "PASSED"
+}

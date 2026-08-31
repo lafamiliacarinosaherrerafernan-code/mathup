@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://mathup.es/schemas/mathup.pau-document.v1.schema.json",
+  "title": "MathUp PAU official document",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "documentId", "documentHash", "path", "pageCount", "subject", "community", "year", "sitting", "verification"],
+  "properties": {
+    "schemaVersion": { "const": "mathup.pau-document.v1" },
+    "documentId": { "type": "string", "pattern": "^pau-doc-[0-9a-f]{32}$" },
+    "documentHash": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+    "path": { "type": "string", "minLength": 1 },
+    "pageCount": { "type": "integer", "minimum": 1 },
+    "subject": { "type": ["string", "null"] },
+    "community": { "type": ["string", "null"] },
+    "year": { "type": ["integer", "null"], "minimum": 2000, "maximum": 2100 },
+    "sitting": { "type": ["string", "null"] },
+    "verification": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status", "evidence", "textExtraction"],
+      "properties": {
+        "status": { "enum": ["VERIFIED", "PARTIAL", "UNIDENTIFIED"] },
+        "evidence": { "type": "array", "items": { "type": "object" } },
+        "textExtraction": { "enum": ["EXTRACTED", "EMPTY", "FAILED"] }
+      }
+    }
+  }
+}

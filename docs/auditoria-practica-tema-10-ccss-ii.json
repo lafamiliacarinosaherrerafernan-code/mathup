@@ -1,0 +1,161 @@
+{
+  "generatedAt": "2026-08-09T08:39:21.692Z",
+  "courseId": "2bach-ccss",
+  "topicIndex": 9,
+  "topic": "Distribución binomial y normal",
+  "currentBank": {
+    "total": 40,
+    "byCategory": {
+      "binomial": 23,
+      "normal": 11,
+      "de-moivre": 6,
+      "other": 0
+    },
+    "distinctStructures": 20,
+    "structures": [
+      "binomial-binomial-complement",
+      "binomial-binomial-cumulative",
+      "binomial-binomial-exact",
+      "binomial-binomial-mean",
+      "binomial-binomial-standard-deviation",
+      "binomial-binomial-tail",
+      "binomial-binomial-threshold",
+      "binomial-binomial-variance",
+      "de-moivre-exact",
+      "de-moivre-left-tail",
+      "de-moivre-right-tail",
+      "de-moivre-right-tail-context",
+      "de-moivre-right-tail-large-n",
+      "de-moivre-right-tail-parameter",
+      "normal-expected-count",
+      "normal-interval",
+      "normal-inverse",
+      "normal-inverse-parameter",
+      "normal-left-tail",
+      "normal-probability-after-inverse"
+    ],
+    "coverage": {
+      "binomial": {
+        "identification": true,
+        "exact": true,
+        "cumulative": true,
+        "complement": true,
+        "mean": true,
+        "variance": true,
+        "standardDeviation": true,
+        "contextual": true
+      },
+      "normal": {
+        "probabilities": true,
+        "tails": true,
+        "intervals": true,
+        "symmetry": true,
+        "inverse": true,
+        "percentiles": true,
+        "contextual": true
+      },
+      "deMoivre": {
+        "exercises": 6,
+        "checksNpNq": true,
+        "continuityCorrection": true,
+        "accumulatedTable": true
+      }
+    },
+    "sources": [
+      "documentos/2º Bachillerato CCSS II/10-Distribución de probabilidad. Distribución Binomial. Continuas Ejercicios.doc",
+      "documentos/2º BACHILLERATO MATES II/14-Distribución de probabilidad. Distribución Binomial Ejercicios.doc"
+    ],
+    "sourceTypes": [
+      "didactic-original",
+      "cross-course-practice"
+    ]
+  },
+  "realTopicPracticeRoute": {
+    "registeredBankTotal": 40,
+    "selectionsRequested": 40,
+    "selectionsServed": 40,
+    "uniqueBeforeExhaustion": 40,
+    "allHaveOptionsAndSolution": true,
+    "progressCourseIds": [
+      "2bach-ccss"
+    ],
+    "topicIndexes": [
+      9
+    ]
+  },
+  "possibleMathsIISource": {
+    "topicIndex": 13,
+    "total": 11,
+    "byCategory": {
+      "binomial": 0,
+      "normal": 11,
+      "de-moivre": 0,
+      "other": 0
+    },
+    "deMoivreCandidates": []
+  },
+  "controlledExpansion": {
+    "required": true,
+    "reason": "La cobertura de Binomial y Normal era suficiente; De Moivre no tenía ejercicios activos verificables.",
+    "reusedExercises": 6,
+    "sourceCourse": [
+      "2bach-mates"
+    ],
+    "usedFor": [
+      "Práctica por temas CCSS II"
+    ],
+    "structures": [
+      "de-moivre-exact",
+      "de-moivre-left-tail",
+      "de-moivre-right-tail",
+      "de-moivre-right-tail-context",
+      "de-moivre-right-tail-large-n",
+      "de-moivre-right-tail-parameter"
+    ],
+    "allSolutionsFollowPolicy": true,
+    "progressCourseIds": [
+      "2bach-ccss"
+    ]
+  },
+  "exclusions": {
+    "topic10InBlockExam": 0,
+    "topic10InFullExam": 0,
+    "blockStatisticsTotal": 80,
+    "fullExamStatisticsTotal": 80
+  },
+  "availability": {
+    "courseId": "2bach-ccss",
+    "topicIndex": 9,
+    "topicId": "distribucion_binomial_normal",
+    "availableForTopicPractice": true,
+    "availableForExamByBlocks": false,
+    "availableForExam": false,
+    "practiceBank": "ccss-ii-distribucion-binomial-normal",
+    "practicePolicy": "topic-practice-only",
+    "warningExamByBlocks": "Este contenido está disponible para practicar por temas. En Examen por bloques, el bloque de Estadística utiliza exclusivamente los tipos del banco PAU oficial de CCSS II: muestreo e inferencia estadística.",
+    "warningExam": "Este contenido está disponible para practicar por temas. En el Examen de CCSS II, el apartado de Estadística utiliza exclusivamente los tipos del banco PAU oficial: muestreo e inferencia estadística."
+  },
+  "tests": {
+    "specialBankRegistered": true,
+    "specialBankResolvesExactly40": true,
+    "realRouteServes40": true,
+    "realRouteNoRepeatUntilExhaustion": true,
+    "realRouteQuestionsComplete": true,
+    "realRouteProgressAssignedToCcssII": true,
+    "topicPracticeAvailable": true,
+    "examByBlocksUnavailable": true,
+    "fullExamUnavailable": true,
+    "deMoivreExpanded": true,
+    "fourUniqueOptions": true,
+    "exactlyOneCorrectIndex": true,
+    "completeVerifiedSolutions": true,
+    "requiredCoverageComplete": true,
+    "provenancePreserved": true,
+    "progressAssignedToCcssII": true,
+    "practiceOnlyMetadata": true,
+    "absentFromExamByBlocks": true,
+    "absentFromFullExam": true,
+    "noReusedExerciseInExamByBlocks": true,
+    "noReusedExerciseInFullExam": true
+  }
+}

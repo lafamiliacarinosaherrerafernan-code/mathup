@@ -1,0 +1,116 @@
+{
+  "generatedAt": "2026-08-24T16:53:52.532Z",
+  "methodVersion": "fase2a-recovery-audit-v1",
+  "inputCandidateCount": 3226,
+  "totals": {
+    "total": 3226,
+    "UNIQUE_MATCH": 1225,
+    "POSSIBLE_MATCH": 12,
+    "CONFLICT": 19,
+    "NOT_FOUND": 1970
+  },
+  "byCourse": [
+    {
+      "courseId": "2bach-mates",
+      "subject": "Matemáticas II",
+      "total": 1921,
+      "UNIQUE_MATCH": 1076,
+      "POSSIBLE_MATCH": 9,
+      "CONFLICT": 18,
+      "NOT_FOUND": 818
+    },
+    {
+      "courseId": "2bach-ccss",
+      "subject": "CCSS II",
+      "total": 1305,
+      "UNIQUE_MATCH": 149,
+      "POSSIBLE_MATCH": 3,
+      "CONFLICT": 1,
+      "NOT_FOUND": 1152
+    }
+  ],
+  "structuredAnswerBankKeys": 745,
+  "structuredAnswerEvidenceRecords": 1443,
+  "structuredEvidenceSources": {
+    "data/bach-ii-complete-answer-bank-2022.js": 67,
+    "data/bach-ii-complete-answer-bank-2010.js": 63,
+    "data/bach-ii-complete-answer-bank-2003.js": 63,
+    "data/bach-ii-complete-answer-bank-2007.js": 61,
+    "data/bach-ii-complete-answer-bank-2002.js": 61,
+    "data/bach-ii-complete-answer-bank-2011.js": 60,
+    "data/bach-ii-complete-answer-bank-2009.js": 59,
+    "data/bach-ii-complete-answer-bank-2008.js": 59,
+    "data/bach-ii-complete-answer-bank-2001.js": 59,
+    "data/bach-ii-complete-answer-bank-2020.js": 56,
+    "data/bach-ii-complete-answer-bank-2023.js": 55,
+    "data/bach-ii-complete-answer-bank-2004.js": 54,
+    "data/bach-ii-complete-answer-bank-2021.js": 51,
+    "data/bach-ii-complete-answer-bank-2024.js": 50,
+    "data/bach-ii-complete-answer-bank-2012.js": 47,
+    "data/bach-ii-complete-answer-bank-2000.js": 45,
+    "data/bach-ii-complete-answer-bank-2013.js": 40,
+    "data/bach-ii-complete-answer-bank-2017.js": 32,
+    "data/bach-ii-complete-answer-bank-2018.js": 32,
+    "data/bach-ii-complete-answer-bank-2005.js": 30,
+    "data/bach-ii-complete-answer-bank-2019.js": 30,
+    "data/bach-ii-complete-answer-bank-2006.js": 28,
+    "data/bach-ii-exam-data.js": 24,
+    "data/bach-ii-complete-answer-bank-2016.js": 24,
+    "data/bach-ii-complete-answer-bank-2015.js": 23,
+    "data/bach-ii-variety-expansion.js": 19,
+    "data/bach-ii-complete-answer-bank.js": 17,
+    "data/ccss-ii-block-answers.js": 17,
+    "data/bach-ii-complete-answer-bank-2014.js": 17,
+    "data/bach-ii-complete-answer-bank-2025.js": 16,
+    "data/mates-ii-runtime-fixes.js": 4
+  },
+  "documentsAudited": 502,
+  "documentsWithExtractedText": 479,
+  "documentsWithoutText": 23,
+  "documentExtractionErrors": 0,
+  "candidatesFoundInOriginalDocuments": 13,
+  "candidatesFoundInSolutionDocuments": 10,
+  "choicesRequired": {
+    "total": 2668,
+    "byCourse": {
+      "2bach-ccss": 1282,
+      "2bach-mates": 1386
+    },
+    "pau": 2668
+  },
+  "modalitySummary": [
+    {
+      "courseId": "1bach-mates",
+      "candidates": 76,
+      "noModalities": 45,
+      "modalityErrors": 45,
+      "pauUndeclared": 0,
+      "choicesRequired": 0
+    },
+    {
+      "courseId": "1bach-ccss",
+      "candidates": 212,
+      "noModalities": 159,
+      "modalityErrors": 159,
+      "pauUndeclared": 0,
+      "choicesRequired": 0
+    },
+    {
+      "courseId": "2bach-mates",
+      "candidates": 1921,
+      "noModalities": 534,
+      "modalityErrors": 534,
+      "pauUndeclared": 1921,
+      "choicesRequired": 1386
+    },
+    {
+      "courseId": "2bach-ccss",
+      "candidates": 1360,
+      "noModalities": 48,
+      "modalityErrors": 48,
+      "pauUndeclared": 1360,
+      "choicesRequired": 1282
+    }
+  ],
+  "mathematicsIIdentityCollisions": 30
+}
